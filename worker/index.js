@@ -167,6 +167,14 @@ async function register(req, env) {
   return json({ user: publicUser(user), stats: await getStats(env, id) }, 201, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
 }
 
+async function checkUsername(req, env) {
+  const u = (new URL(req.url).searchParams.get('u') || '').trim();
+  const invalid = validateUsername(u);
+  if (invalid) return json({ valid: false, available: false, reason: invalid });
+  const dupe = await env.DB.prepare('SELECT 1 AS x FROM users WHERE username_lower = ?').bind(u.toLowerCase()).first();
+  return json({ valid: true, available: !dupe, reason: dupe ? 'Ese nombre ya está en uso.' : null });
+}
+
 async function login(req, env) {
   let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
   const loginId = (b.login || '').trim();
@@ -321,6 +329,7 @@ async function handleApi(req, env) {
   try {
     if (path === '/api/health') return json({ ok: true, ts: nowISO() });
     if (path === '/api/auth/register' && m === 'POST') return await register(req, env);
+    if (path === '/api/auth/check-username' && m === 'GET') return await checkUsername(req, env);
     if (path === '/api/auth/login' && m === 'POST') return await login(req, env);
     if (path === '/api/auth/logout' && m === 'POST') return await logout(req, env);
     if (path === '/api/auth/me' && m === 'GET') return await me(req, env);

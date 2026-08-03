@@ -1,7 +1,7 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=1';
+import { api, getUser, getStats, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=3';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio', avanzado: 'Avanzado', maximo: 'Máximo', desconocido: 'Otro' };
@@ -50,8 +50,8 @@ function loggedIn(u, s) {
       stat('Derrotas', s.losses, 'l') +
       stat('Tablas', s.draws, 'd') +
       stat('% Victorias', wr + '%') +
-      stat('Racha actual', streakText(s.streak)) +
-      stat('Mejor racha', s.best_streak ? s.best_streak + ' seguidas' : '—') +
+      stat('Racha actual', streakText(s.streak), s.streak > 0 ? 'w' : s.streak < 0 ? 'l' : '', true) +
+      stat('Mejor racha', s.best_streak ? s.best_streak + (s.best_streak === 1 ? ' victoria' : ' victorias') : '—', 'w', true) +
     '</section>' +
 
     (s.played ? (
@@ -65,8 +65,8 @@ function loggedIn(u, s) {
       '<div class="pf-avatars">' + swatches + '</div>' +
     '</section>';
 }
-function stat(label, value, cls) {
-  return '<div class="pf-stat"><b class="' + (cls || '') + '">' + value + '</b><span>' + label + '</span></div>';
+function stat(label, value, cls, isText) {
+  return '<div class="pf-stat' + (isText ? ' text' : '') + '"><b class="' + (cls || '') + '">' + value + '</b><span>' + label + '</span></div>';
 }
 
 function render() {

@@ -9,7 +9,7 @@
 import { Chess } from './chess.js';
 import { MESSAGES, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=8';
 import { sfx } from './sounds.js?v=1';
-import { api, getUser } from './auth.js?v=1';
+import { api, getUser, AVATAR_COLORS } from './auth.js?v=3';
 
 // --- Idioma ----------------------------------------------------------------
 function detectLang() {
@@ -468,15 +468,26 @@ function renderBar(el, color, capturedTypes, adv, isActive) {
   if (!icons) icons = '<span class="cap-empty">' + (labels.noCaps || 'Sin capturas') + '</span>';
   const advTxt = adv > 0 ? '<span class="adv">+' + adv + '</span>' : '';
 
-  const avatarInner = isYou ? '<span class="avatar-emoji">😎</span>' : brandMark('avatar-mark');
-  const nm = isYou ? t('you') : 'Stockfish 18';
+  const user = isYou ? getUser() : null;
+  let avatarInner, avatarStyle = '';
+  if (isYou && user) {
+    const col = AVATAR_COLORS[(user.avatar || 'knight:red').split(':')[1]] || AVATAR_COLORS.red;
+    avatarInner = '<img class="avatar-mark avatar-knight" src="assets/knight.svg" alt="">';
+    avatarStyle = ' style="background:' + col + '"';
+  } else if (isYou) {
+    avatarInner = '<span class="avatar-emoji">😎</span>';
+  } else {
+    avatarInner = brandMark('avatar-mark');
+  }
+  const nm = isYou ? (user ? user.username : t('you')) : 'Stockfish 18';
+  const colorLabel = t(color === 'w' ? 'white' : 'black');
   const meta = isYou
-    ? '<span class="flag">' + HUMAN_FLAG + '</span><span class="rating">' + t(color === 'w' ? 'white' : 'black') + '</span>'
+    ? '<span class="flag">' + HUMAN_FLAG + '</span><span class="rating">' + colorLabel + (user ? ' · ' + user.elo : '') + '</span>'
     : '<span class="rating">(' + rating + ')</span>';
 
   el.className = 'player' + (isActive ? ' active' : '');
   el.innerHTML =
-    '<div class="avatar ' + (isYou ? 'you' : 'ai') + '">' + avatarInner + '</div>' +
+    '<div class="avatar ' + (isYou ? 'you' : 'ai') + '"' + avatarStyle + '>' + avatarInner + '</div>' +
     '<div class="pinfo">' +
       '<div class="pname"><span class="nm">' + nm + '</span>' + meta + '</div>' +
       '<div class="captured">' + icons + advTxt + '</div>' +
@@ -646,7 +657,22 @@ function cancelDraw() {
 function setColorPref(pref) {
   colorPref = pref;
   document.querySelectorAll('.seg-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.color === pref));
+  positionSegSlider(true);
 }
+// Deslizador vivo del segmento de color (estilo Atlas)
+function positionSegSlider(animate) {
+  const seg = document.getElementById('color-seg');
+  if (!seg) return;
+  let slider = seg.querySelector('.seg-slider');
+  if (!slider) { slider = document.createElement('div'); slider.className = 'seg-slider'; seg.insertBefore(slider, seg.firstChild); }
+  const active = seg.querySelector('.seg-btn.active');
+  if (!active || !active.offsetWidth) return;
+  if (animate === false) slider.style.transition = 'none';
+  slider.style.width = active.offsetWidth + 'px';
+  slider.style.transform = 'translateX(' + active.offsetLeft + 'px)';
+  if (animate === false) requestAnimationFrame(() => { slider.style.transition = ''; });
+}
+window.addEventListener('resize', () => positionSegSlider(false));
 function startColorFlow() {
   cancelDraw();                       // si había un sorteo abierto, ciérralo primero
   if (colorPref === 'random') {
@@ -767,6 +793,7 @@ langSel.addEventListener('change', () => {
   lang = langSel.value;
   try { localStorage.setItem('lang', lang); } catch (e) {}
   applyI18n();
+  requestAnimationFrame(() => positionSegSlider(false));   // reajusta el deslizador si cambió el ancho del texto
 });
 
 // ==========================================================================
@@ -1124,6 +1151,8 @@ function syncCustomSelects() {
   setTimeout(() => el.classList.add('exit'), 2350);
   setTimeout(() => el.remove(), 3350);
 })();
+// Al iniciar/cerrar sesión, repinta la tarjeta del jugador (nombre, avatar, Elo)
+document.addEventListener('vexchess:auth', () => { try { render(); } catch (e) {} });
 loaderKnightEl.innerHTML = brandMark('loader-mark');
 buildBoard();
 rebuildPieces();
@@ -1170,5 +1199,6 @@ setColorPref('random');   // "Aleatorio" activo por defecto
 })();
 enhanceSelects();     // desplegables propios con estilo de la web
 applyI18n();          // pinta todos los textos en el idioma detectado
+requestAnimationFrame(() => positionSegSlider(false));   // coloca el deslizador del segmento sin animación
 showLoader(t('loaderText'));
 initEngine();

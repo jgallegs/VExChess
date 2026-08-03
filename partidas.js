@@ -4,6 +4,7 @@
 //  en localStorage por app.js (clave "vexchess:archive").
 // ============================================================
 import { Chess } from './chess.js';
+import { api, getUser, onAuth } from './auth.js?v=3';
 
 const ARCHIVE_KEY = 'vexchess:archive';
 const FILES = 'abcdefgh';
@@ -56,8 +57,18 @@ function renderBoard() {
   boardEl.innerHTML = html;
 }
 
-// ---------- Carga del archivo ----------
-function loadArchive() {
+// ---------- Carga del archivo (nube si hay sesión, si no localStorage) ----------
+async function loadGames() {
+  if (getUser()) {
+    try {
+      const out = await api.listGames(100, 0);
+      archive = (out.games || []).map(g => ({
+        id: g.id, pgn: g.pgn, result: g.result, humanColor: g.human_color,
+        level: g.level, plies: g.plies, date: g.played_at, _server: true,
+      }));
+      return;
+    } catch (e) { /* si falla la API, cae a local */ }
+  }
   try { archive = JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '[]'); }
   catch (e) { archive = []; }
   if (!Array.isArray(archive)) archive = [];
@@ -203,21 +214,26 @@ listEl.addEventListener('click', (e) => {
   const del = e.target.closest('[data-del]');
   if (del) {
     e.stopPropagation();
-    const id = +del.dataset.del;
-    archive = archive.filter(x => x.id !== id);
-    try { localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive)); } catch (err) {}
-    if (current && current.entry.id === id) { current = null; ply = 0; stopAuto(); renderBoard(); updateCaption(); movesCard.hidden = true; }
+    const id = del.dataset.del;
+    const entry = archive.find(x => String(x.id) === id);
+    archive = archive.filter(x => String(x.id) !== id);
+    if (entry && entry._server) { api.deleteGame(id).catch(() => {}); }
+    else { try { localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive)); } catch (err) {} }
+    if (current && String(current.entry.id) === id) { current = null; ply = 0; stopAuto(); renderBoard(); updateCaption(); movesCard.hidden = true; }
     renderList();
     return;
   }
   const item = e.target.closest('.rv-item');
   if (!item) return;
-  const entry = archive.find(x => x.id === +item.dataset.id);
+  const entry = archive.find(x => String(x.id) === item.dataset.id);
   if (entry) openGame(entry);
 });
-clearEl.addEventListener('click', () => {
+clearEl.addEventListener('click', async () => {
+  const ids = archive.map(x => x.id);
+  const wasServer = archive.some(x => x._server);
   archive = [];
-  try { localStorage.removeItem(ARCHIVE_KEY); } catch (e) {}
+  if (wasServer) { for (const id of ids) { try { await api.deleteGame(id); } catch (e) {} } }
+  else { try { localStorage.removeItem(ARCHIVE_KEY); } catch (e) {} }
   current = null; ply = 0; stopAuto();
   renderBoard(); updateCaption(); movesCard.hidden = true;
   renderList();
@@ -256,9 +272,16 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---------- Inicio ----------
-loadArchive();
 renderBoard();
-renderList();
 updateCaption();
-// abrir automáticamente la partida más reciente
-if (archive.length) openGame(archive[0]);
+let reloadPending = false;
+async function reload() {
+  if (reloadPending) return; reloadPending = true;
+  await loadGames();
+  reloadPending = false;
+  renderBoard(); renderList(); updateCaption();
+  if (archive.length) openGame(archive[0]);
+  else { current = null; ply = 0; stopAuto(); renderBoard(); updateCaption(); movesCard.hidden = true; }
+}
+// Carga inicial y recarga al iniciar/cerrar sesión (local ↔ nube)
+onAuth(() => { reload(); });

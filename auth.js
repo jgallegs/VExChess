@@ -17,6 +17,7 @@ async function req(path, opts = {}) {
 export const api = {
   me: () => req('/auth/me'),
   register: (b) => req('/auth/register', { method: 'POST', headers: JSON_H, body: JSON.stringify(b) }),
+  checkUsername: (u) => req('/auth/check-username?u=' + encodeURIComponent(u)),
   login: (b) => req('/auth/login', { method: 'POST', headers: JSON_H, body: JSON.stringify(b) }),
   logout: () => req('/auth/logout', { method: 'POST' }),
   updateProfile: (b) => req('/profile', { method: 'PUT', headers: JSON_H, body: JSON.stringify(b) }),
@@ -54,7 +55,7 @@ function ensureModal() {
     '<div class="vx-modal-box" role="dialog" aria-modal="true">' +
       '<button class="vx-modal-x" aria-label="Cerrar">✕</button>' +
       '<div class="vx-modal-brand"><img src="assets/knight-logo.svg" alt=""><b>VEXCHESS</b></div>' +
-      '<div class="vx-tabs"><button class="vx-tab active" data-tab="login">Entrar</button><button class="vx-tab" data-tab="register">Crear cuenta</button></div>' +
+      '<div class="vx-tabs"><span class="vx-tab-slider"></span><button class="vx-tab active" data-tab="login">Entrar</button><button class="vx-tab" data-tab="register">Crear cuenta</button></div>' +
       '<form class="vx-form" data-form="login">' +
         '<label>Email o nombre de usuario<input name="login" autocomplete="username" required></label>' +
         '<label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>' +
@@ -62,10 +63,10 @@ function ensureModal() {
         '<button class="vx-submit" type="submit">Entrar</button>' +
       '</form>' +
       '<form class="vx-form" data-form="register" hidden>' +
-        '<label>Nombre de usuario<input name="username" autocomplete="username" required></label>' +
+        '<label>Nombre de usuario<input name="username" autocomplete="username" autocapitalize="off" spellcheck="false" required><span class="vx-check" data-check="username"></span></label>' +
         '<label>Email<input name="email" type="email" autocomplete="email" required></label>' +
         '<label>Contraseña<input name="password" type="password" autocomplete="new-password" required></label>' +
-        '<div class="vx-hint">3–20 caracteres · empieza por letra · letras, números y _ · contraseña mín. 8</div>' +
+        '<div class="vx-strength" data-strength><div class="vx-bars"><i></i><i></i><i></i><i></i></div><span class="vx-strength-label"></span></div>' +
         '<div class="vx-err" hidden></div>' +
         '<button class="vx-submit" type="submit">Crear cuenta</button>' +
       '</form>' +
@@ -78,13 +79,27 @@ function ensureModal() {
   d.addEventListener('mousedown', (e) => { if (e.target === d) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 
+  // Deslizador vivo de pestañas (estilo Atlas)
+  const tabsEl = d.querySelector('.vx-tabs');
+  const slider = tabsEl.querySelector('.vx-tab-slider');
+  function moveSlider(animate) {
+    const active = tabsEl.querySelector('.vx-tab.active') || tabsEl.querySelector('.vx-tab');
+    if (!active || !active.offsetWidth) return;
+    if (animate === false) slider.style.transition = 'none';
+    slider.style.width = active.offsetWidth + 'px';
+    slider.style.transform = 'translateX(' + active.offsetLeft + 'px)';
+    if (animate === false) requestAnimationFrame(() => { slider.style.transition = ''; });
+  }
+  d._moveSlider = moveSlider;
   d.querySelectorAll('.vx-tab').forEach(tb => tb.addEventListener('click', () => setTab(tb.dataset.tab)));
   function setTab(name) {
     d.querySelectorAll('.vx-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
     d.querySelectorAll('.vx-form').forEach(f => { f.hidden = f.dataset.form !== name; });
     d.querySelectorAll('.vx-err').forEach(e => { e.hidden = true; });
+    moveSlider(true);
   }
   d._setTab = setTab;
+  window.addEventListener('resize', () => { if (d.classList.contains('open')) moveSlider(false); });
 
   d.querySelectorAll('.vx-form').forEach(form => {
     form.addEventListener('submit', async (e) => {
@@ -103,12 +118,63 @@ function ensureModal() {
       } finally { btn.disabled = false; btn.textContent = old; }
     });
   });
+  // Validación en vivo del registro (usuario disponible + contraseña)
+  const regForm = d.querySelector('.vx-form[data-form="register"]');
+  const uInput = regForm.querySelector('input[name="username"]');
+  const pInput = regForm.querySelector('input[name="password"]');
+  const uCheck = regForm.querySelector('.vx-check[data-check="username"]');
+  const strengthEl = regForm.querySelector('.vx-strength');
+  const strengthLabel = strengthEl.querySelector('.vx-strength-label');
+  const setCheck = (el, state, msg) => { el.className = 'vx-check' + (state ? ' ' + state : ''); el.textContent = msg || ''; };
+  let uTimer = null, uReq = 0;
+  uInput.addEventListener('input', () => {
+    const v = uInput.value.trim();
+    if (!v) { setCheck(uCheck, '', ''); return; }
+    const fmt = validateUsernameClient(v);
+    if (fmt) { clearTimeout(uTimer); setCheck(uCheck, 'bad', fmt); return; }
+    setCheck(uCheck, 'checking', 'Comprobando…');
+    clearTimeout(uTimer); const my = ++uReq;
+    uTimer = setTimeout(async () => {
+      try {
+        const r = await api.checkUsername(v); if (my !== uReq) return;
+        if (r.valid && r.available) setCheck(uCheck, 'ok', '✓ Disponible');
+        else setCheck(uCheck, 'bad', r.reason || 'No disponible.');
+      } catch (e) { if (my === uReq) setCheck(uCheck, 'ok', '✓ Formato válido'); }
+    }, 380);
+  });
+  pInput.addEventListener('input', () => {
+    const v = pInput.value;
+    const sc = passwordScore(v);
+    strengthEl.className = 'vx-strength' + (v ? ' s' + sc.score : '');
+    strengthLabel.textContent = v ? (v.length < 8 ? 'Mínimo 8 caracteres (' + v.length + '/8)' : sc.label) : '';
+  });
+
   return d;
+}
+const RESERVED_C = new Set(['admin','administrator','root','moderator','mod','staff','support','help','system','sistema','vexchess','vex','api','www','mail','official','oficial','null','undefined','none','guest','invitado','bot','stockfish','me','yo','owner','user','usuario','users','login','register','logout','settings','profile','perfil','play','puzzles','partidas','directo','about','contacto']);
+function validateUsernameClient(u) {
+  if (u.length < 3 || u.length > 20) return 'Entre 3 y 20 caracteres.';
+  if (!/^[a-zA-Z][a-zA-Z0-9_]{2,19}$/.test(u)) return 'Empieza por letra; solo letras, números y _.';
+  if (RESERVED_C.has(u.toLowerCase())) return 'Ese nombre no está disponible.';
+  return null;
+}
+// Fuerza de la contraseña: 0 (vacía) a 4 (fuerte)
+function passwordScore(p) {
+  if (!p) return { score: 0, label: '' };
+  let s = 0;
+  if (p.length >= 8) s++;
+  if (p.length >= 12) s++;
+  const classes = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/].filter(r => r.test(p)).length;
+  s += Math.max(0, classes - 1);
+  s = Math.min(4, s);
+  if (p.length < 8) s = Math.min(s, 1);
+  return { score: s, label: ['', 'Débil', 'Aceptable', 'Buena', 'Fuerte'][s] || '' };
 }
 export function openAuth(tab) {
   const d = ensureModal();
   d._setTab(tab || 'login');
   d.classList.add('open');
+  requestAnimationFrame(() => d._moveSlider(false));   // coloca el deslizador ya visible
   const f = d.querySelector('.vx-form:not([hidden]) input');
   setTimeout(() => f && f.focus(), 40);
 }
