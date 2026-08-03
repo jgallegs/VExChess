@@ -1,0 +1,21 @@
+{
+  // VEXCHESS · Worker que sirve la web estática + el API (/api/*)
+  "name": "vexchess",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-03-07",
+  "compatibility_flags": ["nodejs_compat"],
+  // La web estática es la raíz del repo; el Worker corre para /api/* y para lo no encontrado
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  // Base de datos D1 (perfiles, sesiones, partidas, estadísticas)
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "vexchess-db",
+      "database_id": "36ad9148-a6a3-4eb5-a65f-8cce4aa95e71"
+    }
+  ],
+  "observability": { "enabled": true }
+}

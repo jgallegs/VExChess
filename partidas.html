@@ -5,10 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>VEXCHESS · Mis partidas</title>
+<meta name="description" content="Revisa tus partidas de ajedrez jugada a jugada, con reproductor y exportación a PGN. Se guardan solas en tu navegador.">
+<link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/partidas.html">
+<meta name="theme-color" content="#0D1117">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VEXCHESS">
+<meta property="og:title" content="VEXCHESS · Mis partidas">
+<meta property="og:description" content="Revisa tus partidas jugada a jugada, con reproductor y exportación a PGN.">
+<meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/partidas.html">
+<meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VEXCHESS · Mis partidas">
+<meta name="twitter:description" content="Revisa tus partidas jugada a jugada, con reproductor y exportación a PGN.">
+<meta name="twitter:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=32">
 <link rel="stylesheet" href="partidas.css?v=1">
 </head>
 <body class="rv-page">
@@ -22,6 +35,7 @@
       </div>
     </a>
     <div class="nav-actions">
+      <div class="vx-account"></div>
       <a class="nav-link" href="index.html">Inicio</a>
       <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
     </div>
@@ -78,6 +92,8 @@
     </aside>
   </main>
 
+  <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="auth.js?v=1"></script>
   <script type="module" src="partidas.js?v=1"></script>
 </body>
 </html>

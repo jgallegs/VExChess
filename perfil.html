@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>VEXCHESS · Mi perfil</title>
+<meta name="description" content="Tu perfil de VEXCHESS: avatar, Elo, estadísticas y racha.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0D1117">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css?v=32">
+<link rel="stylesheet" href="perfil.css?v=1">
+</head>
+<body class="perfil-page">
+  <header class="navbar">
+    <div class="nav-scrim" aria-hidden="true"></div>
+    <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
+      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
+      <div class="brand-text">
+        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
+        <span class="tagline">THINK AHEAD.</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <div class="vx-account"></div>
+      <a class="nav-link" href="index.html">Inicio</a>
+      <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main class="pf-wrap" id="perfil-root"></main>
+
+  <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="auth.js?v=1"></script>
+  <script type="module" src="perfil.js?v=1"></script>
+</body>
+</html>

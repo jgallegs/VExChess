@@ -4,12 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>VEXCHESS · Ajedrez con IA · Think ahead</title>
-<meta name="description" content="Ajedrez contra una IA de primer nivel (Stockfish 18 · NNUE) directo en tu navegador. Con modo entrenador, aviso de piezas en peligro y guía interactiva.">
+<title>VEXCHESS · Ajedrez con IA (Stockfish 18 · NNUE)</title>
+<meta name="description" content="Ajedrez contra una IA de primer nivel (Stockfish 18 · NNUE) directo en tu navegador. Modo entrenador, aviso de piezas en peligro, puzzles y guía interactiva. Gratis y offline.">
+<link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/">
+<meta name="theme-color" content="#0D1117">
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VEXCHESS">
+<meta property="og:title" content="VEXCHESS · Ajedrez con IA">
+<meta property="og:description" content="Rival con red neuronal (Stockfish 18 · NNUE) en tu navegador. Gratis, sin registro y offline.">
+<meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/">
+<meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VEXCHESS · Ajedrez con IA">
+<meta name="twitter:description" content="Rival con red neuronal (Stockfish 18 · NNUE) en tu navegador. Gratis, sin registro y offline.">
+<meta name="twitter:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=32">
 <link rel="stylesheet" href="home.css?v=3">
 </head>
 <body class="home">
@@ -33,7 +46,7 @@
         <a href="#roadmap">Roadmap</a>
       </nav>
       <div class="hnav-actions">
-        <button class="btn-soon" title="Próximamente">Entrar</button>
+        <div class="vx-account"></div>
         <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -182,6 +195,8 @@
     </div>
   </footer>
 
+  <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="auth.js?v=1"></script>
   <script>
     // Año del footer
     document.getElementById('year').textContent = new Date().getFullYear();

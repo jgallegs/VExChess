@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vexchess.jgallegosoto12.workers.dev/sitemap.xml

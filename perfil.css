@@ -1,0 +1,58 @@
+/* ============================================================
+   VEXCHESS · Perfil. Sin px.
+   ============================================================ */
+body.perfil-page { min-height: 100vh; }
+.perfil-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .15s; }
+.perfil-page .nav-link:hover { color: var(--text); }
+
+.pf-wrap { max-width: 52rem; margin: 0 auto; padding: 7rem clamp(1rem, 4vw, 2.5rem) 4rem; display: flex; flex-direction: column; gap: 1.2rem; }
+
+/* Invitado (sin sesión) */
+.pf-guest { text-align: center; padding: 3rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+.pf-guest-logo { height: 5rem; }
+.pf-guest h1 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem); margin: 0; }
+.pf-guest p { color: var(--muted); max-width: 30rem; line-height: 1.6; margin: 0 0 0.6rem; }
+
+/* Cabecera del perfil */
+.pf-hero { display: flex; align-items: center; gap: 1.3rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1.1rem; padding: 1.5rem 1.6rem; position: relative; }
+.pf-hero .vx-avatar.lg { box-shadow: 0 0 0 0.28rem rgba(255,59,71,.25); }
+.pf-hero-info { flex: 1; min-width: 0; }
+.pf-name { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem); margin: 0; word-break: break-word; }
+.pf-hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 0.5rem; }
+.pf-elo { font: 800 0.9rem 'Oxanium', sans-serif; color: #fff; background: var(--accent); border-radius: 2rem; padding: 0.25rem 0.8rem; }
+.pf-since { font-size: 0.82rem; color: var(--muted); }
+.pf-hero-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+.pf-btn { border: none; border-radius: 0.55rem; padding: 0.5rem 0.9rem; font: 700 0.82rem 'Inter', sans-serif; cursor: pointer; text-decoration: none; text-align: center; }
+.pf-btn.ghost { background: var(--panel-2); color: var(--text); border: var(--hair) solid var(--border); }
+.pf-btn.ghost:hover { border-color: var(--vex-muted); }
+.pf-btn.danger { background: transparent; color: #ffb3b3; border: var(--hair) solid rgba(255,59,71,.4); }
+.pf-btn.danger:hover { background: rgba(255,59,71,.12); }
+
+/* Rejilla de estadísticas */
+.pf-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.8rem; }
+.pf-stat { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.8rem; padding: 0.9rem 1rem; text-align: center; }
+.pf-stat b { display: block; font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1.1; }
+.pf-stat b.w { color: #8fe3a0; } .pf-stat b.l { color: #ffb3b3; } .pf-stat b.d { color: #d7deea; }
+.pf-stat span { display: block; font-size: 0.74rem; color: var(--muted); margin-top: 0.3rem; }
+
+/* Tarjetas */
+.pf-card { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1.2rem 1.4rem; }
+.pf-card h2 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.1rem; margin: 0 0 0.9rem; }
+.pf-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.pf-table th { text-align: left; color: var(--muted); font-weight: 600; font-size: 0.76rem; text-transform: uppercase; letter-spacing: .04em; padding: 0.3rem 0.4rem; }
+.pf-table td { padding: 0.45rem 0.4rem; border-top: var(--hair) solid var(--border); }
+.pf-table td.w { color: #8fe3a0; } .pf-table td.l { color: #ffb3b3; } .pf-table td.d { color: var(--muted); }
+.pf-table th:not(:first-child), .pf-table td:not(:first-child) { text-align: center; width: 3.2rem; }
+
+/* Selector de avatar */
+.pf-avatars { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.pf-sw { width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 0.16rem solid transparent; cursor: pointer; transition: transform .1s, border-color .1s; }
+.pf-sw:hover { transform: translateY(-0.15rem); }
+.pf-sw.active { border-color: #fff; box-shadow: 0 0 0 0.14rem var(--accent); }
+
+@media (max-width: 40em) {
+  .pf-hero { flex-direction: column; text-align: center; }
+  .pf-hero-info { text-align: center; }
+  .pf-hero-meta { justify-content: center; }
+  .pf-hero-actions { flex-direction: row; }
+}

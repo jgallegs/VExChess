@@ -1,11 +1,14 @@
 // ============================================================
 //  VEXCHESS · Puzzles tácticos (100% en el navegador)
-//  Reglas vía chess.js. Set inicial: mates en 1 (validados).
-//  Estructura preparada para líneas multi-jugada en el futuro.
+//  Tipos: mate1 (mate en 1), mate2 (mate en 2, validado en vivo
+//  contra cualquier defensa) y win (gana material · horquilla).
+//  Reglas y validación vía chess.js.
 // ============================================================
 import { Chess } from './chess.js';
+import { sfx } from './sounds.js?v=1';
 
 const PUZZLES = [
+  // ---- Mate en 1 ----
   { fen: "6k1/5ppp/8/8/8/8/8/R5K1 w - - 0 1", theme: "Mate del pasillo", type: "mate1", sol: "a1a8" },
   { fen: "6k1/4Rppp/8/8/8/8/8/6K1 w - - 0 1", theme: "Torre a la 8ª", type: "mate1", sol: "e7e8" },
   { fen: "6k1/5ppp/8/8/8/8/5PPP/3Q2K1 w - - 0 1", theme: "Mate de dama", type: "mate1", sol: "d1d8" },
@@ -17,7 +20,18 @@ const PUZZLES = [
   { fen: "6k1/5ppp/8/8/8/8/8/1R4K1 w - - 0 1", theme: "Mate del pasillo", type: "mate1", sol: "b1b8" },
   { fen: "6k1/3R1ppp/8/8/8/8/8/6K1 w - - 0 1", theme: "Torre a la 8ª", type: "mate1", sol: "d7d8" },
   { fen: "kr6/ppN5/8/8/8/8/8/6K1 w - - 0 1", theme: "Mate de caballo", type: "mate1", sol: "g1f2" },
+  // ---- Mate en 2 (técnica de dama) ----
+  { fen: "k7/8/2K5/8/2Q5/8/8/8 w - - 0 1", theme: "Mate en 2 · dama", type: "mate2", sol: "c4a6" },
+  { fen: "k7/8/2K1Q3/8/8/8/8/8 w - - 0 1", theme: "Mate en 2 · dama", type: "mate2", sol: "e6c8" },
+  { fen: "3k4/8/3K4/2Q5/8/8/8/8 w - - 0 1", theme: "Mate en 2 · dama", type: "mate2", sol: "c5c7" },
+  { fen: "8/8/8/8/5Q2/4K3/8/4k3 w - - 0 1", theme: "Mate en 2 · dama", type: "mate2", sol: "f4f2" },
+  // ---- Gana material (horquilla de caballo al rey y la dama) ----
+  { fen: "8/8/8/8/1q6/2k5/8/K1N5 w - - 0 1", theme: "Horquilla · gana la dama", type: "win", sol: "c1a2" },
+  { fen: "8/8/8/1k6/2q5/8/8/KN6 w - - 0 1", theme: "Horquilla · gana la dama", type: "win", sol: "b1a3" },
+  { fen: "8/8/8/1q6/2k5/8/K1N5/8 w - - 0 1", theme: "Horquilla · gana la dama", type: "win", sol: "c2a3" },
 ];
+
+const GOAL = { mate1: 'Encuentra el mate en 1.', mate2: 'Encuentra el mate en 2.', win: 'Gana material.' };
 
 const FILES = 'abcdefgh';
 const boardEl = document.getElementById('pz-board');
@@ -28,12 +42,12 @@ const progressEl = document.getElementById('pz-progress');
 const solvedEl = document.getElementById('pz-solved');
 
 let idx = 0, game = null, orientBlack = false, selected = null, legal = [], locked = false, solved = false;
+let phase = 0;                 // para mate2: 0 = jugada clave, 1 = dar el mate
 let solvedSet = new Set();
 
 function pieceSVG(color, type) {
   return '<svg class="pc" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + color + type + '"></use></svg>';
 }
-// nombre de casilla <-> fila/columna de pantalla según orientación
 function screenToSquare(sr, sc) {
   const file = orientBlack ? 7 - sc : sc;
   const rank = orientBlack ? sr + 1 : 8 - sr;
@@ -58,7 +72,6 @@ function render() {
     html += '<div class="' + cls + '" data-sq="' + sq + '">';
     if (hint) html += '<span class="pz-hint ' + (p ? 'cap' : '') + '"></span>';
     if (p) html += pieceSVG(p.color, p.type);
-    // coordenadas
     if (sc === 0) html += '<span class="pz-coord rank">' + sq[1] + '</span>';
     if (sr === 7) html += '<span class="pz-coord file">' + sq[0] + '</span>';
     html += '</div>';
@@ -71,13 +84,13 @@ function loadPuzzle(i) {
   const pz = PUZZLES[idx];
   game = new Chess(pz.fen);
   orientBlack = game.turn() === 'b';
-  selected = null; legal = []; locked = false; solved = false;
+  selected = null; legal = []; locked = false; solved = false; phase = 0;
   boardEl.classList.remove('solved', 'wrong');
   render();
   themeEl.textContent = pz.theme;
   turnEl.innerHTML = '<span class="pz-dot ' + (game.turn() === 'w' ? 'w' : 'b') + '"></span> Juegan ' + (game.turn() === 'w' ? 'blancas' : 'negras');
   statusEl.className = 'pz-status';
-  statusEl.textContent = pz.type === 'mate1' ? 'Encuentra el mate en 1.' : 'Encuentra la mejor jugada.';
+  statusEl.textContent = GOAL[pz.type] || 'Encuentra la mejor jugada.';
   progressEl.textContent = 'Puzzle ' + (idx + 1) + ' / ' + PUZZLES.length;
   solvedEl.textContent = solvedSet.size + ' resueltos';
 }
@@ -89,18 +102,54 @@ function onClick(e) {
   const cell = e.target.closest('.pz-sq');
   if (!cell) return;
   const sq = cell.dataset.sq;
-  // ¿es un destino legal?
   if (selected) {
     const mv = legal.find(m => m.to === sq);
     if (mv) { attemptMove(selected, sq); return; }
   }
-  // seleccionar pieza propia
   const piece = game.get(sq);
   if (piece && piece.color === game.turn()) {
     selected = sq;
     legal = game.moves({ square: sq, verbose: true });
     render();
   } else { clearSel(); render(); }
+}
+
+// ¿La posición actual (rival a mover) permite mate a la siguiente para el jugador?
+function currentForcesMate() {
+  const replies = game.moves({ verbose: true });
+  if (!replies.length) return false;
+  for (const r of replies) {
+    game.move(r);
+    const canMate = game.moves({ verbose: true }).some(pm => { game.move(pm); const m = game.isCheckmate(); game.undo(); return m; });
+    game.undo();
+    if (!canMate) return false;
+  }
+  return true;
+}
+// El rival juega una defensa cualquiera (todas pierden); preferimos mover el rey.
+function autoDefense() {
+  const replies = game.moves({ verbose: true });
+  if (!replies.length) return;
+  const pick = replies.find(r => r.piece === 'k') || replies[0];
+  game.move(pick);
+}
+
+function ok(msg) {
+  locked = true; solved = true;
+  solvedSet.add(idx);
+  boardEl.classList.add('solved');
+  statusEl.className = 'pz-status ok';
+  statusEl.textContent = msg;
+  solvedEl.textContent = solvedSet.size + ' resueltos';
+  sfx.win();
+  setTimeout(() => { if (idx < PUZZLES.length - 1) loadPuzzle(idx + 1); else finishAll(); }, 1500);
+}
+function wrong(msg) {
+  boardEl.classList.add('wrong');
+  statusEl.className = 'pz-status err';
+  statusEl.textContent = msg;
+  sfx.wrong();
+  setTimeout(() => { boardEl.classList.remove('wrong'); render(); }, 480);
 }
 
 function attemptMove(from, to) {
@@ -110,23 +159,36 @@ function attemptMove(from, to) {
   const mv = game.move({ from, to, promotion: promo });
   if (!mv) { clearSel(); render(); return; }
   clearSel();
-  render();
-  const good = pz.type === 'mate1' ? game.isCheckmate() : (from + to === pz.sol.slice(0, 4));
-  if (good) {
-    locked = true; solved = true;
-    solvedSet.add(idx);
-    boardEl.classList.add('solved');
-    statusEl.className = 'pz-status ok';
-    statusEl.textContent = '¡Correcto! Jaque mate. ✓';
-    solvedEl.textContent = solvedSet.size + ' resueltos';
-    setTimeout(() => { if (idx < PUZZLES.length - 1) loadPuzzle(idx + 1); else finishAll(); }, 1400);
-  } else {
-    // jugada legal pero no resuelve: deshacer y avisar
-    game.undo();
-    boardEl.classList.add('wrong');
-    statusEl.className = 'pz-status err';
-    statusEl.textContent = 'Esa no da mate. Prueba otra. 🔁';
-    setTimeout(() => { boardEl.classList.remove('wrong'); render(); }, 480);
+
+  if (pz.type === 'mate1') {
+    render();
+    if (game.isCheckmate()) return ok('¡Correcto! Jaque mate. ✓');
+    game.undo(); return wrong('Esa no da mate. Prueba otra. 🔁');
+  }
+
+  if (pz.type === 'win') {
+    render();
+    if (from + to === pz.sol.slice(0, 4)) return ok('¡Horquilla! Ganas la dama. ✓');
+    game.undo(); return wrong('Esa no gana material. 🔁');
+  }
+
+  if (pz.type === 'mate2') {
+    if (phase === 0) {
+      // la jugada clave debe forzar el mate contra cualquier defensa
+      if (game.isCheckmate()) return ok('¡Mate! ✓');
+      if (!currentForcesMate()) { game.undo(); render(); return wrong('Eso no fuerza el mate. 🔁'); }
+      render();
+      phase = 1; locked = true;
+      statusEl.className = 'pz-status';
+      statusEl.textContent = '¡Bien! El rival defiende… ahora da el mate.';
+      sfx.move();
+      setTimeout(() => { autoDefense(); locked = false; render(); }, 520);
+      return;
+    } else {
+      render();
+      if (game.isCheckmate()) return ok('¡Correcto! Jaque mate en 2. ✓');
+      game.undo(); return wrong('Aún no es mate. 🔁');
+    }
   }
 }
 
@@ -139,12 +201,17 @@ function finishAll() {
 function hint() {
   if (locked) return;
   const pz = PUZZLES[idx];
-  const from = pz.sol.slice(0, 2);
-  const [sr, sc] = squareToScreen(from);
-  const cell = boardEl.querySelector('.pz-sq[data-sq="' + from + '"]');
-  if (cell) { cell.classList.add('hintsq'); setTimeout(() => cell.classList.remove('hintsq'), 1200); }
-  statusEl.className = 'pz-status';
-  statusEl.textContent = 'Pista: mueve la pieza de ' + from + '.';
+  // en mate2 fase 1 no hay pista fija (depende de la defensa); solo animamos
+  const from = (pz.type === 'mate2' && phase === 1) ? null : pz.sol.slice(0, 2);
+  if (from) {
+    const cell = boardEl.querySelector('.pz-sq[data-sq="' + from + '"]');
+    if (cell) { cell.classList.add('hintsq'); setTimeout(() => cell.classList.remove('hintsq'), 1200); }
+    statusEl.className = 'pz-status';
+    statusEl.textContent = 'Pista: mueve la pieza de ' + from + '.';
+  } else {
+    statusEl.className = 'pz-status';
+    statusEl.textContent = 'Pista: busca el jaque mate ahora.';
+  }
 }
 
 boardEl.addEventListener('click', onClick);
@@ -157,5 +224,6 @@ document.addEventListener('keydown', (e) => {
   else if (e.key === 'ArrowLeft') loadPuzzle(idx - 1);
   else if (e.key.toLowerCase() === 'h') hint();
 });
+document.addEventListener('pointerdown', () => sfx.unlock(), { once: true, capture: true });
 
 loadPuzzle(0);

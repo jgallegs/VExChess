@@ -5,11 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>VEXCHESS · En directo</title>
-<meta name="description" content="Partidas en tiempo real en VEXCHESS. Muy pronto podrás ver y seguir partidas en directo.">
+<meta name="description" content="Partidas en tiempo real en VEXCHESS. Muy pronto podrás ver y seguir partidas en directo contra otras personas.">
+<link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/directo.html">
+<meta name="theme-color" content="#0D1117">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VEXCHESS">
+<meta property="og:title" content="VEXCHESS · En directo">
+<meta property="og:description" content="Partidas en tiempo real. Muy pronto podrás ver y seguir partidas en directo.">
+<meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/directo.html">
+<meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VEXCHESS · En directo">
+<meta name="twitter:description" content="Partidas en tiempo real. Muy pronto podrás ver y seguir partidas en directo.">
+<meta name="twitter:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=32">
 <link rel="stylesheet" href="directo.css?v=1">
 </head>
 <body class="lv-page">
@@ -23,6 +35,7 @@
       </div>
     </a>
     <div class="nav-actions">
+      <div class="vx-account"></div>
       <a class="nav-link" href="index.html">Inicio</a>
       <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
     </div>
@@ -83,6 +96,8 @@
     </section>
   </main>
 
+  <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="auth.js?v=1"></script>
   <script>
     // Tablero mini de la partida destacada (posición cualquiera, solo visual)
     (function miniBoard() {

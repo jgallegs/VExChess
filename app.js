@@ -8,6 +8,8 @@
    ============================================================ */
 import { Chess } from './chess.js';
 import { MESSAGES, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=8';
+import { sfx } from './sounds.js?v=1';
+import { api, getUser } from './auth.js?v=1';
 
 // --- Idioma ----------------------------------------------------------------
 function detectLang() {
@@ -139,8 +141,21 @@ function applyUci(uci) {
   const move = { from: uci.slice(0, 2), to: uci.slice(2, 4) };
   if (uci.length > 4) move.promotion = uci[4];
   const mv = game.move(move);
-  if (mv) animateMove(mv);
+  if (mv) { animateMove(mv); moveSound(mv); }
   persistGame();
+}
+
+// Elige el efecto de sonido según la jugada y el estado resultante.
+function moveSound(mv) {
+  if (!mv) return;
+  if (game.isCheckmate()) { (game.turn() === humanColor ? sfx.lose : sfx.win)(); return; }
+  if (game.isStalemate() || game.isDraw()) { sfx.draw(); return; }
+  const f = mv.flags || '';
+  if (game.isCheck()) { sfx.check(); return; }
+  if (f.includes('p')) { sfx.promote(); return; }
+  if (f.includes('k') || f.includes('q')) { sfx.castle(); return; }
+  if (f.includes('c') || f.includes('e')) { sfx.capture(); return; }
+  sfx.move();
 }
 
 // --- Guardar / retomar partida (localStorage, sin backend) -----------------
@@ -180,6 +195,12 @@ function archiveGame() {
     arr.unshift(entry);
     if (arr.length > 60) arr.length = 60;
     localStorage.setItem(ARCHIVE_KEY, JSON.stringify(arr));
+  } catch (e) {}
+  // Si hay sesión, guarda también la partida en la cuenta (no bloquea el juego)
+  try {
+    if (getUser()) {
+      api.saveGame({ pgn: entry.pgn, result: entry.result, human_color: entry.humanColor, level: entry.level, plies: entry.plies, played_at: entry.date }).catch(() => {});
+    }
   } catch (e) {}
 }
 function parseEval(line) {
@@ -486,6 +507,7 @@ function onSquareClick(e) {
 function humanMove(m) {
   const mv = game.move(m);
   animateMove(mv);
+  moveSound(mv);
   selected = null; legalTargets = [];
   clearSuggestion();
   persistGame();
@@ -1132,6 +1154,19 @@ setColorPref('random');   // "Aleatorio" activo por defecto
       catch (e2) { done('Error'); }
     }
   });
+})();
+// Sonido: botón de silencio + desbloqueo del audio al primer gesto
+(function wireSound() {
+  const btn = document.getElementById('sound-btn');
+  const paint = () => {
+    if (!btn) return;
+    btn.textContent = sfx.muted ? '🔇' : '🔊';
+    btn.classList.toggle('muted', sfx.muted);
+    btn.setAttribute('aria-pressed', String(!sfx.muted));
+  };
+  btn?.addEventListener('click', () => { sfx.toggle(); paint(); if (!sfx.muted) sfx.ui(); });
+  paint();
+  document.addEventListener('pointerdown', () => sfx.unlock(), { once: true, capture: true });
 })();
 enhanceSelects();     // desplegables propios con estilo de la web
 applyI18n();          // pinta todos los textos en el idioma detectado

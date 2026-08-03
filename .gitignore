@@ -11,6 +11,10 @@ desktop.ini
 # Dependencias (por si en el futuro se añaden)
 node_modules/
 
+# Cloudflare Wrangler
+.wrangler/
+.dev.vars
+
 # Temporales y capturas de prueba
 *.tmp
 *.log

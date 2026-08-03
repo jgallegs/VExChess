@@ -4,11 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>VEXCHESS · Think ahead</title>
+<title>VEXCHESS · Jugar contra la IA</title>
+<meta name="description" content="Juega al ajedrez contra Stockfish 18 (NNUE) directo en tu navegador. Modo entrenador, aviso de piezas en peligro, sonidos y temas de tablero. Gratis y offline.">
+<link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/play.html">
+<meta name="theme-color" content="#0D1117">
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VEXCHESS">
+<meta property="og:title" content="VEXCHESS · Jugar contra la IA">
+<meta property="og:description" content="Ajedrez contra Stockfish 18 (NNUE) en tu navegador. Gratis, sin registro y offline.">
+<meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/play.html">
+<meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VEXCHESS · Jugar contra la IA">
+<meta name="twitter:description" content="Ajedrez contra Stockfish 18 (NNUE) en tu navegador. Gratis, sin registro y offline.">
+<meta name="twitter:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
   <!-- Pantalla de inicio: el caballo aparece y el wordmark sale desde detrás -->
@@ -33,6 +47,7 @@
     </a>
     <span id="engine-status" hidden></span>
     <div class="nav-actions">
+      <div class="vx-account"></div>
       <div class="nav-lang">
         <select id="lang" data-enhance>
           <option value="es">Español</option>
@@ -42,6 +57,7 @@
       <a class="help-btn archive-btn" href="partidas.html" title="Mis partidas" aria-label="Mis partidas">
         <svg viewBox="0 0 24 24" width="1.15rem" height="1.15rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 4v5M16 4v5"/></svg>
       </a>
+      <button class="help-btn" id="theme-btn" title="Tema del tablero" aria-label="Tema del tablero">🎨</button>
       <button class="help-btn" id="help-btn" title="Guía y conceptos" aria-label="Guía y conceptos">?</button>
     </div>
   </header>
@@ -125,6 +141,7 @@
     <label class="dock-toggle danger" id="danger-wrap" title="Avisar de piezas en peligro">
       <input type="checkbox" id="toggle-danger" checked><span class="dt-ico" aria-hidden="true">⚠️</span>
     </label>
+    <button class="ctrl dock-sound" id="sound-btn" title="Sonido" aria-label="Activar o silenciar el sonido" aria-pressed="true">🔊</button>
     <span class="dock-sep"></span>
     <button class="ctrl dock-moves" id="moves-btn">Jugadas</button>
   </div>
@@ -142,6 +159,12 @@
         <div class="cards" id="help-cards"></div>
       </div>
     </div>
+  </div>
+
+  <!-- Selector de tema del tablero -->
+  <div class="theme-pop" id="theme-pop">
+    <div class="theme-pop-title">Tema del tablero</div>
+    <div class="theme-sw-list" id="theme-sw-list"></div>
   </div>
 
   <!-- Retomar partida guardada -->
@@ -170,6 +193,8 @@
     </div>
   </div>
 
-  <script type="module" src="app.js?v=31"></script>
+  <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="auth.js?v=1"></script>
+  <script type="module" src="app.js?v=33"></script>
 </body>
 </html>

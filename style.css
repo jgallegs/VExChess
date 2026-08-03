@@ -388,6 +388,73 @@ button.ctrl.wide { flex-basis: 100%; }
 .dock-level .cselect { width: 9.2rem; }
 .dock-moves { font-weight: 700; }
 .dock-moves.active { background-color: var(--accent); color: #fff; }
+.dock-sound { font-size: 1.05rem; line-height: 1; padding: 0.5rem 0.6rem; }
+.dock-sound.muted { opacity: .55; }
+
+/* Selector de tema del tablero */
+.theme-pop { position: fixed; top: 4.4rem; right: clamp(1rem, 3vw, 2rem); z-index: 60; display: none; flex-direction: column; gap: 0.5rem;
+  background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.75rem; padding: 0.8rem 0.85rem; box-shadow: 0 1rem 3rem rgba(0,0,0,.5); }
+.theme-pop.open { display: flex; animation: theme-pop-in .16s ease both; }
+@keyframes theme-pop-in { from { opacity: 0; transform: translateY(-0.3rem); } to { opacity: 1; transform: none; } }
+.theme-pop-title { font-size: 0.76rem; font-weight: 700; letter-spacing: .03em; color: var(--muted); }
+.theme-sw-list { display: flex; gap: 0.5rem; }
+.theme-sw { width: 2.1rem; height: 2.1rem; border-radius: 0.45rem; border: var(--hair) solid var(--border); cursor: pointer; padding: 0;
+  background: linear-gradient(135deg, var(--sw-l) 0 50%, var(--sw-d) 50% 100%); transition: transform .1s, box-shadow .1s; }
+.theme-sw:hover { transform: translateY(-0.12rem); }
+.theme-sw.active { box-shadow: 0 0 0 0.14rem var(--accent); border-color: transparent; }
+
+/* ============================================================
+   Cuentas: avatar, chip de navbar y modal de acceso
+   ============================================================ */
+.vx-avatar { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; flex: 0 0 auto; overflow: hidden; }
+.vx-avatar img { width: 62%; height: 62%; object-fit: contain; filter: brightness(0) invert(1); opacity: .95; }
+.vx-avatar.lg { width: 4.6rem; height: 4.6rem; }
+
+.vx-account { display: inline-flex; align-items: center; }
+.vx-entrar { background: var(--panel-2); color: var(--text); border: var(--hair) solid var(--border); border-radius: 0.55rem;
+  padding: 0.5rem 1rem; font: 700 0.85rem 'Inter', sans-serif; cursor: pointer; transition: background .12s, border-color .12s; }
+.vx-entrar:hover { background: #33405a; border-color: var(--vex-muted); }
+
+.vx-acct { position: relative; }
+.vx-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--panel-2); border: var(--hair) solid var(--border);
+  border-radius: 2rem; padding: 0.3rem 0.7rem 0.3rem 0.35rem; cursor: pointer; color: var(--text); transition: border-color .12s, background .12s; }
+.vx-chip:hover { border-color: var(--vex-muted); background: #2b3547; }
+.vx-chip-name { font: 700 0.85rem 'Inter', sans-serif; max-width: 9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vx-chip-elo { font: 700 0.72rem 'Oxanium', sans-serif; color: var(--accent); background: rgba(255,59,71,.12); border-radius: 1rem; padding: 0.1rem 0.45rem; }
+.vx-menu { position: absolute; right: 0; top: calc(100% + 0.5rem); min-width: 11rem; background: var(--panel); border: var(--hair) solid var(--border);
+  border-radius: 0.7rem; box-shadow: 0 1rem 3rem rgba(0,0,0,.5); padding: 0.4rem; display: none; flex-direction: column; z-index: 80; }
+.vx-acct.open .vx-menu { display: flex; animation: vx-menu-in .14s ease both; }
+@keyframes vx-menu-in { from { opacity: 0; transform: translateY(-0.25rem); } to { opacity: 1; transform: none; } }
+.vx-menu a, .vx-menu button { text-align: left; background: none; border: none; color: var(--text); font: 600 0.85rem 'Inter', sans-serif;
+  padding: 0.55rem 0.7rem; border-radius: 0.45rem; cursor: pointer; text-decoration: none; }
+.vx-menu a:hover, .vx-menu button:hover { background: var(--panel-2); }
+.vx-menu .vx-signout { color: #ffb3b3; border-top: var(--hair) solid var(--border); margin-top: 0.2rem; border-radius: 0 0 0.45rem 0.45rem; }
+
+/* Modal de acceso */
+.vx-modal { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 1.5rem;
+  background: rgba(8,11,16,.82); backdrop-filter: blur(0.35rem); }
+.vx-modal.open { display: flex; animation: vx-fade .2s ease both; }
+@keyframes vx-fade { from { opacity: 0; } to { opacity: 1; } }
+.vx-modal-box { position: relative; width: 100%; max-width: 23rem; background: var(--panel); border: var(--hair) solid var(--border);
+  border-radius: 1.1rem; padding: 1.8rem 1.6rem 1.6rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.6); }
+.vx-modal-x { position: absolute; top: 0.9rem; right: 1rem; background: none; border: none; color: var(--muted); font-size: 1rem; cursor: pointer; }
+.vx-modal-x:hover { color: var(--text); }
+.vx-modal-brand { display: flex; align-items: center; gap: 0.6rem; justify-content: center; margin-bottom: 1.1rem; }
+.vx-modal-brand img { height: 2.2rem; }
+.vx-modal-brand b { font: 800 1.1rem 'Oxanium', sans-serif; letter-spacing: .04em; }
+.vx-tabs { display: flex; gap: 0.4rem; background: var(--panel-2); border-radius: 0.6rem; padding: 0.25rem; margin-bottom: 1.2rem; }
+.vx-tab { flex: 1; background: none; border: none; color: var(--muted); font: 700 0.85rem 'Inter', sans-serif; padding: 0.5rem; border-radius: 0.45rem; cursor: pointer; }
+.vx-tab.active { background: var(--panel); color: var(--text); box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,.25); }
+.vx-form { display: flex; flex-direction: column; gap: 0.8rem; }
+.vx-form label { display: flex; flex-direction: column; gap: 0.3rem; font: 600 0.78rem 'Inter', sans-serif; color: var(--muted); }
+.vx-form input { background: var(--bg); border: var(--hair) solid var(--border); border-radius: 0.5rem; padding: 0.6rem 0.7rem;
+  color: var(--text); font: 500 0.92rem 'Inter', sans-serif; }
+.vx-form input:focus { outline: none; border-color: var(--accent); }
+.vx-hint { font-size: 0.72rem; color: var(--vex-muted); line-height: 1.4; }
+.vx-err { font-size: 0.8rem; color: #ffb3b3; background: rgba(255,59,71,.1); border: var(--hair) solid rgba(255,59,71,.4); border-radius: 0.45rem; padding: 0.5rem 0.65rem; }
+.vx-submit { margin-top: 0.3rem; background: var(--accent); color: #fff; border: none; border-radius: 0.55rem; padding: 0.7rem; font: 700 0.9rem 'Inter', sans-serif; cursor: pointer; transition: filter .12s; }
+.vx-submit:hover { filter: brightness(1.08); }
+.vx-submit:disabled { opacity: .7; cursor: default; }
 /* toggles compactos tipo icono */
 .dock-toggle { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; border-radius: 0.6rem; background: var(--panel-2); cursor: pointer; transition: background .12s; }
 .dock-toggle input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
