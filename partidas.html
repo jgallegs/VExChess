@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>VEXCHESS · Mis partidas</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="partidas.css?v=1">
+</head>
+<body class="rv-page">
+  <header class="navbar">
+    <div class="nav-scrim" aria-hidden="true"></div>
+    <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
+      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
+      <div class="brand-text">
+        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
+        <span class="tagline">THINK AHEAD.</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <a class="nav-link" href="index.html">Inicio</a>
+      <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main class="rv-wrap">
+    <!-- Columna del tablero + reproductor -->
+    <section class="rv-boardcol">
+      <div id="rv-board" class="rv-board"></div>
+
+      <div class="rv-player" id="rv-player">
+        <span class="rv-turn-dot" id="rv-dot"></span>
+        <span id="rv-caption">Selecciona una partida</span>
+      </div>
+
+      <div class="rv-controls">
+        <button class="rv-ctrl" id="rv-first" title="Inicio (⏮)" aria-label="Ir al inicio">⏮</button>
+        <button class="rv-ctrl" id="rv-prev" title="Anterior (←)" aria-label="Jugada anterior">◀</button>
+        <button class="rv-ctrl play" id="rv-play" title="Reproducir (espacio)" aria-label="Reproducir">▶</button>
+        <button class="rv-ctrl" id="rv-next" title="Siguiente (→)" aria-label="Jugada siguiente">▶</button>
+        <button class="rv-ctrl" id="rv-last" title="Final (⏭)" aria-label="Ir al final">⏭</button>
+        <button class="rv-ctrl" id="rv-flip" title="Girar tablero (F)" aria-label="Girar tablero">⇅</button>
+      </div>
+      <div class="rv-ply" id="rv-ply">—</div>
+    </section>
+
+    <!-- Panel: jugadas de la partida abierta + lista del archivo -->
+    <aside class="rv-panel">
+      <div class="rv-head">
+        <span class="eyebrow">Mis partidas</span>
+        <h1 class="rv-title">Revisa tus <span class="accent">partidas</span></h1>
+      </div>
+
+      <div class="rv-moves-card" id="rv-moves-card" hidden>
+        <div class="rv-moves-head">
+          <span id="rv-moves-title">Jugadas</span>
+          <button class="rv-pgn" id="rv-pgn" title="Copiar PGN">Copiar PGN</button>
+        </div>
+        <div class="rv-moves" id="rv-moves"></div>
+      </div>
+
+      <div class="rv-list-head">
+        <span id="rv-count">0 partidas</span>
+        <button class="rv-clear" id="rv-clear" hidden>Borrar todo</button>
+      </div>
+      <div class="rv-list" id="rv-list"></div>
+
+      <div class="rv-empty" id="rv-empty" hidden>
+        <div class="rv-empty-ico">♟️</div>
+        <p>Aún no tienes partidas guardadas.</p>
+        <p class="rv-empty-sub">Cada partida que termines (jaque mate, tablas o rendición) se guardará aquí automáticamente para que puedas revisarla.</p>
+        <a class="btn-play" href="play.html">Jugar una partida <span aria-hidden="true">→</span></a>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="partidas.js?v=1"></script>
+</body>
+</html>

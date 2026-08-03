@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>VEXCHESS · En directo</title>
+<meta name="description" content="Partidas en tiempo real en VEXCHESS. Muy pronto podrás ver y seguir partidas en directo.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="directo.css?v=1">
+</head>
+<body class="lv-page">
+  <header class="navbar">
+    <div class="nav-scrim" aria-hidden="true"></div>
+    <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
+      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
+      <div class="brand-text">
+        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
+        <span class="tagline">THINK AHEAD.</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <a class="nav-link" href="index.html">Inicio</a>
+      <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main class="lv-wrap">
+    <div class="lv-head">
+      <span class="lv-eyebrow"><span class="lv-pulse"></span> En directo</span>
+      <h1 class="lv-title">Partidas en <span class="accent">tiempo real</span></h1>
+      <p class="lv-sub">Sigue partidas en vivo, mira a los mejores jugar y aprende de cada jugada.
+        El multijugador online está en camino — así se verá.</p>
+      <div class="lv-soon-banner">
+        <span class="lv-soon-tag">Próximamente</span>
+        <span>Esta es una vista previa del lobby. Las partidas online llegarán con las cuentas de usuario.</span>
+      </div>
+    </div>
+
+    <!-- Partida destacada (mockup) -->
+    <section class="lv-featured" aria-hidden="true">
+      <div class="lv-featured-badge"><span class="lv-live-dot"></span> EN VIVO · destacada</div>
+      <div class="lv-featured-body">
+        <div class="lv-mini-board" id="lv-mini"></div>
+        <div class="lv-featured-info">
+          <div class="lv-vs">
+            <div class="lv-vteam">
+              <span class="lv-ava w">M</span>
+              <div><b>MagnusJr</b><span>2612 · Blancas</span></div>
+            </div>
+            <span class="lv-vs-x">vs</span>
+            <div class="lv-vteam right">
+              <div><b>DeepPawn</b><span>2588 · Negras</span></div>
+              <span class="lv-ava b">D</span>
+            </div>
+          </div>
+          <div class="lv-evalrow">
+            <div class="lv-evalbar"><span style="width:58%"></span></div>
+            <span class="lv-eval-num">+0.6</span>
+          </div>
+          <div class="lv-featured-meta">
+            <span>♟ Jugada 24</span><span>·</span><span>⏱ 5+3</span><span>·</span><span>👁 1.2k viendo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de partidas (mockup) -->
+    <h2 class="lv-section-title">Más partidas <span>en directo</span></h2>
+    <div class="lv-grid" id="lv-grid" aria-hidden="true"></div>
+
+    <!-- Mientras tanto -->
+    <section class="lv-meanwhile">
+      <h3>Mientras tanto…</h3>
+      <p>El online aún no está disponible, pero puedes jugar ya contra una IA de primer nivel o entrenar tu táctica.</p>
+      <div class="lv-meanwhile-cta">
+        <a class="btn-play" href="play.html">Jugar contra la IA <span aria-hidden="true">→</span></a>
+        <a class="btn-ghost2" href="puzzles.html">Resolver puzzles</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Tablero mini de la partida destacada (posición cualquiera, solo visual)
+    (function miniBoard() {
+      const el = document.getElementById('lv-mini');
+      if (!el) return;
+      // FEN de ejemplo (media partida)
+      const rows = [
+        'r..q.rk.', '.pp.bppp', 'p.np.n..', '....p...', '..B.P...', '..NP.N..', 'PPP..PPP', 'R..Q.RK.'
+      ];
+      const svg = (ch) => {
+        const map = { p:'p', n:'n', b:'b', r:'r', q:'q', k:'k' };
+        const color = ch === ch.toLowerCase() ? 'b' : 'w';
+        const t = map[ch.toLowerCase()];
+        if (!t) return '';
+        return '<svg class="lvpc" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + color + t + '"></use></svg>';
+      };
+      let html = '';
+      for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
+        const ch = rows[r][c];
+        const dark = (r + c) % 2 === 1;
+        html += '<div class="lvsq ' + (dark ? 'd' : 'l') + '">' + (ch !== '.' ? svg(ch) : '') + '</div>';
+      }
+      el.innerHTML = html;
+    })();
+
+    // Tarjetas de partidas (mockup)
+    (function grid() {
+      const el = document.getElementById('lv-grid');
+      if (!el) return;
+      const games = [
+        { w: 'TorreLoca', we: 2201, b: 'e4_enjoyer', be: 2244, mv: 14, tc: '3+2', ev: 42, spec: 318 },
+        { w: 'Zugzwang99', we: 1890, b: 'KnightRider', be: 1875, mv: 31, tc: '10+0', ev: 61, spec: 96 },
+        { w: 'gambitogirl', we: 2033, b: 'RookieMistake', be: 1998, mv: 9, tc: '1+0', ev: 50, spec: 512 },
+        { w: 'PeónPasado', we: 1622, b: 'blunderbuss', be: 1701, mv: 22, tc: '5+3', ev: 35, spec: 44 },
+        { w: 'AlfilAsesino', we: 2410, b: 'EndgameEnzo', be: 2377, mv: 46, tc: '15+10', ev: 55, spec: 730 },
+        { w: 'jaquemate_es', we: 1755, b: 'CaballoLoco', be: 1810, mv: 18, tc: '3+0', ev: 48, spec: 61 },
+      ];
+      el.innerHTML = games.map(g => (
+        '<article class="lv-card">' +
+          '<div class="lv-card-top"><span class="lv-live-dot"></span> EN VIVO <span class="lv-card-spec">👁 ' + g.spec + '</span></div>' +
+          '<div class="lv-card-row"><span class="lv-ava w sm">' + g.w[0].toUpperCase() + '</span>' +
+            '<span class="lv-card-name">' + g.w + '</span><span class="lv-card-elo">' + g.we + '</span></div>' +
+          '<div class="lv-card-row"><span class="lv-ava b sm">' + g.b[0].toUpperCase() + '</span>' +
+            '<span class="lv-card-name">' + g.b + '</span><span class="lv-card-elo">' + g.be + '</span></div>' +
+          '<div class="lv-card-evbar"><span style="width:' + g.ev + '%"></span></div>' +
+          '<div class="lv-card-meta"><span>♟ Jugada ' + g.mv + '</span><span>⏱ ' + g.tc + '</span></div>' +
+        '</article>'
+      )).join('');
+    })();
+  </script>
+</body>
+</html>

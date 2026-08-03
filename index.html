@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>VEXCHESS · Ajedrez con IA · Think ahead</title>
+<meta name="description" content="Ajedrez contra una IA de primer nivel (Stockfish 18 · NNUE) directo en tu navegador. Con modo entrenador, aviso de piezas en peligro y guía interactiva.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="home.css?v=3">
+</head>
+<body class="home">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="hnav" id="top">
+    <div class="nav-scrim" aria-hidden="true"></div>
+    <div class="hnav-inner">
+      <a class="nav-brand" href="#top" aria-label="VEXCHESS">
+        <img class="brand-mark" src="assets/knight-logo.svg" alt="">
+        <div class="brand-text">
+          <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
+          <span class="tagline">THINK AHEAD.</span>
+        </div>
+      </a>
+      <nav class="hnav-links" aria-label="Secciones">
+        <a href="#features">Características</a>
+        <a href="puzzles.html">Puzzles</a>
+        <a href="directo.html">En directo</a>
+        <a href="partidas.html">Mis partidas</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <div class="hnav-actions">
+        <button class="btn-soon" title="Próximamente">Entrar</button>
+        <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="hero-badge"><span class="dot"></span> Stockfish 18 · NNUE · 100% en tu navegador</span>
+        <h1 class="hero-title">Piensa. Juega.<br><span class="accent">Vence.</span></h1>
+        <p class="hero-sub">Ajedrez contra una inteligencia artificial de primer nivel, con modo entrenador,
+          aviso de piezas en peligro y una guía interactiva de cada pieza. Sin servidores, sin registro,
+          directo en tu navegador.</p>
+        <div class="hero-cta">
+          <a class="btn-play lg" href="play.html">Jugar ahora <span aria-hidden="true">→</span></a>
+          <a class="btn-ghost2 lg" href="#features">Ver características</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>~1320 → ∞</b><span>Niveles de dificultad</span></div>
+          <div><b>NNUE</b><span>Red neuronal</span></div>
+          <div><b>0 €</b><span>Gratis y offline</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-board-wrap">
+          <div class="hero-board" id="hero-board"></div>
+        </div>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#features" aria-label="Bajar">▾</a>
+  </section>
+
+  <!-- ===================== CARACTERÍSTICAS ===================== -->
+  <section class="section" id="features">
+    <div class="section-head">
+      <span class="eyebrow">Características</span>
+      <h2>Todo lo que necesitas para <span class="accent">mejorar</span></h2>
+      <p>Una experiencia de ajedrez completa que corre entera en tu navegador.</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat-card">
+        <div class="feat-ico">🧠</div>
+        <h3>Rival con red neuronal</h3>
+        <p>Stockfish 18 con evaluación <b>NNUE</b>, el motor de código abierto más fuerte del mundo. Dificultad ajustable de ~1320 a fuerza imparable.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-ico">🎓</div>
+        <h3>Modo entrenador</h3>
+        <p>Una segunda instancia del motor a máxima fuerza te sugiere la mejor jugada con una flecha y te explica el porqué.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-ico">⚠️</div>
+        <h3>Aviso de piezas en peligro</h3>
+        <p>Resalta con un glow las piezas amenazadas y te avisa especialmente cuando tu dama está en peligro. No vuelvas a colgar una pieza sin saberlo.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-ico">📖</div>
+        <h3>Guía interactiva</h3>
+        <p>Una tarjeta grande por pieza con su valor, su historia y una <b>simulación en bucle</b> de cómo se mueve y captura.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-ico">🌐</div>
+        <h3>Multiidioma</h3>
+        <p>Español e inglés con detección automática. Toda la interfaz y la guía traducidas.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-ico">⚡</div>
+        <h3>100% en tu navegador</h3>
+        <p>El motor está compilado a WebAssembly y corre en local. Sin servidores, sin claves de API, sin coste y funciona sin conexión.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== LA IA ===================== -->
+  <section class="section ia" id="ia">
+    <div class="ia-band">
+      <div class="ia-copy">
+        <span class="eyebrow">El cerebro</span>
+        <h2>Stockfish 18 con red neuronal <span class="accent">NNUE</span></h2>
+        <p>El rival usa el mismo motor que Chess.com: <b>Stockfish 18</b>, con evaluación por red neuronal
+          (Efficiently Updatable Neural Network), compilado a <b>WebAssembly</b> y ejecutándose entero dentro
+          de tu navegador en un <i>Web Worker</i>. Habla el protocolo UCI, piensa en milisegundos y no envía
+          nada a ningún servidor.</p>
+        <ul class="ia-list">
+          <li><span>♟</span> Reglas completas vía <b>chess.js</b>: enroque, coronación, al paso, jaque mate y tablas.</li>
+          <li><span>⚙️</span> Dificultad por Elo o fuerza máxima, configurable en cada partida.</li>
+          <li><span>🔒</span> Privado por diseño: todo el cálculo ocurre en tu equipo.</li>
+        </ul>
+        <a class="btn-play" href="play.html">Probar el motor <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="ia-badge" aria-hidden="true">
+        <img src="assets/knight-logo.svg" alt="">
+        <div class="ia-badge-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ROADMAP ===================== -->
+  <section class="section" id="roadmap">
+    <div class="section-head">
+      <span class="eyebrow">Roadmap</span>
+      <h2>Esto es solo el <span class="accent">principio</span></h2>
+      <p>Estamos construyendo una plataforma. Lo que viene:</p>
+    </div>
+    <div class="road-grid">
+      <a href="puzzles.html" class="road-card live"><span class="live">Disponible</span><div class="road-ico">🧩</div><h3>Puzzles tácticos</h3><p>Encuentra el mate en posiciones reales. ¡Ya puedes entrenar! <b>Jugar →</b></p></a>
+      <a href="partidas.html" class="road-card live"><span class="live">Disponible</span><div class="road-ico">📼</div><h3>Mis partidas</h3><p>Tus partidas terminadas se guardan solas. Revísalas jugada a jugada. <b>Ver →</b></p></a>
+      <a href="directo.html" class="road-card preview"><span class="preview">Vista previa</span><div class="road-ico">🔴</div><h3>En directo</h3><p>Partidas en tiempo real contra otras personas. Echa un vistazo a cómo se verá. <b>Ver →</b></p></a>
+      <article class="road-card"><span class="soon">Próximamente</span><div class="road-ico">👤</div><h3>Cuentas y perfil</h3><p>Regístrate, guarda tus partidas y tu progreso, y lleva tu Elo contigo.</p></article>
+      <article class="road-card"><span class="soon">Próximamente</span><div class="road-ico">🎯</div><h3>Lecciones</h3><p>Aprende aperturas, finales y estrategia paso a paso.</p></article>
+      <article class="road-card"><span class="soon">Próximamente</span><div class="road-ico">🏆</div><h3>Leaderboard y ranking</h3><p>Compite por el top con un sistema de Elo y clasificaciones.</p></article>
+      <article class="road-card"><span class="soon">Próximamente</span><div class="road-ico">👥</div><h3>Equipos y social</h3><p>Crea o únete a clubes, juega con amigos y organiza torneos.</p></article>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="cta-final">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <h2>¿Listo para tu próxima partida?</h2>
+    <p>Elige tu bando, tu nivel, y demuéstrale a la máquina quién manda.</p>
+    <a class="btn-play xl" href="play.html">Jugar ahora <span aria-hidden="true">→</span></a>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <img class="brand-mark" src="assets/knight-logo.svg" alt="">
+        <div>
+          <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS" style="height:1rem">
+          <p class="foot-tag">Think ahead.</p>
+        </div>
+      </div>
+      <nav class="foot-links">
+        <a href="play.html">Jugar</a>
+        <a href="#features">Características</a>
+        <a href="#ia">La IA</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <div class="foot-credits">
+        <p>Motor: <a href="https://stockfishchess.org/" target="_blank" rel="noopener">Stockfish</a> (GPLv3). Reglas: <a href="https://github.com/jhlywa/chess.js" target="_blank" rel="noopener">chess.js</a>. Fichas: set Staunty (Lichess).</p>
+        <p class="foot-copy">© <span id="year"></span> VEXCHESS · Hecho por Jorge.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año del footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tablero del hero: posición inicial con fichas Staunty (solo visual)
+    (function heroBoard() {
+      const el = document.getElementById('hero-board');
+      if (!el) return;
+      const back = ['r','n','b','q','k','b','n','r'];
+      const svg = (color, type) => '<svg class="hpc" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + color + type + '"></use></svg>';
+      let html = '';
+      for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
+        const dark = (r + c) % 2 === 1;
+        let piece = '';
+        if (r === 0) piece = svg('b', back[c]);
+        else if (r === 1) piece = svg('b', 'p');
+        else if (r === 6) piece = svg('w', 'p');
+        else if (r === 7) piece = svg('w', back[c]);
+        html += '<div class="hsq ' + (dark ? 'd' : 'l') + '">' + piece + '</div>';
+      }
+      el.innerHTML = html;
+    })();
+
+    // Botón "Entrar" (login) aún no disponible
+    document.querySelector('.btn-soon')?.addEventListener('click', function () {
+      this.classList.add('pulse');
+      setTimeout(() => this.classList.remove('pulse'), 500);
+    });
+  </script>
+</body>
+</html>

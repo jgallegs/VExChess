@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">VEXCHESS knight mark</title>
+  <desc id="desc">A flat geometric chess knight with an angular V and X-inspired base cut.</desc>
+  <g fill="#F5F7FA">
+    <path d="M91 216 112 148 168 99 229 88 219 47 278 98 316 137c16 16 24 35 24 58v120l-61 61-62-64 29-48c11-19 20-39 26-61l-57 45-71 2-40-32 7-2Zm70-73-22 19 29-5 10-17-17 3Z"/>
+    <path d="m104 430 1-58 58-58 94 116H104Z"/>
+    <path d="m283 374 57-58v114h-99l42-56Z"/>
+  </g>
+</svg>

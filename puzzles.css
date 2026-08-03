@@ -1,0 +1,69 @@
+/* ============================================================
+   VEXCHESS · Puzzles.  Sin px. Reutiliza la paleta de style.css.
+   ============================================================ */
+body.pz-page { min-height: 100vh; }
+.pz-page .accent { color: var(--accent); }
+.pz-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .15s; }
+.pz-page .nav-link:hover { color: var(--text); }
+
+.pz-wrap {
+  min-height: 100vh; display: grid; place-content: center; align-items: center;
+  grid-template-columns: var(--board) 22rem; gap: 2.4rem;
+  padding: 6.5rem clamp(1rem, 3vw, 2rem) 3rem;
+}
+.pz-boardcol { display: flex; align-items: center; justify-content: center; }
+
+/* ---------- Tablero ---------- */
+.pz-board {
+  position: relative; width: var(--board); height: var(--board);
+  display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(8, 1fr);
+  border-radius: 0.875rem; overflow: hidden; user-select: none;
+  box-shadow: 0 1.25rem 3.75rem rgba(0,0,0,.5), 0 0 0 0.5rem #3a2c22, 0 0 0 0.56rem #4a3a2c;
+  transition: box-shadow .25s ease;
+}
+.pz-board.solved { box-shadow: 0 1.25rem 3.75rem rgba(0,0,0,.5), 0 0 0 0.5rem #2e7d43, 0 0 0 0.56rem #3aa856, 0 0 2.4rem rgba(58,168,86,.5); }
+.pz-board.wrong { animation: pz-shake .42s ease; }
+@keyframes pz-shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-0.5rem); } 40% { transform: translateX(0.5rem); } 60% { transform: translateX(-0.35rem); } 80% { transform: translateX(0.35rem); } }
+.pz-sq { position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.pz-sq.light { background: var(--light); } .pz-sq.dark { background: var(--dark); }
+.pz-sq .pc { width: 84%; height: 84%; filter: drop-shadow(0 0.12rem 0.12rem rgba(0,0,0,.28)); pointer-events: none; position: relative; z-index: 2; }
+.pz-sq.sel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255,193,84,.34), rgba(255,193,84,.2)); box-shadow: inset 0 0 0 0.16rem rgba(255,193,84,.55); z-index: 1; }
+.pz-sq.hintsq::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 0.2rem var(--accent); z-index: 3; animation: pz-hint-blink .4s ease-in-out 2; }
+@keyframes pz-hint-blink { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+.pz-hint { position: absolute; z-index: 1; width: 30%; height: 30%; border-radius: 50%; background: rgba(205,213,223,.72); box-shadow: 0 0 0.18rem rgba(0,0,0,.28); pointer-events: none; }
+.pz-hint.cap { width: 90%; height: 90%; background: transparent; border-radius: 50%; border: 0.3rem solid rgba(205,213,223,.72); box-sizing: border-box; }
+.pz-coord { position: absolute; font-size: 0.55rem; font-weight: 700; color: rgba(0,0,0,.35); pointer-events: none; z-index: 2; }
+.pz-sq.dark .pz-coord { color: rgba(255,255,255,.4); }
+.pz-coord.rank { top: 0.12rem; left: 0.18rem; }
+.pz-coord.file { bottom: 0.06rem; right: 0.2rem; }
+
+/* ---------- Panel ---------- */
+.pz-panel { display: flex; flex-direction: column; gap: 0.9rem; }
+.pz-head .eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.pz-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.9rem; line-height: 1; margin: 0.4rem 0 0; }
+.pz-theme-chip { align-self: flex-start; font-size: 0.78rem; font-weight: 700; color: #ffd7da; background: rgba(255,59,71,.14); border: var(--hair) solid rgba(255,59,71,.4); padding: 0.35rem 0.75rem; border-radius: 2rem; }
+.pz-turn { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--muted); font-weight: 600; }
+.pz-dot { width: 0.85rem; height: 0.85rem; border-radius: 50%; border: var(--hair) solid rgba(255,255,255,.25); }
+.pz-dot.w { background: #f0f2f6; } .pz-dot.b { background: #2b3242; }
+.pz-status { min-height: 2.6rem; display: flex; align-items: center; font-size: 0.98rem; font-weight: 600; color: var(--text);
+  background: var(--panel-2); border-radius: 0.7rem; padding: 0.6rem 0.85rem; transition: background .2s, color .2s; }
+.pz-status.ok { background: rgba(58,168,86,.16); color: #8fe3a0; border: var(--hair) solid rgba(58,168,86,.5); }
+.pz-status.err { background: rgba(255,59,71,.14); color: #ffb3b3; border: var(--hair) solid rgba(255,59,71,.45); }
+.pz-controls, .pz-nav { display: flex; gap: 0.6rem; }
+.pz-btn { flex: 1; background: var(--panel-2); color: var(--text); border: none; border-radius: 0.6rem; padding: 0.62rem 0.6rem;
+  font: 700 0.85rem 'Inter', sans-serif; cursor: pointer; transition: background .12s, transform .08s; }
+.pz-btn:hover { background: #313d52; } .pz-btn:active { transform: translateY(0.06rem); }
+.pz-btn.ghost { background: transparent; border: var(--hair) solid var(--border); color: var(--muted); font-weight: 600; }
+.pz-btn.ghost:hover { color: var(--text); border-color: var(--vex-muted); }
+.pz-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+.pz-solved { color: #8fe3a0; font-weight: 700; }
+.pz-tip { font-size: 0.78rem; line-height: 1.5; color: var(--muted); margin: 0.4rem 0 0; }
+.pz-tip b { color: var(--text); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 62em) {
+  .pz-wrap { grid-template-columns: 1fr; place-content: start center; gap: 1.4rem; padding-top: 6rem; }
+  :root { --board: min(92vw, 34rem); }
+  .pz-board { width: min(92vw, 34rem); height: min(92vw, 34rem); }
+  .pz-panel { width: min(92vw, 34rem); }
+}
