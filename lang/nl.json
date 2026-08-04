@@ -1,0 +1,1047 @@
+{
+  "nav": {
+    "academia": "Academie",
+    "puzzles": "Puzzels",
+    "directo": "Live",
+    "partidas": "Mijn partijen",
+    "comunidad": "Community",
+    "play": "Spelen",
+    "language": "Taal",
+    "home": "Start",
+    "menu": "Navigatie",
+    "openMenu": "Menu openen"
+  },
+  "common": {
+    "loading": "Laden…",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "close": "Sluiten",
+    "back": "Terug",
+    "next": "Volgende",
+    "prev": "Vorige",
+    "retry": "Opnieuw proberen",
+    "confirm": "Bevestigen",
+    "yes": "Ja",
+    "no": "Nee",
+    "accept": "Accepteren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "search": "Zoeken",
+    "error": "Er is een fout opgetreden.",
+    "empty": "Hier is nog niets."
+  },
+  "game": {
+    "title": "Schaken · tegenstander met neuraal netwerk",
+    "appName": "Schaken",
+    "appSub": "AI-tegenstander · NNUE",
+    "engineLoading": "Engine laden…",
+    "engineReady": "Engine klaar · Stockfish 18 (NNUE)",
+    "engineError": "Engine-fout: ",
+    "loaderText": "De engine laden…",
+    "coachLoading": "Trainer laden…",
+    "langLabel": "Taal",
+    "levelLabel": "Niveau van de tegenstander",
+    "colorLabel": "Jouw kleur",
+    "colorWhite": "Wit",
+    "colorBlack": "Zwart",
+    "colorRandom": "Willekeurig",
+    "drawTitle": "Kleurloting",
+    "drawPick": "Kies een hand",
+    "drawSkip": "Overslaan",
+    "drawWhite": "Je speelt met wit. Jij bent aan zet.",
+    "drawBlack": "Je speelt met zwart. Stockfish begint.",
+    "confirmRestart": "Hiermee wordt de lopende partij opnieuw gestart. Doorgaan?",
+    "confirmOk": "Opnieuw starten",
+    "confirmCancel": "Annuleren",
+    "undo": "Ongedaan maken",
+    "flip": "Draaien",
+    "newGame": "Nieuw",
+    "coachToggle": "Trainermodus",
+    "coachToggleSub": "(stelt je de zet voor)",
+    "dangerToggle": "Waarschuwen voor stukken in gevaar",
+    "helpBtn": "Gids en begrippen",
+    "helpTitle": "Schaakgids",
+    "conceptsTitle": "Basisbegrippen",
+    "piecesTitle": "De stukken",
+    "thinking": "De tegenstander denkt na…",
+    "suggestion": "Suggestie",
+    "you": "Jij",
+    "white": "wit",
+    "black": "zwart",
+    "max": "MAX",
+    "historyEmpty": "Nog geen zetten",
+    "evalLabel": "Evaluatie",
+    "advWhite": "voordeel wit",
+    "advBlack": "voordeel zwart",
+    "even": "gelijk",
+    "checkmateWin": "🏆 Schaakmat! Je hebt gewonnen.",
+    "checkmateLose": "💀 Schaakmat. De tegenstander wint.",
+    "stalemate": "Remise door pat.",
+    "draw": "Remise.",
+    "check": "Schaak!",
+    "queenDanger": "Je dame staat in gevaar!",
+    "piecesDanger1": "Je hebt 1 bedreigd stuk.",
+    "piecesDangerN": "Je hebt {n} bedreigde stukken.",
+    "labelValue": "Waarde",
+    "labelMove": "Beweegt:",
+    "labelHistory": "Geschiedenis:",
+    "labelGoals": "Doelen:",
+    "movesLabel": "Zetten",
+    "card": {
+      "value": "Waarde:",
+      "move": "Hoe het beweegt.",
+      "history": "Geschiedenis en weetjes.",
+      "goals": "Doelen en zetten.",
+      "noCaps": "Geen slagen"
+    },
+    "resume": {
+      "inProgress": "lopende partij",
+      "moveOne": "{n} zet",
+      "moveN": "{n} zetten"
+    },
+    "reasons": {
+      "castle": "rokeert en brengt de koning in veiligheid",
+      "mate": "het is schaakmat!",
+      "check": "geeft schaak",
+      "promote": "promoveert een pion",
+      "capture": "wint materiaal",
+      "develop": "ontwikkelt een stuk",
+      "space": "wint ruimte",
+      "improve": "verbetert je stelling"
+    },
+    "levels": {
+      "principiante": "Beginner (~1320)",
+      "facil": "Makkelijk (~1500)",
+      "intermedio": "Gemiddeld (~1800)",
+      "avanzado": "Gevorderd (~2200)",
+      "maximo": "Maximaal (onverslaanbaar)"
+    },
+    "pieceNames": {
+      "k": "koning",
+      "q": "dame",
+      "r": "toren",
+      "b": "loper",
+      "n": "paard",
+      "p": "pion"
+    },
+    "concepts": [
+      {
+        "nombre": "Wat betekenen de getallen? (Elo)",
+        "texto": "Het getal naast de tegenstander (300, 1320, 1800, 3190…) is zijn <b>Elo</b>: een maat voor speelsterkte. Hoe hoger, hoe beter hij speelt. Ter oriëntatie: ~300 absolute beginner, ~800–1200 je bent aan het leren, ~1500 clubamateur, ~2000 heel sterk, ~2500 grootmeester en ~2800+ wereldkampioenen. Het niveau dat je hier kiest bepaalt dat getal en daarmee de sterkte van Stockfish."
+      },
+      {
+        "nombre": "Doel van het spel",
+        "texto": "Winnen door <b>schaakmat</b> te geven: de vijandelijke koning zo aanvallen dat hij niet kan ontsnappen. De koning wordt nooit geslagen; hij wordt klemgezet. Je kunt ook winnen als de tegenstander opgeeft."
+      },
+      {
+        "nombre": "Schaak, mat en remise",
+        "texto": "<b>Schaak</b>: de koning wordt aangevallen en je moet hem bij de volgende zet redden. <b>Schaakmat</b>: hij wordt aangevallen en er is geen manier om hem te redden (einde van de partij). <b>Remise</b> (gelijkspel): bijvoorbeeld door <i>pat</i> (je staat niet schaak maar hebt geen enkele legale zet), door herhaling van de stelling of door onvoldoende materiaal om mat te geven."
+      },
+      {
+        "nombre": "Bijzondere zetten",
+        "texto": "<b>Rokade</b>: de koning en een toren bewegen tegelijk om de koning in veiligheid te brengen. <b>En passant</b>: een pion kan een andere pion slaan die net twee velden is opgeschoven en naast hem is beland. <b>Promotie</b>: een pion die de laatste rij bereikt verandert in een ander stuk (meestal een dame)."
+      },
+      {
+        "nombre": "De waarde van de stukken",
+        "texto": "Handig om te beslissen of een ruil gunstig is: pion <b>1</b>, paard <b>3</b>, loper <b>3</b>, toren <b>5</b>, dame <b>9</b>. De koning heeft geen numerieke waarde omdat hij het doel is. De groene <b>+N</b> in de balken is het verschil in geslagen materiaal."
+      },
+      {
+        "nombre": "Tips om te beginnen",
+        "texto": "Beheers het centrum met je pionnen; breng paarden en lopers snel in het spel (<i>ontwikkel</i>); rokeer om de koning te beschermen; haal je dame niet te vroeg tevoorschijn; en vraag jezelf vóór elke zet af: “staat er een stuk van mij in gevaar?”. Zet de <b>trainermodus</b> aan om de aanbevolen zet te zien."
+      }
+    ],
+    "pieces": {
+      "p": {
+        "nombre": "Pion",
+        "mueve": "Beweegt één veld recht vooruit (of twee bij de eerste zet) en slaat diagonaal, nooit recht vooruit. Heeft twee bijzondere zetten: en passant slaan en promoveren.",
+        "historia": "Vertegenwoordigt de infanterie. Het is het enige stuk dat niet achteruit kan. Als het de laatste rij bereikt, \"promoveert\" het en verandert in het stuk dat je kiest: een simpele pion kan een dame worden!",
+        "objetivos": "Beheers het centrum en vorm pionketens. Een \"vrijpion\" (zonder vijandelijke pionnen die hem tegenhouden) kan de partij beslissen door naar promotie te snellen."
+      },
+      "n": {
+        "nombre": "Paard",
+        "mueve": "Springt in een \"L\"-vorm: twee velden in één richting en één loodrecht daarop. Het is het enige stuk dat over andere stukken springt.",
+        "historia": "Vertegenwoordigt de cavalerie. Zijn sprong maakt hem onvoorspelbaar: hij kan twee stukken tegelijk aanvallen met een \"vork\". Het schittert in gesloten stellingen waar stukken met groot bereik vastlopen.",
+        "objetivos": "Zoek sterke velden dicht bij het centrum waar geen pion het kan verjagen. Een goed geposteerd paard in het vijandelijke kamp is goud waard."
+      },
+      "b": {
+        "nombre": "Loper",
+        "mueve": "Glijdt diagonaal een willekeurig aantal velden. Elke loper blijft altijd op velden van één enkele kleur.",
+        "historia": "Zijn naam komt van het Arabische \"al-fil\", wat \"de olifant\" betekent. Beide lopers behouden (het \"loperpaar\") is een gewaardeerd voordeel, vooral in open stellingen.",
+        "objetivos": "Open lange diagonalen en richt op de vijandelijke koning. De twee lopers vullen elkaar aan doordat elk een kleur bestrijkt."
+      },
+      "r": {
+        "nombre": "Toren",
+        "mueve": "Beweegt in een rechte lijn, horizontaal of verticaal, een willekeurig aantal velden. Doet samen met de koning mee aan de rokade.",
+        "historia": "Vertegenwoordigt een strijdwagen of een belegeringstoren. Het is een \"zwaar\" stuk dat zijn volle kracht ontplooit wanneer het bord opengaat, in het eindspel.",
+        "objetivos": "Beheers open lijnen en plaats hem op de zevende rij, waar hij pionnen buitmaakt. Twee verbonden torens zijn verwoestend."
+      },
+      "q": {
+        "nombre": "Dame (Koningin)",
+        "mueve": "Het krachtigste stuk: combineert toren en loper. Glijdt recht en diagonaal een willekeurig aantal velden.",
+        "historia": "In het begin was ze zwak (een \"vizier\" die maar één veld bewoog). In het 15e-eeuwse Europa werd ze zo sterk dat men die variant \"schaak van de dolle dame\" noemde.",
+        "objetivos": "Haal haar niet te vroeg tevoorschijn, anders wint de tegenstander tempo door haar op te jagen. In coördinatie met andere stukken is ze dodelijk in de aanval."
+      },
+      "k": {
+        "nombre": "Koning",
+        "mueve": "Beweegt slechts één veld in elke richting. Heeft een bijzondere zet samen met de toren: de rokade, die hem in veiligheid brengt.",
+        "historia": "Het is het hart van het spel: de partij eindigt wanneer de koning niet aan het schaak kan ontsnappen (schaakmat). Hij wordt nooit geslagen; hij wordt klemgezet.",
+        "objetivos": "In de opening breng je hem in veiligheid (meestal door te rokeren). In het eindspel, met weinig stukken, wordt hij een actief stuk dat helpt pionnen te promoveren."
+      }
+    }
+  },
+  "home": {
+    "meta": {
+      "title": "VEXCHESS · Schaken met AI (Stockfish 18 · NNUE)",
+      "description": "Schaken tegen een topklasse AI (Stockfish 18 · NNUE), rechtstreeks in je browser. Trainermodus, waarschuwing voor stukken in gevaar, puzzels en een interactieve gids. Gratis en offline."
+    },
+    "hero": {
+      "badge": "Stockfish 18 · NNUE · 100% in je browser",
+      "title": "Denk. Speel.<br><span class=\"accent\">Win.</span>",
+      "sub": "Schaken tegen een topklasse kunstmatige intelligentie, met trainermodus, waarschuwing voor stukken in gevaar en een interactieve gids voor elk stuk. Geen servers, geen registratie, rechtstreeks in je browser.",
+      "cta": {
+        "play": "Nu spelen",
+        "features": "Bekijk functies"
+      },
+      "stat": {
+        "difficulty": "Moeilijkheidsniveaus",
+        "neural": "Neuraal netwerk",
+        "free": "Gratis en offline"
+      },
+      "scroll": {
+        "aria": "Omlaag"
+      }
+    },
+    "features": {
+      "eyebrow": "Functies",
+      "heading": "Alles wat je nodig hebt om te <span class=\"accent\">verbeteren</span>",
+      "subtitle": "Een complete schaakervaring die volledig in je browser draait.",
+      "neural": {
+        "title": "Tegenstander met neuraal netwerk",
+        "body": "Stockfish 18 met <b>NNUE</b>-evaluatie, de sterkste opensource-engine ter wereld. Instelbare moeilijkheid van ~1320 tot onverslaanbare kracht."
+      },
+      "coach": {
+        "title": "Trainermodus",
+        "body": "Een tweede instantie van de engine op volle kracht stelt je de beste zet voor met een pijl en legt je uit waarom."
+      },
+      "danger": {
+        "title": "Waarschuwing voor stukken in gevaar",
+        "body": "Markeert bedreigde stukken met een gloed en waarschuwt je vooral wanneer je dame in gevaar staat. Geef nooit meer ongemerkt een stuk weg."
+      },
+      "guide": {
+        "title": "Interactieve gids",
+        "body": "Een grote kaart per stuk met zijn waarde, zijn geschiedenis en een <b>simulatie in een lus</b> van hoe het beweegt en slaat."
+      },
+      "multilang": {
+        "title": "Meertalig",
+        "body": "Spaans en Engels met automatische detectie. De hele interface en de gids zijn vertaald."
+      },
+      "local": {
+        "title": "100% in je browser",
+        "body": "De engine is gecompileerd naar WebAssembly en draait lokaal. Geen servers, geen API-sleutels, geen kosten en werkt zonder internet."
+      }
+    },
+    "ia": {
+      "eyebrow": "Het brein",
+      "heading": "Stockfish 18 met <span class=\"accent\">NNUE</span> neuraal netwerk",
+      "body": "De tegenstander gebruikt dezelfde engine als Chess.com: <b>Stockfish 18</b>, met evaluatie door een neuraal netwerk (Efficiently Updatable Neural Network), gecompileerd naar <b>WebAssembly</b> en volledig draaiend in je browser in een <i>Web Worker</i>. Hij spreekt het UCI-protocol, denkt in milliseconden en stuurt niets naar een server.",
+      "list": {
+        "rules": "Volledige regels via <b>chess.js</b>: rokade, promotie, en passant, schaakmat en remise.",
+        "difficulty": "Moeilijkheid per Elo of maximale kracht, instelbaar in elke partij.",
+        "private": "Privé door ontwerp: alle berekeningen gebeuren op je eigen apparaat."
+      },
+      "cta": "Probeer de engine"
+    },
+    "roadmap": {
+      "eyebrow": "Roadmap",
+      "heading": "Dit is nog maar het <span class=\"accent\">begin</span>",
+      "subtitle": "We bouwen een platform. Wat er komt:",
+      "badge": {
+        "live": "Beschikbaar",
+        "preview": "Voorbeeld",
+        "soon": "Binnenkort"
+      },
+      "puzzles": {
+        "title": "Tactische puzzels",
+        "body": "Vind het mat in echte stellingen. Je kunt nu al trainen! <b>Spelen →</b>"
+      },
+      "history": {
+        "title": "Mijn partijen",
+        "body": "Je afgeronde partijen worden vanzelf opgeslagen. Bekijk ze zet voor zet. <b>Bekijken →</b>"
+      },
+      "live": {
+        "title": "Live",
+        "body": "Realtime partijen tegen andere mensen. Werp een blik op hoe het eruit gaat zien. <b>Bekijken →</b>"
+      },
+      "accounts": {
+        "title": "Accounts en profiel",
+        "body": "Registreer je, bewaar je partijen en je voortgang, en neem je Elo overal mee."
+      },
+      "lessons": {
+        "title": "Lessen",
+        "body": "Leer openingen, eindspelen en strategie stap voor stap."
+      },
+      "leaderboard": {
+        "title": "Leaderboard en ranglijst",
+        "body": "Strijd om de top met een Elo-systeem en ranglijsten."
+      },
+      "social": {
+        "title": "Teams en social",
+        "body": "Maak of word lid van clubs, speel met vrienden en organiseer toernooien."
+      }
+    },
+    "ctaFinal": {
+      "heading": "Klaar voor je volgende partij?",
+      "subtitle": "Kies je kant, je niveau, en laat de machine zien wie de baas is.",
+      "play": "Nu spelen"
+    },
+    "footer": {
+      "tag": "Think ahead.",
+      "links": {
+        "play": "Spelen",
+        "features": "Functies",
+        "ia": "De AI",
+        "roadmap": "Roadmap"
+      },
+      "credits": "Engine: <a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a> (GPLv3). Regels: <a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>. Stukken: set Staunty (Lichess).",
+      "copy": "© {year} VEXCHESS · Gemaakt door Jorge.",
+      "author": "Gemaakt door Jorge."
+    }
+  },
+  "directo": {
+    "pageTitle": "VEXCHESS · Live",
+    "metaDescription": "Realtime partijen op VEXCHESS. Binnenkort kun je live partijen tegen andere mensen bekijken en volgen.",
+    "heroTitle": "Realtime partijen",
+    "heroSubtitle": "Volg live partijen, kijk hoe de besten spelen en leer van elke zet. De online multiplayer is onderweg — zo gaat het eruitzien.",
+    "comingSoonTag": "Binnenkort",
+    "comingSoonBanner": "Dit is een voorbeeld van de lobby. Online partijen komen samen met de gebruikersaccounts.",
+    "featuredBadge": "LIVE · uitgelicht",
+    "liveLabel": "LIVE",
+    "colorWhite": "Wit",
+    "colorBlack": "Zwart",
+    "versus": "vs",
+    "moveLabel": "Zet {n}",
+    "spectatorsCount": "{count} kijkers",
+    "moreGamesTitle": "Meer live partijen",
+    "meanwhileTitle": "Ondertussen…",
+    "meanwhileText": "Online is nog niet beschikbaar, maar je kunt nu al tegen een topklasse AI spelen of je tactiek trainen.",
+    "ctaPlayAI": "Spelen tegen de AI",
+    "ctaSolvePuzzles": "Puzzels oplossen"
+  },
+  "comunidad": {
+    "pageTitle": "VEXCHESS · Community",
+    "metaDescription": "Jouw community op VEXCHESS: vrienden, verzoeken, spelers zoeken en je VEX ID.",
+    "tabs": {
+      "amigos": "Vrienden",
+      "solicitudes": "Verzoeken",
+      "buscar": "Zoeken",
+      "vexid": "Mijn VEX ID"
+    },
+    "loggedOut": {
+      "title": "Je community wacht op je",
+      "desc": "Log in om vrienden te maken, spelers te zoeken en je VEX ID te delen.",
+      "cta": "Inloggen"
+    },
+    "head": {
+      "eyebrow": "Community",
+      "title": "Jouw <span class=\"accent\">mensen</span>"
+    },
+    "person": {
+      "friendsDisabled": "Vrienden",
+      "sent": "Verzonden",
+      "accept": "Accepteren",
+      "add": "Toevoegen",
+      "challenge": "Uitdagen",
+      "remove": "Verwijderen",
+      "decline": "Weigeren",
+      "cancel": "Annuleren",
+      "mutual": "{count} gemeenschappelijk",
+      "subLine": "{vexId} · {elo} Elo"
+    },
+    "friends": {
+      "emptyTitle": "Je hebt nog geen vrienden",
+      "emptySub": "Zoek spelers op naam of deel je VEX ID zodat ze je kunnen toevoegen."
+    },
+    "requests": {
+      "received": "Ontvangen",
+      "sent": "Verzonden",
+      "emptyIncoming": "Je hebt geen openstaande verzoeken.",
+      "emptyOutgoing": "Je hebt geen verzoeken verzonden."
+    },
+    "search": {
+      "placeholder": "Zoeken op gebruikersnaam…",
+      "hint": "Typ minstens 2 letters om te zoeken.",
+      "searching": "Zoeken…",
+      "noResults": "Geen speler komt overeen met «{q}»."
+    },
+    "loading": "Laden…",
+    "vexid": {
+      "qrFail": "Kon de QR-code niet genereren",
+      "codeLabel": "Verbindingscode",
+      "share": "VEX ID delen",
+      "addInPersonTitle": "In persoon toevoegen",
+      "addInPersonDesc": "Laat je QR-code zien zodat men die scant, of scan zelf die van iemand anders met de camera:",
+      "scanBtn": "Een QR scannen",
+      "orAddByCode": "of voeg toe met de code",
+      "addCodePlaceholder": "ABC-DEF",
+      "note": "De NFC-kaarten komen samen met de app. Niemand wordt toegevoegd zonder dat beiden bevestigen.",
+      "reputationNew": "Nieuw"
+    },
+    "addByCode": {
+      "invalid": "Voer een geldige code van 6 tekens in."
+    },
+    "toast": {
+      "friendsNow": "Jullie zijn nu vrienden!",
+      "requestSent": "Verzoek verzonden",
+      "requestDeclined": "Verzoek geweigerd",
+      "requestCancelled": "Verzoek geannuleerd",
+      "friendRemoved": "Vriend verwijderd",
+      "error": "Fout"
+    },
+    "share": {
+      "title": "Mijn VEX ID · VEXCHESS",
+      "text": "Voeg me toe op VEXCHESS",
+      "linkCopied": "Link gekopieerd naar het klembord",
+      "copyLink": "Kopieer je link: {url}"
+    },
+    "challenge": {
+      "tc": {
+        "bullet": "Bullet",
+        "blitz": "Blitz",
+        "rapida": "Rapid"
+      },
+      "title": "{name} uitdagen",
+      "chooseTc": "Kies het speeltempo:",
+      "waiting": "Wachten op {name}…",
+      "waitingDesc": "Uitdaging voor {tc} verzonden. Zodra hij accepteert, begint de partij.",
+      "cancelBtn": "Uitdaging annuleren",
+      "notCompleted": "De uitdaging is niet voltooid"
+    },
+    "modal": {
+      "close": "Sluiten"
+    },
+    "scanner": {
+      "unavailable": "De scanner is niet beschikbaar in deze browser.",
+      "noCamera": "Je browser staat het gebruik van de camera niet toe.",
+      "hint": "Richt op de QR-code van je vriend(in)…",
+      "cameraError": "Kon geen toegang tot de camera krijgen. Controleer de rechten.",
+      "found": "Gevonden! Openen…",
+      "notVexId": "Die QR-code is geen VEX ID."
+    },
+    "profile": {
+      "loading": "Profiel laden…",
+      "subLine": "@{handle} · {elo} Elo",
+      "statPartidas": "Partijen",
+      "statVictorias": "Overwinningen",
+      "statDerrotas": "Nederlagen",
+      "loadError": "Kon het profiel niet laden"
+    }
+  },
+  "partidas": {
+    "pageTitle": "VEXCHESS · Mijn partijen",
+    "metaDescription": "Bekijk je schaakpartijen zet voor zet, met een speler en export naar PGN. Ze worden vanzelf opgeslagen in je browser.",
+    "ogTitle": "VEXCHESS · Mijn partijen",
+    "ogDescription": "Bekijk je partijen zet voor zet, met een speler en export naar PGN.",
+    "captionSelectGame": "Selecteer een partij",
+    "ctrlFirstTitle": "Begin (⏮)",
+    "ctrlFirstAria": "Naar het begin",
+    "ctrlPrevTitle": "Vorige (←)",
+    "ctrlPrevAria": "Vorige zet",
+    "ctrlPlayTitle": "Afspelen (spatie)",
+    "ctrlPlayAria": "Afspelen",
+    "ctrlNextTitle": "Volgende (→)",
+    "ctrlNextAria": "Volgende zet",
+    "ctrlLastTitle": "Einde (⏭)",
+    "ctrlLastAria": "Naar het einde",
+    "ctrlFlipTitle": "Bord draaien (F)",
+    "ctrlFlipAria": "Bord draaien",
+    "graphEvaluation": "Evaluatie",
+    "eyebrow": "Mijn partijen",
+    "title": "Bekijk je <span class=\"accent\">partijen</span>",
+    "movesTitle": "Zetten",
+    "analyzeBtn": "Analyseren",
+    "analyzeBtnTitle": "De partij analyseren met Stockfish",
+    "pgnBtn": "PGN kopiëren",
+    "pgnBtnTitle": "PGN kopiëren",
+    "countGames": "{count} partijen",
+    "countGameOne": "{count} partij",
+    "clearAll": "Alles wissen",
+    "emptyTitle": "Je hebt nog geen opgeslagen partijen.",
+    "emptySub": "Elke partij die je afmaakt (schaakmat, remise of opgave) wordt hier automatisch opgeslagen zodat je hem kunt bekijken.",
+    "playGame": "Een partij spelen <span aria-hidden=\"true\">→</span>",
+    "resultDraw": "Remise",
+    "resultWin": "Overwinning",
+    "resultLoss": "Nederlaag",
+    "levelPrincipiante": "Beginner",
+    "levelFacil": "Makkelijk",
+    "levelIntermedio": "Gemiddeld",
+    "levelAvanzado": "Gevorderd",
+    "levelMaximo": "Maximaal",
+    "sideBlack": "Zwart",
+    "sideWhite": "Wit",
+    "itemOpponent": "vs Stockfish · {level}",
+    "itemSub": "{side} · {moves} zetten · {date}",
+    "delTitle": "Wissen",
+    "delAria": "Partij wissen",
+    "captionInitialPos": "Beginstelling",
+    "captionMove": "{san}  ({moveNo}, {who})",
+    "whoWhite": "wit",
+    "whoBlack": "zwart",
+    "analyzeInProgress": "Analyseren…",
+    "analysisSummary": "{inacc} onnauwk. · {mistakes} font. · {blunders} zware",
+    "pgnCopied": "Gekopieerd!"
+  },
+  "puzzles": {
+    "pageTitle": "VEXCHESS · Tactische puzzels",
+    "metaDescription": "Train je tactiek met schaakpuzzels: vind het mat in echte stellingen. Gratis en in je browser.",
+    "ogDescription": "Vind het mat in echte stellingen. Train je tactiek gratis in je browser.",
+    "eyebrow": "Tactische puzzels",
+    "heading": "Vind het <span class=\"accent\">mat</span>",
+    "statusDefault": "Vind de beste zet.",
+    "hintBtn": "Hint",
+    "hintBtnTitle": "Hint (H)",
+    "retryBtn": "Opnieuw",
+    "retryBtnTitle": "Puzzel opnieuw",
+    "prevBtn": "‹ Vorige",
+    "prevBtnTitle": "Vorige (←)",
+    "nextBtn": "Volgende ›",
+    "nextBtnTitle": "Volgende (→)",
+    "progress": "Puzzel {n} / {total}",
+    "solvedCount": "{count} opgelost",
+    "tip": "Tip: klik op een stuk om zijn zetten te zien. Sneltoetsen: ← → wisselen van puzzel, <b>H</b> geeft een hint.",
+    "turnWhite": "Wit is aan zet",
+    "turnBlack": "Zwart is aan zet",
+    "goalMate1": "Vind het mat in 1.",
+    "goalMate2": "Vind het mat in 2.",
+    "goalWin": "Win materiaal.",
+    "themeCorridorMate": "Corridormat",
+    "themeRookEighth": "Toren naar de 8e",
+    "themeQueenMate": "Damemat",
+    "themeStalemateMate": "Patmat",
+    "themeKnightMate": "Paardmat",
+    "themeMate2Queen": "Mat in 2 · dame",
+    "themeForkWinQueen": "Vork · wint de dame",
+    "okMate1": "Correct! Schaakmat. ✓",
+    "okWin": "Vork! Je wint de dame. ✓",
+    "okMate2Key": "Mat! ✓",
+    "okMate2": "Correct! Schaakmat in 2. ✓",
+    "wrongMate1": "Dat geeft geen mat. Probeer een andere. 🔁",
+    "wrongWin": "Dat wint geen materiaal. 🔁",
+    "wrongMate2Force": "Dat forceert het mat niet. 🔁",
+    "wrongMate2": "Nog geen mat. 🔁",
+    "mate2Defends": "Goed! De tegenstander verdedigt… geef nu het mat.",
+    "finishAll": "Je hebt alle puzzels opgelost! 🎉",
+    "hintMovePiece": "Hint: beweeg het stuk van {square}.",
+    "hintFindMate": "Hint: zoek nu het schaakmat."
+  },
+  "perfil": {
+    "pageTitle": "VEXCHESS · Mijn profiel",
+    "metaDescription": "Jouw VEXCHESS-profiel: avatar, Elo, statistieken en reeks.",
+    "loading": "Je profiel laden…",
+    "guestTitle": "Je profiel wacht op je",
+    "guestText": "Log in of maak een account aan om je partijen te bewaren en je statistieken en je Elo op elk apparaat te zien.",
+    "guestCta": "Inloggen of account aanmaken",
+    "eloLabel": "Elo {elo}",
+    "memberSince": "Lid sinds {date}",
+    "logout": "Uitloggen",
+    "pinnedLabel": "Vastgezet",
+    "statGames": "Partijen",
+    "statWins": "Overwinningen",
+    "statLosses": "Nederlagen",
+    "statDraws": "Remises",
+    "statWinRate": "% Overwinningen",
+    "statCurrentStreak": "Huidige reeks",
+    "statBestStreak": "Beste reeks",
+    "streakWinOne": "{n} overwinning",
+    "streakWinMany": "{n} overwinningen",
+    "streakLossOne": "{n} nederlaag",
+    "streakLossMany": "{n} nederlagen",
+    "byLevelTitle": "Per niveau van de AI",
+    "tableColLevel": "Niveau",
+    "tableColPlayed": "Gesp.",
+    "tableColWins": "W",
+    "tableColLosses": "N",
+    "tableColDraws": "R",
+    "levelPrincipiante": "Beginner",
+    "levelFacil": "Makkelijk",
+    "levelIntermedio": "Gemiddeld",
+    "levelAvanzado": "Gevorderd",
+    "levelMaximo": "Maximaal",
+    "levelDesconocido": "Anders",
+    "avatarTitle": "Avatar",
+    "avatarClassic": "Klassiekers",
+    "badgesTitle": "Insignes",
+    "badgesHint": "Klik op een insigne om het detail te zien, het vast te zetten (max. 3) of het naast je naam uit te lichten.",
+    "badgesEmpty": "Je hebt nog geen insignes. Ze worden ontgrendeld door prestaties, evenementen en deelname aan de community.",
+    "badgeStarTitle": "Uitgelicht",
+    "badgeGrantedOn": "Behaald op {date}",
+    "badgeUnpin": "Van vastgezet verwijderen",
+    "badgePin": "Vastzetten op het profiel",
+    "badgeUnfeature": "Niet meer uitlichten",
+    "badgeFeature": "Naast de naam uitlichten",
+    "badgePinLimit": "Je hebt al 3 vastgezet. Verwijder er een om deze vast te zetten.",
+    "myGamesLink": "Mijn partijen",
+    "modalClose": "Sluiten"
+  },
+  "insignias": {
+    "pageTitle": "VEXCHESS · Insigne-inventaris",
+    "grant": {
+      "mode": {
+        "manualUnica": "Handmatig · eenmalig",
+        "sistema": "Systeem",
+        "evento": "Evenement",
+        "manual": "Handmatig",
+        "sistemaRevision": "Systeem + controle"
+      },
+      "revocable": "Herroepbaar",
+      "permanente": "Permanent"
+    },
+    "family": {
+      "rol": "Rol",
+      "legado": "Nalatenschap",
+      "competicion": "Competitie",
+      "comunidad": "Community",
+      "contribucion": "Bijdrage"
+    },
+    "familyDesc": {
+      "rol": "Wie is wie binnen VEXCHESS.",
+      "legado": "Je was hier vanaf het begin.",
+      "competicion": "Wat je wint op het bord.",
+      "comunidad": "Hoe je anderen behandelt.",
+      "contribucion": "Wat je bijdraagt aan het project."
+    },
+    "card": {
+      "ownedTag": "✓ Je hebt hem"
+    },
+    "guest": {
+      "title": "Teamzone",
+      "body": "De volledige insigne-inventaris is alleen voor het VEXCHESS-team. De rest ontdek je door te spelen, te strijden en deel te nemen aan de community.",
+      "backHome": "Terug naar de start →"
+    },
+    "filter": {
+      "all": "Alle"
+    },
+    "hero": {
+      "eyebrow": "Inventaris",
+      "title": "Insignes van <span class=\"accent\">VEXCHESS</span>",
+      "sub": "Elk insigne vertelt iets over jou: je rol, je geschiedenis, je overwinningen of wat je bijdraagt.",
+      "progressOwned": "Je hebt er <b>{owned}</b> van {total}.",
+      "progressNone": "Er zijn er <b>{total}</b> te ontdekken."
+    },
+    "loading": "Laden…"
+  },
+  "connect": {
+    "pageTitle": "VEXCHESS · Verbinden",
+    "invalidLink": {
+      "title": "Ongeldige link",
+      "text": "Deze verbindingslink is niet correct."
+    },
+    "home": "Start",
+    "searching": "Speler zoeken…",
+    "notFound": {
+      "title": "VEX ID niet gevonden",
+      "text": "Deze code hoort bij geen enkele speler."
+    },
+    "action": {
+      "login": "Log in om toe te voegen",
+      "accept": "Verzoek accepteren",
+      "add": "Toevoegen als vriend(in)"
+    },
+    "self": {
+      "msg": "Dit is je eigen VEX ID."
+    },
+    "goToCommunity": "Naar mijn community",
+    "alreadyFriends": "✓ Jullie zijn al vrienden.",
+    "viewFriends": "Vrienden bekijken",
+    "pendingOut": {
+      "msg": "Je hebt hem al een verzoek gestuurd. Hij moet het nog accepteren."
+    },
+    "foundEyebrow": "Je hebt gevonden",
+    "elo": "Elo",
+    "mutualFriends": "{count} gemeenschappelijke vriend(inn)en",
+    "confirmNote": "Niemand wordt automatisch toegevoegd: jullie moeten het allebei bevestigen.",
+    "done": {
+      "nowFriends": "Jullie zijn nu vrienden!",
+      "requestSent": "Verzoek verzonden. Zodra hij het accepteert, zijn jullie vrienden."
+    },
+    "error": {
+      "generic": "Fout"
+    },
+    "loading": "Laden…",
+    "metaDescription": "Maak verbinding met een VEXCHESS-speler via zijn VEX ID."
+  },
+  "online": {
+    "pageTitle": "VEXCHESS · Online spelen",
+    "metaDescription": "Speel online schaak op VEXCHESS: daag je vrienden uit of zoek een tegenstander op Elo.",
+    "loggedOutTitle": "Speel online",
+    "loggedOutSubtitle": "Log in om je vrienden uit te dagen of een tegenstander te zoeken.",
+    "loginBtn": "Inloggen",
+    "eyebrow": "Online spelen",
+    "heroTitle": "Vind een <span class=\"accent\">tegenstander</span>",
+    "eloOnlineLabel": "Online Elo",
+    "tcBullet": "Bullet",
+    "tcBlitz": "Blitz",
+    "tcRapid": "Rapid",
+    "challengesHeading": "Uitdagingen",
+    "rivalsHeading": "Rivalen",
+    "findRivalBtn": "Tegenstander zoeken",
+    "searchingRival": "Tegenstander zoeken ({tc})…",
+    "challengesEmpty": "Je hebt geen uitdagingen. Daag een vriend uit vanuit <a href=\"comunidad.html\">Community</a>.",
+    "challengesIncoming": "Ontvangen",
+    "challengesOutgoing": "Verzonden",
+    "acceptBtn": "Accepteren",
+    "declineBtn": "Weigeren",
+    "personEloMeta": "{elo} Elo · {tc}",
+    "rivalEloGamesMeta": "{elo} Elo · {count} partij",
+    "rivalsEmpty": "Je hebt nog geen rivaliteiten. Speel online partijen en hier zie je je onderlinge duels.",
+    "toastDeclined": "Uitdaging geweigerd",
+    "toastCancelled": "Uitdaging geannuleerd",
+    "toastError": "Fout",
+    "loading": "Laden…",
+    "cancelBtn": "Annuleren",
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} partijen"
+  },
+  "admin": {
+    "pageTitle": "VEXCHESS · Beheer",
+    "metaDescription": "Beheerpaneel van VEXCHESS.",
+    "loading": "Laden…",
+    "gateLoginTitle": "Inloggen",
+    "gateLoginMsg": "Je hebt een account met rechten nodig om deze pagina te bekijken.",
+    "loginBtn": "Inloggen",
+    "backHome": "Terug naar de start",
+    "gateRestrictedTitle": "Toegang beperkt",
+    "gateRestrictedMsg": "Je account heeft geen moderatie- of beheerrechten.",
+    "roleAll": "Alle rollen",
+    "roleStaffOnly": "Alleen staff",
+    "sortRecent": "Meest recent",
+    "sortOldest": "Oudste",
+    "sortEloDesc": "Elo ↓",
+    "sortEloAsc": "Elo ↑",
+    "sortName": "Naam A-Z",
+    "eyebrow": "Beheer",
+    "controlCenterTitle": "Controlecentrum",
+    "badgeInventoryLink": "Insigne-inventaris",
+    "searchPlaceholder": "Zoeken op gebruiker of e-mail…",
+    "detailEmpty": "Selecteer een gebruiker om zijn gegevens te bekijken en te bewerken.",
+    "dashUsers": "Gebruikers",
+    "dashUsersSub": "Geregistreerde accounts",
+    "dashStaff": "Staff",
+    "dashStaffSub": "Owner + admins + mods",
+    "dashBadges": "Insignes",
+    "dashBadgesSub": "In totaal toegekend",
+    "dashGames": "Partijen",
+    "dashGamesSub": "Opgeslagen in de cloud",
+    "loadingUsers": "Gebruikers laden…",
+    "loadError": "Fout bij het laden",
+    "rowEloLabel": "Elo",
+    "rowBadgesLabel": "Insig.",
+    "rowGamesLabel": "Part.",
+    "emptyResults": "Geen resultaten.",
+    "pagerPrev": "‹ Vorige",
+    "pagerNext": "Volgende ›",
+    "pagerInfo": "{total} gebruiker{s} · pag. {cur}/{pages}",
+    "loadingDetail": "Gegevens laden…",
+    "error": "Fout",
+    "ownerStaticNote": "De eigenaar kan niet worden gewijzigd.",
+    "selfRoleNote": "Je kunt je eigen rol niet wijzigen.",
+    "needHigherRankNote": "Je hebt een hogere rang nodig om dit te wijzigen.",
+    "badgeGranted": "✓ Toegekend",
+    "badgeGrant": "Toekennen",
+    "memberSince": "Lid sinds {date}",
+    "miniPartidas": "Partijen",
+    "miniVictorias": "Overwinningen",
+    "miniDerrotas": "Nederlagen",
+    "miniElo": "Elo",
+    "fieldRol": "Rol",
+    "fieldElo": "Elo",
+    "eloSave": "Opslaan",
+    "eloRankNote": "Vereist beheerdersrang.",
+    "badgesTitle": "Insignes",
+    "badgesHintEditable": "Klik om toe te kennen of in te trekken. De gebruiker kan ze vastzetten en uitlichten vanuit zijn profiel.",
+    "badgesHintReadonly": "Alleen-lezen: je rol staat het toekennen van insignes niet toe.",
+    "toastBadgeRevoked": "Insigne ingetrokken: {name}",
+    "toastBadgeGranted": "Insigne toegekend: {name}",
+    "toastEloOutOfRange": "Elo buiten bereik (100–3500).",
+    "toastEloUpdated": "Elo bijgewerkt naar {elo}",
+    "toastRoleUpdated": "Rol bijgewerkt: {role}",
+    "dateDash": "—"
+  },
+  "vexborn": {
+    "meta": {
+      "title": "VEXCHESS · Vexborn",
+      "description": "Vexborn: de personages van VEXCHESS. Ontdek hun verhaal en rust de jouwe uit. Alleen cosmetisch."
+    },
+    "loading": "Vexborn laden…",
+    "guest": {
+      "desc": "De personages van VEXCHESS. Log in om de roster te bekijken en de jouwe uit te rusten.",
+      "login": "Inloggen"
+    },
+    "hero": {
+      "equippedEyebrow": "Uitgeruste Vexborn",
+      "unequip": "Uitrusten ongedaan maken",
+      "emptyName": "Kies je Vexborn",
+      "emptyTitle": "Een personage dat je identiteit op het bord vertegenwoordigt. Alleen cosmetisch: het verandert geen regels, Elo of matchmaking.",
+      "emptyHint": "Tik op een kaart om zijn verhaal te zien en hem uit te rusten."
+    },
+    "collection": {
+      "soon": "Binnenkort",
+      "count": "{count} personages",
+      "origins": {
+        "label": "Vexborn Origins",
+        "desc": "De eerste wezens die op het bord ontwaakten."
+      },
+      "expansion01": {
+        "label": "Uitbreiding 01",
+        "desc": "Nieuwe Vexborn, geboren uit tactieken en legendes."
+      }
+    },
+    "card": {
+      "equipped": "Uitgerust"
+    },
+    "legal": "De Vexborn zijn puur cosmetisch. Ze bieden geen enkel voordeel in de partij en hebben geen invloed op de matchmaking, de Elo of de AI.",
+    "ficha": {
+      "soon": "Deze Vexborn komt binnenkort. Zijn artwork ligt nog in het atelier.",
+      "equip": "Vexborn uitrusten",
+      "statPiece": "Stuk",
+      "statArchetype": "Archetype",
+      "statColor": "Kleur",
+      "personality": "Persoonlijkheid",
+      "close": "Sluiten"
+    },
+    "toast": {
+      "equipError": "Kon niet uitrusten. Probeer het opnieuw."
+    },
+    "rarity": {
+      "origin": "Oorspronkelijk",
+      "mythic": "Mythisch",
+      "distinguished": "Voornaam",
+      "legacy": "Nalatenschap"
+    },
+    "char": {
+      "kael": {
+        "title": "De Eerste Zet",
+        "piece": "Paard",
+        "archetype": "Initiatief",
+        "color": "VEX-rood",
+        "quote": "Het bord ontwaakt pas als iemand de moed heeft om te zetten.",
+        "desc": "Kael was het eerste stuk dat zijn veld verliet toen het bord nog leeg was. Hij dient geen enkele ruiter: hij is de impuls die een roerloze stelling in een partij verandert. De ster op zijn borst licht op telkens als iemand het initiatief neemt zonder de uitkomst nog te kennen.",
+        "personality": "Moedig, direct, rusteloos en aanstekelijk competitief."
+      },
+      "aurelia": {
+        "title": "De Zwijgende Kroon",
+        "piece": "Koningin",
+        "archetype": "Berekening",
+        "color": "Ivoor en goud",
+        "quote": "De sterkste zet hoeft niet aangekondigd te worden.",
+        "desc": "Aurelia beschouwt het bord met gesloten ogen omdat ze stelt dat de stukken meer onthullen wanneer je niet naar ze kijkt. Haar gouden fragmenten cirkelen om elke mogelijkheid en komen alleen tot stilstand wanneer er een perfecte reeks bestaat. Ze viert nooit een schaakmat; voor haar was de partij al lang daarvoor voorbij.",
+        "personality": "Sereen, elegant, veeleisend en absoluut zeker."
+      },
+      "bastion": {
+        "title": "De Laatste Muur",
+        "piece": "Toren",
+        "archetype": "Verbonden verdediging",
+        "color": "Kobalt",
+        "quote": "Zolang één lijn verbonden blijft, is niemand alleen.",
+        "desc": "Bastion ontwaakte als een geïsoleerde toren, maar ontdekte dat hij zijn knooppunten kon verbinden met elk fort op het bord. Zijn barrières beschermen niet alleen velden: ze creëren veilige routes tussen bondgenoten. Wanneer alle verdedigingen vallen, houdt zijn netwerk de laatste lijn brandend.",
+        "personality": "Loyaal, technisch, beschermend en iets te letterlijk."
+      },
+      "nyra": {
+        "title": "De Gesluierde Diagonaal",
+        "piece": "Loper",
+        "archetype": "Infiltratie",
+        "color": "Violet",
+        "quote": "Ik stond nooit voor je. Ik stond in de hoek die je vergat.",
+        "desc": "Nyra loopt over een diagonaal tussen het zichtbare bord en zijn spiegelbeeld. De lichtende opening in haar masker laat haar beide oppervlakken oversteken en verschijnen waar een lijn geblokkeerd leek. Niemand kent haar gezicht, misschien omdat er onder het masker slechts een andere diagonaal bestaat.",
+        "personality": "Terughoudend, precies, ironisch en moeilijk te verrassen."
+      },
+      "pip": {
+        "title": "Het Eerste Veld",
+        "piece": "Pion",
+        "archetype": "Ontdekking",
+        "color": "Cyaan",
+        "quote": "Het hele bord past voor een eerste veld.",
+        "desc": "Pip heeft de laatste rij nog niet bereikt en heeft geen haast om dat te doen. Hij wil elk veld, elke tegenstander en elke mogelijke manier om vooruit te komen leren kennen. Zijn kleine ster verschijnt wanneer hij een nieuwe route vindt; daarom is hij vaak de eerste die plekken betreedt die de belangrijke stukken onbeduidend vinden.",
+        "personality": "Nieuwsgierig, optimistisch, volhardend en moediger dan hij denkt."
+      },
+      "ordan": {
+        "title": "De Eeuwige Koning",
+        "piece": "Koning",
+        "archetype": "Overleving",
+        "color": "Goud",
+        "quote": "Eeuwigheid bestaat uit het vinden van nog één veld.",
+        "desc": "Ordan herinnert zich eindspelen die gespeeld werden voordat er klokken bestonden. De sterrenbeelden op zijn kroon staan voor schaakjes waaraan hij wist te ontsnappen, niet voor overwinningen. Zijn kracht komt niet voort uit het veroveren van het bord, maar uit het begrip dat zelfs een koning moet buigen voor de juiste stelling.",
+        "personality": "Wijs, streng, geduldig en beschermend tegenover nieuwe spelers."
+      },
+      "noctis": {
+        "title": "De Zwarte Vork",
+        "piece": "Paard",
+        "archetype": "Dubbele tactiek",
+        "color": "Grafiet en cyaan",
+        "quote": "Als je me kunt zien, verdedig je al het verkeerde stuk.",
+        "desc": "Noctis doorkruist het duister niet: hij splijt het. Elke sprong laat twee schaduwen achter die verschillende doelen aanvallen, terwijl zijn echte lichaam op het ene veld blijft dat niemand in de gaten hield. Zijn cyaan oog berekent het exacte moment waarop één dreiging er twee wordt.",
+        "personality": "Stil, sluw, onafhankelijk en meedogenloos precies."
+      },
+      "eira-vhal": {
+        "title": "Rivalen van de Nexus",
+        "piece": "Paarden",
+        "archetype": "Rivaliteit",
+        "color": "Ivoor en kobalt",
+        "quote": "We rennen niet om elkaar te verslaan. We rennen om te ontdekken wie we zullen zijn bij aankomst.",
+        "desc": "Eira werd geboren uit het licht van het bord en Vhal uit de storm die in zijn spiegelbeeld verscheen. Beiden jagen op dezelfde gouden nexus langs tegengestelde paden. Ze zijn zo vaak gelijk geëindigd dat hun rivaliteit vriendschap werd, al zou geen van beiden dat woord in het bijzijn van de ander willen uitspreken.",
+        "personality": "Eira is gedisciplineerd en sereen; Vhal impulsief en trots. Samen zijn ze onafscheidelijk."
+      },
+      "rhazek": {
+        "title": "Het Karmozijnrode Gambiet",
+        "piece": "Paard",
+        "archetype": "Aanvaller / offer",
+        "color": "Tactisch rood",
+        "quote": "Een stuk is een kleine prijs voor het hele bord.",
+        "desc": "Rhazek zoekt nooit een veilig veld. Hij werd geboren uit het eerste vrijwillig geofferde stuk en leerde dat een schijnbare nederlaag de enige weg naar de overwinning kan openen. Zijn harnas draagt het merkteken van elk gambiet dat niemand durfde te aanvaarden.",
+        "personality": "Vermetel, uitdagend, briljant en gevaarlijk ongeduldig."
+      },
+      "oryn": {
+        "title": "Bewaker van de Laatste Lijn",
+        "piece": "Toren",
+        "archetype": "Archivaris / controle",
+        "color": "Ivoor en kobalt",
+        "quote": "Elke partij laat een waarheid achter op de laatste lijn.",
+        "desc": "Oryn bewaakt het archief van de vergeten partijen. Zijn banden bevatten stellingen die niet meer bestaan en zijn torens bewaren beslissingen die geen enkele speler zich herinnert te hebben genomen. Wanneer een lijn open blijft, is hij het die beslist of ze naar de overwinning of naar de leegte leidt.",
+        "personality": "Plechtig, geduldig, onpartijdig en geobsedeerd door het bewaren van elke zet."
+      },
+      "vesra": {
+        "title": "Koningin van de Zugzwang",
+        "piece": "Koningin",
+        "archetype": "Controle / manipulatie",
+        "color": "Violet",
+        "quote": "Je mag elke zet kiezen. Ze behoren allemaal mij toe.",
+        "desc": "Vesra maakt haar vijanden niet bewegingloos: ze schenkt hun mogelijkheden. Elk alternatief maakt deel uit van een netwerk dat lang voor het begin van de partij is berekend. Haar spookachtige handen bewegen geen stukken; ze halen de uitwegen weg die nooit echt waren.",
+        "personality": "Sereen, majestueus, cerebraal en verontrustend hoffelijk."
+      },
+      "brakkon": {
+        "title": "Het Levende Fort",
+        "piece": "Toren",
+        "archetype": "Bewaker / weerstand",
+        "color": "Kobalt",
+        "quote": "Laat het hele rijk oprukken. Ik blijf hier.",
+        "desc": "Brakkon bewoont geen fort: hij is het fort. Hij ontwaakte toen een heel rijk zich verschanste achter de laatste toren die nog overeind stond. Elke inslag voegt een nieuwe steen aan zijn muren toe en elke beschermde bondgenoot voedt de kern die onder zijn kantelen brandt.",
+        "personality": "Beschermend, stil, loyaal en volstrekt onwrikbaar."
+      },
+      "ilyra": {
+        "title": "Kristallen Loper",
+        "piece": "Loper",
+        "archetype": "Precisie / breking",
+        "color": "Cyaan en ivoor",
+        "quote": "Eén diagonaal volstaat wanneer het licht de juiste hoek vindt.",
+        "desc": "Ilyra beschouwt het bord als een lichtstructuur. Ze kan lange diagonalen doorkruisen, een dreiging in onschadelijke weerkaatsingen splitsen en lijnen ontdekken die voor anderen onzichtbaar zijn. Elke barst in haar lichaam bewaart de herinnering aan een perfecte berekening.",
+        "personality": "Precies, afstandelijk, nieuwsgierig en verrassend meelevend."
+      },
+      "tikk": {
+        "title": "De Loper van de Klok",
+        "piece": "Pion",
+        "archetype": "Snelheid / vernuft",
+        "color": "Cyaan",
+        "quote": "Ik heb geen extra tijd nodig. Ik heb alleen je laatste seconde nodig.",
+        "desc": "Tikk werd gebouwd om een klok in te drukken, maar besloot te rennen voordat iemand hem kon opwinden. Hij doorkruist bevroren stellingen, steelt verloren momenten en bereikt altijd de achtste rij een fractie eerder dan onmogelijk. Niemand weet of de enorme klok op zijn rug kapot is of gewoon voorloopt.",
+        "personality": "Ondeugend, snel, optimistisch en meedogenloos competitief."
+      },
+      "malrec": {
+        "title": "De Koning zonder Kroon",
+        "piece": "Koning",
+        "archetype": "Overleving / ballingschap",
+        "color": "Grafiet en goud",
+        "quote": "Een rijk kan vallen. De koning moet nog altijd zetten.",
+        "desc": "Malrec verloor zijn leger, zijn troon en zelfs het recht om een volledige kroon te dragen. Hij behield alleen een ivoren pion en de plicht om die in leven te houden. De kettingen die hij meesleept bestaan uit de velden van zijn voormalige rijk; elk herinnert aan een terugtocht die hij weigerde een nederlaag te noemen.",
+        "personality": "Sober, melancholiek, strategisch en veel gevaarlijker dan hij lijkt."
+      },
+      "solenne": {
+        "title": "De Achtste Stap",
+        "piece": "Tot koningin gepromoveerde pion",
+        "archetype": "Vooruitgang / overwinning",
+        "color": "Goud en ivoor",
+        "quote": "Ik werd niet met een kroon geboren. Ik stak het bord over om hem te verdienen.",
+        "desc": "Solenne begon als het kleinste stuk van een anonieme rij. Ze rukte telkens één veld op, overleefde zeven onmogelijke lijnen en bereikte de overkant zonder te vergeten waar ze vandaan kwam. Haar transformatie eindigt nooit: de pionbasis blijft zichtbaar onder een kroon die stap voor stap is opgebouwd.",
+        "personality": "Vastberaden, bescheiden, inspirerend en veerkrachtig."
+      }
+    }
+  },
+  "auth": {
+    "role": {
+      "owner": "Eigenaar",
+      "admin": "Beheerder",
+      "moderator": "Moderator",
+      "member": "Lid"
+    },
+    "avatar": {
+      "vexKnight": "VEX-paard",
+      "ivoryQueen": "Ivoren koningin",
+      "cobaltRook": "Kobalt toren",
+      "violetBishop": "Violette loper",
+      "tealPawn": "Turquoise pion",
+      "goldenKing": "Gouden koning",
+      "shadowKnight": "Schaduwpaard",
+      "rivalDuo": "Rivaliserend duo"
+    },
+    "reputation": {
+      "unrated": "Niet beoordeeld",
+      "goodStanding": "Goed gedrag",
+      "trusted": "Betrouwbaar",
+      "respected": "Gerespecteerd",
+      "exemplary": "Voorbeeldig"
+    },
+    "presence": {
+      "online": "Online",
+      "away": "Afwezig",
+      "playing": "Aan het spelen",
+      "spectating": "Aan het kijken",
+      "offline": "Offline"
+    },
+    "modal": {
+      "tabLogin": "Inloggen",
+      "tabRegister": "Account aanmaken",
+      "close": "Sluiten"
+    },
+    "login": {
+      "loginLabel": "E-mail of gebruikersnaam",
+      "passwordLabel": "Wachtwoord",
+      "submit": "Inloggen"
+    },
+    "register": {
+      "usernameLabel": "Gebruikersnaam",
+      "emailLabel": "E-mail",
+      "submit": "Account aanmaken"
+    },
+    "error": {
+      "generic": "Kon niet voltooien."
+    },
+    "username": {
+      "checking": "Controleren…",
+      "available": "✓ Beschikbaar",
+      "unavailable": "Niet beschikbaar.",
+      "formatValid": "✓ Geldig formaat",
+      "rangeError": "Tussen 3 en 20 tekens.",
+      "formatError": "Begin met een letter; alleen letters, cijfers en _.",
+      "reservedError": "Die naam is niet beschikbaar."
+    },
+    "password": {
+      "minChars": "Minimaal 8 tekens ({n}/8)",
+      "weak": "Zwak",
+      "acceptable": "Acceptabel",
+      "good": "Goed",
+      "strong": "Sterk"
+    },
+    "chip": {
+      "login": "Inloggen",
+      "notificationsTitle": "{count} melding",
+      "notificationsTitlePlural": "{count} meldingen"
+    },
+    "menu": {
+      "profile": "Mijn profiel",
+      "academy": "Academie · AXIOM",
+      "playOnline": "Online spelen",
+      "badgesInventory": "Insigne-inventaris",
+      "adminPanel": "Beheerpaneel",
+      "signout": "Uitloggen",
+      "community": "Community",
+      "myGames": "Mijn partijen"
+    }
+  }
+}

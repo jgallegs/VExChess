@@ -5,6 +5,7 @@
 // ============================================================
 import { Chess } from './chess.js';
 import { api, getUser, onAuth } from './auth.js?v=16';
+import { t } from './i18n.js?v=9';
 
 const ARCHIVE_KEY = 'vexchess:archive';
 const FILES = 'abcdefgh';
@@ -76,14 +77,14 @@ async function loadGames() {
 
 function resultLabel(entry) {
   // resultado desde la perspectiva del jugador humano
-  if (entry.result === '1/2-1/2') return { txt: 'Tablas', cls: 'draw' };
+  if (entry.result === '1/2-1/2') return { txt: t('partidas.resultDraw'), cls: 'draw' };
   const humanWon = (entry.result === '1-0' && entry.humanColor === 'w') ||
                    (entry.result === '0-1' && entry.humanColor === 'b');
-  return humanWon ? { txt: 'Victoria', cls: 'win' } : { txt: 'Derrota', cls: 'loss' };
+  return humanWon ? { txt: t('partidas.resultWin'), cls: 'win' } : { txt: t('partidas.resultLoss'), cls: 'loss' };
 }
 const LEVEL_NAMES = {
-  principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio',
-  avanzado: 'Avanzado', maximo: 'Máximo'
+  principiante: t('partidas.levelPrincipiante'), facil: t('partidas.levelFacil'), intermedio: t('partidas.levelIntermedio'),
+  avanzado: t('partidas.levelAvanzado'), maximo: t('partidas.levelMaximo')
 };
 function fmtDate(iso) {
   try {
@@ -94,7 +95,7 @@ function fmtDate(iso) {
 }
 
 function renderList() {
-  countEl.textContent = archive.length + (archive.length === 1 ? ' partida' : ' partidas');
+  countEl.textContent = archive.length === 1 ? t('partidas.countGameOne', { count: archive.length }) : t('partidas.countGames', { count: archive.length });
   clearEl.hidden = archive.length === 0;
   if (archive.length === 0) {
     listEl.innerHTML = '';
@@ -105,16 +106,16 @@ function renderList() {
   emptyEl.hidden = true;
   listEl.innerHTML = archive.map((e, i) => {
     const r = resultLabel(e);
-    const side = e.humanColor === 'b' ? 'Negras' : 'Blancas';
+    const side = e.humanColor === 'b' ? t('partidas.sideBlack') : t('partidas.sideWhite');
     const moves = Math.ceil((e.plies || 0) / 2);
     const active = current && current.entry.id === e.id ? ' active' : '';
     return '<button class="rv-item' + active + '" data-id="' + e.id + '">' +
       '<span class="rv-badge ' + r.cls + '">' + r.txt + '</span>' +
       '<span class="rv-item-main">' +
-        '<span class="rv-item-top">vs Stockfish · ' + (LEVEL_NAMES[e.level] || e.level || '—') + '</span>' +
-        '<span class="rv-item-sub">' + side + ' · ' + moves + ' jugadas · ' + fmtDate(e.date) + '</span>' +
+        '<span class="rv-item-top">' + t('partidas.itemOpponent', { level: (LEVEL_NAMES[e.level] || e.level || '—') }) + '</span>' +
+        '<span class="rv-item-sub">' + t('partidas.itemSub', { side: side, moves: moves, date: fmtDate(e.date) }) + '</span>' +
       '</span>' +
-      '<span class="rv-del" data-del="' + e.id + '" title="Borrar" aria-label="Borrar partida">✕</span>' +
+      '<span class="rv-del" data-del="' + e.id + '" title="' + t('partidas.delTitle') + '" aria-label="' + t('partidas.delAria') + '">✕</span>' +
     '</button>';
   }).join('');
 }
@@ -169,16 +170,16 @@ function highlightMove() {
 }
 
 function updateCaption() {
-  if (!current) { captionEl.textContent = 'Selecciona una partida'; dotEl.className = 'rv-turn-dot'; plyEl.textContent = '—'; return; }
+  if (!current) { captionEl.textContent = t('partidas.captionSelectGame'); dotEl.className = 'rv-turn-dot'; plyEl.textContent = '—'; return; }
   const total = current.fens.length - 1;
   const g = new Chess(current.fens[ply]);
   const turn = g.turn();
   dotEl.className = 'rv-turn-dot ' + (turn === 'w' ? 'w' : 'b');
-  if (ply === 0) captionEl.textContent = 'Posición inicial';
+  if (ply === 0) captionEl.textContent = t('partidas.captionInitialPos');
   else {
     const moveNo = Math.ceil(ply / 2);
-    const who = (ply % 2 === 1) ? 'blancas' : 'negras';
-    captionEl.textContent = current.sans[ply - 1] + '  (' + moveNo + ', ' + who + ')';
+    const who = (ply % 2 === 1) ? t('partidas.whoWhite') : t('partidas.whoBlack');
+    captionEl.textContent = t('partidas.captionMove', { san: current.sans[ply - 1], moveNo: moveNo, who: who });
   }
   plyEl.textContent = ply + ' / ' + total;
 }
@@ -247,7 +248,7 @@ function clampCp(v) { return Math.max(-CLAMP * 3, Math.min(CLAMP * 3, v)); }
 async function analyzeGame() {
   if (!current || analyzing) return;
   analyzing = true;
-  const btn = document.getElementById('rv-analyze'); btn.textContent = 'Analizando…'; btn.disabled = true;
+  const btn = document.getElementById('rv-analyze'); btn.textContent = t('partidas.analyzeInProgress'); btn.disabled = true;
   document.getElementById('rv-graph-wrap').hidden = false;
   const bar = document.getElementById('rv-analyze-bar'); const fill = document.getElementById('rv-analyze-fill');
   bar.hidden = false; fill.style.width = '0%';
@@ -270,7 +271,7 @@ async function analyzeGame() {
     renderGraph();
   }
   classif = classifyMoves();
-  analyzing = false; bar.hidden = true; btn.textContent = 'Analizar'; btn.disabled = false;
+  analyzing = false; bar.hidden = true; btn.textContent = t('partidas.analyzeBtn'); btn.disabled = false;
   renderGraph(); renderMoves(); renderSummary();
 }
 function classifyMoves() {
@@ -320,7 +321,7 @@ function renderSummary() {
     if (current.fens[p].split(' ')[1] !== hc) continue;
     if (classif[p] === 'inacc') ina++; else if (classif[p] === 'mistake') mis++; else if (classif[p] === 'blunder') blu++;
   }
-  el.textContent = ina + ' impr. · ' + mis + ' err. · ' + blu + ' graves';
+  el.textContent = t('partidas.analysisSummary', { inacc: ina, mistakes: mis, blunders: blu });
 }
 function moveMark(ply1) {
   if (!classif) return '';
@@ -378,7 +379,7 @@ document.getElementById('rv-pgn').addEventListener('click', () => {
   if (!current) return;
   const btn = document.getElementById('rv-pgn');
   const txt = current.entry.pgn;
-  const done = () => { btn.textContent = '¡Copiado!'; setTimeout(() => btn.textContent = 'Copiar PGN', 1300); };
+  const done = () => { btn.textContent = t('partidas.pgnCopied'); setTimeout(() => btn.textContent = t('partidas.pgnBtn'), 1300); };
   if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(() => fallback());
   else fallback();
   function fallback() {

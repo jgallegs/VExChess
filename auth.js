@@ -6,6 +6,7 @@
 //  - Migra las partidas locales a la cuenta al iniciar sesión
 // ============================================================
 import { badgeIcon } from './badges.js?v=3';
+import { t } from './i18n.js?v=9';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {
@@ -82,10 +83,10 @@ function emit() { listeners.forEach(f => { try { f(currentUser); } catch (e) {} 
 
 // ---------- roles (compartido con el panel de admin) ----------
 export const ROLES = {
-  owner:     { level: 100, label: 'Propietario',   color: '#FF3B47' },
-  admin:     { level: 80,  label: 'Administrador',  color: '#F59E0B' },
-  moderator: { level: 50,  label: 'Moderador',      color: '#3B82F6' },
-  member:    { level: 0,   label: 'Miembro',        color: '#8b97a9' },
+  owner:     { level: 100, label: t('auth.role.owner'),     color: '#FF3B47' },
+  admin:     { level: 80,  label: t('auth.role.admin'),     color: '#F59E0B' },
+  moderator: { level: 50,  label: t('auth.role.moderator'), color: '#3B82F6' },
+  member:    { level: 0,   label: t('auth.role.member'),    color: '#8b97a9' },
 };
 export const STAFF_LEVEL = 50;
 export function roleMeta(r) { return ROLES[r] || ROLES.member; }
@@ -94,7 +95,7 @@ export function roleLevel(r) { return (ROLES[r] ? ROLES[r].level : 0); }
 // ---------- avatar ----------
 export const AVATAR_COLORS = { red: '#FF3B47', blue: '#3B82F6', green: '#3AA856', gold: '#E0A82E', slate: '#64748B', violet: '#8B5CF6' };
 export const AVATAR_IMAGES = ['vex-knight', 'ivory-queen', 'cobalt-rook', 'violet-bishop', 'teal-pawn', 'golden-king', 'shadow-knight', 'rival-duo'];
-export const AVATAR_IMAGE_NAMES = { 'vex-knight': 'Caballo VEX', 'ivory-queen': 'Reina marfil', 'cobalt-rook': 'Torre cobalto', 'violet-bishop': 'Alfil violeta', 'teal-pawn': 'Peón turquesa', 'golden-king': 'Rey dorado', 'shadow-knight': 'Caballo sombra', 'rival-duo': 'Dúo rival' };
+export const AVATAR_IMAGE_NAMES = { 'vex-knight': t('auth.avatar.vexKnight'), 'ivory-queen': t('auth.avatar.ivoryQueen'), 'cobalt-rook': t('auth.avatar.cobaltRook'), 'violet-bishop': t('auth.avatar.violetBishop'), 'teal-pawn': t('auth.avatar.tealPawn'), 'golden-king': t('auth.avatar.goldenKing'), 'shadow-knight': t('auth.avatar.shadowKnight'), 'rival-duo': t('auth.avatar.rivalDuo') };
 export function avatarHTML(avatar, cls) {
   const a = avatar || 'knight:red';
   if (a.startsWith('img:')) {
@@ -105,13 +106,13 @@ export function avatarHTML(avatar, cls) {
 }
 
 // ---------- reputación (Social Identity Pack) ----------
-export const REPUTATION = { unrated: { label: 'Sin valorar', order: 0 }, 'good-standing': { label: 'Buena conducta', order: 1 }, trusted: { label: 'De confianza', order: 2 }, respected: { label: 'Respetado', order: 3 }, exemplary: { label: 'Ejemplar', order: 4 } };
+export const REPUTATION = { unrated: { label: t('auth.reputation.unrated'), order: 0 }, 'good-standing': { label: t('auth.reputation.goodStanding'), order: 1 }, trusted: { label: t('auth.reputation.trusted'), order: 2 }, respected: { label: t('auth.reputation.respected'), order: 3 }, exemplary: { label: t('auth.reputation.exemplary'), order: 4 } };
 export function repMeta(k) { return REPUTATION[k] || REPUTATION.unrated; }
 export function repChipHTML(k, iconOnly) {
   const m = repMeta(k);
   return '<span class="vx-rep vx-rep-' + esc(k) + '" title="' + esc(m.label) + '"><img src="assets/social/reputation/' + esc(k) + '.png" alt="">' + (iconOnly ? '' : '<span>' + esc(m.label) + '</span>') + '</span>';
 }
-export const PRESENCE = { online: 'En línea', away: 'Ausente', playing: 'Jugando', spectating: 'Viendo', offline: 'Desconectado' };
+export const PRESENCE = { online: t('auth.presence.online'), away: t('auth.presence.away'), playing: t('auth.presence.playing'), spectating: t('auth.presence.spectating'), offline: t('auth.presence.offline') };
 export function presenceHTML(p) { if (!p || p === 'offline') return ''; return '<span class="vx-presence p-' + p + '" title="' + (PRESENCE[p] || '') + '"></span>'; }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
@@ -123,22 +124,22 @@ function ensureModal() {
   d.className = 'vx-modal'; d.id = 'vx-modal';
   d.innerHTML =
     '<div class="vx-modal-box" role="dialog" aria-modal="true">' +
-      '<button class="vx-modal-x" aria-label="Cerrar">✕</button>' +
+      '<button class="vx-modal-x" aria-label="' + t('auth.modal.close') + '">✕</button>' +
       '<div class="vx-modal-brand"><img src="assets/knight-logo.svg" alt=""><b>VEXCHESS</b></div>' +
-      '<div class="vx-tabs"><span class="vx-tab-slider"></span><button class="vx-tab active" data-tab="login">Entrar</button><button class="vx-tab" data-tab="register">Crear cuenta</button></div>' +
+      '<div class="vx-tabs"><span class="vx-tab-slider"></span><button class="vx-tab active" data-tab="login">' + t('auth.modal.tabLogin') + '</button><button class="vx-tab" data-tab="register">' + t('auth.modal.tabRegister') + '</button></div>' +
       '<form class="vx-form" data-form="login">' +
-        '<label>Email o nombre de usuario<input name="login" autocomplete="username" required></label>' +
-        '<label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>' +
+        '<label>' + t('auth.login.loginLabel') + '<input name="login" autocomplete="username" required></label>' +
+        '<label>' + t('auth.login.passwordLabel') + '<input name="password" type="password" autocomplete="current-password" required></label>' +
         '<div class="vx-err" hidden></div>' +
-        '<button class="vx-submit" type="submit">Entrar</button>' +
+        '<button class="vx-submit" type="submit">' + t('auth.login.submit') + '</button>' +
       '</form>' +
       '<form class="vx-form" data-form="register" hidden>' +
-        '<label>Nombre de usuario<input name="username" autocomplete="username" autocapitalize="off" spellcheck="false" required><span class="vx-check" data-check="username"></span></label>' +
-        '<label>Email<input name="email" type="email" autocomplete="email" required></label>' +
-        '<label>Contraseña<input name="password" type="password" autocomplete="new-password" required></label>' +
+        '<label>' + t('auth.register.usernameLabel') + '<input name="username" autocomplete="username" autocapitalize="off" spellcheck="false" required><span class="vx-check" data-check="username"></span></label>' +
+        '<label>' + t('auth.register.emailLabel') + '<input name="email" type="email" autocomplete="email" required></label>' +
+        '<label>' + t('auth.login.passwordLabel') + '<input name="password" type="password" autocomplete="new-password" required></label>' +
         '<div class="vx-strength" data-strength><div class="vx-bars"><i></i><i></i><i></i><i></i></div><span class="vx-strength-label"></span></div>' +
         '<div class="vx-err" hidden></div>' +
-        '<button class="vx-submit" type="submit">Crear cuenta</button>' +
+        '<button class="vx-submit" type="submit">' + t('auth.register.submit') + '</button>' +
       '</form>' +
     '</div>';
   document.body.appendChild(d);
@@ -184,7 +185,7 @@ function ensureModal() {
         close(); renderAccounts(); emit();
         await maybeMigrate();
       } catch (err) {
-        errEl.textContent = (err && err.message) || 'No se pudo completar.'; errEl.hidden = false;
+        errEl.textContent = (err && err.message) || t('auth.error.generic'); errEl.hidden = false;
       } finally { btn.disabled = false; btn.textContent = old; }
     });
   });
@@ -202,30 +203,30 @@ function ensureModal() {
     if (!v) { setCheck(uCheck, '', ''); return; }
     const fmt = validateUsernameClient(v);
     if (fmt) { clearTimeout(uTimer); setCheck(uCheck, 'bad', fmt); return; }
-    setCheck(uCheck, 'checking', 'Comprobando…');
+    setCheck(uCheck, 'checking', t('auth.username.checking'));
     clearTimeout(uTimer); const my = ++uReq;
     uTimer = setTimeout(async () => {
       try {
         const r = await api.checkUsername(v); if (my !== uReq) return;
-        if (r.valid && r.available) setCheck(uCheck, 'ok', '✓ Disponible');
-        else setCheck(uCheck, 'bad', r.reason || 'No disponible.');
-      } catch (e) { if (my === uReq) setCheck(uCheck, 'ok', '✓ Formato válido'); }
+        if (r.valid && r.available) setCheck(uCheck, 'ok', t('auth.username.available'));
+        else setCheck(uCheck, 'bad', r.reason || t('auth.username.unavailable'));
+      } catch (e) { if (my === uReq) setCheck(uCheck, 'ok', t('auth.username.formatValid')); }
     }, 380);
   });
   pInput.addEventListener('input', () => {
     const v = pInput.value;
     const sc = passwordScore(v);
     strengthEl.className = 'vx-strength' + (v ? ' s' + sc.score : '');
-    strengthLabel.textContent = v ? (v.length < 8 ? 'Mínimo 8 caracteres (' + v.length + '/8)' : sc.label) : '';
+    strengthLabel.textContent = v ? (v.length < 8 ? t('auth.password.minChars', { n: v.length }) : sc.label) : '';
   });
 
   return d;
 }
 const RESERVED_C = new Set(['admin','administrator','root','moderator','mod','staff','support','help','system','sistema','vexchess','vex','api','www','mail','official','oficial','null','undefined','none','guest','invitado','bot','stockfish','me','yo','owner','user','usuario','users','login','register','logout','settings','profile','perfil','play','puzzles','partidas','directo','about','contacto']);
 function validateUsernameClient(u) {
-  if (u.length < 3 || u.length > 20) return 'Entre 3 y 20 caracteres.';
-  if (!/^[a-zA-Z][a-zA-Z0-9_]{2,19}$/.test(u)) return 'Empieza por letra; solo letras, números y _.';
-  if (RESERVED_C.has(u.toLowerCase())) return 'Ese nombre no está disponible.';
+  if (u.length < 3 || u.length > 20) return t('auth.username.rangeError');
+  if (!/^[a-zA-Z][a-zA-Z0-9_]{2,19}$/.test(u)) return t('auth.username.formatError');
+  if (RESERVED_C.has(u.toLowerCase())) return t('auth.username.reservedError');
   return null;
 }
 // Fuerza de la contraseña: 0 (vacía) a 4 (fuerte)
@@ -238,7 +239,7 @@ function passwordScore(p) {
   s += Math.max(0, classes - 1);
   s = Math.min(4, s);
   if (p.length < 8) s = Math.min(s, 1);
-  return { score: s, label: ['', 'Débil', 'Aceptable', 'Buena', 'Fuerte'][s] || '' };
+  return { score: s, label: ['', t('auth.password.weak'), t('auth.password.acceptable'), t('auth.password.good'), t('auth.password.strong')][s] || '' };
 }
 export function openAuth(tab) {
   const d = ensureModal();
@@ -280,10 +281,10 @@ export function refreshNotifs() { return pollNotifs(); }
 
 // ---------- chip de cuenta en el navbar ----------
 function accountHTML() {
-  if (!currentUser) return '<button class="vx-entrar" type="button">Entrar</button>';
+  if (!currentUser) return '<button class="vx-entrar" type="button">' + t('auth.chip.login') + '</button>';
   const featured = currentBadges.find(b => b.featured);
   const total = notifCount + challengeCount;
-  const dot = total > 0 ? '<span class="vx-chip-dot" title="' + total + ' aviso' + (total === 1 ? '' : 's') + '"></span>' : '';
+  const dot = total > 0 ? '<span class="vx-chip-dot" title="' + (total === 1 ? t('auth.chip.notificationsTitle', { count: total }) : t('auth.chip.notificationsTitlePlural', { count: total })) + '"></span>' : '';
   const menuDot = notifCount > 0 ? '<span class="vx-menu-dot">' + notifCount + '</span>' : '';
   const chDot = challengeCount > 0 ? '<span class="vx-menu-dot">' + challengeCount + '</span>' : '';
   return '<div class="vx-acct">' +
@@ -294,15 +295,15 @@ function accountHTML() {
         '<span class="vx-chip-elo">' + currentUser.elo + '</span>' +
       '</button>' +
       '<div class="vx-menu">' +
-        '<a href="perfil.html">Mi perfil</a>' +
-        '<a href="academia.html">Academia · AXIOM</a>' +
-        '<a href="online.html">Jugar online' + chDot + '</a>' +
-        '<a href="comunidad.html">Comunidad' + menuDot + '</a>' +
-        '<a href="partidas.html">Mis partidas</a>' +
+        '<a href="perfil.html">' + t('auth.menu.profile') + '</a>' +
+        '<a href="academia.html">' + t('auth.menu.academy') + '</a>' +
+        '<a href="online.html">' + t('auth.menu.playOnline') + chDot + '</a>' +
+        '<a href="comunidad.html">' + t('auth.menu.community') + menuDot + '</a>' +
+        '<a href="partidas.html">' + t('auth.menu.myGames') + '</a>' +
         '<a href="vexborn.html">Vexborn</a>' +
-        (currentUser.is_admin ? '<a href="insignias.html">Inventario de insignias</a>' : '') +
-        (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">Panel de admin</a>' : '') +
-        '<button type="button" class="vx-signout">Cerrar sesión</button>' +
+        (currentUser.is_admin ? '<a href="insignias.html">' + t('auth.menu.badgesInventory') + '</a>' : '') +
+        (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">' + t('auth.menu.adminPanel') + '</a>' : '') +
+        '<button type="button" class="vx-signout">' + t('auth.menu.signout') + '</button>' +
       '</div>' +
     '</div>';
 }

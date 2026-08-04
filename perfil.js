@@ -1,35 +1,38 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
+import { t } from './i18n.js?v=9';
 import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=16';
 import { badgeMeta } from './badges.js?v=3';
 import { vexbornByKey, rarityMeta } from './vexborn.js?v=2';
 
 const root = document.getElementById('perfil-root');
-const LEVEL_NAMES = { principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio', avanzado: 'Avanzado', maximo: 'Máximo', desconocido: 'Otro' };
+const LEVEL_NAMES = { principiante: t('perfil.levelPrincipiante'), facil: t('perfil.levelFacil'), intermedio: t('perfil.levelIntermedio'), avanzado: t('perfil.levelAvanzado'), maximo: t('perfil.levelMaximo'), desconocido: t('perfil.levelDesconocido') };
 
 function fmtDate(iso) { try { return new Date(iso).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return '—'; } }
 function pct(a, b) { return b ? Math.round((a / b) * 100) : 0; }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function streakText(s) {
   if (!s) return '—';
-  return s > 0 ? (s + (s === 1 ? ' victoria' : ' victorias')) : ((-s) + ((-s) === 1 ? ' derrota' : ' derrotas'));
+  return s > 0
+    ? t(s === 1 ? 'perfil.streakWinOne' : 'perfil.streakWinMany', { n: s })
+    : t((-s) === 1 ? 'perfil.streakLossOne' : 'perfil.streakLossMany', { n: -s });
 }
 
 function loadingHTML() {
   return '<section class="pf-loading">' +
     '<div class="pf-loading-inner"><div class="pf-loading-ring"></div>' +
     '<img class="pf-loading-knight" src="assets/knight-logo.svg" alt=""></div>' +
-    '<p>Cargando tu perfil…</p>' +
+    '<p>' + t('perfil.loading') + '</p>' +
     '</section>';
 }
 
 function notLogged() {
   return '<section class="pf-guest">' +
     '<img src="assets/knight-logo.svg" alt="" class="pf-guest-logo">' +
-    '<h1>Tu perfil te espera</h1>' +
-    '<p>Inicia sesión o crea una cuenta para guardar tus partidas, ver tus estadísticas y tu Elo desde cualquier dispositivo.</p>' +
-    '<button class="btn-play" id="pf-entrar">Entrar o crear cuenta <span aria-hidden="true">→</span></button>' +
+    '<h1>' + t('perfil.guestTitle') + '</h1>' +
+    '<p>' + t('perfil.guestText') + '</p>' +
+    '<button class="btn-play" id="pf-entrar">' + t('perfil.guestCta') + ' <span aria-hidden="true">→</span></button>' +
     '</section>';
 }
 
@@ -51,7 +54,7 @@ function loggedIn(u, s) {
       '<img class="pf-name-badge" src="assets/badges/' + featured.badge + '.png" alt="">' +
       tipHTML(badgeMeta(featured.badge)) + '</span>' : '';
   const pinnedRow = pinned.length
-    ? '<div class="pf-pinned"><span class="pf-pinned-label">Fijadas</span>' +
+    ? '<div class="pf-pinned"><span class="pf-pinned-label">' + t('perfil.pinnedLabel') + '</span>' +
         '<span class="pf-pinned-icos">' + pinned.map(b =>
           '<span class="pf-pin" data-badge="' + b.badge + '">' +
             '<img class="pf-pin-ico" src="assets/badges/' + b.badge + '.png" alt="">' +
@@ -74,36 +77,36 @@ function loggedIn(u, s) {
       avatarHTML(u.avatar, 'lg') +
       '<div class="pf-hero-info">' +
         '<h1 class="pf-name">' + esc(u.username) + nameBadge + '</h1>' +
-        '<div class="pf-hero-meta"><span class="pf-elo">Elo ' + u.elo + '</span>' +
-          '<span class="pf-since">Miembro desde ' + fmtDate(u.created_at) + '</span></div>' +
+        '<div class="pf-hero-meta"><span class="pf-elo">' + t('perfil.eloLabel', { elo: u.elo }) + '</span>' +
+          '<span class="pf-since">' + t('perfil.memberSince', { date: fmtDate(u.created_at) }) + '</span></div>' +
         vbChip +
       '</div>' +
-      '<div class="pf-hero-actions"><a class="pf-btn ghost" href="partidas.html">Mis partidas</a>' +
-        '<button class="pf-btn danger" id="pf-logout">Cerrar sesión</button></div>' +
+      '<div class="pf-hero-actions"><a class="pf-btn ghost" href="partidas.html">' + t('perfil.myGamesLink') + '</a>' +
+        '<button class="pf-btn danger" id="pf-logout">' + t('perfil.logout') + '</button></div>' +
       pinnedRow +
     '</section>' +
     badgesSection(badges) +
 
     '<section class="pf-stats">' +
-      stat('Partidas', s.played) +
-      stat('Victorias', s.wins, 'w') +
-      stat('Derrotas', s.losses, 'l') +
-      stat('Tablas', s.draws, 'd') +
-      stat('% Victorias', wr + '%') +
-      stat('Racha actual', streakText(s.streak), s.streak > 0 ? 'w' : s.streak < 0 ? 'l' : '', true) +
-      stat('Mejor racha', s.best_streak ? s.best_streak + (s.best_streak === 1 ? ' victoria' : ' victorias') : '—', 'w', true) +
+      stat(t('perfil.statGames'), s.played) +
+      stat(t('perfil.statWins'), s.wins, 'w') +
+      stat(t('perfil.statLosses'), s.losses, 'l') +
+      stat(t('perfil.statDraws'), s.draws, 'd') +
+      stat(t('perfil.statWinRate'), wr + '%') +
+      stat(t('perfil.statCurrentStreak'), streakText(s.streak), s.streak > 0 ? 'w' : s.streak < 0 ? 'l' : '', true) +
+      stat(t('perfil.statBestStreak'), s.best_streak ? t(s.best_streak === 1 ? 'perfil.streakWinOne' : 'perfil.streakWinMany', { n: s.best_streak }) : '—', 'w', true) +
     '</section>' +
 
     (s.played ? (
     '<section class="pf-card">' +
-      '<h2>Por nivel de la IA</h2>' +
-      '<table class="pf-table"><thead><tr><th>Nivel</th><th>Jug.</th><th>V</th><th>D</th><th>E</th></tr></thead><tbody>' + byLevel + '</tbody></table>' +
+      '<h2>' + t('perfil.byLevelTitle') + '</h2>' +
+      '<table class="pf-table"><thead><tr><th>' + t('perfil.tableColLevel') + '</th><th>' + t('perfil.tableColPlayed') + '</th><th>' + t('perfil.tableColWins') + '</th><th>' + t('perfil.tableColLosses') + '</th><th>' + t('perfil.tableColDraws') + '</th></tr></thead><tbody>' + byLevel + '</tbody></table>' +
     '</section>') : '') +
 
     '<section class="pf-card">' +
-      '<h2>Avatar</h2>' +
+      '<h2>' + t('perfil.avatarTitle') + '</h2>' +
       '<div class="pf-av-imgs">' + imgAvatars + '</div>' +
-      '<div class="pf-av-classic">Clásicos</div>' +
+      '<div class="pf-av-classic">' + t('perfil.avatarClassic') + '</div>' +
       '<div class="pf-avatars">' + swatches + '</div>' +
     '</section>';
 }
@@ -147,19 +150,19 @@ function tipHTML(m) {
 }
 function badgesSection(badges) {
   return '<section class="pf-card">' +
-    '<h2>Insignias <span class="pf-badges-count">' + badges.length + '</span></h2>' +
+    '<h2>' + t('perfil.badgesTitle') + ' <span class="pf-badges-count">' + badges.length + '</span></h2>' +
     (badges.length
       ? '<div class="pf-badges">' + badges.map(b => {
           const m = badgeMeta(b.badge);
           return '<button class="pf-badge' + (b.pinned ? ' pinned' : '') + '" data-badge="' + b.badge + '">' +
             '<img src="assets/badges/' + b.badge + '.png" alt="">' +
             '<span class="pf-badge-name">' + esc(m.name) + '</span>' +
-            (b.featured ? '<span class="pf-badge-star" title="Destacada">★</span>' : '') +
+            (b.featured ? '<span class="pf-badge-star" title="' + t('perfil.badgeStarTitle') + '">★</span>' : '') +
             tipHTML(m) +
           '</button>';
         }).join('') + '</div>' +
-        '<p class="pf-badges-hint">Pulsa una insignia para ver su detalle, fijarla (máx. 3) o destacarla junto a tu nombre.</p>'
-      : '<p class="pf-badges-empty">Aún no tienes insignias. Se irán desbloqueando con logros, eventos y participación en la comunidad.</p>') +
+        '<p class="pf-badges-hint">' + t('perfil.badgesHint') + '</p>'
+      : '<p class="pf-badges-empty">' + t('perfil.badgesEmpty') + '</p>') +
   '</section>';
 }
 
@@ -168,7 +171,7 @@ function ensureOverlay() {
   if (overlayEl) return overlayEl;
   overlayEl = document.createElement('div');
   overlayEl.className = 'pf-badge-modal';
-  overlayEl.innerHTML = '<div class="pf-badge-box"><button class="pf-badge-x" aria-label="Cerrar">✕</button><div class="pf-badge-body"></div></div>';
+  overlayEl.innerHTML = '<div class="pf-badge-box"><button class="pf-badge-x" aria-label="' + t('perfil.modalClose') + '">✕</button><div class="pf-badge-body"></div></div>';
   document.body.appendChild(overlayEl);
   overlayEl.querySelector('.pf-badge-x').addEventListener('click', () => overlayEl.classList.remove('open'));
   overlayEl.addEventListener('mousedown', e => { if (e.target === overlayEl) overlayEl.classList.remove('open'); });
@@ -190,12 +193,12 @@ function openBadgeDetail(id) {
     '<p class="pf-badge-desc">' + esc(m.desc) + '</p>' +
     '<p class="pf-badge-howto">' + esc(m.howto) + '</p>' +
     (titles.length ? '<ul class="pf-badge-titles">' + titles.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' : '') +
-    '<p class="pf-badge-date">Conseguida el ' + fmtDate(b.granted_at) + '</p>' +
+    '<p class="pf-badge-date">' + t('perfil.badgeGrantedOn', { date: fmtDate(b.granted_at) }) + '</p>' +
     '<div class="pf-badge-actions">' +
-      '<button class="pf-btn ' + (b.pinned ? 'danger' : 'ghost') + '" id="bd-pin"' + (canPin ? '' : ' disabled') + '>' + (b.pinned ? 'Quitar de fijadas' : 'Fijar en el perfil') + '</button>' +
-      '<button class="pf-btn ' + (b.featured ? 'danger' : 'ghost') + '" id="bd-feat">' + (b.featured ? 'Quitar de destacada' : 'Destacar junto al nombre') + '</button>' +
+      '<button class="pf-btn ' + (b.pinned ? 'danger' : 'ghost') + '" id="bd-pin"' + (canPin ? '' : ' disabled') + '>' + (b.pinned ? t('perfil.badgeUnpin') : t('perfil.badgePin')) + '</button>' +
+      '<button class="pf-btn ' + (b.featured ? 'danger' : 'ghost') + '" id="bd-feat">' + (b.featured ? t('perfil.badgeUnfeature') : t('perfil.badgeFeature')) + '</button>' +
     '</div>' +
-    (!canPin && !b.pinned ? '<p class="pf-badge-hint2">Ya tienes 3 fijadas. Quita una para fijar esta.</p>' : '');
+    (!canPin && !b.pinned ? '<p class="pf-badge-hint2">' + t('perfil.badgePinLimit') + '</p>' : '');
   o.querySelector('#bd-pin').onclick = () => togglePin(id);
   o.querySelector('#bd-feat').onclick = () => toggleFeature(id);
   o.dataset.badge = id;

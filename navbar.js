@@ -9,11 +9,13 @@
 //  Debe cargarse ANTES que auth.js para que el slot .vx-account exista
 //  cuando auth.js pinte la cuenta.
 // ============================================================
+import { t, langSelectHTML, wireLangSelect } from './i18n.js?v=9';
+
 const KNIGHT = 'assets/knight-logo.svg';
 const WORDMARK = 'assets/vexchess-wordmark.png';
 
 function brandHTML(href) {
-  return '<a class="nav-brand" href="' + href + '" aria-label="VEXCHESS · Inicio" title="Inicio">' +
+  return '<a class="nav-brand" href="' + href + '" aria-label="VEXCHESS · ' + t('nav.home') + '" title="' + t('nav.home') + '">' +
       '<img class="brand-mark" src="' + KNIGHT + '" alt="">' +
       '<span class="brand-text">' +
         '<img class="wm-img" src="' + WORDMARK + '" alt="VEXCHESS">' +
@@ -25,11 +27,11 @@ function brandHTML(href) {
 // Enlaces del sitio: LOS MISMOS en todas las vistas (consistencia).
 // La CTA "Jugar" va aparte como botón; perfil/Vexborn viven en el menú de cuenta.
 const SITE_LINKS = [
-  ['academia.html', 'Academia'],
-  ['puzzles.html', 'Puzzles'],
-  ['directo.html', 'En directo'],
-  ['partidas.html', 'Mis partidas'],
-  ['comunidad.html', 'Comunidad'],
+  ['academia.html', 'academia'],
+  ['puzzles.html', 'puzzles'],
+  ['directo.html', 'directo'],
+  ['partidas.html', 'partidas'],
+  ['comunidad.html', 'comunidad'],
 ];
 
 function currentPage() {
@@ -40,19 +42,20 @@ function currentPage() {
 function siteHTML(ds) {
   const isHome = ds.home !== undefined;
   const here = currentPage();
-  const links = SITE_LINKS.map(([href, label]) => {
+  const links = SITE_LINKS.map(([href, key]) => {
     const active = (href === here) ? ' class="active"' : '';
-    return '<a href="' + href + '"' + active + '>' + label + '</a>';
+    return '<a href="' + href + '"' + active + '>' + t('nav.' + key) + '</a>';
   }).join('');
   return '<div class="vxnav-inner">' +
       brandHTML(isHome ? '#top' : 'index.html') +
       '<div class="vxnav-menu">' +
-        '<nav class="vxnav-links" aria-label="Navegación">' + links + '</nav>' +
-        '<a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>' +
+        '<nav class="vxnav-links" aria-label="' + t('nav.menu') + '">' + links + '</nav>' +
+        '<a class="btn-play" href="play.html">' + t('nav.play') + ' <span aria-hidden="true">→</span></a>' +
+        '<label class="vxnav-lang">' + langSelectHTML('vx-lang', '') + '</label>' +
       '</div>' +
       '<div class="vxnav-bar">' +
         '<div class="vx-account"></div>' +
-        '<button class="vxnav-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>' +
+        '<button class="vxnav-burger" type="button" aria-label="' + t('nav.openMenu') + '" aria-expanded="false"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</div>';
 }
@@ -72,6 +75,7 @@ function wireSite(nav) {
   if (burger) burger.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
   nav.querySelectorAll('.vxnav-menu a').forEach(a => a.addEventListener('click', () => setOpen(false)));
   window.addEventListener('resize', () => { if (window.innerWidth > 960) setOpen(false); });
+  wireLangSelect(nav.querySelector('#vx-lang'));
 }
 
 // Animación del logo (solo en battle): el caballo entra y el logo vuela a la barra.

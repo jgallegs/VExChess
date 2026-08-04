@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>VEXCHESS · En directo</title>
-<meta name="description" content="Partidas en tiempo real en VEXCHESS. Muy pronto podrás ver y seguir partidas en directo contra otras personas.">
+<title data-i18n="directo.pageTitle">VEXCHESS · En directo</title>
+<meta name="description" data-i18n-attr="content:directo.metaDescription" content="Partidas en tiempo real en VEXCHESS. Muy pronto podrás ver y seguir partidas en directo contra otras personas.">
 <link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/directo.html">
 <meta name="theme-color" content="#0D1117">
 <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
-<link rel="stylesheet" href="navbar.css?v=4">
+<link rel="stylesheet" href="navbar.css?v=5">
 <link rel="stylesheet" href="directo.css?v=2">
 </head>
 <body class="lv-page">
@@ -30,19 +30,19 @@
 
   <main class="lv-wrap">
     <div class="lv-head">
-      <span class="lv-eyebrow"><span class="lv-pulse"></span> En directo</span>
-      <h1 class="lv-title">Partidas en <span class="accent">tiempo real</span></h1>
-      <p class="lv-sub">Sigue partidas en vivo, mira a los mejores jugar y aprende de cada jugada.
+      <span class="lv-eyebrow"><span class="lv-pulse"></span> <span data-i18n="nav.directo">En directo</span></span>
+      <h1 class="lv-title" data-i18n="directo.heroTitle">Partidas en <span class="accent">tiempo real</span></h1>
+      <p class="lv-sub" data-i18n="directo.heroSubtitle">Sigue partidas en vivo, mira a los mejores jugar y aprende de cada jugada.
         El multijugador online está en camino — así se verá.</p>
       <div class="lv-soon-banner">
-        <span class="lv-soon-tag">Próximamente</span>
-        <span>Esta es una vista previa del lobby. Las partidas online llegarán con las cuentas de usuario.</span>
+        <span class="lv-soon-tag" data-i18n="directo.comingSoonTag">Próximamente</span>
+        <span data-i18n="directo.comingSoonBanner">Esta es una vista previa del lobby. Las partidas online llegarán con las cuentas de usuario.</span>
       </div>
     </div>
 
     <!-- Partida destacada (mockup) -->
     <section class="lv-featured" aria-hidden="true">
-      <div class="lv-featured-badge"><span class="lv-live-dot"></span> EN VIVO · destacada</div>
+      <div class="lv-featured-badge"><span class="lv-live-dot"></span> <span data-i18n="directo.featuredBadge">EN VIVO · destacada</span></div>
       <div class="lv-featured-body">
         <div class="lv-mini-board" id="lv-mini"></div>
         <div class="lv-featured-info">
@@ -51,7 +51,7 @@
               <span class="lv-ava w">M</span>
               <div><b>MagnusJr</b><span>2612 · Blancas</span></div>
             </div>
-            <span class="lv-vs-x">vs</span>
+            <span class="lv-vs-x" data-i18n="directo.versus">vs</span>
             <div class="lv-vteam right">
               <div><b>DeepPawn</b><span>2588 · Negras</span></div>
               <span class="lv-ava b">D</span>
@@ -69,23 +69,23 @@
     </section>
 
     <!-- Lista de partidas (mockup) -->
-    <h2 class="lv-section-title">Más partidas <span>en directo</span></h2>
+    <h2 class="lv-section-title" data-i18n="directo.moreGamesTitle">Más partidas <span>en directo</span></h2>
     <div class="lv-grid" id="lv-grid" aria-hidden="true"></div>
 
     <!-- Mientras tanto -->
     <section class="lv-meanwhile">
-      <h3>Mientras tanto…</h3>
-      <p>El online aún no está disponible, pero puedes jugar ya contra una IA de primer nivel o entrenar tu táctica.</p>
+      <h3 data-i18n="directo.meanwhileTitle">Mientras tanto…</h3>
+      <p data-i18n="directo.meanwhileText">El online aún no está disponible, pero puedes jugar ya contra una IA de primer nivel o entrenar tu táctica.</p>
       <div class="lv-meanwhile-cta">
-        <a class="btn-play" href="play.html">Jugar contra la IA <span aria-hidden="true">→</span></a>
-        <a class="btn-ghost2" href="puzzles.html">Resolver puzzles</a>
+        <a class="btn-play" href="play.html"><span data-i18n="directo.ctaPlayAI">Jugar contra la IA</span> <span aria-hidden="true">→</span></a>
+        <a class="btn-ghost2" href="puzzles.html" data-i18n="directo.ctaSolvePuzzles">Resolver puzzles</a>
       </div>
     </section>
   </main>
 
   <script type="module" src="theme.js?v=1"></script>
-  <script type="module" src="navbar.js?v=3"></script>
-  <script type="module" src="auth.js?v=16"></script>
+  <script type="module" src="navbar.js?v=4"></script>
+  <script type="module" src="auth.js?v=17"></script>
   <script>
     // Tablero mini de la partida destacada (posición cualquiera, solo visual)
     (function miniBoard() {

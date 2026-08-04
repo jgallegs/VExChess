@@ -1,0 +1,1047 @@
+{
+  "nav": {
+    "academia": "Akademie",
+    "puzzles": "Puzzles",
+    "directo": "Live",
+    "partidas": "Meine Partien",
+    "comunidad": "Community",
+    "play": "Spielen",
+    "language": "Sprache",
+    "home": "Start",
+    "menu": "Navigation",
+    "openMenu": "Menü öffnen"
+  },
+  "common": {
+    "loading": "Wird geladen…",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "prev": "Zurück",
+    "retry": "Erneut versuchen",
+    "confirm": "Bestätigen",
+    "yes": "Ja",
+    "no": "Nein",
+    "accept": "OK",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "search": "Suchen",
+    "error": "Es ist ein Fehler aufgetreten.",
+    "empty": "Hier ist noch nichts."
+  },
+  "game": {
+    "title": "Schach · Gegner mit neuronalem Netz",
+    "appName": "Schach",
+    "appSub": "KI-Gegner · NNUE",
+    "engineLoading": "Engine wird geladen…",
+    "engineReady": "Engine bereit · Stockfish 18 (NNUE)",
+    "engineError": "Engine-Fehler: ",
+    "loaderText": "Engine wird geladen…",
+    "coachLoading": "Trainer wird geladen…",
+    "langLabel": "Sprache",
+    "levelLabel": "Stärke des Gegners",
+    "colorLabel": "Deine Farbe",
+    "colorWhite": "Weiß",
+    "colorBlack": "Schwarz",
+    "colorRandom": "Zufällig",
+    "drawTitle": "Farbauslosung",
+    "drawPick": "Wähle eine Hand",
+    "drawSkip": "Überspringen",
+    "drawWhite": "Du spielst Weiß. Du bist am Zug.",
+    "drawBlack": "Du spielst Schwarz. Stockfish beginnt.",
+    "confirmRestart": "Dadurch wird die laufende Partie neu gestartet. Fortfahren?",
+    "confirmOk": "Neu starten",
+    "confirmCancel": "Abbrechen",
+    "undo": "Rückgängig",
+    "flip": "Drehen",
+    "newGame": "Neu",
+    "coachToggle": "Trainermodus",
+    "coachToggleSub": "(schlägt dir den Zug vor)",
+    "dangerToggle": "Vor bedrohten Figuren warnen",
+    "helpBtn": "Anleitung & Grundlagen",
+    "helpTitle": "Schach-Anleitung",
+    "conceptsTitle": "Grundlagen",
+    "piecesTitle": "Die Figuren",
+    "thinking": "Der Gegner denkt nach…",
+    "suggestion": "Vorschlag",
+    "you": "Du",
+    "white": "Weiß",
+    "black": "Schwarz",
+    "max": "MAX",
+    "historyEmpty": "Noch keine Züge",
+    "evalLabel": "Bewertung",
+    "advWhite": "Vorteil Weiß",
+    "advBlack": "Vorteil Schwarz",
+    "even": "ausgeglichen",
+    "checkmateWin": "🏆 Schachmatt! Du hast gewonnen.",
+    "checkmateLose": "💀 Schachmatt. Der Gegner gewinnt.",
+    "stalemate": "Remis durch Patt.",
+    "draw": "Remis.",
+    "check": "Schach!",
+    "queenDanger": "Deine Dame ist in Gefahr!",
+    "piecesDanger1": "1 deiner Figuren ist bedroht.",
+    "piecesDangerN": "{n} deiner Figuren sind bedroht.",
+    "labelValue": "Wert",
+    "labelMove": "Zug:",
+    "labelHistory": "Geschichte:",
+    "labelGoals": "Ziele:",
+    "movesLabel": "Züge",
+    "card": {
+      "value": "Wert:",
+      "move": "Wie sie zieht.",
+      "history": "Geschichte und Wissenswertes.",
+      "goals": "Ziele und Züge.",
+      "noCaps": "Keine Schläge"
+    },
+    "resume": {
+      "inProgress": "laufende Partie",
+      "moveOne": "{n} Zug",
+      "moveN": "{n} Züge"
+    },
+    "reasons": {
+      "castle": "rochiert und bringt den König in Sicherheit",
+      "mate": "das ist Schachmatt!",
+      "check": "bietet Schach",
+      "promote": "wandelt einen Bauern um",
+      "capture": "gewinnt Material",
+      "develop": "entwickelt eine Figur",
+      "space": "gewinnt Raum",
+      "improve": "verbessert deine Stellung"
+    },
+    "levels": {
+      "principiante": "Anfänger (~1320)",
+      "facil": "Leicht (~1500)",
+      "intermedio": "Mittel (~1800)",
+      "avanzado": "Fortgeschritten (~2200)",
+      "maximo": "Maximum (unschlagbar)"
+    },
+    "pieceNames": {
+      "k": "König",
+      "q": "Dame",
+      "r": "Turm",
+      "b": "Läufer",
+      "n": "Springer",
+      "p": "Bauer"
+    },
+    "concepts": [
+      {
+        "nombre": "Was bedeuten die Zahlen? (Elo)",
+        "texto": "Die Zahl neben dem Gegner (300, 1320, 1800, 3190…) ist seine <b>Elo</b>: ein Maß für die Spielstärke. Je höher, desto besser spielt er. Als Orientierung: ~300 absoluter Anfänger, ~800–1200 im Lernen, ~1500 Vereinsspieler, ~2000 sehr stark, ~2500 Großmeister und ~2800+ Weltmeister. Die Stufe, die du hier wählst, legt diese Zahl und damit die Stärke von Stockfish fest."
+      },
+      {
+        "nombre": "Ziel des Spiels",
+        "texto": "Gewinnen durch <b>Schachmatt</b>: den gegnerischen König so angreifen, dass er nicht mehr entkommen kann. Der König wird nie geschlagen, sondern eingekesselt. Du gewinnst auch, wenn der Gegner aufgibt."
+      },
+      {
+        "nombre": "Schach, Matt und Remis",
+        "texto": "<b>Schach</b>: Der König wird angegriffen und du musst ihn im nächsten Zug retten. <b>Schachmatt</b>: Er wird angegriffen und es gibt keine Rettung (Partieende). <b>Remis</b> (Unentschieden): zum Beispiel durch <i>Patt</i> (du stehst nicht im Schach, hast aber keinen legalen Zug), durch Stellungswiederholung oder mangelndes Material zum Mattsetzen."
+      },
+      {
+        "nombre": "Besondere Züge",
+        "texto": "<b>Rochade</b>: König und ein Turm ziehen gleichzeitig, um den König in Sicherheit zu bringen. <b>En passant</b>: Ein Bauer kann einen anderen schlagen, der gerade zwei Felder vorgerückt ist und neben ihm steht. <b>Umwandlung</b>: Ein Bauer, der die letzte Reihe erreicht, verwandelt sich in eine andere Figur (fast immer in eine Dame)."
+      },
+      {
+        "nombre": "Der Wert der Figuren",
+        "texto": "Er hilft zu entscheiden, ob sich ein Abtausch lohnt: Bauer <b>1</b>, Springer <b>3</b>, Läufer <b>3</b>, Turm <b>5</b>, Dame <b>9</b>. Der König hat keinen Zahlenwert, weil er das Ziel ist. Das grüne <b>+N</b> an den Balken ist der Unterschied im geschlagenen Material."
+      },
+      {
+        "nombre": "Tipps für den Anfang",
+        "texto": "Kontrolliere das Zentrum mit den Bauern; bringe Springer und Läufer früh ins Spiel (<i>entwickle</i>); rochiere, um den König zu schützen; hole die Dame nicht zu früh heraus; und frage dich vor jedem Zug: „Steht eine meiner Figuren in Gefahr?“. Aktiviere den <b>Trainermodus</b>, um den empfohlenen Zug zu sehen."
+      }
+    ],
+    "pieces": {
+      "p": {
+        "nombre": "Bauer",
+        "mueve": "Zieht ein Feld geradeaus (oder zwei bei seinem ersten Zug) und schlägt diagonal, nie geradeaus. Er hat zwei besondere Züge: das Schlagen en passant und die Umwandlung.",
+        "historia": "Er stellt die Infanterie dar. Er ist die einzige Figur, die nicht zurückziehen kann. Erreicht er die letzte Reihe, „wandelt“ er sich um und verwandelt sich in die Figur deiner Wahl: Ein einfacher Bauer kann zur Dame werden!",
+        "objetivos": "Kontrolliere das Zentrum und bilde Bauernketten. Ein „Freibauer“ (ohne gegnerische Bauern, die ihn aufhalten) kann die Partie entscheiden, wenn er zur Umwandlung eilt."
+      },
+      "n": {
+        "nombre": "Springer",
+        "mueve": "Springt in „L“-Form: zwei Felder in eine Richtung und eines im rechten Winkel. Er ist die einzige Figur, die über andere hinwegspringt.",
+        "historia": "Er stellt die Reiterei dar. Sein Sprung macht ihn unberechenbar: Er kann mit einer „Gabel“ zwei Figuren zugleich angreifen. Er glänzt in geschlossenen Stellungen, in denen weitreichende Figuren ersticken.",
+        "objetivos": "Suche starke Felder nahe dem Zentrum, von denen ihn kein Bauer vertreiben kann. Ein gut platzierter Springer im gegnerischen Lager ist Gold wert."
+      },
+      "b": {
+        "nombre": "Läufer",
+        "mueve": "Gleitet diagonal über beliebig viele Felder. Jeder Läufer bleibt stets auf Feldern einer einzigen Farbe.",
+        "historia": "Sein Name kommt vom arabischen „al-fil“, was „der Elefant“ bedeutet. Beide Läufer zu behalten (das „Läuferpaar“) ist ein geschätzter Vorteil, vor allem in offenen Stellungen.",
+        "objetivos": "Öffne lange Diagonalen und ziele auf den feindlichen König. Die beiden Läufer ergänzen sich, indem jeder eine Farbe abdeckt."
+      },
+      "r": {
+        "nombre": "Turm",
+        "mueve": "Zieht in gerader Linie, waagerecht oder senkrecht, über beliebig viele Felder. Er nimmt mit dem König an der Rochade teil.",
+        "historia": "Er stellt einen Streitwagen oder einen Belagerungsturm dar. Er ist eine „schwere“ Figur, die ihre volle Kraft entfaltet, wenn sich das Brett öffnet, im Endspiel.",
+        "objetivos": "Beherrsche die offenen Linien und stelle ihn auf die siebte Reihe, wo er Bauern erbeutet. Zwei verbundene Türme sind vernichtend."
+      },
+      "q": {
+        "nombre": "Dame (Königin)",
+        "mueve": "Die mächtigste Figur: Sie vereint Turm und Läufer. Sie gleitet gerade und diagonal über beliebig viele Felder.",
+        "historia": "Anfangs war sie schwach (ein „Wesir“, der nur ein Feld zog). Im Europa des 15. Jahrhunderts wurde sie so stark, dass man diese Variante „Schach der verrückten Dame“ nannte.",
+        "objetivos": "Hole sie nicht zu früh heraus, sonst gewinnt der Gegner Zeit, indem er sie verjagt. Im Zusammenspiel mit anderen Figuren ist sie im Angriff tödlich."
+      },
+      "k": {
+        "nombre": "König",
+        "mueve": "Zieht ein einziges Feld in jede Richtung. Er hat einen besonderen Zug gemeinsam mit dem Turm: die Rochade, die ihn in Sicherheit bringt.",
+        "historia": "Er ist das Herz des Spiels: Die Partie endet, wenn der König dem Schach nicht mehr entkommen kann (Schachmatt). Er wird nie geschlagen, sondern eingekesselt.",
+        "objetivos": "In der Eröffnung bringe ihn in Sicherheit (meist durch Rochade). Im Endspiel, mit wenigen Figuren, wird er zu einer aktiven Figur, die beim Umwandeln der Bauern hilft."
+      }
+    }
+  },
+  "home": {
+    "meta": {
+      "title": "VEXCHESS · Schach mit KI (Stockfish 18 · NNUE)",
+      "description": "Schach gegen eine erstklassige KI (Stockfish 18 · NNUE) direkt in deinem Browser. Trainermodus, Warnung vor bedrohten Figuren, Puzzles und interaktive Anleitung. Kostenlos und offline."
+    },
+    "hero": {
+      "badge": "Stockfish 18 · NNUE · 100% in deinem Browser",
+      "title": "Denk. Spiel.<br><span class=\"accent\">Sieg.</span>",
+      "sub": "Schach gegen eine erstklassige künstliche Intelligenz, mit Trainermodus, Warnung vor bedrohten Figuren und einer interaktiven Anleitung zu jeder Figur. Ohne Server, ohne Anmeldung, direkt in deinem Browser.",
+      "cta": {
+        "play": "Jetzt spielen",
+        "features": "Funktionen ansehen"
+      },
+      "stat": {
+        "difficulty": "Schwierigkeitsstufen",
+        "neural": "Neuronales Netz",
+        "free": "Kostenlos und offline"
+      },
+      "scroll": {
+        "aria": "Nach unten"
+      }
+    },
+    "features": {
+      "eyebrow": "Funktionen",
+      "heading": "Alles, was du brauchst, um dich zu <span class=\"accent\">verbessern</span>",
+      "subtitle": "Ein vollständiges Schacherlebnis, das komplett in deinem Browser läuft.",
+      "neural": {
+        "title": "Gegner mit neuronalem Netz",
+        "body": "Stockfish 18 mit <b>NNUE</b>-Bewertung, die stärkste Open-Source-Engine der Welt. Einstellbare Schwierigkeit von ~1320 bis unschlagbarer Stärke."
+      },
+      "coach": {
+        "title": "Trainermodus",
+        "body": "Eine zweite Instanz der Engine mit maximaler Stärke schlägt dir mit einem Pfeil den besten Zug vor und erklärt dir das Warum."
+      },
+      "danger": {
+        "title": "Warnung vor bedrohten Figuren",
+        "body": "Hebt bedrohte Figuren mit einem Leuchten hervor und warnt dich besonders, wenn deine Dame in Gefahr ist. Häng nie wieder eine Figur ein, ohne es zu merken."
+      },
+      "guide": {
+        "title": "Interaktive Anleitung",
+        "body": "Eine große Karte pro Figur mit ihrem Wert, ihrer Geschichte und einer <b>Endlos-Simulation</b>, wie sie zieht und schlägt."
+      },
+      "multilang": {
+        "title": "Mehrsprachig",
+        "body": "Spanisch und Englisch mit automatischer Erkennung. Die gesamte Oberfläche und Anleitung übersetzt."
+      },
+      "local": {
+        "title": "100% in deinem Browser",
+        "body": "Die Engine ist zu WebAssembly kompiliert und läuft lokal. Ohne Server, ohne API-Schlüssel, kostenlos und auch ohne Verbindung."
+      }
+    },
+    "ia": {
+      "eyebrow": "Das Gehirn",
+      "heading": "Stockfish 18 mit neuronalem Netz <span class=\"accent\">NNUE</span>",
+      "body": "Der Gegner nutzt dieselbe Engine wie Chess.com: <b>Stockfish 18</b>, mit Bewertung durch ein neuronales Netz (Efficiently Updatable Neural Network), kompiliert zu <b>WebAssembly</b> und komplett in deinem Browser in einem <i>Web Worker</i> ausgeführt. Er spricht das UCI-Protokoll, denkt in Millisekunden und sendet nichts an irgendeinen Server.",
+      "list": {
+        "rules": "Vollständige Regeln über <b>chess.js</b>: Rochade, Umwandlung, en passant, Schachmatt und Remis.",
+        "difficulty": "Schwierigkeit nach Elo oder maximale Stärke, in jeder Partie einstellbar.",
+        "private": "Privat konzipiert: Die gesamte Berechnung findet auf deinem Gerät statt."
+      },
+      "cta": "Engine ausprobieren"
+    },
+    "roadmap": {
+      "eyebrow": "Roadmap",
+      "heading": "Das ist erst der <span class=\"accent\">Anfang</span>",
+      "subtitle": "Wir bauen eine Plattform. Das kommt als Nächstes:",
+      "badge": {
+        "live": "Verfügbar",
+        "preview": "Vorschau",
+        "soon": "Demnächst"
+      },
+      "puzzles": {
+        "title": "Taktik-Puzzles",
+        "body": "Finde das Matt in echten Stellungen. Du kannst schon trainieren! <b>Spielen →</b>"
+      },
+      "history": {
+        "title": "Meine Partien",
+        "body": "Deine beendeten Partien werden automatisch gespeichert. Sieh sie Zug für Zug durch. <b>Ansehen →</b>"
+      },
+      "live": {
+        "title": "Live",
+        "body": "Echtzeitpartien gegen andere Menschen. Wirf einen Blick darauf, wie es aussehen wird. <b>Ansehen →</b>"
+      },
+      "accounts": {
+        "title": "Konten und Profil",
+        "body": "Registriere dich, speichere deine Partien und deinen Fortschritt und nimm deine Elo überallhin mit."
+      },
+      "lessons": {
+        "title": "Lektionen",
+        "body": "Lerne Eröffnungen, Endspiele und Strategie Schritt für Schritt."
+      },
+      "leaderboard": {
+        "title": "Bestenliste und Ranking",
+        "body": "Kämpfe mit einem Elo-System und Ranglisten um die Spitze."
+      },
+      "social": {
+        "title": "Teams und Soziales",
+        "body": "Gründe Klubs oder tritt ihnen bei, spiele mit Freunden und organisiere Turniere."
+      }
+    },
+    "ctaFinal": {
+      "heading": "Bereit für deine nächste Partie?",
+      "subtitle": "Wähle deine Seite, deine Stufe und zeig der Maschine, wer das Sagen hat.",
+      "play": "Jetzt spielen"
+    },
+    "footer": {
+      "tag": "Think ahead.",
+      "links": {
+        "play": "Spielen",
+        "features": "Funktionen",
+        "ia": "Die KI",
+        "roadmap": "Roadmap"
+      },
+      "credits": "Engine: <a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a> (GPLv3). Regeln: <a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>. Figuren: Staunty-Set (Lichess).",
+      "copy": "© {year} VEXCHESS · Gemacht von Jorge.",
+      "author": "Erstellt von Jorge."
+    }
+  },
+  "directo": {
+    "pageTitle": "VEXCHESS · Live",
+    "metaDescription": "Echtzeitpartien in VEXCHESS. Schon bald kannst du Live-Partien gegen andere Menschen ansehen und verfolgen.",
+    "heroTitle": "Echtzeitpartien",
+    "heroSubtitle": "Verfolge Partien live, sieh den Besten beim Spielen zu und lerne aus jedem Zug. Der Online-Mehrspielermodus ist unterwegs — so wird er aussehen.",
+    "comingSoonTag": "Demnächst",
+    "comingSoonBanner": "Dies ist eine Vorschau der Lobby. Die Online-Partien kommen mit den Benutzerkonten.",
+    "featuredBadge": "LIVE · hervorgehoben",
+    "liveLabel": "LIVE",
+    "colorWhite": "Weiß",
+    "colorBlack": "Schwarz",
+    "versus": "vs",
+    "moveLabel": "Zug {n}",
+    "spectatorsCount": "{count} sehen zu",
+    "moreGamesTitle": "Weitere Live-Partien",
+    "meanwhileTitle": "In der Zwischenzeit…",
+    "meanwhileText": "Der Online-Modus ist noch nicht verfügbar, aber du kannst schon gegen eine erstklassige KI spielen oder deine Taktik trainieren.",
+    "ctaPlayAI": "Gegen die KI spielen",
+    "ctaSolvePuzzles": "Puzzles lösen"
+  },
+  "comunidad": {
+    "pageTitle": "VEXCHESS · Community",
+    "metaDescription": "Deine Community in VEXCHESS: Freunde, Anfragen, Spieler suchen und deine VEX ID.",
+    "tabs": {
+      "amigos": "Freunde",
+      "solicitudes": "Anfragen",
+      "buscar": "Suchen",
+      "vexid": "Meine VEX ID"
+    },
+    "loggedOut": {
+      "title": "Deine Community wartet auf dich",
+      "desc": "Melde dich an, um Freunde zu haben, Spieler zu suchen und deine VEX ID zu teilen.",
+      "cta": "Anmelden"
+    },
+    "head": {
+      "eyebrow": "Community",
+      "title": "Deine <span class=\"accent\">Leute</span>"
+    },
+    "person": {
+      "friendsDisabled": "Freunde",
+      "sent": "Gesendet",
+      "accept": "Annehmen",
+      "add": "Hinzufügen",
+      "challenge": "Herausfordern",
+      "remove": "Entfernen",
+      "decline": "Ablehnen",
+      "cancel": "Abbrechen",
+      "mutual": "{count} gemeinsam",
+      "subLine": "{vexId} · {elo} Elo"
+    },
+    "friends": {
+      "emptyTitle": "Du hast noch keine Freunde",
+      "emptySub": "Suche Spieler nach Namen oder teile deine VEX ID, damit sie dich hinzufügen."
+    },
+    "requests": {
+      "received": "Erhalten",
+      "sent": "Gesendet",
+      "emptyIncoming": "Du hast keine ausstehenden Anfragen.",
+      "emptyOutgoing": "Du hast keine Anfrage gesendet."
+    },
+    "search": {
+      "placeholder": "Nach Benutzernamen suchen…",
+      "hint": "Gib mindestens 2 Buchstaben ein, um zu suchen.",
+      "searching": "Wird gesucht…",
+      "noResults": "Kein Spieler passt zu «{q}»."
+    },
+    "loading": "Wird geladen…",
+    "vexid": {
+      "qrFail": "Der QR-Code konnte nicht erzeugt werden",
+      "codeLabel": "Verbindungscode",
+      "share": "VEX ID teilen",
+      "addInPersonTitle": "Persönlich hinzufügen",
+      "addInPersonDesc": "Zeig deinen QR-Code zum Scannen oder scanne selbst den einer anderen Person mit der Kamera:",
+      "scanBtn": "Einen QR-Code scannen",
+      "orAddByCode": "oder mit ihrem Code hinzufügen",
+      "addCodePlaceholder": "ABC-DEF",
+      "note": "Die NFC-Karten kommen mit der App. Niemand wird hinzugefügt, ohne dass beide bestätigen.",
+      "reputationNew": "Neu"
+    },
+    "addByCode": {
+      "invalid": "Gib einen gültigen 6-stelligen Code ein."
+    },
+    "toast": {
+      "friendsNow": "Ihr seid jetzt Freunde!",
+      "requestSent": "Anfrage gesendet",
+      "requestDeclined": "Anfrage abgelehnt",
+      "requestCancelled": "Anfrage storniert",
+      "friendRemoved": "Freund entfernt",
+      "error": "Fehler"
+    },
+    "share": {
+      "title": "Meine VEX ID · VEXCHESS",
+      "text": "Füg mich bei VEXCHESS hinzu",
+      "linkCopied": "Link in die Zwischenablage kopiert",
+      "copyLink": "Kopiere deinen Link: {url}"
+    },
+    "challenge": {
+      "tc": {
+        "bullet": "Bullet",
+        "blitz": "Blitz",
+        "rapida": "Schnellschach"
+      },
+      "title": "{name} herausfordern",
+      "chooseTc": "Wähle die Bedenkzeit:",
+      "waiting": "Warten auf {name}…",
+      "waitingDesc": "{tc}-Herausforderung gesendet. Sobald angenommen wird, beginnt die Partie.",
+      "cancelBtn": "Herausforderung abbrechen",
+      "notCompleted": "Die Herausforderung kam nicht zustande"
+    },
+    "modal": {
+      "close": "Schließen"
+    },
+    "scanner": {
+      "unavailable": "Der Scanner ist in diesem Browser nicht verfügbar.",
+      "noCamera": "Dein Browser erlaubt die Nutzung der Kamera nicht.",
+      "hint": "Richte auf den QR-Code deiner Freundin/deines Freundes…",
+      "cameraError": "Auf die Kamera konnte nicht zugegriffen werden. Prüfe die Berechtigungen.",
+      "found": "Gefunden! Wird geöffnet…",
+      "notVexId": "Dieser QR-Code ist keine VEX ID."
+    },
+    "profile": {
+      "loading": "Profil wird geladen…",
+      "subLine": "@{handle} · {elo} Elo",
+      "statPartidas": "Partien",
+      "statVictorias": "Siege",
+      "statDerrotas": "Niederlagen",
+      "loadError": "Das Profil konnte nicht geladen werden"
+    }
+  },
+  "partidas": {
+    "pageTitle": "VEXCHESS · Meine Partien",
+    "metaDescription": "Sieh deine Schachpartien Zug für Zug durch, mit Player und PGN-Export. Sie werden automatisch in deinem Browser gespeichert.",
+    "ogTitle": "VEXCHESS · Meine Partien",
+    "ogDescription": "Sieh deine Partien Zug für Zug durch, mit Player und PGN-Export.",
+    "captionSelectGame": "Wähle eine Partie",
+    "ctrlFirstTitle": "Anfang (⏮)",
+    "ctrlFirstAria": "Zum Anfang",
+    "ctrlPrevTitle": "Zurück (←)",
+    "ctrlPrevAria": "Vorheriger Zug",
+    "ctrlPlayTitle": "Abspielen (Leertaste)",
+    "ctrlPlayAria": "Abspielen",
+    "ctrlNextTitle": "Weiter (→)",
+    "ctrlNextAria": "Nächster Zug",
+    "ctrlLastTitle": "Ende (⏭)",
+    "ctrlLastAria": "Zum Ende",
+    "ctrlFlipTitle": "Brett drehen (F)",
+    "ctrlFlipAria": "Brett drehen",
+    "graphEvaluation": "Bewertung",
+    "eyebrow": "Meine Partien",
+    "title": "Sieh deine <span class=\"accent\">Partien</span> durch",
+    "movesTitle": "Züge",
+    "analyzeBtn": "Analysieren",
+    "analyzeBtnTitle": "Die Partie mit Stockfish analysieren",
+    "pgnBtn": "PGN kopieren",
+    "pgnBtnTitle": "PGN kopieren",
+    "countGames": "{count} Partien",
+    "countGameOne": "{count} Partie",
+    "clearAll": "Alles löschen",
+    "emptyTitle": "Du hast noch keine gespeicherten Partien.",
+    "emptySub": "Jede Partie, die du beendest (Schachmatt, Remis oder Aufgabe), wird hier automatisch gespeichert, damit du sie durchsehen kannst.",
+    "playGame": "Eine Partie spielen <span aria-hidden=\"true\">→</span>",
+    "resultDraw": "Remis",
+    "resultWin": "Sieg",
+    "resultLoss": "Niederlage",
+    "levelPrincipiante": "Anfänger",
+    "levelFacil": "Leicht",
+    "levelIntermedio": "Mittel",
+    "levelAvanzado": "Fortgeschritten",
+    "levelMaximo": "Maximum",
+    "sideBlack": "Schwarz",
+    "sideWhite": "Weiß",
+    "itemOpponent": "vs Stockfish · {level}",
+    "itemSub": "{side} · {moves} Züge · {date}",
+    "delTitle": "Löschen",
+    "delAria": "Partie löschen",
+    "captionInitialPos": "Ausgangsstellung",
+    "captionMove": "{san}  ({moveNo}, {who})",
+    "whoWhite": "Weiß",
+    "whoBlack": "Schwarz",
+    "analyzeInProgress": "Wird analysiert…",
+    "analysisSummary": "{inacc} Ungenau. · {mistakes} Fehler · {blunders} grobe",
+    "pgnCopied": "Kopiert!"
+  },
+  "puzzles": {
+    "pageTitle": "VEXCHESS · Taktik-Puzzles",
+    "metaDescription": "Trainiere deine Taktik mit Schach-Puzzles: finde das Matt in echten Stellungen. Kostenlos und in deinem Browser.",
+    "ogDescription": "Finde das Matt in echten Stellungen. Trainiere deine Taktik kostenlos in deinem Browser.",
+    "eyebrow": "Taktik-Puzzles",
+    "heading": "Finde das <span class=\"accent\">Matt</span>",
+    "statusDefault": "Finde den besten Zug.",
+    "hintBtn": "Tipp",
+    "hintBtnTitle": "Tipp (H)",
+    "retryBtn": "Neu starten",
+    "retryBtnTitle": "Puzzle neu starten",
+    "prevBtn": "‹ Zurück",
+    "prevBtnTitle": "Zurück (←)",
+    "nextBtn": "Weiter ›",
+    "nextBtnTitle": "Weiter (→)",
+    "progress": "Puzzle {n} / {total}",
+    "solvedCount": "{count} gelöst",
+    "tip": "Tipp: Tippe auf eine Figur, um ihre Züge zu sehen. Kürzel: ← → wechseln das Puzzle, <b>H</b> gibt einen Tipp.",
+    "turnWhite": "Weiß am Zug",
+    "turnBlack": "Schwarz am Zug",
+    "goalMate1": "Finde das Matt in 1.",
+    "goalMate2": "Finde das Matt in 2.",
+    "goalWin": "Gewinne Material.",
+    "themeCorridorMate": "Grundreihenmatt",
+    "themeRookEighth": "Turm auf die 8.",
+    "themeQueenMate": "Damenmatt",
+    "themeStalemateMate": "Erstickungsmatt",
+    "themeKnightMate": "Springermatt",
+    "themeMate2Queen": "Matt in 2 · Dame",
+    "themeForkWinQueen": "Gabel · gewinnt die Dame",
+    "okMate1": "Richtig! Schachmatt. ✓",
+    "okWin": "Gabel! Du gewinnst die Dame. ✓",
+    "okMate2Key": "Matt! ✓",
+    "okMate2": "Richtig! Schachmatt in 2. ✓",
+    "wrongMate1": "Das ist kein Matt. Versuch einen anderen. 🔁",
+    "wrongWin": "Das gewinnt kein Material. 🔁",
+    "wrongMate2Force": "Das erzwingt das Matt nicht. 🔁",
+    "wrongMate2": "Noch kein Matt. 🔁",
+    "mate2Defends": "Gut! Der Gegner verteidigt sich… jetzt setz das Matt.",
+    "finishAll": "Du hast alle Puzzles gelöst! 🎉",
+    "hintMovePiece": "Tipp: Zieh die Figur von {square}.",
+    "hintFindMate": "Tipp: Such jetzt das Schachmatt."
+  },
+  "perfil": {
+    "pageTitle": "VEXCHESS · Mein Profil",
+    "metaDescription": "Dein VEXCHESS-Profil: Avatar, Elo, Statistiken und Serie.",
+    "loading": "Dein Profil wird geladen…",
+    "guestTitle": "Dein Profil wartet auf dich",
+    "guestText": "Melde dich an oder erstelle ein Konto, um deine Partien zu speichern und deine Statistiken und Elo von jedem Gerät aus zu sehen.",
+    "guestCta": "Anmelden oder Konto erstellen",
+    "eloLabel": "Elo {elo}",
+    "memberSince": "Mitglied seit {date}",
+    "logout": "Abmelden",
+    "pinnedLabel": "Angeheftet",
+    "statGames": "Partien",
+    "statWins": "Siege",
+    "statLosses": "Niederlagen",
+    "statDraws": "Remis",
+    "statWinRate": "% Siege",
+    "statCurrentStreak": "Aktuelle Serie",
+    "statBestStreak": "Beste Serie",
+    "streakWinOne": "{n} Sieg",
+    "streakWinMany": "{n} Siege",
+    "streakLossOne": "{n} Niederlage",
+    "streakLossMany": "{n} Niederlagen",
+    "byLevelTitle": "Nach KI-Stufe",
+    "tableColLevel": "Stufe",
+    "tableColPlayed": "Gesp.",
+    "tableColWins": "S",
+    "tableColLosses": "N",
+    "tableColDraws": "R",
+    "levelPrincipiante": "Anfänger",
+    "levelFacil": "Leicht",
+    "levelIntermedio": "Mittel",
+    "levelAvanzado": "Fortgeschritten",
+    "levelMaximo": "Maximum",
+    "levelDesconocido": "Andere",
+    "avatarTitle": "Avatar",
+    "avatarClassic": "Klassiker",
+    "badgesTitle": "Abzeichen",
+    "badgesHint": "Tippe auf ein Abzeichen, um Details zu sehen, es anzuheften (max. 3) oder neben deinem Namen hervorzuheben.",
+    "badgesEmpty": "Du hast noch keine Abzeichen. Sie werden durch Erfolge, Events und Beteiligung in der Community freigeschaltet.",
+    "badgeStarTitle": "Hervorgehoben",
+    "badgeGrantedOn": "Erhalten am {date}",
+    "badgeUnpin": "Anheftung entfernen",
+    "badgePin": "Im Profil anheften",
+    "badgeUnfeature": "Hervorhebung entfernen",
+    "badgeFeature": "Neben dem Namen hervorheben",
+    "badgePinLimit": "Du hast bereits 3 angeheftet. Entferne eines, um dieses anzuheften.",
+    "myGamesLink": "Meine Partien",
+    "modalClose": "Schließen"
+  },
+  "insignias": {
+    "pageTitle": "VEXCHESS · Abzeichen-Inventar",
+    "grant": {
+      "mode": {
+        "manualUnica": "Manuell · einmalig",
+        "sistema": "System",
+        "evento": "Event",
+        "manual": "Manuell",
+        "sistemaRevision": "System + Prüfung"
+      },
+      "revocable": "Widerrufbar",
+      "permanente": "Dauerhaft"
+    },
+    "family": {
+      "rol": "Rolle",
+      "legado": "Vermächtnis",
+      "competicion": "Wettbewerb",
+      "comunidad": "Community",
+      "contribucion": "Beitrag"
+    },
+    "familyDesc": {
+      "rol": "Wer ist wer bei VEXCHESS.",
+      "legado": "Du warst von Anfang an dabei.",
+      "competicion": "Was du am Brett gewinnst.",
+      "comunidad": "Wie du andere behandelst.",
+      "contribucion": "Was du zum Projekt beiträgst."
+    },
+    "card": {
+      "ownedTag": "✓ Du hast es"
+    },
+    "guest": {
+      "title": "Team-Bereich",
+      "body": "Das vollständige Abzeichen-Inventar ist nur für das VEXCHESS-Team. Die übrigen werden durch Spielen, Wettkämpfen und Beteiligung in der Community entdeckt.",
+      "backHome": "Zurück zum Start →"
+    },
+    "filter": {
+      "all": "Alle"
+    },
+    "hero": {
+      "eyebrow": "Inventar",
+      "title": "Abzeichen von <span class=\"accent\">VEXCHESS</span>",
+      "sub": "Jedes Abzeichen erzählt etwas über dich: deine Rolle, deine Geschichte, deine Siege oder das, was du beiträgst.",
+      "progressOwned": "Du hast <b>{owned}</b> von {total}.",
+      "progressNone": "Es gibt <b>{total}</b> zu entdecken."
+    },
+    "loading": "Wird geladen…"
+  },
+  "connect": {
+    "pageTitle": "VEXCHESS · Verbinden",
+    "invalidLink": {
+      "title": "Ungültiger Link",
+      "text": "Dieser Verbindungslink ist nicht korrekt."
+    },
+    "home": "Start",
+    "searching": "Spieler wird gesucht…",
+    "notFound": {
+      "title": "VEX ID nicht gefunden",
+      "text": "Dieser Code gehört zu keinem Spieler."
+    },
+    "action": {
+      "login": "Zum Hinzufügen anmelden",
+      "accept": "Anfrage annehmen",
+      "add": "Als Freund/in hinzufügen"
+    },
+    "self": {
+      "msg": "Das ist deine eigene VEX ID."
+    },
+    "goToCommunity": "Zu meiner Community",
+    "alreadyFriends": "✓ Ihr seid bereits Freunde.",
+    "viewFriends": "Freunde ansehen",
+    "pendingOut": {
+      "msg": "Du hast ihm/ihr bereits eine Anfrage gesendet. Sie muss noch angenommen werden."
+    },
+    "foundEyebrow": "Du hast gefunden:",
+    "elo": "Elo",
+    "mutualFriends": "{count} gemeinsame Freund/innen",
+    "confirmNote": "Niemand wird automatisch hinzugefügt: Beide müssen bestätigen.",
+    "done": {
+      "nowFriends": "Ihr seid jetzt Freund/innen!",
+      "requestSent": "Anfrage gesendet. Sobald sie angenommen wird, seid ihr Freund/innen."
+    },
+    "error": {
+      "generic": "Fehler"
+    },
+    "loading": "Wird geladen…",
+    "metaDescription": "Verbinde dich mit einem VEXCHESS-Spieler über seine VEX ID."
+  },
+  "online": {
+    "pageTitle": "VEXCHESS · Online spielen",
+    "metaDescription": "Spiele online Schach in VEXCHESS: Fordere deine Freunde heraus oder such einen Gegner nach Elo.",
+    "loggedOutTitle": "Online spielen",
+    "loggedOutSubtitle": "Melde dich an, um deine Freunde herauszufordern oder einen Gegner zu suchen.",
+    "loginBtn": "Anmelden",
+    "eyebrow": "Online spielen",
+    "heroTitle": "Finde einen <span class=\"accent\">Gegner</span>",
+    "eloOnlineLabel": "Online-Elo",
+    "tcBullet": "Bullet",
+    "tcBlitz": "Blitz",
+    "tcRapid": "Schnellschach",
+    "challengesHeading": "Herausforderungen",
+    "rivalsHeading": "Rivalen",
+    "findRivalBtn": "Gegner suchen",
+    "searchingRival": "Gegner wird gesucht ({tc})…",
+    "challengesEmpty": "Du hast keine Herausforderungen. Fordere einen Freund über <a href=\"comunidad.html\">Community</a> heraus.",
+    "challengesIncoming": "Erhalten",
+    "challengesOutgoing": "Gesendet",
+    "acceptBtn": "Annehmen",
+    "declineBtn": "Ablehnen",
+    "personEloMeta": "{elo} Elo · {tc}",
+    "rivalEloGamesMeta": "{elo} Elo · {count} Partie",
+    "rivalsEmpty": "Du hast noch keine Rivalitäten. Spiele Online-Partien und hier siehst du dein direktes Duell.",
+    "toastDeclined": "Herausforderung abgelehnt",
+    "toastCancelled": "Herausforderung storniert",
+    "toastError": "Fehler",
+    "loading": "Wird geladen…",
+    "cancelBtn": "Abbrechen",
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} Partien"
+  },
+  "admin": {
+    "pageTitle": "VEXCHESS · Administration",
+    "metaDescription": "Administrationsbereich von VEXCHESS.",
+    "loading": "Wird geladen…",
+    "gateLoginTitle": "Anmelden",
+    "gateLoginMsg": "Du brauchst ein Konto mit Berechtigungen, um diese Seite zu sehen.",
+    "loginBtn": "Anmelden",
+    "backHome": "Zurück zum Start",
+    "gateRestrictedTitle": "Zugriff eingeschränkt",
+    "gateRestrictedMsg": "Dein Konto hat keine Moderations- oder Administrationsrechte.",
+    "roleAll": "Alle Rollen",
+    "roleStaffOnly": "Nur Staff",
+    "sortRecent": "Neueste",
+    "sortOldest": "Älteste",
+    "sortEloDesc": "Elo ↓",
+    "sortEloAsc": "Elo ↑",
+    "sortName": "Name A-Z",
+    "eyebrow": "Administration",
+    "controlCenterTitle": "Kontrollzentrum",
+    "badgeInventoryLink": "Abzeichen-Inventar",
+    "searchPlaceholder": "Nach Benutzer oder E-Mail suchen…",
+    "detailEmpty": "Wähle einen Benutzer, um seine Karte anzusehen und zu bearbeiten.",
+    "dashUsers": "Benutzer",
+    "dashUsersSub": "Registrierte Konten",
+    "dashStaff": "Staff",
+    "dashStaffSub": "Owner + Admins + Mods",
+    "dashBadges": "Abzeichen",
+    "dashBadgesSub": "Insgesamt verliehen",
+    "dashGames": "Partien",
+    "dashGamesSub": "In der Cloud gespeichert",
+    "loadingUsers": "Benutzer werden geladen…",
+    "loadError": "Fehler beim Laden",
+    "rowEloLabel": "Elo",
+    "rowBadgesLabel": "Abz.",
+    "rowGamesLabel": "Part.",
+    "emptyResults": "Keine Ergebnisse.",
+    "pagerPrev": "‹ Zurück",
+    "pagerNext": "Weiter ›",
+    "pagerInfo": "{total} Benutzer{s} · S. {cur}/{pages}",
+    "loadingDetail": "Karte wird geladen…",
+    "error": "Fehler",
+    "ownerStaticNote": "Der Eigentümer kann nicht geändert werden.",
+    "selfRoleNote": "Du kannst deine eigene Rolle nicht ändern.",
+    "needHigherRankNote": "Du brauchst einen höheren Rang, um das zu ändern.",
+    "badgeGranted": "✓ Verliehen",
+    "badgeGrant": "Verleihen",
+    "memberSince": "Mitglied seit {date}",
+    "miniPartidas": "Partien",
+    "miniVictorias": "Siege",
+    "miniDerrotas": "Niederlagen",
+    "miniElo": "Elo",
+    "fieldRol": "Rolle",
+    "fieldElo": "Elo",
+    "eloSave": "Speichern",
+    "eloRankNote": "Erfordert Administratorrang.",
+    "badgesTitle": "Abzeichen",
+    "badgesHintEditable": "Tippe zum Verleihen oder Entziehen. Der Benutzer kann sie in seinem Profil anheften und hervorheben.",
+    "badgesHintReadonly": "Nur Lesen: Deine Rolle erlaubt das Verleihen von Abzeichen nicht.",
+    "toastBadgeRevoked": "Abzeichen entzogen: {name}",
+    "toastBadgeGranted": "Abzeichen verliehen: {name}",
+    "toastEloOutOfRange": "Elo außerhalb des Bereichs (100–3500).",
+    "toastEloUpdated": "Elo aktualisiert auf {elo}",
+    "toastRoleUpdated": "Rolle aktualisiert: {role}",
+    "dateDash": "—"
+  },
+  "vexborn": {
+    "meta": {
+      "title": "VEXCHESS · Vexborn",
+      "description": "Vexborn: die Charaktere von VEXCHESS. Entdecke ihre Geschichte und rüste deinen aus. Nur kosmetisch."
+    },
+    "loading": "Vexborn wird geladen…",
+    "guest": {
+      "desc": "Die Charaktere von VEXCHESS. Melde dich an, um das Roster zu sehen und deinen auszurüsten.",
+      "login": "Anmelden"
+    },
+    "hero": {
+      "equippedEyebrow": "Vexborn ausgerüstet",
+      "unequip": "Ablegen",
+      "emptyName": "Wähle deinen Vexborn",
+      "emptyTitle": "Ein Charakter, der deine Identität am Brett darstellt. Nur kosmetisch: Er ändert weder Regeln, Elo noch Paarungen.",
+      "emptyHint": "Tippe auf eine Karte, um ihre Geschichte zu sehen und sie auszurüsten."
+    },
+    "collection": {
+      "soon": "Demnächst",
+      "count": "{count} Charaktere",
+      "origins": {
+        "label": "Vexborn Origins",
+        "desc": "Die ersten Wesen, die über dem Brett erwachten."
+      },
+      "expansion01": {
+        "label": "Erweiterung 01",
+        "desc": "Neue Vexborn, geboren aus Taktiken und Legenden."
+      }
+    },
+    "card": {
+      "equipped": "Ausgerüstet"
+    },
+    "legal": "Die Vexborn sind rein kosmetisch. Sie gewähren keinerlei Vorteil in der Partie und beeinflussen weder die Paarung, die Elo noch die KI.",
+    "ficha": {
+      "soon": "Dieser Vexborn kommt bald. Sein Artwork ist noch in der Werkstatt.",
+      "equip": "Vexborn ausrüsten",
+      "statPiece": "Figur",
+      "statArchetype": "Archetyp",
+      "statColor": "Farbe",
+      "personality": "Persönlichkeit",
+      "close": "Schließen"
+    },
+    "toast": {
+      "equipError": "Ausrüsten fehlgeschlagen. Versuch es erneut."
+    },
+    "rarity": {
+      "origin": "Ursprünglich",
+      "mythic": "Mythisch",
+      "distinguished": "Ausgezeichnet",
+      "legacy": "Vermächtnis"
+    },
+    "char": {
+      "kael": {
+        "title": "Der Erste Zug",
+        "piece": "Springer",
+        "archetype": "Initiative",
+        "color": "VEX-Rot",
+        "quote": "Das Brett erwacht nicht, bis jemand den Mut hat zu ziehen.",
+        "desc": "Kael war die erste Figur, die ihr Feld verließ, als das Brett noch leer war. Er dient keinem Reiter: Er ist der Impuls, der eine reglose Stellung in eine Partie verwandelt. Der Stern auf seiner Brust leuchtet auf, sobald jemand die Initiative ergreift, ohne das Ergebnis schon zu kennen.",
+        "personality": "Mutig, direkt, rastlos und ansteckend wettbewerbsfreudig."
+      },
+      "aurelia": {
+        "title": "Die Stille Krone",
+        "piece": "Dame",
+        "archetype": "Berechnung",
+        "color": "Elfenbein und Gold",
+        "quote": "Der stärkste Zug muss nicht angekündigt werden.",
+        "desc": "Aurelia betrachtet das Brett mit geschlossenen Augen, denn sie behauptet, die Figuren offenbaren mehr, wenn man sie nicht ansieht. Ihre goldenen Fragmente umkreisen jede Möglichkeit und halten nur inne, wenn eine perfekte Zugfolge existiert. Sie feiert nie ein Schachmatt; für sie war die Partie längst vorher entschieden.",
+        "personality": "Gelassen, elegant, anspruchsvoll und absolut sicher."
+      },
+      "bastion": {
+        "title": "Die Letzte Mauer",
+        "piece": "Turm",
+        "archetype": "Verbundene Verteidigung",
+        "color": "Kobalt",
+        "quote": "Solange eine Linie verbunden bleibt, ist niemand allein.",
+        "desc": "Bastion erwachte als isolierter Turm, entdeckte aber, dass er seine Knoten mit jeder Festung des Bretts verbinden konnte. Seine Barrieren schützen nicht nur Felder: Sie schaffen sichere Wege zwischen Verbündeten. Wenn alle Verteidigungen fallen, hält sein Netz die letzte Linie am Leuchten.",
+        "personality": "Loyal, technisch, beschützend und etwas zu wörtlich."
+      },
+      "nyra": {
+        "title": "Die Verhüllte Diagonale",
+        "piece": "Läufer",
+        "archetype": "Infiltration",
+        "color": "Violett",
+        "quote": "Ich stand nie vor dir. Ich war in dem Winkel, den du vergessen hast.",
+        "desc": "Nyra wandelt auf einer Diagonale, die zwischen dem sichtbaren Brett und seinem Spiegelbild liegt. Der leuchtende Spalt ihrer Maske erlaubt ihr, beide Oberflächen zu durchqueren und dort zu erscheinen, wo eine Linie blockiert schien. Niemand kennt ihr Gesicht, vielleicht weil unter der Maske nur eine weitere Diagonale existiert.",
+        "personality": "Zurückhaltend, präzise, ironisch und schwer zu überraschen."
+      },
+      "pip": {
+        "title": "Das Erste Feld",
+        "piece": "Bauer",
+        "archetype": "Entdeckung",
+        "color": "Cyan",
+        "quote": "Das ganze Brett passt vor ein erstes Feld.",
+        "desc": "Pip hat die letzte Reihe noch nicht erreicht und hat es damit nicht eilig. Er will jedes Feld, jeden Gegner und jede mögliche Art vorzurücken kennenlernen. Sein kleiner Stern erscheint, wenn er einen neuen Weg findet; deshalb ist er oft der Erste, der Orte betritt, die wichtige Figuren für unbedeutend halten.",
+        "personality": "Neugierig, optimistisch, ausdauernd und mutiger, als er glaubt."
+      },
+      "ordan": {
+        "title": "Der Ewige König",
+        "piece": "König",
+        "archetype": "Überleben",
+        "color": "Gold",
+        "quote": "Ewigkeit besteht darin, ein weiteres Feld zu finden.",
+        "desc": "Ordan erinnert sich an Endspiele, die gespielt wurden, bevor es Uhren gab. Die Sternbilder seiner Krone stehen für Schachs, denen er entkam, nicht für Siege. Seine Macht rührt nicht daher, das Brett zu erobern, sondern zu begreifen, dass sich selbst ein König der richtigen Stellung beugen muss.",
+        "personality": "Weise, streng, geduldig und beschützend gegenüber neuen Spielern."
+      },
+      "noctis": {
+        "title": "Die Schwarze Gabel",
+        "piece": "Springer",
+        "archetype": "Doppeltaktik",
+        "color": "Graphit und Cyan",
+        "quote": "Wenn du mich sehen kannst, verteidigst du bereits die falsche Figur.",
+        "desc": "Noctis durchdringt die Dunkelheit nicht: Er teilt sie. Jeder Sprung hinterlässt zwei Schatten, die verschiedene Ziele angreifen, während sein wahrer Körper auf dem einzigen Feld verbleibt, das niemand bewachte. Sein cyanfarbenes Auge berechnet den genauen Augenblick, in dem aus einer Drohung zwei werden.",
+        "personality": "Schweigsam, listig, unabhängig und erbarmungslos präzise."
+      },
+      "eira-vhal": {
+        "title": "Rivalen des Nexus",
+        "piece": "Springer",
+        "archetype": "Rivalität",
+        "color": "Elfenbein und Kobalt",
+        "quote": "Wir laufen nicht, um uns zu besiegen. Wir laufen, um zu entdecken, wer wir am Ziel sein werden.",
+        "desc": "Eira wurde aus dem Licht des Bretts geboren und Vhal aus dem Sturm, der in seinem Spiegelbild erschien. Beide jagen denselben goldenen Nexus auf entgegengesetzten Wegen. Sie haben so oft unentschieden gespielt, dass ihre Rivalität zur Freundschaft wurde, auch wenn keiner von beiden dieses Wort vor dem anderen aussprechen würde.",
+        "personality": "Eira ist diszipliniert und gelassen; Vhal impulsiv und stolz. Zusammen sind sie unzertrennlich."
+      },
+      "rhazek": {
+        "title": "Das Karmesin-Gambit",
+        "piece": "Springer",
+        "archetype": "Angreifer / Opfer",
+        "color": "Taktisches Rot",
+        "quote": "Eine Figur ist ein kleiner Preis für das ganze Brett.",
+        "desc": "Rhazek sucht niemals ein sicheres Feld. Er entstand aus der ersten freiwillig geopferten Figur und lernte, dass eine scheinbare Niederlage den einzigen Weg zum Sieg öffnen kann. Seine Rüstung trägt das Zeichen jedes Gambits, das niemand anzunehmen wagte.",
+        "personality": "Kühn, provokant, brillant und gefährlich ungeduldig."
+      },
+      "oryn": {
+        "title": "Wächter der Letzten Linie",
+        "piece": "Turm",
+        "archetype": "Archivar / Kontrolle",
+        "color": "Elfenbein und Kobalt",
+        "quote": "Jede Partie hinterlässt eine Wahrheit auf der letzten Linie.",
+        "desc": "Oryn hütet das Archiv der vergessenen Partien. Seine Bänder enthalten Stellungen, die nicht mehr existieren, und seine Türme speichern Entscheidungen, an die sich kein Spieler zu erinnern glaubt. Wenn eine Linie offen bleibt, entscheidet er, ob sie zum Sieg oder ins Leere führt.",
+        "personality": "Feierlich, geduldig, unparteiisch und besessen davon, jeden Zug zu bewahren."
+      },
+      "vesra": {
+        "title": "Königin des Zugzwangs",
+        "piece": "Dame",
+        "archetype": "Kontrolle / Manipulation",
+        "color": "Violett",
+        "quote": "Du kannst jeden Zug wählen. Alle gehören mir.",
+        "desc": "Vesra fesselt ihre Feinde nicht: Sie gewährt ihnen Möglichkeiten. Jede Alternative ist Teil eines Netzes, das lange vor Beginn der Partie berechnet wurde. Ihre geisterhaften Hände bewegen keine Figuren; sie entfernen die Auswege, die nie real waren.",
+        "personality": "Gelassen, majestätisch, kühl kalkulierend und beunruhigend höflich."
+      },
+      "brakkon": {
+        "title": "Die Lebende Festung",
+        "piece": "Turm",
+        "archetype": "Wächter / Widerstand",
+        "color": "Kobalt",
+        "quote": "Möge das ganze Reich vorrücken. Ich bleibe hier.",
+        "desc": "Brakkon bewohnt keine Festung: Er ist die Festung. Er erwachte, als sich ein ganzes Reich hinter dem letzten noch stehenden Turm verschanzte. Jeder Einschlag fügt seinen Mauern einen neuen Stein hinzu, und jeder beschützte Verbündete nährt den Kern, der unter seinen Zinnen brennt.",
+        "personality": "Beschützend, schweigsam, loyal und absolut unerschütterlich."
+      },
+      "ilyra": {
+        "title": "Läufer aus Kristall",
+        "piece": "Läufer",
+        "archetype": "Präzision / Brechung",
+        "color": "Cyan und Elfenbein",
+        "quote": "Eine Diagonale genügt, wenn das Licht den richtigen Winkel findet.",
+        "desc": "Ilyra betrachtet das Brett als eine Struktur aus Licht. Sie kann lange Diagonalen durchqueren, eine Drohung in harmlose Reflexe zerlegen und Linien entdecken, die für andere unsichtbar sind. Jeder Riss in ihrem Körper bewahrt die Erinnerung an eine perfekte Berechnung.",
+        "personality": "Präzise, distanziert, neugierig und überraschend mitfühlend."
+      },
+      "tikk": {
+        "title": "Der Läufer der Uhr",
+        "piece": "Bauer",
+        "archetype": "Geschwindigkeit / Erfindungsreichtum",
+        "color": "Cyan",
+        "quote": "Ich brauche nicht mehr Zeit. Ich brauche nur deine letzte Sekunde.",
+        "desc": "Tikk wurde gebaut, um eine Uhr zu drücken, entschied sich aber zu laufen, bevor ihn jemand aufziehen konnte. Er durchquert erstarrte Stellungen, stiehlt verlorene Augenblicke und erreicht die achte Reihe immer einen Sekundenbruchteil vor dem Unmöglichen. Niemand weiß, ob die riesige Uhr auf seinem Rücken kaputt ist oder einfach vorgeht.",
+        "personality": "Verschmitzt, schnell, optimistisch und erbittert wettbewerbsfreudig."
+      },
+      "malrec": {
+        "title": "Der König ohne Krone",
+        "piece": "König",
+        "archetype": "Überleben / Exil",
+        "color": "Graphit und Gold",
+        "quote": "Ein Reich kann fallen. Der König muss dennoch ziehen.",
+        "desc": "Malrec verlor sein Heer, seinen Thron und selbst das Recht, eine vollständige Krone zu tragen. Ihm blieb nur ein elfenbeinerner Bauer und die Pflicht, ihn am Leben zu erhalten. Die Ketten, die er hinter sich herzieht, bestehen aus den Feldern seines einstigen Reichs; jedes erinnert an einen Rückzug, den er sich weigerte, Niederlage zu nennen.",
+        "personality": "Karg, melancholisch, strategisch und weit gefährlicher, als er scheint."
+      },
+      "solenne": {
+        "title": "Der Achte Schritt",
+        "piece": "Zur Dame aufgestiegener Bauer",
+        "archetype": "Fortschritt / Überwindung",
+        "color": "Gold und Elfenbein",
+        "quote": "Ich wurde nicht mit einer Krone geboren. Ich habe das Brett überquert, um sie mir zu verdienen.",
+        "desc": "Solenne begann als kleinste Figur einer namenlosen Reihe. Sie rückte jeweils ein Feld vor, überlebte sieben unmögliche Linien und erreichte das andere Ende, ohne zu vergessen, woher sie kam. Ihre Verwandlung endet nie: Der Bauernsockel bleibt sichtbar unter einer Krone, die Schritt für Schritt errichtet wurde.",
+        "personality": "Entschlossen, bescheiden, inspirierend und widerstandsfähig."
+      }
+    }
+  },
+  "auth": {
+    "role": {
+      "owner": "Eigentümer",
+      "admin": "Administrator",
+      "moderator": "Moderator",
+      "member": "Mitglied"
+    },
+    "avatar": {
+      "vexKnight": "VEX-Springer",
+      "ivoryQueen": "Elfenbeindame",
+      "cobaltRook": "Kobaltturm",
+      "violetBishop": "Violetter Läufer",
+      "tealPawn": "Türkiser Bauer",
+      "goldenKing": "Goldener König",
+      "shadowKnight": "Schattenspringer",
+      "rivalDuo": "Rivalen-Duo"
+    },
+    "reputation": {
+      "unrated": "Nicht bewertet",
+      "goodStanding": "Gutes Ansehen",
+      "trusted": "Vertrauenswürdig",
+      "respected": "Angesehen",
+      "exemplary": "Vorbildlich"
+    },
+    "presence": {
+      "online": "Online",
+      "away": "Abwesend",
+      "playing": "Spielt",
+      "spectating": "Sieht zu",
+      "offline": "Offline"
+    },
+    "modal": {
+      "tabLogin": "Anmelden",
+      "tabRegister": "Konto erstellen",
+      "close": "Schließen"
+    },
+    "login": {
+      "loginLabel": "E-Mail oder Benutzername",
+      "passwordLabel": "Passwort",
+      "submit": "Anmelden"
+    },
+    "register": {
+      "usernameLabel": "Benutzername",
+      "emailLabel": "E-Mail",
+      "submit": "Konto erstellen"
+    },
+    "error": {
+      "generic": "Konnte nicht abgeschlossen werden."
+    },
+    "username": {
+      "checking": "Wird geprüft…",
+      "available": "✓ Verfügbar",
+      "unavailable": "Nicht verfügbar.",
+      "formatValid": "✓ Format gültig",
+      "rangeError": "Zwischen 3 und 20 Zeichen.",
+      "formatError": "Beginnt mit einem Buchstaben; nur Buchstaben, Zahlen und _.",
+      "reservedError": "Dieser Name ist nicht verfügbar."
+    },
+    "password": {
+      "minChars": "Mindestens 8 Zeichen ({n}/8)",
+      "weak": "Schwach",
+      "acceptable": "Akzeptabel",
+      "good": "Gut",
+      "strong": "Stark"
+    },
+    "chip": {
+      "login": "Anmelden",
+      "notificationsTitle": "{count} Hinweis",
+      "notificationsTitlePlural": "{count} Hinweise"
+    },
+    "menu": {
+      "profile": "Mein Profil",
+      "academy": "Akademie · AXIOM",
+      "playOnline": "Online spielen",
+      "badgesInventory": "Abzeichen-Inventar",
+      "adminPanel": "Admin-Panel",
+      "signout": "Abmelden",
+      "community": "Community",
+      "myGames": "Meine Partien"
+    }
+  }
+}

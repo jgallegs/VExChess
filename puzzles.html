@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>VEXCHESS · Puzzles tácticos</title>
-<meta name="description" content="Entrena tu táctica con puzzles de ajedrez: encuentra el mate en posiciones reales. Gratis y en tu navegador.">
+<title data-i18n="puzzles.pageTitle">VEXCHESS · Puzzles tácticos</title>
+<meta name="description" data-i18n-attr="content:puzzles.metaDescription" content="Entrena tu táctica con puzzles de ajedrez: encuentra el mate en posiciones reales. Gratis y en tu navegador.">
 <link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/puzzles.html">
 <meta name="theme-color" content="#0D1117">
 <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
-<link rel="stylesheet" href="navbar.css?v=4">
+<link rel="stylesheet" href="navbar.css?v=5">
 <link rel="stylesheet" href="puzzles.css?v=2">
 </head>
 <body class="pz-page">
@@ -35,20 +35,20 @@
 
     <aside class="pz-panel">
       <div class="pz-head">
-        <span class="eyebrow">Puzzles tácticos</span>
-        <h1 class="pz-title">Encuentra el <span class="accent">mate</span></h1>
+        <span class="eyebrow" data-i18n="puzzles.eyebrow">Puzzles tácticos</span>
+        <h1 class="pz-title" data-i18n-html="puzzles.heading">Encuentra el <span class="accent">mate</span></h1>
       </div>
       <div class="pz-theme-chip" id="pz-theme">—</div>
       <div class="pz-turn" id="pz-turn"></div>
-      <div class="pz-status" id="pz-status">Encuentra la mejor jugada.</div>
+      <div class="pz-status" id="pz-status" data-i18n="puzzles.statusDefault">Encuentra la mejor jugada.</div>
 
       <div class="pz-controls">
-        <button class="pz-btn" id="pz-hint-btn" title="Pista (H)"><img class="vex-icon--button" src="assets/icons/gameplay/hint.svg" alt="" aria-hidden="true">Pista</button>
-        <button class="pz-btn" id="pz-retry-btn" title="Reiniciar puzzle"><img class="vex-icon--button" src="assets/icons/gameplay/reset.svg" alt="" aria-hidden="true">Reiniciar</button>
+        <button class="pz-btn" id="pz-hint-btn" title="Pista (H)" data-i18n-attr="title:puzzles.hintBtnTitle"><img class="vex-icon--button" src="assets/icons/gameplay/hint.svg" alt="" aria-hidden="true"><span data-i18n="puzzles.hintBtn">Pista</span></button>
+        <button class="pz-btn" id="pz-retry-btn" title="Reiniciar puzzle" data-i18n-attr="title:puzzles.retryBtnTitle"><img class="vex-icon--button" src="assets/icons/gameplay/reset.svg" alt="" aria-hidden="true"><span data-i18n="puzzles.retryBtn">Reiniciar</span></button>
       </div>
       <div class="pz-nav">
-        <button class="pz-btn ghost" id="pz-prev-btn" title="Anterior (←)">‹ Anterior</button>
-        <button class="pz-btn ghost" id="pz-next-btn" title="Siguiente (→)">Siguiente ›</button>
+        <button class="pz-btn ghost" id="pz-prev-btn" title="Anterior (←)" data-i18n="puzzles.prevBtn" data-i18n-attr="title:puzzles.prevBtnTitle">‹ Anterior</button>
+        <button class="pz-btn ghost" id="pz-next-btn" title="Siguiente (→)" data-i18n="puzzles.nextBtn" data-i18n-attr="title:puzzles.nextBtnTitle">Siguiente ›</button>
       </div>
 
       <div class="pz-meta">
@@ -56,13 +56,13 @@
         <span id="pz-solved" class="pz-solved">0 resueltos</span>
       </div>
 
-      <p class="pz-tip">Consejo: pulsa una pieza para ver sus jugadas. Atajos: ← → cambian de puzzle, <b>H</b> da pista.</p>
+      <p class="pz-tip" data-i18n-html="puzzles.tip">Consejo: pulsa una pieza para ver sus jugadas. Atajos: ← → cambian de puzzle, <b>H</b> da pista.</p>
     </aside>
   </main>
 
   <script type="module" src="theme.js?v=1"></script>
-  <script type="module" src="navbar.js?v=3"></script>
-  <script type="module" src="auth.js?v=16"></script>
-  <script type="module" src="puzzles.js?v=3"></script>
+  <script type="module" src="navbar.js?v=4"></script>
+  <script type="module" src="auth.js?v=17"></script>
+  <script type="module" src="puzzles.js?v=4"></script>
 </body>
 </html>

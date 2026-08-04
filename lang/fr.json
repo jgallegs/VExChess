@@ -1,0 +1,1047 @@
+{
+  "nav": {
+    "academia": "Académie",
+    "puzzles": "Puzzles",
+    "directo": "En direct",
+    "partidas": "Mes parties",
+    "comunidad": "Communauté",
+    "play": "Jouer",
+    "language": "Langue",
+    "home": "Accueil",
+    "menu": "Navigation",
+    "openMenu": "Ouvrir le menu"
+  },
+  "common": {
+    "loading": "Chargement…",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "prev": "Précédent",
+    "retry": "Réessayer",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non",
+    "accept": "Accepter",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "error": "Une erreur s'est produite.",
+    "empty": "Il n'y a encore rien ici."
+  },
+  "game": {
+    "title": "Échecs · adversaire à réseau neuronal",
+    "appName": "Échecs",
+    "appSub": "adversaire IA · NNUE",
+    "engineLoading": "Chargement du moteur…",
+    "engineReady": "Moteur prêt · Stockfish 18 (NNUE)",
+    "engineError": "Erreur du moteur : ",
+    "loaderText": "Chargement du moteur…",
+    "coachLoading": "Chargement de l'entraîneur…",
+    "langLabel": "Langue",
+    "levelLabel": "Niveau de l'adversaire",
+    "colorLabel": "Ta couleur",
+    "colorWhite": "Blancs",
+    "colorBlack": "Noirs",
+    "colorRandom": "Aléatoire",
+    "drawTitle": "Tirage au sort de la couleur",
+    "drawPick": "Choisis une main",
+    "drawSkip": "Passer",
+    "drawWhite": "Tu joues avec les Blancs. À toi de jouer.",
+    "drawBlack": "Tu joues avec les Noirs. Stockfish commence.",
+    "confirmRestart": "Cela réinitialisera la partie en cours. Continuer ?",
+    "confirmOk": "Réinitialiser",
+    "confirmCancel": "Annuler",
+    "undo": "Annuler",
+    "flip": "Retourner",
+    "newGame": "Nouvelle",
+    "coachToggle": "Mode entraîneur",
+    "coachToggleSub": "(il te suggère le coup)",
+    "dangerToggle": "Alerter des pièces en danger",
+    "helpBtn": "Guide et concepts",
+    "helpTitle": "Guide des échecs",
+    "conceptsTitle": "Notions de base",
+    "piecesTitle": "Les pièces",
+    "thinking": "L'adversaire réfléchit…",
+    "suggestion": "Suggestion",
+    "you": "Toi",
+    "white": "blancs",
+    "black": "noirs",
+    "max": "MAX",
+    "historyEmpty": "Aucun coup pour l'instant",
+    "evalLabel": "Évaluation",
+    "advWhite": "avantage aux Blancs",
+    "advBlack": "avantage aux Noirs",
+    "even": "égalité",
+    "checkmateWin": "🏆 Échec et mat ! Tu as gagné.",
+    "checkmateLose": "💀 Échec et mat. L'adversaire gagne.",
+    "stalemate": "Nulle par pat.",
+    "draw": "Nulle.",
+    "check": "Échec !",
+    "queenDanger": "Ta dame est en danger !",
+    "piecesDanger1": "Tu as 1 pièce menacée.",
+    "piecesDangerN": "Tu as {n} pièces menacées.",
+    "labelValue": "Valeur",
+    "labelMove": "Déplacement :",
+    "labelHistory": "Histoire :",
+    "labelGoals": "Objectifs :",
+    "movesLabel": "Coups",
+    "card": {
+      "value": "Valeur :",
+      "move": "Comment elle se déplace.",
+      "history": "Histoire et anecdotes.",
+      "goals": "Objectifs et coups.",
+      "noCaps": "Aucune capture"
+    },
+    "resume": {
+      "inProgress": "partie en cours",
+      "moveOne": "{n} coup",
+      "moveN": "{n} coups"
+    },
+    "reasons": {
+      "castle": "roque et met le roi à l'abri",
+      "mate": "c'est échec et mat !",
+      "check": "met en échec",
+      "promote": "promeut un pion",
+      "capture": "capture du matériel",
+      "develop": "développe une pièce",
+      "space": "gagne de l'espace",
+      "improve": "améliore ta position"
+    },
+    "levels": {
+      "principiante": "Débutant (~1320)",
+      "facil": "Facile (~1500)",
+      "intermedio": "Intermédiaire (~1800)",
+      "avanzado": "Avancé (~2200)",
+      "maximo": "Maximum (imbattable)"
+    },
+    "pieceNames": {
+      "k": "roi",
+      "q": "dame",
+      "r": "tour",
+      "b": "fou",
+      "n": "cavalier",
+      "p": "pion"
+    },
+    "concepts": [
+      {
+        "nombre": "Que signifient les chiffres ? (Elo)",
+        "texto": "Le chiffre à côté de l'adversaire (300, 1320, 1800, 3190…) est son <b>Elo</b> : une mesure de la force de jeu. Plus il est élevé, mieux il joue. Pour référence : ~300 débutant absolu, ~800–1200 tu apprends encore, ~1500 amateur de club, ~2000 très fort, ~2500 Grand Maître et ~2800+ champions du monde. Le niveau que tu choisis ici fixe ce chiffre et, avec lui, la force de Stockfish."
+      },
+      {
+        "nombre": "But du jeu",
+        "texto": "Gagner en donnant <b>échec et mat</b> : attaquer le roi adverse de sorte qu'il ne puisse pas s'échapper. Le roi ne se capture jamais ; on l'encercle. Tu peux aussi gagner si l'adversaire abandonne."
+      },
+      {
+        "nombre": "Échec, mat et nulle",
+        "texto": "<b>Échec</b> : le roi est attaqué et tu dois le sauver au coup suivant. <b>Échec et mat</b> : il est attaqué et il n'y a aucun moyen de le sauver (fin de la partie). <b>Nulle</b> (match nul) : par exemple le <i>pat</i> (tu n'es pas en échec mais tu n'as aucun coup légal), par répétition de la position ou par manque de matériel pour mater."
+      },
+      {
+        "nombre": "Coups spéciaux",
+        "texto": "<b>Roque</b> : le roi et une tour se déplacent en même temps pour mettre le roi à l'abri. <b>Prise en passant</b> : un pion peut en capturer un autre qui vient d'avancer de deux cases en se retrouvant à côté de lui. <b>Promotion</b> : un pion qui atteint la dernière rangée se transforme en une autre pièce (presque toujours en dame)."
+      },
+      {
+        "nombre": "La valeur des pièces",
+        "texto": "Elle sert à décider si un échange t'est favorable : pion <b>1</b>, cavalier <b>3</b>, fou <b>3</b>, tour <b>5</b>, dame <b>9</b>. Le roi n'a pas de valeur numérique car c'est l'objectif. Le <b>+N</b> vert des barres est la différence de matériel capturé."
+      },
+      {
+        "nombre": "Conseils pour débuter",
+        "texto": "Contrôle le centre avec les pions ; sors tôt les cavaliers et les fous (<i>développe</i>) ; roque pour protéger le roi ; ne sors pas la dame trop tôt ; et avant chaque coup demande-toi : « une de mes pièces est-elle en danger ? ». Active le <b>mode entraîneur</b> pour voir le coup recommandé."
+      }
+    ],
+    "pieces": {
+      "p": {
+        "nombre": "Pion",
+        "mueve": "Il avance d'une case en ligne droite (ou de deux lors de son premier mouvement) et capture en diagonale, jamais de face. Il a deux coups spéciaux : la prise en passant et la promotion.",
+        "historia": "Il représente l'infanterie. C'est la seule pièce qui ne peut pas reculer. S'il atteint la dernière rangée, il « promeut » et se transforme en la pièce de ton choix : un simple pion peut devenir dame !",
+        "objetivos": "Contrôle le centre et forme des chaînes de pions. Un « pion passé » (sans pions adverses pour l'arrêter) peut décider de la partie en filant vers la promotion."
+      },
+      "n": {
+        "nombre": "Cavalier",
+        "mueve": "Il saute en forme de « L » : deux cases dans une direction et une perpendiculairement. C'est la seule pièce qui saute par-dessus les autres.",
+        "historia": "Il représente la cavalerie. Son saut le rend imprévisible : il peut attaquer deux pièces à la fois avec une « fourchette ». Il brille dans les positions fermées où les pièces à longue portée s'étouffent.",
+        "objetivos": "Cherche des cases fortes près du centre où aucun pion ne peut le déloger. Un cavalier bien installé en camp adverse vaut de l'or."
+      },
+      "b": {
+        "nombre": "Fou",
+        "mueve": "Il glisse en diagonale d'un nombre quelconque de cases. Chaque fou vit toujours sur des cases d'une seule couleur.",
+        "historia": "Son nom vient de l'arabe « al-fil », qui signifie « l'éléphant ». Conserver les deux fous (la « paire de fous ») est un avantage apprécié, surtout dans les positions ouvertes.",
+        "objetivos": "Ouvre de longues diagonales et vise le roi ennemi. Les deux fous se complètent en couvrant chacun une couleur."
+      },
+      "r": {
+        "nombre": "Tour",
+        "mueve": "Elle se déplace en ligne droite, horizontale ou verticale, d'un nombre quelconque de cases. Elle participe au roque avec le roi.",
+        "historia": "Elle représente un char de guerre ou une tour de siège. C'est une pièce « lourde » qui déploie toute sa force quand l'échiquier s'ouvre, en fin de partie.",
+        "objetivos": "Domine les colonnes ouvertes et place-la sur la septième rangée, où elle capture des pions. Deux tours connectées sont dévastatrices."
+      },
+      "q": {
+        "nombre": "Dame (Reine)",
+        "mueve": "La pièce la plus puissante : elle combine la tour et le fou. Elle glisse en ligne droite et en diagonale d'un nombre quelconque de cases.",
+        "historia": "Au départ, elle était faible (un « vizir » qui ne se déplaçait que d'une seule case). Dans l'Europe du XVe siècle, elle devint si forte que cette variante fut appelée « échecs de la dame folle ».",
+        "objetivos": "Ne la sors pas trop tôt, sinon l'adversaire gagnera du temps en la pourchassant. Coordonnée avec d'autres pièces, elle est mortelle à l'attaque."
+      },
+      "k": {
+        "nombre": "Roi",
+        "mueve": "Il se déplace d'une seule case dans n'importe quelle direction. Il a un coup spécial avec la tour : le roque, qui le met à l'abri.",
+        "historia": "C'est le cœur du jeu : la partie se termine quand le roi ne peut pas échapper à l'échec (échec et mat). Il ne se capture jamais ; on l'encercle.",
+        "objetivos": "À l'ouverture, mets-le à l'abri (généralement en roquant). En finale, avec peu de pièces, il devient une pièce active qui aide à promouvoir les pions."
+      }
+    }
+  },
+  "home": {
+    "meta": {
+      "title": "VEXCHESS · Échecs avec IA (Stockfish 18 · NNUE)",
+      "description": "Échecs contre une IA de premier plan (Stockfish 18 · NNUE) directement dans ton navigateur. Mode entraîneur, alerte de pièces en danger, puzzles et guide interactif. Gratuit et hors ligne."
+    },
+    "hero": {
+      "badge": "Stockfish 18 · NNUE · 100 % dans ton navigateur",
+      "title": "Réfléchis. Joue.<br><span class=\"accent\">Gagne.</span>",
+      "sub": "Échecs contre une intelligence artificielle de premier plan, avec mode entraîneur, alerte de pièces en danger et un guide interactif de chaque pièce. Sans serveurs, sans inscription, directement dans ton navigateur.",
+      "cta": {
+        "play": "Jouer maintenant",
+        "features": "Voir les fonctionnalités"
+      },
+      "stat": {
+        "difficulty": "Niveaux de difficulté",
+        "neural": "Réseau neuronal",
+        "free": "Gratuit et hors ligne"
+      },
+      "scroll": {
+        "aria": "Descendre"
+      }
+    },
+    "features": {
+      "eyebrow": "Fonctionnalités",
+      "heading": "Tout ce qu'il te faut pour <span class=\"accent\">progresser</span>",
+      "subtitle": "Une expérience d'échecs complète qui tourne entièrement dans ton navigateur.",
+      "neural": {
+        "title": "Adversaire à réseau neuronal",
+        "body": "Stockfish 18 avec évaluation <b>NNUE</b>, le moteur open source le plus fort du monde. Difficulté ajustable de ~1320 à une force imbattable."
+      },
+      "coach": {
+        "title": "Mode entraîneur",
+        "body": "Une seconde instance du moteur à pleine puissance te suggère le meilleur coup avec une flèche et t'explique pourquoi."
+      },
+      "danger": {
+        "title": "Alerte de pièces en danger",
+        "body": "Il met en évidence par un halo les pièces menacées et t'avertit spécialement quand ta dame est en danger. Ne laisse plus jamais une pièce en prise sans le savoir."
+      },
+      "guide": {
+        "title": "Guide interactif",
+        "body": "Une grande carte par pièce avec sa valeur, son histoire et une <b>simulation en boucle</b> de la façon dont elle se déplace et capture."
+      },
+      "multilang": {
+        "title": "Multilingue",
+        "body": "Espagnol et anglais avec détection automatique. Toute l'interface et le guide traduits."
+      },
+      "local": {
+        "title": "100 % dans ton navigateur",
+        "body": "Le moteur est compilé en WebAssembly et tourne en local. Sans serveurs, sans clés d'API, sans coût et fonctionne sans connexion."
+      }
+    },
+    "ia": {
+      "eyebrow": "Le cerveau",
+      "heading": "Stockfish 18 avec réseau neuronal <span class=\"accent\">NNUE</span>",
+      "body": "L'adversaire utilise le même moteur que Chess.com : <b>Stockfish 18</b>, avec évaluation par réseau neuronal (Efficiently Updatable Neural Network), compilé en <b>WebAssembly</b> et s'exécutant entièrement dans ton navigateur au sein d'un <i>Web Worker</i>. Il parle le protocole UCI, réfléchit en millisecondes et n'envoie rien à aucun serveur.",
+      "list": {
+        "rules": "Règles complètes via <b>chess.js</b> : roque, promotion, prise en passant, échec et mat et nulle.",
+        "difficulty": "Difficulté par Elo ou force maximale, configurable à chaque partie.",
+        "private": "Privé par conception : tout le calcul se fait sur ton appareil."
+      },
+      "cta": "Essayer le moteur"
+    },
+    "roadmap": {
+      "eyebrow": "Feuille de route",
+      "heading": "Ce n'est que le <span class=\"accent\">début</span>",
+      "subtitle": "Nous construisons une plateforme. Ce qui arrive :",
+      "badge": {
+        "live": "Disponible",
+        "preview": "Aperçu",
+        "soon": "Bientôt"
+      },
+      "puzzles": {
+        "title": "Puzzles tactiques",
+        "body": "Trouve le mat dans des positions réelles. Tu peux déjà t'entraîner ! <b>Jouer →</b>"
+      },
+      "history": {
+        "title": "Mes parties",
+        "body": "Tes parties terminées s'enregistrent toutes seules. Revois-les coup par coup. <b>Voir →</b>"
+      },
+      "live": {
+        "title": "En direct",
+        "body": "Parties en temps réel contre d'autres personnes. Jette un œil à quoi cela ressemblera. <b>Voir →</b>"
+      },
+      "accounts": {
+        "title": "Comptes et profil",
+        "body": "Inscris-toi, enregistre tes parties et ta progression, et emporte ton Elo avec toi."
+      },
+      "lessons": {
+        "title": "Leçons",
+        "body": "Apprends les ouvertures, les finales et la stratégie pas à pas."
+      },
+      "leaderboard": {
+        "title": "Classement et ranking",
+        "body": "Vise le sommet avec un système d'Elo et des classements."
+      },
+      "social": {
+        "title": "Équipes et social",
+        "body": "Crée ou rejoins des clubs, joue avec des amis et organise des tournois."
+      }
+    },
+    "ctaFinal": {
+      "heading": "Prêt pour ta prochaine partie ?",
+      "subtitle": "Choisis ton camp, ton niveau, et montre à la machine qui commande.",
+      "play": "Jouer maintenant"
+    },
+    "footer": {
+      "tag": "Think ahead.",
+      "links": {
+        "play": "Jouer",
+        "features": "Fonctionnalités",
+        "ia": "L'IA",
+        "roadmap": "Feuille de route"
+      },
+      "credits": "Moteur : <a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a> (GPLv3). Règles : <a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>. Pièces : jeu Staunty (Lichess).",
+      "copy": "© {year} VEXCHESS · Réalisé par Jorge.",
+      "author": "Réalisé par Jorge."
+    }
+  },
+  "directo": {
+    "pageTitle": "VEXCHESS · En direct",
+    "metaDescription": "Parties en temps réel sur VEXCHESS. Très bientôt, tu pourras voir et suivre des parties en direct contre d'autres personnes.",
+    "heroTitle": "Parties en temps réel",
+    "heroSubtitle": "Suis des parties en direct, regarde les meilleurs jouer et apprends de chaque coup. Le multijoueur en ligne arrive — voici à quoi cela ressemblera.",
+    "comingSoonTag": "Bientôt",
+    "comingSoonBanner": "Ceci est un aperçu du lobby. Les parties en ligne arriveront avec les comptes utilisateurs.",
+    "featuredBadge": "EN DIRECT · à la une",
+    "liveLabel": "EN DIRECT",
+    "colorWhite": "Blancs",
+    "colorBlack": "Noirs",
+    "versus": "vs",
+    "moveLabel": "Coup {n}",
+    "spectatorsCount": "{count} spectateurs",
+    "moreGamesTitle": "Plus de parties en direct",
+    "meanwhileTitle": "En attendant…",
+    "meanwhileText": "Le jeu en ligne n'est pas encore disponible, mais tu peux déjà jouer contre une IA de premier plan ou entraîner ta tactique.",
+    "ctaPlayAI": "Jouer contre l'IA",
+    "ctaSolvePuzzles": "Résoudre des puzzles"
+  },
+  "comunidad": {
+    "pageTitle": "VEXCHESS · Communauté",
+    "metaDescription": "Ta communauté sur VEXCHESS : amis, demandes, recherche de joueurs et ton VEX ID.",
+    "tabs": {
+      "amigos": "Amis",
+      "solicitudes": "Demandes",
+      "buscar": "Rechercher",
+      "vexid": "Mon VEX ID"
+    },
+    "loggedOut": {
+      "title": "Ta communauté t'attend",
+      "desc": "Connecte-toi pour avoir des amis, rechercher des joueurs et partager ton VEX ID.",
+      "cta": "Se connecter"
+    },
+    "head": {
+      "eyebrow": "Communauté",
+      "title": "Tes <span class=\"accent\">gens</span>"
+    },
+    "person": {
+      "friendsDisabled": "Amis",
+      "sent": "Envoyée",
+      "accept": "Accepter",
+      "add": "Ajouter",
+      "challenge": "Défier",
+      "remove": "Supprimer",
+      "decline": "Refuser",
+      "cancel": "Annuler",
+      "mutual": "{count} en commun",
+      "subLine": "{vexId} · {elo} Elo"
+    },
+    "friends": {
+      "emptyTitle": "Tu n'as pas encore d'amis",
+      "emptySub": "Recherche des joueurs par leur nom ou partage ton VEX ID pour qu'ils t'ajoutent."
+    },
+    "requests": {
+      "received": "Reçues",
+      "sent": "Envoyées",
+      "emptyIncoming": "Tu n'as aucune demande en attente.",
+      "emptyOutgoing": "Tu n'as envoyé aucune demande."
+    },
+    "search": {
+      "placeholder": "Rechercher par nom d'utilisateur…",
+      "hint": "Saisis au moins 2 lettres pour rechercher.",
+      "searching": "Recherche…",
+      "noResults": "Aucun joueur ne correspond à « {q} »."
+    },
+    "loading": "Chargement…",
+    "vexid": {
+      "qrFail": "Impossible de générer le QR",
+      "codeLabel": "Code de connexion",
+      "share": "Partager le VEX ID",
+      "addInPersonTitle": "Ajouter en personne",
+      "addInPersonDesc": "Montre ton QR et fais-le scanner, ou scanne toi-même celui d'une autre personne avec la caméra :",
+      "scanBtn": "Scanner un QR",
+      "orAddByCode": "ou ajoute avec son code",
+      "addCodePlaceholder": "ABC-DEF",
+      "note": "Les cartes NFC arriveront avec l'application. Personne n'est ajouté sans que les deux confirment.",
+      "reputationNew": "Nouveau"
+    },
+    "addByCode": {
+      "invalid": "Saisis un code valide de 6 caractères."
+    },
+    "toast": {
+      "friendsNow": "Vous êtes maintenant amis !",
+      "requestSent": "Demande envoyée",
+      "requestDeclined": "Demande refusée",
+      "requestCancelled": "Demande annulée",
+      "friendRemoved": "Ami supprimé",
+      "error": "Erreur"
+    },
+    "share": {
+      "title": "Mon VEX ID · VEXCHESS",
+      "text": "Ajoute-moi sur VEXCHESS",
+      "linkCopied": "Lien copié dans le presse-papiers",
+      "copyLink": "Copie ton lien : {url}"
+    },
+    "challenge": {
+      "tc": {
+        "bullet": "Bullet",
+        "blitz": "Blitz",
+        "rapida": "Rapide"
+      },
+      "title": "Défier {name}",
+      "chooseTc": "Choisis la cadence de jeu :",
+      "waiting": "En attente de {name}…",
+      "waitingDesc": "Défi de {tc} envoyé. Dès qu'il accepte, la partie commence.",
+      "cancelBtn": "Annuler le défi",
+      "notCompleted": "Le défi n'a pas abouti"
+    },
+    "modal": {
+      "close": "Fermer"
+    },
+    "scanner": {
+      "unavailable": "Le scanner n'est pas disponible sur ce navigateur.",
+      "noCamera": "Ton navigateur ne permet pas d'utiliser la caméra.",
+      "hint": "Vise le QR de ton ami·e…",
+      "cameraError": "Impossible d'accéder à la caméra. Vérifie les autorisations.",
+      "found": "Trouvé ! Ouverture…",
+      "notVexId": "Ce QR n'est pas un VEX ID."
+    },
+    "profile": {
+      "loading": "Chargement du profil…",
+      "subLine": "@{handle} · {elo} Elo",
+      "statPartidas": "Parties",
+      "statVictorias": "Victoires",
+      "statDerrotas": "Défaites",
+      "loadError": "Impossible de charger le profil"
+    }
+  },
+  "partidas": {
+    "pageTitle": "VEXCHESS · Mes parties",
+    "metaDescription": "Revois tes parties d'échecs coup par coup, avec lecteur et export en PGN. Elles s'enregistrent toutes seules dans ton navigateur.",
+    "ogTitle": "VEXCHESS · Mes parties",
+    "ogDescription": "Revois tes parties coup par coup, avec lecteur et export en PGN.",
+    "captionSelectGame": "Sélectionne une partie",
+    "ctrlFirstTitle": "Début (⏮)",
+    "ctrlFirstAria": "Aller au début",
+    "ctrlPrevTitle": "Précédent (←)",
+    "ctrlPrevAria": "Coup précédent",
+    "ctrlPlayTitle": "Lecture (espace)",
+    "ctrlPlayAria": "Lecture",
+    "ctrlNextTitle": "Suivant (→)",
+    "ctrlNextAria": "Coup suivant",
+    "ctrlLastTitle": "Fin (⏭)",
+    "ctrlLastAria": "Aller à la fin",
+    "ctrlFlipTitle": "Retourner l'échiquier (F)",
+    "ctrlFlipAria": "Retourner l'échiquier",
+    "graphEvaluation": "Évaluation",
+    "eyebrow": "Mes parties",
+    "title": "Revois tes <span class=\"accent\">parties</span>",
+    "movesTitle": "Coups",
+    "analyzeBtn": "Analyser",
+    "analyzeBtnTitle": "Analyser la partie avec Stockfish",
+    "pgnBtn": "Copier le PGN",
+    "pgnBtnTitle": "Copier le PGN",
+    "countGames": "{count} parties",
+    "countGameOne": "{count} partie",
+    "clearAll": "Tout effacer",
+    "emptyTitle": "Tu n'as pas encore de parties enregistrées.",
+    "emptySub": "Chaque partie que tu termines (échec et mat, nulle ou abandon) sera enregistrée ici automatiquement pour que tu puisses la revoir.",
+    "playGame": "Jouer une partie <span aria-hidden=\"true\">→</span>",
+    "resultDraw": "Nulle",
+    "resultWin": "Victoire",
+    "resultLoss": "Défaite",
+    "levelPrincipiante": "Débutant",
+    "levelFacil": "Facile",
+    "levelIntermedio": "Intermédiaire",
+    "levelAvanzado": "Avancé",
+    "levelMaximo": "Maximum",
+    "sideBlack": "Noirs",
+    "sideWhite": "Blancs",
+    "itemOpponent": "vs Stockfish · {level}",
+    "itemSub": "{side} · {moves} coups · {date}",
+    "delTitle": "Supprimer",
+    "delAria": "Supprimer la partie",
+    "captionInitialPos": "Position initiale",
+    "captionMove": "{san}  ({moveNo}, {who})",
+    "whoWhite": "blancs",
+    "whoBlack": "noirs",
+    "analyzeInProgress": "Analyse…",
+    "analysisSummary": "{inacc} imprécisions · {mistakes} erreurs · {blunders} graves",
+    "pgnCopied": "Copié !"
+  },
+  "puzzles": {
+    "pageTitle": "VEXCHESS · Puzzles tactiques",
+    "metaDescription": "Entraîne ta tactique avec des puzzles d'échecs : trouve le mat dans des positions réelles. Gratuit et dans ton navigateur.",
+    "ogDescription": "Trouve le mat dans des positions réelles. Entraîne ta tactique gratuitement dans ton navigateur.",
+    "eyebrow": "Puzzles tactiques",
+    "heading": "Trouve le <span class=\"accent\">mat</span>",
+    "statusDefault": "Trouve le meilleur coup.",
+    "hintBtn": "Indice",
+    "hintBtnTitle": "Indice (H)",
+    "retryBtn": "Réinitialiser",
+    "retryBtnTitle": "Réinitialiser le puzzle",
+    "prevBtn": "‹ Précédent",
+    "prevBtnTitle": "Précédent (←)",
+    "nextBtn": "Suivant ›",
+    "nextBtnTitle": "Suivant (→)",
+    "progress": "Puzzle {n} / {total}",
+    "solvedCount": "{count} résolus",
+    "tip": "Conseil : clique sur une pièce pour voir ses coups. Raccourcis : ← → changent de puzzle, <b>H</b> donne un indice.",
+    "turnWhite": "Aux Blancs de jouer",
+    "turnBlack": "Aux Noirs de jouer",
+    "goalMate1": "Trouve le mat en 1.",
+    "goalMate2": "Trouve le mat en 2.",
+    "goalWin": "Gagne du matériel.",
+    "themeCorridorMate": "Mat du couloir",
+    "themeRookEighth": "Tour à la 8e",
+    "themeQueenMate": "Mat de la dame",
+    "themeStalemateMate": "Mat étouffé",
+    "themeKnightMate": "Mat du cavalier",
+    "themeMate2Queen": "Mat en 2 · dame",
+    "themeForkWinQueen": "Fourchette · gagne la dame",
+    "okMate1": "Correct ! Échec et mat. ✓",
+    "okWin": "Fourchette ! Tu gagnes la dame. ✓",
+    "okMate2Key": "Mat ! ✓",
+    "okMate2": "Correct ! Échec et mat en 2. ✓",
+    "wrongMate1": "Celui-ci ne donne pas mat. Essaie-en un autre. 🔁",
+    "wrongWin": "Celui-ci ne gagne pas de matériel. 🔁",
+    "wrongMate2Force": "Cela ne force pas le mat. 🔁",
+    "wrongMate2": "Ce n'est pas encore mat. 🔁",
+    "mate2Defends": "Bien ! L'adversaire défend… donne le mat maintenant.",
+    "finishAll": "Tu as résolu tous les puzzles ! 🎉",
+    "hintMovePiece": "Indice : déplace la pièce de {square}.",
+    "hintFindMate": "Indice : cherche l'échec et mat maintenant."
+  },
+  "perfil": {
+    "pageTitle": "VEXCHESS · Mon profil",
+    "metaDescription": "Ton profil VEXCHESS : avatar, Elo, statistiques et série.",
+    "loading": "Chargement de ton profil…",
+    "guestTitle": "Ton profil t'attend",
+    "guestText": "Connecte-toi ou crée un compte pour enregistrer tes parties, voir tes statistiques et ton Elo depuis n'importe quel appareil.",
+    "guestCta": "Se connecter ou créer un compte",
+    "eloLabel": "Elo {elo}",
+    "memberSince": "Membre depuis {date}",
+    "logout": "Se déconnecter",
+    "pinnedLabel": "Épinglées",
+    "statGames": "Parties",
+    "statWins": "Victoires",
+    "statLosses": "Défaites",
+    "statDraws": "Nulles",
+    "statWinRate": "% Victoires",
+    "statCurrentStreak": "Série actuelle",
+    "statBestStreak": "Meilleure série",
+    "streakWinOne": "{n} victoire",
+    "streakWinMany": "{n} victoires",
+    "streakLossOne": "{n} défaite",
+    "streakLossMany": "{n} défaites",
+    "byLevelTitle": "Par niveau de l'IA",
+    "tableColLevel": "Niveau",
+    "tableColPlayed": "Jouées",
+    "tableColWins": "V",
+    "tableColLosses": "D",
+    "tableColDraws": "N",
+    "levelPrincipiante": "Débutant",
+    "levelFacil": "Facile",
+    "levelIntermedio": "Intermédiaire",
+    "levelAvanzado": "Avancé",
+    "levelMaximo": "Maximum",
+    "levelDesconocido": "Autre",
+    "avatarTitle": "Avatar",
+    "avatarClassic": "Classiques",
+    "badgesTitle": "Insignes",
+    "badgesHint": "Clique sur un insigne pour voir son détail, l'épingler (max. 3) ou le mettre en avant à côté de ton nom.",
+    "badgesEmpty": "Tu n'as pas encore d'insignes. Ils se débloqueront avec les succès, les événements et la participation à la communauté.",
+    "badgeStarTitle": "Mis en avant",
+    "badgeGrantedOn": "Obtenu le {date}",
+    "badgeUnpin": "Retirer des épinglés",
+    "badgePin": "Épingler au profil",
+    "badgeUnfeature": "Retirer de la mise en avant",
+    "badgeFeature": "Mettre en avant à côté du nom",
+    "badgePinLimit": "Tu as déjà 3 insignes épinglés. Retires-en un pour épingler celui-ci.",
+    "myGamesLink": "Mes parties",
+    "modalClose": "Fermer"
+  },
+  "insignias": {
+    "pageTitle": "VEXCHESS · Inventaire d'insignes",
+    "grant": {
+      "mode": {
+        "manualUnica": "Manuel · unique",
+        "sistema": "Système",
+        "evento": "Événement",
+        "manual": "Manuel",
+        "sistemaRevision": "Système + révision"
+      },
+      "revocable": "Révocable",
+      "permanente": "Permanent"
+    },
+    "family": {
+      "rol": "Rôle",
+      "legado": "Héritage",
+      "competicion": "Compétition",
+      "comunidad": "Communauté",
+      "contribucion": "Contribution"
+    },
+    "familyDesc": {
+      "rol": "Qui est qui au sein de VEXCHESS.",
+      "legado": "Tu étais là depuis le début.",
+      "competicion": "Ce que tu gagnes sur l'échiquier.",
+      "comunidad": "Comment tu traites les autres.",
+      "contribucion": "Ce que tu apportes au projet."
+    },
+    "card": {
+      "ownedTag": "✓ Tu l'as"
+    },
+    "guest": {
+      "title": "Zone de l'équipe",
+      "body": "L'inventaire complet des insignes est réservé à l'équipe de VEXCHESS. Les autres se découvrent en jouant, en compétitionnant et en participant à la communauté.",
+      "backHome": "Retour à l'accueil →"
+    },
+    "filter": {
+      "all": "Tous"
+    },
+    "hero": {
+      "eyebrow": "Inventaire",
+      "title": "Insignes de <span class=\"accent\">VEXCHESS</span>",
+      "sub": "Chaque insigne raconte quelque chose sur toi : ton rôle, ton histoire, tes victoires ou ce que tu apportes.",
+      "progressOwned": "Tu en as <b>{owned}</b> sur {total}.",
+      "progressNone": "Il y en a <b>{total}</b> à découvrir."
+    },
+    "loading": "Chargement…"
+  },
+  "connect": {
+    "pageTitle": "VEXCHESS · Connecter",
+    "invalidLink": {
+      "title": "Lien invalide",
+      "text": "Ce lien de connexion n'est pas correct."
+    },
+    "home": "Accueil",
+    "searching": "Recherche du joueur…",
+    "notFound": {
+      "title": "VEX ID introuvable",
+      "text": "Ce code ne correspond à aucun joueur."
+    },
+    "action": {
+      "login": "Connecte-toi pour ajouter",
+      "accept": "Accepter la demande",
+      "add": "Ajouter comme ami·e"
+    },
+    "self": {
+      "msg": "Ceci est ton propre VEX ID."
+    },
+    "goToCommunity": "Aller à ma communauté",
+    "alreadyFriends": "✓ Vous êtes déjà amis.",
+    "viewFriends": "Voir les amis",
+    "pendingOut": {
+      "msg": "Tu lui as déjà envoyé une demande. Il ne reste plus qu'à ce qu'il l'accepte."
+    },
+    "foundEyebrow": "Tu as trouvé",
+    "elo": "Elo",
+    "mutualFriends": "{count} ami·e·s en commun",
+    "confirmNote": "Personne n'est ajouté automatiquement : vous devez tous les deux confirmer.",
+    "done": {
+      "nowFriends": "Vous êtes maintenant ami·e·s !",
+      "requestSent": "Demande envoyée. Quand il l'acceptera, vous serez ami·e·s."
+    },
+    "error": {
+      "generic": "Erreur"
+    },
+    "loading": "Chargement…",
+    "metaDescription": "Connectez-vous avec un joueur de VEXCHESS grâce à son VEX ID."
+  },
+  "online": {
+    "pageTitle": "VEXCHESS · Jouer en ligne",
+    "metaDescription": "Joue aux échecs en ligne sur VEXCHESS : défie tes amis ou cherche un adversaire par Elo.",
+    "loggedOutTitle": "Joue en ligne",
+    "loggedOutSubtitle": "Connecte-toi pour défier tes amis ou chercher un adversaire.",
+    "loginBtn": "Se connecter",
+    "eyebrow": "Jouer en ligne",
+    "heroTitle": "Trouve un <span class=\"accent\">adversaire</span>",
+    "eloOnlineLabel": "Elo en ligne",
+    "tcBullet": "Bullet",
+    "tcBlitz": "Blitz",
+    "tcRapid": "Rapide",
+    "challengesHeading": "Défis",
+    "rivalsHeading": "Rivaux",
+    "findRivalBtn": "Chercher un adversaire",
+    "searchingRival": "Recherche d'un adversaire ({tc})…",
+    "challengesEmpty": "Tu n'as aucun défi. Défie un ami depuis la <a href=\"comunidad.html\">Communauté</a>.",
+    "challengesIncoming": "Reçus",
+    "challengesOutgoing": "Envoyés",
+    "acceptBtn": "Accepter",
+    "declineBtn": "Refuser",
+    "personEloMeta": "{elo} Elo · {tc}",
+    "rivalEloGamesMeta": "{elo} Elo · {count} partie",
+    "rivalsEmpty": "Tu n'as pas encore de rivalités. Joue des parties en ligne et tu verras ici tes face-à-face.",
+    "toastDeclined": "Défi refusé",
+    "toastCancelled": "Défi annulé",
+    "toastError": "Erreur",
+    "loading": "Chargement…",
+    "cancelBtn": "Annuler",
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} parties"
+  },
+  "admin": {
+    "pageTitle": "VEXCHESS · Administration",
+    "metaDescription": "Panneau d'administration de VEXCHESS.",
+    "loading": "Chargement…",
+    "gateLoginTitle": "Se connecter",
+    "gateLoginMsg": "Tu as besoin d'un compte avec des permissions pour voir cette page.",
+    "loginBtn": "Se connecter",
+    "backHome": "Retour à l'accueil",
+    "gateRestrictedTitle": "Accès restreint",
+    "gateRestrictedMsg": "Ton compte n'a pas de permissions de modération ou d'administration.",
+    "roleAll": "Tous les rôles",
+    "roleStaffOnly": "Staff uniquement",
+    "sortRecent": "Plus récents",
+    "sortOldest": "Plus anciens",
+    "sortEloDesc": "Elo ↓",
+    "sortEloAsc": "Elo ↑",
+    "sortName": "Nom A-Z",
+    "eyebrow": "Administration",
+    "controlCenterTitle": "Centre de contrôle",
+    "badgeInventoryLink": "Inventaire d'insignes",
+    "searchPlaceholder": "Rechercher par utilisateur ou email…",
+    "detailEmpty": "Sélectionne un utilisateur pour voir et modifier sa fiche.",
+    "dashUsers": "Utilisateurs",
+    "dashUsersSub": "Comptes inscrits",
+    "dashStaff": "Staff",
+    "dashStaffSub": "Propriétaire + admins + mods",
+    "dashBadges": "Insignes",
+    "dashBadgesSub": "Attribués au total",
+    "dashGames": "Parties",
+    "dashGamesSub": "Enregistrées dans le cloud",
+    "loadingUsers": "Chargement des utilisateurs…",
+    "loadError": "Erreur de chargement",
+    "rowEloLabel": "Elo",
+    "rowBadgesLabel": "Insignes",
+    "rowGamesLabel": "Parties",
+    "emptyResults": "Aucun résultat.",
+    "pagerPrev": "‹ Précédent",
+    "pagerNext": "Suivant ›",
+    "pagerInfo": "{total} utilisateur{s} · page {cur}/{pages}",
+    "loadingDetail": "Chargement de la fiche…",
+    "error": "Erreur",
+    "ownerStaticNote": "Le propriétaire ne peut pas être modifié.",
+    "selfRoleNote": "Tu ne peux pas changer ton propre rôle.",
+    "needHigherRankNote": "Tu as besoin d'un rang supérieur pour le changer.",
+    "badgeGranted": "✓ Attribué",
+    "badgeGrant": "Attribuer",
+    "memberSince": "Membre depuis {date}",
+    "miniPartidas": "Parties",
+    "miniVictorias": "Victoires",
+    "miniDerrotas": "Défaites",
+    "miniElo": "Elo",
+    "fieldRol": "Rôle",
+    "fieldElo": "Elo",
+    "eloSave": "Enregistrer",
+    "eloRankNote": "Nécessite un rang d'administrateur.",
+    "badgesTitle": "Insignes",
+    "badgesHintEditable": "Clique pour attribuer ou retirer. L'utilisateur pourra les épingler et les mettre en avant depuis son profil.",
+    "badgesHintReadonly": "Lecture seule : ton rôle ne permet pas d'attribuer des insignes.",
+    "toastBadgeRevoked": "Insigne retiré : {name}",
+    "toastBadgeGranted": "Insigne attribué : {name}",
+    "toastEloOutOfRange": "Elo hors plage (100–3500).",
+    "toastEloUpdated": "Elo mis à jour à {elo}",
+    "toastRoleUpdated": "Rôle mis à jour : {role}",
+    "dateDash": "—"
+  },
+  "vexborn": {
+    "meta": {
+      "title": "VEXCHESS · Vexborn",
+      "description": "Vexborn : les personnages de VEXCHESS. Découvre leur histoire et équipe le tien. Purement cosmétique."
+    },
+    "loading": "Chargement de Vexborn…",
+    "guest": {
+      "desc": "Les personnages de VEXCHESS. Connecte-toi pour voir le roster et équiper le tien.",
+      "login": "Se connecter"
+    },
+    "hero": {
+      "equippedEyebrow": "Vexborn équipé",
+      "unequip": "Déséquiper",
+      "emptyName": "Choisis ton Vexborn",
+      "emptyTitle": "Un personnage qui représente ton identité sur l'échiquier. Purement cosmétique : il ne change ni les règles, ni l'Elo, ni l'appariement.",
+      "emptyHint": "Touche une carte pour voir son histoire et l'équiper."
+    },
+    "collection": {
+      "soon": "Bientôt",
+      "count": "{count} personnages",
+      "origins": {
+        "label": "Vexborn Origins",
+        "desc": "Les premiers êtres qui se sont éveillés sur l'échiquier."
+      },
+      "expansion01": {
+        "label": "Extension 01",
+        "desc": "De nouveaux Vexborn nés de tactiques et de légendes."
+      }
+    },
+    "card": {
+      "equipped": "Équipé"
+    },
+    "legal": "Les Vexborn sont purement cosmétiques. Ils n'accordent aucun avantage en partie et n'affectent ni l'appariement, ni l'Elo, ni l'IA.",
+    "ficha": {
+      "soon": "Ce Vexborn arrivera bientôt. Son art est encore à l'atelier.",
+      "equip": "Équiper le Vexborn",
+      "statPiece": "Pièce",
+      "statArchetype": "Archétype",
+      "statColor": "Couleur",
+      "personality": "Personnalité",
+      "close": "Fermer"
+    },
+    "toast": {
+      "equipError": "Impossible d'équiper. Réessaie."
+    },
+    "rarity": {
+      "origin": "Originel",
+      "mythic": "Mythique",
+      "distinguished": "Distingué",
+      "legacy": "Héritage"
+    },
+    "char": {
+      "kael": {
+        "title": "Le Premier Mouvement",
+        "piece": "Cavalier",
+        "archetype": "Initiative",
+        "color": "Rouge VEX",
+        "quote": "L'échiquier ne s'éveille pas tant que quelqu'un n'ose pas jouer.",
+        "desc": "Kael fut la première pièce à quitter sa case alors que l'échiquier était encore vide. Il ne sert aucun cavalier : il est l'impulsion qui transforme une position immobile en une partie. L'étoile sur sa poitrine s'allume chaque fois que quelqu'un prend l'initiative sans en connaître encore l'issue.",
+        "personality": "Courageux, direct, agité et d'un esprit de compétition contagieux."
+      },
+      "aurelia": {
+        "title": "La Couronne Silencieuse",
+        "piece": "Reine",
+        "archetype": "Calcul",
+        "color": "Ivoire et or",
+        "quote": "Le coup le plus fort n'a pas besoin d'être annoncé.",
+        "desc": "Aurelia contemple l'échiquier les yeux fermés car elle affirme que les pièces en révèlent davantage quand on ne les regarde pas. Ses fragments dorés orbitent autour de chaque possibilité et ne s'immobilisent que lorsqu'une séquence parfaite existe. Elle ne célèbre jamais un échec et mat ; pour elle, la partie était finie bien avant.",
+        "personality": "Sereine, élégante, exigeante et absolument sûre d'elle."
+      },
+      "bastion": {
+        "title": "Le Dernier Mur",
+        "piece": "Tour",
+        "archetype": "Défense connectée",
+        "color": "Cobalt",
+        "quote": "Tant qu'une ligne reste unie, personne n'est seul.",
+        "desc": "Bastion s'est éveillé comme une tour isolée, mais il a découvert qu'il pouvait relier ses nœuds à chaque forteresse de l'échiquier. Ses barrières ne protègent pas seulement des cases : elles créent des routes sûres entre alliés. Quand toutes les défenses tombent, son réseau maintient allumée la dernière ligne.",
+        "personality": "Loyal, technique, protecteur et un peu trop littéral."
+      },
+      "nyra": {
+        "title": "La Diagonale Voilée",
+        "piece": "Fou",
+        "archetype": "Infiltration",
+        "color": "Violet",
+        "quote": "Je n'ai jamais été devant toi. J'étais dans l'angle que tu as oublié.",
+        "desc": "Nyra chemine sur une diagonale située entre l'échiquier visible et son reflet. L'ouverture lumineuse de son masque lui permet de traverser les deux surfaces et d'apparaître là où une ligne semblait bloquée. Personne ne connaît son visage, peut-être parce que sous le masque il n'existe qu'une autre diagonale.",
+        "personality": "Réservée, précise, ironique et difficile à surprendre."
+      },
+      "pip": {
+        "title": "La Première Case",
+        "piece": "Pion",
+        "archetype": "Découverte",
+        "color": "Cyan",
+        "quote": "Tout l'échiquier tient devant une première case.",
+        "desc": "Pip n'a pas encore atteint la dernière rangée et il n'est pas pressé de le faire. Il veut connaître chaque case, chaque adversaire et chaque façon possible d'avancer. Sa petite étoile apparaît quand il trouve une nouvelle route ; c'est pourquoi il est souvent le premier à entrer dans des endroits que les pièces importantes jugent insignifiants.",
+        "personality": "Curieux, optimiste, persévérant et plus courageux qu'il ne le croit."
+      },
+      "ordan": {
+        "title": "Le Roi Éternel",
+        "piece": "Roi",
+        "archetype": "Survie",
+        "color": "Or",
+        "quote": "L'éternité consiste à trouver une case de plus.",
+        "desc": "Ordan se souvient de finales jouées avant même que les pendules n'existent. Les constellations de sa couronne représentent des échecs auxquels il a réussi à échapper, non des victoires. Son pouvoir ne vient pas de la conquête de l'échiquier, mais de la compréhension que même un roi doit s'incliner devant la position juste.",
+        "personality": "Sage, sévère, patient et protecteur envers les nouveaux joueurs."
+      },
+      "noctis": {
+        "title": "La Fourchette Noire",
+        "piece": "Cavalier",
+        "archetype": "Tactique double",
+        "color": "Graphite et cyan",
+        "quote": "Si tu peux me voir, tu défends déjà la mauvaise pièce.",
+        "desc": "Noctis ne traverse pas l'obscurité : il la divise. Chaque saut laisse deux ombres attaquant des cibles différentes, tandis que son véritable corps demeure sur l'unique case que personne ne surveillait. Son œil cyan calcule l'instant exact où une menace se transforme en deux.",
+        "personality": "Silencieux, rusé, indépendant et férocement précis."
+      },
+      "eira-vhal": {
+        "title": "Rivaux du Nexus",
+        "piece": "Cavaliers",
+        "archetype": "Rivalité",
+        "color": "Ivoire et cobalt",
+        "quote": "Nous ne courons pas pour nous vaincre. Nous courons pour découvrir qui nous serons à l'arrivée.",
+        "desc": "Eira est née de la lumière de l'échiquier et Vhal de la tempête apparue dans son reflet. Tous deux poursuivent le même nexus doré en suivant des chemins opposés. Ils ont fait tant de fois match nul que leur rivalité est devenue amitié, même si aucun des deux n'accepterait de prononcer ce mot devant l'autre.",
+        "personality": "Eira est disciplinée et sereine ; Vhal, impulsif et orgueilleux. Ensemble, ils sont inséparables."
+      },
+      "rhazek": {
+        "title": "Le Gambit Cramoisi",
+        "piece": "Cavalier",
+        "archetype": "Attaquant / sacrifice",
+        "color": "Rouge tactique",
+        "quote": "Une pièce est un petit prix pour tout l'échiquier.",
+        "desc": "Rhazek ne cherche jamais une case sûre. Il est né de la première pièce sacrifiée volontairement et a appris qu'une défaite apparente peut ouvrir le seul chemin vers la victoire. Son armure conserve la marque de chaque gambit que personne n'a osé accepter.",
+        "personality": "Audacieux, provocateur, brillant et dangereusement impatient."
+      },
+      "oryn": {
+        "title": "Gardien de la Dernière Colonne",
+        "piece": "Tour",
+        "archetype": "Archiviste / contrôle",
+        "color": "Ivoire et cobalt",
+        "quote": "Toute partie laisse une vérité dans la dernière colonne.",
+        "desc": "Oryn veille sur l'archive des parties oubliées. Ses rubans contiennent des positions qui n'existent plus et ses tours stockent des décisions qu'aucun joueur ne se souvient avoir prises. Quand une colonne reste ouverte, c'est lui qui décide si elle mène à la victoire ou au vide.",
+        "personality": "Solennel, patient, impartial et obsédé par la conservation de chaque coup."
+      },
+      "vesra": {
+        "title": "Reine du Zugzwang",
+        "piece": "Reine",
+        "archetype": "Contrôle / manipulation",
+        "color": "Violet",
+        "quote": "Tu peux choisir n'importe quel coup. Ils m'appartiennent tous.",
+        "desc": "Vesra n'immobilise pas ses ennemis : elle leur accorde des possibilités. Chaque alternative fait partie d'un réseau calculé bien avant le début de la partie. Ses mains spectrales ne déplacent pas les pièces ; elles retirent les issues qui n'ont jamais été réelles.",
+        "personality": "Sereine, majestueuse, cérébrale et d'une courtoisie troublante."
+      },
+      "brakkon": {
+        "title": "La Forteresse Vivante",
+        "piece": "Tour",
+        "archetype": "Gardien / résistance",
+        "color": "Cobalt",
+        "quote": "Que tout le royaume avance. Moi, je resterai ici.",
+        "desc": "Brakkon n'habite pas une forteresse : il est la forteresse. Il s'est éveillé quand un royaume entier s'est réfugié derrière la dernière tour encore debout. Chaque impact ajoute une nouvelle pierre à ses murailles et chaque allié protégé alimente le noyau qui brûle sous ses créneaux.",
+        "personality": "Protecteur, silencieux, loyal et absolument inébranlable."
+      },
+      "ilyra": {
+        "title": "Fou de Cristal",
+        "piece": "Fou",
+        "archetype": "Précision / réfraction",
+        "color": "Cyan et ivoire",
+        "quote": "Une diagonale suffit quand la lumière trouve le bon angle.",
+        "desc": "Ilyra contemple l'échiquier comme une structure de lumière. Elle peut traverser de longues diagonales, diviser une menace en reflets inoffensifs et découvrir des lignes invisibles pour les autres. Chaque fissure de son corps conserve le souvenir d'un calcul parfait.",
+        "personality": "Précise, distante, curieuse et étonnamment compatissante."
+      },
+      "tikk": {
+        "title": "Le Coureur de la Pendule",
+        "piece": "Pion",
+        "archetype": "Vitesse / ingéniosité",
+        "color": "Cyan",
+        "quote": "Je n'ai pas besoin de plus de temps. J'ai juste besoin de ta dernière seconde.",
+        "desc": "Tikk a été construit pour appuyer sur une pendule, mais il a décidé de courir avant que quiconque puisse le remonter. Il traverse des positions figées, dérobe des instants perdus et arrive toujours à la huitième rangée une fraction avant l'impossible. Personne ne sait si l'énorme pendule sur son dos est cassée ou simplement en avance.",
+        "personality": "Espiègle, rapide, optimiste et férocement compétitif."
+      },
+      "malrec": {
+        "title": "Le Roi sans Couronne",
+        "piece": "Roi",
+        "archetype": "Survie / exil",
+        "color": "Graphite et or",
+        "quote": "Un royaume peut tomber. Le roi doit encore jouer.",
+        "desc": "Malrec a perdu son armée, son trône et jusqu'au droit de porter une couronne complète. Il n'a conservé qu'un pion d'ivoire et l'obligation de le garder en vie. Les chaînes qu'il traîne sont formées des cases de son ancien royaume ; chacune rappelle une retraite qu'il a refusé d'appeler défaite.",
+        "personality": "Austère, mélancolique, stratège et bien plus dangereux qu'il n'en a l'air."
+      },
+      "solenne": {
+        "title": "Le Huitième Pas",
+        "piece": "Pion promu en reine",
+        "archetype": "Progrès / dépassement",
+        "color": "Or et ivoire",
+        "quote": "Je ne suis pas née avec une couronne. J'ai traversé l'échiquier pour la mériter.",
+        "desc": "Solenne a commencé comme la plus petite pièce d'une rangée anonyme. Elle a avancé d'une case à la fois, survécu à sept lignes impossibles et atteint le bord opposé sans oublier d'où elle venait. Sa transformation ne s'achève jamais : la base du pion reste visible sous une couronne construite pas à pas.",
+        "personality": "Déterminée, humble, inspirante et résiliente."
+      }
+    }
+  },
+  "auth": {
+    "role": {
+      "owner": "Propriétaire",
+      "admin": "Administrateur",
+      "moderator": "Modérateur",
+      "member": "Membre"
+    },
+    "avatar": {
+      "vexKnight": "Cavalier VEX",
+      "ivoryQueen": "Reine ivoire",
+      "cobaltRook": "Tour cobalt",
+      "violetBishop": "Fou violet",
+      "tealPawn": "Pion turquoise",
+      "goldenKing": "Roi doré",
+      "shadowKnight": "Cavalier de l'ombre",
+      "rivalDuo": "Duo rival"
+    },
+    "reputation": {
+      "unrated": "Non évalué",
+      "goodStanding": "Bonne conduite",
+      "trusted": "De confiance",
+      "respected": "Respecté",
+      "exemplary": "Exemplaire"
+    },
+    "presence": {
+      "online": "En ligne",
+      "away": "Absent",
+      "playing": "En partie",
+      "spectating": "Spectateur",
+      "offline": "Hors ligne"
+    },
+    "modal": {
+      "tabLogin": "Se connecter",
+      "tabRegister": "Créer un compte",
+      "close": "Fermer"
+    },
+    "login": {
+      "loginLabel": "Email ou nom d'utilisateur",
+      "passwordLabel": "Mot de passe",
+      "submit": "Se connecter"
+    },
+    "register": {
+      "usernameLabel": "Nom d'utilisateur",
+      "emailLabel": "Email",
+      "submit": "Créer un compte"
+    },
+    "error": {
+      "generic": "Impossible de terminer."
+    },
+    "username": {
+      "checking": "Vérification…",
+      "available": "✓ Disponible",
+      "unavailable": "Non disponible.",
+      "formatValid": "✓ Format valide",
+      "rangeError": "Entre 3 et 20 caractères.",
+      "formatError": "Commence par une lettre ; uniquement lettres, chiffres et _.",
+      "reservedError": "Ce nom n'est pas disponible."
+    },
+    "password": {
+      "minChars": "Minimum 8 caractères ({n}/8)",
+      "weak": "Faible",
+      "acceptable": "Acceptable",
+      "good": "Bon",
+      "strong": "Fort"
+    },
+    "chip": {
+      "login": "Se connecter",
+      "notificationsTitle": "{count} notification",
+      "notificationsTitlePlural": "{count} notifications"
+    },
+    "menu": {
+      "profile": "Mon profil",
+      "academy": "Académie · AXIOM",
+      "playOnline": "Jouer en ligne",
+      "badgesInventory": "Inventaire d'insignes",
+      "adminPanel": "Panneau d'admin",
+      "signout": "Se déconnecter",
+      "community": "Communauté",
+      "myGames": "Mes parties"
+    }
+  }
+}

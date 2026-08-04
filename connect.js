@@ -3,6 +3,7 @@
 //  Muestra al jugador del VEX ID y permite añadirlo (con
 //  confirmación por ambas partes).
 // ============================================================
+import { t } from './i18n.js?v=9';
 import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML } from './auth.js?v=16';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 
@@ -19,36 +20,36 @@ function repChip(rep) { return repChipHTML(rep); }
 function state(inner) { return '<section class="cm-state">' + inner + '</section>'; }
 
 async function render() {
-  if (!isAuthResolved()) { root.innerHTML = state('<div class="cm-ring"></div><p>Cargando…</p>'); return; }
+  if (!isAuthResolved()) { root.innerHTML = state('<div class="cm-ring"></div><p>' + t('connect.loading') + '</p>'); return; }
   const c = code();
-  if (!c) { root.innerHTML = state('<img class="cm-state-logo" src="assets/knight-logo.svg" alt=""><h1>Enlace no válido</h1><p>Este enlace de conexión no es correcto.</p><a class="btn-play" href="index.html">Inicio</a>'); return; }
-  root.innerHTML = state('<div class="cm-ring"></div><p>Buscando jugador…</p>');
+  if (!c) { root.innerHTML = state('<img class="cm-state-logo" src="assets/knight-logo.svg" alt=""><h1>' + t('connect.invalidLink.title') + '</h1><p>' + t('connect.invalidLink.text') + '</p><a class="btn-play" href="index.html">' + t('connect.home') + '</a>'); return; }
+  root.innerHTML = state('<div class="cm-ring"></div><p>' + t('connect.searching') + '</p>');
   let info;
   try { info = await api.commConnectInfo(c); }
   catch (e) {
-    root.innerHTML = state('<img class="cm-state-logo" src="assets/knight-logo.svg" alt=""><h1>VEX ID no encontrado</h1><p>Este código no corresponde a ningún jugador.</p><a class="btn-play" href="index.html">Inicio</a>');
+    root.innerHTML = state('<img class="cm-state-logo" src="assets/knight-logo.svg" alt=""><h1>' + t('connect.notFound.title') + '</h1><p>' + t('connect.notFound.text') + '</p><a class="btn-play" href="index.html">' + t('connect.home') + '</a>');
     return;
   }
   const p = info.profile, u = getUser();
   const badges = (p.badges || []).slice(0, 6);
   let action;
-  if (!u) action = '<button class="btn-play cn-cta" id="cn-login">Inicia sesión para añadir</button>';
-  else if (p.status === 'self') action = '<p class="cm-muted cn-msg">Este es tu propio VEX ID.</p><a class="btn-play cn-cta" href="comunidad.html">Ir a mi comunidad</a>';
-  else if (p.status === 'friends') action = '<p class="cn-ok">✓ Ya sois amigos.</p><a class="btn-play cn-cta" href="comunidad.html">Ver amigos</a>';
-  else if (p.status === 'pending_out') action = '<p class="cm-muted cn-msg">Ya le enviaste una solicitud. Falta que la acepte.</p>';
-  else if (p.status === 'pending_in') action = '<button class="btn-play cn-cta" id="cn-accept">Aceptar solicitud</button>';
-  else action = '<button class="btn-play cn-cta" id="cn-add">Añadir como amig@</button>';
+  if (!u) action = '<button class="btn-play cn-cta" id="cn-login">' + t('connect.action.login') + '</button>';
+  else if (p.status === 'self') action = '<p class="cm-muted cn-msg">' + t('connect.self.msg') + '</p><a class="btn-play cn-cta" href="comunidad.html">' + t('connect.goToCommunity') + '</a>';
+  else if (p.status === 'friends') action = '<p class="cn-ok">' + t('connect.alreadyFriends') + '</p><a class="btn-play cn-cta" href="comunidad.html">' + t('connect.viewFriends') + '</a>';
+  else if (p.status === 'pending_out') action = '<p class="cm-muted cn-msg">' + t('connect.pendingOut.msg') + '</p>';
+  else if (p.status === 'pending_in') action = '<button class="btn-play cn-cta" id="cn-accept">' + t('connect.action.accept') + '</button>';
+  else action = '<button class="btn-play cn-cta" id="cn-add">' + t('connect.action.add') + '</button>';
 
   root.innerHTML =
     '<section class="cn-found">' +
-      '<span class="cn-eyebrow">Has encontrado a</span>' +
+      '<span class="cn-eyebrow">' + t('connect.foundEyebrow') + '</span>' +
       '<div class="cn-avatar">' + avatarHTML(p.avatar, 'lg') + '</div>' +
       '<h1 class="cn-name">' + esc(p.username) + '</h1>' +
-      '<div class="cn-meta"><span class="cm-vexno">' + vexId(p.member_no) + '</span> · ' + p.elo + ' Elo ' + repChip(p.reputation) + '</div>' +
-      (p.mutual ? '<div class="cn-mutual">' + p.mutual + ' amig@s en común</div>' : '') +
+      '<div class="cn-meta"><span class="cm-vexno">' + vexId(p.member_no) + '</span> · ' + p.elo + ' ' + t('connect.elo') + ' ' + repChip(p.reputation) + '</div>' +
+      (p.mutual ? '<div class="cn-mutual">' + t('connect.mutualFriends', { count: p.mutual }) + '</div>' : '') +
       (badges.length ? '<div class="cn-badges">' + badges.map(b => '<span title="' + esc(badgeMeta(b.badge).name) + '">' + badgeIcon(b.badge, 'mb') + '</span>').join('') + '</div>' : '') +
       '<div class="cn-action">' + action + '</div>' +
-      '<p class="cm-note">Nadie se añade automáticamente: ambos tenéis que confirmar.</p>' +
+      '<p class="cm-note">' + t('connect.confirmNote') + '</p>' +
     '</section>';
 
   const login = document.getElementById('cn-login');
@@ -56,19 +57,19 @@ async function render() {
   const add = document.getElementById('cn-add');
   if (add) add.addEventListener('click', async () => {
     add.disabled = true;
-    try { const r = await api.commConnectAdd(c); showDone(r.status === 'friends' ? '¡Ahora sois amig@s!' : 'Solicitud enviada. Cuando la acepte, seréis amig@s.'); }
-    catch (e) { add.disabled = false; toast(e.message || 'Error'); }
+    try { const r = await api.commConnectAdd(c); showDone(r.status === 'friends' ? t('connect.done.nowFriends') : t('connect.done.requestSent')); }
+    catch (e) { add.disabled = false; toast(e.message || t('connect.error.generic')); }
   });
   const acc = document.getElementById('cn-accept');
   if (acc) acc.addEventListener('click', async () => {
     acc.disabled = true;
-    try { await api.commRespond(p.id, 'accept'); showDone('¡Ahora sois amig@s!'); }
-    catch (e) { acc.disabled = false; toast(e.message || 'Error'); }
+    try { await api.commRespond(p.id, 'accept'); showDone(t('connect.done.nowFriends')); }
+    catch (e) { acc.disabled = false; toast(e.message || t('connect.error.generic')); }
   });
 }
 
 function showDone(msg) {
-  root.innerHTML = state('<img class="cn-done-anim" src="assets/social/anim/vex-connect.svg" alt=""><h1>' + esc(msg) + '</h1><a class="btn-play" href="comunidad.html">Ir a mi comunidad <span aria-hidden="true">→</span></a>');
+  root.innerHTML = state('<img class="cn-done-anim" src="assets/social/anim/vex-connect.svg" alt=""><h1>' + esc(msg) + '</h1><a class="btn-play" href="comunidad.html">' + t('connect.goToCommunity') + ' <span aria-hidden="true">→</span></a>');
 }
 let toastEl = null;
 function toast(msg) {

@@ -4,25 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>VEXCHESS · Mis partidas</title>
-<meta name="description" content="Revisa tus partidas de ajedrez jugada a jugada, con reproductor y exportación a PGN. Se guardan solas en tu navegador.">
+<title data-i18n="partidas.pageTitle">VEXCHESS · Mis partidas</title>
+<meta name="description" data-i18n-attr="content:partidas.metaDescription" content="Revisa tus partidas de ajedrez jugada a jugada, con reproductor y exportación a PGN. Se guardan solas en tu navegador.">
 <link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/partidas.html">
 <meta name="theme-color" content="#0D1117">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VEXCHESS">
-<meta property="og:title" content="VEXCHESS · Mis partidas">
-<meta property="og:description" content="Revisa tus partidas jugada a jugada, con reproductor y exportación a PGN.">
+<meta property="og:title" data-i18n-attr="content:partidas.ogTitle" content="VEXCHESS · Mis partidas">
+<meta property="og:description" data-i18n-attr="content:partidas.ogDescription" content="Revisa tus partidas jugada a jugada, con reproductor y exportación a PGN.">
 <meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/partidas.html">
 <meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VEXCHESS · Mis partidas">
-<meta name="twitter:description" content="Revisa tus partidas jugada a jugada, con reproductor y exportación a PGN.">
+<meta name="twitter:title" data-i18n-attr="content:partidas.ogTitle" content="VEXCHESS · Mis partidas">
+<meta name="twitter:description" data-i18n-attr="content:partidas.ogDescription" content="Revisa tus partidas jugada a jugada, con reproductor y exportación a PGN.">
 <meta name="twitter:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
-<link rel="stylesheet" href="navbar.css?v=4">
+<link rel="stylesheet" href="navbar.css?v=5">
 <link rel="stylesheet" href="partidas.css?v=4">
 </head>
 <body class="rv-page">
@@ -35,22 +35,22 @@
 
       <div class="rv-player" id="rv-player">
         <span class="rv-turn-dot" id="rv-dot"></span>
-        <span id="rv-caption">Selecciona una partida</span>
+        <span id="rv-caption" data-i18n="partidas.captionSelectGame">Selecciona una partida</span>
       </div>
 
       <div class="rv-controls">
-        <button class="rv-ctrl" id="rv-first" title="Inicio (⏮)" aria-label="Ir al inicio"><img src="assets/icons/navigation/first.svg" alt="" aria-hidden="true"></button>
-        <button class="rv-ctrl" id="rv-prev" title="Anterior (←)" aria-label="Jugada anterior"><img src="assets/icons/navigation/previous.svg" alt="" aria-hidden="true"></button>
-        <button class="rv-ctrl play" id="rv-play" title="Reproducir (espacio)" aria-label="Reproducir"><img src="assets/icons/navigation/play.svg" alt="" aria-hidden="true"></button>
-        <button class="rv-ctrl" id="rv-next" title="Siguiente (→)" aria-label="Jugada siguiente"><img src="assets/icons/navigation/next.svg" alt="" aria-hidden="true"></button>
-        <button class="rv-ctrl" id="rv-last" title="Final (⏭)" aria-label="Ir al final"><img src="assets/icons/navigation/last.svg" alt="" aria-hidden="true"></button>
-        <button class="rv-ctrl" id="rv-flip" title="Girar tablero (F)" aria-label="Girar tablero"><img src="assets/icons/gameplay/rotate-board.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-first" data-i18n-attr="title:partidas.ctrlFirstTitle;aria-label:partidas.ctrlFirstAria" title="Inicio (⏮)" aria-label="Ir al inicio"><img src="assets/icons/navigation/first.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-prev" data-i18n-attr="title:partidas.ctrlPrevTitle;aria-label:partidas.ctrlPrevAria" title="Anterior (←)" aria-label="Jugada anterior"><img src="assets/icons/navigation/previous.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl play" id="rv-play" data-i18n-attr="title:partidas.ctrlPlayTitle;aria-label:partidas.ctrlPlayAria" title="Reproducir (espacio)" aria-label="Reproducir"><img src="assets/icons/navigation/play.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-next" data-i18n-attr="title:partidas.ctrlNextTitle;aria-label:partidas.ctrlNextAria" title="Siguiente (→)" aria-label="Jugada siguiente"><img src="assets/icons/navigation/next.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-last" data-i18n-attr="title:partidas.ctrlLastTitle;aria-label:partidas.ctrlLastAria" title="Final (⏭)" aria-label="Ir al final"><img src="assets/icons/navigation/last.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-flip" data-i18n-attr="title:partidas.ctrlFlipTitle;aria-label:partidas.ctrlFlipAria" title="Girar tablero (F)" aria-label="Girar tablero"><img src="assets/icons/gameplay/rotate-board.svg" alt="" aria-hidden="true"></button>
       </div>
       <div class="rv-ply" id="rv-ply">—</div>
 
       <!-- Análisis con Stockfish: gráfico de evaluación -->
       <div class="rv-graph-wrap" id="rv-graph-wrap" hidden>
-        <div class="rv-graph-head"><span>Evaluación</span><span id="rv-analysis-summary"></span></div>
+        <div class="rv-graph-head"><span data-i18n="partidas.graphEvaluation">Evaluación</span><span id="rv-analysis-summary"></span></div>
         <svg class="rv-graph" id="rv-graph" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"></svg>
         <div class="rv-analyze-bar" id="rv-analyze-bar" hidden><span id="rv-analyze-fill"></span></div>
       </div>
@@ -59,16 +59,16 @@
     <!-- Panel: jugadas de la partida abierta + lista del archivo -->
     <aside class="rv-panel">
       <div class="rv-head">
-        <span class="eyebrow">Mis partidas</span>
-        <h1 class="rv-title">Revisa tus <span class="accent">partidas</span></h1>
+        <span class="eyebrow" data-i18n="partidas.eyebrow">Mis partidas</span>
+        <h1 class="rv-title" data-i18n-html="partidas.title">Revisa tus <span class="accent">partidas</span></h1>
       </div>
 
       <div class="rv-moves-card" id="rv-moves-card" hidden>
         <div class="rv-moves-head">
-          <span id="rv-moves-title">Jugadas</span>
+          <span id="rv-moves-title" data-i18n="partidas.movesTitle">Jugadas</span>
           <span class="rv-moves-actions">
-            <button class="rv-pgn" id="rv-analyze" title="Analizar la partida con Stockfish">Analizar</button>
-            <button class="rv-pgn" id="rv-pgn" title="Copiar PGN">Copiar PGN</button>
+            <button class="rv-pgn" id="rv-analyze" data-i18n="partidas.analyzeBtn" data-i18n-attr="title:partidas.analyzeBtnTitle" title="Analizar la partida con Stockfish">Analizar</button>
+            <button class="rv-pgn" id="rv-pgn" data-i18n="partidas.pgnBtn" data-i18n-attr="title:partidas.pgnBtnTitle" title="Copiar PGN">Copiar PGN</button>
           </span>
         </div>
         <div class="rv-moves" id="rv-moves"></div>
@@ -76,22 +76,22 @@
 
       <div class="rv-list-head">
         <span id="rv-count">0 partidas</span>
-        <button class="rv-clear" id="rv-clear" hidden>Borrar todo</button>
+        <button class="rv-clear" id="rv-clear" data-i18n="partidas.clearAll" hidden>Borrar todo</button>
       </div>
       <div class="rv-list" id="rv-list"></div>
 
       <div class="rv-empty" id="rv-empty" hidden>
         <div class="rv-empty-ico"><img class="vex-empty-state" src="assets/empty-states/no-saved-games.svg" alt="" aria-hidden="true"></div>
-        <p>Aún no tienes partidas guardadas.</p>
-        <p class="rv-empty-sub">Cada partida que termines (jaque mate, tablas o rendición) se guardará aquí automáticamente para que puedas revisarla.</p>
-        <a class="btn-play" href="play.html">Jugar una partida <span aria-hidden="true">→</span></a>
+        <p data-i18n="partidas.emptyTitle">Aún no tienes partidas guardadas.</p>
+        <p class="rv-empty-sub" data-i18n="partidas.emptySub">Cada partida que termines (jaque mate, tablas o rendición) se guardará aquí automáticamente para que puedas revisarla.</p>
+        <a class="btn-play" href="play.html" data-i18n-html="partidas.playGame">Jugar una partida <span aria-hidden="true">→</span></a>
       </div>
     </aside>
   </main>
 
   <script type="module" src="theme.js?v=1"></script>
-  <script type="module" src="navbar.js?v=3"></script>
-  <script type="module" src="auth.js?v=16"></script>
-  <script type="module" src="partidas.js?v=14"></script>
+  <script type="module" src="navbar.js?v=4"></script>
+  <script type="module" src="auth.js?v=17"></script>
+  <script type="module" src="partidas.js?v=15"></script>
 </body>
 </html>

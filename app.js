@@ -7,19 +7,18 @@
    - i18n.js        -> TODOS los textos (es / en)
    ============================================================ */
 import { Chess } from './chess.js';
-import { MESSAGES, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=8';
+import { GAME, getLang, setLang, LANGS, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=9';
 import { sfx } from './sounds.js?v=1';
 import { api, getUser, AVATAR_COLORS } from './auth.js?v=16';
 
-// --- Idioma ----------------------------------------------------------------
-function detectLang() {
-  try { const s = localStorage.getItem('lang'); if (s && MESSAGES[s]) return s; } catch (e) {}
-  return (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
-}
-let lang = detectLang();
-function t(key) {
-  const m = MESSAGES[lang] || MESSAGES.es;
-  return m[key] !== undefined ? m[key] : MESSAGES.es[key];
+// --- Idioma (delegado en el runtime i18n) ----------------------------------
+let lang = getLang();
+function t(key, params) {
+  let v = GAME[key];
+  if (v === undefined && key.indexOf('.') >= 0) { v = GAME; for (const p of key.split('.')) { if (v == null) break; v = v[p]; } }
+  if (v === undefined) return key;
+  if (typeof v === 'string' && params) return v.replace(/\{(\w+)\}/g, (m, k) => (params[k] != null ? params[k] : m));
+  return v;
 }
 
 // --- Estado del juego ------------------------------------------------------
@@ -727,10 +726,8 @@ function offerResume(saved) {
   if (info) {
     let n = saved.plies;
     if (typeof n !== 'number') { try { n = (saved.pgn.match(/[a-hKQRBNO][^\s]*/g) || []).length; } catch (e) { n = 0; } }
-    const es = lang !== 'en';
-    const side = saved.humanColor === 'b' ? (es ? 'Negras' : 'Black') : (es ? 'Blancas' : 'White');
-    const movesTxt = n ? (n + ' ' + (es ? (n === 1 ? 'jugada' : 'jugadas') : (n === 1 ? 'move' : 'moves')))
-                       : (es ? 'partida en curso' : 'game in progress');
+    const side = saved.humanColor === 'b' ? t('colorBlack') : t('colorWhite');
+    const movesTxt = n ? t(n === 1 ? 'resume.moveOne' : 'resume.moveN', { n: n }) : t('resume.inProgress');
     info.textContent = movesTxt + ' · ' + side;
   }
   resumeEl.classList.add('open');
@@ -794,18 +791,13 @@ coachToggle.addEventListener('change', () => {
   maybeCoach();
 });
 levelSel.addEventListener('change', () => { level = levelSel.value; configureEngine(); render(); });
-langSel.addEventListener('change', () => {
-  lang = langSel.value;
-  try { localStorage.setItem('lang', lang); } catch (e) {}
-  applyI18n();
-  requestAnimationFrame(() => positionSegSlider(false));   // reajusta el deslizador si cambió el ancho del texto
-});
+langSel.addEventListener('change', () => { setLang(langSel.value); });   // recarga con el nuevo idioma
 
 // ==========================================================================
 //  GUÍA (modal) — contenido desde i18n
 // ==========================================================================
 function buildHelpContent() {
-  const concepts = MESSAGES[lang].concepts;
+  const concepts = GAME.concepts;
   document.getElementById('help-concepts').innerHTML = concepts.map((c, i) => (
     '<div class="card">' +
       '<div class="card-top"><div class="card-emoji">' + CONCEPT_ICONS[i] + '</div>' +
@@ -842,7 +834,7 @@ const PC_TRT = 'transform .6s cubic-bezier(.34,.72,.28,1)';
 function buildPieceCarousel() {
   const host = document.getElementById('help-cards');
   if (!host) return;
-  const pieces = MESSAGES[lang].pieces;
+  const pieces = GAME.pieces;
   const slides = PIECE_META.map(p => {
     const d = pieces[p.t];
     let cells = '';
@@ -960,9 +952,7 @@ function wirePcSwipe(track) {
 // etiquetas internas de las tarjetas por idioma
 let labels = {};
 function refreshLabels() {
-  labels = lang === 'en'
-    ? { value: 'Value:', move: 'How it moves.', history: 'History & trivia.', goals: 'Goals & play.', noCaps: 'No captures yet' }
-    : { value: 'Valor:', move: 'Cómo se mueve.', history: 'Historia y curiosidades.', goals: 'Objetivos y jugadas.', noCaps: 'Sin capturas' };
+  labels = t('card');
 }
 function wireHelp() {
   const modal = document.getElementById('help-modal');
@@ -996,6 +986,10 @@ function buildLevels() {
 function applyI18n() {
   document.documentElement.lang = lang;
   document.title = 'VEXCHESS · ' + t('appSub');
+  if (langSel && !langSel.dataset.i18nFilled) {
+    langSel.innerHTML = LANGS.map(([c, n]) => '<option value="' + c + '">' + n + '</option>').join('');
+    langSel.dataset.i18nFilled = '1';
+  }
   langSel.value = lang;
   refreshLabels();
 
@@ -1027,7 +1021,7 @@ function applyI18n() {
   const el = (id) => document.getElementById(id);
   if (el('coach-wrap')) el('coach-wrap').title = t('coachToggle') + ' · ' + t('coachToggleSub');
   if (el('danger-wrap')) el('danger-wrap').title = t('dangerToggle');
-  const movesTxt = lang === 'en' ? 'Moves' : 'Jugadas';
+  const movesTxt = t('movesLabel');
   if (el('moves-btn')) el('moves-btn').textContent = movesTxt;
   if (el('moves-title')) el('moves-title').textContent = movesTxt;
 

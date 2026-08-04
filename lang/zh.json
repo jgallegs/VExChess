@@ -1,0 +1,1047 @@
+{
+  "nav": {
+    "academia": "学院",
+    "puzzles": "战术题",
+    "directo": "直播",
+    "partidas": "我的对局",
+    "comunidad": "社区",
+    "play": "对弈",
+    "language": "语言",
+    "home": "首页",
+    "menu": "导航",
+    "openMenu": "打开菜单"
+  },
+  "common": {
+    "loading": "加载中…",
+    "cancel": "取消",
+    "save": "保存",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "prev": "上一步",
+    "retry": "重试",
+    "confirm": "确认",
+    "yes": "是",
+    "no": "否",
+    "accept": "接受",
+    "delete": "删除",
+    "edit": "编辑",
+    "search": "搜索",
+    "error": "发生了错误。",
+    "empty": "这里还什么都没有。"
+  },
+  "game": {
+    "title": "国际象棋 · 神经网络对手",
+    "appName": "国际象棋",
+    "appSub": "AI 对手 · NNUE",
+    "engineLoading": "正在加载引擎…",
+    "engineReady": "引擎就绪 · Stockfish 18（NNUE）",
+    "engineError": "引擎错误：",
+    "loaderText": "正在加载引擎…",
+    "coachLoading": "正在加载教练…",
+    "langLabel": "语言",
+    "levelLabel": "对手等级",
+    "colorLabel": "你的方",
+    "colorWhite": "白方",
+    "colorBlack": "黑方",
+    "colorRandom": "随机",
+    "drawTitle": "抽签定色",
+    "drawPick": "选一只手",
+    "drawSkip": "跳过",
+    "drawWhite": "你执白棋。轮到你走。",
+    "drawBlack": "你执黑棋。Stockfish 先手。",
+    "confirmRestart": "这将重新开始当前对局。是否继续？",
+    "confirmOk": "重新开始",
+    "confirmCancel": "取消",
+    "undo": "悔棋",
+    "flip": "翻转",
+    "newGame": "新局",
+    "coachToggle": "教练模式",
+    "coachToggleSub": "（为你推荐着法）",
+    "dangerToggle": "提示受威胁的棋子",
+    "helpBtn": "指南与概念",
+    "helpTitle": "国际象棋指南",
+    "conceptsTitle": "基础概念",
+    "piecesTitle": "棋子",
+    "thinking": "对手正在思考…",
+    "suggestion": "建议",
+    "you": "你",
+    "white": "白方",
+    "black": "黑方",
+    "max": "最强",
+    "historyEmpty": "还没有着法",
+    "evalLabel": "局面评估",
+    "advWhite": "白方优势",
+    "advBlack": "黑方优势",
+    "even": "均势",
+    "checkmateWin": "🏆 将杀！你赢了。",
+    "checkmateLose": "💀 将杀。对手获胜。",
+    "stalemate": "逼和（无子可动）。",
+    "draw": "和棋。",
+    "check": "将军！",
+    "queenDanger": "你的皇后有危险！",
+    "piecesDanger1": "你有 1 枚棋子受到威胁。",
+    "piecesDangerN": "你有 {n} 枚棋子受到威胁。",
+    "labelValue": "子力值",
+    "labelMove": "走法：",
+    "labelHistory": "历史：",
+    "labelGoals": "目标：",
+    "movesLabel": "着法",
+    "card": {
+      "value": "子力值：",
+      "move": "如何走子。",
+      "history": "历史与趣闻。",
+      "goals": "目标与着法。",
+      "noCaps": "没有吃子"
+    },
+    "resume": {
+      "inProgress": "进行中的对局",
+      "moveOne": "{n} 手",
+      "moveN": "{n} 手"
+    },
+    "reasons": {
+      "castle": "王车易位，把王置于安全",
+      "mate": "这是将杀！",
+      "check": "将军",
+      "promote": "兵升变",
+      "capture": "吃子获利",
+      "develop": "出动一枚棋子",
+      "space": "扩大空间",
+      "improve": "改善你的局面"
+    },
+    "levels": {
+      "principiante": "初学者（~1320）",
+      "facil": "简单（~1500）",
+      "intermedio": "中级（~1800）",
+      "avanzado": "高级（~2200）",
+      "maximo": "最高（无法击败）"
+    },
+    "pieceNames": {
+      "k": "王",
+      "q": "后",
+      "r": "车",
+      "b": "象",
+      "n": "马",
+      "p": "兵"
+    },
+    "concepts": [
+      {
+        "nombre": "这些数字是什么？（Elo）",
+        "texto": "对手旁边的数字（300、1320、1800、3190…）是它的 <b>Elo</b>：衡量棋力的指标。数值越高，棋力越强。作为参考：~300 为绝对新手，~800–1200 处于学习阶段，~1500 为俱乐部业余棋手，~2000 已经很强，~2500 为特级大师，~2800+ 为世界冠军。你在这里选择的等级会设定这个数值，并由此决定 Stockfish 的棋力。"
+      },
+      {
+        "nombre": "游戏目标",
+        "texto": "通过<b>将杀</b>取胜：攻击对方的王，使其无法逃脱。王永远不会被吃掉，而是被逼入绝境。如果对手认输，你也能获胜。"
+      },
+      {
+        "nombre": "将军、将杀与和棋",
+        "texto": "<b>将军</b>：王受到攻击，你必须在下一手将其解救。<b>将杀</b>：王受到攻击且无法解救（对局结束）。<b>和棋</b>（平局）：例如<i>逼和</i>（你没有被将军，但没有任何合法着法），或因局面重复，或因子力不足无法将杀。"
+      },
+      {
+        "nombre": "特殊着法",
+        "texto": "<b>王车易位</b>：王和一枚车同时移动，把王置于安全。<b>吃过路兵</b>：一枚兵可以吃掉刚刚前进两格并停在其旁边的对方兵。<b>升变</b>：走到最后一横线的兵会变成另一枚棋子（几乎总是变成后）。"
+      },
+      {
+        "nombre": "棋子的价值",
+        "texto": "用来判断一次兑子是否划算：兵 <b>1</b>，马 <b>3</b>，象 <b>3</b>，车 <b>5</b>，后 <b>9</b>。王没有数值，因为它是目标。子力条上绿色的 <b>+N</b> 是吃子的子力差。"
+      },
+      {
+        "nombre": "入门建议",
+        "texto": "用兵控制中心；尽早出动马和象（<i>子力展开</i>）；进行王车易位以保护王；不要过早出动后；并在每一步之前问自己：“我有没有哪枚棋子处于危险之中？”。开启<b>教练模式</b>可查看推荐着法。"
+      }
+    ],
+    "pieces": {
+      "p": {
+        "nombre": "兵",
+        "mueve": "沿直线前进一格（首步可前进两格），并斜向吃子，绝不能正面吃子。它有两个特殊着法：吃过路兵和升变。",
+        "historia": "代表步兵。它是唯一不能后退的棋子。若走到最后一横线，就会\"升变\"为你选择的棋子：一枚小小的兵也能变成后！",
+        "objetivos": "控制中心并组成兵链。一枚\"通路兵\"（没有对方兵能阻挡它）可以冲向升变，从而决定整局胜负。"
+      },
+      "n": {
+        "nombre": "马",
+        "mueve": "以\"L\"形跳跃：一个方向走两格，再垂直走一格。它是唯一能跳过其他棋子的棋子。",
+        "historia": "代表骑兵。它的跳跃令人难以捉摸：可以用\"捉双\"同时攻击两枚棋子。在封闭局面中，长程棋子受限，而马大放异彩。",
+        "objetivos": "寻找中心附近没有兵能驱逐它的强点。一枚稳固地扎在对方阵地的马价值连城。"
+      },
+      "b": {
+        "nombre": "象",
+        "mueve": "沿斜线滑动任意格数。每枚象始终停留在单一颜色的格子上。",
+        "historia": "它的名字源自阿拉伯语\"al-fil\"，意为\"大象\"。保留双象（\"双象\"）是一项宝贵的优势，尤其在开放局面中。",
+        "objetivos": "打开长斜线并瞄准对方的王。双象相互配合，各自掌控一种颜色的格子。"
+      },
+      "r": {
+        "nombre": "车",
+        "mueve": "沿直线水平或垂直移动任意格数。它与王一起参与王车易位。",
+        "historia": "代表战车或攻城塔。它是一枚\"重子\"，当棋盘打开、进入残局时才会展现全部威力。",
+        "objetivos": "掌控开放线，并把它置于第七横线，在那里可以吃掉对方的兵。两枚联动的车具有毁灭性的威力。"
+      },
+      "q": {
+        "nombre": "后（皇后）",
+        "mueve": "最强大的棋子：结合了车和象。可沿直线和斜线滑动任意格数。",
+        "historia": "起初它很弱（是一枚只能走一格的\"维齐尔\"）。在15世纪的欧洲，它变得如此强大，以至于那种变体被称为\"疯后象棋\"。",
+        "objetivos": "不要过早出动它，否则对手会在追赶中获得先手。与其他棋子配合时，它在进攻中极其致命。"
+      },
+      "k": {
+        "nombre": "王",
+        "mueve": "向任意方向只走一格。它与车有一个特殊着法：王车易位，可将其置于安全。",
+        "historia": "它是游戏的核心：当王无法逃脱将军（将杀）时，对局结束。它永远不会被吃掉，而是被逼入绝境。",
+        "objetivos": "在开局阶段，把它置于安全（通常通过王车易位）。在残局中，棋子稀少时，它会变成一枚积极的棋子，帮助兵升变。"
+      }
+    }
+  },
+  "home": {
+    "meta": {
+      "title": "VEXCHESS · AI 国际象棋（Stockfish 18 · NNUE）",
+      "description": "在你的浏览器中直接对战顶级 AI（Stockfish 18 · NNUE）。教练模式、受威胁棋子提示、战术题和交互式指南。免费且可离线。"
+    },
+    "hero": {
+      "badge": "Stockfish 18 · NNUE · 100% 在你的浏览器中运行",
+      "title": "思考。对弈。<br><span class=\"accent\">取胜。</span>",
+      "sub": "对战顶级人工智能，配有教练模式、受威胁棋子提示以及每枚棋子的交互式指南。无需服务器、无需注册，直接在你的浏览器中运行。",
+      "cta": {
+        "play": "立即对弈",
+        "features": "查看功能"
+      },
+      "stat": {
+        "difficulty": "难度等级",
+        "neural": "神经网络",
+        "free": "免费且离线"
+      },
+      "scroll": {
+        "aria": "向下"
+      }
+    },
+    "features": {
+      "eyebrow": "功能",
+      "heading": "你<span class=\"accent\">进步</span>所需的一切",
+      "subtitle": "完整的国际象棋体验，全部在你的浏览器中运行。",
+      "neural": {
+        "title": "神经网络对手",
+        "body": "采用 <b>NNUE</b> 评估的 Stockfish 18，全球最强的开源引擎。难度可从 ~1320 调节至无法击败的强度。"
+      },
+      "coach": {
+        "title": "教练模式",
+        "body": "以最高强度运行的第二个引擎实例，用箭头为你推荐最佳着法并解释原因。"
+      },
+      "danger": {
+        "title": "受威胁棋子提示",
+        "body": "用光晕高亮受威胁的棋子，并在你的后处于危险时特别提醒你。再也不会不知不觉地送子。"
+      },
+      "guide": {
+        "title": "交互式指南",
+        "body": "每枚棋子配有一张大卡片，展示其价值、历史，以及走子和吃子的<b>循环演示</b>。"
+      },
+      "multilang": {
+        "title": "多语言",
+        "body": "西班牙语和英语，自动检测。整个界面和指南均已翻译。"
+      },
+      "local": {
+        "title": "100% 在你的浏览器中",
+        "body": "引擎被编译为 WebAssembly，在本地运行。无需服务器、无需 API 密钥、零成本，且无网络也能使用。"
+      }
+    },
+    "ia": {
+      "eyebrow": "大脑",
+      "heading": "搭载 <span class=\"accent\">NNUE</span> 神经网络的 Stockfish 18",
+      "body": "对手使用与 Chess.com 相同的引擎：<b>Stockfish 18</b>，采用神经网络评估（Efficiently Updatable Neural Network），编译为 <b>WebAssembly</b> 并完全在你浏览器的 <i>Web Worker</i> 中运行。它使用 UCI 协议，思考只需毫秒，且不向任何服务器发送任何数据。",
+      "list": {
+        "rules": "通过 <b>chess.js</b> 实现完整规则：王车易位、升变、吃过路兵、将杀和和棋。",
+        "difficulty": "按 Elo 或最高强度设定难度，每局均可配置。",
+        "private": "隐私设计：所有计算都在你的设备上进行。"
+      },
+      "cta": "试试引擎"
+    },
+    "roadmap": {
+      "eyebrow": "路线图",
+      "heading": "这只是<span class=\"accent\">开始</span>",
+      "subtitle": "我们正在打造一个平台。即将推出：",
+      "badge": {
+        "live": "已上线",
+        "preview": "预览",
+        "soon": "即将推出"
+      },
+      "puzzles": {
+        "title": "战术题",
+        "body": "在真实局面中找到将杀。现在就可以训练了！<b>对弈 →</b>"
+      },
+      "history": {
+        "title": "我的对局",
+        "body": "你结束的对局会自动保存。逐手回顾它们。<b>查看 →</b>"
+      },
+      "live": {
+        "title": "直播",
+        "body": "与他人实时对弈。抢先看看它会是什么样子。<b>查看 →</b>"
+      },
+      "accounts": {
+        "title": "账户与个人资料",
+        "body": "注册后保存你的对局和进度，让你的 Elo 随你同行。"
+      },
+      "lessons": {
+        "title": "课程",
+        "body": "一步步学习开局、残局与战略。"
+      },
+      "leaderboard": {
+        "title": "排行榜与积分",
+        "body": "通过 Elo 系统和排名争夺榜首。"
+      },
+      "social": {
+        "title": "战队与社交",
+        "body": "创建或加入俱乐部，与好友对弈并组织比赛。"
+      }
+    },
+    "ctaFinal": {
+      "heading": "准备好下一局了吗？",
+      "subtitle": "选择你的阵营、你的等级，向机器证明谁才是主宰。",
+      "play": "立即对弈"
+    },
+    "footer": {
+      "tag": "Think ahead.",
+      "links": {
+        "play": "对弈",
+        "features": "功能",
+        "ia": "AI",
+        "roadmap": "路线图"
+      },
+      "credits": "引擎：<a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a>（GPLv3）。规则：<a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>。棋子：Staunty 套装（Lichess）。",
+      "copy": "© {year} VEXCHESS · 由 Jorge 制作。",
+      "author": "由 Jorge 制作。"
+    }
+  },
+  "directo": {
+    "pageTitle": "VEXCHESS · 直播",
+    "metaDescription": "在 VEXCHESS 观看实时对局。很快你就能观看并追踪与他人的直播对局。",
+    "heroTitle": "实时对局",
+    "heroSubtitle": "观看实时对局，欣赏高手对弈，并从每一手中学习。在线多人对弈即将到来——它会是这个样子。",
+    "comingSoonTag": "即将推出",
+    "comingSoonBanner": "这是大厅的预览。在线对局将随用户账户一同推出。",
+    "featuredBadge": "直播 · 精选",
+    "liveLabel": "直播中",
+    "colorWhite": "白方",
+    "colorBlack": "黑方",
+    "versus": "对阵",
+    "moveLabel": "第 {n} 手",
+    "spectatorsCount": "{count} 人观看",
+    "moreGamesTitle": "更多直播对局",
+    "meanwhileTitle": "与此同时…",
+    "meanwhileText": "在线功能尚未上线，但你现在就可以对战顶级 AI 或训练你的战术。",
+    "ctaPlayAI": "对战 AI",
+    "ctaSolvePuzzles": "解战术题"
+  },
+  "comunidad": {
+    "pageTitle": "VEXCHESS · 社区",
+    "metaDescription": "你在 VEXCHESS 的社区：好友、请求、查找玩家以及你的 VEX ID。",
+    "tabs": {
+      "amigos": "好友",
+      "solicitudes": "请求",
+      "buscar": "查找",
+      "vexid": "我的 VEX ID"
+    },
+    "loggedOut": {
+      "title": "你的社区在等你",
+      "desc": "登录后即可结交好友、查找玩家并分享你的 VEX ID。",
+      "cta": "登录"
+    },
+    "head": {
+      "eyebrow": "社区",
+      "title": "你的<span class=\"accent\">伙伴</span>"
+    },
+    "person": {
+      "friendsDisabled": "好友",
+      "sent": "已发送",
+      "accept": "接受",
+      "add": "添加",
+      "challenge": "挑战",
+      "remove": "删除",
+      "decline": "拒绝",
+      "cancel": "取消",
+      "mutual": "{count} 位共同好友",
+      "subLine": "{vexId} · {elo} Elo"
+    },
+    "friends": {
+      "emptyTitle": "你还没有好友",
+      "emptySub": "按用户名查找玩家，或分享你的 VEX ID 让别人添加你。"
+    },
+    "requests": {
+      "received": "收到的",
+      "sent": "发出的",
+      "emptyIncoming": "你没有待处理的请求。",
+      "emptyOutgoing": "你没有发出任何请求。"
+    },
+    "search": {
+      "placeholder": "按用户名查找…",
+      "hint": "至少输入 2 个字符进行查找。",
+      "searching": "查找中…",
+      "noResults": "没有玩家与「{q}」匹配。"
+    },
+    "loading": "加载中…",
+    "vexid": {
+      "qrFail": "无法生成二维码",
+      "codeLabel": "连接码",
+      "share": "分享 VEX ID",
+      "addInPersonTitle": "当面添加",
+      "addInPersonDesc": "出示你的二维码让对方扫描，或用摄像头扫描对方的二维码：",
+      "scanBtn": "扫描二维码",
+      "orAddByCode": "或用连接码添加",
+      "addCodePlaceholder": "ABC-DEF",
+      "note": "NFC 卡片将随 App 推出。只有双方都确认才能互相添加。",
+      "reputationNew": "新人"
+    },
+    "addByCode": {
+      "invalid": "请输入有效的 6 位连接码。"
+    },
+    "toast": {
+      "friendsNow": "你们现在是好友了！",
+      "requestSent": "请求已发送",
+      "requestDeclined": "请求已拒绝",
+      "requestCancelled": "请求已取消",
+      "friendRemoved": "好友已删除",
+      "error": "错误"
+    },
+    "share": {
+      "title": "我的 VEX ID · VEXCHESS",
+      "text": "在 VEXCHESS 添加我",
+      "linkCopied": "链接已复制到剪贴板",
+      "copyLink": "复制你的链接：{url}"
+    },
+    "challenge": {
+      "tc": {
+        "bullet": "Bullet",
+        "blitz": "Blitz",
+        "rapida": "快棋"
+      },
+      "title": "挑战 {name}",
+      "chooseTc": "选择用时规则：",
+      "waiting": "正在等待 {name}…",
+      "waitingDesc": "{tc} 挑战已发送。对方一接受，对局即开始。",
+      "cancelBtn": "取消挑战",
+      "notCompleted": "挑战未完成"
+    },
+    "modal": {
+      "close": "关闭"
+    },
+    "scanner": {
+      "unavailable": "此浏览器不支持扫描器。",
+      "noCamera": "你的浏览器不允许使用摄像头。",
+      "hint": "对准好友的二维码…",
+      "cameraError": "无法访问摄像头。请检查权限。",
+      "found": "已找到！正在打开…",
+      "notVexId": "该二维码不是 VEX ID。"
+    },
+    "profile": {
+      "loading": "正在加载个人资料…",
+      "subLine": "@{handle} · {elo} Elo",
+      "statPartidas": "对局",
+      "statVictorias": "胜局",
+      "statDerrotas": "负局",
+      "loadError": "无法加载个人资料"
+    }
+  },
+  "partidas": {
+    "pageTitle": "VEXCHESS · 我的对局",
+    "metaDescription": "逐手回顾你的国际象棋对局，配有回放器和 PGN 导出。它们会自动保存在你的浏览器中。",
+    "ogTitle": "VEXCHESS · 我的对局",
+    "ogDescription": "逐手回顾你的对局，配有回放器和 PGN 导出。",
+    "captionSelectGame": "选择一局对局",
+    "ctrlFirstTitle": "开始（⏮）",
+    "ctrlFirstAria": "跳到开始",
+    "ctrlPrevTitle": "上一手（←）",
+    "ctrlPrevAria": "上一手",
+    "ctrlPlayTitle": "播放（空格）",
+    "ctrlPlayAria": "播放",
+    "ctrlNextTitle": "下一手（→）",
+    "ctrlNextAria": "下一手",
+    "ctrlLastTitle": "结尾（⏭）",
+    "ctrlLastAria": "跳到结尾",
+    "ctrlFlipTitle": "翻转棋盘（F）",
+    "ctrlFlipAria": "翻转棋盘",
+    "graphEvaluation": "局面评估",
+    "eyebrow": "我的对局",
+    "title": "回顾你的<span class=\"accent\">对局</span>",
+    "movesTitle": "着法",
+    "analyzeBtn": "分析",
+    "analyzeBtnTitle": "用 Stockfish 分析对局",
+    "pgnBtn": "复制 PGN",
+    "pgnBtnTitle": "复制 PGN",
+    "countGames": "{count} 局对局",
+    "countGameOne": "{count} 局对局",
+    "clearAll": "全部清除",
+    "emptyTitle": "你还没有保存的对局。",
+    "emptySub": "你结束的每一局（将杀、和棋或认输）都会自动保存在这里，供你回顾。",
+    "playGame": "开始一局对弈 <span aria-hidden=\"true\">→</span>",
+    "resultDraw": "和棋",
+    "resultWin": "胜",
+    "resultLoss": "负",
+    "levelPrincipiante": "初学者",
+    "levelFacil": "简单",
+    "levelIntermedio": "中级",
+    "levelAvanzado": "高级",
+    "levelMaximo": "最高",
+    "sideBlack": "黑方",
+    "sideWhite": "白方",
+    "itemOpponent": "对战 Stockfish · {level}",
+    "itemSub": "{side} · {moves} 手 · {date}",
+    "delTitle": "删除",
+    "delAria": "删除对局",
+    "captionInitialPos": "初始局面",
+    "captionMove": "{san}  （{moveNo}，{who}）",
+    "whoWhite": "白方",
+    "whoBlack": "黑方",
+    "analyzeInProgress": "分析中…",
+    "analysisSummary": "{inacc} 不准 · {mistakes} 失误 · {blunders} 严重失误",
+    "pgnCopied": "已复制！"
+  },
+  "puzzles": {
+    "pageTitle": "VEXCHESS · 战术题",
+    "metaDescription": "用国际象棋战术题训练你的战术：在真实局面中找到将杀。免费，在你的浏览器中进行。",
+    "ogDescription": "在真实局面中找到将杀。在你的浏览器中免费训练你的战术。",
+    "eyebrow": "战术题",
+    "heading": "找到<span class=\"accent\">将杀</span>",
+    "statusDefault": "找到最佳着法。",
+    "hintBtn": "提示",
+    "hintBtnTitle": "提示（H）",
+    "retryBtn": "重新开始",
+    "retryBtnTitle": "重做本题",
+    "prevBtn": "‹ 上一题",
+    "prevBtnTitle": "上一题（←）",
+    "nextBtn": "下一题 ›",
+    "nextBtnTitle": "下一题（→）",
+    "progress": "第 {n} / {total} 题",
+    "solvedCount": "已解出 {count} 题",
+    "tip": "提示：点击一枚棋子查看其着法。快捷键：← → 切换题目，<b>H</b> 给出提示。",
+    "turnWhite": "轮到白方",
+    "turnBlack": "轮到黑方",
+    "goalMate1": "找到一步将杀。",
+    "goalMate2": "找到两步将杀。",
+    "goalWin": "赢得子力。",
+    "themeCorridorMate": "底线杀",
+    "themeRookEighth": "车到第八横线",
+    "themeQueenMate": "后杀",
+    "themeStalemateMate": "闷杀",
+    "themeKnightMate": "马杀",
+    "themeMate2Queen": "两步杀 · 后",
+    "themeForkWinQueen": "捉双 · 赢得后",
+    "okMate1": "正确！将杀。✓",
+    "okWin": "捉双！你赢得了后。✓",
+    "okMate2Key": "将杀！✓",
+    "okMate2": "正确！两步将杀。✓",
+    "wrongMate1": "这一手不将杀。再试试别的。🔁",
+    "wrongWin": "这一手不能赢得子力。🔁",
+    "wrongMate2Force": "这并不能强制将杀。🔁",
+    "wrongMate2": "还没有将杀。🔁",
+    "mate2Defends": "很好！对手在防守……现在给出将杀。",
+    "finishAll": "你已解出所有题目！🎉",
+    "hintMovePiece": "提示：移动 {square} 上的棋子。",
+    "hintFindMate": "提示：现在寻找将杀。"
+  },
+  "perfil": {
+    "pageTitle": "VEXCHESS · 我的个人资料",
+    "metaDescription": "你的 VEXCHESS 个人资料：头像、Elo、统计数据和连胜。",
+    "loading": "正在加载你的个人资料…",
+    "guestTitle": "你的个人资料在等你",
+    "guestText": "登录或创建账户以保存你的对局，并在任何设备上查看你的统计数据和 Elo。",
+    "guestCta": "登录或创建账户",
+    "eloLabel": "Elo {elo}",
+    "memberSince": "注册于 {date}",
+    "logout": "退出登录",
+    "pinnedLabel": "已固定",
+    "statGames": "对局",
+    "statWins": "胜局",
+    "statLosses": "负局",
+    "statDraws": "和局",
+    "statWinRate": "胜率 %",
+    "statCurrentStreak": "当前连续",
+    "statBestStreak": "最佳连续",
+    "streakWinOne": "{n} 连胜",
+    "streakWinMany": "{n} 连胜",
+    "streakLossOne": "{n} 连败",
+    "streakLossMany": "{n} 连败",
+    "byLevelTitle": "按 AI 等级",
+    "tableColLevel": "等级",
+    "tableColPlayed": "对局",
+    "tableColWins": "胜",
+    "tableColLosses": "负",
+    "tableColDraws": "和",
+    "levelPrincipiante": "初学者",
+    "levelFacil": "简单",
+    "levelIntermedio": "中级",
+    "levelAvanzado": "高级",
+    "levelMaximo": "最高",
+    "levelDesconocido": "其他",
+    "avatarTitle": "头像",
+    "avatarClassic": "经典",
+    "badgesTitle": "徽章",
+    "badgesHint": "点击徽章可查看详情、将其固定（最多 3 个）或让它在你名字旁突出显示。",
+    "badgesEmpty": "你还没有徽章。它们将通过成就、活动和社区参与逐步解锁。",
+    "badgeStarTitle": "已突出",
+    "badgeGrantedOn": "获得于 {date}",
+    "badgeUnpin": "取消固定",
+    "badgePin": "固定到个人资料",
+    "badgeUnfeature": "取消突出显示",
+    "badgeFeature": "在名字旁突出显示",
+    "badgePinLimit": "你已固定 3 个。请先取消一个再固定这个。",
+    "myGamesLink": "我的对局",
+    "modalClose": "关闭"
+  },
+  "insignias": {
+    "pageTitle": "VEXCHESS · 徽章库",
+    "grant": {
+      "mode": {
+        "manualUnica": "手动 · 唯一",
+        "sistema": "系统",
+        "evento": "活动",
+        "manual": "手动",
+        "sistemaRevision": "系统 + 审核"
+      },
+      "revocable": "可撤销",
+      "permanente": "永久"
+    },
+    "family": {
+      "rol": "角色",
+      "legado": "传承",
+      "competicion": "竞技",
+      "comunidad": "社区",
+      "contribucion": "贡献"
+    },
+    "familyDesc": {
+      "rol": "VEXCHESS 内部的角色身份。",
+      "legado": "你从一开始就在这里。",
+      "competicion": "你在棋盘上赢得的一切。",
+      "comunidad": "你如何对待他人。",
+      "contribucion": "你为项目做出的贡献。"
+    },
+    "card": {
+      "ownedTag": "✓ 已拥有"
+    },
+    "guest": {
+      "title": "团队专区",
+      "body": "完整的徽章库仅供 VEXCHESS 团队查看。其余徽章需通过对弈、竞技和社区参与来发掘。",
+      "backHome": "返回首页 →"
+    },
+    "filter": {
+      "all": "全部"
+    },
+    "hero": {
+      "eyebrow": "徽章库",
+      "title": "<span class=\"accent\">VEXCHESS</span> 徽章",
+      "sub": "每枚徽章都讲述着关于你的故事：你的角色、你的经历、你的胜利或你的贡献。",
+      "progressOwned": "你已拥有 <b>{owned}</b> / {total} 枚。",
+      "progressNone": "还有 <b>{total}</b> 枚待发掘。"
+    },
+    "loading": "加载中…"
+  },
+  "connect": {
+    "pageTitle": "VEXCHESS · 连接",
+    "invalidLink": {
+      "title": "链接无效",
+      "text": "此连接链接不正确。"
+    },
+    "home": "首页",
+    "searching": "正在查找玩家…",
+    "notFound": {
+      "title": "未找到 VEX ID",
+      "text": "此连接码不对应任何玩家。"
+    },
+    "action": {
+      "login": "登录后添加",
+      "accept": "接受请求",
+      "add": "添加为好友"
+    },
+    "self": {
+      "msg": "这是你自己的 VEX ID。"
+    },
+    "goToCommunity": "前往我的社区",
+    "alreadyFriends": "✓ 你们已经是好友了。",
+    "viewFriends": "查看好友",
+    "pendingOut": {
+      "msg": "你已向对方发送请求。等待对方接受。"
+    },
+    "foundEyebrow": "你找到了",
+    "elo": "Elo",
+    "mutualFriends": "{count} 位共同好友",
+    "confirmNote": "没有人会被自动添加：双方都必须确认。",
+    "done": {
+      "nowFriends": "你们现在是好友了！",
+      "requestSent": "请求已发送。对方接受后，你们就成为好友。"
+    },
+    "error": {
+      "generic": "错误"
+    },
+    "loading": "加载中…",
+    "metaDescription": "通过 VEX ID 与 VEXCHESS 玩家建立联系。"
+  },
+  "online": {
+    "pageTitle": "VEXCHESS · 在线对弈",
+    "metaDescription": "在 VEXCHESS 在线下国际象棋：挑战你的好友或按 Elo 匹配对手。",
+    "loggedOutTitle": "在线对弈",
+    "loggedOutSubtitle": "登录后即可挑战好友或匹配对手。",
+    "loginBtn": "登录",
+    "eyebrow": "在线对弈",
+    "heroTitle": "寻找<span class=\"accent\">对手</span>",
+    "eloOnlineLabel": "在线 Elo",
+    "tcBullet": "Bullet",
+    "tcBlitz": "Blitz",
+    "tcRapid": "快棋",
+    "challengesHeading": "挑战",
+    "rivalsHeading": "对手",
+    "findRivalBtn": "匹配对手",
+    "searchingRival": "正在匹配对手（{tc}）…",
+    "challengesEmpty": "你没有挑战。从<a href=\"comunidad.html\">社区</a>挑战好友。",
+    "challengesIncoming": "收到的",
+    "challengesOutgoing": "发出的",
+    "acceptBtn": "接受",
+    "declineBtn": "拒绝",
+    "personEloMeta": "{elo} Elo · {tc}",
+    "rivalEloGamesMeta": "{elo} Elo · {count} 局对局",
+    "rivalsEmpty": "你还没有对手记录。下几局在线对局，这里就会显示你们的交锋。",
+    "toastDeclined": "挑战已拒绝",
+    "toastCancelled": "挑战已取消",
+    "toastError": "错误",
+    "loading": "加载中…",
+    "cancelBtn": "取消",
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} 局"
+  },
+  "admin": {
+    "pageTitle": "VEXCHESS · 管理",
+    "metaDescription": "VEXCHESS 管理面板。",
+    "loading": "加载中…",
+    "gateLoginTitle": "登录",
+    "gateLoginMsg": "你需要一个具有权限的账户才能查看此页面。",
+    "loginBtn": "登录",
+    "backHome": "返回首页",
+    "gateRestrictedTitle": "访问受限",
+    "gateRestrictedMsg": "你的账户没有审核或管理权限。",
+    "roleAll": "所有角色",
+    "roleStaffOnly": "仅工作人员",
+    "sortRecent": "最新",
+    "sortOldest": "最早",
+    "sortEloDesc": "Elo ↓",
+    "sortEloAsc": "Elo ↑",
+    "sortName": "名称 A-Z",
+    "eyebrow": "管理",
+    "controlCenterTitle": "控制中心",
+    "badgeInventoryLink": "徽章库",
+    "searchPlaceholder": "按用户名或邮箱查找…",
+    "detailEmpty": "选择一位用户以查看和编辑其资料。",
+    "dashUsers": "用户",
+    "dashUsersSub": "注册账户",
+    "dashStaff": "工作人员",
+    "dashStaffSub": "所有者 + 管理员 + 版主",
+    "dashBadges": "徽章",
+    "dashBadgesSub": "总计授予",
+    "dashGames": "对局",
+    "dashGamesSub": "已保存在云端",
+    "loadingUsers": "正在加载用户…",
+    "loadError": "加载出错",
+    "rowEloLabel": "Elo",
+    "rowBadgesLabel": "徽章",
+    "rowGamesLabel": "对局",
+    "emptyResults": "没有结果。",
+    "pagerPrev": "‹ 上一页",
+    "pagerNext": "下一页 ›",
+    "pagerInfo": "{total} 位用户 · 第 {cur}/{pages} 页",
+    "loadingDetail": "正在加载资料…",
+    "error": "错误",
+    "ownerStaticNote": "无法修改所有者。",
+    "selfRoleNote": "你不能更改自己的角色。",
+    "needHigherRankNote": "你需要更高的等级才能更改它。",
+    "badgeGranted": "✓ 已授予",
+    "badgeGrant": "授予",
+    "memberSince": "注册于 {date}",
+    "miniPartidas": "对局",
+    "miniVictorias": "胜局",
+    "miniDerrotas": "负局",
+    "miniElo": "Elo",
+    "fieldRol": "角色",
+    "fieldElo": "Elo",
+    "eloSave": "保存",
+    "eloRankNote": "需要管理员等级。",
+    "badgesTitle": "徽章",
+    "badgesHintEditable": "点击可授予或撤销。用户可在其个人资料中固定和突出显示这些徽章。",
+    "badgesHintReadonly": "只读：你的角色无权授予徽章。",
+    "toastBadgeRevoked": "徽章已撤销：{name}",
+    "toastBadgeGranted": "徽章已授予：{name}",
+    "toastEloOutOfRange": "Elo 超出范围（100–3500）。",
+    "toastEloUpdated": "Elo 已更新为 {elo}",
+    "toastRoleUpdated": "角色已更新：{role}",
+    "dateDash": "—"
+  },
+  "vexborn": {
+    "meta": {
+      "title": "VEXCHESS · Vexborn",
+      "description": "Vexborn：VEXCHESS 的角色。发掘他们的故事并装备属于你的角色。仅为外观。"
+    },
+    "loading": "正在加载 Vexborn…",
+    "guest": {
+      "desc": "VEXCHESS 的角色。登录以查看阵容并装备属于你的角色。",
+      "login": "登录"
+    },
+    "hero": {
+      "equippedEyebrow": "已装备的 Vexborn",
+      "unequip": "卸下",
+      "emptyName": "选择你的 Vexborn",
+      "emptyTitle": "一个代表你在棋盘上身份的角色。仅为外观：不改变规则、Elo 或匹配。",
+      "emptyHint": "点击一张卡片查看其故事并装备它。"
+    },
+    "collection": {
+      "soon": "即将推出",
+      "count": "{count} 个角色",
+      "origins": {
+        "label": "Vexborn Origins",
+        "desc": "最早在棋盘上觉醒的存在。"
+      },
+      "expansion01": {
+        "label": "扩展 01",
+        "desc": "由战术与传说孕育的全新 Vexborn。"
+      }
+    },
+    "card": {
+      "equipped": "已装备"
+    },
+    "legal": "Vexborn 纯粹是外观装饰。它们不会在对局中带来任何优势，也不会影响匹配、Elo 或 AI。",
+    "ficha": {
+      "soon": "这个 Vexborn 即将到来。它的美术还在工坊中制作。",
+      "equip": "装备 Vexborn",
+      "statPiece": "棋子",
+      "statArchetype": "原型",
+      "statColor": "颜色",
+      "personality": "性格",
+      "close": "关闭"
+    },
+    "toast": {
+      "equipError": "无法装备。请重试。"
+    },
+    "rarity": {
+      "origin": "起源",
+      "mythic": "神话",
+      "distinguished": "卓越",
+      "legacy": "传承"
+    },
+    "char": {
+      "kael": {
+        "title": "第一步",
+        "piece": "马",
+        "archetype": "主动权",
+        "color": "VEX 红",
+        "quote": "在有人敢于走出第一步之前，棋盘不会苏醒。",
+        "desc": "Kael 是棋盘尚且空旷时第一枚离开原格的棋子。它不侍奉任何骑手：它是把静止局面变成一局对弈的推动力。每当有人在尚不知结果时抢占主动，它胸前的星辰便会点亮。",
+        "personality": "勇敢、直接、躁动，且极具感染力的好胜心。"
+      },
+      "aurelia": {
+        "title": "静默之冠",
+        "piece": "后",
+        "archetype": "计算",
+        "color": "象牙与金",
+        "quote": "最强的一手无需宣告。",
+        "desc": "Aurelia 闭着眼睛凝视棋盘，因为她断言棋子在无人注视时会揭示更多。她那些金色碎片环绕着每一种可能，只有在存在一条完美着法序列时才会停下。她从不庆祝将杀；对她而言，对局早已在很久之前结束。",
+        "personality": "沉静、优雅、严苛，且绝对自信。"
+      },
+      "bastion": {
+        "title": "最后的城墙",
+        "piece": "车",
+        "archetype": "联防",
+        "color": "钴蓝",
+        "quote": "只要一条线仍然相连，就没有人是孤军奋战。",
+        "desc": "Bastion 觉醒时是一枚孤立的车，却发现自己能把节点与棋盘上的每座堡垒相连。它的屏障不仅保护格子：还在盟友之间开辟安全通路。当所有防线崩溃时，它的网络仍点亮着最后一道防线。",
+        "personality": "忠诚、严谨、有护卫欲，且有点过于字面化。"
+      },
+      "nyra": {
+        "title": "隐匿的斜线",
+        "piece": "象",
+        "archetype": "渗透",
+        "color": "紫罗兰",
+        "quote": "我从不在你面前。我在你遗忘的那个角度里。",
+        "desc": "Nyra 行走在可见棋盘与其倒影之间的一条斜线上。她面具上那道发光的缝隙让她能穿越两个界面，出现在某条线看似被封锁的地方。没有人见过她的面容，也许是因为面具之下只存在另一条斜线。",
+        "personality": "内敛、精准、爱讥讽，且难以被出其不意。"
+      },
+      "pip": {
+        "title": "第一格",
+        "piece": "兵",
+        "archetype": "探索",
+        "color": "青",
+        "quote": "整个棋盘都容纳在第一格之前。",
+        "desc": "Pip 还没有走到最后一横线，也不急于抵达。它想认识每一格、每一个对手，以及前进的每一种可能。当它找到一条新路时，它那颗小小的星辰便会浮现；因此它常常率先踏入那些重要棋子认为微不足道的地方。",
+        "personality": "好奇、乐观、坚韧，且比它自以为的更勇敢。"
+      },
+      "ordan": {
+        "title": "永恒之王",
+        "piece": "王",
+        "archetype": "生存",
+        "color": "金",
+        "quote": "永恒在于再找到一格。",
+        "desc": "Ordan 记得在钟表存在之前对弈的残局。他王冠上的星座代表着他成功逃脱的将军，而非胜利。他的力量不来自征服棋盘，而来自懂得即便是王也必须在正确的局面前俯首。",
+        "personality": "睿智、严厉、耐心，且对新手玩家充满护佑。"
+      },
+      "noctis": {
+        "title": "黑色捉双",
+        "piece": "马",
+        "archetype": "双重战术",
+        "color": "石墨与青",
+        "quote": "如果你能看见我，那你已经在守护错误的棋子了。",
+        "desc": "Noctis 不穿越黑暗：它将黑暗一分为二。每一跳都留下两道攻击不同目标的阴影，而它真正的身躯停留在无人看守的那一格。它青色的眼眸精确计算着一个威胁化为两个威胁的确切瞬间。",
+        "personality": "沉默、狡黠、独立，且极其精准。"
+      },
+      "eira-vhal": {
+        "title": "枢纽宿敌",
+        "piece": "马",
+        "archetype": "宿敌对决",
+        "color": "象牙与钴蓝",
+        "quote": "我们奔跑不是为了击败彼此。我们奔跑是为了发现抵达时的自己。",
+        "desc": "Eira 诞生于棋盘之光，Vhal 诞生于其倒影中掀起的风暴。两者沿相反的道路追逐着同一个金色枢纽。他们打成平手太多次，以致宿敌之情化为友谊，尽管两人谁也不肯在对方面前说出这个词。",
+        "personality": "Eira 自律而沉静；Vhal 冲动而骄傲。在一起时他们密不可分。"
+      },
+      "rhazek": {
+        "title": "深红弃兵局",
+        "piece": "马",
+        "archetype": "攻击者 / 弃子",
+        "color": "战术红",
+        "quote": "用一枚棋子换取整个棋盘，是笔小小的代价。",
+        "desc": "Rhazek 从不寻找安全的格子。它诞生于第一枚自愿被牺牲的棋子，并领悟到表面的失败可能开辟通往胜利的唯一道路。它的铠甲上保留着每一个无人敢接受的弃兵局的印记。",
+        "personality": "大胆、挑衅、才华横溢，且危险地缺乏耐心。"
+      },
+      "oryn": {
+        "title": "末列守护者",
+        "piece": "车",
+        "archetype": "档案管理者 / 控制",
+        "color": "象牙与钴蓝",
+        "quote": "每一局对弈都会在最后一列留下一个真相。",
+        "desc": "Oryn 守护着被遗忘对局的档案。它的卷轴中记载着已不复存在的局面，它的车中储存着没有任何玩家记得自己做出过的抉择。当一条纵线打开时，正是它决定这条线通向胜利还是虚空。",
+        "personality": "庄严、耐心、公正，且执着于保存每一手着法。"
+      },
+      "vesra": {
+        "title": "困毙之后",
+        "piece": "后",
+        "archetype": "控制 / 操纵",
+        "color": "紫罗兰",
+        "quote": "你可以选择任何一步。它们全都属于我。",
+        "desc": "Vesra 不困住她的敌人：她赐予他们各种可能。每一个选项都属于一张在对局开始很久之前就已算好的网。她那双幽灵般的手不移动棋子；它们收走那些从未真实存在的出路。",
+        "personality": "沉静、威严、理智，且令人不安地彬彬有礼。"
+      },
+      "brakkon": {
+        "title": "活着的堡垒",
+        "piece": "车",
+        "archetype": "守护者 / 抵抗",
+        "color": "钴蓝",
+        "quote": "让整个王国前进吧。我会守在这里。",
+        "desc": "Brakkon 并非居住在堡垒中：他本身就是堡垒。当整个王国躲藏在最后一座屹立不倒的车之后时，他苏醒了。每一次撞击都会为他的城墙添上一块新石，每一个受庇护的盟友都为在其雉堞下燃烧的核心注入能量。",
+        "personality": "有护卫欲、沉默、忠诚，且绝对不可撼动。"
+      },
+      "ilyra": {
+        "title": "水晶之象",
+        "piece": "象",
+        "archetype": "精准 / 折射",
+        "color": "青与象牙",
+        "quote": "当光找到正确的角度时，一条斜线便足矣。",
+        "desc": "Ilyra 把棋盘看作一座光的结构。她能穿越漫长的斜线，把一个威胁分解为无害的反射，并发现别人看不见的线路。她身上的每一道裂痕都保存着一次完美计算的记忆。",
+        "personality": "精准、疏离、好奇，且出人意料地富有同情心。"
+      },
+      "tikk": {
+        "title": "时钟奔跑者",
+        "piece": "兵",
+        "archetype": "速度 / 机智",
+        "color": "青",
+        "quote": "我不需要更多时间。我只需要你的最后一秒。",
+        "desc": "Tikk 被造出来是为了按下时钟，但它决定在有人给它上发条之前就先跑起来。它穿越冻结的局面，偷取失去的瞬间，总能在不可能之前的一瞬抵达第八横线。没人知道它背上那口巨大的钟是坏了，还是只是走得太快。",
+        "personality": "调皮、迅捷、乐观，且极其好胜。"
+      },
+      "malrec": {
+        "title": "无冕之王",
+        "piece": "王",
+        "archetype": "生存 / 流亡",
+        "color": "石墨与金",
+        "quote": "王国可能陷落。而王仍必须走子。",
+        "desc": "Malrec 失去了他的军队、他的王座，甚至失去了佩戴一顶完整王冠的权利。他只留下一枚象牙色的兵，以及让它存活下去的责任。他拖曳的锁链由他昔日王国的格子组成；每一格都铭记着一次他拒绝称之为失败的撤退。",
+        "personality": "简朴、忧郁、擅长谋略，且远比外表更为危险。"
+      },
+      "solenne": {
+        "title": "第八步",
+        "piece": "兵",
+        "archetype": "进步 / 超越",
+        "color": "金与象牙",
+        "quote": "我并非生来就有王冠。我穿越棋盘，把它赢来。",
+        "desc": "Solenne 起初是无名一列中最小的棋子。她一次前进一格，熬过七条不可能的线路，抵达对面尽头却不曾忘记自己从何而来。她的蜕变永不终结：在一步步筑起的王冠之下，兵的底座依然清晰可见。",
+        "personality": "坚定、谦逊、鼓舞人心，且富有韧性。"
+      }
+    }
+  },
+  "auth": {
+    "role": {
+      "owner": "所有者",
+      "admin": "管理员",
+      "moderator": "版主",
+      "member": "成员"
+    },
+    "avatar": {
+      "vexKnight": "VEX 马",
+      "ivoryQueen": "象牙后",
+      "cobaltRook": "钴蓝车",
+      "violetBishop": "紫罗兰象",
+      "tealPawn": "青绿兵",
+      "goldenKing": "金色王",
+      "shadowKnight": "暗影马",
+      "rivalDuo": "宿敌二人组"
+    },
+    "reputation": {
+      "unrated": "未评级",
+      "goodStanding": "良好信誉",
+      "trusted": "受信任",
+      "respected": "受尊敬",
+      "exemplary": "堪称楷模"
+    },
+    "presence": {
+      "online": "在线",
+      "away": "离开",
+      "playing": "对弈中",
+      "spectating": "观战中",
+      "offline": "离线"
+    },
+    "modal": {
+      "tabLogin": "登录",
+      "tabRegister": "创建账户",
+      "close": "关闭"
+    },
+    "login": {
+      "loginLabel": "邮箱或用户名",
+      "passwordLabel": "密码",
+      "submit": "登录"
+    },
+    "register": {
+      "usernameLabel": "用户名",
+      "emailLabel": "邮箱",
+      "submit": "创建账户"
+    },
+    "error": {
+      "generic": "无法完成。"
+    },
+    "username": {
+      "checking": "检查中…",
+      "available": "✓ 可用",
+      "unavailable": "不可用。",
+      "formatValid": "✓ 格式有效",
+      "rangeError": "3 到 20 个字符之间。",
+      "formatError": "以字母开头；仅限字母、数字和 _。",
+      "reservedError": "该名称不可用。"
+    },
+    "password": {
+      "minChars": "至少 8 个字符（{n}/8）",
+      "weak": "弱",
+      "acceptable": "尚可",
+      "good": "良好",
+      "strong": "强"
+    },
+    "chip": {
+      "login": "登录",
+      "notificationsTitle": "{count} 条通知",
+      "notificationsTitlePlural": "{count} 条通知"
+    },
+    "menu": {
+      "profile": "我的个人资料",
+      "academy": "学院 · AXIOM",
+      "playOnline": "在线对弈",
+      "badgesInventory": "徽章库",
+      "adminPanel": "管理面板",
+      "signout": "退出登录",
+      "community": "社区",
+      "myGames": "我的对局"
+    }
+  }
+}

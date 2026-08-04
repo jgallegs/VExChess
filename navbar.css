@@ -91,3 +91,25 @@ html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
 @media (prefers-reduced-motion: reduce) {
   .vxnav, .vxnav-menu, .vxnav .brand-mark, .vxnav-burger span { transition: none; }
 }
+
+/* Selector de idioma (i18n) */
+.vxnav-lang { display: inline-flex; align-items: center; }
+.vxnav-lang select {
+  appearance: none; -webkit-appearance: none;
+  background: rgba(255,255,255,.06); color: #fff;
+  border: 1px solid rgba(255,255,255,.16); border-radius: 0.55rem;
+  padding: 0.4rem 1.7rem 0.4rem 0.65rem; cursor: pointer;
+  font: 700 0.82rem 'Inter', system-ui, sans-serif;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23ffffff' d='M0 0h10L5 7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0.6rem center;
+  transition: border-color .15s, background .15s;
+}
+.vxnav-lang select:hover { border-color: rgba(57,213,255,.6); }
+.vxnav-lang select:focus { outline: none; border-color: #39D5FF; }
+.vxnav-lang select option { background: #0D1117; color: #fff; }
+html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; background-position: left 0.6rem center; }
+/* En móvil el selector va dentro del menú desplegable */
+@media (max-width: 960px) {
+  .vxnav-lang { width: 100%; margin-top: 0.4rem; }
+  .vxnav-lang select { width: 100%; }
+}
