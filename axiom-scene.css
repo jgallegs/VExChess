@@ -1,0 +1,54 @@
+/* ============================================================
+   VEXCHESS · AXIOM — Escenas cinematográficas (capas + movimiento)
+   Movimiento contenido: respiración visual, no locomoción.
+   El wrapper hace posición + parallax; la img interna, el motion.
+   ============================================================ */
+.axs-stage { position: relative; overflow: hidden; background: #0b1220; }
+.axs-bg { position: absolute; inset: -3%; background-size: cover; background-position: center;
+  transform: translate(var(--px, 0), var(--py, 0)); transition: transform .18s ease-out; will-change: transform; }
+.axs-stage::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(11,18,32,.15), rgba(11,18,32,.72)); }
+.axs-layer { position: absolute; transform: translate(calc(-50% + var(--px, 0)), calc(-50% + var(--py, 0)));
+  transition: transform .2s ease-out; will-change: transform; pointer-events: none; }
+.axs-layer img { display: block; width: 100%; height: auto; }
+.axs-pose img { filter: drop-shadow(0 1.4rem 2rem rgba(0,0,0,.5)); }
+.axs-fx img { filter: drop-shadow(0 0 0.8rem rgba(57,213,255,.25)); }
+
+/* ---------- Movimiento (límites del spec) ---------- */
+/* AXIOM: 4–6 px verticales, <0.2° rotación. Respiración. */
+@keyframes axm-float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-5px) rotate(.15deg); } }
+.axm-axiomFloat { animation: axm-float 6s ease-in-out infinite; }
+.axm-warningHold { animation: axm-float 4.5s ease-in-out infinite; }
+/* Motas: 10–20 px en 12–16 s. */
+@keyframes axm-motes { 0%,100% { transform: translate(0,0); opacity: .75; } 50% { transform: translate(6px,-14px); opacity: 1; } }
+.axm-motesDrift { animation: axm-motes 14s ease-in-out infinite; }
+.axm-constellationDrift { animation: axm-motes 16s ease-in-out infinite; }
+/* Tablero holográfico: respiración de escala. */
+@keyframes axm-breathe { 0%,100% { transform: scale(1); opacity: .92; } 50% { transform: scale(1.02); opacity: 1; } }
+.axm-boardBreathe { animation: axm-breathe 7s ease-in-out infinite; }
+/* Anillos / escaneo: rotación continua 9–20 s. */
+@keyframes axm-spin { to { transform: rotate(360deg); } }
+.axm-calculationSpin { animation: axm-spin 16s linear infinite; }
+/* Pistas / retículas: un pulso cada 2–3 s. */
+@keyframes axm-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+.axm-reticlePulse, .axm-candidatePulse, .axm-shieldPulse, .axm-hintTrace { animation: axm-pulse 2.4s ease-in-out infinite; }
+/* Amenaza: destello corto, nunca estroboscópico. */
+@keyframes axm-flash { 0%,70%,100% { opacity: .5; } 82% { opacity: 1; } }
+.axm-threatFlash { animation: axm-flash 3s ease-in-out infinite; }
+/* Fragmentos: 2–4° en 9–14 s. */
+@keyframes axm-shards { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+.axm-shardsDrift { animation: axm-shards 12s ease-in-out infinite; }
+/* Haz de luz: respiración de opacidad. */
+@keyframes axm-light { 0%,100% { opacity: .55; } 50% { opacity: .95; } }
+.axm-lightBreathe { animation: axm-light 8s ease-in-out infinite; }
+/* Entradas únicas (revelado) y luego estables. */
+@keyframes axm-reveal { 0% { opacity: 0; transform: scale(.86); } 60% { opacity: 1; transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
+.axm-masteryReveal { animation: axm-reveal 1s cubic-bezier(.2,.8,.2,1) both; }
+.axm-branchReveal { animation: axm-reveal 1.1s cubic-bezier(.2,.8,.2,1) both; }
+
+/* Reduce-motion: sin animación ni parallax. */
+.axs-still .axs-bg, .axs-still .axs-layer { transform: translate(-50%, -50%); }
+.axs-still .axs-bg { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .axs-bg, .axs-layer, .axs-layer img { animation: none !important; transition: none !important; }
+}

@@ -25,6 +25,7 @@ function brandHTML(href) {
 // Enlaces del sitio: LOS MISMOS en todas las vistas (consistencia).
 // La CTA "Jugar" va aparte como botón; perfil/Vexborn viven en el menú de cuenta.
 const SITE_LINKS = [
+  ['academia.html', 'Academia'],
   ['puzzles.html', 'Puzzles'],
   ['directo.html', 'En directo'],
   ['partidas.html', 'Mis partidas'],

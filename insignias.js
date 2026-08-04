@@ -4,7 +4,7 @@
 //  significado, cómo se consiguen y modo de concesión.
 // ============================================================
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
-import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js?v=15';
+import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js?v=16';
 
 const root = document.getElementById('insignias-root');
 

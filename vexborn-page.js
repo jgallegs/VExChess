@@ -2,11 +2,11 @@
 //  VEXCHESS · Página Vexborn (roster de personajes cosméticos)
 //  Galería por colección · ficha cinematográfica · equipar.
 // ============================================================
-import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=15';
+import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=16';
 import {
   VEXBORN, COLLECTIONS, rarityMeta, vexbornByKey,
-  vexbornAvailable, vexbornPortrait,
-} from './vexborn.js?v=1';
+  vexbornAvailable, vexbornPortrait, vexbornSplash,
+} from './vexborn.js?v=2';
 
 const root = document.getElementById('vexborn-root');
 let user = null;
@@ -64,7 +64,7 @@ function heroHTML(eq) {
   if (eq && vexbornAvailable(eq)) {
     const rm = rarityMeta(eq.rarity);
     return '<section class="vb-hero equipped" style="--rar:' + rm.color + '">' +
-        '<div class="vb-hero-art"><img src="' + esc(vexbornPortrait(eq)) + '" alt=""></div>' +
+        '<div class="vb-hero-art"><img src="' + esc(vexbornSplash(eq) || vexbornPortrait(eq)) + '" alt=""></div>' +
         '<div class="vb-hero-body">' +
           '<span class="vb-eyebrow">Vexborn equipado</span>' +
           '<h1 class="vb-hero-name">' + esc(eq.name) + '</h1>' +
@@ -138,7 +138,7 @@ function openFicha(key) {
   const isEq = equippedKey() === v.key;
 
   const art = avail
-    ? '<img src="' + esc(vexbornPortrait(v)) + '" alt="">'
+    ? '<img src="' + esc(vexbornSplash(v) || vexbornPortrait(v)) + '" alt="">'
     : '<span class="vb-fi-silhouette">' + pieceEmoji(v) + '</span>';
 
   let action;

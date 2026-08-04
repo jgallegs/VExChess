@@ -150,11 +150,19 @@ function reputationOf(games) {
   return 'unrated';
 }
 // Avatares de imagen permitidos (además de los knight:<color> clásicos).
-const AVATAR_IMAGES = new Set(['vex-knight', 'ivory-queen', 'cobalt-rook', 'violet-bishop', 'teal-pawn', 'golden-king', 'shadow-knight', 'rival-duo']);
-// Vexborn equipables (Origins) -> avatar de identidad. Cosmético.
+const AVATAR_IMAGES = new Set([
+  'vex-knight', 'ivory-queen', 'cobalt-rook', 'violet-bishop', 'teal-pawn', 'golden-king', 'shadow-knight', 'rival-duo',
+  // Expansión 01 (cada Vexborn usa su propio avatar).
+  'rhazek', 'oryn', 'vesra', 'brakkon', 'ilyra', 'tikk', 'malrec', 'solenne',
+]);
+// Vexborn equipables -> avatar de identidad. Cosmético.
 const VEXBORN_AVATAR = {
+  // Origins (usan los 8 avatares originales).
   kael: 'vex-knight', aurelia: 'ivory-queen', bastion: 'cobalt-rook', nyra: 'violet-bishop',
   pip: 'teal-pawn', ordan: 'golden-king', noctis: 'shadow-knight', 'eira-vhal': 'rival-duo',
+  // Expansión 01 (avatar propio con el mismo nombre de clave).
+  rhazek: 'rhazek', oryn: 'oryn', vesra: 'vesra', brakkon: 'brakkon',
+  ilyra: 'ilyra', tikk: 'tikk', malrec: 'malrec', solenne: 'solenne',
 };
 function isValidAvatar(a) {
   if (typeof a !== 'string') return false;
@@ -390,6 +398,107 @@ async function updateProfile(req, env) {
   await env.DB.prepare(`UPDATE users SET ${fields.join(', ')} WHERE id = ?`).bind(...vals).run();
   const user = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(s.user.id).first();
   return json({ user: publicUser(user) });
+}
+
+// ---------- Academia (modo entrenamiento con AXIOM) ----------
+function dayStr(d) { return (d || new Date()).toISOString().slice(0, 10); }
+function addDays(dateStr, n) { const d = new Date(dateStr + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+function clamp100(n) { return Math.max(0, Math.min(100, Math.round(n))); }
+
+async function academyState(env, userId) {
+  let prof = await env.DB.prepare('SELECT * FROM academy_profile WHERE user_id = ?').bind(userId).first();
+  if (!prof) prof = { streak: 0, best_streak: 0, last_day: null, total_sessions: 0, data: '{}' };
+  const { results } = await env.DB.prepare('SELECT concept, mastery, confidence, attempts, contexts_solved, max_hint, last_attempt, next_review, error_tag FROM academy_progress WHERE user_id = ?').bind(userId).all();
+  const progress = results || [];
+  const today = dayStr();
+  // ¿racha viva? (hoy o ayer). Si el último día es anterior a ayer, se muestra rota.
+  let streak = prof.streak || 0;
+  if (prof.last_day && prof.last_day !== today && prof.last_day !== addDays(today, -1)) streak = 0;
+  const due = progress.filter(p => p.next_review && p.next_review <= today).map(p => p.concept);
+  const attempted = progress.filter(p => p.attempts > 0);
+  let weakest = null;
+  for (const p of attempted) { if (!weakest || p.mastery < weakest.mastery) weakest = p; }
+  return {
+    profile: { streak, best_streak: prof.best_streak || 0, last_day: prof.last_day || null, total_sessions: prof.total_sessions || 0, data: safeJson(prof.data, {}) },
+    progress,
+    memory: {
+      today, streak, dueConcepts: due,
+      weakestConcept: weakest ? weakest.concept : null,
+      lessonsDone: Object.keys(safeJson(prof.data, {}).lessons || {}),
+      isNewDay: prof.last_day !== today,
+    },
+  };
+}
+
+async function academyGet(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  return json(await academyState(env, s.user.id));
+}
+
+async function academyResult(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const concept = typeof b.concept === 'string' ? b.concept.slice(0, 40) : '';
+  const lesson = typeof b.lesson === 'string' ? b.lesson.slice(0, 60) : '';
+  if (!concept) return errRes('Falta el concepto.');
+  const correct = !!b.correct;
+  const hint = Math.max(0, Math.min(4, (b.hintUsed | 0)));
+  const now = nowISO(), today = dayStr();
+  const uid = s.user.id;
+
+  // --- progreso por concepto ---
+  const row = await env.DB.prepare('SELECT * FROM academy_progress WHERE user_id = ? AND concept = ?').bind(uid, concept).first();
+  let mastery = row ? row.mastery : 0, confidence = row ? row.confidence : 0;
+  let attempts = (row ? row.attempts : 0) + 1;
+  let contexts = row ? row.contexts_solved : 0;
+  let maxHint = Math.max(row ? row.max_hint : 0, hint);
+  let errorTag = row ? row.error_tag : null;
+  if (correct) {
+    contexts += 1;
+    const mGain = hint <= 1 ? 18 : hint === 2 ? 14 : 10;
+    const cGain = hint <= 1 ? 15 : hint === 2 ? 6 : 2;
+    mastery = clamp100(mastery + mGain);
+    confidence = clamp100(confidence + cGain);
+    errorTag = null;
+  } else {
+    confidence = clamp100(confidence - 8); // no penaliza el dominio; baja la confianza
+    errorTag = typeof b.errorTag === 'string' ? b.errorTag.slice(0, 40) : 'conceptual';
+  }
+  const interval = !correct ? 1 : (confidence >= 80 ? 7 : confidence >= 50 ? 3 : 1);
+  const nextReview = addDays(today, interval);
+  await env.DB.prepare(
+    `INSERT INTO academy_progress (user_id, concept, mastery, confidence, attempts, contexts_solved, max_hint, last_attempt, next_review, error_tag, updated_at)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?)
+     ON CONFLICT(user_id, concept) DO UPDATE SET mastery=excluded.mastery, confidence=excluded.confidence, attempts=excluded.attempts,
+       contexts_solved=excluded.contexts_solved, max_hint=excluded.max_hint, last_attempt=excluded.last_attempt,
+       next_review=excluded.next_review, error_tag=excluded.error_tag, updated_at=excluded.updated_at`
+  ).bind(uid, concept, mastery, confidence, attempts, contexts, maxHint, now, nextReview, errorTag, now).run();
+
+  // --- perfil: racha + lección completada ---
+  let prof = await env.DB.prepare('SELECT * FROM academy_profile WHERE user_id = ?').bind(uid).first();
+  let streak = prof ? prof.streak : 0, best = prof ? prof.best_streak : 0;
+  let lastDay = prof ? prof.last_day : null, sessions = prof ? prof.total_sessions : 0;
+  const data = safeJson(prof ? prof.data : '{}', {});
+  if (lastDay !== today) {
+    streak = (lastDay === addDays(today, -1)) ? streak + 1 : 1;
+    lastDay = today; sessions += 1;
+  }
+  best = Math.max(best, streak);
+  if (correct && lesson) {
+    data.lessons = data.lessons || {};
+    const prev = data.lessons[lesson] || {};
+    data.lessons[lesson] = { done: true, bestHint: Math.min(prev.bestHint != null ? prev.bestHint : 9, hint), ts: now };
+  }
+  await env.DB.prepare(
+    `INSERT INTO academy_profile (user_id, streak, best_streak, last_day, total_sessions, data, updated_at)
+     VALUES (?,?,?,?,?,?,?)
+     ON CONFLICT(user_id) DO UPDATE SET streak=excluded.streak, best_streak=excluded.best_streak, last_day=excluded.last_day,
+       total_sessions=excluded.total_sessions, data=excluded.data, updated_at=excluded.updated_at`
+  ).bind(uid, streak, best, lastDay, sessions, JSON.stringify(data), now).run();
+
+  return json(await academyState(env, uid));
 }
 
 async function listGames(req, env) {
@@ -780,6 +889,8 @@ async function handleApi(req, env) {
     if (path === '/api/auth/logout' && m === 'POST') return await logout(req, env);
     if (path === '/api/auth/me' && m === 'GET') return await me(req, env);
     if (path === '/api/profile' && m === 'PUT') return await updateProfile(req, env);
+    if (path === '/api/academy' && m === 'GET') return await academyGet(req, env);
+    if (path === '/api/academy/result' && m === 'POST') return await academyResult(req, env);
     if (path === '/api/profile/badges' && m === 'PUT') return await updateBadges(req, env);
     if (path === '/api/games' && m === 'GET') return await listGames(req, env);
     if (path === '/api/games' && m === 'POST') return await saveGame(req, env);

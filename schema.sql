@@ -142,6 +142,37 @@ CREATE TABLE IF NOT EXISTS meta (
   value TEXT
 );
 
+-- ===== Academia · Modo entrenamiento con AXIOM =====
+-- Memoria del mentor: progreso por concepto (dominio + confianza), repaso
+-- espaciado y racha de días. La academia mide APRENDIZAJE, no Elo.
+CREATE TABLE IF NOT EXISTS academy_profile (
+  user_id TEXT PRIMARY KEY,
+  streak INTEGER NOT NULL DEFAULT 0,          -- días seguidos con al menos una sesión
+  best_streak INTEGER NOT NULL DEFAULT 0,
+  last_day TEXT,                              -- último día con sesión (YYYY-MM-DD)
+  total_sessions INTEGER NOT NULL DEFAULT 0,
+  data TEXT NOT NULL DEFAULT '{}',            -- JSON: lecciones completadas, notas, etc.
+  updated_at TEXT,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS academy_progress (
+  user_id TEXT NOT NULL,
+  concept TEXT NOT NULL,                       -- 'pin' | 'fork' | 'hanging-piece' | 'back-rank' | ...
+  mastery INTEGER NOT NULL DEFAULT 0,          -- 0-100: capacidad demostrada en posiciones variadas
+  confidence INTEGER NOT NULL DEFAULT 0,       -- 0-100: estabilidad sin ayudas y con tiempo razonable
+  attempts INTEGER NOT NULL DEFAULT 0,
+  contexts_solved INTEGER NOT NULL DEFAULT 0,  -- nº de posiciones distintas resueltas
+  max_hint INTEGER NOT NULL DEFAULT 0,         -- pista máxima usada (0-4)
+  last_attempt TEXT,
+  next_review TEXT,                            -- fecha de repaso espaciado (YYYY-MM-DD)
+  error_tag TEXT,                              -- último error conceptual detectado
+  updated_at TEXT,
+  PRIMARY KEY (user_id, concept),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_academy_prog_user ON academy_progress(user_id);
+
 CREATE TABLE IF NOT EXISTS user_badges (
   user_id TEXT NOT NULL,
   badge TEXT NOT NULL,                     -- id de la insignia (creator, staff, first-move, ...)

@@ -22,6 +22,8 @@ export const api = {
   login: (b) => req('/auth/login', { method: 'POST', headers: JSON_H, body: JSON.stringify(b) }),
   logout: () => req('/auth/logout', { method: 'POST' }),
   updateProfile: (b) => req('/profile', { method: 'PUT', headers: JSON_H, body: JSON.stringify(b) }),
+  academy: () => req('/academy'),
+  academyResult: (b) => req('/academy/result', { method: 'POST', headers: JSON_H, body: JSON.stringify(b) }),
   updateBadges: (b) => req('/profile/badges', { method: 'PUT', headers: JSON_H, body: JSON.stringify(b) }),
   listGames: (limit = 50, offset = 0) => req('/games?limit=' + limit + '&offset=' + offset),
   saveGame: (g) => req('/games', { method: 'POST', headers: JSON_H, body: JSON.stringify(g) }),
@@ -293,6 +295,7 @@ function accountHTML() {
       '</button>' +
       '<div class="vx-menu">' +
         '<a href="perfil.html">Mi perfil</a>' +
+        '<a href="academia.html">Academia · AXIOM</a>' +
         '<a href="online.html">Jugar online' + chDot + '</a>' +
         '<a href="comunidad.html">Comunidad' + menuDot + '</a>' +
         '<a href="partidas.html">Mis partidas</a>' +

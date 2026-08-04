@@ -1,9 +1,9 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=15';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=16';
 import { badgeMeta } from './badges.js?v=3';
-import { vexbornByKey, rarityMeta } from './vexborn.js?v=1';
+import { vexbornByKey, rarityMeta } from './vexborn.js?v=2';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio', avanzado: 'Avanzado', maximo: 'Máximo', desconocido: 'Otro' };
