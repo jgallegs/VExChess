@@ -14,15 +14,36 @@ CREATE TABLE IF NOT EXISTS users (
   elo INTEGER NOT NULL DEFAULT 1200,
   is_admin INTEGER NOT NULL DEFAULT 0,     -- 1 = acceso al panel (derivado de role >= moderator)
   role TEXT NOT NULL DEFAULT 'member',     -- owner | admin | moderator | member
+  member_no INTEGER,                       -- número VEX correlativo (VEX-0001, cosmético)
+  connect_code TEXT,                       -- código permanente para añadir (QR / en persona)
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   data TEXT NOT NULL DEFAULT '{}'          -- JSON extensible para datos futuros
 );
+CREATE UNIQUE INDEX IF NOT EXISTS idx_users_connect ON users(connect_code);
+
+-- Amistades. Par canónico a_id < b_id para evitar duplicados. status: 'pending' | 'accepted'.
+CREATE TABLE IF NOT EXISTS friendships (
+  a_id TEXT NOT NULL,
+  b_id TEXT NOT NULL,
+  status TEXT NOT NULL,                     -- 'pending' | 'accepted'
+  requested_by TEXT NOT NULL,              -- id de quien envió la solicitud
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  PRIMARY KEY (a_id, b_id),
+  FOREIGN KEY (a_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (b_id) REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_friend_a ON friendships(a_id);
+CREATE INDEX IF NOT EXISTS idx_friend_b ON friendships(b_id);
 
 -- Migración para bases ya existentes (no hace falta si se crea de cero):
 --   ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0;
 --   ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'member';
+--   ALTER TABLE users ADD COLUMN member_no INTEGER;
+--   ALTER TABLE users ADD COLUMN connect_code TEXT;
 --   UPDATE users SET role = 'owner', is_admin = 1 WHERE username_lower = 'jorge';
+--   (member_no y connect_code se rellenan por script; ver migración en el worker/README)
 
 CREATE TABLE IF NOT EXISTS sessions (
   token TEXT PRIMARY KEY,

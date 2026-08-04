@@ -28,6 +28,16 @@ export const api = {
   importGames: (games) => req('/games/import', { method: 'POST', headers: JSON_H, body: JSON.stringify({ games }) }),
   deleteGame: (id) => req('/games/' + id, { method: 'DELETE' }),
   stats: () => req('/stats'),
+  publicProfile: (username) => req('/u/' + encodeURIComponent(username)),
+  // comunidad
+  commSearch: (q) => req('/community/search?q=' + encodeURIComponent(q)),
+  commFriends: () => req('/community/friends'),
+  commRequests: () => req('/community/requests'),
+  commRequest: (to) => req('/community/request', { method: 'POST', headers: JSON_H, body: JSON.stringify({ to }) }),
+  commRespond: (user_id, action) => req('/community/respond', { method: 'POST', headers: JSON_H, body: JSON.stringify({ user_id, action }) }),
+  commRemove: (user_id) => req('/community/remove', { method: 'POST', headers: JSON_H, body: JSON.stringify({ user_id }) }),
+  commConnectInfo: (code) => req('/connect/' + encodeURIComponent(code)),
+  commConnectAdd: (code) => req('/community/connect', { method: 'POST', headers: JSON_H, body: JSON.stringify({ code }) }),
   // admin
   adminOverview: () => req('/admin/overview'),
   adminUsers: (opts = {}) => {
@@ -239,6 +249,7 @@ function accountHTML() {
       '</button>' +
       '<div class="vx-menu">' +
         '<a href="perfil.html">Mi perfil</a>' +
+        '<a href="comunidad.html">Comunidad</a>' +
         '<a href="partidas.html">Mis partidas</a>' +
         (currentUser.is_admin ? '<a href="insignias.html">Inventario de insignias</a>' : '') +
         (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">Panel de admin</a>' : '') +

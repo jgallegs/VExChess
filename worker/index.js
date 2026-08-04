@@ -106,18 +106,96 @@ const ROLE_LEVEL = 80;    // nivel mínimo para cambiar roles
 const roleOf = (u) => (u && ROLES[u.role]) ? u.role : 'member';
 const roleLevel = (r) => (ROLES[r] ? ROLES[r].level : 0);
 
+// ---------- VEX ID ----------
+// Alfabeto sin caracteres ambiguos (0/O, 1/I/L).
+const CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+function genConnectCode() {
+  const a = crypto.getRandomValues(new Uint8Array(6));
+  let s = ''; for (const x of a) s += CODE_ALPHABET[x % CODE_ALPHABET.length];
+  return s;
+}
+async function allocConnectCode(env) {
+  for (let i = 0; i < 10; i++) {
+    const c = genConnectCode();
+    const dup = await env.DB.prepare('SELECT 1 AS x FROM users WHERE connect_code = ?').bind(c).first();
+    if (!dup) return c;
+  }
+  return genConnectCode();
+}
+// Asigna número VEX + código de conexión si faltan (cuentas antiguas).
+async function ensureVexId(env, u) {
+  const fields = [], vals = [];
+  if (!u.member_no) { const n = (await env.DB.prepare('SELECT COALESCE(MAX(member_no),0)+1 AS n FROM users').first()).n; fields.push('member_no = ?'); vals.push(n); }
+  if (!u.connect_code) { fields.push('connect_code = ?'); vals.push(await allocConnectCode(env)); }
+  if (fields.length) {
+    vals.push(u.id);
+    await env.DB.prepare(`UPDATE users SET ${fields.join(', ')} WHERE id = ?`).bind(...vals).run();
+    return await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(u.id).first();
+  }
+  return u;
+}
+function reputationOf(games) {
+  const g = games || 0;
+  if (g >= 100) return 'Ejemplar';
+  if (g >= 30) return 'Respetado';
+  if (g >= 5) return 'Habitual';
+  return 'Nuevo';
+}
+
 // ---------- modelo ----------
-function publicUser(u) {
+function publicUser(u, opts) {
   const role = roleOf(u);
   const level = roleLevel(role);
-  return {
+  const out = {
     id: u.id, username: u.username, email: u.email, avatar: u.avatar,
     country: u.country || null, elo: u.elo, created_at: u.created_at,
     role, role_level: level, is_admin: level >= STAFF_LEVEL,
+    member_no: u.member_no || null,
     data: safeJson(u.data, {}),
   };
+  if (opts && opts.self) out.connect_code = u.connect_code || null;
+  return out;
 }
 function safeJson(s, def) { try { return JSON.parse(s); } catch (e) { return def; } }
+
+// ---------- amistades ----------
+function pairOf(x, y) { return x < y ? [x, y] : [y, x]; }
+async function getFriendship(env, x, y) {
+  const [a, b] = pairOf(x, y);
+  return await env.DB.prepare('SELECT * FROM friendships WHERE a_id = ? AND b_id = ?').bind(a, b).first();
+}
+function relStatus(fr, meId) {
+  if (!fr) return 'none';
+  if (fr.status === 'accepted') return 'friends';
+  return fr.requested_by === meId ? 'pending_out' : 'pending_in';
+}
+async function friendIds(env, meId) {
+  const { results } = await env.DB.prepare("SELECT a_id, b_id FROM friendships WHERE status = 'accepted' AND (a_id = ? OR b_id = ?)").bind(meId, meId).all();
+  return (results || []).map(r => (r.a_id === meId ? r.b_id : r.a_id));
+}
+async function mutualCount(env, meId, otherId) {
+  const mine = new Set(await friendIds(env, meId));
+  let n = 0; for (const id of await friendIds(env, otherId)) if (mine.has(id)) n++;
+  return n;
+}
+async function gamesCountOf(env, userId) {
+  const r = await env.DB.prepare('SELECT COUNT(*) AS n FROM games WHERE user_id = ?').bind(userId).first();
+  return r ? r.n : 0;
+}
+// Mini-perfil público para comunidad (sin email).
+async function miniProfile(env, u, meId) {
+  const games = await gamesCountOf(env, u.id);
+  const out = {
+    id: u.id, username: u.username, avatar: u.avatar, elo: u.elo,
+    member_no: u.member_no || null, reputation: reputationOf(games),
+    badges: await getBadges(env, u.id),
+  };
+  if (meId && meId !== u.id) {
+    out.status = relStatus(await getFriendship(env, meId, u.id), meId);
+    out.mutual = await mutualCount(env, meId, u.id);
+  } else if (meId === u.id) { out.status = 'self'; }
+  return out;
+}
 
 async function getSession(req, env) {
   const token = parseCookies(req)[COOKIE];
@@ -189,14 +267,16 @@ async function register(req, env) {
   const { hash, salt, iter } = await hashPassword(password);
   const id = crypto.randomUUID();
   const ts = nowISO();
+  const memberNo = (await env.DB.prepare('SELECT COALESCE(MAX(member_no),0)+1 AS n FROM users').first()).n;
+  const connectCode = await allocConnectCode(env);
   await env.DB.batch([
-    env.DB.prepare('INSERT INTO users (id, username, username_lower, email, password_hash, password_salt, password_iter, avatar, elo, created_at, updated_at, data) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)')
-      .bind(id, username, low, email, hash, salt, iter, 'knight:red', 1200, ts, ts, '{}'),
+    env.DB.prepare('INSERT INTO users (id, username, username_lower, email, password_hash, password_salt, password_iter, avatar, elo, member_no, connect_code, created_at, updated_at, data) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)')
+      .bind(id, username, low, email, hash, salt, iter, 'knight:red', 1200, memberNo, connectCode, ts, ts, '{}'),
     env.DB.prepare('INSERT INTO user_stats (user_id, updated_at) VALUES (?, ?)').bind(id, ts),
   ]);
   const token = await createSession(env, id, req);
   const user = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(id).first();
-  return json({ user: publicUser(user), stats: await getStats(env, id), badges: [] }, 201, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
+  return json({ user: publicUser(user, { self: true }), stats: await getStats(env, id), badges: [] }, 201, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
 }
 
 async function checkUsername(req, env) {
@@ -220,7 +300,8 @@ async function login(req, env) {
   const ok = row && await verifyPassword(password, row.password_hash, row.password_salt, row.password_iter);
   if (!ok) return errRes('Usuario o contraseña incorrectos.', 401);
   const token = await createSession(env, row.id, req);
-  return json({ user: publicUser(row), stats: await getStats(env, row.id), badges: await getBadges(env, row.id) }, 200, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
+  const u = await ensureVexId(env, row);
+  return json({ user: publicUser(u, { self: true }), stats: await getStats(env, u.id), badges: await getBadges(env, u.id) }, 200, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
 }
 
 async function logout(req, env) {
@@ -232,7 +313,8 @@ async function logout(req, env) {
 async function me(req, env) {
   const s = await getSession(req, env);
   if (!s) return json({ user: null });
-  return json({ user: publicUser(s.user), stats: await getStats(env, s.user.id), badges: await getBadges(env, s.user.id) });
+  const u = await ensureVexId(env, s.user);
+  return json({ user: publicUser(u, { self: true }), stats: await getStats(env, u.id), badges: await getBadges(env, u.id) });
 }
 
 async function updateBadges(req, env) {
@@ -499,6 +581,134 @@ async function adminUpdateUser(req, env, id) {
   return json({ user: publicUser(out) });
 }
 
+// ---------- comunidad / amigos ----------
+async function commSearch(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  const q = (new URL(req.url).searchParams.get('q') || '').trim().toLowerCase();
+  if (q.length < 2) return json({ results: [] });
+  const like = '%' + q.replace(/[%_\\]/g, m => '\\' + m) + '%';
+  const { results } = await env.DB.prepare(
+    "SELECT id, username, avatar, elo, member_no FROM users WHERE (username_lower LIKE ? ESCAPE '\\') AND id != ? ORDER BY username_lower ASC LIMIT 20"
+  ).bind(like, s.user.id).all();
+  const out = [];
+  for (const u of (results || [])) {
+    out.push({
+      id: u.id, username: u.username, avatar: u.avatar, elo: u.elo, member_no: u.member_no || null,
+      reputation: reputationOf(await gamesCountOf(env, u.id)),
+      mutual: await mutualCount(env, s.user.id, u.id),
+      status: relStatus(await getFriendship(env, s.user.id, u.id), s.user.id),
+    });
+  }
+  return json({ results: out });
+}
+
+async function commFriends(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  const { results } = await env.DB.prepare(
+    "SELECT a_id, b_id, updated_at FROM friendships WHERE status = 'accepted' AND (a_id = ? OR b_id = ?) ORDER BY updated_at DESC"
+  ).bind(s.user.id, s.user.id).all();
+  const friends = [];
+  for (const r of (results || [])) {
+    const otherId = r.a_id === s.user.id ? r.b_id : r.a_id;
+    const u = await env.DB.prepare('SELECT id, username, avatar, elo, member_no FROM users WHERE id = ?').bind(otherId).first();
+    if (u) friends.push({
+      id: u.id, username: u.username, avatar: u.avatar, elo: u.elo, member_no: u.member_no || null,
+      reputation: reputationOf(await gamesCountOf(env, u.id)), since: r.updated_at,
+    });
+  }
+  return json({ friends });
+}
+
+async function commRequests(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  const { results } = await env.DB.prepare(
+    "SELECT a_id, b_id, requested_by, created_at FROM friendships WHERE status = 'pending' AND (a_id = ? OR b_id = ?) ORDER BY created_at DESC"
+  ).bind(s.user.id, s.user.id).all();
+  const incoming = [], outgoing = [];
+  for (const r of (results || [])) {
+    const otherId = r.a_id === s.user.id ? r.b_id : r.a_id;
+    const u = await env.DB.prepare('SELECT id, username, avatar, elo, member_no FROM users WHERE id = ?').bind(otherId).first();
+    if (!u) continue;
+    const item = { id: u.id, username: u.username, avatar: u.avatar, elo: u.elo, member_no: u.member_no || null,
+      reputation: reputationOf(await gamesCountOf(env, u.id)), mutual: await mutualCount(env, s.user.id, u.id), since: r.created_at };
+    if (r.requested_by === s.user.id) outgoing.push(item); else incoming.push(item);
+  }
+  return json({ incoming, outgoing });
+}
+
+// Crea/acepta una solicitud hacia `otherId`.
+async function sendFriendRequest(env, meId, otherId) {
+  if (otherId === meId) return errRes('No puedes añadirte a ti mismo.');
+  const other = await env.DB.prepare('SELECT id FROM users WHERE id = ?').bind(otherId).first();
+  if (!other) return errRes('Usuario no encontrado.', 404);
+  const fr = await getFriendship(env, meId, otherId);
+  const ts = nowISO();
+  if (fr) {
+    if (fr.status === 'accepted') return errRes('Ya sois amigos.', 409);
+    if (fr.requested_by === meId) return json({ status: 'pending_out' });   // ya enviada
+    // Existe una solicitud entrante: aceptarla equivale a confirmar.
+    await env.DB.prepare('UPDATE friendships SET status = ?, updated_at = ? WHERE a_id = ? AND b_id = ?')
+      .bind('accepted', ts, fr.a_id, fr.b_id).run();
+    return json({ status: 'friends' });
+  }
+  const [a, b] = pairOf(meId, otherId);
+  await env.DB.prepare('INSERT INTO friendships (a_id, b_id, status, requested_by, created_at, updated_at) VALUES (?,?,?,?,?,?)')
+    .bind(a, b, 'pending', meId, ts, ts).run();
+  return json({ status: 'pending_out' });
+}
+
+async function commRequest(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  if (typeof b.to !== 'string') return errRes('Falta el destinatario.');
+  return await sendFriendRequest(env, s.user.id, b.to);
+}
+
+async function commRespond(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const otherId = b.user_id, action = b.action;
+  const fr = await getFriendship(env, s.user.id, otherId);
+  if (!fr || fr.status !== 'pending') return errRes('No hay ninguna solicitud pendiente.', 404);
+  if (fr.requested_by === s.user.id) return errRes('Esa solicitud la enviaste tú.', 400);
+  if (action === 'accept') {
+    await env.DB.prepare('UPDATE friendships SET status = ?, updated_at = ? WHERE a_id = ? AND b_id = ?').bind('accepted', nowISO(), fr.a_id, fr.b_id).run();
+    return json({ status: 'friends' });
+  }
+  await env.DB.prepare('DELETE FROM friendships WHERE a_id = ? AND b_id = ?').bind(fr.a_id, fr.b_id).run();
+  return json({ status: 'none' });
+}
+
+async function commRemove(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const [a, bb] = pairOf(s.user.id, b.user_id || '');
+  await env.DB.prepare('DELETE FROM friendships WHERE a_id = ? AND b_id = ?').bind(a, bb).run();
+  return json({ status: 'none' });
+}
+
+async function commConnect(req, env, code) {
+  const u = await env.DB.prepare('SELECT * FROM users WHERE connect_code = ?').bind(String(code || '').toUpperCase()).first();
+  if (!u) return errRes('Código de conexión no válido.', 404);
+  const s = await getSession(req, env);
+  return json({ profile: await miniProfile(env, u, s ? s.user.id : null) });
+}
+
+async function commConnectAdd(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const u = await env.DB.prepare('SELECT id FROM users WHERE connect_code = ?').bind(String(b.code || '').toUpperCase()).first();
+  if (!u) return errRes('Código de conexión no válido.', 404);
+  return await sendFriendRequest(env, s.user.id, u.id);
+}
+
 // ---------- router ----------
 async function handleApi(req, env) {
   const url = new URL(req.url);
@@ -521,6 +731,16 @@ async function handleApi(req, env) {
     if (path === '/api/stats' && m === 'GET') { const s = await getSession(req, env); return s ? json({ stats: await getStats(env, s.user.id), elo: s.user.elo }) : errRes('No has iniciado sesión.', 401); }
     const pu = path.match(/^\/api\/u\/([A-Za-z0-9_]+)$/);
     if (pu && m === 'GET') return await publicProfile(req, env, pu[1]);
+    // --- comunidad ---
+    if (path === '/api/community/search' && m === 'GET') return await commSearch(req, env);
+    if (path === '/api/community/friends' && m === 'GET') return await commFriends(req, env);
+    if (path === '/api/community/requests' && m === 'GET') return await commRequests(req, env);
+    if (path === '/api/community/request' && m === 'POST') return await commRequest(req, env);
+    if (path === '/api/community/respond' && m === 'POST') return await commRespond(req, env);
+    if (path === '/api/community/remove' && m === 'POST') return await commRemove(req, env);
+    if (path === '/api/community/connect' && m === 'POST') return await commConnectAdd(req, env);
+    const cc = path.match(/^\/api\/connect\/([A-Za-z0-9]+)$/);
+    if (cc && m === 'GET') return await commConnect(req, env, cc[1]);
     // --- admin ---
     if (path === '/api/admin/overview' && m === 'GET') return await adminOverview(req, env);
     if (path === '/api/admin/users' && m === 'GET') return await adminListUsers(req, env);
@@ -541,6 +761,10 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname.startsWith('/api/')) return handleApi(req, env);
+    // Enlaces bonitos de conexión: /connect/CÓDIGO -> sirve connect.html
+    if (/^\/connect\/[A-Za-z0-9]+\/?$/.test(url.pathname)) {
+      return env.ASSETS.fetch(new Request(new URL('/connect.html', url), req));
+    }
     // Resto: servir la web estática
     return env.ASSETS.fetch(req);
   },
