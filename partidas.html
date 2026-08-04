@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=35">
-<link rel="stylesheet" href="partidas.css?v=1">
+<link rel="stylesheet" href="partidas.css?v=2">
 </head>
 <body class="rv-page">
   <header class="navbar">
@@ -60,6 +60,13 @@
         <button class="rv-ctrl" id="rv-flip" title="Girar tablero (F)" aria-label="Girar tablero">⇅</button>
       </div>
       <div class="rv-ply" id="rv-ply">—</div>
+
+      <!-- Análisis con Stockfish: gráfico de evaluación -->
+      <div class="rv-graph-wrap" id="rv-graph-wrap" hidden>
+        <div class="rv-graph-head"><span>Evaluación</span><span id="rv-analysis-summary"></span></div>
+        <svg class="rv-graph" id="rv-graph" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="rv-analyze-bar" id="rv-analyze-bar" hidden><span id="rv-analyze-fill"></span></div>
+      </div>
     </section>
 
     <!-- Panel: jugadas de la partida abierta + lista del archivo -->
@@ -72,7 +79,10 @@
       <div class="rv-moves-card" id="rv-moves-card" hidden>
         <div class="rv-moves-head">
           <span id="rv-moves-title">Jugadas</span>
-          <button class="rv-pgn" id="rv-pgn" title="Copiar PGN">Copiar PGN</button>
+          <span class="rv-moves-actions">
+            <button class="rv-pgn" id="rv-analyze" title="Analizar la partida con Stockfish">Analizar</button>
+            <button class="rv-pgn" id="rv-pgn" title="Copiar PGN">Copiar PGN</button>
+          </span>
         </div>
         <div class="rv-moves" id="rv-moves"></div>
       </div>
@@ -94,6 +104,6 @@
 
   <script type="module" src="theme.js?v=1"></script>
   <script type="module" src="auth.js?v=4"></script>
-  <script type="module" src="partidas.js?v=3"></script>
+  <script type="module" src="partidas.js?v=4"></script>
 </body>
 </html>
