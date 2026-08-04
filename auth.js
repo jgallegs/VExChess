@@ -34,10 +34,12 @@ export const api = {
 let currentUser = null;
 let currentStats = null;
 let currentBadges = [];
+let authResolved = false;
 const listeners = [];
 export function getUser() { return currentUser; }
 export function getStats() { return currentStats; }
 export function getBadges() { return currentBadges; }
+export function isAuthResolved() { return authResolved; }
 export function setBadges(arr) { currentBadges = arr || []; renderAccounts(); }
 export function onAuth(fn) { listeners.push(fn); fn(currentUser); }
 function emit() { listeners.forEach(f => { try { f(currentUser); } catch (e) {} }); document.dispatchEvent(new CustomEvent('vexchess:auth', { detail: currentUser })); }
@@ -250,6 +252,7 @@ function wireLegacyEntrar() {
     const out = await api.me();
     currentUser = out.user; currentStats = out.stats || null; currentBadges = out.badges || [];
   } catch (e) { currentUser = null; }
+  authResolved = true;
   renderAccounts();
   emit();
   if (currentUser) maybeMigrate();

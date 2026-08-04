@@ -1,7 +1,7 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=5';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth, isAuthResolved } from './auth.js?v=7';
 import { badgeMeta } from './badges.js?v=3';
 
 const root = document.getElementById('perfil-root');
@@ -13,6 +13,14 @@ function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ 
 function streakText(s) {
   if (!s) return '—';
   return s > 0 ? (s + (s === 1 ? ' victoria' : ' victorias')) : ((-s) + ((-s) === 1 ? ' derrota' : ' derrotas'));
+}
+
+function loadingHTML() {
+  return '<section class="pf-loading">' +
+    '<div class="pf-loading-inner"><div class="pf-loading-ring"></div>' +
+    '<img class="pf-loading-knight" src="assets/knight-logo.svg" alt=""></div>' +
+    '<p>Cargando tu perfil…</p>' +
+    '</section>';
 }
 
 function notLogged() {
@@ -36,9 +44,17 @@ function loggedIn(u, s) {
   const badges = getBadges().slice().sort((a, b) => (badgeMeta(b.badge).priority || 0) - (badgeMeta(a.badge).priority || 0));
   const featured = badges.find(b => b.featured);
   const pinned = badges.filter(b => b.pinned).slice(0, 3);
-  const nameBadge = featured ? '<img class="pf-name-badge" src="assets/badges/' + featured.badge + '.png" alt="" title="' + esc(badgeMeta(featured.badge).name) + '">' : '';
+  const nameBadge = featured ? '<span class="pf-name-badge-wrap">' +
+      '<img class="pf-name-badge" src="assets/badges/' + featured.badge + '.png" alt="">' +
+      tipHTML(badgeMeta(featured.badge)) + '</span>' : '';
   const pinnedRow = pinned.length
-    ? '<div class="pf-pinned">' + pinned.map(b => '<img class="pf-pin-ico" src="assets/badges/' + b.badge + '.png" alt="" title="' + esc(badgeMeta(b.badge).name) + '">').join('') + '</div>'
+    ? '<div class="pf-pinned"><span class="pf-pinned-label">Fijadas</span>' +
+        '<span class="pf-pinned-icos">' + pinned.map(b =>
+          '<span class="pf-pin" data-badge="' + b.badge + '">' +
+            '<img class="pf-pin-ico" src="assets/badges/' + b.badge + '.png" alt="">' +
+            tipHTML(badgeMeta(b.badge)) +
+          '</span>').join('') + '</span>' +
+      '</div>'
     : '';
 
   return '' +
@@ -48,10 +64,10 @@ function loggedIn(u, s) {
         '<h1 class="pf-name">' + esc(u.username) + nameBadge + '</h1>' +
         '<div class="pf-hero-meta"><span class="pf-elo">Elo ' + u.elo + '</span>' +
           '<span class="pf-since">Miembro desde ' + fmtDate(u.created_at) + '</span></div>' +
-        pinnedRow +
       '</div>' +
       '<div class="pf-hero-actions"><a class="pf-btn ghost" href="partidas.html">Mis partidas</a>' +
         '<button class="pf-btn danger" id="pf-logout">Cerrar sesión</button></div>' +
+      pinnedRow +
     '</section>' +
     badgesSection(badges) +
 
@@ -83,7 +99,10 @@ function stat(label, value, cls, isText) {
 function render() {
   const u = getUser();
   const s = getStats() || { played: 0, wins: 0, losses: 0, draws: 0, streak: 0, best_streak: 0, by_level: {} };
-  root.innerHTML = u ? loggedIn(u, s) : notLogged();
+  // Mientras el /me inicial no ha resuelto, mostramos el loader en vez del
+  // estado "sin sesión" para que no parpadee la pantalla de invitado.
+  root.innerHTML = u ? loggedIn(u, s) : (isAuthResolved() ? notLogged() : loadingHTML());
+  if (!u) { if (isAuthResolved()) { const e2 = document.getElementById('pf-entrar'); if (e2) e2.addEventListener('click', () => openAuth('login')); } return; }
 
   const entrar = document.getElementById('pf-entrar');
   if (entrar) entrar.addEventListener('click', () => openAuth('login'));
@@ -99,9 +118,18 @@ function render() {
   }));
 
   document.querySelectorAll('.pf-badge').forEach(el => el.addEventListener('click', () => openBadgeDetail(el.dataset.badge)));
+  document.querySelectorAll('.pf-pin').forEach(el => el.addEventListener('click', () => openBadgeDetail(el.dataset.badge)));
 }
 
 // ---------- Insignias ----------
+// Tooltip flotante reutilizable (tarjetas de insignias + fijadas + destacada)
+function tipHTML(m) {
+  return '<span class="pf-tip" style="--bc:' + m.color + '" role="tooltip">' +
+    '<span class="pf-tip-name">' + esc(m.name) + '</span>' +
+    (m.family ? '<span class="pf-tip-fam">' + esc(m.family) + '</span>' : '') +
+    (m.desc ? '<span class="pf-tip-desc">' + esc(m.desc) + '</span>' : '') +
+  '</span>';
+}
 function badgesSection(badges) {
   return '<section class="pf-card">' +
     '<h2>Insignias <span class="pf-badges-count">' + badges.length + '</span></h2>' +
@@ -112,6 +140,7 @@ function badgesSection(badges) {
             '<img src="assets/badges/' + b.badge + '.png" alt="">' +
             '<span class="pf-badge-name">' + esc(m.name) + '</span>' +
             (b.featured ? '<span class="pf-badge-star" title="Destacada">★</span>' : '') +
+            tipHTML(m) +
           '</button>';
         }).join('') + '</div>' +
         '<p class="pf-badges-hint">Pulsa una insignia para ver su detalle, fijarla (máx. 3) o destacarla junto a tu nombre.</p>'

@@ -14,14 +14,39 @@ body.perfil-page { min-height: 100vh; }
 .pf-guest h1 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem); margin: 0; }
 .pf-guest p { color: var(--muted); max-width: 30rem; line-height: 1.6; margin: 0 0 0.6rem; }
 
+/* Pantalla de carga del perfil (evita el parpadeo del estado sin sesión) */
+.pf-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.15rem; padding: 4rem 1rem; min-height: 45vh; }
+.pf-loading-inner { position: relative; width: 5.5rem; height: 5.5rem; display: flex; align-items: center; justify-content: center; }
+.pf-loading-ring { position: absolute; inset: 0; border-radius: 50%; border: 0.3rem solid rgba(74,158,255,.15); border-top-color: var(--accent); animation: spin 1s linear infinite; }
+.pf-loading-knight { width: 3.2rem; height: 3.2rem; animation: knight-bob 1.5s ease-in-out infinite; filter: drop-shadow(0 0.2rem 0.35rem rgba(0,0,0,.5)); }
+.pf-loading p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
 /* Cabecera del perfil */
-.pf-hero { display: flex; align-items: center; gap: 1.3rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1.1rem; padding: 1.5rem 1.6rem; position: relative; }
+.pf-hero { display: flex; flex-wrap: wrap; align-items: center; gap: 1.3rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1.1rem; padding: 1.5rem 1.6rem; position: relative; }
 .pf-hero .vx-avatar.lg { box-shadow: 0 0 0 0.28rem rgba(255,59,71,.25); }
 .pf-hero-info { flex: 1; min-width: 0; }
 .pf-name { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem); margin: 0; word-break: break-word; }
-.pf-name-badge { width: 1.9rem; height: 1.9rem; object-fit: contain; filter: drop-shadow(0 0.12rem 0.25rem rgba(0,0,0,.45)); }
-.pf-pinned { display: flex; gap: 0.55rem; margin-top: 0.75rem; }
-.pf-pin-ico { width: 2.1rem; height: 2.1rem; object-fit: contain; filter: drop-shadow(0 0.15rem 0.3rem rgba(0,0,0,.45)); }
+.pf-name-badge-wrap { position: relative; display: inline-flex; }
+.pf-name-badge { width: 1.9rem; height: 1.9rem; object-fit: contain; filter: drop-shadow(0 0.12rem 0.25rem rgba(0,0,0,.45)); cursor: default; }
+
+/* Tira de insignias fijadas: fila propia a lo ancho de la cabecera */
+.pf-pinned { width: 100%; flex-shrink: 0; display: flex; align-items: center; gap: 0.7rem; padding-top: 0.95rem; border-top: var(--hair) solid var(--border); }
+.pf-pinned-label { font: 700 0.68rem 'Inter', sans-serif; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+.pf-pinned-icos { display: flex; gap: 0.3rem; }
+.pf-pin { position: relative; display: grid; place-items: center; width: 2.7rem; height: 2.7rem; border-radius: 0.7rem; background: var(--panel-2); border: var(--hair) solid var(--border); cursor: pointer; transition: transform .12s, border-color .12s, background .12s; }
+.pf-pin:hover { transform: translateY(-0.15rem); border-color: var(--vex-muted); background: #2b3547; }
+.pf-pin-ico { width: 1.9rem; height: 1.9rem; object-fit: contain; filter: drop-shadow(0 0.12rem 0.25rem rgba(0,0,0,.45)); }
+
+/* Tooltip flotante (tarjetas de insignias, fijadas y destacada) */
+.pf-tip { position: absolute; left: 50%; bottom: calc(100% + 0.55rem); transform: translate(-50%, 0.25rem); width: max-content; max-width: 14rem;
+  background: var(--panel); border: var(--hair) solid var(--border); border-left: 0.22rem solid var(--bc); border-radius: 0.6rem; padding: 0.55rem 0.7rem;
+  box-shadow: 0 0.8rem 2rem rgba(0,0,0,.55); text-align: left; opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .14s ease, transform .14s ease; z-index: 60; display: flex; flex-direction: column; gap: 0.22rem; }
+.pf-badge:hover .pf-tip, .pf-pin:hover .pf-tip, .pf-name-badge-wrap:hover .pf-tip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.pf-tip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 0.4rem solid transparent; border-top-color: var(--border); }
+.pf-tip-name { font: 800 0.82rem 'Oxanium', sans-serif; color: var(--bc); }
+.pf-tip-fam { font-size: 0.6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pf-tip-desc { font-size: 0.74rem; color: var(--text); line-height: 1.4; }
 .pf-hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 0.5rem; }
 .pf-elo { font: 800 0.9rem 'Oxanium', sans-serif; color: #fff; background: var(--accent); border-radius: 2rem; padding: 0.25rem 0.8rem; }
 .pf-since { font-size: 0.82rem; color: var(--muted); }
