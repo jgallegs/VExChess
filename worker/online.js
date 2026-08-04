@@ -175,8 +175,10 @@ export class GameRoom {
       fen: this.g.fen, moves: this.g.moves.map(m => m.san), turn: this.g.turn, status: this.g.status,
       result: this.g.result, reason: this.g.reason, white: this.g.white, black: this.g.black, tc: this.g.tc,
       wMs: this.remaining('w'), bMs: this.remaining('b'), drawOffer: this.g.drawOffer, serverTime: Date.now(),
+      watchers: this.watcherCount(),
     };
   }
+  watcherCount() { let n = 0; for (const ws of this.sessions) { if (ws._meta && !ws._meta.color) n++; } return n; }
   broadcast(obj) { const s = JSON.stringify(obj); for (const ws of this.sessions) { try { ws.send(s); } catch (e) {} } }
 
   acceptWs(req) {
@@ -197,9 +199,10 @@ export class GameRoom {
       this.save(); this.scheduleFlag();
     }
     server.send(JSON.stringify({ t: 'state', ...this.stateMsg(), you: color }));
+    this.broadcast({ t: 'watchers', n: this.watcherCount() });
     server.addEventListener('message', (e) => this.onMsg(server, e));
-    server.addEventListener('close', () => this.sessions.delete(server));
-    server.addEventListener('error', () => this.sessions.delete(server));
+    server.addEventListener('close', () => { this.sessions.delete(server); this.broadcast({ t: 'watchers', n: this.watcherCount() }); });
+    server.addEventListener('error', () => { this.sessions.delete(server); this.broadcast({ t: 'watchers', n: this.watcherCount() }); });
     return new Response(null, { status: 101, webSocket: client });
   }
 

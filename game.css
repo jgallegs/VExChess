@@ -10,7 +10,7 @@ body.gm-page { min-height: 100vh; }
 .gm-state h1 { font-family: 'Oxanium', sans-serif; font-weight: 800; margin: 0; }
 .gm-ring { width: 3rem; height: 3rem; border-radius: 50%; border: 0.28rem solid rgba(74,158,255,.15); border-top-color: var(--accent); animation: spin 1s linear infinite; }
 
-.gm-layout { display: flex; flex-direction: column; gap: 0.5rem; }
+.gm-layout { display: flex; flex-direction: column; gap: 0.5rem; max-width: min(92vw, 30rem); margin: 0 auto; }
 
 /* Jugadores + relojes */
 .gm-player { display: flex; align-items: center; gap: 0.6rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.7rem; padding: 0.5rem 0.8rem; }
@@ -23,19 +23,15 @@ body.gm-page { min-height: 100vh; }
 .gm-clock.low { color: #ffb3b3; }
 .gm-player.turn .gm-clock.low { color: #fff; }
 
-/* Tablero */
-.gm-board { display: grid; grid-template-columns: repeat(8, 1fr); aspect-ratio: 1; width: 100%; border-radius: 0.6rem; overflow: hidden; box-shadow: 0 1rem 2.5rem rgba(0,0,0,.4); }
-.gm-sq { position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-.gm-sq.l { background: #c9d2e3; } .gm-sq.d { background: #6b7794; }
-.gm-sq.last::after { content: ''; position: absolute; inset: 0; background: rgba(255,207,122,.42); pointer-events: none; }
-.gm-sq.sel::after { content: ''; position: absolute; inset: 0; background: rgba(74,158,255,.45); pointer-events: none; }
-.gm-sq.tgt::before { content: ''; position: absolute; width: 32%; height: 32%; border-radius: 50%; background: rgba(20,28,40,.35); }
-.gm-sq.cap::before { content: ''; position: absolute; inset: 8%; border-radius: 50%; border: 0.35rem solid rgba(20,28,40,.35); }
-.gm-pc { position: relative; width: 92%; height: 92%; z-index: 1; filter: drop-shadow(0 0.12rem 0.18rem rgba(0,0,0,.35)); pointer-events: none; }
+/* Tablero: usa #board / .pieces / .pnode / .square de style.css (mismo que la IA) */
+.gm-board-wrap { --board: min(92vw, 30rem); --board-radius: 0.6rem; width: var(--board); margin: 0.5rem auto; }
 
 /* Barra de estado + acciones */
 .gm-bar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.3rem; }
-.gm-conn { font-size: 0.8rem; color: var(--muted); }
+.gm-conn { font-size: 0.8rem; color: var(--muted); display: inline-flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.gm-spec { color: #21cce5; font-weight: 800; }
+.gm-watchers { font-size: 0.78rem; color: var(--muted); }
+.gm-watchers[hidden] { display: none; }
 .gm-actions { display: flex; gap: 0.4rem; }
 .gm-btn { border: none; border-radius: 0.5rem; padding: 0.45rem 0.8rem; font: 700 0.8rem 'Inter', sans-serif; cursor: pointer; background: var(--panel-2); color: var(--text); border: var(--hair) solid var(--border); }
 .gm-btn.ghost:hover { border-color: var(--vex-muted); }
@@ -51,7 +47,7 @@ body.gm-page { min-height: 100vh; }
 .gm-promo-box { display: flex; gap: 0.5rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.6); }
 .gm-promo-pc { width: 4rem; height: 4rem; background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 0.7rem; cursor: pointer; padding: 0.3rem; }
 .gm-promo-pc:hover { border-color: var(--accent); }
-.gm-promo-pc .gm-pc { width: 100%; height: 100%; }
+.gm-promo-pc .pc { width: 100%; height: 100%; }
 
 /* Fin de partida */
 .gm-end { position: fixed; inset: 0; z-index: 360; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(8,11,16,.85); backdrop-filter: blur(0.4rem); animation: vx-fade .2s ease both; }

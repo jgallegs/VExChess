@@ -795,7 +795,8 @@ async function handleApi(req, env) {
     if (path === '/api/play/queue' && m === 'DELETE') return await queueLeave(req, env);
     if (path === '/api/play/rivals' && m === 'GET') return await rivalsList(req, env);
     const gWs = path.match(/^\/api\/game\/([A-Za-z0-9-]+)\/ws$/);
-    if (gWs) { const s = await getSession(req, env); if (!s) return errRes('No has iniciado sesión.', 401); return await gameWs(req, env, gWs[1], s.user.id); }
+    // Cualquiera puede conectarse; solo los dos jugadores (por su cuenta) pueden actuar.
+    if (gWs) { const s = await getSession(req, env); return await gameWs(req, env, gWs[1], s ? s.user.id : ''); }
     const gIn = path.match(/^\/api\/game\/([A-Za-z0-9-]+)$/);
     if (gIn && m === 'GET') return await gameInfo(env, gIn[1]);
     // --- admin ---
