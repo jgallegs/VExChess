@@ -151,6 +151,11 @@ function reputationOf(games) {
 }
 // Avatares de imagen permitidos (además de los knight:<color> clásicos).
 const AVATAR_IMAGES = new Set(['vex-knight', 'ivory-queen', 'cobalt-rook', 'violet-bishop', 'teal-pawn', 'golden-king', 'shadow-knight', 'rival-duo']);
+// Vexborn equipables (Origins) -> avatar de identidad. Cosmético.
+const VEXBORN_AVATAR = {
+  kael: 'vex-knight', aurelia: 'ivory-queen', bastion: 'cobalt-rook', nyra: 'violet-bishop',
+  pip: 'teal-pawn', ordan: 'golden-king', noctis: 'shadow-knight', 'eira-vhal': 'rival-duo',
+};
 function isValidAvatar(a) {
   if (typeof a !== 'string') return false;
   const m = a.match(/^([a-z]+):([a-z0-9-]+)$/);
@@ -179,7 +184,7 @@ function publicUser(u, opts) {
     id: u.id, username: u.username, email: u.email, avatar: u.avatar,
     country: u.country || null, elo: u.elo, created_at: u.created_at,
     role, role_level: level, is_admin: level >= STAFF_LEVEL,
-    member_no: u.member_no || null, online_elo: u.online_elo || 1200,
+    member_no: u.member_no || null, online_elo: u.online_elo || 1200, vexborn: u.vexborn || null,
     data: safeJson(u.data, {}),
   };
   if (opts && opts.self) out.connect_code = u.connect_code || null;
@@ -368,6 +373,17 @@ async function updateProfile(req, env) {
   const fields = [], vals = [];
   if (typeof b.avatar === 'string' && isValidAvatar(b.avatar)) { fields.push('avatar = ?'); vals.push(b.avatar); }
   if (typeof b.country === 'string') { fields.push('country = ?'); vals.push(b.country.slice(0, 3).toUpperCase() || null); }
+  // Vexborn (personaje cosmético). Equipar cambia también el avatar de identidad; desequipar lo deja como estaba.
+  if ('vexborn' in b) {
+    if (b.vexborn == null || b.vexborn === '') {
+      fields.push('vexborn = ?'); vals.push(null);
+    } else if (typeof b.vexborn === 'string' && VEXBORN_AVATAR[b.vexborn]) {
+      fields.push('vexborn = ?'); vals.push(b.vexborn);
+      fields.push('avatar = ?'); vals.push('img:' + VEXBORN_AVATAR[b.vexborn]);
+    } else {
+      return errRes('Vexborn no válido.');
+    }
+  }
   if (!fields.length) return errRes('Nada que actualizar.');
   fields.push('updated_at = ?'); vals.push(nowISO());
   vals.push(s.user.id);

@@ -1,8 +1,9 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=14';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=15';
 import { badgeMeta } from './badges.js?v=3';
+import { vexbornByKey, rarityMeta } from './vexborn.js?v=1';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio', avanzado: 'Avanzado', maximo: 'Máximo', desconocido: 'Otro' };
@@ -59,13 +60,23 @@ function loggedIn(u, s) {
       '</div>'
     : '';
 
+  const vb = u.vexborn ? vexbornByKey(u.vexborn) : null;
+  const vbChip = vb ? (function () {
+    const rm = rarityMeta(vb.rarity);
+    return '<a class="pf-vexborn" href="vexborn.html" style="--rar:' + rm.color + '" title="' + esc(vb.title) + '">' +
+        '<span class="pf-vexborn-star">✦</span>' +
+        '<span class="pf-vexborn-txt"><b>' + esc(vb.name) + '</b><span>' + esc(vb.title) + '</span></span>' +
+      '</a>';
+  })() : '';
+
   return '' +
-    '<section class="pf-hero">' +
+    '<section class="pf-hero"' + (vb ? ' style="--rar:' + rarityMeta(vb.rarity).color + '"' : '') + '>' +
       avatarHTML(u.avatar, 'lg') +
       '<div class="pf-hero-info">' +
         '<h1 class="pf-name">' + esc(u.username) + nameBadge + '</h1>' +
         '<div class="pf-hero-meta"><span class="pf-elo">Elo ' + u.elo + '</span>' +
           '<span class="pf-since">Miembro desde ' + fmtDate(u.created_at) + '</span></div>' +
+        vbChip +
       '</div>' +
       '<div class="pf-hero-actions"><a class="pf-btn ghost" href="partidas.html">Mis partidas</a>' +
         '<button class="pf-btn danger" id="pf-logout">Cerrar sesión</button></div>' +

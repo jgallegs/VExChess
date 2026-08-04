@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>VEXCHESS · Partida online</title>
+<title>VEXCHESS · Vexborn</title>
+<meta name="description" content="Vexborn: los personajes de VEXCHESS. Descubre su historia y equipa el tuyo. Solo cosmético.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0D1117">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=38">
-<link rel="stylesheet" href="game.css?v=4">
+<link rel="stylesheet" href="vexborn.css?v=2">
 </head>
-<body class="gm-page">
+<body class="vb-page">
   <header class="navbar">
     <div class="nav-scrim" aria-hidden="true"></div>
     <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
@@ -26,14 +26,15 @@
     </a>
     <div class="nav-actions">
       <div class="vx-account"></div>
-      <a class="nav-link" href="online.html">Salir</a>
+      <a class="nav-link" href="index.html">Inicio</a>
+      <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
     </div>
   </header>
 
-  <main class="gm-wrap" id="game-root"></main>
+  <main class="vb-wrap" id="vexborn-root"></main>
 
   <script type="module" src="theme.js?v=1"></script>
   <script type="module" src="auth.js?v=15"></script>
-  <script type="module" src="game.js?v=6"></script>
+  <script type="module" src="vexborn-page.js?v=1"></script>
 </body>
 </html>

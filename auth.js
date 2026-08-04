@@ -296,6 +296,7 @@ function accountHTML() {
         '<a href="online.html">Jugar online' + chDot + '</a>' +
         '<a href="comunidad.html">Comunidad' + menuDot + '</a>' +
         '<a href="partidas.html">Mis partidas</a>' +
+        '<a href="vexborn.html">Vexborn</a>' +
         (currentUser.is_admin ? '<a href="insignias.html">Inventario de insignias</a>' : '') +
         (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">Panel de admin</a>' : '') +
         '<button type="button" class="vx-signout">Cerrar sesión</button>' +
