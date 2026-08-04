@@ -5,12 +5,13 @@
 // ============================================================
 import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=16';
 import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js?v=2';
-import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=3';
+import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=4';
 import { createBoard } from './academy-board.js?v=2';
 import { mountScene, bgFor, poseFor, sceneFor } from './axiom-scene.js?v=2';
 import { Chess } from './chess.js';
 import { createEngine } from './academy-engine.js?v=1';
 import { scoreToCp, classifyLoss, sparReaction, threatNote, pickMoments, LAB_LINES } from './academy-coach.js?v=1';
+import { mountChat } from './academy-chat.js?v=1';
 
 // Motor Stockfish (perezoso; hueco para inyectar un mock en tests).
 let _engine = null;
@@ -56,6 +57,8 @@ function renderHome() {
           (user ? '' : '<button class="ac-btn primary" id="ac-login" type="button">Entrar para guardar tu progreso</button>') +
       '</div>' +
     '</section>' +
+    introCard() +
+    chatCard() +
     trainHub() +
     conceptsBar() +
     '<section class="ac-path">' + PATH.map(pathBlock).join('') + '</section>' +
@@ -68,6 +71,37 @@ function renderHome() {
   root.querySelectorAll('[data-lesson]').forEach(b => b.addEventListener('click', () => startLesson(b.getAttribute('data-lesson'))));
   const gs = document.getElementById('ac-go-spar'); if (gs) gs.addEventListener('click', sparSetup);
   const gl = document.getElementById('ac-go-lab'); if (gl) gl.addEventListener('click', labEntry);
+  const gc = document.getElementById('ac-go-chat'); if (gc) gc.addEventListener('click', openChat);
+}
+
+// Tarjeta destacada "Empieza aquí" para la historia del ajedrez (solo demo).
+function introCard() {
+  const story = LESSONS.find(l => l.story);
+  if (!story) return '';
+  const solved = done(story.id);
+  return '<section class="ac-intro-card' + (solved ? ' seen' : '') + '" data-lesson="' + story.id + '" role="button" tabindex="0">' +
+      '<div class="ac-intro-glow"></div>' +
+      '<img class="ac-intro-pose" src="' + poseFor(sceneFor('welcome')) + '" alt="AXIOM">' +
+      '<div class="ac-intro-body">' +
+        '<span class="ac-eyebrow">' + (solved ? 'Ya lo viste · repásalo cuando quieras' : '¿Nunca has jugado? Empieza aquí') + '</span>' +
+        '<h2>' + esc(story.title) + '</h2>' +
+        '<p>' + esc(story.intro) + '</p>' +
+        '<span class="ac-intro-cta">' + (solved ? 'Ver de nuevo' : 'Empieza el viaje') + ' →</span>' +
+      '</div>' +
+    '</section>';
+}
+
+// Tarjeta de acceso al chat con AXIOM.
+function chatCard() {
+  return '<section class="ac-chat-card" id="ac-go-chat" role="button" tabindex="0">' +
+      '<img class="ac-chat-av" src="assets/axiom/avatar-128.png" alt="AXIOM" onerror="this.style.display=\'none\'">' +
+      '<div class="ac-chat-body">' +
+        '<span class="ac-eyebrow">Pregúntale a AXIOM</span>' +
+        '<b>Habla con tu entrenador</b>' +
+        '<span>Dudas de ajedrez, cómo vas, qué repasar… en tu idioma. Responde al momento; si tu equipo lo permite, puede pensar con un modelo de IA local.</span>' +
+      '</div>' +
+      '<span class="ac-chat-cta">Abrir chat →</span>' +
+    '</section>';
 }
 
 function trainHub() {
@@ -84,7 +118,7 @@ function trainHub() {
 }
 
 function conceptsBar() {
-  const concepts = [...new Set(LESSONS.map(l => l.concept))];
+  const concepts = [...new Set(LESSONS.filter(l => !l.story).map(l => l.concept))];
   const chips = concepts.map(c => {
     const st = conceptStat(c);
     return '<div class="ac-concept">' +
@@ -102,7 +136,7 @@ function conceptsBar() {
 function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function pathBlock(node) {
-  const list = lessonsForLevel(node.level);
+  const list = lessonsForLevel(node.level).filter(l => !l.story);
   const cards = list.length
     ? list.map(l => {
         const solved = done(l.id);
@@ -156,7 +190,7 @@ function renderRunner() {
       '<div class="ac-stage">' +
         '<div class="ac-board-col">' +
           '<div class="ac-board holo" id="ac-board"></div>' +
-          '<div class="ac-goal" id="ac-goal">' + esc(step.goal) + '</div>' +
+          (step.goal ? '<div class="ac-goal" id="ac-goal">' + esc(step.goal) + '</div>' : '') +
         '</div>' +
         '<div class="ac-coach" id="ac-coach">' +
           '<img class="ac-pose" id="ac-pose" src="' + poseFor(sceneFor('welcome')) + '" alt="AXIOM">' +
@@ -227,9 +261,18 @@ function showBeat(i) {
 }
 
 function endDemo() {
+  const demoOnly = session.lesson.demoOnly || !currentStep().expected || !currentStep().expected.length;
+  const acts = document.getElementById('ac-actions');
+  if (demoOnly) {
+    renderPhaseDots(getDemo().length, getDemo().length - 1);
+    setAxiom('complete', session.lesson.story ? 'Ya conoces de dónde viene el juego. Ahora vamos a lo básico: el tablero.' : 'Eso es todo por aquí.',
+      session.lesson.story ? 'Cuando quieras, empieza por “El tablero y las coordenadas”.' : '');
+    acts.innerHTML = '<button class="ac-btn primary" id="ac-skip" type="button">' + (session.lesson.story ? 'Empezar a aprender →' : 'Terminar') + '</button>';
+    document.getElementById('ac-skip').onclick = () => finishLesson(false);
+    return;
+  }
   renderPhaseDots(getDemo().length + 1, getDemo().length); // última fase = práctica
   setAxiom('reward', '¿Lo pruebas tú? Reconstruyo la posición y buscas la idea.', 'Sin prisa. Puedes pedir pistas cuando quieras.');
-  const acts = document.getElementById('ac-actions');
   acts.innerHTML =
     '<button class="ac-btn primary" id="ac-try" type="button">Pruébalo tú →</button>' +
     '<button class="ac-btn ghost" id="ac-skip" type="button">Terminar lección</button>';
@@ -317,20 +360,45 @@ async function finishLesson(practiced) {
 
 function renderComplete(l, practiced) {
   const st = conceptStat(l.concept);
+  const isStory = l.story || l.demoOnly;
+  const eyebrow = isStory ? 'Primer paso dado' : 'Concepto reforzado';
+  const msg = isStory
+    ? (l.story ? 'Ya sabes qué es el ajedrez y de dónde viene. Ahora empieza lo bueno: aprender a jugarlo.' : 'Idea vista. Sigue cuando quieras.')
+    : (practiced ? pick(LINES.complete) : 'Bien. Has visto la idea; cuando quieras, vuelve y practícala tú.');
+  const showStats = user && !isStory;
   root.innerHTML =
     '<section class="ac-complete cine">' +
       '<div class="ac-complete-scene" style="background-image:url(' + bgFor(sceneFor('complete')) + ')"></div>' +
       '<div class="ac-complete-inner">' +
         '<img class="ac-complete-pose" src="' + poseFor(sceneFor('complete')) + '" alt="AXIOM">' +
-        '<span class="ac-eyebrow">Concepto reforzado</span>' +
+        '<span class="ac-eyebrow">' + eyebrow + '</span>' +
         '<h1>' + esc(l.title) + '</h1>' +
-        '<p class="ac-say">' + esc(practiced ? pick(LINES.complete) : 'Bien. Has visto la idea; cuando quieras, vuelve y practícala tú.') + '</p>' +
-        (user ? '<div class="ac-complete-stat"><div><b>' + st.mastery + '</b><span>Dominio</span></div><div><b>' + st.confidence + '</b><span>Confianza</span></div>' +
-          '<div><b>' + (session && practiced ? session.maxHint : '—') + '</b><span>Pistas</span></div></div>' : '<p class="ac-say sub">Entra para guardar tu progreso y que AXIOM recuerde tus conceptos.</p>') +
-        '<div class="ac-actions center"><button class="ac-btn primary" id="ac-toacademy" type="button">Volver a la Academia</button></div>' +
+        '<p class="ac-say">' + esc(msg) + '</p>' +
+        (showStats ? '<div class="ac-complete-stat"><div><b>' + st.mastery + '</b><span>Dominio</span></div><div><b>' + st.confidence + '</b><span>Confianza</span></div>' +
+          '<div><b>' + (session && practiced ? session.maxHint : '—') + '</b><span>Pistas</span></div></div>'
+          : (user ? '' : '<p class="ac-say sub">Entra para guardar tu progreso y que AXIOM recuerde tus conceptos.</p>')) +
+        '<div class="ac-actions center">' +
+          (isStory && lessonById('board') ? '<button class="ac-btn primary" id="ac-nextlesson" type="button">Primera lección: el tablero →</button>' : '') +
+          '<button class="ac-btn ' + (isStory ? 'ghost' : 'primary') + '" id="ac-toacademy" type="button">Volver a la Academia</button>' +
+        '</div>' +
       '</div>' +
     '</section>';
   document.getElementById('ac-toacademy').addEventListener('click', () => { session = null; renderHome(); });
+  const nx = document.getElementById('ac-nextlesson'); if (nx) nx.addEventListener('click', () => startLesson('board'));
+}
+
+// ============================================================
+//  CHAT CON AXIOM (multiidioma, IA local opcional)
+// ============================================================
+function openChat() {
+  session = null; spar = null; lab = null;
+  mountChat(root, {
+    user, memory, progressByConcept,
+    onBack: () => renderHome(),
+    onStartLesson: (id) => startLesson(id),
+    onSparring: () => sparSetup(),
+    onLab: () => labEntry(),
+  });
 }
 
 // ============================================================

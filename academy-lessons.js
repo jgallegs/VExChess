@@ -25,7 +25,27 @@ export const PATH = [
 // Atajo para demos cortas.
 const D = (state, say, ops, sub) => ({ state, say, sub, ops });
 
+const START = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+
 export const LESSONS = [
+  // ================= EMPIEZA AQUÍ · Historia (solo demo) =================
+  {
+    id: 'historia', level: 0, concept: 'chess-intro', story: true, demoOnly: true,
+    title: '¿Qué es el ajedrez?', subtitle: 'Un viaje de más de 1500 años',
+    intro: 'Antes de mover una sola pieza, deja que te cuente de dónde viene todo esto.',
+    steps: [{
+      fen: START, orientation: 'w', playerColor: 'w', goal: '', expected: [],
+      demo: [
+        { state: 'welcome', say: 'Bienvenido. Antes de tocar una pieza, un poco de contexto: qué es esto que vas a aprender.', ops: [{ t: 'reset' }] },
+        { state: 'explain', say: 'El ajedrez nació hace más de 1500 años en la India, con el nombre de chaturanga.', sub: 'Imitaba a un ejército: infantería, caballería, elefantes y carros.', ops: [] },
+        { state: 'analyze', say: 'Viajó a Persia y al mundo árabe como shatranj, y de ahí llegó a Europa.', sub: 'En el siglo XV, en Europa, la dama y el alfil ganaron su movimiento actual: nació el ajedrez de hoy.', ops: [] },
+        { state: 'thinking', say: 'Lo especial es que no hay dados ni azar. Solo dos mentes, la misma información y un tablero.', sub: 'Todo lo que ocurre en la partida lo decides tú.', ops: [] },
+        { state: 'explain', say: 'Dos ejércitos de 16 piezas, un único objetivo: dar jaque mate al rey rival.', sub: 'Se aprende en una tarde y no se agota en toda una vida.', ops: [{ t: 'mark', sq: 'e1', cls: 'cand' }, { t: 'mark', sq: 'e8', cls: 'cand' }] },
+        { state: 'complete', say: 'Hoy lo juegan millones de personas y hay campeones del mundo. Vas a empezar por lo más básico y, paso a paso, llegarás lejos.', sub: 'Mi único consejo, el de siempre: no memorices la jugada; entiende por qué existe.', ops: [{ t: 'clear' }] },
+      ],
+    }],
+  },
+
   // ================= NIVEL 0 · Primer contacto =================
   {
     id: 'board', level: 0, concept: 'board', title: 'El tablero y las coordenadas', subtitle: 'Dónde está cada casilla',
