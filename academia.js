@@ -8,6 +8,13 @@ import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptNa
 import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=2';
 import { createBoard } from './academy-board.js?v=2';
 import { mountScene, bgFor, poseFor, sceneFor } from './axiom-scene.js?v=2';
+import { Chess } from './chess.js';
+import { createEngine } from './academy-engine.js?v=1';
+import { scoreToCp, classifyLoss, sparReaction, threatNote, pickMoments, LAB_LINES } from './academy-coach.js?v=1';
+
+// Motor Stockfish (perezoso; hueco para inyectar un mock en tests).
+let _engine = null;
+function engine() { if (!_engine) _engine = (typeof window !== 'undefined' && window.__vexEngine) || createEngine(); return _engine; }
 
 const root = document.getElementById('academia-root');
 let user = null;
@@ -49,6 +56,7 @@ function renderHome() {
           (user ? '' : '<button class="ac-btn primary" id="ac-login" type="button">Entrar para guardar tu progreso</button>') +
       '</div>' +
     '</section>' +
+    trainHub() +
     conceptsBar() +
     '<section class="ac-path">' + PATH.map(pathBlock).join('') + '</section>' +
     '<p class="ac-note">La Academia mide tu <b>aprendizaje</b> (conceptos que dominas y puedes explicar), no tu Elo.</p>';
@@ -58,6 +66,21 @@ function renderHome() {
   const lg = document.getElementById('ac-login');
   if (lg) lg.addEventListener('click', () => openAuth('login'));
   root.querySelectorAll('[data-lesson]').forEach(b => b.addEventListener('click', () => startLesson(b.getAttribute('data-lesson'))));
+  const gs = document.getElementById('ac-go-spar'); if (gs) gs.addEventListener('click', sparSetup);
+  const gl = document.getElementById('ac-go-lab'); if (gl) gl.addEventListener('click', labEntry);
+}
+
+function trainHub() {
+  return '<section class="ac-train"><h2>Entrena jugando con AXIOM</h2><div class="ac-train-grid">' +
+      '<button class="ac-train-card spar" id="ac-go-spar" type="button">' +
+        '<span class="ac-train-ic">⚔</span>' +
+        '<span class="ac-train-body"><b>Sparring guiado</b><span>Juega contra la IA. AXIOM interviene solo en los momentos clave y te deja rehacer los errores graves.</span></span>' +
+      '</button>' +
+      '<button class="ac-train-card lab" id="ac-go-lab" type="button">' +
+        '<span class="ac-train-ic">🔬</span>' +
+        '<span class="ac-train-body"><b>Laboratorio de partida</b><span>Tras jugar, AXIOM elige 3 momentos que merece la pena recordar y te los explica.</span></span>' +
+      '</button>' +
+    '</div></section>';
 }
 
 function conceptsBar() {
@@ -308,6 +331,292 @@ function renderComplete(l, practiced) {
       '</div>' +
     '</section>';
   document.getElementById('ac-toacademy').addEventListener('click', () => { session = null; renderHome(); });
+}
+
+// ============================================================
+//  SPARRING GUIADO — partida real vs IA con AXIOM de coach
+// ============================================================
+let spar = null;
+let lastGame = null;
+const SPAR_LEVELS = { aprendiz: { elo: 1350, movetime: 350 }, intermedio: { elo: 1650, movetime: 550 } };
+
+function backBtn() { return '<button class="ac-back" id="ac-back" type="button">← Academia</button>'; }
+function wireBack() { const b = document.getElementById('ac-back'); if (b) b.onclick = () => { spar = null; lab = null; session = null; renderHome(); }; }
+function seg(group, val, label, active) { return '<button class="ac-seg-btn' + (active ? ' on' : '') + '" data-g="' + group + '" data-v="' + val + '" type="button">' + label + '</button>'; }
+function wireSeg(id) { const el = document.getElementById(id); if (!el) return; el.querySelectorAll('.ac-seg-btn').forEach(b => b.onclick = () => { el.querySelectorAll('.ac-seg-btn').forEach(x => x.classList.remove('on')); b.classList.add('on'); }); }
+function segValue(id) { const on = document.querySelector('#' + id + ' .ac-seg-btn.on'); return on ? on.dataset.v : null; }
+
+function sparSetup() {
+  spar = null;
+  root.innerHTML =
+    '<section class="ac-setup cine">' +
+      '<div class="ac-cine-bg" style="background-image:url(' + bgFor(sceneFor('challenge')) + ')"></div><div class="ac-cine-scrim"></div>' +
+      '<div class="ac-runner-top">' + backBtn() + '<div class="ac-runner-title"><span class="ac-eyebrow">Entrena jugando</span><h2>Sparring guiado</h2></div></div>' +
+      '<div class="ac-setup-inner">' +
+        '<img class="ac-pose" src="' + poseFor(sceneFor('challenge')) + '" alt="AXIOM">' +
+        '<p class="ac-say">Jugamos una partida de verdad. Intervengo solo cuando hay algo que aprender, y te dejo rehacer los errores graves.</p>' +
+        '<div class="ac-setup-row"><span>Tu color</span><div class="ac-seg" id="sp-color">' + seg('color', 'w', 'Blancas') + seg('color', 'random', 'Aleatorio', true) + seg('color', 'b', 'Negras') + '</div></div>' +
+        '<div class="ac-setup-row"><span>Nivel</span><div class="ac-seg" id="sp-level">' + seg('level', 'aprendiz', 'Aprendiz', true) + seg('level', 'intermedio', 'Intermedio') + '</div></div>' +
+        '<label class="ac-check"><input type="checkbox" id="sp-aloud"> Pensar en voz alta: declarar mi intención antes de mover</label>' +
+        '<button class="ac-btn primary" id="sp-start" type="button">Empezar la partida →</button>' +
+      '</div>' +
+    '</section>';
+  wireBack(); wireSeg('sp-color'); wireSeg('sp-level');
+  document.getElementById('sp-start').onclick = beginSpar;
+}
+
+function beginSpar() {
+  const color = segValue('sp-color') || 'random';
+  const level = segValue('sp-level') || 'aprendiz';
+  const human = color === 'random' ? (Math.random() < 0.5 ? 'w' : 'b') : color;
+  spar = { human, level, aloud: document.getElementById('sp-aloud').checked, over: false, busy: false, chess: new Chess(), pendingBefore: null };
+  engine().warmup();
+  renderSpar();
+  if (human === 'b') { sparEngineReply(); } else { sparPromptTurn(); }
+}
+
+function renderSpar() {
+  root.innerHTML =
+    '<section class="ac-runner cine" id="ac-runner">' +
+      '<div class="ac-cine-bg" id="ac-cine-bg"></div><div class="ac-cine-scrim"></div>' +
+      '<div class="ac-runner-top">' + backBtn() +
+        '<div class="ac-runner-title"><span class="ac-eyebrow">Sparring guiado</span><h2>Partida con AXIOM</h2></div>' +
+        '<div class="ac-spar-status" id="sp-status"></div>' +
+      '</div>' +
+      '<div class="ac-stage">' +
+        '<div class="ac-board-col"><div class="ac-board" id="ac-board"></div><div class="ac-spar-controls" id="sp-controls"></div></div>' +
+        '<div class="ac-coach">' +
+          '<img class="ac-pose" id="ac-pose" src="' + poseFor(sceneFor('welcome')) + '" alt="AXIOM">' +
+          '<div class="ac-bubble2" id="ac-bubble" data-state="welcome"><p class="ac-bubble-main" id="ac-say"></p><p class="ac-bubble-sub" id="ac-saysub"></p></div>' +
+          '<div class="ac-actions" id="ac-actions"></div>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+  wireBack();
+  spar.board = createBoard(document.getElementById('ac-board'), { fen: spar.chess.fen(), orientation: spar.human, playerColor: spar.human, interactive: false, onAttempt: onSparMove });
+  setAxiom('welcome', 'Cuando quieras, mueve. Yo observo.', spar.aloud ? 'Puedes declarar tu intención abajo antes de mover.' : '');
+  renderSparControls();
+}
+
+function setSparStatus(t) { const el = document.getElementById('sp-status'); if (el) el.textContent = t || ''; }
+
+function renderSparControls() {
+  const el = document.getElementById('sp-controls'); if (!el) return;
+  const intents = spar.aloud
+    ? '<div class="ac-intents">' + [['atacar', 'Atacar'], ['defender', 'Defender'], ['desarrollar', 'Desarrollar'], ['intercambiar', 'Intercambiar'], ['amenaza', 'Crear amenaza']]
+        .map(([v, l]) => '<button class="ac-intent" data-v="' + v + '" type="button">' + l + '</button>').join('') + '</div>'
+    : '';
+  el.innerHTML = intents +
+    '<div class="ac-spar-btns"><button class="ac-btn ghost sm" id="sp-hint" type="button">Pista</button>' +
+      '<button class="ac-btn ghost sm" id="sp-resign" type="button">Rendirse</button></div>';
+  el.querySelectorAll('.ac-intent').forEach(b => b.onclick = () => {
+    el.querySelectorAll('.ac-intent').forEach(x => x.classList.remove('on')); b.classList.add('on');
+    spar.intention = b.dataset.v;
+    setAxiom('listening', 'De acuerdo: ' + b.textContent.toLowerCase() + '. Busca la jugada que lo cumpla.', '');
+  });
+  const hb = document.getElementById('sp-hint'); if (hb) hb.onclick = sparHint;
+  const rb = document.getElementById('sp-resign'); if (rb) rb.onclick = () => { if (!spar.over) { spar.chess.header && 0; sparEnd('derrota'); } };
+}
+
+function sparPromptTurn() {
+  if (spar.over) return;
+  spar.pendingBefore = spar.chess.fen();
+  spar.busy = false;
+  spar.board.setInteractive(true); spar.board.unlock();
+  if (typeof window !== 'undefined') window.__sparPlies = spar.chess.history().length;
+}
+
+async function sparHint() {
+  if (spar.over || spar.busy) return;
+  try {
+    const info = await engine().evaluate(spar.chess.fen(), 11);
+    if (info && info.best) { spar.board.clearOverlays(); spar.board.arrow(info.best.slice(0, 2), info.best.slice(2, 4), 'idea'); setAxiom('hint', 'Una idea sólida empieza por aquí. El resto, tú.', ''); }
+  } catch (e) {}
+}
+
+async function onSparMove(uci, moveObj, api) {
+  if (spar.over || spar.busy) return;
+  spar.busy = true; spar.board.lock(); spar.board.clearOverlays();
+  spar.chess.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] || 'q' });
+  let reacted = false;
+  const before = spar.pendingBefore;
+  if (before && !spar.chess.isGameOver()) {
+    try {
+      const b = await engine().evaluate(before, 10);
+      const a = await engine().evaluate(spar.chess.fen(), 10);
+      const bestCp = scoreToCp(b);
+      const afterCp = -scoreToCp(a);
+      const cls = classifyLoss(bestCp, afterCp);
+      const r = sparReaction(cls, { sharp: Math.abs(bestCp) < 250 });
+      if (r.intervene) {
+        reacted = true;
+        setAxiom(r.state, r.line, r.sub);
+        if (r.takeback) { offerTakeback(); return; }
+      }
+    } catch (e) {}
+  }
+  if (!reacted) setAxiom('listening', pick(['Bien.', 'Sigo.', 'Vale.', 'Anotado.']), '');
+  await checkEndOrReply();
+}
+
+function offerTakeback() {
+  const acts = document.getElementById('ac-actions');
+  acts.innerHTML = '<button class="ac-btn primary" id="sp-undo" type="button">Rehacer jugada</button><button class="ac-btn ghost" id="sp-keep" type="button">Seguir así</button>';
+  document.getElementById('sp-undo').onclick = () => {
+    spar.chess.undo(); spar.board.undoLast(); spar.board.clearOverlays();
+    acts.innerHTML = ''; setAxiom('explain', 'Bien pensado. Vuelve a mirar: jaques, capturas y amenazas.', '');
+    sparPromptTurn();
+  };
+  document.getElementById('sp-keep').onclick = () => { acts.innerHTML = ''; checkEndOrReply(); };
+}
+
+async function checkEndOrReply() {
+  const acts = document.getElementById('ac-actions'); if (acts) acts.innerHTML = '';
+  if (spar.chess.isGameOver()) return sparEnd();
+  await sparEngineReply();
+}
+
+async function sparEngineReply() {
+  if (spar.over) return;
+  spar.busy = true; spar.board.lock(); setSparStatus('AXIOM calcula su jugada…');
+  const lvl = SPAR_LEVELS[spar.level] || SPAR_LEVELS.aprendiz;
+  let uci = null;
+  try { uci = await engine().bestMove(spar.chess.fen(), { elo: lvl.elo, movetime: lvl.movetime }); } catch (e) {}
+  if (!uci) { const ms = spar.chess.moves({ verbose: true }); if (ms.length) uci = ms[0].from + ms[0].to + (ms[0].promotion || ''); }
+  if (uci) { spar.chess.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] || 'q' }); spar.board.play(uci); }
+  setSparStatus('');
+  if (spar.chess.isGameOver()) return sparEnd();
+  const hangs = hangingSquares(spar.chess.fen(), spar.human);
+  const note = threatNote(hangs);
+  if (note && Math.random() < 0.6) setAxiom(note.state, note.line, note.sub);
+  else setAxiom('listening', 'Te toca.', '');
+  sparPromptTurn();
+}
+
+function buildGameFromSpar() {
+  const g = new Chess();
+  const hist = spar.chess.history({ verbose: true });
+  const fens = [g.fen()], sans = [], lastMoves = [];
+  for (const mv of hist) { g.move(mv); fens.push(g.fen()); sans.push(mv.san); lastMoves.push({ from: mv.from, to: mv.to }); }
+  let result = '1/2-1/2';
+  if (spar.chess.isCheckmate()) result = spar.chess.turn() === 'w' ? '0-1' : '1-0';
+  return { fens, sans, lastMoves, humanColor: spar.human, result };
+}
+
+function sparEnd(forced) {
+  if (spar.over) return;
+  spar.over = true; spar.board.lock(); setSparStatus('');
+  let outcome;
+  if (forced === 'derrota') outcome = 'derrota';
+  else if (spar.chess.isCheckmate()) outcome = spar.chess.turn() === spar.human ? 'derrota' : 'victoria';
+  else outcome = 'tablas';
+  const state = outcome === 'victoria' ? 'correct' : outcome === 'derrota' ? 'loss' : 'analyze';
+  const line = outcome === 'victoria' ? pick(LINES.correct) : outcome === 'derrota' ? pick(LINES.loss) : 'Tablas. El equilibrio también enseña.';
+  setAxiom(state, 'Partida terminada: ' + outcome + '.', line);
+  lastGame = buildGameFromSpar();
+  const acts = document.getElementById('ac-actions');
+  acts.innerHTML = '<button class="ac-btn primary" id="sp-lab" type="button">Abrir Laboratorio de esta partida →</button><button class="ac-btn ghost" id="sp-again" type="button">Otra partida</button>';
+  document.getElementById('sp-lab').onclick = () => startLab(lastGame);
+  document.getElementById('sp-again').onclick = sparSetup;
+}
+
+// ============================================================
+//  LABORATORIO DE PARTIDA — AXIOM elige 3 momentos
+// ============================================================
+let lab = null;
+
+function reconstructSaved(g) {
+  const c = new Chess();
+  try { c.loadPgn(g.pgn); } catch (e) { return null; }
+  const hist = c.history({ verbose: true });
+  const g2 = new Chess();
+  const fens = [g2.fen()], sans = [], lastMoves = [];
+  for (const mv of hist) { g2.move(mv); fens.push(g2.fen()); sans.push(mv.san); lastMoves.push({ from: mv.from, to: mv.to }); }
+  return { fens, sans, lastMoves, humanColor: g.human_color === 'b' ? 'b' : 'w', result: g.result };
+}
+
+async function labEntry() {
+  if (lastGame) return startLab(lastGame);
+  if (!user) { labMessage('Juega un sparring o inicia sesión para revisar tu última partida.'); return; }
+  try {
+    const out = await api.listGames(1, 0);
+    const g = (out.games || [])[0];
+    if (!g) { labMessage('Aún no tienes partidas guardadas. Juega un sparring y lo revisamos.'); return; }
+    const game = reconstructSaved(g);
+    if (!game) { labMessage('No pude leer esa partida.'); return; }
+    startLab(game);
+  } catch (e) { labMessage('No pude cargar tu última partida.'); }
+}
+
+function labMessage(msg) {
+  root.innerHTML = '<section class="ac-runner"><div class="ac-runner-top">' + backBtn() +
+    '<div class="ac-runner-title"><span class="ac-eyebrow">Laboratorio</span><h2>Revisión de partida</h2></div></div>' +
+    '<div class="ac-lab-msg"><img class="ac-pose sm" src="' + poseFor(sceneFor('analysis')) + '" alt="AXIOM"><p class="ac-say">' + esc(msg) + '</p>' +
+    '<button class="ac-btn primary" id="lab-spar" type="button">Jugar un sparring →</button></div></section>';
+  wireBack();
+  document.getElementById('lab-spar').onclick = sparSetup;
+}
+
+function labShell() {
+  root.innerHTML =
+    '<section class="ac-runner cine" id="ac-runner">' +
+      '<div class="ac-cine-bg" id="ac-cine-bg"></div><div class="ac-cine-scrim"></div>' +
+      '<div class="ac-runner-top">' + backBtn() +
+        '<div class="ac-runner-title"><span class="ac-eyebrow">Laboratorio</span><h2>Revisión con AXIOM</h2></div>' +
+        '<div class="ac-phase-dots" id="ac-phase-dots"></div>' +
+      '</div>' +
+      '<div class="ac-stage">' +
+        '<div class="ac-board-col"><div class="ac-board" id="ac-board"></div><div class="ac-goal" id="ac-goal"></div></div>' +
+        '<div class="ac-coach"><img class="ac-pose" id="ac-pose" src="' + poseFor(sceneFor('analysis')) + '" alt="AXIOM">' +
+          '<div class="ac-bubble2" id="ac-bubble" data-state="analyze"><p class="ac-bubble-main" id="ac-say"></p><p class="ac-bubble-sub" id="ac-saysub"></p></div>' +
+          '<div class="ac-actions" id="ac-actions"></div></div>' +
+      '</div>' +
+    '</section>';
+  wireBack();
+}
+
+async function startLab(game) {
+  lab = { game, moments: [], idx: 0, evalCP: null };
+  labShell();
+  const board = createBoard(document.getElementById('ac-board'), { fen: game.fens[0], orientation: game.humanColor, playerColor: game.humanColor, interactive: false });
+  lab.board = board;
+  setAxiom('analyze', 'Déjame revisar la partida. No lo veo todo: busco lo que puedes reutilizar.', 'Analizando…');
+  engine().warmup();
+  const fens = game.fens, evalCP = new Array(fens.length).fill(null);
+  for (let i = 0; i < fens.length; i++) {
+    const g = new Chess(fens[i]);
+    if (g.isGameOver()) evalCP[i] = g.isCheckmate() ? (g.turn() === 'w' ? -2000 : 2000) : 0;
+    else { let info = null; try { info = await engine().evaluate(fens[i], 10); } catch (e) {} const stm = g.turn(); const v = scoreToCp(info); evalCP[i] = stm === 'w' ? v : -v; }
+    const say = document.getElementById('ac-saysub'); if (say) say.textContent = 'Analizando… ' + Math.round((i + 1) / fens.length * 100) + '%';
+  }
+  lab.evalCP = evalCP;
+  lab.moments = pickMoments(evalCP, game.sans, game.humanColor);
+  if (!lab.moments.length) { setAxiom('correct', 'Partida limpia: sin errores claros que destacar.', 'Buen control. Sigue así.'); document.getElementById('ac-actions').innerHTML = '<button class="ac-btn primary" id="lab-back" type="button">Volver a la Academia</button>'; document.getElementById('lab-back').onclick = () => { lab = null; renderHome(); }; return; }
+  for (const mo of lab.moments) { try { const info = await engine().evaluate(game.fens[mo.ply], 12); mo.best = info && info.best; } catch (e) {} }
+  showMoment(0);
+}
+
+function showMoment(i) {
+  lab.idx = i;
+  const mo = lab.moments[i], meta = LAB_LINES[mo.type], game = lab.game;
+  renderPhaseDots(lab.moments.length, i);
+  lab.board.reset(game.fens[mo.ply], game.humanColor, game.humanColor);
+  lab.board.clearOverlays();
+  const played = game.lastMoves[mo.ply];
+  if (played) lab.board.arrow(played.from, played.to, mo.type === 'good' ? 'good' : 'idea');
+  if (mo.best && mo.type !== 'good') lab.board.arrow(mo.best.slice(0, 2), mo.best.slice(2, 4), 'good');
+  const moveNo = Math.floor(mo.ply / 2) + 1;
+  const sub = mo.type === 'good' ? 'Jugaste ' + mo.san + '. Mantén ese criterio.' :
+    'Jugaste ' + mo.san + (mo.best ? '; la flecha dorada muestra una idea mejor.' : '.');
+  setAxiom(meta.state, meta.say, sub);
+  const g2 = document.getElementById('ac-goal'); if (g2) g2.textContent = meta.title + ' · jugada ' + moveNo;
+  const acts = document.getElementById('ac-actions');
+  const prev = i > 0 ? '<button class="ac-btn ghost" id="lab-prev" type="button">← Anterior</button>' : '';
+  const next = i < lab.moments.length - 1 ? '<button class="ac-btn primary" id="lab-next" type="button">Siguiente →</button>' : '<button class="ac-btn primary" id="lab-done" type="button">Terminar revisión</button>';
+  acts.innerHTML = prev + next;
+  if (document.getElementById('lab-prev')) document.getElementById('lab-prev').onclick = () => showMoment(i - 1);
+  if (document.getElementById('lab-next')) document.getElementById('lab-next').onclick = () => showMoment(i + 1);
+  if (document.getElementById('lab-done')) document.getElementById('lab-done').onclick = () => { lab = null; renderHome(); };
 }
 
 // ---------- init ----------

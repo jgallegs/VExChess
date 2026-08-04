@@ -196,3 +196,47 @@
   .ac-pose { width: 8.5rem; }
   .ac-runner.cine { min-height: 0; }
 }
+
+/* ============================================================
+   Entrena jugando: hub + sparring + laboratorio
+   ============================================================ */
+.ac-train { margin: 0 0 1.8rem; }
+.ac-train h2 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.2rem; margin: 0 0 0.8rem; }
+.ac-train-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 0.8rem; }
+.ac-train-card { display: flex; gap: 0.9rem; align-items: center; text-align: left; cursor: pointer; color: var(--text);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--ax-cyan) 10%, var(--panel)), var(--panel) 70%);
+  border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1rem 1.1rem; transition: transform .12s, border-color .12s, box-shadow .12s; }
+.ac-train-card.lab { background: linear-gradient(120deg, color-mix(in srgb, var(--ax-gold) 10%, var(--panel)), var(--panel) 70%); }
+.ac-train-card:hover { transform: translateY(-0.2rem); border-color: var(--ax-cyan); box-shadow: 0 0.8rem 1.8rem rgba(0,0,0,.35); }
+.ac-train-card.lab:hover { border-color: var(--ax-gold); }
+.ac-train-ic { flex: 0 0 auto; width: 2.8rem; height: 2.8rem; display: grid; place-items: center; font-size: 1.4rem; border-radius: 0.7rem; background: rgba(57,213,255,.12); }
+.ac-train-card.lab .ac-train-ic { background: rgba(244,199,99,.14); }
+.ac-train-body { display: flex; flex-direction: column; gap: 0.2rem; }
+.ac-train-body b { font: 800 1.02rem 'Oxanium', sans-serif; }
+.ac-train-body span { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+
+/* Configuración del sparring */
+.ac-setup.cine { position: relative; border-radius: 1.2rem; overflow: hidden; border: var(--hair) solid var(--border); padding: 1rem clamp(0.8rem,2vw,1.6rem) 1.8rem; min-height: 30rem; background: #0b1220; }
+.ac-setup-inner { position: relative; z-index: 1; max-width: 34rem; margin: 1rem auto 0; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+.ac-setup-inner .ac-pose { width: 8rem; height: auto; filter: drop-shadow(0 1rem 1.6rem rgba(0,0,0,.55)); }
+.ac-setup-inner .ac-say { max-width: 30rem; }
+.ac-setup-row { display: flex; align-items: center; gap: 0.8rem; width: 100%; justify-content: space-between; flex-wrap: wrap; }
+.ac-setup-row > span { color: var(--muted); font-weight: 700; font-size: 0.9rem; }
+.ac-seg { display: inline-flex; background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 0.7rem; overflow: hidden; }
+.ac-seg-btn { border: none; background: none; color: var(--muted); font: 700 0.85rem 'Inter', sans-serif; padding: 0.5rem 0.9rem; cursor: pointer; transition: background .12s, color .12s; }
+.ac-seg-btn.on { background: var(--ax-cyan); color: #06202b; }
+.ac-check { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text); cursor: pointer; }
+.ac-check input { accent-color: var(--ax-cyan); }
+
+/* Controles del sparring */
+.ac-spar-status { font-size: 0.82rem; color: var(--ax-cyan); font-weight: 700; min-height: 1rem; }
+.ac-spar-controls { width: 100%; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.2rem; }
+.ac-intents { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.ac-intent { border: var(--hair) solid var(--border); background: var(--panel-2); color: var(--muted); border-radius: 999px; padding: 0.32rem 0.7rem; font: 700 0.76rem 'Inter', sans-serif; cursor: pointer; }
+.ac-intent.on, .ac-intent:hover { border-color: var(--ax-cyan); color: var(--text); }
+.ac-spar-btns { display: flex; gap: 0.5rem; }
+.ac-btn.sm { padding: 0.4rem 0.8rem; font-size: 0.82rem; }
+
+/* Laboratorio */
+.ac-lab-msg { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.9rem; padding: 2.5rem 1rem; }
+.ac-pose.sm { width: 7rem; height: auto; filter: drop-shadow(0 0.8rem 1.2rem rgba(0,0,0,.5)); }
