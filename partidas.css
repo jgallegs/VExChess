@@ -38,7 +38,9 @@ body.rv-page { min-height: 100vh; }
 .rv-ctrl { width: 3rem; height: 2.7rem; display: grid; place-items: center; background: var(--panel-2); color: var(--text);
   border: none; border-radius: 0.6rem; font-size: 1rem; cursor: pointer; transition: background .12s, transform .08s; }
 .rv-ctrl:hover { background: #313d52; } .rv-ctrl:active { transform: translateY(0.06rem); }
-.rv-ctrl#rv-prev { transform: scaleX(-1); } .rv-ctrl#rv-prev:active { transform: scaleX(-1) translateY(0.06rem); }
+.rv-ctrl img { width: 1.15rem; height: 1.15rem; }
+.rv-ctrl.play img { width: 1.25rem; height: 1.25rem; filter: brightness(0) invert(1); }
+.rv-ctrl.play.on img { filter: none; }
 .rv-ctrl.play { background: var(--accent); color: #fff; width: 3.4rem; }
 .rv-ctrl.play:hover { filter: brightness(1.08); background: var(--accent); }
 .rv-ctrl.play.on { background: var(--panel-2); color: var(--text); }
@@ -103,6 +105,7 @@ body.rv-page { min-height: 100vh; }
 .rv-empty { text-align: center; color: var(--muted); padding: 1.5rem 0.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
 .rv-empty[hidden] { display: none; }   /* [hidden] debe ganar a display:flex */
 .rv-empty-ico { font-size: 2.4rem; }
+.rv-empty-ico img { width: min(16rem, 70%); height: auto; }
 .rv-empty p { margin: 0; font-size: 0.92rem; }
 .rv-empty-sub { font-size: 0.8rem; line-height: 1.5; max-width: 20rem; }
 .rv-empty .btn-play { margin-top: 0.7rem; }

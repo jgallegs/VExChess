@@ -197,7 +197,7 @@ function goto(n) {
 function stopAuto() {
   if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
   const b = document.getElementById('rv-play');
-  b.textContent = '▶'; b.classList.remove('on');
+  b.innerHTML = '<img src="assets/icons/navigation/play.svg" alt="" aria-hidden="true">'; b.classList.remove('on');
 }
 function toggleAuto() {
   if (!current) return;
@@ -205,7 +205,7 @@ function toggleAuto() {
   const total = current.fens.length - 1;
   if (ply >= total) ply = 0;
   const b = document.getElementById('rv-play');
-  b.textContent = '⏸'; b.classList.add('on');
+  b.innerHTML = '<img src="assets/icons/navigation/pause.svg" alt="" aria-hidden="true">'; b.classList.add('on');
   autoTimer = setInterval(() => {
     if (!current || ply >= current.fens.length - 1) { stopAuto(); return; }
     goto(ply + 1);

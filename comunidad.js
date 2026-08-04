@@ -196,7 +196,7 @@ function loadVexId(panel) {
       '<div class="cm-vex-side">' +
         '<h3 class="cm-sub">Añadir en persona</h3>' +
         '<p class="cm-muted">Enseña tu QR y que lo escaneen, o escanea tú el de otra persona con la cámara:</p>' +
-        '<button class="btn-play cm-scan-btn" id="cm-scan"><span aria-hidden="true">📷</span> Escanear un QR</button>' +
+        '<button class="btn-play cm-scan-btn" id="cm-scan"><img src="assets/icons/social/camera-scan-qr.svg" alt="" aria-hidden="true" style="width:1.1rem;height:1.1rem;vertical-align:-.2em;margin-right:.3rem;filter:brightness(0) invert(1)">Escanear un QR</button>' +
         '<p class="cm-or">o añade con su código</p>' +
         '<div class="cm-addcode"><input id="cm-addcode-in" placeholder="' + esc(fmtCode('ABCDEF')) + '" autocomplete="off" maxlength="7">' +
           '<button class="cm-btn primary" id="cm-addcode-btn">Añadir</button></div>' +
@@ -357,8 +357,9 @@ async function openProfile(username) {
 }
 function cmStat(label, v) { return '<div class="cm-modal-stat"><b>' + v + '</b><span>' + label + '</span></div>'; }
 
-function emptyHTML(title, sub) {
-  return '<div class="cm-empty"><div class="cm-empty-ico">👥</div><h3>' + esc(title) + '</h3><p>' + esc(sub) + '</p></div>';
+function emptyHTML(title, sub, illo) {
+  const img = '<img class="vex-empty-state" src="assets/empty-states/' + (illo || 'no-friends') + '.svg" alt="" aria-hidden="true">';
+  return '<div class="cm-empty"><div class="cm-empty-ico">' + img + '</div><h3>' + esc(title) + '</h3><p>' + esc(sub) + '</p></div>';
 }
 
 onAuth(render);

@@ -21,8 +21,8 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=38">
-<link rel="stylesheet" href="partidas.css?v=2">
+<link rel="stylesheet" href="style.css?v=39">
+<link rel="stylesheet" href="partidas.css?v=3">
 </head>
 <body class="rv-page">
   <header class="navbar">
@@ -52,12 +52,12 @@
       </div>
 
       <div class="rv-controls">
-        <button class="rv-ctrl" id="rv-first" title="Inicio (⏮)" aria-label="Ir al inicio">⏮</button>
-        <button class="rv-ctrl" id="rv-prev" title="Anterior (←)" aria-label="Jugada anterior">◀</button>
-        <button class="rv-ctrl play" id="rv-play" title="Reproducir (espacio)" aria-label="Reproducir">▶</button>
-        <button class="rv-ctrl" id="rv-next" title="Siguiente (→)" aria-label="Jugada siguiente">▶</button>
-        <button class="rv-ctrl" id="rv-last" title="Final (⏭)" aria-label="Ir al final">⏭</button>
-        <button class="rv-ctrl" id="rv-flip" title="Girar tablero (F)" aria-label="Girar tablero">⇅</button>
+        <button class="rv-ctrl" id="rv-first" title="Inicio (⏮)" aria-label="Ir al inicio"><img src="assets/icons/navigation/first.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-prev" title="Anterior (←)" aria-label="Jugada anterior"><img src="assets/icons/navigation/previous.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl play" id="rv-play" title="Reproducir (espacio)" aria-label="Reproducir"><img src="assets/icons/navigation/play.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-next" title="Siguiente (→)" aria-label="Jugada siguiente"><img src="assets/icons/navigation/next.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-last" title="Final (⏭)" aria-label="Ir al final"><img src="assets/icons/navigation/last.svg" alt="" aria-hidden="true"></button>
+        <button class="rv-ctrl" id="rv-flip" title="Girar tablero (F)" aria-label="Girar tablero"><img src="assets/icons/gameplay/rotate-board.svg" alt="" aria-hidden="true"></button>
       </div>
       <div class="rv-ply" id="rv-ply">—</div>
 
@@ -94,7 +94,7 @@
       <div class="rv-list" id="rv-list"></div>
 
       <div class="rv-empty" id="rv-empty" hidden>
-        <div class="rv-empty-ico">♟️</div>
+        <div class="rv-empty-ico"><img class="vex-empty-state" src="assets/empty-states/no-saved-games.svg" alt="" aria-hidden="true"></div>
         <p>Aún no tienes partidas guardadas.</p>
         <p class="rv-empty-sub">Cada partida que termines (jaque mate, tablas o rendición) se guardará aquí automáticamente para que puedas revisarla.</p>
         <a class="btn-play" href="play.html">Jugar una partida <span aria-hidden="true">→</span></a>
@@ -104,6 +104,6 @@
 
   <script type="module" src="theme.js?v=1"></script>
   <script type="module" src="auth.js?v=15"></script>
-  <script type="module" src="partidas.js?v=13"></script>
+  <script type="module" src="partidas.js?v=14"></script>
 </body>
 </html>

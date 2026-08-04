@@ -471,11 +471,16 @@ function renderBar(el, color, capturedTypes, adv, isActive) {
   const user = isYou ? getUser() : null;
   let avatarInner, avatarStyle = '';
   if (isYou && user) {
-    const col = AVATAR_COLORS[(user.avatar || 'knight:red').split(':')[1]] || AVATAR_COLORS.red;
-    avatarInner = '<img class="avatar-mark avatar-knight" src="assets/knight.svg" alt="">';
-    avatarStyle = ' style="background:' + col + '"';
+    const av = user.avatar || 'knight:red';
+    if (av.startsWith('img:')) {
+      avatarInner = '<img class="avatar-mark avatar-img" src="assets/social/avatars/' + av.slice(4) + '.png" alt="">';
+    } else {
+      const col = AVATAR_COLORS[av.split(':')[1]] || AVATAR_COLORS.red;
+      avatarInner = '<img class="avatar-mark avatar-knight" src="assets/knight.svg" alt="">';
+      avatarStyle = ' style="background:' + col + '"';
+    }
   } else if (isYou) {
-    avatarInner = '<span class="avatar-emoji">😎</span>';
+    avatarInner = '<img class="avatar-mark avatar-guest" src="assets/icons/features/profile.svg" alt="">';
   } else {
     avatarInner = brandMark('avatar-mark');
   }
@@ -581,16 +586,16 @@ function updateNotice(danger, turn) {
   }
   if (coachMode && suggestion && turn === humanColor && !game.isGameOver()) {
     noticeEl.className = 'notice coach';
-    noticeEl.innerHTML = '🎓 ' + t('suggestion') + ': <b>' + suggestion.san + '</b> — ' + t('reasons')[suggestion.reasonKey] + '.';
+    noticeEl.innerHTML = '<img class="vex-icon" src="assets/icons/gameplay/coach-mode.svg" alt=""> ' + t('suggestion') + ': <b>' + suggestion.san + '</b> — ' + t('reasons')[suggestion.reasonKey] + '.';
     return;
   }
   const queen = findPiece('q', humanColor);
   if (showDanger && !game.isGameOver() && queen && danger.has(queen)) {
     noticeEl.className = 'notice danger';
-    noticeEl.textContent = '⚠️ ' + t('queenDanger') + ' (' + queen + ')';
+    noticeEl.innerHTML = '<img class="vex-icon" src="assets/icons/features/danger-queen.svg" alt=""> ' + t('queenDanger') + ' (' + queen + ')';
   } else if (showDanger && !game.isGameOver() && danger.size > 0) {
     noticeEl.className = 'notice danger';
-    noticeEl.textContent = '⚠️ ' + (danger.size === 1 ? t('piecesDanger1') : t('piecesDangerN').replace('{n}', danger.size));
+    noticeEl.innerHTML = '<img class="vex-icon" src="assets/icons/features/danger-queen.svg" alt=""> ' + (danger.size === 1 ? t('piecesDanger1') : t('piecesDangerN').replace('{n}', danger.size));
   } else { noticeEl.className = 'notice'; noticeEl.innerHTML = ''; }
 }
 function updateHistory() {
@@ -1189,7 +1194,7 @@ setColorPref('random');   // "Aleatorio" activo por defecto
   const btn = document.getElementById('sound-btn');
   const paint = () => {
     if (!btn) return;
-    btn.textContent = sfx.muted ? '🔇' : '🔊';
+    btn.innerHTML = '<img class="vex-icon" src="assets/icons/gameplay/' + (sfx.muted ? 'sound-off' : 'sound-on') + '.svg" alt="">';
     btn.classList.toggle('muted', sfx.muted);
     btn.setAttribute('aria-pressed', String(!sfx.muted));
   };

@@ -21,7 +21,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=38">
+<link rel="stylesheet" href="style.css?v=39">
 <link rel="stylesheet" href="directo.css?v=1">
 </head>
 <body class="lv-page">
@@ -75,7 +75,7 @@
             <span class="lv-eval-num">+0.6</span>
           </div>
           <div class="lv-featured-meta">
-            <span>♟ Jugada 24</span><span>·</span><span>⏱ 5+3</span><span>·</span><span>👁 1.2k viendo</span>
+            <span>♟ Jugada 24</span><span>·</span><span>⏱ 5+3</span><span>·</span><span><img src="assets/icons/social/spectate.svg" alt="" aria-hidden="true" style="width:.95rem;height:.95rem;vertical-align:-.15em;margin-right:.2rem">1.2k viendo</span>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@
       ];
       el.innerHTML = games.map(g => (
         '<article class="lv-card">' +
-          '<div class="lv-card-top"><span class="lv-live-dot"></span> EN VIVO <span class="lv-card-spec">👁 ' + g.spec + '</span></div>' +
+          '<div class="lv-card-top"><span class="lv-live-dot"></span> EN VIVO <span class="lv-card-spec"><img src=\"assets/icons/social/spectate.svg\" alt=\"\" aria-hidden=\"true\" style=\"width:.95rem;height:.95rem;vertical-align:-.15em;margin-right:.2rem\">' + g.spec + '</span></div>' +
           '<div class="lv-card-row"><span class="lv-ava w sm">' + g.w[0].toUpperCase() + '</span>' +
             '<span class="lv-card-name">' + g.w + '</span><span class="lv-card-elo">' + g.we + '</span></div>' +
           '<div class="lv-card-row"><span class="lv-ava b sm">' + g.b[0].toUpperCase() + '</span>' +

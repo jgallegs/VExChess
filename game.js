@@ -262,7 +262,7 @@ function renderInfo() {
     bar.innerHTML =
       '<span class="gm-conn">' + (statusG === 'waiting' ? 'Esperando al rival…' : statusG === 'over' ? 'Partida terminada' : 'En juego') +
         (you ? '' : ' · <b class="gm-spec">Espectador</b>') +
-        '<span class="gm-watchers"' + (watchers > 0 ? '' : ' hidden') + '>👁 ' + watchers + '</span></span>' +
+        '<span class="gm-watchers"' + (watchers > 0 ? '' : ' hidden') + '><img class="vex-icon" src="assets/icons/social/spectate.svg" alt="" style="width:.95rem;height:.95rem;vertical-align:-.15em;margin-right:.25rem">' + watchers + '</span></span>' +
       (statusG === 'active' && you ? '<span class="gm-actions">' +
         (drawOffer && drawOffer !== you ? '<button class="gm-btn" id="gm-draw-yes">Aceptar tablas</button><button class="gm-btn ghost" id="gm-draw-no">Rechazar</button>' :
           '<button class="gm-btn ghost" id="gm-draw">' + (drawOffer === you ? 'Tablas ofrecidas' : 'Ofrecer tablas') + '</button>') +
@@ -284,7 +284,7 @@ function wireActions() {
   const dy = document.getElementById('gm-draw-yes'); if (dy) dy.addEventListener('click', () => send({ t: 'drawrespond', accept: true }));
   const dn = document.getElementById('gm-draw-no'); if (dn) dn.addEventListener('click', () => send({ t: 'drawrespond', accept: false }));
 }
-function updateWatchers() { const el = root.querySelector('.gm-watchers'); if (el) { el.textContent = '👁 ' + watchers; el.hidden = watchers <= 0; } }
+function updateWatchers() { const el = root.querySelector('.gm-watchers'); if (el) { el.innerHTML = '<img class="vex-icon" src="assets/icons/social/spectate.svg" alt="" style="width:.95rem;height:.95rem;vertical-align:-.15em;margin-right:.25rem">' + watchers; el.hidden = watchers <= 0; } }
 
 // ---------- relojes ----------
 function updateClocks() {
