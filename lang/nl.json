@@ -824,7 +824,8 @@
         "color": "VEX-rood",
         "quote": "Het bord ontwaakt pas als iemand de moed heeft om te zetten.",
         "desc": "Kael was het eerste stuk dat zijn veld verliet toen het bord nog leeg was. Hij dient geen enkele ruiter: hij is de impuls die een roerloze stelling in een partij verandert. De ster op zijn borst licht op telkens als iemand het initiatief neemt zonder de uitkomst nog te kennen.",
-        "personality": "Moedig, direct, rusteloos en aanstekelijk competitief."
+        "personality": "Moedig, direct, rusteloos en aanstekelijk competitief.",
+        "concept": "Initiatief, ontwikkeling en tempo"
       },
       "aurelia": {
         "title": "De Zwijgende Kroon",
@@ -833,7 +834,8 @@
         "color": "Ivoor en goud",
         "quote": "De sterkste zet hoeft niet aangekondigd te worden.",
         "desc": "Aurelia beschouwt het bord met gesloten ogen omdat ze stelt dat de stukken meer onthullen wanneer je niet naar ze kijkt. Haar gouden fragmenten cirkelen om elke mogelijkheid en komen alleen tot stilstand wanneer er een perfecte reeks bestaat. Ze viert nooit een schaakmat; voor haar was de partij al lang daarvoor voorbij.",
-        "personality": "Sereen, elegant, veeleisend en absoluut zeker."
+        "personality": "Sereen, elegant, veeleisend en absoluut zeker.",
+        "concept": "Berekening en keuze van de variant"
       },
       "bastion": {
         "title": "De Laatste Muur",
@@ -842,7 +844,8 @@
         "color": "Kobalt",
         "quote": "Zolang één lijn verbonden blijft, is niemand alleen.",
         "desc": "Bastion ontwaakte als een geïsoleerde toren, maar ontdekte dat hij zijn knooppunten kon verbinden met elk fort op het bord. Zijn barrières beschermen niet alleen velden: ze creëren veilige routes tussen bondgenoten. Wanneer alle verdedigingen vallen, houdt zijn netwerk de laatste lijn brandend.",
-        "personality": "Loyaal, technisch, beschermend en iets te letterlijk."
+        "personality": "Loyaal, technisch, beschermend en iets te letterlijk.",
+        "concept": "Verbonden torens en verdediging"
       },
       "nyra": {
         "title": "De Gesluierde Diagonaal",
@@ -851,7 +854,8 @@
         "color": "Violet",
         "quote": "Ik stond nooit voor je. Ik stond in de hoek die je vergat.",
         "desc": "Nyra loopt over een diagonaal tussen het zichtbare bord en zijn spiegelbeeld. De lichtende opening in haar masker laat haar beide oppervlakken oversteken en verschijnen waar een lijn geblokkeerd leek. Niemand kent haar gezicht, misschien omdat er onder het masker slechts een andere diagonaal bestaat.",
-        "personality": "Terughoudend, precies, ironisch en moeilijk te verrassen."
+        "personality": "Terughoudend, precies, ironisch en moeilijk te verrassen.",
+        "concept": "Diagonalen, penningen en infiltratie"
       },
       "pip": {
         "title": "Het Eerste Veld",
@@ -860,7 +864,8 @@
         "color": "Cyaan",
         "quote": "Het hele bord past voor een eerste veld.",
         "desc": "Pip heeft de laatste rij nog niet bereikt en heeft geen haast om dat te doen. Hij wil elk veld, elke tegenstander en elke mogelijke manier om vooruit te komen leren kennen. Zijn kleine ster verschijnt wanneer hij een nieuwe route vindt; daarom is hij vaak de eerste die plekken betreedt die de belangrijke stukken onbeduidend vinden.",
-        "personality": "Nieuwsgierig, optimistisch, volhardend en moediger dan hij denkt."
+        "personality": "Nieuwsgierig, optimistisch, volhardend en moediger dan hij denkt.",
+        "concept": "Pionnenstructuur en promotie"
       },
       "ordan": {
         "title": "De Eeuwige Koning",
@@ -869,7 +874,8 @@
         "color": "Goud",
         "quote": "Eeuwigheid bestaat uit het vinden van nog één veld.",
         "desc": "Ordan herinnert zich eindspelen die gespeeld werden voordat er klokken bestonden. De sterrenbeelden op zijn kroon staan voor schaakjes waaraan hij wist te ontsnappen, niet voor overwinningen. Zijn kracht komt niet voort uit het veroveren van het bord, maar uit het begrip dat zelfs een koning moet buigen voor de juiste stelling.",
-        "personality": "Wijs, streng, geduldig en beschermend tegenover nieuwe spelers."
+        "personality": "Wijs, streng, geduldig en beschermend tegenover nieuwe spelers.",
+        "concept": "Koningsveiligheid en eindspelen"
       },
       "noctis": {
         "title": "De Zwarte Vork",
@@ -878,7 +884,8 @@
         "color": "Grafiet en cyaan",
         "quote": "Als je me kunt zien, verdedig je al het verkeerde stuk.",
         "desc": "Noctis doorkruist het duister niet: hij splijt het. Elke sprong laat twee schaduwen achter die verschillende doelen aanvallen, terwijl zijn echte lichaam op het ene veld blijft dat niemand in de gaten hield. Zijn cyaan oog berekent het exacte moment waarop één dreiging er twee wordt.",
-        "personality": "Stil, sluw, onafhankelijk en meedogenloos precies."
+        "personality": "Stil, sluw, onafhankelijk en meedogenloos precies.",
+        "concept": "Vorken en dubbele dreigingen"
       },
       "eira-vhal": {
         "title": "Rivalen van de Nexus",
@@ -887,7 +894,8 @@
         "color": "Ivoor en kobalt",
         "quote": "We rennen niet om elkaar te verslaan. We rennen om te ontdekken wie we zullen zijn bij aankomst.",
         "desc": "Eira werd geboren uit het licht van het bord en Vhal uit de storm die in zijn spiegelbeeld verscheen. Beiden jagen op dezelfde gouden nexus langs tegengestelde paden. Ze zijn zo vaak gelijk geëindigd dat hun rivaliteit vriendschap werd, al zou geen van beiden dat woord in het bijzijn van de ander willen uitspreken.",
-        "personality": "Eira is gedisciplineerd en sereen; Vhal impulsief en trots. Samen zijn ze onafscheidelijk."
+        "personality": "Eira is gedisciplineerd en sereen; Vhal impulsief en trots. Samen zijn ze onafscheidelijk.",
+        "concept": "Kandidaatzetten vergelijken"
       },
       "rhazek": {
         "title": "Het Karmozijnrode Gambiet",
@@ -896,7 +904,9 @@
         "color": "Tactisch rood",
         "quote": "Een stuk is een kleine prijs voor het hele bord.",
         "desc": "Rhazek zoekt nooit een veilig veld. Hij werd geboren uit het eerste vrijwillig geofferde stuk en leerde dat een schijnbare nederlaag de enige weg naar de overwinning kan openen. Zijn harnas draagt het merkteken van elk gambiet dat niemand durfde te aanvaarden.",
-        "personality": "Vermetel, uitdagend, briljant en gevaarlijk ongeduldig."
+        "personality": "Vermetel, uitdagend, briljant en gevaarlijk ongeduldig.",
+        "concept": "Correcte offers en initiatief",
+        "fragment": "Offer"
       },
       "oryn": {
         "title": "Bewaker van de Laatste Lijn",
@@ -905,7 +915,9 @@
         "color": "Ivoor en kobalt",
         "quote": "Elke partij laat een waarheid achter op de laatste lijn.",
         "desc": "Oryn bewaakt het archief van de vergeten partijen. Zijn banden bevatten stellingen die niet meer bestaan en zijn torens bewaren beslissingen die geen enkele speler zich herinnert te hebben genomen. Wanneer een lijn open blijft, is hij het die beslist of ze naar de overwinning of naar de leegte leidt.",
-        "personality": "Plechtig, geduldig, onpartijdig en geobsedeerd door het bewaren van elke zet."
+        "personality": "Plechtig, geduldig, onpartijdig en geobsedeerd door het bewaren van elke zet.",
+        "concept": "Open lijnen en analyse",
+        "fragment": "Geheugen"
       },
       "vesra": {
         "title": "Koningin van de Zugzwang",
@@ -914,7 +926,9 @@
         "color": "Violet",
         "quote": "Je mag elke zet kiezen. Ze behoren allemaal mij toe.",
         "desc": "Vesra maakt haar vijanden niet bewegingloos: ze schenkt hun mogelijkheden. Elk alternatief maakt deel uit van een netwerk dat lang voor het begin van de partij is berekend. Haar spookachtige handen bewegen geen stukken; ze halen de uitwegen weg die nooit echt waren.",
-        "personality": "Sereen, majestueus, cerebraal en verontrustend hoffelijk."
+        "personality": "Sereen, majestueus, cerebraal en verontrustend hoffelijk.",
+        "concept": "Zugzwang en beperking",
+        "fragment": "Beperking"
       },
       "brakkon": {
         "title": "Het Levende Fort",
@@ -923,7 +937,9 @@
         "color": "Kobalt",
         "quote": "Laat het hele rijk oprukken. Ik blijf hier.",
         "desc": "Brakkon bewoont geen fort: hij is het fort. Hij ontwaakte toen een heel rijk zich verschanste achter de laatste toren die nog overeind stond. Elke inslag voegt een nieuwe steen aan zijn muren toe en elke beschermde bondgenoot voedt de kern die onder zijn kantelen brandt.",
-        "personality": "Beschermend, stil, loyaal en volstrekt onwrikbaar."
+        "personality": "Beschermend, stil, loyaal en volstrekt onwrikbaar.",
+        "concept": "Verdediging en coördinatie",
+        "fragment": "Weerstand"
       },
       "ilyra": {
         "title": "Kristallen Loper",
@@ -932,7 +948,9 @@
         "color": "Cyaan en ivoor",
         "quote": "Eén diagonaal volstaat wanneer het licht de juiste hoek vindt.",
         "desc": "Ilyra beschouwt het bord als een lichtstructuur. Ze kan lange diagonalen doorkruisen, een dreiging in onschadelijke weerkaatsingen splitsen en lijnen ontdekken die voor anderen onzichtbaar zijn. Elke barst in haar lichaam bewaart de herinnering aan een perfecte berekening.",
-        "personality": "Precies, afstandelijk, nieuwsgierig en verrassend meelevend."
+        "personality": "Precies, afstandelijk, nieuwsgierig en verrassend meelevend.",
+        "concept": "Diagonalen en röntgenaanvallen",
+        "fragment": "Helderheid"
       },
       "tikk": {
         "title": "De Loper van de Klok",
@@ -941,7 +959,9 @@
         "color": "Cyaan",
         "quote": "Ik heb geen extra tijd nodig. Ik heb alleen je laatste seconde nodig.",
         "desc": "Tikk werd gebouwd om een klok in te drukken, maar besloot te rennen voordat iemand hem kon opwinden. Hij doorkruist bevroren stellingen, steelt verloren momenten en bereikt altijd de achtste rij een fractie eerder dan onmogelijk. Niemand weet of de enorme klok op zijn rug kapot is of gewoon voorloopt.",
-        "personality": "Ondeugend, snel, optimistisch en meedogenloos competitief."
+        "personality": "Ondeugend, snel, optimistisch en meedogenloos competitief.",
+        "concept": "Tempo en de klok",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "De Koning zonder Kroon",
@@ -950,7 +970,9 @@
         "color": "Grafiet en goud",
         "quote": "Een rijk kan vallen. De koning moet nog altijd zetten.",
         "desc": "Malrec verloor zijn leger, zijn troon en zelfs het recht om een volledige kroon te dragen. Hij behield alleen een ivoren pion en de plicht om die in leven te houden. De kettingen die hij meesleept bestaan uit de velden van zijn voormalige rijk; elk herinnert aan een terugtocht die hij weigerde een nederlaag te noemen.",
-        "personality": "Sober, melancholiek, strategisch en veel gevaarlijker dan hij lijkt."
+        "personality": "Sober, melancholiek, strategisch en veel gevaarlijker dan hij lijkt.",
+        "concept": "Overleving en eindspelen",
+        "fragment": "Overleving"
       },
       "solenne": {
         "title": "De Achtste Stap",
@@ -959,9 +981,65 @@
         "color": "Goud en ivoor",
         "quote": "Ik werd niet met een kroon geboren. Ik stak het bord over om hem te verdienen.",
         "desc": "Solenne begon als het kleinste stuk van een anonieme rij. Ze rukte telkens één veld op, overleefde zeven onmogelijke lijnen en bereikte de overkant zonder te vergeten waar ze vandaan kwam. Haar transformatie eindigt nooit: de pionbasis blijft zichtbaar onder een kroon die stap voor stap is opgebouwd.",
-        "personality": "Vastberaden, bescheiden, inspirerend en veerkrachtig."
+        "personality": "Vastberaden, bescheiden, inspirerend en veerkrachtig.",
+        "concept": "Vrijpionnen en promotie",
+        "fragment": "Verheffing"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "De Eerste Zet",
+        "tagline": "Acht ontwakingen. Een bord dat zich herinnert bespeeld te zijn.",
+        "premise": "Vóór de Vexborn bestonden er slechts onbeweeglijke velden en ongespeelde partijen. Toen Kael zijn veld verliet, ontwaakte het bord en liet het zeven energiepulsen vrij, elk een andere manier om het schaakspel te begrijpen. Eén voor één ontwaken de Origins… tot Ordan iets verontrustends ontdekt: ze bouwen het bord niet op, ze herstellen het. In het midden, verzegeld, wacht het silhouet van een Kroon.",
+        "status": "Beschikbaar"
+      },
+      "crownfall": {
+        "name": "Vexborn: Crownfall",
+        "subtitle": "De Gebroken Kroon",
+        "tagline": "Acht fragmenten. Eén kroon. Geen enkele zet zonder gevolgen.",
+        "premise": "De Kroon van de Nexus hield alle strategieën van het bord in evenwicht. Toen Rhazek een onmogelijk offer uitvoerde en de Laatste Lijn opende, dwong Vesra Malrec om haar te breken zodat geen enkele wil haar zou beheersen. De Kroon werd niet vernietigd: ze werd verdeeld in acht Fragmenten die acht dragers kozen. Oryn roept je op om ze te verzamelen voordat iemand haar onder één enkele wil herstelt.",
+        "status": "Beschikbaar"
+      },
+      "nullvariation": {
+        "name": "Vexborn: The Null Variation",
+        "subtitle": "De Lege Variant",
+        "tagline": "Una única partida perfecta. Ninguna elección.",
+        "premise": "Bij het verzamelen van de acht Fragmenten verschijnt een negende lege holte. Ze behoorde nooit tot de Kroon: ze was het zegel dat NULL buiten het bord hield. Het observeerde al sinds Kaels eerste zet. Waar de Vexborn kleur, keuze en identiteit zijn, zoekt NULL het tegenovergestelde: één enkele perfecte partij waarin niemand een fout kan maken, kan improviseren of kan offeren.",
+        "status": "Aan de horizon"
+      }
+    },
+    "codex": {
+      "eyebrow": "VEXCHESS-universum",
+      "title": "Vexborn Codex",
+      "intro": "De Vexborn verlenen geen statistieken of voordelen: ze zetten echte schaakconcepten om in personages die je speelt, leert en onthoudt. Elk van hen opent een Pad van Meesterschap, een Kroniek en een concept dat je kunt beheersen."
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "act1": "I · De Eerste Zet — het bord ontwaakt.",
+      "act2": "II · Crownfall — de Kroon breekt in achten.",
+      "act3": "III · The Null Variation — iets observeerde al van vóór de eerste zet."
+    },
+    "concept": {
+      "label": "Wat het beheerst"
+    },
+    "fragmentLabel": "Fragment van de Kroon",
+    "chronicleLabel": "Kroniek",
+    "mastery": {
+      "label": "Pad van Meesterschap",
+      "teaser": "5 hoofdstukken die zijn concept onderwijzen · binnenkort",
+      "note": "Geen competitief voordeel: enkel leren, verhaal en verzamelen."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "De anomalie zonder kleur",
+      "desc": "Het is geen Vexborn en geen stuk. NULL leeft buiten het bord, gemaakt van alle partijen die werden berekend maar nooit gespeeld. Het is de afwezigheid van keuze: een bord waar enkel «de juiste zet» bestaat.",
+      "signal": "NULL heeft alle varianten geobserveerd.",
+      "status": "Buiten het bord"
+    },
+    "expLocked": "Aan de horizon",
+    "expChampions": "{count} kampioenen",
+    "soonBadge": "Binnenkort"
   },
   "auth": {
     "role": {

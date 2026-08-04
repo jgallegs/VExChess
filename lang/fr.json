@@ -824,7 +824,8 @@
         "color": "Rouge VEX",
         "quote": "L'échiquier ne s'éveille pas tant que quelqu'un n'ose pas jouer.",
         "desc": "Kael fut la première pièce à quitter sa case alors que l'échiquier était encore vide. Il ne sert aucun cavalier : il est l'impulsion qui transforme une position immobile en une partie. L'étoile sur sa poitrine s'allume chaque fois que quelqu'un prend l'initiative sans en connaître encore l'issue.",
-        "personality": "Courageux, direct, agité et d'un esprit de compétition contagieux."
+        "personality": "Courageux, direct, agité et d'un esprit de compétition contagieux.",
+        "concept": "Initiative, développement et tempo"
       },
       "aurelia": {
         "title": "La Couronne Silencieuse",
@@ -833,7 +834,8 @@
         "color": "Ivoire et or",
         "quote": "Le coup le plus fort n'a pas besoin d'être annoncé.",
         "desc": "Aurelia contemple l'échiquier les yeux fermés car elle affirme que les pièces en révèlent davantage quand on ne les regarde pas. Ses fragments dorés orbitent autour de chaque possibilité et ne s'immobilisent que lorsqu'une séquence parfaite existe. Elle ne célèbre jamais un échec et mat ; pour elle, la partie était finie bien avant.",
-        "personality": "Sereine, élégante, exigeante et absolument sûre d'elle."
+        "personality": "Sereine, élégante, exigeante et absolument sûre d'elle.",
+        "concept": "Calcul et choix de la variante"
       },
       "bastion": {
         "title": "Le Dernier Mur",
@@ -842,7 +844,8 @@
         "color": "Cobalt",
         "quote": "Tant qu'une ligne reste unie, personne n'est seul.",
         "desc": "Bastion s'est éveillé comme une tour isolée, mais il a découvert qu'il pouvait relier ses nœuds à chaque forteresse de l'échiquier. Ses barrières ne protègent pas seulement des cases : elles créent des routes sûres entre alliés. Quand toutes les défenses tombent, son réseau maintient allumée la dernière ligne.",
-        "personality": "Loyal, technique, protecteur et un peu trop littéral."
+        "personality": "Loyal, technique, protecteur et un peu trop littéral.",
+        "concept": "Tours connectées et défense"
       },
       "nyra": {
         "title": "La Diagonale Voilée",
@@ -851,7 +854,8 @@
         "color": "Violet",
         "quote": "Je n'ai jamais été devant toi. J'étais dans l'angle que tu as oublié.",
         "desc": "Nyra chemine sur une diagonale située entre l'échiquier visible et son reflet. L'ouverture lumineuse de son masque lui permet de traverser les deux surfaces et d'apparaître là où une ligne semblait bloquée. Personne ne connaît son visage, peut-être parce que sous le masque il n'existe qu'une autre diagonale.",
-        "personality": "Réservée, précise, ironique et difficile à surprendre."
+        "personality": "Réservée, précise, ironique et difficile à surprendre.",
+        "concept": "Diagonales, clouages et infiltration"
       },
       "pip": {
         "title": "La Première Case",
@@ -860,7 +864,8 @@
         "color": "Cyan",
         "quote": "Tout l'échiquier tient devant une première case.",
         "desc": "Pip n'a pas encore atteint la dernière rangée et il n'est pas pressé de le faire. Il veut connaître chaque case, chaque adversaire et chaque façon possible d'avancer. Sa petite étoile apparaît quand il trouve une nouvelle route ; c'est pourquoi il est souvent le premier à entrer dans des endroits que les pièces importantes jugent insignifiants.",
-        "personality": "Curieux, optimiste, persévérant et plus courageux qu'il ne le croit."
+        "personality": "Curieux, optimiste, persévérant et plus courageux qu'il ne le croit.",
+        "concept": "Structure de pions et promotion"
       },
       "ordan": {
         "title": "Le Roi Éternel",
@@ -869,7 +874,8 @@
         "color": "Or",
         "quote": "L'éternité consiste à trouver une case de plus.",
         "desc": "Ordan se souvient de finales jouées avant même que les pendules n'existent. Les constellations de sa couronne représentent des échecs auxquels il a réussi à échapper, non des victoires. Son pouvoir ne vient pas de la conquête de l'échiquier, mais de la compréhension que même un roi doit s'incliner devant la position juste.",
-        "personality": "Sage, sévère, patient et protecteur envers les nouveaux joueurs."
+        "personality": "Sage, sévère, patient et protecteur envers les nouveaux joueurs.",
+        "concept": "Sécurité du roi et finales"
       },
       "noctis": {
         "title": "La Fourchette Noire",
@@ -878,7 +884,8 @@
         "color": "Graphite et cyan",
         "quote": "Si tu peux me voir, tu défends déjà la mauvaise pièce.",
         "desc": "Noctis ne traverse pas l'obscurité : il la divise. Chaque saut laisse deux ombres attaquant des cibles différentes, tandis que son véritable corps demeure sur l'unique case que personne ne surveillait. Son œil cyan calcule l'instant exact où une menace se transforme en deux.",
-        "personality": "Silencieux, rusé, indépendant et férocement précis."
+        "personality": "Silencieux, rusé, indépendant et férocement précis.",
+        "concept": "Fourchettes et menaces doubles"
       },
       "eira-vhal": {
         "title": "Rivaux du Nexus",
@@ -887,7 +894,8 @@
         "color": "Ivoire et cobalt",
         "quote": "Nous ne courons pas pour nous vaincre. Nous courons pour découvrir qui nous serons à l'arrivée.",
         "desc": "Eira est née de la lumière de l'échiquier et Vhal de la tempête apparue dans son reflet. Tous deux poursuivent le même nexus doré en suivant des chemins opposés. Ils ont fait tant de fois match nul que leur rivalité est devenue amitié, même si aucun des deux n'accepterait de prononcer ce mot devant l'autre.",
-        "personality": "Eira est disciplinée et sereine ; Vhal, impulsif et orgueilleux. Ensemble, ils sont inséparables."
+        "personality": "Eira est disciplinée et sereine ; Vhal, impulsif et orgueilleux. Ensemble, ils sont inséparables.",
+        "concept": "Comparer les coups candidats"
       },
       "rhazek": {
         "title": "Le Gambit Cramoisi",
@@ -896,7 +904,9 @@
         "color": "Rouge tactique",
         "quote": "Une pièce est un petit prix pour tout l'échiquier.",
         "desc": "Rhazek ne cherche jamais une case sûre. Il est né de la première pièce sacrifiée volontairement et a appris qu'une défaite apparente peut ouvrir le seul chemin vers la victoire. Son armure conserve la marque de chaque gambit que personne n'a osé accepter.",
-        "personality": "Audacieux, provocateur, brillant et dangereusement impatient."
+        "personality": "Audacieux, provocateur, brillant et dangereusement impatient.",
+        "concept": "Sacrifices corrects et initiative",
+        "fragment": "Sacrifice"
       },
       "oryn": {
         "title": "Gardien de la Dernière Colonne",
@@ -905,7 +915,9 @@
         "color": "Ivoire et cobalt",
         "quote": "Toute partie laisse une vérité dans la dernière colonne.",
         "desc": "Oryn veille sur l'archive des parties oubliées. Ses rubans contiennent des positions qui n'existent plus et ses tours stockent des décisions qu'aucun joueur ne se souvient avoir prises. Quand une colonne reste ouverte, c'est lui qui décide si elle mène à la victoire ou au vide.",
-        "personality": "Solennel, patient, impartial et obsédé par la conservation de chaque coup."
+        "personality": "Solennel, patient, impartial et obsédé par la conservation de chaque coup.",
+        "concept": "Colonnes ouvertes et analyse",
+        "fragment": "Mémoire"
       },
       "vesra": {
         "title": "Reine du Zugzwang",
@@ -914,7 +926,9 @@
         "color": "Violet",
         "quote": "Tu peux choisir n'importe quel coup. Ils m'appartiennent tous.",
         "desc": "Vesra n'immobilise pas ses ennemis : elle leur accorde des possibilités. Chaque alternative fait partie d'un réseau calculé bien avant le début de la partie. Ses mains spectrales ne déplacent pas les pièces ; elles retirent les issues qui n'ont jamais été réelles.",
-        "personality": "Sereine, majestueuse, cérébrale et d'une courtoisie troublante."
+        "personality": "Sereine, majestueuse, cérébrale et d'une courtoisie troublante.",
+        "concept": "Zugzwang et restriction",
+        "fragment": "Restriction"
       },
       "brakkon": {
         "title": "La Forteresse Vivante",
@@ -923,7 +937,9 @@
         "color": "Cobalt",
         "quote": "Que tout le royaume avance. Moi, je resterai ici.",
         "desc": "Brakkon n'habite pas une forteresse : il est la forteresse. Il s'est éveillé quand un royaume entier s'est réfugié derrière la dernière tour encore debout. Chaque impact ajoute une nouvelle pierre à ses murailles et chaque allié protégé alimente le noyau qui brûle sous ses créneaux.",
-        "personality": "Protecteur, silencieux, loyal et absolument inébranlable."
+        "personality": "Protecteur, silencieux, loyal et absolument inébranlable.",
+        "concept": "Défense et coordination",
+        "fragment": "Résistance"
       },
       "ilyra": {
         "title": "Fou de Cristal",
@@ -932,7 +948,9 @@
         "color": "Cyan et ivoire",
         "quote": "Une diagonale suffit quand la lumière trouve le bon angle.",
         "desc": "Ilyra contemple l'échiquier comme une structure de lumière. Elle peut traverser de longues diagonales, diviser une menace en reflets inoffensifs et découvrir des lignes invisibles pour les autres. Chaque fissure de son corps conserve le souvenir d'un calcul parfait.",
-        "personality": "Précise, distante, curieuse et étonnamment compatissante."
+        "personality": "Précise, distante, curieuse et étonnamment compatissante.",
+        "concept": "Diagonales et rayons X",
+        "fragment": "Clarté"
       },
       "tikk": {
         "title": "Le Coureur de la Pendule",
@@ -941,7 +959,9 @@
         "color": "Cyan",
         "quote": "Je n'ai pas besoin de plus de temps. J'ai juste besoin de ta dernière seconde.",
         "desc": "Tikk a été construit pour appuyer sur une pendule, mais il a décidé de courir avant que quiconque puisse le remonter. Il traverse des positions figées, dérobe des instants perdus et arrive toujours à la huitième rangée une fraction avant l'impossible. Personne ne sait si l'énorme pendule sur son dos est cassée ou simplement en avance.",
-        "personality": "Espiègle, rapide, optimiste et férocement compétitif."
+        "personality": "Espiègle, rapide, optimiste et férocement compétitif.",
+        "concept": "Tempo et la pendule",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "Le Roi sans Couronne",
@@ -950,7 +970,9 @@
         "color": "Graphite et or",
         "quote": "Un royaume peut tomber. Le roi doit encore jouer.",
         "desc": "Malrec a perdu son armée, son trône et jusqu'au droit de porter une couronne complète. Il n'a conservé qu'un pion d'ivoire et l'obligation de le garder en vie. Les chaînes qu'il traîne sont formées des cases de son ancien royaume ; chacune rappelle une retraite qu'il a refusé d'appeler défaite.",
-        "personality": "Austère, mélancolique, stratège et bien plus dangereux qu'il n'en a l'air."
+        "personality": "Austère, mélancolique, stratège et bien plus dangereux qu'il n'en a l'air.",
+        "concept": "Survie et finales",
+        "fragment": "Survie"
       },
       "solenne": {
         "title": "Le Huitième Pas",
@@ -959,9 +981,65 @@
         "color": "Or et ivoire",
         "quote": "Je ne suis pas née avec une couronne. J'ai traversé l'échiquier pour la mériter.",
         "desc": "Solenne a commencé comme la plus petite pièce d'une rangée anonyme. Elle a avancé d'une case à la fois, survécu à sept lignes impossibles et atteint le bord opposé sans oublier d'où elle venait. Sa transformation ne s'achève jamais : la base du pion reste visible sous une couronne construite pas à pas.",
-        "personality": "Déterminée, humble, inspirante et résiliente."
+        "personality": "Déterminée, humble, inspirante et résiliente.",
+        "concept": "Pions passés et promotion",
+        "fragment": "Ascension"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "Le Premier Coup",
+        "tagline": "Huit éveils. Un échiquier qui se souvient d'avoir été joué.",
+        "premise": "Avant les Vexborn n'existaient que des cases immobiles et des parties non jouées. Lorsque Kael quitta sa case, l'échiquier s'éveilla et libéra sept pulsations d'énergie, chacune une manière différente de comprendre les échecs. Un à un, les Origins s'éveillent… jusqu'à ce qu'Ordan découvre quelque chose de troublant : ils ne construisent pas l'échiquier, ils le restaurent. Au centre, scellée, attend la silhouette d'une Couronne.",
+        "status": "Disponible"
+      },
+      "crownfall": {
+        "name": "Vexborn : Crownfall",
+        "subtitle": "La Couronne Fracturée",
+        "tagline": "Huit fragments. Une couronne. Aucun coup sans conséquence.",
+        "premise": "La Couronne du Nexus maintenait en équilibre toutes les stratégies de l'échiquier. Lorsque Rhazek exécuta un sacrifice impossible et ouvrit la Dernière Colonne, Vesra contraignit Malrec à la briser afin qu'aucune volonté ne pût la dominer. La Couronne ne fut pas détruite : elle se divisa en huit Fragments qui choisirent huit porteurs. Oryn te convoque pour les réunir avant que quelqu'un ne la recompose sous une seule volonté.",
+        "status": "Disponible"
+      },
+      "nullvariation": {
+        "name": "Vexborn : The Null Variation",
+        "subtitle": "La Variante Vide",
+        "tagline": "Une unique partie parfaite. Aucun choix.",
+        "premise": "En réunissant les huit Fragments apparaît une neuvième cavité vide. Elle n'appartint jamais à la Couronne : c'était le sceau qui maintenait NULL hors de l'échiquier. Il observait depuis le premier coup de Kael. Là où les Vexborn sont couleur, choix et identité, NULL cherche le contraire : une unique partie parfaite dans laquelle nul ne peut se tromper, improviser ni sacrifier.",
+        "status": "À l'horizon"
+      }
+    },
+    "codex": {
+      "eyebrow": "Univers VEXCHESS",
+      "title": "Codex Vexborn",
+      "intro": "Les Vexborn n'octroient ni statistiques ni avantages : ils transforment des concepts réels des échecs en personnages qui se jouent, s'apprennent et se retiennent. Chacun ouvre une Voie de Maîtrise, une Chronique et un concept que tu peux maîtriser."
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "act1": "I · Le Premier Coup — l'échiquier s'éveille.",
+      "act2": "II · Crownfall — la Couronne se fracture en huit.",
+      "act3": "III · The Null Variation — quelque chose observait avant même le premier coup."
+    },
+    "concept": {
+      "label": "Ce qu'il maîtrise"
+    },
+    "fragmentLabel": "Fragment de la Couronne",
+    "chronicleLabel": "Chronique",
+    "mastery": {
+      "label": "Voie de Maîtrise",
+      "teaser": "5 chapitres qui enseignent son concept · bientôt disponible",
+      "note": "Sans avantage compétitif : uniquement apprentissage, narration et collection."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "L'anomalie sans couleur",
+      "desc": "Ce n'est ni un Vexborn ni une pièce. NULL vit hors de l'échiquier, fait de toutes les parties qui furent calculées mais jamais jouées. C'est l'absence de choix : un échiquier où n'existe que « le coup correct ».",
+      "signal": "NULL a observé toutes les variantes.",
+      "status": "Hors de l'échiquier"
+    },
+    "expLocked": "À l'horizon",
+    "expChampions": "{count} champions",
+    "soonBadge": "Bientôt disponible"
   },
   "auth": {
     "role": {

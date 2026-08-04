@@ -824,7 +824,8 @@
         "color": "VEX Red",
         "quote": "The board doesn't awaken until someone dares to move.",
         "desc": "Kael was the first piece to leave its square when the board was still empty. He serves no rider: he is the impulse that turns a still position into a game. The star on his chest lights up every time someone takes the initiative without yet knowing the outcome.",
-        "personality": "Brave, direct, restless and contagiously competitive."
+        "personality": "Brave, direct, restless and contagiously competitive.",
+        "concept": "Initiative, development and tempo"
       },
       "aurelia": {
         "title": "The Silent Crown",
@@ -833,7 +834,8 @@
         "color": "Ivory and gold",
         "quote": "The strongest move doesn't need to be announced.",
         "desc": "Aurelia contemplates the board with her eyes closed because she claims the pieces reveal more when they aren't watched. Her golden fragments orbit every possibility and stop only when a perfect sequence exists. She never celebrates a checkmate; for her, the game ended long before.",
-        "personality": "Serene, elegant, demanding and utterly certain."
+        "personality": "Serene, elegant, demanding and utterly certain.",
+        "concept": "Calculation and choosing the variation"
       },
       "bastion": {
         "title": "The Last Wall",
@@ -842,7 +844,8 @@
         "color": "Cobalt",
         "quote": "As long as one line stays united, no one is alone.",
         "desc": "Bastion awoke as an isolated rook, but discovered he could link his nodes with every fortress on the board. His barriers don't just protect squares: they create safe routes between allies. When every defense falls, his network keeps the last line lit.",
-        "personality": "Loyal, technical, protective and a bit too literal."
+        "personality": "Loyal, technical, protective and a bit too literal.",
+        "concept": "Connected rooks and defense"
       },
       "nyra": {
         "title": "The Veiled Diagonal",
@@ -851,7 +854,8 @@
         "color": "Violet",
         "quote": "I was never in front of you. I was in the angle you forgot.",
         "desc": "Nyra walks along a diagonal set between the visible board and its reflection. The luminous slit of her mask lets her cross both surfaces and appear where a line seemed blocked. No one knows her face, perhaps because beneath the mask there is only another diagonal.",
-        "personality": "Reserved, precise, ironic and hard to surprise."
+        "personality": "Reserved, precise, ironic and hard to surprise.",
+        "concept": "Diagonals, pins and infiltration"
       },
       "pip": {
         "title": "The First Square",
@@ -860,7 +864,8 @@
         "color": "Cyan",
         "quote": "The whole board fits ahead of a first square.",
         "desc": "Pip hasn't reached the last rank yet, and is in no hurry to do so. He wants to know every square, every opponent and every possible way to advance. His little star appears when he finds a new route; that's why he's often the first to enter places that important pieces consider insignificant.",
-        "personality": "Curious, optimistic, persevering and braver than he thinks."
+        "personality": "Curious, optimistic, persevering and braver than he thinks.",
+        "concept": "Pawn structure and promotion"
       },
       "ordan": {
         "title": "The Eternal King",
@@ -869,7 +874,8 @@
         "color": "Gold",
         "quote": "Eternity is about finding one more square.",
         "desc": "Ordan remembers endgames played before clocks existed. The constellations of his crown represent checks he managed to escape, not victories. His power comes not from conquering the board, but from understanding that even a king must bow to the right position.",
-        "personality": "Wise, stern, patient and protective of new players."
+        "personality": "Wise, stern, patient and protective of new players.",
+        "concept": "King safety and endgames"
       },
       "noctis": {
         "title": "The Black Fork",
@@ -878,7 +884,8 @@
         "color": "Graphite and cyan",
         "quote": "If you can see me, you're already defending the wrong piece.",
         "desc": "Noctis doesn't pass through darkness: he splits it. Each jump leaves two shadows attacking different targets, while his true body remains on the one square no one was watching. His cyan eye calculates the exact instant a threat becomes two.",
-        "personality": "Silent, cunning, independent and fiercely precise."
+        "personality": "Silent, cunning, independent and fiercely precise.",
+        "concept": "Forks and double threats"
       },
       "eira-vhal": {
         "title": "Rivals of the Nexus",
@@ -887,7 +894,8 @@
         "color": "Ivory and cobalt",
         "quote": "We don't race to defeat each other. We race to discover who we'll be when we arrive.",
         "desc": "Eira was born of the board's light and Vhal of the storm that appeared in its reflection. They both chase the same golden nexus along opposite paths. They've tied so many times that their rivalry became friendship, though neither would agree to say that word in front of the other.",
-        "personality": "Eira is disciplined and serene; Vhal, impulsive and proud. Together they're inseparable."
+        "personality": "Eira is disciplined and serene; Vhal, impulsive and proud. Together they're inseparable.",
+        "concept": "Comparing candidate moves"
       },
       "rhazek": {
         "title": "The Crimson Gambit",
@@ -896,7 +904,9 @@
         "color": "Tactical red",
         "quote": "A piece is a small price for the whole board.",
         "desc": "Rhazek never looks for a safe square. He was born from the first piece sacrificed voluntarily and learned that an apparent defeat can open the only path to victory. His armor keeps the mark of every gambit no one dared to accept.",
-        "personality": "Bold, provocative, brilliant and dangerously impatient."
+        "personality": "Bold, provocative, brilliant and dangerously impatient.",
+        "concept": "Sound sacrifices and initiative",
+        "fragment": "Sacrifice"
       },
       "oryn": {
         "title": "Guardian of the Last File",
@@ -905,7 +915,9 @@
         "color": "Ivory and cobalt",
         "quote": "Every game leaves a truth on the last file.",
         "desc": "Oryn guards the archive of forgotten games. His ribbons contain positions that no longer exist and his rooks store decisions no player recalls having made. When a file is left open, he is the one who decides whether it leads to victory or to the void.",
-        "personality": "Solemn, patient, impartial and obsessed with preserving every move."
+        "personality": "Solemn, patient, impartial and obsessed with preserving every move.",
+        "concept": "Open files and analysis",
+        "fragment": "Memory"
       },
       "vesra": {
         "title": "Queen of the Zugzwang",
@@ -914,7 +926,9 @@
         "color": "Violet",
         "quote": "You can choose any move. They all belong to me.",
         "desc": "Vesra doesn't immobilize her enemies: she grants them possibilities. Each alternative is part of a network calculated long before the game begins. Her spectral hands don't move pieces; they remove the exits that were never real.",
-        "personality": "Serene, majestic, cerebral and unsettlingly courteous."
+        "personality": "Serene, majestic, cerebral and unsettlingly courteous.",
+        "concept": "Zugzwang and restriction",
+        "fragment": "Restriction"
       },
       "brakkon": {
         "title": "The Living Fortress",
@@ -923,7 +937,9 @@
         "color": "Cobalt",
         "quote": "Let the whole kingdom advance. I'll still be here.",
         "desc": "Brakkon doesn't inhabit a fortress: he is the fortress. He awoke when an entire kingdom took refuge behind the last rook left standing. Each impact adds a new stone to his walls and each protected ally feeds the core that burns beneath his battlements.",
-        "personality": "Protective, silent, loyal and utterly immovable."
+        "personality": "Protective, silent, loyal and utterly immovable.",
+        "concept": "Defense and coordination",
+        "fragment": "Resilience"
       },
       "ilyra": {
         "title": "Bishop of Crystal",
@@ -932,7 +948,9 @@
         "color": "Cyan and ivory",
         "quote": "One diagonal is enough when the light finds the right angle.",
         "desc": "Ilyra contemplates the board as a structure of light. She can traverse long diagonals, split a threat into harmless reflections and uncover lines invisible to others. Every crack in her body holds the memory of a perfect calculation.",
-        "personality": "Precise, distant, curious and surprisingly compassionate."
+        "personality": "Precise, distant, curious and surprisingly compassionate.",
+        "concept": "Diagonals and X-rays",
+        "fragment": "Clarity"
       },
       "tikk": {
         "title": "The Clock Runner",
@@ -941,7 +959,9 @@
         "color": "Cyan",
         "quote": "I don't need more time. I only need your last second.",
         "desc": "Tikk was built to press a clock, but decided to run before anyone could wind him up. He crosses frozen positions, steals lost instants and always reaches the eighth rank a fraction before the impossible. No one knows whether the huge clock on his back is broken or simply running ahead.",
-        "personality": "Mischievous, fast, optimistic and fiercely competitive."
+        "personality": "Mischievous, fast, optimistic and fiercely competitive.",
+        "concept": "Tempo and the clock",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "The King Without a Crown",
@@ -950,7 +970,9 @@
         "color": "Graphite and gold",
         "quote": "A kingdom may fall. The king must still move.",
         "desc": "Malrec lost his army, his throne and even the right to wear a full crown. He kept only an ivory pawn and the duty to keep it alive. The chains he drags are made of the squares of his former kingdom; each one recalls a retreat he refused to call a defeat.",
-        "personality": "Austere, melancholic, strategic and far more dangerous than he appears."
+        "personality": "Austere, melancholic, strategic and far more dangerous than he appears.",
+        "concept": "Survival and endgames",
+        "fragment": "Survival"
       },
       "solenne": {
         "title": "The Eighth Step",
@@ -959,9 +981,65 @@
         "color": "Gold and ivory",
         "quote": "I wasn't born with a crown. I crossed the board to earn it.",
         "desc": "Solenne began as the smallest piece in an anonymous rank. She advanced one square at a time, survived seven impossible lines and reached the far end without forgetting where she came from. Her transformation never ends: the pawn base remains visible beneath a crown built step by step.",
-        "personality": "Determined, humble, inspiring and resilient."
+        "personality": "Determined, humble, inspiring and resilient.",
+        "concept": "Passed pawns and promotion",
+        "fragment": "Ascension"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "The First Move",
+        "tagline": "Eight awakenings. A board that remembers having been played.",
+        "premise": "Before the Vexborn, there were only motionless squares and unplayed games. When Kael left his square, the board awoke and released seven pulses of energy, each one a distinct way of understanding chess. One by one the Origins awaken... until Ordan discovers something unsettling: they are not building the board, they are restoring it. At the center, sealed, waits the silhouette of a Crown.",
+        "status": "Available"
+      },
+      "crownfall": {
+        "name": "Vexborn: Crownfall",
+        "subtitle": "The Fractured Crown",
+        "tagline": "Eight fragments. One crown. No move without consequences.",
+        "premise": "The Crown of the Nexus held every strategy on the board in balance. When Rhazek executed an impossible sacrifice and opened the Last File, Vesra forced Malrec to break it so that no single will could dominate it. The Crown was not destroyed: it split into eight Fragments that chose eight bearers. Oryn summons you to gather them before someone reassembles it under a single will.",
+        "status": "Available"
+      },
+      "nullvariation": {
+        "name": "Vexborn: The Null Variation",
+        "subtitle": "The Empty Variation",
+        "tagline": "A single perfect game. No choices.",
+        "premise": "When the eight Fragments are gathered, a ninth empty socket appears. It never belonged to the Crown: it was the seal that kept NULL off the board. It had been watching since Kael's very first move. Where the Vexborn are color, choice and identity, NULL seeks the opposite: a single perfect game in which no one can err, improvise or sacrifice.",
+        "status": "On the horizon"
+      }
+    },
+    "codex": {
+      "eyebrow": "VEXCHESS Universe",
+      "title": "Vexborn Codex",
+      "intro": "The Vexborn grant no stats or advantages: they turn real chess concepts into characters you play, learn and remember. Each one opens a Path of Mastery, a Chronicle and a concept you can master."
+    },
+    "timeline": {
+      "title": "Timeline",
+      "act1": "I · The First Move — the board awakens.",
+      "act2": "II · Crownfall — the Crown fractures into eight.",
+      "act3": "III · The Null Variation — something was watching from before the first move."
+    },
+    "concept": {
+      "label": "What it masters"
+    },
+    "fragmentLabel": "Fragment of the Crown",
+    "chronicleLabel": "Chronicle",
+    "mastery": {
+      "label": "Path of Mastery",
+      "teaser": "5 chapters that teach its concept · coming soon",
+      "note": "No competitive advantage: only learning, narrative and collection."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "The colorless anomaly",
+      "desc": "It is neither a Vexborn nor a piece. NULL lives off the board, made of every game that was calculated but never played. It is the absence of choice: a board where only «the correct move» exists.",
+      "signal": "NULL has observed every variation.",
+      "status": "Off the board"
+    },
+    "expLocked": "On the horizon",
+    "expChampions": "{count} champions",
+    "soonBadge": "Coming soon"
   },
   "auth": {
     "role": {

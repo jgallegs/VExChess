@@ -824,7 +824,8 @@
         "color": "VEX-owa czerwień",
         "quote": "Szachownica nie budzi się, dopóki ktoś nie odważy się wykonać ruchu.",
         "desc": "Kael był pierwszą figurą, która opuściła swoje pole, gdy szachownica była jeszcze pusta. Nie służy żadnemu jeźdźcowi: jest impulsem, który zmienia nieruchomą pozycję w partię. Gwiazda na jego piersi rozbłyska za każdym razem, gdy ktoś przejmuje inicjatywę, nie znając jeszcze wyniku.",
-        "personality": "Odważny, bezpośredni, niespokojny i zaraźliwie ambitny."
+        "personality": "Odważny, bezpośredni, niespokojny i zaraźliwie ambitny.",
+        "concept": "Inicjatywa, rozwój i tempo"
       },
       "aurelia": {
         "title": "Cicha Korona",
@@ -833,7 +834,8 @@
         "color": "Kość słoniowa i złoto",
         "quote": "Najsilniejszy ruch nie musi być zapowiadany.",
         "desc": "Aurelia kontempluje szachownicę z zamkniętymi oczami, twierdząc, że figury zdradzają więcej, gdy się na nie nie patrzy. Jej złote fragmenty orbitują wokół każdej możliwości i zatrzymują się dopiero, gdy istnieje idealna sekwencja. Nigdy nie świętuje mata; dla niej partia skończyła się dużo wcześniej.",
-        "personality": "Spokojna, elegancka, wymagająca i absolutnie pewna siebie."
+        "personality": "Spokojna, elegancka, wymagająca i absolutnie pewna siebie.",
+        "concept": "Kalkulacja i wybór wariantu"
       },
       "bastion": {
         "title": "Ostatni Mur",
@@ -842,7 +844,8 @@
         "color": "Kobalt",
         "quote": "Dopóki jedna linia trzyma się razem, nikt nie jest sam.",
         "desc": "Bastion przebudził się jako izolowana wieża, ale odkrył, że może połączyć swoje węzły z każdą twierdzą na szachownicy. Jego bariery nie chronią tylko pól: tworzą bezpieczne szlaki między sojusznikami. Gdy wszystkie obrony padają, jego sieć utrzymuje zapaloną ostatnią linię.",
-        "personality": "Lojalny, techniczny, opiekuńczy i nieco zbyt dosłowny."
+        "personality": "Lojalny, techniczny, opiekuńczy i nieco zbyt dosłowny.",
+        "concept": "Połączone wieże i obrona"
       },
       "nyra": {
         "title": "Zasłonięta Przekątna",
@@ -851,7 +854,8 @@
         "color": "Fiolet",
         "quote": "Nigdy nie stałam przed tobą. Byłam w kącie, o którym zapomniałeś.",
         "desc": "Nyra kroczy po przekątnej położonej między widoczną szachownicą a jej odbiciem. Świetlisty otwór jej maski pozwala jej przenikać obie powierzchnie i pojawiać się tam, gdzie linia zdawała się zablokowana. Nikt nie zna jej twarzy — być może dlatego, że pod maską istnieje tylko kolejna przekątna.",
-        "personality": "Powściągliwa, precyzyjna, ironiczna i trudna do zaskoczenia."
+        "personality": "Powściągliwa, precyzyjna, ironiczna i trudna do zaskoczenia.",
+        "concept": "Przekątne, wiązania i infiltracja"
       },
       "pip": {
         "title": "Pierwsze Pole",
@@ -860,7 +864,8 @@
         "color": "Cyjan",
         "quote": "Cała szachownica mieści się przed pierwszym polem.",
         "desc": "Pip nie dotarł jeszcze do ostatniej linii i wcale mu się nie spieszy. Chce poznać każde pole, każdego przeciwnika i każdy możliwy sposób, by iść naprzód. Jego mała gwiazda pojawia się, gdy znajdzie nową trasę; dlatego zwykle jako pierwszy wchodzi w miejsca, które ważne figury uważają za nieistotne.",
-        "personality": "Ciekawski, optymistyczny, wytrwały i odważniejszy, niż sam sądzi."
+        "personality": "Ciekawski, optymistyczny, wytrwały i odważniejszy, niż sam sądzi.",
+        "concept": "Struktura pionów i promocja"
       },
       "ordan": {
         "title": "Wieczny Król",
@@ -869,7 +874,8 @@
         "color": "Złoto",
         "quote": "Wieczność polega na znalezieniu jeszcze jednego pola.",
         "desc": "Ordan pamięta końcówki rozgrywane, zanim istniały zegary. Konstelacje jego korony przedstawiają szachy, przed którymi zdołał uciec, a nie zwycięstwa. Jego moc nie płynie z podboju szachownicy, lecz ze zrozumienia, że nawet król musi ugiąć się przed właściwą pozycją.",
-        "personality": "Mądry, surowy, cierpliwy i opiekuńczy wobec nowych graczy."
+        "personality": "Mądry, surowy, cierpliwy i opiekuńczy wobec nowych graczy.",
+        "concept": "Bezpieczeństwo króla i końcówki"
       },
       "noctis": {
         "title": "Czarne Widły",
@@ -878,7 +884,8 @@
         "color": "Grafit i cyjan",
         "quote": "Jeśli mnie widzisz, już bronisz niewłaściwej figury.",
         "desc": "Noctis nie przemierza ciemności: on ją dzieli. Każdy skok pozostawia dwa cienie atakujące różne cele, podczas gdy jego prawdziwe ciało pozostaje na jedynym polu, którego nikt nie pilnował. Jego cyjanowe oko oblicza dokładną chwilę, w której jedno zagrożenie staje się dwoma.",
-        "personality": "Cichy, przebiegły, niezależny i zawzięcie precyzyjny."
+        "personality": "Cichy, przebiegły, niezależny i zawzięcie precyzyjny.",
+        "concept": "Widełki i podwójne groźby"
       },
       "eira-vhal": {
         "title": "Rywale Nexusa",
@@ -887,7 +894,8 @@
         "color": "Kość słoniowa i kobalt",
         "quote": "Nie biegniemy, by się pokonać. Biegniemy, by odkryć, kim będziemy u celu.",
         "desc": "Eira narodziła się ze światła szachownicy, a Vhal z burzy, która pojawiła się w jej odbiciu. Oboje ścigają ten sam złoty nexus, podążając przeciwnymi drogami. Remisowali tyle razy, że ich rywalizacja przerodziła się w przyjaźń, choć żadne z nich nie wypowiedziałoby tego słowa przy drugim.",
-        "personality": "Eira jest zdyscyplinowana i spokojna; Vhal — impulsywny i dumny. Razem są nierozłączni."
+        "personality": "Eira jest zdyscyplinowana i spokojna; Vhal — impulsywny i dumny. Razem są nierozłączni.",
+        "concept": "Porównywanie posunięć kandydujących"
       },
       "rhazek": {
         "title": "Karmazynowy Gambit",
@@ -896,7 +904,9 @@
         "color": "Taktyczna czerwień",
         "quote": "Figura to niewielka cena za całą szachownicę.",
         "desc": "Rhazek nigdy nie szuka bezpiecznego pola. Narodził się z pierwszej dobrowolnie poświęconej figury i nauczył się, że pozorna porażka może otworzyć jedyną drogę do zwycięstwa. Jego zbroja nosi ślad każdego gambitu, którego nikt nie odważył się przyjąć.",
-        "personality": "Śmiały, prowokujący, błyskotliwy i niebezpiecznie niecierpliwy."
+        "personality": "Śmiały, prowokujący, błyskotliwy i niebezpiecznie niecierpliwy.",
+        "concept": "Poprawne poświęcenia i inicjatywa",
+        "fragment": "Poświęcenie"
       },
       "oryn": {
         "title": "Strażnik Ostatniej Kolumny",
@@ -905,7 +915,9 @@
         "color": "Kość słoniowa i kobalt",
         "quote": "Każda partia zostawia prawdę w ostatniej kolumnie.",
         "desc": "Oryn strzeże archiwum zapomnianych partii. Jego wstęgi zawierają pozycje, które już nie istnieją, a jego wieże przechowują decyzje, których żaden gracz nie pamięta, że podjął. Gdy kolumna pozostaje otwarta, to on decyduje, czy prowadzi ona do zwycięstwa, czy w pustkę.",
-        "personality": "Uroczysty, cierpliwy, bezstronny i opętany zachowaniem każdego ruchu."
+        "personality": "Uroczysty, cierpliwy, bezstronny i opętany zachowaniem każdego ruchu.",
+        "concept": "Otwarte linie i analiza",
+        "fragment": "Pamięć"
       },
       "vesra": {
         "title": "Królowa Zugzwangu",
@@ -914,7 +926,9 @@
         "color": "Fiolet",
         "quote": "Możesz wybrać dowolny ruch. Wszystkie należą do mnie.",
         "desc": "Vesra nie unieruchamia wrogów: obdarowuje ich możliwościami. Każda alternatywa jest częścią sieci obliczonej na długo przed początkiem partii. Jej widmowe dłonie nie ruszają figur; usuwają wyjścia, które nigdy nie były prawdziwe.",
-        "personality": "Spokojna, majestatyczna, chłodno rozumna i niepokojąco uprzejma."
+        "personality": "Spokojna, majestatyczna, chłodno rozumna i niepokojąco uprzejma.",
+        "concept": "Zugzwang i ograniczanie",
+        "fragment": "Ograniczenie"
       },
       "brakkon": {
         "title": "Żywa Twierdza",
@@ -923,7 +937,9 @@
         "color": "Kobalt",
         "quote": "Niech całe królestwo idzie naprzód. Ja zostanę tutaj.",
         "desc": "Brakkon nie zamieszkuje twierdzy: on jest twierdzą. Przebudził się, gdy całe królestwo schroniło się za ostatnią wieżą, która została na nogach. Każde uderzenie dodaje nowy kamień do jego murów, a każdy ochroniony sojusznik zasila rdzeń płonący pod jego blankami.",
-        "personality": "Opiekuńczy, cichy, lojalny i absolutnie niewzruszony."
+        "personality": "Opiekuńczy, cichy, lojalny i absolutnie niewzruszony.",
+        "concept": "Obrona i koordynacja",
+        "fragment": "Odporność"
       },
       "ilyra": {
         "title": "Kryształowy Goniec",
@@ -932,7 +948,9 @@
         "color": "Cyjan i kość słoniowa",
         "quote": "Jedna przekątna wystarczy, gdy światło znajdzie właściwy kąt.",
         "desc": "Ilyra postrzega szachownicę jako strukturę światła. Potrafi przecinać długie przekątne, rozbijać zagrożenie na nieszkodliwe odbicia i odkrywać linie niewidoczne dla innych. Każda szczelina jej ciała zachowuje pamięć idealnego obliczenia.",
-        "personality": "Precyzyjna, powściągliwa, ciekawska i zaskakująco współczująca."
+        "personality": "Precyzyjna, powściągliwa, ciekawska i zaskakująco współczująca.",
+        "concept": "Przekątne i wiązania rentgenowskie",
+        "fragment": "Jasność"
       },
       "tikk": {
         "title": "Biegacz Zegara",
@@ -941,7 +959,9 @@
         "color": "Cyjan",
         "quote": "Nie potrzebuję więcej czasu. Potrzebuję tylko twojej ostatniej sekundy.",
         "desc": "Tikk został zbudowany, by naciskać zegar, ale postanowił biec, zanim ktokolwiek zdążył go nakręcić. Przecina zamrożone pozycje, kradnie utracone chwile i zawsze dociera na ósmą linię o ułamek wcześniej niż to niemożliwe. Nikt nie wie, czy ogromny zegar na jego plecach jest zepsuty, czy po prostu wyprzedza czas.",
-        "personality": "Psotny, szybki, optymistyczny i zawzięcie ambitny."
+        "personality": "Psotny, szybki, optymistyczny i zawzięcie ambitny.",
+        "concept": "Tempo i zegar",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "Król bez Korony",
@@ -950,7 +970,9 @@
         "color": "Grafit i złoto",
         "quote": "Królestwo może upaść. Król wciąż musi ruszać.",
         "desc": "Malrec stracił armię, tron, a nawet prawo do noszenia pełnej korony. Zachował tylko jednego pionka z kości słoniowej i obowiązek utrzymania go przy życiu. Łańcuchy, które ciągnie, tworzą pola jego dawnego królestwa; każde pamięta odwrót, którego odmówił nazwania porażką.",
-        "personality": "Surowy, melancholijny, strategiczny i o wiele groźniejszy, niż się wydaje."
+        "personality": "Surowy, melancholijny, strategiczny i o wiele groźniejszy, niż się wydaje.",
+        "concept": "Przetrwanie i końcówki",
+        "fragment": "Przetrwanie"
       },
       "solenne": {
         "title": "Ósmy Krok",
@@ -959,9 +981,65 @@
         "color": "Złoto i kość słoniowa",
         "quote": "Nie urodziłam się z koroną. Przeszłam całą szachownicę, by ją sobie wywalczyć.",
         "desc": "Solenne zaczęła jako najmniejsza figura w anonimowym rzędzie. Szła naprzód o jedno pole naraz, przetrwała siedem niemożliwych linii i dotarła na przeciwległy kraniec, nie zapominając, skąd pochodzi. Jej przemiana nigdy się nie kończy: podstawa pionka pozostaje widoczna pod koroną budowaną krok po kroku.",
-        "personality": "Zdeterminowana, pokorna, inspirująca i wytrzymała."
+        "personality": "Zdeterminowana, pokorna, inspirująca i wytrzymała.",
+        "concept": "Piony wolne i promocja",
+        "fragment": "Wyniesienie"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "Pierwsze Posunięcie",
+        "tagline": "Osiem przebudzeń. Szachownica, która pamięta, że kiedyś w nią grano.",
+        "premise": "Zanim pojawili się Vexborn, istniały tylko nieruchome pola i nierozegrane partie. Gdy Kael opuścił swoje pole, szachownica przebudziła się i uwolniła siedem impulsów energii, każdy będący odmiennym sposobem pojmowania szachów. Jeden po drugim budzą się Origins… aż Ordan odkrywa coś niepokojącego: oni nie budują szachownicy, oni ją odbudowują. W centrum, zapieczętowana, czeka sylwetka Korony.",
+        "status": "Dostępne"
+      },
+      "crownfall": {
+        "name": "Vexborn: Crownfall",
+        "subtitle": "Pęknięta Korona",
+        "tagline": "Osiem fragmentów. Jedna korona. Żadnego posunięcia bez konsekwencji.",
+        "premise": "Korona Nexusa utrzymywała w równowadze wszystkie strategie szachownicy. Gdy Rhazek wykonał niemożliwe poświęcenie i otworzył Ostatnią Kolumnę, Vesra zmusiła Malreca, by ją rozbił, aby żadna wola jej nie zdominowała. Korona nie została zniszczona: rozpadła się na osiem Fragmentów, które wybrały ośmiu nosicieli. Oryn wzywa cię, byś zebrał je, zanim ktoś złoży ją z powrotem pod jedną wolą.",
+        "status": "Dostępne"
+      },
+      "nullvariation": {
+        "name": "Vexborn: The Null Variation",
+        "subtitle": "Pusty Wariant",
+        "tagline": "Jedna jedyna doskonała partia. Żadnego wyboru.",
+        "premise": "Po zebraniu ośmiu Fragmentów pojawia się dziewiąta, pusta wnęka. Nigdy nie należała do Korony: była pieczęcią trzymającą NULL poza szachownicą. Obserwował od pierwszego posunięcia Kaela. Tam gdzie Vexborn są kolorem, wyborem i tożsamością, NULL pragnie przeciwieństwa: jednej jedynej doskonałej partii, w której nikt nie może się pomylić, improwizować ani poświęcać.",
+        "status": "Na horyzoncie"
+      }
+    },
+    "codex": {
+      "eyebrow": "Uniwersum VEXCHESS",
+      "title": "Kodeks Vexborn",
+      "intro": "Vexborn nie dają statystyk ani przewag: przekształcają prawdziwe koncepcje szachowe w postacie, którymi się gra, których się uczy i które się zapamiętuje. Każda otwiera Ścieżkę Mistrzostwa, Kronikę oraz koncept, który możesz opanować."
+    },
+    "timeline": {
+      "title": "Kalendarium",
+      "act1": "I · Pierwsze Posunięcie — szachownica się budzi.",
+      "act2": "II · Crownfall — Korona pęka na osiem części.",
+      "act3": "III · The Null Variation — coś obserwowało już przed pierwszym posunięciem."
+    },
+    "concept": {
+      "label": "Co opanowuje"
+    },
+    "fragmentLabel": "Fragment Korony",
+    "chronicleLabel": "Kronika",
+    "mastery": {
+      "label": "Ścieżka Mistrzostwa",
+      "teaser": "5 rozdziałów uczących jej konceptu · wkrótce",
+      "note": "Bez przewagi rywalizacyjnej: wyłącznie nauka, narracja i kolekcja."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "Anomalia bez koloru",
+      "desc": "To nie jest ani Vexborn, ani figura. NULL żyje poza szachownicą, utkany ze wszystkich partii, które obliczono, lecz nigdy nie rozegrano. Jest brakiem wyboru: szachownicą, na której istnieje tylko «poprawne posunięcie».",
+      "signal": "NULL obserwował wszystkie warianty.",
+      "status": "Poza szachownicą"
+    },
+    "expLocked": "Na horyzoncie",
+    "expChampions": "{count} mistrzów",
+    "soonBadge": "Wkrótce"
   },
   "auth": {
     "role": {

@@ -136,3 +136,72 @@ body.vb-page { min-height: 100vh; }
 /* ---------- Toast ---------- */
 .vb-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translate(-50%, 1rem); z-index: 600; background: var(--panel); border: var(--hair) solid var(--border); color: var(--text); padding: 0.7rem 1.1rem; border-radius: 0.7rem; box-shadow: 0 1rem 2rem rgba(0,0,0,.5); opacity: 0; transition: opacity .2s, transform .2s; font-weight: 600; font-size: 0.88rem; }
 .vb-toast.in { opacity: 1; transform: translate(-50%, 0); }
+
+/* ============================================================
+   CÓDICE — intro, timeline, expansiones, concepto y NULL
+   ============================================================ */
+/* Héroe: variante códice (sin equipar) y fondo banner (equipado) */
+.vb-hero.codex { grid-template-columns: 1fr; text-align: center; }
+.vb-hero.codex .vb-hero-body.wide { max-width: 46rem; margin: 0 auto; }
+.vb-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: .28; filter: blur(2px) saturate(1.1); transform: scale(1.05); pointer-events: none; }
+.vb-hero.equipped .vb-hero-art, .vb-hero.equipped .vb-hero-body { position: relative; z-index: 1; }
+.vb-chip-concept { font: 700 0.78rem 'Inter', sans-serif; color: var(--text); background: color-mix(in srgb, var(--rar, var(--accent)) 16%, var(--panel-2)); border: var(--hair) solid color-mix(in srgb, var(--rar, var(--accent)) 40%, var(--border)); padding: 0.24rem 0.7rem; border-radius: 999px; }
+
+.vb-codex-intro { color: var(--muted); max-width: 52rem; margin: 0 auto 2rem; text-align: center; line-height: 1.6; }
+
+/* Timeline del universo */
+.vb-timeline { margin: 0 0 2.4rem; }
+.vb-tl-title { font: 800 1.05rem 'Oxanium', sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 1rem; text-align: center; }
+.vb-tl { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; max-width: 46rem; margin: 0 auto; }
+.vb-tl-act { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.7rem 0.95rem; border: var(--hair) solid var(--border); border-radius: 0.75rem; background: var(--panel); font-size: 0.92rem; line-height: 1.4; }
+.vb-tl-act .vb-tl-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; margin-top: 0.28rem; flex: none; background: var(--accent); box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent) 30%, transparent); }
+.vb-tl-act.future { opacity: .62; border-style: dashed; }
+.vb-tl-act.future .vb-tl-dot { background: #8892A0; box-shadow: 0 0 0 0.2rem rgba(136,146,160,.2); }
+
+/* Sección de expansión */
+.vb-exp { margin: 0 0 2.8rem; }
+.vb-exp-head { position: relative; border-radius: 1.1rem; overflow: hidden; border: var(--hair) solid var(--border); margin-bottom: 1rem; min-height: 12rem; display: flex; align-items: flex-end;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--acc) 22%, var(--panel)) 0%, var(--panel) 70%); }
+.vb-exp-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: .5; }
+.vb-exp-head::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, var(--panel) 4%, transparent 65%), linear-gradient(90deg, color-mix(in srgb, var(--acc) 30%, transparent), transparent 60%); }
+.vb-exp-head-in { position: relative; z-index: 1; padding: clamp(1.1rem, 3vw, 1.8rem); }
+.vb-exp-status { display: inline-block; font: 800 0.7rem 'Inter', sans-serif; text-transform: uppercase; letter-spacing: .1em; padding: 0.22rem 0.6rem; border-radius: 999px; background: color-mix(in srgb, var(--acc) 26%, #000); color: #fff; border: var(--hair) solid color-mix(in srgb, var(--acc) 55%, transparent); }
+.vb-exp-name { font: 800 clamp(1.5rem, 4vw, 2.2rem) 'Oxanium', sans-serif; margin: 0.5rem 0 0.1rem; }
+.vb-exp-sub { font: 700 1rem 'Oxanium', sans-serif; color: color-mix(in srgb, var(--acc) 70%, var(--text)); margin: 0; }
+.vb-exp-tag { font-style: italic; color: var(--text); margin: 0.5rem 0 0; opacity: .92; }
+.vb-exp-premise { color: var(--muted); line-height: 1.6; max-width: 54rem; margin: 0 0 0.8rem; }
+.vb-exp-count { font: 700 0.8rem 'Inter', sans-serif; color: var(--muted); margin-bottom: 0.9rem; }
+
+/* Tarjeta: concepto */
+.vb-card-concept { font: 700 0.74rem 'Inter', sans-serif; color: color-mix(in srgb, var(--rar, var(--accent)) 75%, var(--text)); display: block; margin-top: 0.15rem; }
+
+/* Ficha: concepto, fragmento, bloques, maestría */
+.vb-fi-concept, .vb-fi-fragment { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.6rem 0.8rem; border-radius: 0.7rem; margin-top: 0.7rem;
+  background: color-mix(in srgb, var(--rar, var(--accent)) 12%, var(--panel-2)); border: var(--hair) solid color-mix(in srgb, var(--rar, var(--accent)) 32%, var(--border)); }
+.vb-fi-concept span, .vb-fi-fragment span { font: 700 0.72rem 'Inter', sans-serif; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.vb-fi-concept b, .vb-fi-fragment b { font: 800 0.92rem 'Inter', sans-serif; text-align: right; }
+.vb-fi-block { margin-top: 0.9rem; }
+.vb-fi-block > span { font: 700 0.72rem 'Inter', sans-serif; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+.vb-fi-block > p { margin: 0.25rem 0 0; line-height: 1.55; color: var(--text); }
+.vb-fi-mastery { margin-top: 1rem; padding: 0.85rem 0.95rem; border-radius: 0.75rem; border: var(--hair) dashed color-mix(in srgb, var(--rar, var(--accent)) 45%, var(--border)); background: var(--panel-2); display: flex; flex-direction: column; gap: 0.15rem; }
+.vb-fi-mastery b { font: 800 0.9rem 'Oxanium', sans-serif; }
+.vb-fi-mastery span { font-size: 0.86rem; color: color-mix(in srgb, var(--rar, var(--accent)) 70%, var(--text)); }
+.vb-fi-mastery small { font-size: 0.76rem; color: var(--muted); }
+
+/* Teaser de NULL — el anti-Vexborn: vacío y uniformidad */
+.vb-null { position: relative; border-radius: 1.1rem; overflow: hidden; border: 1px solid #23262d; margin: 0 0 2.4rem; padding: clamp(1.4rem, 4vw, 2.4rem);
+  background: radial-gradient(60rem 30rem at 50% -20%, #14161a, #0a0b0d 70%); color: #c7ccd4; }
+.vb-null-void { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.015) 0 2px, transparent 2px 6px); pointer-events: none; }
+.vb-null-eval { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgba(255,255,255,.5); box-shadow: 0 0 1.2rem rgba(255,255,255,.4); animation: vbNullScan 6s linear infinite; }
+@keyframes vbNullScan { 0% { left: 8%; } 50% { left: 92%; } 100% { left: 8%; } }
+.vb-null-body { position: relative; z-index: 1; max-width: 46rem; }
+.vb-null-status { display: inline-block; font: 800 0.7rem 'Inter', sans-serif; text-transform: uppercase; letter-spacing: .14em; color: #7d8592; border: 1px solid #2a2e36; border-radius: 999px; padding: 0.22rem 0.7rem; }
+.vb-null-name { font: 900 clamp(2rem, 6vw, 3.2rem) 'Oxanium', sans-serif; letter-spacing: .16em; margin: 0.6rem 0 0.1rem; color: #eef1f5; text-shadow: 0 0 2rem rgba(255,255,255,.12); }
+.vb-null-sub { font: 700 1rem 'Oxanium', sans-serif; color: #8892A0; margin: 0; }
+.vb-null-tag { font-style: italic; color: #aeb4bd; margin: 0.6rem 0 0; }
+.vb-null-desc { color: #9aa1ab; line-height: 1.6; margin: 0.7rem 0 0; }
+.vb-null-signal { margin: 1rem 0 0; font: 800 0.95rem 'Oxanium', monospace; letter-spacing: .08em; color: #eef1f5; opacity: .9; }
+@media (max-width: 640px) {
+  .vb-fi-concept, .vb-fi-fragment { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+  .vb-fi-concept b, .vb-fi-fragment b { text-align: left; }
+}

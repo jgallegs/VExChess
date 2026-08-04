@@ -824,7 +824,8 @@
         "color": "Rosso VEX",
         "quote": "La scacchiera non si risveglia finché qualcuno non osa muovere.",
         "desc": "Kael fu il primo pezzo ad abbandonare la sua casella quando la scacchiera era ancora vuota. Non serve nessun cavaliere: è l'impulso che trasforma una posizione immobile in una partita. La stella sul suo petto si accende ogni volta che qualcuno prende l'iniziativa senza ancora conoscerne il risultato.",
-        "personality": "Coraggioso, diretto, irrequieto e contagiosamente competitivo."
+        "personality": "Coraggioso, diretto, irrequieto e contagiosamente competitivo.",
+        "concept": "Iniziativa, sviluppo e tempo"
       },
       "aurelia": {
         "title": "La Corona Silente",
@@ -833,7 +834,8 @@
         "color": "Avorio e oro",
         "quote": "La mossa più forte non ha bisogno di essere annunciata.",
         "desc": "Aurelia contempla la scacchiera a occhi chiusi perché afferma che i pezzi rivelano di più quando non li si guarda. I suoi frammenti dorati orbitano attorno a ogni possibilità e si fermano solo quando esiste una sequenza perfetta. Non celebra mai uno scacco matto; per lei, la partita è finita molto prima.",
-        "personality": "Serena, elegante, esigente e assolutamente sicura."
+        "personality": "Serena, elegante, esigente e assolutamente sicura.",
+        "concept": "Calcolo e scelta della variante"
       },
       "bastion": {
         "title": "L'Ultimo Muro",
@@ -842,7 +844,8 @@
         "color": "Cobalto",
         "quote": "Finché una linea resta unita, nessuno è solo.",
         "desc": "Bastion si risvegliò come una torre isolata, ma scoprì di poter collegare i suoi nodi con ogni fortezza della scacchiera. Le sue barriere non proteggono solo caselle: creano rotte sicure tra alleati. Quando tutte le difese cadono, la sua rete tiene accesa l'ultima linea.",
-        "personality": "Leale, tecnico, protettivo e un po' troppo letterale."
+        "personality": "Leale, tecnico, protettivo e un po' troppo letterale.",
+        "concept": "Torri connesse e difesa"
       },
       "nyra": {
         "title": "La Diagonale Velata",
@@ -851,7 +854,8 @@
         "color": "Viola",
         "quote": "Non sono mai stata davanti a te. Ero nell'angolo che avevi dimenticato.",
         "desc": "Nyra cammina lungo una diagonale posta tra la scacchiera visibile e il suo riflesso. L'apertura luminosa della sua maschera le permette di attraversare entrambe le superfici e apparire dove una linea sembrava bloccata. Nessuno conosce il suo volto, forse perché sotto la maschera esiste solo un'altra diagonale.",
-        "personality": "Riservata, precisa, ironica e difficile da sorprendere."
+        "personality": "Riservata, precisa, ironica e difficile da sorprendere.",
+        "concept": "Diagonali, inchiodature e infiltrazione"
       },
       "pip": {
         "title": "La Prima Casella",
@@ -860,7 +864,8 @@
         "color": "Ciano",
         "quote": "L'intera scacchiera entra davanti a una prima casella.",
         "desc": "Pip non ha ancora raggiunto l'ultima traversa e non ha fretta di farlo. Vuole conoscere ogni casella, ogni avversario e ogni possibile modo di avanzare. La sua piccola stella appare quando trova una rotta nuova; per questo di solito è il primo a entrare in luoghi che i pezzi importanti considerano insignificanti.",
-        "personality": "Curioso, ottimista, tenace e più coraggioso di quanto creda."
+        "personality": "Curioso, ottimista, tenace e più coraggioso di quanto creda.",
+        "concept": "Struttura pedonale e promozione"
       },
       "ordan": {
         "title": "Il Re Eterno",
@@ -869,7 +874,8 @@
         "color": "Oro",
         "quote": "L'eternità consiste nel trovare un'altra casella.",
         "desc": "Ordan ricorda finali giocati prima che esistessero gli orologi. Le costellazioni della sua corona rappresentano scacchi a cui è riuscito a sfuggire, non vittorie. Il suo potere non deriva dal conquistare la scacchiera, ma dal comprendere che perfino un re deve inchinarsi davanti alla posizione giusta.",
-        "personality": "Saggio, severo, paziente e protettivo con i nuovi giocatori."
+        "personality": "Saggio, severo, paziente e protettivo con i nuovi giocatori.",
+        "concept": "Sicurezza del re e finali"
       },
       "noctis": {
         "title": "La Forchetta Nera",
@@ -878,7 +884,8 @@
         "color": "Grafite e ciano",
         "quote": "Se riesci a vedermi, stai già difendendo il pezzo sbagliato.",
         "desc": "Noctis non attraversa l'oscurità: la divide. Ogni salto lascia due ombre che attaccano bersagli diversi, mentre il suo vero corpo rimane nell'unica casella che nessuno sorvegliava. Il suo occhio ciano calcola l'istante esatto in cui una minaccia diventa due.",
-        "personality": "Silenzioso, astuto, indipendente e ferocemente preciso."
+        "personality": "Silenzioso, astuto, indipendente e ferocemente preciso.",
+        "concept": "Forchette e doppie minacce"
       },
       "eira-vhal": {
         "title": "Rivali del Nexus",
@@ -887,7 +894,8 @@
         "color": "Avorio e cobalto",
         "quote": "Non corriamo per sconfiggerci. Corriamo per scoprire chi saremo all'arrivo.",
         "desc": "Eira nacque dalla luce della scacchiera e Vhal dalla tempesta apparsa nel suo riflesso. Entrambi inseguono lo stesso nexus dorato seguendo cammini opposti. Hanno pareggiato tante volte che la loro rivalità è diventata amicizia, anche se nessuno dei due accetterebbe di pronunciare quella parola davanti all'altro.",
-        "personality": "Eira è disciplinata e serena; Vhal, impulsivo e orgoglioso. Insieme sono inseparabili."
+        "personality": "Eira è disciplinata e serena; Vhal, impulsivo e orgoglioso. Insieme sono inseparabili.",
+        "concept": "Confrontare le mosse candidate"
       },
       "rhazek": {
         "title": "Il Gambetto Cremisi",
@@ -896,7 +904,9 @@
         "color": "Rosso tattico",
         "quote": "Un pezzo è un piccolo prezzo per l'intera scacchiera.",
         "desc": "Rhazek non cerca mai una casella sicura. Nacque dal primo pezzo sacrificato volontariamente e imparò che una sconfitta apparente può aprire l'unica strada verso la vittoria. La sua armatura conserva il segno di ogni gambetto che nessuno ha osato accettare.",
-        "personality": "Audace, provocatore, brillante e pericolosamente impaziente."
+        "personality": "Audace, provocatore, brillante e pericolosamente impaziente.",
+        "concept": "Sacrifici corretti e iniziativa",
+        "fragment": "Sacrificio"
       },
       "oryn": {
         "title": "Guardiano dell'Ultima Colonna",
@@ -905,7 +915,9 @@
         "color": "Avorio e cobalto",
         "quote": "Ogni partita lascia una verità nell'ultima colonna.",
         "desc": "Oryn custodisce l'archivio delle partite dimenticate. I suoi nastri contengono posizioni che non esistono più e le sue torri conservano decisioni che nessun giocatore ricorda di aver preso. Quando una colonna resta aperta, è lui a decidere se conduce alla vittoria o al vuoto.",
-        "personality": "Solenne, paziente, imparziale e ossessionato dal conservare ogni mossa."
+        "personality": "Solenne, paziente, imparziale e ossessionato dal conservare ogni mossa.",
+        "concept": "Colonne aperte e analisi",
+        "fragment": "Memoria"
       },
       "vesra": {
         "title": "Regina dello Zugzwang",
@@ -914,7 +926,9 @@
         "color": "Viola",
         "quote": "Puoi scegliere qualsiasi mossa. Mi appartengono tutte.",
         "desc": "Vesra non immobilizza i suoi nemici: concede loro possibilità. Ogni alternativa fa parte di una rete calcolata molto prima che la partita cominci. Le sue mani spettrali non muovono pezzi; ritirano le vie di fuga che non sono mai state reali.",
-        "personality": "Serena, maestosa, cerebrale e inquietantemente cortese."
+        "personality": "Serena, maestosa, cerebrale e inquietantemente cortese.",
+        "concept": "Zugzwang e restrizione",
+        "fragment": "Restrizione"
       },
       "brakkon": {
         "title": "La Fortezza Vivente",
@@ -923,7 +937,9 @@
         "color": "Cobalto",
         "quote": "Che avanzi tutto il regno. Io resterò qui.",
         "desc": "Brakkon non abita una fortezza: lui è la fortezza. Si risvegliò quando un intero regno si rifugiò dietro l'ultima torre rimasta in piedi. Ogni impatto aggiunge una nuova pietra alle sue mura e ogni alleato protetto alimenta il nucleo che arde sotto i suoi merli.",
-        "personality": "Protettivo, silenzioso, leale e assolutamente inamovibile."
+        "personality": "Protettivo, silenzioso, leale e assolutamente inamovibile.",
+        "concept": "Difesa e coordinazione",
+        "fragment": "Resistenza"
       },
       "ilyra": {
         "title": "Alfiere di Cristallo",
@@ -932,7 +948,9 @@
         "color": "Ciano e avorio",
         "quote": "Basta una diagonale quando la luce trova l'angolo giusto.",
         "desc": "Ilyra contempla la scacchiera come una struttura di luce. Può attraversare lunghe diagonali, dividere una minaccia in riflessi innocui e scoprire linee invisibili agli altri. Ogni crepa del suo corpo conserva il ricordo di un calcolo perfetto.",
-        "personality": "Precisa, distante, curiosa e sorprendentemente compassionevole."
+        "personality": "Precisa, distante, curiosa e sorprendentemente compassionevole.",
+        "concept": "Diagonali e raggi X",
+        "fragment": "Chiarezza"
       },
       "tikk": {
         "title": "Il Corridore dell'Orologio",
@@ -941,7 +959,9 @@
         "color": "Ciano",
         "quote": "Non mi serve più tempo. Mi serve solo il tuo ultimo secondo.",
         "desc": "Tikk fu costruito per premere un orologio, ma decise di correre prima che qualcuno potesse caricarlo. Attraversa posizioni congelate, ruba istanti perduti e arriva sempre all'ottava traversa una frazione prima dell'impossibile. Nessuno sa se l'enorme orologio sulla sua schiena sia rotto o semplicemente in anticipo.",
-        "personality": "Birichino, veloce, ottimista e ferocemente competitivo."
+        "personality": "Birichino, veloce, ottimista e ferocemente competitivo.",
+        "concept": "Tempo e l'orologio",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "Il Re senza Corona",
@@ -950,7 +970,9 @@
         "color": "Grafite e oro",
         "quote": "Un regno può cadere. Il re deve ancora muovere.",
         "desc": "Malrec perse il suo esercito, il suo trono e persino il diritto di portare una corona completa. Conservò solo un pedone d'avorio e l'obbligo di mantenerlo in vita. Le catene che trascina sono formate dalle caselle del suo antico regno; ognuna ricorda una ritirata che si rifiutò di chiamare sconfitta.",
-        "personality": "Austero, malinconico, strategico e molto più pericoloso di quanto sembri."
+        "personality": "Austero, malinconico, strategico e molto più pericoloso di quanto sembri.",
+        "concept": "Sopravvivenza e finali",
+        "fragment": "Sopravvivenza"
       },
       "solenne": {
         "title": "L'Ottavo Passo",
@@ -959,9 +981,65 @@
         "color": "Oro e avorio",
         "quote": "Non sono nata con una corona. Ho attraversato la scacchiera per guadagnarmela.",
         "desc": "Solenne cominciò come il pezzo più piccolo di una traversa anonima. Avanzò una casella alla volta, sopravvisse a sette linee impossibili e raggiunse l'estremo opposto senza dimenticare da dove veniva. La sua trasformazione non finisce mai: la base di pedone resta visibile sotto una corona costruita passo dopo passo.",
-        "personality": "Determinata, umile, ispiratrice e resistente."
+        "personality": "Determinata, umile, ispiratrice e resistente.",
+        "concept": "Pedoni passati e promozione",
+        "fragment": "Ascensione"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "La Prima Mossa",
+        "tagline": "Otto risvegli. Una scacchiera che ricorda di essere stata giocata.",
+        "premise": "Prima dei Vexborn esistevano solo caselle immobili e partite mai giocate. Quando Kael abbandonò la sua casella, la scacchiera si risvegliò e liberò sette impulsi di energia, ognuno un modo diverso di intendere gli scacchi. Uno a uno si risvegliano gli Origins... finché Ordan scopre qualcosa di inquietante: non stanno costruendo la scacchiera, la stanno restaurando. Al centro, sigillata, attende la sagoma di una Corona.",
+        "status": "Disponibile"
+      },
+      "crownfall": {
+        "name": "Vexborn: Crownfall",
+        "subtitle": "La Corona Frantumata",
+        "tagline": "Otto frammenti. Una corona. Nessuna mossa senza conseguenze.",
+        "premise": "La Corona del Nexus manteneva in equilibrio tutte le strategie della scacchiera. Quando Rhazek eseguì un sacrificio impossibile e aprì l'Ultima Colonna, Vesra costrinse Malrec a spezzarla affinché nessuna volontà potesse dominarla. La Corona non fu distrutta: si divise in otto Frammenti che scelsero otto portatori. Oryn ti convoca per riunirli prima che qualcuno la ricomponga sotto un'unica volontà.",
+        "status": "Disponibile"
+      },
+      "nullvariation": {
+        "name": "Vexborn: The Null Variation",
+        "subtitle": "La Variante Vuota",
+        "tagline": "Un'unica partita perfetta. Nessuna scelta.",
+        "premise": "Riunendo gli otto Frammenti appare una nona cavità vuota. Non appartenne mai alla Corona: era il sigillo che teneva NULL fuori dalla scacchiera. Osservava fin dalla prima mossa di Kael. Dove i Vexborn sono colore, scelta e identità, NULL cerca l'opposto: un'unica partita perfetta in cui nessuno possa sbagliare, improvvisare o sacrificare.",
+        "status": "All'orizzonte"
+      }
+    },
+    "codex": {
+      "eyebrow": "Universo VEXCHESS",
+      "title": "Codice Vexborn",
+      "intro": "I Vexborn non conferiscono statistiche né vantaggi: trasformano concetti reali degli scacchi in personaggi che si giocano, si imparano e si ricordano. Ognuno apre una Via della Maestria, una Cronaca e un concetto che puoi padroneggiare."
+    },
+    "timeline": {
+      "title": "Cronologia",
+      "act1": "I · La Prima Mossa — la scacchiera si risveglia.",
+      "act2": "II · Crownfall — la Corona si frantuma in otto.",
+      "act3": "III · The Null Variation — qualcosa osservava già prima della prima mossa."
+    },
+    "concept": {
+      "label": "Ciò che padroneggia"
+    },
+    "fragmentLabel": "Frammento della Corona",
+    "chronicleLabel": "Cronaca",
+    "mastery": {
+      "label": "Via della Maestria",
+      "teaser": "5 capitoli che insegnano il suo concetto · prossimamente",
+      "note": "Nessun vantaggio competitivo: solo apprendimento, narrazione e collezione."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "L'anomalia senza colore",
+      "desc": "Non è un Vexborn né un pezzo. NULL vive fuori dalla scacchiera, fatto di tutte le partite che furono calcolate ma mai giocate. È l'assenza di scelta: una scacchiera dove esiste solo «la mossa corretta».",
+      "signal": "NULL ha osservato tutte le varianti.",
+      "status": "Fuori dalla scacchiera"
+    },
+    "expLocked": "All'orizzonte",
+    "expChampions": "{count} campioni",
+    "soonBadge": "Prossimamente"
   },
   "auth": {
     "role": {

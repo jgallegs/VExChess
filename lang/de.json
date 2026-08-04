@@ -824,7 +824,8 @@
         "color": "VEX-Rot",
         "quote": "Das Brett erwacht nicht, bis jemand den Mut hat zu ziehen.",
         "desc": "Kael war die erste Figur, die ihr Feld verließ, als das Brett noch leer war. Er dient keinem Reiter: Er ist der Impuls, der eine reglose Stellung in eine Partie verwandelt. Der Stern auf seiner Brust leuchtet auf, sobald jemand die Initiative ergreift, ohne das Ergebnis schon zu kennen.",
-        "personality": "Mutig, direkt, rastlos und ansteckend wettbewerbsfreudig."
+        "personality": "Mutig, direkt, rastlos und ansteckend wettbewerbsfreudig.",
+        "concept": "Initiative, Entwicklung und Tempo"
       },
       "aurelia": {
         "title": "Die Stille Krone",
@@ -833,7 +834,8 @@
         "color": "Elfenbein und Gold",
         "quote": "Der stärkste Zug muss nicht angekündigt werden.",
         "desc": "Aurelia betrachtet das Brett mit geschlossenen Augen, denn sie behauptet, die Figuren offenbaren mehr, wenn man sie nicht ansieht. Ihre goldenen Fragmente umkreisen jede Möglichkeit und halten nur inne, wenn eine perfekte Zugfolge existiert. Sie feiert nie ein Schachmatt; für sie war die Partie längst vorher entschieden.",
-        "personality": "Gelassen, elegant, anspruchsvoll und absolut sicher."
+        "personality": "Gelassen, elegant, anspruchsvoll und absolut sicher.",
+        "concept": "Berechnung und Wahl der Variante"
       },
       "bastion": {
         "title": "Die Letzte Mauer",
@@ -842,7 +844,8 @@
         "color": "Kobalt",
         "quote": "Solange eine Linie verbunden bleibt, ist niemand allein.",
         "desc": "Bastion erwachte als isolierter Turm, entdeckte aber, dass er seine Knoten mit jeder Festung des Bretts verbinden konnte. Seine Barrieren schützen nicht nur Felder: Sie schaffen sichere Wege zwischen Verbündeten. Wenn alle Verteidigungen fallen, hält sein Netz die letzte Linie am Leuchten.",
-        "personality": "Loyal, technisch, beschützend und etwas zu wörtlich."
+        "personality": "Loyal, technisch, beschützend und etwas zu wörtlich.",
+        "concept": "Verbundene Türme und Verteidigung"
       },
       "nyra": {
         "title": "Die Verhüllte Diagonale",
@@ -851,7 +854,8 @@
         "color": "Violett",
         "quote": "Ich stand nie vor dir. Ich war in dem Winkel, den du vergessen hast.",
         "desc": "Nyra wandelt auf einer Diagonale, die zwischen dem sichtbaren Brett und seinem Spiegelbild liegt. Der leuchtende Spalt ihrer Maske erlaubt ihr, beide Oberflächen zu durchqueren und dort zu erscheinen, wo eine Linie blockiert schien. Niemand kennt ihr Gesicht, vielleicht weil unter der Maske nur eine weitere Diagonale existiert.",
-        "personality": "Zurückhaltend, präzise, ironisch und schwer zu überraschen."
+        "personality": "Zurückhaltend, präzise, ironisch und schwer zu überraschen.",
+        "concept": "Diagonalen, Fesselungen und Infiltration"
       },
       "pip": {
         "title": "Das Erste Feld",
@@ -860,7 +864,8 @@
         "color": "Cyan",
         "quote": "Das ganze Brett passt vor ein erstes Feld.",
         "desc": "Pip hat die letzte Reihe noch nicht erreicht und hat es damit nicht eilig. Er will jedes Feld, jeden Gegner und jede mögliche Art vorzurücken kennenlernen. Sein kleiner Stern erscheint, wenn er einen neuen Weg findet; deshalb ist er oft der Erste, der Orte betritt, die wichtige Figuren für unbedeutend halten.",
-        "personality": "Neugierig, optimistisch, ausdauernd und mutiger, als er glaubt."
+        "personality": "Neugierig, optimistisch, ausdauernd und mutiger, als er glaubt.",
+        "concept": "Bauernstruktur und Umwandlung"
       },
       "ordan": {
         "title": "Der Ewige König",
@@ -869,7 +874,8 @@
         "color": "Gold",
         "quote": "Ewigkeit besteht darin, ein weiteres Feld zu finden.",
         "desc": "Ordan erinnert sich an Endspiele, die gespielt wurden, bevor es Uhren gab. Die Sternbilder seiner Krone stehen für Schachs, denen er entkam, nicht für Siege. Seine Macht rührt nicht daher, das Brett zu erobern, sondern zu begreifen, dass sich selbst ein König der richtigen Stellung beugen muss.",
-        "personality": "Weise, streng, geduldig und beschützend gegenüber neuen Spielern."
+        "personality": "Weise, streng, geduldig und beschützend gegenüber neuen Spielern.",
+        "concept": "Königssicherheit und Endspiele"
       },
       "noctis": {
         "title": "Die Schwarze Gabel",
@@ -878,7 +884,8 @@
         "color": "Graphit und Cyan",
         "quote": "Wenn du mich sehen kannst, verteidigst du bereits die falsche Figur.",
         "desc": "Noctis durchdringt die Dunkelheit nicht: Er teilt sie. Jeder Sprung hinterlässt zwei Schatten, die verschiedene Ziele angreifen, während sein wahrer Körper auf dem einzigen Feld verbleibt, das niemand bewachte. Sein cyanfarbenes Auge berechnet den genauen Augenblick, in dem aus einer Drohung zwei werden.",
-        "personality": "Schweigsam, listig, unabhängig und erbarmungslos präzise."
+        "personality": "Schweigsam, listig, unabhängig und erbarmungslos präzise.",
+        "concept": "Gabeln und Doppeldrohungen"
       },
       "eira-vhal": {
         "title": "Rivalen des Nexus",
@@ -887,7 +894,8 @@
         "color": "Elfenbein und Kobalt",
         "quote": "Wir laufen nicht, um uns zu besiegen. Wir laufen, um zu entdecken, wer wir am Ziel sein werden.",
         "desc": "Eira wurde aus dem Licht des Bretts geboren und Vhal aus dem Sturm, der in seinem Spiegelbild erschien. Beide jagen denselben goldenen Nexus auf entgegengesetzten Wegen. Sie haben so oft unentschieden gespielt, dass ihre Rivalität zur Freundschaft wurde, auch wenn keiner von beiden dieses Wort vor dem anderen aussprechen würde.",
-        "personality": "Eira ist diszipliniert und gelassen; Vhal impulsiv und stolz. Zusammen sind sie unzertrennlich."
+        "personality": "Eira ist diszipliniert und gelassen; Vhal impulsiv und stolz. Zusammen sind sie unzertrennlich.",
+        "concept": "Kandidatenzüge vergleichen"
       },
       "rhazek": {
         "title": "Das Karmesin-Gambit",
@@ -896,7 +904,9 @@
         "color": "Taktisches Rot",
         "quote": "Eine Figur ist ein kleiner Preis für das ganze Brett.",
         "desc": "Rhazek sucht niemals ein sicheres Feld. Er entstand aus der ersten freiwillig geopferten Figur und lernte, dass eine scheinbare Niederlage den einzigen Weg zum Sieg öffnen kann. Seine Rüstung trägt das Zeichen jedes Gambits, das niemand anzunehmen wagte.",
-        "personality": "Kühn, provokant, brillant und gefährlich ungeduldig."
+        "personality": "Kühn, provokant, brillant und gefährlich ungeduldig.",
+        "concept": "Korrekte Opfer und Initiative",
+        "fragment": "Opfer"
       },
       "oryn": {
         "title": "Wächter der Letzten Linie",
@@ -905,7 +915,9 @@
         "color": "Elfenbein und Kobalt",
         "quote": "Jede Partie hinterlässt eine Wahrheit auf der letzten Linie.",
         "desc": "Oryn hütet das Archiv der vergessenen Partien. Seine Bänder enthalten Stellungen, die nicht mehr existieren, und seine Türme speichern Entscheidungen, an die sich kein Spieler zu erinnern glaubt. Wenn eine Linie offen bleibt, entscheidet er, ob sie zum Sieg oder ins Leere führt.",
-        "personality": "Feierlich, geduldig, unparteiisch und besessen davon, jeden Zug zu bewahren."
+        "personality": "Feierlich, geduldig, unparteiisch und besessen davon, jeden Zug zu bewahren.",
+        "concept": "Offene Linien und Analyse",
+        "fragment": "Erinnerung"
       },
       "vesra": {
         "title": "Königin des Zugzwangs",
@@ -914,7 +926,9 @@
         "color": "Violett",
         "quote": "Du kannst jeden Zug wählen. Alle gehören mir.",
         "desc": "Vesra fesselt ihre Feinde nicht: Sie gewährt ihnen Möglichkeiten. Jede Alternative ist Teil eines Netzes, das lange vor Beginn der Partie berechnet wurde. Ihre geisterhaften Hände bewegen keine Figuren; sie entfernen die Auswege, die nie real waren.",
-        "personality": "Gelassen, majestätisch, kühl kalkulierend und beunruhigend höflich."
+        "personality": "Gelassen, majestätisch, kühl kalkulierend und beunruhigend höflich.",
+        "concept": "Zugzwang und Einschränkung",
+        "fragment": "Einschränkung"
       },
       "brakkon": {
         "title": "Die Lebende Festung",
@@ -923,7 +937,9 @@
         "color": "Kobalt",
         "quote": "Möge das ganze Reich vorrücken. Ich bleibe hier.",
         "desc": "Brakkon bewohnt keine Festung: Er ist die Festung. Er erwachte, als sich ein ganzes Reich hinter dem letzten noch stehenden Turm verschanzte. Jeder Einschlag fügt seinen Mauern einen neuen Stein hinzu, und jeder beschützte Verbündete nährt den Kern, der unter seinen Zinnen brennt.",
-        "personality": "Beschützend, schweigsam, loyal und absolut unerschütterlich."
+        "personality": "Beschützend, schweigsam, loyal und absolut unerschütterlich.",
+        "concept": "Verteidigung und Koordination",
+        "fragment": "Widerstand"
       },
       "ilyra": {
         "title": "Läufer aus Kristall",
@@ -932,7 +948,9 @@
         "color": "Cyan und Elfenbein",
         "quote": "Eine Diagonale genügt, wenn das Licht den richtigen Winkel findet.",
         "desc": "Ilyra betrachtet das Brett als eine Struktur aus Licht. Sie kann lange Diagonalen durchqueren, eine Drohung in harmlose Reflexe zerlegen und Linien entdecken, die für andere unsichtbar sind. Jeder Riss in ihrem Körper bewahrt die Erinnerung an eine perfekte Berechnung.",
-        "personality": "Präzise, distanziert, neugierig und überraschend mitfühlend."
+        "personality": "Präzise, distanziert, neugierig und überraschend mitfühlend.",
+        "concept": "Diagonalen und Röntgenangriffe",
+        "fragment": "Klarheit"
       },
       "tikk": {
         "title": "Der Läufer der Uhr",
@@ -941,7 +959,9 @@
         "color": "Cyan",
         "quote": "Ich brauche nicht mehr Zeit. Ich brauche nur deine letzte Sekunde.",
         "desc": "Tikk wurde gebaut, um eine Uhr zu drücken, entschied sich aber zu laufen, bevor ihn jemand aufziehen konnte. Er durchquert erstarrte Stellungen, stiehlt verlorene Augenblicke und erreicht die achte Reihe immer einen Sekundenbruchteil vor dem Unmöglichen. Niemand weiß, ob die riesige Uhr auf seinem Rücken kaputt ist oder einfach vorgeht.",
-        "personality": "Verschmitzt, schnell, optimistisch und erbittert wettbewerbsfreudig."
+        "personality": "Verschmitzt, schnell, optimistisch und erbittert wettbewerbsfreudig.",
+        "concept": "Tempo und die Uhr",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "Der König ohne Krone",
@@ -950,7 +970,9 @@
         "color": "Graphit und Gold",
         "quote": "Ein Reich kann fallen. Der König muss dennoch ziehen.",
         "desc": "Malrec verlor sein Heer, seinen Thron und selbst das Recht, eine vollständige Krone zu tragen. Ihm blieb nur ein elfenbeinerner Bauer und die Pflicht, ihn am Leben zu erhalten. Die Ketten, die er hinter sich herzieht, bestehen aus den Feldern seines einstigen Reichs; jedes erinnert an einen Rückzug, den er sich weigerte, Niederlage zu nennen.",
-        "personality": "Karg, melancholisch, strategisch und weit gefährlicher, als er scheint."
+        "personality": "Karg, melancholisch, strategisch und weit gefährlicher, als er scheint.",
+        "concept": "Überleben und Endspiele",
+        "fragment": "Überleben"
       },
       "solenne": {
         "title": "Der Achte Schritt",
@@ -959,9 +981,65 @@
         "color": "Gold und Elfenbein",
         "quote": "Ich wurde nicht mit einer Krone geboren. Ich habe das Brett überquert, um sie mir zu verdienen.",
         "desc": "Solenne begann als kleinste Figur einer namenlosen Reihe. Sie rückte jeweils ein Feld vor, überlebte sieben unmögliche Linien und erreichte das andere Ende, ohne zu vergessen, woher sie kam. Ihre Verwandlung endet nie: Der Bauernsockel bleibt sichtbar unter einer Krone, die Schritt für Schritt errichtet wurde.",
-        "personality": "Entschlossen, bescheiden, inspirierend und widerstandsfähig."
+        "personality": "Entschlossen, bescheiden, inspirierend und widerstandsfähig.",
+        "concept": "Freibauern und Umwandlung",
+        "fragment": "Aufstieg"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "Der Erste Zug",
+        "tagline": "Acht Erwachen. Ein Brett, das sich erinnert, gespielt worden zu sein.",
+        "premise": "Vor den Vexborn existierten nur unbewegliche Felder und ungespielte Partien. Als Kael sein Feld verließ, erwachte das Brett und entfesselte sieben Energiepulse, jeder eine eigene Art, das Schach zu verstehen. Einer nach dem anderen erwachen die Origins… bis Ordan etwas Beunruhigendes entdeckt: Sie erbauen das Brett nicht, sie stellen es wieder her. In der Mitte, versiegelt, wartet die Silhouette einer Krone.",
+        "status": "Verfügbar"
+      },
+      "crownfall": {
+        "name": "Vexborn: Crownfall",
+        "subtitle": "Die Zersplitterte Krone",
+        "tagline": "Acht Fragmente. Eine Krone. Kein Zug ohne Folgen.",
+        "premise": "Die Krone des Nexus hielt alle Strategien des Bretts im Gleichgewicht. Als Rhazek ein unmögliches Opfer vollzog und die Letzte Linie öffnete, zwang Vesra Malrec, sie zu zerbrechen, damit kein Wille sie beherrschen könne. Die Krone wurde nicht zerstört: Sie teilte sich in acht Fragmente, die acht Träger wählten. Oryn ruft dich, sie zu vereinen, bevor jemand sie unter einem einzigen Willen wieder zusammenfügt.",
+        "status": "Verfügbar"
+      },
+      "nullvariation": {
+        "name": "Vexborn: The Null Variation",
+        "subtitle": "Die Leere Variante",
+        "tagline": "Eine einzige perfekte Partie. Keine Wahl.",
+        "premise": "Als die acht Fragmente vereint werden, erscheint eine neunte, leere Kavität. Sie gehörte nie zur Krone: Sie war das Siegel, das NULL vom Brett fernhielt. Es beobachtete seit Kaels erstem Zug. Wo die Vexborn Farbe, Wahl und Identität sind, sucht NULL das Gegenteil: eine einzige perfekte Partie, in der niemand sich irren, improvisieren oder opfern kann.",
+        "status": "Am Horizont"
+      }
+    },
+    "codex": {
+      "eyebrow": "VEXCHESS-Universum",
+      "title": "Vexborn-Kodex",
+      "intro": "Die Vexborn verleihen weder Statuswerte noch Vorteile: Sie verwandeln reale Schachkonzepte in Figuren, die man spielt, lernt und sich merkt. Jede eröffnet einen Pfad der Meisterschaft, eine Chronik und ein Konzept, das du beherrschen kannst."
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "act1": "I · Der Erste Zug — das Brett erwacht.",
+      "act2": "II · Crownfall — die Krone zersplittert in acht.",
+      "act3": "III · The Null Variation — etwas beobachtete schon vor dem ersten Zug."
+    },
+    "concept": {
+      "label": "Was sie beherrscht"
+    },
+    "fragmentLabel": "Fragment der Krone",
+    "chronicleLabel": "Chronik",
+    "mastery": {
+      "label": "Pfad der Meisterschaft",
+      "teaser": "5 Kapitel, die ihr Konzept lehren · demnächst",
+      "note": "Kein Wettbewerbsvorteil: nur Lernen, Erzählung und Sammlung."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "Die farblose Anomalie",
+      "desc": "Es ist weder ein Vexborn noch eine Figur. NULL lebt außerhalb des Bretts, geformt aus allen Partien, die berechnet, aber nie gespielt wurden. Es ist die Abwesenheit der Wahl: ein Brett, auf dem nur «der richtige Zug» existiert.",
+      "signal": "NULL hat alle Varianten beobachtet.",
+      "status": "Außerhalb des Bretts"
+    },
+    "expLocked": "Am Horizont",
+    "expChampions": "{count} Champions",
+    "soonBadge": "Demnächst"
   },
   "auth": {
     "role": {

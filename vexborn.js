@@ -1,7 +1,8 @@
 // ============================================================
-//  VEXCHESS · Catálogo de Vexborn (personajes cosméticos)
+//  VEXCHESS · Códice Vexborn (personajes cosméticos + lore)
 //  Los Vexborn NO afectan a reglas, Elo, emparejamiento ni IA.
-//  Assets en assets/vexborn/<key>/ (splash, card, banner, avatares).
+//  Su valor es narrativo y educativo: cada uno enseña un concepto
+//  real de ajedrez. Arte en assets/vexborn/<formato>/<key>.webp.
 // ============================================================
 import { t } from './i18n.js?v=9';
 
@@ -14,140 +15,78 @@ export const RARITY = {
 };
 export function rarityMeta(r) { return RARITY[r] || RARITY.distinguished; }
 
-// Colecciones.
-export const COLLECTIONS = {
-  origins:     { label: t('vexborn.collection.origins.label'),     desc: t('vexborn.collection.origins.desc') },
-  expansion01: { label: t('vexborn.collection.expansion01.label'), desc: t('vexborn.collection.expansion01.desc') },
+// Expansiones narrativas (una entrada por colección + el teaser de NULL).
+export const EXPANSIONS = {
+  origins: {
+    key: 'origins', order: 1, phase: 'awakening', available: true, accent: '#FF3B47',
+    name: t('vexborn.exp.origins.name'), subtitle: t('vexborn.exp.origins.subtitle'),
+    tagline: t('vexborn.exp.origins.tagline'), premise: t('vexborn.exp.origins.premise'),
+    status: t('vexborn.exp.origins.status'), keyart: 'assets/vexborn/banner/kael.webp',
+  },
+  crownfall: {
+    key: 'crownfall', order: 2, phase: 'fracture', available: true, accent: '#914FE8',
+    name: t('vexborn.exp.crownfall.name'), subtitle: t('vexborn.exp.crownfall.subtitle'),
+    tagline: t('vexborn.exp.crownfall.tagline'), premise: t('vexborn.exp.crownfall.premise'),
+    status: t('vexborn.exp.crownfall.status'), keyart: 'assets/vexborn/keyart/crownfall.webp',
+  },
+  nullvariation: {
+    key: 'nullvariation', order: 3, phase: 'anomaly', available: false, accent: '#8892A0',
+    name: t('vexborn.exp.nullvariation.name'), subtitle: t('vexborn.exp.nullvariation.subtitle'),
+    tagline: t('vexborn.exp.nullvariation.tagline'), premise: t('vexborn.exp.nullvariation.premise'),
+    status: t('vexborn.exp.nullvariation.status'), keyart: null,
+  },
 };
+export function expansions() { return Object.values(EXPANSIONS).sort((a, b) => a.order - b.order); }
 
-// key: usado en rutas de assets y como avatar equipado (avatar = 'vexborn:<key>').
+function champ(key, collection, rarity, avatarSrc, extra) {
+  return Object.assign({
+    key, name: extra.name, collection, rarity, avatarSrc,
+    title: t('vexborn.char.' + key + '.title'),
+    piece: t('vexborn.char.' + key + '.piece'),
+    archetype: t('vexborn.char.' + key + '.archetype'),
+    color: t('vexborn.char.' + key + '.color'),
+    quote: t('vexborn.char.' + key + '.quote'),
+    desc: t('vexborn.char.' + key + '.desc'),
+    personality: t('vexborn.char.' + key + '.personality'),
+    concept: t('vexborn.char.' + key + '.concept'),
+  }, extra.fragment ? { fragment: t('vexborn.char.' + key + '.fragment') } : {});
+}
+
 export const VEXBORN = [
-  // ---------------- ORIGINS (los 8 avatares originales) ----------------
-  {
-    key: 'kael', name: 'Kael', title: t('vexborn.char.kael.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.kael.piece'), archetype: t('vexborn.char.kael.archetype'), color: t('vexborn.char.kael.color'), avatarSrc: 'vex-knight',
-    quote: t('vexborn.char.kael.quote'),
-    desc: t('vexborn.char.kael.desc'),
-    personality: t('vexborn.char.kael.personality'),
-  },
-  {
-    key: 'aurelia', name: 'Aurelia', title: t('vexborn.char.aurelia.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.aurelia.piece'), archetype: t('vexborn.char.aurelia.archetype'), color: t('vexborn.char.aurelia.color'), avatarSrc: 'ivory-queen',
-    quote: t('vexborn.char.aurelia.quote'),
-    desc: t('vexborn.char.aurelia.desc'),
-    personality: t('vexborn.char.aurelia.personality'),
-  },
-  {
-    key: 'bastion', name: 'Bastion', title: t('vexborn.char.bastion.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.bastion.piece'), archetype: t('vexborn.char.bastion.archetype'), color: t('vexborn.char.bastion.color'), avatarSrc: 'cobalt-rook',
-    quote: t('vexborn.char.bastion.quote'),
-    desc: t('vexborn.char.bastion.desc'),
-    personality: t('vexborn.char.bastion.personality'),
-  },
-  {
-    key: 'nyra', name: 'Nyra', title: t('vexborn.char.nyra.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.nyra.piece'), archetype: t('vexborn.char.nyra.archetype'), color: t('vexborn.char.nyra.color'), avatarSrc: 'violet-bishop',
-    quote: t('vexborn.char.nyra.quote'),
-    desc: t('vexborn.char.nyra.desc'),
-    personality: t('vexborn.char.nyra.personality'),
-  },
-  {
-    key: 'pip', name: 'Pip', title: t('vexborn.char.pip.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.pip.piece'), archetype: t('vexborn.char.pip.archetype'), color: t('vexborn.char.pip.color'), avatarSrc: 'teal-pawn',
-    quote: t('vexborn.char.pip.quote'),
-    desc: t('vexborn.char.pip.desc'),
-    personality: t('vexborn.char.pip.personality'),
-  },
-  {
-    key: 'ordan', name: 'Ordan', title: t('vexborn.char.ordan.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.ordan.piece'), archetype: t('vexborn.char.ordan.archetype'), color: t('vexborn.char.ordan.color'), avatarSrc: 'golden-king',
-    quote: t('vexborn.char.ordan.quote'),
-    desc: t('vexborn.char.ordan.desc'),
-    personality: t('vexborn.char.ordan.personality'),
-  },
-  {
-    key: 'noctis', name: 'Noctis', title: t('vexborn.char.noctis.title'), collection: 'origins', rarity: 'origin',
-    piece: t('vexborn.char.noctis.piece'), archetype: t('vexborn.char.noctis.archetype'), color: t('vexborn.char.noctis.color'), avatarSrc: 'shadow-knight',
-    quote: t('vexborn.char.noctis.quote'),
-    desc: t('vexborn.char.noctis.desc'),
-    personality: t('vexborn.char.noctis.personality'),
-  },
-  {
-    key: 'eira-vhal', name: 'Eira & Vhal', title: t('vexborn.char.eira-vhal.title'), collection: 'origins', rarity: 'mythic',
-    piece: t('vexborn.char.eira-vhal.piece'), archetype: t('vexborn.char.eira-vhal.archetype'), color: t('vexborn.char.eira-vhal.color'), avatarSrc: 'rival-duo',
-    quote: t('vexborn.char.eira-vhal.quote'),
-    desc: t('vexborn.char.eira-vhal.desc'),
-    personality: t('vexborn.char.eira-vhal.personality'),
-  },
+  // ---------------- ORIGINS · El Primer Movimiento ----------------
+  champ('kael',      'origins', 'origin', 'vex-knight',    { name: 'Kael' }),
+  champ('aurelia',   'origins', 'origin', 'ivory-queen',   { name: 'Aurelia' }),
+  champ('bastion',   'origins', 'origin', 'cobalt-rook',   { name: 'Bastion' }),
+  champ('nyra',      'origins', 'origin', 'violet-bishop', { name: 'Nyra' }),
+  champ('pip',       'origins', 'origin', 'teal-pawn',     { name: 'Pip' }),
+  champ('ordan',     'origins', 'origin', 'golden-king',   { name: 'Ordan' }),
+  champ('noctis',    'origins', 'origin', 'shadow-knight', { name: 'Noctis' }),
+  champ('eira-vhal', 'origins', 'mythic', 'rival-duo',     { name: 'Eira & Vhal' }),
 
-  // ---------------- EXPANSIÓN 01 (8 personajes nuevos) ----------------
-  {
-    key: 'rhazek', name: 'Rhazek', title: t('vexborn.char.rhazek.title'), collection: 'expansion01', rarity: 'distinguished',
-    piece: t('vexborn.char.rhazek.piece'), archetype: t('vexborn.char.rhazek.archetype'), color: t('vexborn.char.rhazek.color'), avatarSrc: 'rhazek',
-    quote: t('vexborn.char.rhazek.quote'),
-    desc: t('vexborn.char.rhazek.desc'),
-    personality: t('vexborn.char.rhazek.personality'),
-  },
-  {
-    key: 'oryn', name: 'Oryn', title: t('vexborn.char.oryn.title'), collection: 'expansion01', rarity: 'distinguished',
-    piece: t('vexborn.char.oryn.piece'), archetype: t('vexborn.char.oryn.archetype'), color: t('vexborn.char.oryn.color'), avatarSrc: 'oryn',
-    quote: t('vexborn.char.oryn.quote'),
-    desc: t('vexborn.char.oryn.desc'),
-    personality: t('vexborn.char.oryn.personality'),
-  },
-  {
-    key: 'vesra', name: 'Vesra', title: t('vexborn.char.vesra.title'), collection: 'expansion01', rarity: 'mythic',
-    piece: t('vexborn.char.vesra.piece'), archetype: t('vexborn.char.vesra.archetype'), color: t('vexborn.char.vesra.color'), avatarSrc: 'vesra',
-    quote: t('vexborn.char.vesra.quote'),
-    desc: t('vexborn.char.vesra.desc'),
-    personality: t('vexborn.char.vesra.personality'),
-  },
-  {
-    key: 'brakkon', name: 'Brakkon', title: t('vexborn.char.brakkon.title'), collection: 'expansion01', rarity: 'distinguished',
-    piece: t('vexborn.char.brakkon.piece'), archetype: t('vexborn.char.brakkon.archetype'), color: t('vexborn.char.brakkon.color'), avatarSrc: 'brakkon',
-    quote: t('vexborn.char.brakkon.quote'),
-    desc: t('vexborn.char.brakkon.desc'),
-    personality: t('vexborn.char.brakkon.personality'),
-  },
-  {
-    key: 'ilyra', name: 'Ilyra', title: t('vexborn.char.ilyra.title'), collection: 'expansion01', rarity: 'mythic',
-    piece: t('vexborn.char.ilyra.piece'), archetype: t('vexborn.char.ilyra.archetype'), color: t('vexborn.char.ilyra.color'), avatarSrc: 'ilyra',
-    quote: t('vexborn.char.ilyra.quote'),
-    desc: t('vexborn.char.ilyra.desc'),
-    personality: t('vexborn.char.ilyra.personality'),
-  },
-  {
-    key: 'tikk', name: 'Tikk', title: t('vexborn.char.tikk.title'), collection: 'expansion01', rarity: 'distinguished',
-    piece: t('vexborn.char.tikk.piece'), archetype: t('vexborn.char.tikk.archetype'), color: t('vexborn.char.tikk.color'), avatarSrc: 'tikk',
-    quote: t('vexborn.char.tikk.quote'),
-    desc: t('vexborn.char.tikk.desc'),
-    personality: t('vexborn.char.tikk.personality'),
-  },
-  {
-    key: 'malrec', name: 'Malrec', title: t('vexborn.char.malrec.title'), collection: 'expansion01', rarity: 'mythic',
-    piece: t('vexborn.char.malrec.piece'), archetype: t('vexborn.char.malrec.archetype'), color: t('vexborn.char.malrec.color'), avatarSrc: 'malrec',
-    quote: t('vexborn.char.malrec.quote'),
-    desc: t('vexborn.char.malrec.desc'),
-    personality: t('vexborn.char.malrec.personality'),
-  },
-  {
-    key: 'solenne', name: 'Solenne', title: t('vexborn.char.solenne.title'), collection: 'expansion01', rarity: 'distinguished',
-    piece: t('vexborn.char.solenne.piece'), archetype: t('vexborn.char.solenne.archetype'), color: t('vexborn.char.solenne.color'), avatarSrc: 'solenne',
-    quote: t('vexborn.char.solenne.quote'),
-    desc: t('vexborn.char.solenne.desc'),
-    personality: t('vexborn.char.solenne.personality'),
-  },
+  // ---------------- CROWNFALL · La Corona Fracturada ----------------
+  champ('rhazek',  'crownfall', 'distinguished', 'rhazek',  { name: 'Rhazek',  fragment: 1 }),
+  champ('oryn',    'crownfall', 'distinguished', 'oryn',    { name: 'Oryn',    fragment: 1 }),
+  champ('vesra',   'crownfall', 'mythic',        'vesra',   { name: 'Vesra',   fragment: 1 }),
+  champ('brakkon', 'crownfall', 'distinguished', 'brakkon', { name: 'Brakkon', fragment: 1 }),
+  champ('ilyra',   'crownfall', 'mythic',        'ilyra',   { name: 'Ilyra',   fragment: 1 }),
+  champ('tikk',    'crownfall', 'distinguished', 'tikk',    { name: 'Tikk',    fragment: 1 }),
+  champ('malrec',  'crownfall', 'mythic',        'malrec',  { name: 'Malrec',  fragment: 1 }),
+  champ('solenne', 'crownfall', 'distinguished', 'solenne', { name: 'Solenne', fragment: 1 }),
 ];
 
 const BY_KEY = Object.fromEntries(VEXBORN.map(v => [v.key, v]));
 export function vexbornByKey(key) { return BY_KEY[key] || null; }
+export function vexbornByCollection(cid) { return VEXBORN.filter(v => v.collection === cid); }
 
-// ¿Tiene arte disponible? Los Origins usan los avatares que ya están en el
-// proyecto; los de la Expansión llegan cuando se añada su splash art.
-export function vexbornAvailable(v) { return !!(v && v.avatarSrc); }
-// Retrato del personaje (por ahora, su avatar de identidad).
-export function vexbornPortrait(v) { return v && v.avatarSrc ? 'assets/social/avatars/' + v.avatarSrc + '.png' : null; }
+// Todos los campeones tienen arte dedicado (Origins v2 + Crownfall).
+export function vexbornAvailable(v) { return !!(v && v.key); }
+// Retrato cuadrado (tarjetas, héroe): avatar premium.
+export function vexbornPortrait(v) { return v ? 'assets/vexborn/avatar/' + v.key + '.webp' : null; }
+// Card vertical (ficha, colección).
+export function vexbornCard(v) { return v ? 'assets/vexborn/card/' + v.key + '.webp' : null; }
+// Splash cinematográfico (ficha, héroe).
+export function vexbornSplash(v) { return v ? 'assets/vexborn/splash/' + v.key + '.webp' : null; }
+// Banner panorámico (cabeceras, fondo del héroe).
+export function vexbornBanner(v) { return v ? 'assets/vexborn/banner/' + v.key + '.webp' : null; }
 // Avatar equipable (encaja con el sistema de avatares img:<nombre>).
 export function vexbornAvatar(v) { return v && v.avatarSrc ? 'img:' + v.avatarSrc : null; }
-// Splash cinematográfico (arte completo del personaje) para la ficha.
-export function vexbornSplash(v) { return v ? 'assets/vexborn/splash/' + v.key + '.webp' : null; }

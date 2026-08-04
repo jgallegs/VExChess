@@ -824,7 +824,8 @@
         "color": "Vermelho VEX",
         "quote": "O tabuleiro não desperta até que alguém se atreva a mover.",
         "desc": "Kael foi a primeira peça a abandonar sua casa quando o tabuleiro ainda estava vazio. Não serve a nenhum cavaleiro: é o impulso que transforma uma posição imóvel em uma partida. A estrela em seu peito se acende sempre que alguém toma a iniciativa sem ainda conhecer o resultado.",
-        "personality": "Corajoso, direto, inquieto e contagiantemente competitivo."
+        "personality": "Corajoso, direto, inquieto e contagiantemente competitivo.",
+        "concept": "Iniciativa, desenvolvimento e tempo"
       },
       "aurelia": {
         "title": "A Coroa Silenciosa",
@@ -833,7 +834,8 @@
         "color": "Marfim e ouro",
         "quote": "O lance mais forte não precisa ser anunciado.",
         "desc": "Aurelia contempla o tabuleiro de olhos fechados porque afirma que as peças revelam mais quando não são observadas. Seus fragmentos dourados orbitam cada possibilidade e só param quando existe uma sequência perfeita. Nunca celebra um xeque-mate; para ela, a partida terminou muito antes.",
-        "personality": "Serena, elegante, exigente e absolutamente segura."
+        "personality": "Serena, elegante, exigente e absolutamente segura.",
+        "concept": "Cálculo e escolha da variante"
       },
       "bastion": {
         "title": "O Último Muro",
@@ -842,7 +844,8 @@
         "color": "Cobalto",
         "quote": "Enquanto uma linha permanecer unida, ninguém está sozinho.",
         "desc": "Bastion despertou como uma torre isolada, mas descobriu que podia enlaçar seus nós com cada fortaleza do tabuleiro. Suas barreiras não protegem apenas casas: criam rotas seguras entre aliados. Quando todas as defesas caem, sua rede mantém acesa a última linha.",
-        "personality": "Leal, técnico, protetor e um tanto literal demais."
+        "personality": "Leal, técnico, protetor e um tanto literal demais.",
+        "concept": "Torres ligadas e defesa"
       },
       "nyra": {
         "title": "A Diagonal Velada",
@@ -851,7 +854,8 @@
         "color": "Violeta",
         "quote": "Nunca estive à sua frente. Estive no ângulo que você esqueceu.",
         "desc": "Nyra caminha por uma diagonal situada entre o tabuleiro visível e seu reflexo. A abertura luminosa de sua máscara lhe permite cruzar ambas as superfícies e aparecer onde uma linha parecia bloqueada. Ninguém conhece seu rosto, talvez porque sob a máscara só exista outra diagonal.",
-        "personality": "Reservada, precisa, irônica e difícil de surpreender."
+        "personality": "Reservada, precisa, irônica e difícil de surpreender.",
+        "concept": "Diagonais, cravadas e infiltração"
       },
       "pip": {
         "title": "A Primeira Casa",
@@ -860,7 +864,8 @@
         "color": "Ciano",
         "quote": "Todo o tabuleiro cabe diante de uma primeira casa.",
         "desc": "Pip ainda não alcançou a última fileira e não tem pressa de fazê-lo. Quer conhecer cada casa, cada adversário e cada forma possível de avançar. Sua pequena estrela aparece quando encontra uma rota nova; por isso costuma ser o primeiro a entrar em lugares que as peças importantes consideram insignificantes.",
-        "personality": "Curioso, otimista, perseverante e mais corajoso do que acredita."
+        "personality": "Curioso, otimista, perseverante e mais corajoso do que acredita.",
+        "concept": "Estrutura de peões e promoção"
       },
       "ordan": {
         "title": "O Rei Eterno",
@@ -869,7 +874,8 @@
         "color": "Ouro",
         "quote": "A eternidade consiste em encontrar mais uma casa.",
         "desc": "Ordan recorda finais jogados antes de existirem os relógios. As constelações de sua coroa representam xeques dos quais conseguiu escapar, não vitórias. Seu poder não vem de conquistar o tabuleiro, mas de compreender que até um rei deve se curvar diante da posição correta.",
-        "personality": "Sábio, severo, paciente e protetor com os jogadores novos."
+        "personality": "Sábio, severo, paciente e protetor com os jogadores novos.",
+        "concept": "Segurança do rei e finais"
       },
       "noctis": {
         "title": "O Garfo Negro",
@@ -878,7 +884,8 @@
         "color": "Grafite e ciano",
         "quote": "Se você consegue me ver, já está defendendo a peça errada.",
         "desc": "Noctis não atravessa a escuridão: ele a divide. Cada salto deixa duas sombras atacando alvos diferentes, enquanto seu corpo verdadeiro permanece na única casa que ninguém vigiava. Seu olho ciano calcula o instante exato em que uma ameaça se torna duas.",
-        "personality": "Silencioso, astuto, independente e ferozmente preciso."
+        "personality": "Silencioso, astuto, independente e ferozmente preciso.",
+        "concept": "Garfos e ameaças duplas"
       },
       "eira-vhal": {
         "title": "Rivais do Nexo",
@@ -887,7 +894,8 @@
         "color": "Marfim e cobalto",
         "quote": "Não corremos para nos derrotar. Corremos para descobrir quem seremos ao chegar.",
         "desc": "Eira nasceu da luz do tabuleiro e Vhal da tempestade que surgiu em seu reflexo. Ambos perseguem o mesmo nexo dourado por caminhos opostos. Empataram tantas vezes que sua rivalidade virou amizade, embora nenhum dos dois aceitasse pronunciar essa palavra diante do outro.",
-        "personality": "Eira é disciplinada e serena; Vhal, impulsivo e orgulhoso. Juntos são inseparáveis."
+        "personality": "Eira é disciplinada e serena; Vhal, impulsivo e orgulhoso. Juntos são inseparáveis.",
+        "concept": "Comparar lances candidatos"
       },
       "rhazek": {
         "title": "O Gambito Carmesim",
@@ -896,7 +904,9 @@
         "color": "Vermelho tático",
         "quote": "Uma peça é um preço pequeno por todo o tabuleiro.",
         "desc": "Rhazek jamais busca uma casa segura. Nasceu da primeira peça sacrificada voluntariamente e aprendeu que uma derrota aparente pode abrir o único caminho para a vitória. Sua armadura conserva a marca de cada gambito que ninguém se atreveu a aceitar.",
-        "personality": "Audaz, provocador, brilhante e perigosamente impaciente."
+        "personality": "Audaz, provocador, brilhante e perigosamente impaciente.",
+        "concept": "Sacrifícios corretos e iniciativa",
+        "fragment": "Sacrifício"
       },
       "oryn": {
         "title": "Guardião da Última Coluna",
@@ -905,7 +915,9 @@
         "color": "Marfim e cobalto",
         "quote": "Toda partida deixa uma verdade na última coluna.",
         "desc": "Oryn guarda o arquivo das partidas esquecidas. Suas fitas contêm posições que já não existem e suas torres armazenam decisões que nenhum jogador lembra ter tomado. Quando uma coluna fica aberta, é ele quem decide se ela conduz à vitória ou ao vazio.",
-        "personality": "Solene, paciente, imparcial e obcecado por conservar cada lance."
+        "personality": "Solene, paciente, imparcial e obcecado por conservar cada lance.",
+        "concept": "Colunas abertas e análise",
+        "fragment": "Memória"
       },
       "vesra": {
         "title": "Rainha do Zugzwang",
@@ -914,7 +926,9 @@
         "color": "Violeta",
         "quote": "Você pode escolher qualquer movimento. Todos me pertencem.",
         "desc": "Vesra não imobiliza seus inimigos: concede-lhes possibilidades. Cada alternativa faz parte de uma rede calculada muito antes de a partida começar. Suas mãos espectrais não movem peças; retiram as saídas que nunca foram reais.",
-        "personality": "Serena, majestosa, cerebral e inquietantemente cortês."
+        "personality": "Serena, majestosa, cerebral e inquietantemente cortês.",
+        "concept": "Zugzwang e restrição",
+        "fragment": "Restrição"
       },
       "brakkon": {
         "title": "A Fortaleza Viva",
@@ -923,7 +937,9 @@
         "color": "Cobalto",
         "quote": "Que avance todo o reino. Eu continuarei aqui.",
         "desc": "Brakkon não habita uma fortaleza: ele é a fortaleza. Despertou quando um reino inteiro se refugiou atrás da última torre que restava de pé. Cada impacto acrescenta uma pedra nova às suas muralhas e cada aliado protegido alimenta o núcleo que arde sob suas ameias.",
-        "personality": "Protetor, silencioso, leal e absolutamente inamovível."
+        "personality": "Protetor, silencioso, leal e absolutamente inamovível.",
+        "concept": "Defesa e coordenação",
+        "fragment": "Resistência"
       },
       "ilyra": {
         "title": "Bispo de Cristal",
@@ -932,7 +948,9 @@
         "color": "Ciano e marfim",
         "quote": "Uma diagonal basta quando a luz encontra o ângulo certo.",
         "desc": "Ilyra contempla o tabuleiro como uma estrutura de luz. Pode atravessar longas diagonais, dividir uma ameaça em reflexos inofensivos e descobrir linhas invisíveis para os demais. Cada fissura de seu corpo conserva a lembrança de um cálculo perfeito.",
-        "personality": "Precisa, distante, curiosa e surpreendentemente compassiva."
+        "personality": "Precisa, distante, curiosa e surpreendentemente compassiva.",
+        "concept": "Diagonais e raios X",
+        "fragment": "Clareza"
       },
       "tikk": {
         "title": "O Corredor do Relógio",
@@ -941,7 +959,9 @@
         "color": "Ciano",
         "quote": "Não preciso de mais tempo. Só preciso do seu último segundo.",
         "desc": "Tikk foi construído para apertar um relógio, mas decidiu correr antes que alguém pudesse lhe dar corda. Cruza posições congeladas, rouba instantes perdidos e sempre chega à oitava fileira uma fração antes do impossível. Ninguém sabe se o enorme relógio nas suas costas está quebrado ou simplesmente adiantado.",
-        "personality": "Travesso, rápido, otimista e ferozmente competitivo."
+        "personality": "Travesso, rápido, otimista e ferozmente competitivo.",
+        "concept": "Tempo e o relógio",
+        "fragment": "Tempo"
       },
       "malrec": {
         "title": "O Rei sem Coroa",
@@ -950,7 +970,9 @@
         "color": "Grafite e ouro",
         "quote": "Um reino pode cair. O rei ainda deve mover.",
         "desc": "Malrec perdeu seu exército, seu trono e até o direito de portar uma coroa completa. Só conservou um peão de marfim e a obrigação de mantê-lo vivo. As correntes que arrasta são formadas pelas casas de seu antigo reino; cada uma recorda uma retirada que ele se recusou a chamar de derrota.",
-        "personality": "Austero, melancólico, estratégico e muito mais perigoso do que aparenta."
+        "personality": "Austero, melancólico, estratégico e muito mais perigoso do que aparenta.",
+        "concept": "Sobrevivência e finais",
+        "fragment": "Sobrevivência"
       },
       "solenne": {
         "title": "O Oitavo Passo",
@@ -959,9 +981,65 @@
         "color": "Ouro e marfim",
         "quote": "Não nasci com uma coroa. Cruzei o tabuleiro para conquistá-la.",
         "desc": "Solenne começou como a peça mais pequena de uma fileira anônima. Avançou uma casa de cada vez, sobreviveu a sete linhas impossíveis e alcançou o extremo oposto sem esquecer de onde veio. Sua transformação nunca termina: a base de peão permanece visível sob uma coroa construída passo a passo.",
-        "personality": "Determinada, humilde, inspiradora e resistente."
+        "personality": "Determinada, humilde, inspiradora e resistente.",
+        "concept": "Peões passados e promoção",
+        "fragment": "Ascensão"
       }
-    }
+    },
+    "exp": {
+      "origins": {
+        "name": "Vexborn Origins",
+        "subtitle": "O Primeiro Movimento",
+        "tagline": "Oito despertares. Um tabuleiro que recorda ter sido jogado.",
+        "premise": "Antes dos Vexborn existiam apenas casas imóveis e partidas por jogar. Quando Kael abandonou a sua casa, o tabuleiro despertou e libertou sete pulsos de energia, cada um uma forma distinta de entender o xadrez. Um a um despertam os Origins… até que Ordan descobre algo inquietante: não estão a construir o tabuleiro, estão a restaurá-lo. No centro, selada, aguarda a silhueta de uma Coroa.",
+        "status": "Disponível"
+      },
+      "crownfall": {
+        "name": "Vexborn: Crownfall",
+        "subtitle": "A Coroa Fraturada",
+        "tagline": "Oito fragmentos. Uma coroa. Nenhum movimento sem consequências.",
+        "premise": "A Coroa do Nexo mantinha em equilíbrio todas as estratégias do tabuleiro. Quando Rhazek executou um sacrifício impossível e abriu a Última Coluna, Vesra obrigou Malrec a quebrá-la para que nenhuma vontade a dominasse. A Coroa não foi destruída: dividiu-se em oito Fragmentos que escolheram oito portadores. Oryn convoca-te para os reunir antes que alguém a recomponha sob uma única vontade.",
+        "status": "Disponível"
+      },
+      "nullvariation": {
+        "name": "Vexborn: The Null Variation",
+        "subtitle": "A Variante Vazia",
+        "tagline": "Uma única partida perfeita. Nenhuma escolha.",
+        "premise": "Ao reunir os oito Fragmentos surge uma nona cavidade vazia. Nunca pertenceu à Coroa: era o selo que mantinha NULL fora do tabuleiro. Observava desde o primeiro lance de Kael. Onde os Vexborn são cor, escolha e identidade, NULL procura o contrário: uma única partida perfeita na qual ninguém possa errar, improvisar nem sacrificar.",
+        "status": "No horizonte"
+      }
+    },
+    "codex": {
+      "eyebrow": "Universo VEXCHESS",
+      "title": "Códice Vexborn",
+      "intro": "Os Vexborn não concedem estatísticas nem vantagens: transformam conceitos reais de xadrez em personagens que se jogam, se aprendem e se recordam. Cada um abre uma Senda de Maestria, uma Crónica e um conceito que podes dominar."
+    },
+    "timeline": {
+      "title": "Cronologia",
+      "act1": "I · O Primeiro Movimento — o tabuleiro desperta.",
+      "act2": "II · Crownfall — a Coroa fratura-se em oito.",
+      "act3": "III · The Null Variation — algo observava desde antes do primeiro lance."
+    },
+    "concept": {
+      "label": "O que domina"
+    },
+    "fragmentLabel": "Fragmento da Coroa",
+    "chronicleLabel": "Crónica",
+    "mastery": {
+      "label": "Senda de Maestria",
+      "teaser": "5 capítulos que ensinam o seu conceito · em breve",
+      "note": "Sem vantagem competitiva: apenas aprendizagem, narrativa e coleção."
+    },
+    "null": {
+      "name": "NULL",
+      "subtitle": "A anomalia sem cor",
+      "desc": "Não é um Vexborn nem uma peça. NULL vive fora do tabuleiro, feito de todas as partidas que se calcularam mas nunca se jogaram. É a ausência de escolha: um tabuleiro onde só existe «o lance correto».",
+      "signal": "NULL observou todas as variantes.",
+      "status": "Fora do tabuleiro"
+    },
+    "expLocked": "No horizonte",
+    "expChampions": "{count} campeões",
+    "soonBadge": "Em breve"
   },
   "auth": {
     "role": {
