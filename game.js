@@ -2,7 +2,7 @@
 //  VEXCHESS · Partida online (tablero + WebSocket + relojes)
 // ============================================================
 import { Chess } from './chess.js';
-import { getUser, isAuthResolved, onAuth, avatarHTML } from './auth.js?v=13';
+import { getUser, isAuthResolved, onAuth, avatarHTML } from './auth.js?v=14';
 
 const root = document.getElementById('game-root');
 function gameId() { const m = location.pathname.match(/\/game\/([A-Za-z0-9-]+)/); return m ? m[1] : ''; }

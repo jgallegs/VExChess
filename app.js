@@ -9,7 +9,7 @@
 import { Chess } from './chess.js';
 import { MESSAGES, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=8';
 import { sfx } from './sounds.js?v=1';
-import { api, getUser, AVATAR_COLORS } from './auth.js?v=13';
+import { api, getUser, AVATAR_COLORS } from './auth.js?v=14';
 
 // --- Idioma ----------------------------------------------------------------
 function detectLang() {

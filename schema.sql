@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
   member_no INTEGER,                       -- número VEX correlativo (VEX-0001, cosmético)
   connect_code TEXT,                       -- código permanente para añadir (QR / en persona)
   online_elo INTEGER NOT NULL DEFAULT 1200, -- Elo del multijugador online (separado del de la IA)
+  last_seen TEXT,                          -- última actividad (presencia online/ausente/desconectado)
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   data TEXT NOT NULL DEFAULT '{}'          -- JSON extensible para datos futuros

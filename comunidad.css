@@ -53,6 +53,10 @@ body.cm-page { min-height: 100vh; }
 .cm-btn.danger { background: transparent; color: #ffb3b3; border: var(--hair) solid rgba(255,59,71,.4); }
 .cm-btn.danger:hover { background: rgba(255,59,71,.12); }
 .cm-btn[disabled] { opacity: .5; cursor: default; }
+.cm-btn-ico { width: 0.9rem; height: 0.9rem; vertical-align: -0.14rem; margin-right: 0.3rem; }
+.cm-av-wrap { position: relative; display: inline-flex; flex: 0 0 auto; }
+.cm-av-wrap .vx-presence { position: absolute; bottom: -0.05rem; right: -0.05rem; }
+.cm-ch-anim { width: 5rem; height: 5rem; }
 
 /* Reputación */
 .cm-rep { font: 800 0.56rem 'Oxanium', sans-serif; letter-spacing: .06em; text-transform: uppercase; border-radius: 1rem; padding: 0.1rem 0.45rem; }
@@ -149,6 +153,7 @@ body.cm-page { min-height: 100vh; }
 .cn-msg, .cn-ok { margin: 0 0 0.4rem; }
 .cn-ok { color: #8fe3a0; font-weight: 700; }
 .cn-done-ico { width: 4rem; height: 4rem; display: grid; place-items: center; margin: 0 auto; border-radius: 50%; background: rgba(58,168,86,.15); color: #8fe3a0; font-size: 2rem; font-weight: 800; }
+.cn-done-anim { width: 7rem; height: 7rem; margin: 0 auto; }
 
 /* Retar (modal) */
 .cm-ch-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.2rem; margin: 0 0 0.3rem; }

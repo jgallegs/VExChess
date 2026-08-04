@@ -1,7 +1,7 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth, isAuthResolved } from './auth.js?v=13';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=14';
 import { badgeMeta } from './badges.js?v=3';
 
 const root = document.getElementById('perfil-root');
@@ -40,6 +40,8 @@ function loggedIn(u, s) {
   }).join('');
   const swatches = Object.keys(AVATAR_COLORS).map(c =>
     '<button class="pf-sw' + (u.avatar === 'knight:' + c ? ' active' : '') + '" data-avatar="knight:' + c + '" style="background:' + AVATAR_COLORS[c] + '" aria-label="' + c + '"></button>').join('');
+  const imgAvatars = AVATAR_IMAGES.map(name =>
+    '<button class="pf-av-img' + (u.avatar === 'img:' + name ? ' active' : '') + '" data-avatar="img:' + name + '" title="' + esc(AVATAR_IMAGE_NAMES[name] || name) + '"><img src="assets/social/avatars/' + name + '.png" alt=""></button>').join('');
 
   const badges = getBadges().slice().sort((a, b) => (badgeMeta(b.badge).priority || 0) - (badgeMeta(a.badge).priority || 0));
   const featured = badges.find(b => b.featured);
@@ -89,6 +91,8 @@ function loggedIn(u, s) {
 
     '<section class="pf-card">' +
       '<h2>Avatar</h2>' +
+      '<div class="pf-av-imgs">' + imgAvatars + '</div>' +
+      '<div class="pf-av-classic">Clásicos</div>' +
       '<div class="pf-avatars">' + swatches + '</div>' +
     '</section>';
 }
@@ -110,7 +114,7 @@ function render() {
   const logout = document.getElementById('pf-logout');
   if (logout) logout.addEventListener('click', async () => { try { await api.logout(); } catch (e) {} location.reload(); });
 
-  document.querySelectorAll('.pf-sw').forEach(sw => sw.addEventListener('click', async () => {
+  document.querySelectorAll('.pf-sw, .pf-av-img').forEach(sw => sw.addEventListener('click', async () => {
     try {
       const out = await api.updateProfile({ avatar: sw.dataset.avatar });
       if (out && out.user) { Object.assign(getUser(), out.user); render(); document.dispatchEvent(new CustomEvent('vexchess:auth', { detail: getUser() })); }

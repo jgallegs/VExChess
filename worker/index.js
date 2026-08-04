@@ -140,12 +140,35 @@ async function ensureVexId(env, u) {
   }
   return u;
 }
+// Reputación en 5 tramos (alineada con el Social Identity Pack).
 function reputationOf(games) {
   const g = games || 0;
-  if (g >= 100) return 'Ejemplar';
-  if (g >= 30) return 'Respetado';
-  if (g >= 5) return 'Habitual';
-  return 'Nuevo';
+  if (g >= 100) return 'exemplary';
+  if (g >= 30) return 'respected';
+  if (g >= 10) return 'trusted';
+  if (g >= 1) return 'good-standing';
+  return 'unrated';
+}
+// Avatares de imagen permitidos (además de los knight:<color> clásicos).
+const AVATAR_IMAGES = new Set(['vex-knight', 'ivory-queen', 'cobalt-rook', 'violet-bishop', 'teal-pawn', 'golden-king', 'shadow-knight', 'rival-duo']);
+function isValidAvatar(a) {
+  if (typeof a !== 'string') return false;
+  const m = a.match(/^([a-z]+):([a-z0-9-]+)$/);
+  if (!m) return false;
+  if (m[1] === 'knight' && /^[a-z]+$/.test(m[2])) return true;
+  if (m[1] === 'img' && AVATAR_IMAGES.has(m[2])) return true;
+  return false;
+}
+// Presencia a partir de la última actividad.
+function presenceOf(lastSeen) {
+  if (!lastSeen) return 'offline';
+  const d = (Date.now() - new Date(lastSeen).getTime()) / 1000;
+  if (d < 90) return 'online';
+  if (d < 300) return 'away';
+  return 'offline';
+}
+async function touchPresence(env, userId) {
+  try { await env.DB.prepare('UPDATE users SET last_seen = ? WHERE id = ?').bind(nowISO(), userId).run(); } catch (e) {}
 }
 
 // ---------- modelo ----------
@@ -320,6 +343,7 @@ async function me(req, env) {
   const s = await getSession(req, env);
   if (!s) return json({ user: null });
   const u = await ensureVexId(env, s.user);
+  await touchPresence(env, u.id);
   return json({ user: publicUser(u, { self: true }), stats: await getStats(env, u.id), badges: await getBadges(env, u.id) });
 }
 
@@ -342,7 +366,7 @@ async function updateProfile(req, env) {
   if (!s) return errRes('No has iniciado sesión.', 401);
   let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
   const fields = [], vals = [];
-  if (typeof b.avatar === 'string' && /^[a-z]+:[a-z]+$/.test(b.avatar)) { fields.push('avatar = ?'); vals.push(b.avatar); }
+  if (typeof b.avatar === 'string' && isValidAvatar(b.avatar)) { fields.push('avatar = ?'); vals.push(b.avatar); }
   if (typeof b.country === 'string') { fields.push('country = ?'); vals.push(b.country.slice(0, 3).toUpperCase() || null); }
   if (!fields.length) return errRes('Nada que actualizar.');
   fields.push('updated_at = ?'); vals.push(nowISO());
@@ -617,6 +641,7 @@ async function commSummary(req, env) {
     "SELECT COUNT(*) AS n FROM friendships WHERE status = 'pending' AND requested_by != ? AND (a_id = ? OR b_id = ?)"
   ).bind(s.user.id, s.user.id, s.user.id).first();
   const challenges = await pendingChallengeCount(env, s.user.id);
+  await touchPresence(env, s.user.id);
   return json({ incoming: r ? r.n : 0, challenges });
 }
 
@@ -629,10 +654,10 @@ async function commFriends(req, env) {
   const friends = [];
   for (const r of (results || [])) {
     const otherId = r.a_id === s.user.id ? r.b_id : r.a_id;
-    const u = await env.DB.prepare('SELECT id, username, avatar, elo, member_no FROM users WHERE id = ?').bind(otherId).first();
+    const u = await env.DB.prepare('SELECT id, username, avatar, elo, member_no, last_seen FROM users WHERE id = ?').bind(otherId).first();
     if (u) friends.push({
       id: u.id, username: u.username, avatar: u.avatar, elo: u.elo, member_no: u.member_no || null,
-      reputation: reputationOf(await gamesCountOf(env, u.id)), since: r.updated_at,
+      reputation: reputationOf(await gamesCountOf(env, u.id)), presence: presenceOf(u.last_seen), since: r.updated_at,
     });
   }
   return json({ friends });

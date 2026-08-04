@@ -2,7 +2,7 @@
 //  VEXCHESS · Comunidad
 //  Amigos · Solicitudes · Buscar · Mi VEX ID (tarjeta + QR)
 // ============================================================
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=13';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML, presenceHTML } from './auth.js?v=14';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 import qrcode from './assets/vendor/qrcode.mjs?v=1';
 
@@ -12,7 +12,7 @@ let tab = 'amigos', mounted = false, reqCount = 0, searchTimer = null, lastSearc
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function vexId(no) { return no ? 'VEX-' + String(no).padStart(4, '0') : 'VEX-—'; }
-function repChip(rep) { return '<span class="cm-rep cm-rep-' + esc((rep || '').toLowerCase()) + '">' + esc(rep || '') + '</span>'; }
+function repChip(rep) { return repChipHTML(rep); }
 
 // ---------- toast ----------
 let toastEl = null;
@@ -73,13 +73,14 @@ function loadTab() {
 // ---------- tarjeta de persona ----------
 function personCard(u, ctx) {
   const actions = [];
+  const ico = (n) => '<img class="cm-btn-ico" src="assets/social/actions/' + n + '.svg" alt="">';
   if (ctx === 'search') {
-    if (u.status === 'friends') actions.push('<button class="cm-btn ghost" disabled>✓ Amigos</button>');
-    else if (u.status === 'pending_out') actions.push('<button class="cm-btn ghost" disabled>Solicitud enviada</button>');
+    if (u.status === 'friends') actions.push('<button class="cm-btn ghost" disabled>' + ico('friends') + 'Amigos</button>');
+    else if (u.status === 'pending_out') actions.push('<button class="cm-btn ghost" disabled>' + ico('request-pending') + 'Enviada</button>');
     else if (u.status === 'pending_in') actions.push('<button class="cm-btn primary" data-act="accept" data-id="' + u.id + '">Aceptar</button>');
-    else actions.push('<button class="cm-btn primary" data-act="add" data-id="' + u.id + '">Añadir</button>');
+    else actions.push('<button class="cm-btn primary" data-act="add" data-id="' + u.id + '">' + ico('add-friend') + 'Añadir</button>');
   } else if (ctx === 'friend') {
-    actions.push('<button class="cm-btn primary" data-act="challenge" data-id="' + u.id + '" data-username="' + esc(u.username) + '">Retar</button>');
+    actions.push('<button class="cm-btn primary" data-act="challenge" data-id="' + u.id + '" data-username="' + esc(u.username) + '">' + ico('challenge') + 'Retar</button>');
     actions.push('<button class="cm-btn danger" data-act="remove" data-id="' + u.id + '">Eliminar</button>');
   } else if (ctx === 'incoming') {
     actions.push('<button class="cm-btn primary" data-act="accept" data-id="' + u.id + '">Aceptar</button>');
@@ -90,7 +91,7 @@ function personCard(u, ctx) {
   const mutual = (u.mutual != null && u.mutual > 0) ? '<span class="cm-mutual">' + u.mutual + ' en común</span>' : '';
   return '<div class="cm-person" data-user="' + u.id + '" data-username="' + esc(u.username) + '">' +
       '<button class="cm-person-main" data-act="profile" data-username="' + esc(u.username) + '">' +
-        avatarHTML(u.avatar, 'md') +
+        '<span class="cm-av-wrap">' + avatarHTML(u.avatar, 'md') + presenceHTML(u.presence) + '</span>' +
         '<span class="cm-person-info"><span class="cm-person-name">' + esc(u.username) + repChip(u.reputation) + '</span>' +
           '<span class="cm-person-sub">' + vexId(u.member_no) + ' · ' + u.elo + ' Elo' + (mutual ? ' · ' + mutual : '') + '</span></span>' +
       '</button>' +
@@ -248,7 +249,7 @@ function openChallenge(userId, username) {
 }
 async function sendChallenge(userId, username, tc) {
   const body = chModal.querySelector('.cm-ch-body');
-  body.innerHTML = '<div class="cm-ch-wait"><div class="cm-ring"></div><h3 class="cm-ch-title">Esperando a ' + esc(username) + '…</h3>' +
+  body.innerHTML = '<div class="cm-ch-wait"><img class="cm-ch-anim" src="assets/social/anim/challenge-incoming.svg" alt=""><h3 class="cm-ch-title">Esperando a ' + esc(username) + '…</h3>' +
     '<p class="cm-muted">Reto de ' + esc(tc) + ' enviado. En cuanto acepte, empieza la partida.</p>' +
     '<button class="cm-btn ghost" id="cm-ch-cancel">Cancelar reto</button></div>';
   let id;

@@ -91,10 +91,26 @@ export function roleLevel(r) { return (ROLES[r] ? ROLES[r].level : 0); }
 
 // ---------- avatar ----------
 export const AVATAR_COLORS = { red: '#FF3B47', blue: '#3B82F6', green: '#3AA856', gold: '#E0A82E', slate: '#64748B', violet: '#8B5CF6' };
+export const AVATAR_IMAGES = ['vex-knight', 'ivory-queen', 'cobalt-rook', 'violet-bishop', 'teal-pawn', 'golden-king', 'shadow-knight', 'rival-duo'];
+export const AVATAR_IMAGE_NAMES = { 'vex-knight': 'Caballo VEX', 'ivory-queen': 'Reina marfil', 'cobalt-rook': 'Torre cobalto', 'violet-bishop': 'Alfil violeta', 'teal-pawn': 'Peón turquesa', 'golden-king': 'Rey dorado', 'shadow-knight': 'Caballo sombra', 'rival-duo': 'Dúo rival' };
 export function avatarHTML(avatar, cls) {
-  const color = AVATAR_COLORS[(avatar || 'knight:red').split(':')[1]] || AVATAR_COLORS.red;
+  const a = avatar || 'knight:red';
+  if (a.startsWith('img:')) {
+    return '<span class="vx-avatar img ' + (cls || '') + '"><img src="assets/social/avatars/' + a.slice(4) + '.png" alt=""></span>';
+  }
+  const color = AVATAR_COLORS[a.split(':')[1]] || AVATAR_COLORS.red;
   return '<span class="vx-avatar ' + (cls || '') + '" style="background:' + color + '"><img src="assets/knight.svg" alt=""></span>';
 }
+
+// ---------- reputación (Social Identity Pack) ----------
+export const REPUTATION = { unrated: { label: 'Sin valorar', order: 0 }, 'good-standing': { label: 'Buena conducta', order: 1 }, trusted: { label: 'De confianza', order: 2 }, respected: { label: 'Respetado', order: 3 }, exemplary: { label: 'Ejemplar', order: 4 } };
+export function repMeta(k) { return REPUTATION[k] || REPUTATION.unrated; }
+export function repChipHTML(k, iconOnly) {
+  const m = repMeta(k);
+  return '<span class="vx-rep vx-rep-' + esc(k) + '" title="' + esc(m.label) + '"><img src="assets/social/reputation/' + esc(k) + '.png" alt="">' + (iconOnly ? '' : '<span>' + esc(m.label) + '</span>') + '</span>';
+}
+export const PRESENCE = { online: 'En línea', away: 'Ausente', playing: 'Jugando', spectating: 'Viendo', offline: 'Desconectado' };
+export function presenceHTML(p) { if (!p || p === 'offline') return ''; return '<span class="vx-presence p-' + p + '" title="' + (PRESENCE[p] || '') + '"></span>'; }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
 // ---------- modal ----------

@@ -3,7 +3,7 @@
 //  Muestra al jugador del VEX ID y permite añadirlo (con
 //  confirmación por ambas partes).
 // ============================================================
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=13';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML } from './auth.js?v=14';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 
 const root = document.getElementById('connect-root');
@@ -14,7 +14,7 @@ function code() {
 }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function vexId(no) { return no ? 'VEX-' + String(no).padStart(4, '0') : 'VEX-—'; }
-function repChip(rep) { return '<span class="cm-rep cm-rep-' + esc((rep || '').toLowerCase()) + '">' + esc(rep || '') + '</span>'; }
+function repChip(rep) { return repChipHTML(rep); }
 
 function state(inner) { return '<section class="cm-state">' + inner + '</section>'; }
 
@@ -68,7 +68,7 @@ async function render() {
 }
 
 function showDone(msg) {
-  root.innerHTML = state('<div class="cn-done-ico">✓</div><h1>' + esc(msg) + '</h1><a class="btn-play" href="comunidad.html">Ir a mi comunidad <span aria-hidden="true">→</span></a>');
+  root.innerHTML = state('<img class="cn-done-anim" src="assets/social/anim/vex-connect.svg" alt=""><h1>' + esc(msg) + '</h1><a class="btn-play" href="comunidad.html">Ir a mi comunidad <span aria-hidden="true">→</span></a>');
 }
 let toastEl = null;
 function toast(msg) {
