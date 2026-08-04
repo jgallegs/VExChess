@@ -22,23 +22,14 @@ function brandHTML(href) {
     '</a>';
 }
 
-// Enlaces del sitio (la CTA "Jugar" va aparte como botón).
-function linksFor(isHome) {
-  // Conjunto reducido para que la barra respire; el resto (Mis partidas,
-  // Vexborn, perfil…) vive en el menú de la cuenta.
-  if (isHome) return [
-    ['#features', 'Características'],
-    ['puzzles.html', 'Puzzles'],
-    ['directo.html', 'En directo'],
-    ['#roadmap', 'Roadmap'],
-  ];
-  return [
-    ['puzzles.html', 'Puzzles'],
-    ['directo.html', 'En directo'],
-    ['partidas.html', 'Mis partidas'],
-    ['comunidad.html', 'Comunidad'],
-  ];
-}
+// Enlaces del sitio: LOS MISMOS en todas las vistas (consistencia).
+// La CTA "Jugar" va aparte como botón; perfil/Vexborn viven en el menú de cuenta.
+const SITE_LINKS = [
+  ['puzzles.html', 'Puzzles'],
+  ['directo.html', 'En directo'],
+  ['partidas.html', 'Mis partidas'],
+  ['comunidad.html', 'Comunidad'],
+];
 
 function currentPage() {
   const p = (location.pathname.split('/').pop() || 'index.html');
@@ -48,7 +39,7 @@ function currentPage() {
 function siteHTML(ds) {
   const isHome = ds.home !== undefined;
   const here = currentPage();
-  const links = linksFor(isHome).map(([href, label]) => {
+  const links = SITE_LINKS.map(([href, label]) => {
     const active = (href === here) ? ' class="active"' : '';
     return '<a href="' + href + '"' + active + '>' + label + '</a>';
   }).join('');
@@ -80,9 +71,6 @@ function wireSite(nav) {
   if (burger) burger.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
   nav.querySelectorAll('.vxnav-menu a').forEach(a => a.addEventListener('click', () => setOpen(false)));
   window.addEventListener('resize', () => { if (window.innerWidth > 960) setOpen(false); });
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 }
 
 // Animación del logo (solo en battle): el caballo entra y el logo vuela a la barra.
