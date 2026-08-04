@@ -5,6 +5,7 @@
 //  - Pinta el chip de cuenta en los slots .vx-account del navbar
 //  - Migra las partidas locales a la cuenta al iniciar sesión
 // ============================================================
+import { badgeIcon } from './badges.js?v=1';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {
@@ -21,6 +22,7 @@ export const api = {
   login: (b) => req('/auth/login', { method: 'POST', headers: JSON_H, body: JSON.stringify(b) }),
   logout: () => req('/auth/logout', { method: 'POST' }),
   updateProfile: (b) => req('/profile', { method: 'PUT', headers: JSON_H, body: JSON.stringify(b) }),
+  updateBadges: (b) => req('/profile/badges', { method: 'PUT', headers: JSON_H, body: JSON.stringify(b) }),
   listGames: (limit = 50, offset = 0) => req('/games?limit=' + limit + '&offset=' + offset),
   saveGame: (g) => req('/games', { method: 'POST', headers: JSON_H, body: JSON.stringify(g) }),
   importGames: (games) => req('/games/import', { method: 'POST', headers: JSON_H, body: JSON.stringify({ games }) }),
@@ -31,9 +33,12 @@ export const api = {
 // ---------- estado ----------
 let currentUser = null;
 let currentStats = null;
+let currentBadges = [];
 const listeners = [];
 export function getUser() { return currentUser; }
 export function getStats() { return currentStats; }
+export function getBadges() { return currentBadges; }
+export function setBadges(arr) { currentBadges = arr || []; renderAccounts(); }
 export function onAuth(fn) { listeners.push(fn); fn(currentUser); }
 function emit() { listeners.forEach(f => { try { f(currentUser); } catch (e) {} }); document.dispatchEvent(new CustomEvent('vexchess:auth', { detail: currentUser })); }
 
@@ -110,7 +115,7 @@ function ensureModal() {
       try {
         const fd = Object.fromEntries(new FormData(form).entries());
         const out = form.dataset.form === 'login' ? await api.login(fd) : await api.register(fd);
-        currentUser = out.user; currentStats = out.stats || null;
+        currentUser = out.user; currentStats = out.stats || null; currentBadges = out.badges || [];
         close(); renderAccounts(); emit();
         await maybeMigrate();
       } catch (err) {
@@ -188,7 +193,7 @@ async function maybeMigrate() {
       const games = arr.map(e => ({ pgn: e.pgn, result: e.result, human_color: e.humanColor, level: e.level, plies: e.plies, played_at: e.date }));
       await api.importGames(games);
       // refrescar usuario + estadísticas desde el servidor tras importar
-      try { const meOut = await api.me(); if (meOut && meOut.user) { currentUser = meOut.user; currentStats = meOut.stats || currentStats; } } catch (e) {}
+      try { const meOut = await api.me(); if (meOut && meOut.user) { currentUser = meOut.user; currentStats = meOut.stats || currentStats; currentBadges = meOut.badges || currentBadges; } } catch (e) {}
     }
     localStorage.setItem('vexchess:migrated', '1');
     renderAccounts(); emit();
@@ -198,10 +203,12 @@ async function maybeMigrate() {
 // ---------- chip de cuenta en el navbar ----------
 function accountHTML() {
   if (!currentUser) return '<button class="vx-entrar" type="button">Entrar</button>';
+  const featured = currentBadges.find(b => b.featured);
   return '<div class="vx-acct">' +
       '<button class="vx-chip" type="button" aria-haspopup="true">' +
         avatarHTML(currentUser.avatar) +
         '<span class="vx-chip-name">' + esc(currentUser.username) + '</span>' +
+        (featured ? badgeIcon(featured.badge, 'chip') : '') +
         '<span class="vx-chip-elo">' + currentUser.elo + '</span>' +
       '</button>' +
       '<div class="vx-menu">' +
@@ -241,7 +248,7 @@ function wireLegacyEntrar() {
   renderAccounts();               // pinta "Entrar" mientras carga
   try {
     const out = await api.me();
-    currentUser = out.user; currentStats = out.stats || null;
+    currentUser = out.user; currentStats = out.stats || null; currentBadges = out.badges || [];
   } catch (e) { currentUser = null; }
   renderAccounts();
   emit();

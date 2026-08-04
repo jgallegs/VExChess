@@ -1,7 +1,8 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=3';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=4';
+import { badgeMeta } from './badges.js?v=1';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio', avanzado: 'Avanzado', maximo: 'Máximo', desconocido: 'Otro' };
@@ -32,17 +33,27 @@ function loggedIn(u, s) {
   const swatches = Object.keys(AVATAR_COLORS).map(c =>
     '<button class="pf-sw' + (u.avatar === 'knight:' + c ? ' active' : '') + '" data-avatar="knight:' + c + '" style="background:' + AVATAR_COLORS[c] + '" aria-label="' + c + '"></button>').join('');
 
+  const badges = getBadges();
+  const featured = badges.find(b => b.featured);
+  const pinned = badges.filter(b => b.pinned).slice(0, 3);
+  const nameBadge = featured ? '<img class="pf-name-badge" src="assets/badges/' + featured.badge + '.png" alt="" title="' + esc(badgeMeta(featured.badge).name) + '">' : '';
+  const pinnedRow = pinned.length
+    ? '<div class="pf-pinned">' + pinned.map(b => '<img class="pf-pin-ico" src="assets/badges/' + b.badge + '.png" alt="" title="' + esc(badgeMeta(b.badge).name) + '">').join('') + '</div>'
+    : '';
+
   return '' +
     '<section class="pf-hero">' +
       avatarHTML(u.avatar, 'lg') +
       '<div class="pf-hero-info">' +
-        '<h1 class="pf-name">' + esc(u.username) + '</h1>' +
+        '<h1 class="pf-name">' + esc(u.username) + nameBadge + '</h1>' +
         '<div class="pf-hero-meta"><span class="pf-elo">Elo ' + u.elo + '</span>' +
           '<span class="pf-since">Miembro desde ' + fmtDate(u.created_at) + '</span></div>' +
+        pinnedRow +
       '</div>' +
       '<div class="pf-hero-actions"><a class="pf-btn ghost" href="partidas.html">Mis partidas</a>' +
         '<button class="pf-btn danger" id="pf-logout">Cerrar sesión</button></div>' +
     '</section>' +
+    badgesSection(badges) +
 
     '<section class="pf-stats">' +
       stat('Partidas', s.played) +
@@ -86,6 +97,84 @@ function render() {
       if (out && out.user) { Object.assign(getUser(), out.user); render(); document.dispatchEvent(new CustomEvent('vexchess:auth', { detail: getUser() })); }
     } catch (e) {}
   }));
+
+  document.querySelectorAll('.pf-badge').forEach(el => el.addEventListener('click', () => openBadgeDetail(el.dataset.badge)));
+}
+
+// ---------- Insignias ----------
+function badgesSection(badges) {
+  return '<section class="pf-card">' +
+    '<h2>Insignias <span class="pf-badges-count">' + badges.length + '</span></h2>' +
+    (badges.length
+      ? '<div class="pf-badges">' + badges.map(b => {
+          const m = badgeMeta(b.badge);
+          return '<button class="pf-badge' + (b.pinned ? ' pinned' : '') + '" data-badge="' + b.badge + '">' +
+            '<img src="assets/badges/' + b.badge + '.png" alt="">' +
+            '<span class="pf-badge-name">' + esc(m.name) + '</span>' +
+            (b.featured ? '<span class="pf-badge-star" title="Destacada">★</span>' : '') +
+          '</button>';
+        }).join('') + '</div>' +
+        '<p class="pf-badges-hint">Pulsa una insignia para ver su detalle, fijarla (máx. 3) o destacarla junto a tu nombre.</p>'
+      : '<p class="pf-badges-empty">Aún no tienes insignias. Se irán desbloqueando con logros, eventos y participación en la comunidad.</p>') +
+  '</section>';
+}
+
+let overlayEl = null;
+function ensureOverlay() {
+  if (overlayEl) return overlayEl;
+  overlayEl = document.createElement('div');
+  overlayEl.className = 'pf-badge-modal';
+  overlayEl.innerHTML = '<div class="pf-badge-box"><button class="pf-badge-x" aria-label="Cerrar">✕</button><div class="pf-badge-body"></div></div>';
+  document.body.appendChild(overlayEl);
+  overlayEl.querySelector('.pf-badge-x').addEventListener('click', () => overlayEl.classList.remove('open'));
+  overlayEl.addEventListener('mousedown', e => { if (e.target === overlayEl) overlayEl.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlayEl) overlayEl.classList.remove('open'); });
+  return overlayEl;
+}
+function openBadgeDetail(id) {
+  const badges = getBadges();
+  const b = badges.find(x => x.badge === id);
+  if (!b) return;
+  const m = badgeMeta(id);
+  const o = ensureOverlay();
+  const canPin = b.pinned || badges.filter(x => x.pinned).length < 3;
+  const titles = Array.isArray(b.detail && b.detail.titles) ? b.detail.titles : [];
+  o.querySelector('.pf-badge-body').innerHTML =
+    '<div class="pf-badge-hero" style="--bc:' + m.color + '"><img src="assets/badges/' + id + '.png" alt=""></div>' +
+    '<h3 style="color:' + m.color + '">' + esc(m.name) + '</h3>' +
+    '<p class="pf-badge-desc">' + esc(m.desc) + '</p>' +
+    '<p class="pf-badge-howto">' + esc(m.howto) + '</p>' +
+    (titles.length ? '<ul class="pf-badge-titles">' + titles.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' : '') +
+    '<p class="pf-badge-date">Conseguida el ' + fmtDate(b.granted_at) + '</p>' +
+    '<div class="pf-badge-actions">' +
+      '<button class="pf-btn ' + (b.pinned ? 'danger' : 'ghost') + '" id="bd-pin"' + (canPin ? '' : ' disabled') + '>' + (b.pinned ? 'Quitar de fijadas' : 'Fijar en el perfil') + '</button>' +
+      '<button class="pf-btn ' + (b.featured ? 'danger' : 'ghost') + '" id="bd-feat">' + (b.featured ? 'Quitar de destacada' : 'Destacar junto al nombre') + '</button>' +
+    '</div>' +
+    (!canPin && !b.pinned ? '<p class="pf-badge-hint2">Ya tienes 3 fijadas. Quita una para fijar esta.</p>' : '');
+  o.querySelector('#bd-pin').onclick = () => togglePin(id);
+  o.querySelector('#bd-feat').onclick = () => toggleFeature(id);
+  o.dataset.badge = id;
+  o.classList.add('open');
+}
+async function applyBadges() {
+  const badges = getBadges();
+  const pinned = badges.filter(b => b.pinned).map(b => b.badge).slice(0, 3);
+  const featured = (badges.find(b => b.featured) || {}).badge || null;
+  try { const out = await api.updateBadges({ pinned, featured }); setBadges(out.badges); } catch (e) {}
+  render();
+  if (overlayEl && overlayEl.classList.contains('open')) openBadgeDetail(overlayEl.dataset.badge);
+}
+function togglePin(id) {
+  const badges = getBadges();
+  const b = badges.find(x => x.badge === id); if (!b) return;
+  if (!b.pinned && badges.filter(x => x.pinned).length >= 3) return;
+  b.pinned = !b.pinned; applyBadges();
+}
+function toggleFeature(id) {
+  const badges = getBadges();
+  const b = badges.find(x => x.badge === id); if (!b) return;
+  const was = b.featured; badges.forEach(x => { x.featured = false; }); b.featured = !was;
+  applyBadges();
 }
 
 onAuth(render);

@@ -120,6 +120,12 @@ async function getStats(env, userId) {
   if (!s) return { played: 0, wins: 0, losses: 0, draws: 0, streak: 0, best_streak: 0, by_level: {} };
   return { played: s.played, wins: s.wins, losses: s.losses, draws: s.draws, streak: s.streak, best_streak: s.best_streak, by_level: safeJson(s.by_level, {}) };
 }
+async function getBadges(env, userId) {
+  const { results } = await env.DB.prepare(
+    'SELECT badge, granted_at, detail, pinned, featured FROM user_badges WHERE user_id = ? ORDER BY featured DESC, pinned DESC, granted_at ASC'
+  ).bind(userId).all();
+  return (results || []).map(b => ({ badge: b.badge, granted_at: b.granted_at, detail: safeJson(b.detail, {}), pinned: !!b.pinned, featured: !!b.featured }));
+}
 
 // outcome desde el punto de vista del humano
 function outcomeOf(result, color) {
@@ -164,7 +170,7 @@ async function register(req, env) {
   ]);
   const token = await createSession(env, id, req);
   const user = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(id).first();
-  return json({ user: publicUser(user), stats: await getStats(env, id) }, 201, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
+  return json({ user: publicUser(user), stats: await getStats(env, id), badges: [] }, 201, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
 }
 
 async function checkUsername(req, env) {
@@ -188,7 +194,7 @@ async function login(req, env) {
   const ok = row && await verifyPassword(password, row.password_hash, row.password_salt, row.password_iter);
   if (!ok) return errRes('Usuario o contraseña incorrectos.', 401);
   const token = await createSession(env, row.id, req);
-  return json({ user: publicUser(row), stats: await getStats(env, row.id) }, 200, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
+  return json({ user: publicUser(row), stats: await getStats(env, row.id), badges: await getBadges(env, row.id) }, 200, { 'Set-Cookie': sessionCookie(token, SESSION_DAYS * 86400) });
 }
 
 async function logout(req, env) {
@@ -200,7 +206,21 @@ async function logout(req, env) {
 async function me(req, env) {
   const s = await getSession(req, env);
   if (!s) return json({ user: null });
-  return json({ user: publicUser(s.user), stats: await getStats(env, s.user.id) });
+  return json({ user: publicUser(s.user), stats: await getStats(env, s.user.id), badges: await getBadges(env, s.user.id) });
+}
+
+async function updateBadges(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const owned = new Set((await getBadges(env, s.user.id)).map(x => x.badge));
+  const pinned = (Array.isArray(b.pinned) ? b.pinned : []).filter(x => owned.has(x)).slice(0, 3);
+  const featured = (typeof b.featured === 'string' && owned.has(b.featured)) ? b.featured : null;
+  const ops = [env.DB.prepare('UPDATE user_badges SET pinned = 0, featured = 0 WHERE user_id = ?').bind(s.user.id)];
+  for (const bid of pinned) ops.push(env.DB.prepare('UPDATE user_badges SET pinned = 1 WHERE user_id = ? AND badge = ?').bind(s.user.id, bid));
+  if (featured) ops.push(env.DB.prepare('UPDATE user_badges SET featured = 1 WHERE user_id = ? AND badge = ?').bind(s.user.id, featured));
+  await env.DB.batch(ops);
+  return json({ badges: await getBadges(env, s.user.id) });
 }
 
 async function updateProfile(req, env) {
@@ -318,7 +338,7 @@ async function publicProfile(req, env, username) {
   const row = await env.DB.prepare('SELECT id, username, avatar, country, elo, created_at FROM users WHERE username_lower = ?')
     .bind(String(username).toLowerCase()).first();
   if (!row) return errRes('Perfil no encontrado.', 404);
-  return json({ profile: { username: row.username, avatar: row.avatar, country: row.country, elo: row.elo, created_at: row.created_at, stats: await getStats(env, row.id) } });
+  return json({ profile: { username: row.username, avatar: row.avatar, country: row.country, elo: row.elo, created_at: row.created_at, stats: await getStats(env, row.id), badges: await getBadges(env, row.id) } });
 }
 
 // ---------- router ----------
@@ -334,6 +354,7 @@ async function handleApi(req, env) {
     if (path === '/api/auth/logout' && m === 'POST') return await logout(req, env);
     if (path === '/api/auth/me' && m === 'GET') return await me(req, env);
     if (path === '/api/profile' && m === 'PUT') return await updateProfile(req, env);
+    if (path === '/api/profile/badges' && m === 'PUT') return await updateBadges(req, env);
     if (path === '/api/games' && m === 'GET') return await listGames(req, env);
     if (path === '/api/games' && m === 'POST') return await saveGame(req, env);
     if (path === '/api/games/import' && m === 'POST') return await importGames(req, env);

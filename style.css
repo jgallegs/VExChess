@@ -424,6 +424,8 @@ button.ctrl.wide { flex-basis: 100%; }
 .vx-chip:hover { border-color: var(--vex-muted); background: #2b3547; }
 .vx-chip-name { font: 700 0.85rem 'Inter', sans-serif; max-width: 9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .vx-chip-elo { font: 700 0.72rem 'Oxanium', sans-serif; color: var(--accent); background: rgba(255,59,71,.12); border-radius: 1rem; padding: 0.1rem 0.45rem; }
+.vx-badge-ico { display: inline-block; vertical-align: middle; object-fit: contain; }
+.vx-badge-ico.chip { width: 1.2rem; height: 1.2rem; margin: 0 0.05rem; filter: drop-shadow(0 0.1rem 0.15rem rgba(0,0,0,.4)); }
 .vx-menu { position: absolute; right: 0; top: calc(100% + 0.5rem); min-width: 11rem; background: var(--panel); border: var(--hair) solid var(--border);
   border-radius: 0.7rem; box-shadow: 0 1rem 3rem rgba(0,0,0,.5); padding: 0.4rem; display: none; flex-direction: column; z-index: 80; }
 .vx-acct.open .vx-menu { display: flex; animation: vx-menu-in .14s ease both; }

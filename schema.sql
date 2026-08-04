@@ -60,3 +60,15 @@ CREATE TABLE IF NOT EXISTS meta (
   key TEXT PRIMARY KEY,
   value TEXT
 );
+
+CREATE TABLE IF NOT EXISTS user_badges (
+  user_id TEXT NOT NULL,
+  badge TEXT NOT NULL,                     -- id de la insignia (creator, staff, first-move, ...)
+  granted_at TEXT NOT NULL,
+  detail TEXT NOT NULL DEFAULT '{}',       -- JSON extensible (p.ej. campeón: títulos/temporadas)
+  pinned INTEGER NOT NULL DEFAULT 0,       -- fijada en el perfil (máx. 3)
+  featured INTEGER NOT NULL DEFAULT 0,     -- destacada junto al nombre (1)
+  PRIMARY KEY (user_id, badge),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_badges_user ON user_badges(user_id);
