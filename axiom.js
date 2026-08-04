@@ -105,11 +105,28 @@ export function greeting(memory, username) {
 }
 
 export const CONCEPTS = {
+  board: 'el tablero y las coordenadas',
+  'pawn-move': 'el peón',
+  'rook-move': 'la torre',
+  'bishop-move': 'el alfil',
+  'queen-move': 'la dama',
+  'king-move': 'el rey',
   'knight-move': 'el salto del caballo',
+  'piece-values': 'el valor de las piezas',
+  check: 'el jaque',
+  checkmate: 'el jaque mate',
+  castling: 'el enroque',
+  promotion: 'la coronación',
   'hanging-piece': 'las piezas sin defensor',
+  defenders: 'contar los defensores',
   'back-rank': 'el mate de última fila',
-  'pin': 'la clavada',
-  'fork': 'la horquilla',
+  fork: 'la horquilla',
+  pin: 'la clavada',
+  center: 'el centro',
+  development: 'el desarrollo',
+  'king-safety': 'la seguridad del rey',
+  'passed-pawn': 'el peón pasado',
+  'rook-mate': 'el mate con torre',
 };
 export function conceptName(c) { return CONCEPTS[c] || c; }
 

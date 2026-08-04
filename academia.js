@@ -4,8 +4,8 @@
 //  tablero interactivo. Memoria de mentor (D1) por concepto.
 // ============================================================
 import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=16';
-import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js?v=1';
-import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=2';
+import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js?v=2';
+import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=3';
 import { createBoard } from './academy-board.js?v=2';
 import { mountScene, bgFor, poseFor, sceneFor } from './axiom-scene.js?v=2';
 import { Chess } from './chess.js';
