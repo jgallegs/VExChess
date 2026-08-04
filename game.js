@@ -16,10 +16,11 @@ function gameId() {
 
 let ws = null, you = null;
 let serverFen = new Chess().fen();
+let confirmedFen = serverFen, pendingFrom = null, pendingTo = null;
 let moves = [], white = null, black = null, statusG = 'waiting', result = null, reason = null, drawOffer = null, watchers = 0;
 let clock = { wMs: 0, bMs: 0, turn: 'w', base: 0, active: false };
 let sel = null, targets = new Set(), pendingPromo = null;
-let clockTimer = null, booted = false, laid = false, flip = false;
+let clockTimer = null, booted = false, laid = false, flip = false, drawShown = false;
 const pieceNodes = new Map();   // casilla -> nodo DOM
 const squareEls = {};           // casilla -> nodo casilla
 let boardEl = null, piecesEl = null;
@@ -61,21 +62,43 @@ function applyData(m) {
   if (m.watchers != null) watchers = m.watchers;
   if (m.you !== undefined) you = m.you;
   clock = { wMs: m.wMs, bMs: m.bMs, turn: m.turn, base: Date.now(), active: m.status === 'active' };
+  confirmedFen = serverFen;
+  maybeColorDraw();
+}
+
+// Sorteo/revelado de color al arrancar la partida (una sola vez, solo jugadores).
+function maybeColorDraw() {
+  if (drawShown || statusG !== 'active' || !you) return;
+  drawShown = true;
+  const label = you === 'w' ? 'blancas' : 'negras';
+  const ov = document.createElement('div');
+  ov.className = 'gm-draw';
+  ov.innerHTML = '<div class="gm-draw-box"><div class="gm-draw-coin gm-' + you + '">' + PIECE(you, 'n') + '</div>' +
+    '<div class="gm-draw-label">Juegas con <b>' + label + '</b></div><div class="gm-draw-sub">¡Suerte!</div></div>';
+  document.body.appendChild(ov);
+  try { sfx.ui(); } catch (e) {}
+  setTimeout(() => { ov.classList.add('out'); setTimeout(() => ov.remove(), 400); }, 1900);
 }
 function onMsg(e) {
   let m; try { m = JSON.parse(e.data); } catch (err) { return; }
   if (m.t === 'state') { applyData(m); render(true); }
   else if (m.t === 'move') {
-    // Calcula la jugada verbosa desde la posición anterior para animarla.
-    let mv = null;
-    try { mv = new Chess(serverFen).move({ from: m.from, to: m.to, promotion: m.promotion || 'q' }); } catch (err) { mv = null; }
-    applyData(m);
-    if (laid && mv) { animateMove(mv); moveSound(mv); } else render(true);
-    sel = null; targets = new Set();
-    renderInfo(); decorate();
+    if (pendingFrom === m.from && pendingTo === m.to) {
+      // Mi propia jugada, ya animada de forma optimista: solo confirmar datos.
+      pendingFrom = pendingTo = null;
+      applyData(m); renderInfo(); decorate();
+    } else {
+      // Jugada del rival: anímala desde la posición actual.
+      let mv = null;
+      try { mv = new Chess(serverFen).move({ from: m.from, to: m.to, promotion: m.promotion || 'q' }); } catch (err) { mv = null; }
+      applyData(m);
+      if (laid && mv) { animateMove(mv); moveSound(mv); } else render(true);
+      sel = null; targets = new Set();
+      renderInfo(); decorate();
+    }
   }
   else if (m.t === 'end') { applyData(m); render(true); endSound(); showEnd(); }
-  else if (m.t === 'illegal') { sel = null; targets = new Set(); render(true); }
+  else if (m.t === 'illegal') { serverFen = confirmedFen; pendingFrom = pendingTo = null; sel = null; targets = new Set(); render(true); }
   else if (m.t === 'watchers') { watchers = m.n; updateWatchers(); }
   else if (m.t === 'draw_offer') { drawOffer = m.by; renderInfo(); }
   else if (m.t === 'draw_declined') { drawOffer = null; renderInfo(); }
@@ -183,8 +206,23 @@ function tryMove(from, to) {
   const legal = chess.moves({ square: from, verbose: true }).find(m => m.to === to);
   if (!legal) { sel = null; targets = new Set(); decorate(); return; }
   if (legal.promotion) { pendingPromo = { from, to }; renderPromo(); return; }
-  send({ t: 'move', from, to });
-  sel = null; targets = new Set(); decorate();
+  doMove(from, to, 'q');
+}
+// Jugada optimista: mueve la pieza YA (como contra la IA) y avisa al servidor.
+function doMove(from, to, promo) {
+  sel = null; targets = new Set();
+  try {
+    const c = new Chess(serverFen);
+    const mv = c.move({ from, to, promotion: promo || 'q' });
+    if (mv) {
+      animateMove(mv); moveSound(mv);
+      serverFen = c.fen(); moves = moves.concat(mv.san);
+      clock.turn = c.turn(); clock.base = Date.now();     // el reloj pasa al rival al instante
+      pendingFrom = from; pendingTo = to;
+    }
+  } catch (e) {}
+  send({ t: 'move', from, to, promotion: promo });
+  renderInfo(); decorate();
 }
 function renderPromo() {
   let box = document.querySelector('.gm-promo'); if (box) box.remove();
@@ -192,8 +230,8 @@ function renderPromo() {
   box.innerHTML = '<div class="gm-promo-box">' + ['q', 'r', 'b', 'n'].map(t => '<button class="gm-promo-pc" data-t="' + t + '">' + PIECE(you, t) + '</button>').join('') + '</div>';
   document.body.appendChild(box);
   box.querySelectorAll('.gm-promo-pc').forEach(b => b.addEventListener('click', () => {
-    send({ t: 'move', from: pendingPromo.from, to: pendingPromo.to, promotion: b.dataset.t });
-    pendingPromo = null; sel = null; targets = new Set(); box.remove(); decorate();
+    const pp = pendingPromo; pendingPromo = null; box.remove();
+    doMove(pp.from, pp.to, b.dataset.t);
   }));
   box.addEventListener('mousedown', e => { if (e.target === box) { pendingPromo = null; box.remove(); } });
 }

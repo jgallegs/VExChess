@@ -183,22 +183,29 @@ export class GameRoom {
 
   acceptWs(req) {
     if (!this.g) return new Response('no game', { status: 404 });
-    const userId = req.headers.get('X-User-Id');
+    const url = new URL(req.url);
+    const userId = url.searchParams.get('uid') || req.headers.get('X-User-Id') || '';
     const pair = new WebSocketPair();
     const client = pair[0], server = pair[1];
     server.accept();
     let color = null;
-    if (userId === this.g.white.userId) color = 'w'; else if (userId === this.g.black.userId) color = 'b';
-    const meta = { userId, color };
-    server._meta = meta;
+    if (userId && userId === this.g.white.userId) color = 'w';
+    else if (userId && userId === this.g.black.userId) color = 'b';
+    server._meta = { userId, color };
     this.sessions.add(server);
+    let activated = false;
     if (color) this.g.seen[color] = true;
     // Arranca cuando ambos jugadores han aparecido.
     if (this.g.status === 'waiting' && this.g.seen.w && this.g.seen.b) {
       this.g.status = 'active'; this.g.turn = 'w'; this.g.turnStart = Date.now();
-      this.save(); this.scheduleFlag();
+      activated = true;
     }
+    this.save();
+    if (activated) this.scheduleFlag();
+    // El que entra recibe su color; TODOS reciben el estado (para que el rival
+    // que ya estaba conectado vea que la partida ha arrancado).
     server.send(JSON.stringify({ t: 'state', ...this.stateMsg(), you: color }));
+    this.broadcast({ t: 'state', ...this.stateMsg() });
     this.broadcast({ t: 'watchers', n: this.watcherCount() });
     server.addEventListener('message', (e) => this.onMsg(server, e));
     server.addEventListener('close', () => { this.sessions.delete(server); this.broadcast({ t: 'watchers', n: this.watcherCount() }); });
@@ -409,7 +416,8 @@ export async function gameInfo(env, gameId) {
 }
 export async function gameWs(req, env, gameId, userId) {
   const stub = env.GAME.get(env.GAME.idFromName(gameId));
-  const headers = new Headers(req.headers);
-  headers.set('X-User-Id', userId);
-  return stub.fetch(new Request('https://do/ws', { method: 'GET', headers }));
+  const url = new URL(req.url);
+  url.searchParams.set('uid', userId || '');
+  // Pasa la request original (conserva el upgrade a WebSocket) con el uid en la URL.
+  return stub.fetch(new Request(url.toString(), req));
 }
