@@ -1,0 +1,58 @@
+/* ============================================================
+   VEXCHESS · Inventario de insignias. Sin px.
+   ============================================================ */
+body.ins-page { min-height: 100vh; }
+.ins-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .15s; }
+.ins-page .nav-link:hover { color: var(--text); }
+
+.ins-wrap { max-width: 64rem; margin: 0 auto; box-sizing: border-box;
+  padding: clamp(6.5rem, 7.5rem, 8.5rem) clamp(1rem, 4vw, 2.5rem) 3.5rem; }
+
+/* Estado (cargando / zona restringida) */
+.ins-state { text-align: center; padding: 4.5rem 1rem; min-height: 55vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+.ins-state-logo { height: 4.5rem; opacity: .7; }
+.ins-state h1 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem); margin: 0; }
+.ins-state p { color: var(--muted); max-width: 32rem; line-height: 1.65; margin: 0 0 0.4rem; }
+.ins-ring { width: 3.5rem; height: 3.5rem; border-radius: 50%; border: 0.3rem solid rgba(74,158,255,.15); border-top-color: var(--accent); animation: spin 1s linear infinite; }
+
+/* Hero */
+.ins-hero { text-align: center; margin-bottom: 1.8rem; }
+.ins-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 1.4rem + 2.2vw, 2.8rem); margin: 0.3rem 0 0.5rem; }
+.ins-sub { color: var(--muted); max-width: 36rem; margin: 0 auto; line-height: 1.6; }
+.ins-sub b { color: var(--text); }
+
+/* Filtros por familia */
+.ins-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.3rem; }
+.ins-filter { background: var(--panel-2); border: var(--hair) solid var(--border); color: var(--muted);
+  border-radius: 2rem; padding: 0.45rem 1rem; font: 700 0.82rem 'Inter', sans-serif; cursor: pointer; transition: all .12s; }
+.ins-filter:hover { color: var(--text); border-color: var(--vex-muted); }
+.ins-filter.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Secciones por familia */
+.ins-section { margin-top: 2rem; }
+.ins-section-head { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: var(--hair) solid var(--border); }
+.ins-section-head h2 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.3rem; margin: 0; }
+.ins-section-head span { font-size: 0.85rem; color: var(--muted); }
+
+/* Rejilla de tarjetas */
+.ins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.9rem; }
+.ins-card { position: relative; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1.4rem 1.2rem 1.1rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; transition: transform .14s, border-color .14s, box-shadow .14s; }
+.ins-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 0.22rem; background: var(--bc); opacity: .8; }
+.ins-card:hover { transform: translateY(-0.25rem); border-color: color-mix(in srgb, var(--bc) 55%, var(--border)); box-shadow: 0 1rem 2.5rem rgba(0,0,0,.4); }
+.ins-card.owned { border-color: color-mix(in srgb, var(--bc) 55%, var(--border)); background: color-mix(in srgb, var(--bc) 7%, var(--panel)); }
+.ins-owned-tag { position: absolute; top: 0.7rem; right: 0.7rem; font: 800 0.58rem 'Oxanium', sans-serif; letter-spacing: .05em;
+  color: #061018; background: var(--bc); border-radius: 1rem; padding: 0.15rem 0.5rem; }
+
+.ins-card-ico { width: 6rem; height: 6rem; display: grid; place-items: center; margin-bottom: 0.6rem;
+  border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--bc) 22%, transparent), transparent 70%); }
+.vx-badge-ico.ins { width: 4.6rem; height: 4.6rem; object-fit: contain; filter: drop-shadow(0 0.25rem 0.5rem rgba(0,0,0,.5)); }
+.ins-card-name { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.15rem; margin: 0 0 0.35rem; }
+.ins-card-family { font: 700 0.6rem 'Inter', sans-serif; letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
+  background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 2rem; padding: 0.14rem 0.6rem; margin-bottom: 0.7rem; }
+.ins-card-desc { font-size: 0.88rem; color: var(--text); line-height: 1.45; margin: 0 0 0.6rem; }
+.ins-card-howto { font-size: 0.76rem; color: var(--muted); line-height: 1.5; margin: 0 0 0.9rem; }
+.ins-card-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; margin-top: auto; }
+.ins-chip { font: 700 0.62rem 'Inter', sans-serif; border-radius: 2rem; padding: 0.2rem 0.6rem; }
+.ins-chip-mode { color: var(--bc); background: color-mix(in srgb, var(--bc) 14%, transparent); border: var(--hair) solid color-mix(in srgb, var(--bc) 40%, transparent); }
+.ins-chip-rev { color: var(--muted); background: var(--panel-2); border: var(--hair) solid var(--border); }

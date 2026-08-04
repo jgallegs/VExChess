@@ -28,6 +28,19 @@ export const api = {
   importGames: (games) => req('/games/import', { method: 'POST', headers: JSON_H, body: JSON.stringify({ games }) }),
   deleteGame: (id) => req('/games/' + id, { method: 'DELETE' }),
   stats: () => req('/stats'),
+  // admin
+  adminOverview: () => req('/admin/overview'),
+  adminUsers: (opts = {}) => {
+    const p = new URLSearchParams();
+    p.set('q', opts.q || ''); p.set('limit', opts.limit || 25); p.set('offset', opts.offset || 0);
+    if (opts.role) p.set('role', opts.role);
+    if (opts.sort) p.set('sort', opts.sort);
+    return req('/admin/users?' + p.toString());
+  },
+  adminUser: (id) => req('/admin/users/' + id),
+  adminGrant: (id, badge) => req('/admin/users/' + id + '/badges', { method: 'POST', headers: JSON_H, body: JSON.stringify({ badge }) }),
+  adminRevoke: (id, badge) => req('/admin/users/' + id + '/badges/' + encodeURIComponent(badge), { method: 'DELETE' }),
+  adminUpdateUser: (id, patch) => req('/admin/users/' + id, { method: 'PUT', headers: JSON_H, body: JSON.stringify(patch) }),
 };
 
 // ---------- estado ----------
@@ -43,6 +56,17 @@ export function isAuthResolved() { return authResolved; }
 export function setBadges(arr) { currentBadges = arr || []; renderAccounts(); }
 export function onAuth(fn) { listeners.push(fn); fn(currentUser); }
 function emit() { listeners.forEach(f => { try { f(currentUser); } catch (e) {} }); document.dispatchEvent(new CustomEvent('vexchess:auth', { detail: currentUser })); }
+
+// ---------- roles (compartido con el panel de admin) ----------
+export const ROLES = {
+  owner:     { level: 100, label: 'Propietario',   color: '#FF3B47' },
+  admin:     { level: 80,  label: 'Administrador',  color: '#F59E0B' },
+  moderator: { level: 50,  label: 'Moderador',      color: '#3B82F6' },
+  member:    { level: 0,   label: 'Miembro',        color: '#8b97a9' },
+};
+export const STAFF_LEVEL = 50;
+export function roleMeta(r) { return ROLES[r] || ROLES.member; }
+export function roleLevel(r) { return (ROLES[r] ? ROLES[r].level : 0); }
 
 // ---------- avatar ----------
 export const AVATAR_COLORS = { red: '#FF3B47', blue: '#3B82F6', green: '#3AA856', gold: '#E0A82E', slate: '#64748B', violet: '#8B5CF6' };
@@ -216,6 +240,8 @@ function accountHTML() {
       '<div class="vx-menu">' +
         '<a href="perfil.html">Mi perfil</a>' +
         '<a href="partidas.html">Mis partidas</a>' +
+        (currentUser.is_admin ? '<a href="insignias.html">Inventario de insignias</a>' : '') +
+        (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">Panel de admin</a>' : '') +
         '<button type="button" class="vx-signout">Cerrar sesión</button>' +
       '</div>' +
     '</div>';

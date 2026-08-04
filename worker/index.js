@@ -83,11 +83,37 @@ function validatePassword(p) {
   return null;
 }
 
+// Insignias válidas del catálogo oficial (v2). El backend solo concede estas.
+const BADGE_IDS = new Set([
+  'creator', 'staff', 'champion', 'first-move', 'early-supporter', 'pioneer',
+  'giant-slayer', 'veteran', 'mentor', 'tournament-host', 'builder',
+  'translator', 'puzzle-author', 'bug-hunter', 'fair-play', 'tactician',
+]);
+
+// ---------- roles ----------
+// Jerarquía de roles. `level` decide permisos: un actor solo puede tocar a
+// alguien de nivel estrictamente inferior, y solo asignar roles por debajo del
+// suyo. `owner` es único, no se concede ni se cambia desde el panel.
+const ROLES = {
+  owner:     { level: 100, label: 'Propietario' },
+  admin:     { level: 80,  label: 'Administrador' },
+  moderator: { level: 50,  label: 'Moderador' },
+  member:    { level: 0,   label: 'Miembro' },
+};
+const STAFF_LEVEL = 50;   // nivel mínimo para acceder al panel
+const ELO_LEVEL = 80;     // nivel mínimo para editar Elo
+const ROLE_LEVEL = 80;    // nivel mínimo para cambiar roles
+const roleOf = (u) => (u && ROLES[u.role]) ? u.role : 'member';
+const roleLevel = (r) => (ROLES[r] ? ROLES[r].level : 0);
+
 // ---------- modelo ----------
 function publicUser(u) {
+  const role = roleOf(u);
+  const level = roleLevel(role);
   return {
     id: u.id, username: u.username, email: u.email, avatar: u.avatar,
     country: u.country || null, elo: u.elo, created_at: u.created_at,
+    role, role_level: level, is_admin: level >= STAFF_LEVEL,
     data: safeJson(u.data, {}),
   };
 }
@@ -341,6 +367,138 @@ async function publicProfile(req, env, username) {
   return json({ profile: { username: row.username, avatar: row.avatar, country: row.country, elo: row.elo, created_at: row.created_at, stats: await getStats(env, row.id), badges: await getBadges(env, row.id) } });
 }
 
+// ---------- admin ----------
+// Devuelve la sesión solo si el usuario tiene al menos `minLevel`; si no, null.
+async function getStaff(req, env, minLevel = STAFF_LEVEL) {
+  const s = await getSession(req, env);
+  if (!s || roleLevel(roleOf(s.user)) < minLevel) return null;
+  return s;
+}
+
+async function adminOverview(req, env) {
+  if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
+  const total = await env.DB.prepare('SELECT COUNT(*) AS n FROM users').first();
+  const games = await env.DB.prepare('SELECT COUNT(*) AS n FROM games').first();
+  const grants = await env.DB.prepare('SELECT COUNT(*) AS n FROM user_badges').first();
+  const { results: roleRows } = await env.DB.prepare('SELECT role, COUNT(*) AS n FROM users GROUP BY role').all();
+  const { results: badgeRows } = await env.DB.prepare('SELECT badge, COUNT(*) AS n FROM user_badges GROUP BY badge').all();
+  const roles = {}; (roleRows || []).forEach(r => { roles[r.role || 'member'] = r.n; });
+  const badge_dist = {}; (badgeRows || []).forEach(r => { badge_dist[r.badge] = r.n; });
+  const staff = (roles.owner || 0) + (roles.admin || 0) + (roles.moderator || 0);
+  return json({
+    total_users: total ? total.n : 0,
+    total_games: games ? games.n : 0,
+    badges_granted: grants ? grants.n : 0,
+    staff, roles, badge_dist,
+  });
+}
+
+async function adminListUsers(req, env) {
+  if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
+  const url = new URL(req.url);
+  const q = (url.searchParams.get('q') || '').trim().toLowerCase();
+  const roleF = (url.searchParams.get('role') || 'all').trim();
+  const sort = (url.searchParams.get('sort') || 'recent').trim();
+  const limit = Math.min(100, Math.max(1, parseInt(url.searchParams.get('limit') || '25', 10)));
+  const offset = Math.max(0, parseInt(url.searchParams.get('offset') || '0', 10));
+
+  const conds = [], cargs = [];
+  if (q) {
+    const like = '%' + q.replace(/[%_\\]/g, m => '\\' + m) + '%';
+    conds.push("(u.username_lower LIKE ? ESCAPE '\\' OR u.email LIKE ? ESCAPE '\\')");
+    cargs.push(like, like);
+  }
+  if (roleF === 'staff') conds.push("u.role IN ('owner','admin','moderator')");
+  else if (ROLES[roleF]) { conds.push('u.role = ?'); cargs.push(roleF); }
+  const where = conds.length ? 'WHERE ' + conds.join(' AND ') : '';
+  const order = ({
+    recent: 'u.created_at DESC', oldest: 'u.created_at ASC',
+    elo_desc: 'u.elo DESC', elo_asc: 'u.elo ASC', name: 'u.username_lower ASC',
+  })[sort] || 'u.created_at DESC';
+
+  const { results } = await env.DB.prepare(
+    `SELECT u.id, u.username, u.email, u.avatar, u.elo, u.role, u.created_at,
+       (SELECT COUNT(*) FROM user_badges b WHERE b.user_id = u.id) AS badge_count,
+       (SELECT COUNT(*) FROM games g WHERE g.user_id = u.id) AS games_count
+     FROM users u ${where} ORDER BY ${order} LIMIT ? OFFSET ?`
+  ).bind(...cargs, limit, offset).all();
+  const totalRow = await env.DB.prepare(`SELECT COUNT(*) AS n FROM users u ${where}`).bind(...cargs).first();
+  const users = (results || []).map(u => ({
+    id: u.id, username: u.username, email: u.email, avatar: u.avatar,
+    elo: u.elo, role: roleOf(u), role_level: roleLevel(roleOf(u)), is_admin: roleLevel(roleOf(u)) >= STAFF_LEVEL,
+    created_at: u.created_at, badge_count: u.badge_count, games_count: u.games_count,
+  }));
+  return json({ users, total: totalRow ? totalRow.n : users.length, limit, offset, sort, role: roleF });
+}
+
+async function adminGetUser(req, env, id) {
+  if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
+  const u = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(id).first();
+  if (!u) return errRes('Usuario no encontrado.', 404);
+  return json({ user: publicUser(u), stats: await getStats(env, id), badges: await getBadges(env, id) });
+}
+
+async function adminGrantBadge(req, env, id) {
+  if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const badge = typeof b.badge === 'string' ? b.badge : '';
+  if (!BADGE_IDS.has(badge)) return errRes('Insignia no válida.');
+  const u = await env.DB.prepare('SELECT id FROM users WHERE id = ?').bind(id).first();
+  if (!u) return errRes('Usuario no encontrado.', 404);
+  await env.DB.prepare('INSERT OR IGNORE INTO user_badges (user_id, badge, granted_at, detail, pinned, featured) VALUES (?,?,?,?,0,0)')
+    .bind(id, badge, nowISO(), '{}').run();
+  return json({ badges: await getBadges(env, id) });
+}
+
+async function adminRevokeBadge(req, env, id, badge) {
+  if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
+  await env.DB.prepare('DELETE FROM user_badges WHERE user_id = ? AND badge = ?').bind(id, badge).run();
+  return json({ badges: await getBadges(env, id) });
+}
+
+async function adminUpdateUser(req, env, id) {
+  const actor = await getStaff(req, env);
+  if (!actor) return errRes('No autorizado.', 403);
+  const target = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(id).first();
+  if (!target) return errRes('Usuario no encontrado.', 404);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+
+  const actorLevel = roleLevel(roleOf(actor.user));
+  const targetRole = roleOf(target);
+  const targetLevel = roleLevel(targetRole);
+  const fields = [], vals = [];
+
+  // --- Elo ---
+  if (b.elo != null) {
+    if (actorLevel < ELO_LEVEL) return errRes('No tienes permiso para cambiar el Elo.', 403);
+    const elo = parseInt(b.elo, 10);
+    if (!Number.isFinite(elo) || elo < 100 || elo > 3500) return errRes('Elo fuera de rango (100–3500).');
+    fields.push('elo = ?'); vals.push(elo);
+  }
+
+  // --- Rol ---
+  if (typeof b.role === 'string') {
+    const newRole = b.role;
+    if (!ROLES[newRole]) return errRes('Rol no válido.');
+    if (actorLevel < ROLE_LEVEL) return errRes('No tienes permiso para cambiar roles.', 403);
+    if (id === actor.user.id) return errRes('No puedes cambiar tu propio rol.');
+    if (targetRole === 'owner') return errRes('No se puede modificar al propietario.');
+    if (newRole === 'owner') return errRes('El rol de propietario no se asigna desde el panel.');
+    if (actorLevel <= targetLevel) return errRes('No puedes modificar a alguien de tu mismo nivel o superior.', 403);
+    if (actorLevel <= roleLevel(newRole)) return errRes('No puedes asignar un rol igual o superior al tuyo.', 403);
+    fields.push('role = ?'); vals.push(newRole);
+    // Mantener is_admin sincronizado (acceso al panel = staff).
+    fields.push('is_admin = ?'); vals.push(roleLevel(newRole) >= STAFF_LEVEL ? 1 : 0);
+  }
+
+  if (!fields.length) return errRes('Nada que actualizar.');
+  fields.push('updated_at = ?'); vals.push(nowISO());
+  vals.push(id);
+  await env.DB.prepare(`UPDATE users SET ${fields.join(', ')} WHERE id = ?`).bind(...vals).run();
+  const out = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(id).first();
+  return json({ user: publicUser(out) });
+}
+
 // ---------- router ----------
 async function handleApi(req, env) {
   const url = new URL(req.url);
@@ -363,6 +521,16 @@ async function handleApi(req, env) {
     if (path === '/api/stats' && m === 'GET') { const s = await getSession(req, env); return s ? json({ stats: await getStats(env, s.user.id), elo: s.user.elo }) : errRes('No has iniciado sesión.', 401); }
     const pu = path.match(/^\/api\/u\/([A-Za-z0-9_]+)$/);
     if (pu && m === 'GET') return await publicProfile(req, env, pu[1]);
+    // --- admin ---
+    if (path === '/api/admin/overview' && m === 'GET') return await adminOverview(req, env);
+    if (path === '/api/admin/users' && m === 'GET') return await adminListUsers(req, env);
+    const auBadge = path.match(/^\/api\/admin\/users\/([A-Za-z0-9-]+)\/badges\/([a-z-]+)$/);
+    if (auBadge && m === 'DELETE') return await adminRevokeBadge(req, env, auBadge[1], auBadge[2]);
+    const auBadges = path.match(/^\/api\/admin\/users\/([A-Za-z0-9-]+)\/badges$/);
+    if (auBadges && m === 'POST') return await adminGrantBadge(req, env, auBadges[1]);
+    const au = path.match(/^\/api\/admin\/users\/([A-Za-z0-9-]+)$/);
+    if (au && m === 'GET') return await adminGetUser(req, env, au[1]);
+    if (au && m === 'PUT') return await adminUpdateUser(req, env, au[1]);
     return errRes('Ruta no encontrada.', 404);
   } catch (e) {
     return errRes('Error interno del servidor.', 500, { detail: String(e && e.message || e) });

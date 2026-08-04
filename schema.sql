@@ -12,10 +12,17 @@ CREATE TABLE IF NOT EXISTS users (
   avatar TEXT DEFAULT 'knight:red',
   country TEXT,
   elo INTEGER NOT NULL DEFAULT 1200,
+  is_admin INTEGER NOT NULL DEFAULT 0,     -- 1 = acceso al panel (derivado de role >= moderator)
+  role TEXT NOT NULL DEFAULT 'member',     -- owner | admin | moderator | member
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   data TEXT NOT NULL DEFAULT '{}'          -- JSON extensible para datos futuros
 );
+
+-- Migración para bases ya existentes (no hace falta si se crea de cero):
+--   ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0;
+--   ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'member';
+--   UPDATE users SET role = 'owner', is_admin = 1 WHERE username_lower = 'jorge';
 
 CREATE TABLE IF NOT EXISTS sessions (
   token TEXT PRIMARY KEY,
