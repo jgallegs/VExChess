@@ -70,7 +70,7 @@ async function startSearch() {
   const tryJoin = async () => {
     try {
       const r = await api.playQueueJoin(tc);
-      if (r.status === 'matched' && r.game_id) { stopSearch(true); location.href = 'game/' + r.game_id; return true; }
+      if (r.status === 'matched' && r.game_id) { stopSearch(true); location.href = '/game.html?g=' + r.game_id; return true; }
     } catch (e) { toast(e.message || 'Error', false); stopSearch(); return true; }
     return false;
   };
@@ -109,7 +109,7 @@ function chRow(c, dir) {
 }
 async function chAction(act, id) {
   try {
-    if (act === 'accept') { const r = await api.playRespond(id, 'accept'); if (r.game_id) { location.href = 'game/' + r.game_id; return; } }
+    if (act === 'accept') { const r = await api.playRespond(id, 'accept'); if (r.game_id) { location.href = '/game.html?g=' + r.game_id; return; } }
     else if (act === 'decline') { await api.playRespond(id, 'decline'); toast('Reto rechazado', true); }
     else if (act === 'cancel') { await api.playCancel(id); toast('Reto cancelado', true); }
     loadChallenges();

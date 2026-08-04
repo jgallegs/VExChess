@@ -253,13 +253,13 @@ async function sendChallenge(userId, username, tc) {
     '<p class="cm-muted">Reto de ' + esc(tc) + ' enviado. En cuanto acepte, empieza la partida.</p>' +
     '<button class="cm-btn ghost" id="cm-ch-cancel">Cancelar reto</button></div>';
   let id;
-  try { const r = await api.playChallenge(userId, tc); id = r.id; if (r.status === 'accepted' && r.game_id) { location.href = 'game/' + r.game_id; return; } }
+  try { const r = await api.playChallenge(userId, tc); id = r.id; if (r.status === 'accepted' && r.game_id) { location.href = '/game.html?g=' + r.game_id; return; } }
   catch (e) { toast(e.message || 'Error', false); closeChallenge(); return; }
   document.getElementById('cm-ch-cancel').addEventListener('click', async () => { try { await api.playCancel(id); } catch (e) {} closeChallenge(); });
   chPoll = setInterval(async () => {
     try {
       const p = await api.playChallengePoll(id);
-      if (p.status === 'accepted' && p.game_id) { clearInterval(chPoll); location.href = 'game/' + p.game_id; }
+      if (p.status === 'accepted' && p.game_id) { clearInterval(chPoll); location.href = '/game.html?g=' + p.game_id; }
       else if (p.status === 'declined' || p.status === 'cancelled') { closeChallenge(); toast('El reto no se completó', false); }
     } catch (e) {}
   }, 2000);

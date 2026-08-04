@@ -5,7 +5,11 @@ import { Chess } from './chess.js';
 import { getUser, isAuthResolved, onAuth, avatarHTML } from './auth.js?v=14';
 
 const root = document.getElementById('game-root');
-function gameId() { const m = location.pathname.match(/\/game\/([A-Za-z0-9-]+)/); return m ? m[1] : ''; }
+function gameId() {
+  const m = location.pathname.match(/\/game\/([A-Za-z0-9_-]+)/);
+  if (m) return m[1];
+  return (new URLSearchParams(location.search).get('g') || '').trim();
+}
 
 let ws = null, you = null, info = null;
 let serverFen = new Chess().fen();
