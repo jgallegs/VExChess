@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "badges": [
+    {"id":"creator","family":"role","labels":{"es":"Creador","en":"Creator"},"grantMode":"manual","revocable":false,"exclusive":true,"priority":100},
+    {"id":"staff","family":"role","labels":{"es":"Equipo","en":"Staff"},"grantMode":"system","revocable":true,"exclusive":false,"priority":90},
+    {"id":"champion","family":"competition","labels":{"es":"Campeón","en":"Champion"},"grantMode":"event","revocable":false,"exclusive":false,"priority":80},
+    {"id":"first-move","family":"legacy","labels":{"es":"Primera Jugada","en":"First Move"},"grantMode":"system","revocable":false,"exclusive":false,"priority":70},
+    {"id":"early-supporter","family":"legacy","labels":{"es":"Apoyo Inicial","en":"Early Supporter"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":68},
+    {"id":"pioneer","family":"legacy","labels":{"es":"Pionero","en":"Pioneer"},"grantMode":"event","revocable":false,"exclusive":false,"priority":60},
+    {"id":"giant-slayer","family":"competition","labels":{"es":"Matagigantes","en":"Giant Slayer"},"grantMode":"system","revocable":false,"exclusive":false,"priority":58},
+    {"id":"veteran","family":"legacy","labels":{"es":"Veterano","en":"Veteran"},"grantMode":"system","revocable":false,"exclusive":false,"priority":55},
+    {"id":"mentor","family":"community","labels":{"es":"Mentor","en":"Mentor"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":50},
+    {"id":"tournament-host","family":"community","labels":{"es":"Organizador","en":"Tournament Host"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":48},
+    {"id":"builder","family":"contribution","labels":{"es":"Constructor","en":"Builder"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":45},
+    {"id":"translator","family":"contribution","labels":{"es":"Traductor","en":"Translator"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":44},
+    {"id":"puzzle-author","family":"contribution","labels":{"es":"Compositor","en":"Puzzle Author"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":43},
+    {"id":"bug-hunter","family":"contribution","labels":{"es":"Cazador de errores","en":"Bug Hunter"},"grantMode":"manual","revocable":false,"exclusive":false,"priority":40},
+    {"id":"fair-play","family":"community","labels":{"es":"Juego Limpio","en":"Fair Play"},"grantMode":"system","revocable":true,"exclusive":false,"priority":35},
+    {"id":"tactician","family":"competition","labels":{"es":"Táctico","en":"Tactician"},"grantMode":"system","revocable":false,"exclusive":false,"priority":30}
+  ]
+}

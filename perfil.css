@@ -76,7 +76,8 @@ body.perfil-page { min-height: 100vh; }
 .pf-badge-hero { width: 7.5rem; height: 7.5rem; margin: 0.2rem auto 1rem; display: grid; place-items: center; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--bc) 24%, transparent), transparent 70%); }
 .pf-badge-hero img { width: 5.6rem; height: 5.6rem; object-fit: contain; filter: drop-shadow(0 0.3rem 0.6rem rgba(0,0,0,.5)); }
-.pf-badge-box h3 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.35rem; margin: 0 0 0.5rem; }
+.pf-badge-box h3 { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.35rem; margin: 0 0 0.4rem; }
+.pf-badge-family { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 2rem; padding: 0.15rem 0.6rem; margin-bottom: 0.7rem; }
 .pf-badge-desc { color: var(--text); font-size: 0.95rem; margin: 0 0 0.6rem; }
 .pf-badge-howto { color: var(--muted); font-size: 0.82rem; line-height: 1.55; margin: 0 0 0.6rem; }
 .pf-badge-titles { list-style: none; padding: 0; margin: 0 0 0.6rem; font-size: 0.82rem; color: var(--text); display: flex; flex-direction: column; gap: 0.25rem; }

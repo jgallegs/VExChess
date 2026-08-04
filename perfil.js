@@ -1,8 +1,8 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=4';
-import { badgeMeta } from './badges.js?v=1';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth } from './auth.js?v=5';
+import { badgeMeta } from './badges.js?v=3';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: 'Principiante', facil: 'Fácil', intermedio: 'Intermedio', avanzado: 'Avanzado', maximo: 'Máximo', desconocido: 'Otro' };
@@ -33,7 +33,7 @@ function loggedIn(u, s) {
   const swatches = Object.keys(AVATAR_COLORS).map(c =>
     '<button class="pf-sw' + (u.avatar === 'knight:' + c ? ' active' : '') + '" data-avatar="knight:' + c + '" style="background:' + AVATAR_COLORS[c] + '" aria-label="' + c + '"></button>').join('');
 
-  const badges = getBadges();
+  const badges = getBadges().slice().sort((a, b) => (badgeMeta(b.badge).priority || 0) - (badgeMeta(a.badge).priority || 0));
   const featured = badges.find(b => b.featured);
   const pinned = badges.filter(b => b.pinned).slice(0, 3);
   const nameBadge = featured ? '<img class="pf-name-badge" src="assets/badges/' + featured.badge + '.png" alt="" title="' + esc(badgeMeta(featured.badge).name) + '">' : '';
@@ -142,6 +142,7 @@ function openBadgeDetail(id) {
   o.querySelector('.pf-badge-body').innerHTML =
     '<div class="pf-badge-hero" style="--bc:' + m.color + '"><img src="assets/badges/' + id + '.png" alt=""></div>' +
     '<h3 style="color:' + m.color + '">' + esc(m.name) + '</h3>' +
+    (m.family ? '<span class="pf-badge-family">' + esc(m.family) + '</span>' : '') +
     '<p class="pf-badge-desc">' + esc(m.desc) + '</p>' +
     '<p class="pf-badge-howto">' + esc(m.howto) + '</p>' +
     (titles.length ? '<ul class="pf-badge-titles">' + titles.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' : '') +
