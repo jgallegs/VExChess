@@ -31,6 +31,17 @@
 .ac-tag { font-style: italic; color: var(--muted); font-size: 0.85rem; }
 .ac-hero-copy .ac-btn { margin-top: 1.1rem; }
 
+/* Héroe cinematográfico (escena AXIOM v3: fondo + pose + FX + parallax) */
+.ac-hero.cine { min-height: 24rem; background: #0b1220; display: flex; align-items: center; }
+.ac-hero.cine .ac-hero-stage { position: absolute; inset: 0; z-index: 0; }
+.ac-hero.cine::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(11,18,32,.92) 0%, rgba(11,18,32,.55) 44%, transparent 72%); }
+.ac-hero.cine .ac-hero-copy { position: relative; z-index: 2; max-width: 40rem; padding: clamp(1.4rem, 3.5vw, 2.8rem); }
+@media (max-width: 46em) {
+  .ac-hero.cine { min-height: 22rem; }
+  .ac-hero.cine::after { background: linear-gradient(180deg, rgba(11,18,32,.55) 0%, rgba(11,18,32,.82) 62%); }
+}
+
 /* ---------- Conceptos (anillos de maestría) ---------- */
 .ac-concepts { margin-bottom: 1.8rem; }
 .ac-concepts h2, .ac-path h3 { font-family: 'Oxanium', sans-serif; }
@@ -140,4 +151,48 @@
   .ac-hero-axiom { max-width: 13rem; margin: 0 auto; }
   .ac-hero-meta { justify-content: center; }
   .ac-board { --acb: min(92vw, 26rem); }
+}
+
+/* ============================================================
+   Tablero HOLOGRÁFICO (lecciones AXIOM)
+   ============================================================ */
+.ab-board.holo { background: #08111c; box-shadow: 0 0 2.2rem rgba(57,213,255,.28), inset 0 0 3rem rgba(57,213,255,.08), 0 1rem 3rem rgba(0,0,0,.55); border: var(--hair) solid rgba(57,213,255,.4); }
+.ab-board.holo .ab-sq { box-shadow: inset 0 0 0 0.03rem rgba(57,213,255,.18); }
+.ab-board.holo .ab-sq.light { background: rgba(57,213,255,.11); }
+.ab-board.holo .ab-sq.dark { background: rgba(18,42,66,.55); }
+.ab-board.holo .ab-coord { color: rgba(57,213,255,.5); }
+.ab-board.holo .ab-sq .pc { filter: none; }
+.ab-board.holo .pc-w { filter: drop-shadow(0 0 0.22rem rgba(57,213,255,.95)) drop-shadow(0 0 0.5rem rgba(57,213,255,.55)); }
+.ab-board.holo .pc-b { filter: brightness(1.55) saturate(1.1) drop-shadow(0 0 0.22rem rgba(255,90,100,.85)) drop-shadow(0 0 0.5rem rgba(255,59,71,.4)); }
+.ab-board.holo .ab-sq.sel::before { box-shadow: inset 0 0 0 0.2rem var(--ax-cyan), inset 0 0 1rem rgba(57,213,255,.5); }
+
+/* ============================================================
+   Runner cinematográfico (demo guiada + práctica)
+   ============================================================ */
+.ac-runner.cine { position: relative; border-radius: 1.2rem; overflow: hidden; border: var(--hair) solid var(--border);
+  padding: 1rem clamp(0.8rem, 2vw, 1.6rem) 1.6rem; min-height: 34rem; background: #0b1220; }
+.ac-cine-bg { position: absolute; inset: -2%; background-size: cover; background-position: center; opacity: .5; z-index: 0; filter: saturate(1.05); }
+.ac-cine-scrim { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(11,18,32,.5) 0%, rgba(11,18,32,.82) 78%); }
+.ac-runner.cine .ac-runner-top, .ac-runner.cine .ac-stage { position: relative; z-index: 1; }
+.ac-phase-dots { display: flex; gap: 0.35rem; }
+
+.ac-coach { display: flex; flex-direction: column; gap: 0.85rem; width: 100%; }
+.ac-pose { width: 11rem; height: auto; align-self: center; display: block; filter: drop-shadow(0 1rem 1.6rem rgba(0,0,0,.55)); }
+.ac-pose.in { animation: ac-posefade .45s ease; }
+@keyframes ac-posefade { from { opacity: .15; transform: translateY(0.4rem); } to { opacity: 1; transform: none; } }
+.ac-bubble2 { background: color-mix(in srgb, var(--panel) 92%, transparent); border: var(--hair) solid var(--border); border-left: 0.22rem solid var(--ax-cyan); border-radius: 0.8rem; padding: 0.9rem 1rem; backdrop-filter: blur(4px); }
+.ac-bubble2[data-state="mistake"] { border-left-color: var(--accent); }
+.ac-bubble2[data-state="correct"] { border-left-color: #8fe3a0; }
+.ac-bubble2[data-state="hint"] { border-left-color: var(--ax-gold); }
+.ac-bubble2 .ac-bubble-main { margin: 0; font-size: 0.97rem; line-height: 1.5; color: var(--text); }
+.ac-bubble2 .ac-bubble-sub { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); }
+.ac-bubble2 .ac-bubble-sub:empty { display: none; }
+
+/* Fin de lección cinematográfico */
+.ac-complete.cine .ac-complete-scene { opacity: .42; }
+.ac-complete-pose { width: 8.5rem; height: auto; filter: drop-shadow(0 0 2rem rgba(244,199,99,.4)) drop-shadow(0 1rem 1.5rem rgba(0,0,0,.5)); margin-bottom: 0.4rem; }
+
+@media (max-width: 56em) {
+  .ac-pose { width: 8.5rem; }
+  .ac-runner.cine { min-height: 0; }
 }

@@ -22,13 +22,14 @@ export function createBoard(root, opts = {}) {
   };
 
   root.classList.add('ab-board');
+  if (opts.holo) root.classList.add('holo');
   root.innerHTML = '<div class="ab-grid"></div><svg class="ab-ov" viewBox="0 0 8 8" preserveAspectRatio="none" aria-hidden="true"></svg>';
   const grid = root.querySelector('.ab-grid');
   const ov = root.querySelector('.ab-ov');
   const overlays = { squares: new Map(), arrows: [] };
 
   function pieceSVG(color, type) {
-    return '<svg class="pc" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + color + type + '"></use></svg>';
+    return '<svg class="pc pc-' + color + '" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + color + type + '"></use></svg>';
   }
   function screenToSquare(sr, sc) {
     const file = state.orientBlack ? 7 - sc : sc;
@@ -121,6 +122,7 @@ export function createBoard(root, opts = {}) {
     game: () => state.game,
     lock() { state.locked = true; },
     unlock() { state.locked = false; },
+    setInteractive(b) { state.interactive = !!b; },
     // Deshace la última jugada del jugador (para intentos legales pero incorrectos).
     undoLast() {
       state.game.undo();

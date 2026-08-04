@@ -5,8 +5,9 @@
 // ============================================================
 import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=16';
 import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js?v=1';
-import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=1';
-import { createBoard } from './academy-board.js?v=1';
+import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=2';
+import { createBoard } from './academy-board.js?v=2';
+import { mountScene, bgFor, poseFor, sceneFor } from './axiom-scene.js?v=2';
 
 const root = document.getElementById('academia-root');
 let user = null;
@@ -34,11 +35,9 @@ function renderHome() {
   const streak = memory ? memory.streak : 0;
 
   root.innerHTML =
-    '<section class="ac-hero">' +
-      '<div class="ac-hero-scene" style="background-image:url(' + AX_SPLASH + ')"></div>' +
-      '<div class="ac-hero-inner">' +
-        '<div class="ac-hero-axiom"><img src="' + AX_SPLASH + '" alt="AXIOM"></div>' +
-        '<div class="ac-hero-copy">' +
+    '<section class="ac-hero cine">' +
+      '<div class="ac-hero-stage" id="ac-hero-stage"></div>' +
+      '<div class="ac-hero-copy">' +
           '<span class="ac-eyebrow">Academia VEX · Entrenador</span>' +
           '<h1 class="ac-name">AXIOM <span>Maestro de las Variantes</span></h1>' +
           '<p class="ac-say">' + esc(g.line) + '</p>' +
@@ -48,13 +47,14 @@ function renderHome() {
             '<span class="ac-tag">' + esc(AXIOM.tagline) + '</span>' +
           '</div>' +
           (user ? '' : '<button class="ac-btn primary" id="ac-login" type="button">Entrar para guardar tu progreso</button>') +
-        '</div>' +
       '</div>' +
     '</section>' +
     conceptsBar() +
     '<section class="ac-path">' + PATH.map(pathBlock).join('') + '</section>' +
     '<p class="ac-note">La Academia mide tu <b>aprendizaje</b> (conceptos que dominas y puedes explicar), no tu Elo.</p>';
 
+  const stage = document.getElementById('ac-hero-stage');
+  if (stage) mountScene(stage, 'welcome');
   const lg = document.getElementById('ac-login');
   if (lg) lg.addEventListener('click', () => openAuth('login'));
   root.querySelectorAll('[data-lesson]').forEach(b => b.addEventListener('click', () => startLesson(b.getAttribute('data-lesson'))));
@@ -102,38 +102,46 @@ let session = null;
 function startLesson(id) {
   const lesson = lessonById(id);
   if (!lesson) return;
-  session = { lesson, stepIdx: 0, hintLevel: -1, maxHint: 0, board: null, solved: false, phase: 'observe' };
+  session = { lesson, stepIdx: 0, hintLevel: -1, maxHint: 0, board: null, solved: false, phase: 'demo', beatIdx: 0 };
   renderRunner();
 }
 
 function currentStep() { return session.lesson.steps[session.stepIdx]; }
 
-function axiomLine(state, text, sub) {
-  return '<div class="ac-axiom-panel" data-state="' + state + '">' +
-      '<img class="ac-portrait" src="' + portraitOf(state) + '" alt="AXIOM">' +
-      '<div class="ac-bubble"><p class="ac-bubble-main">' + esc(text) + '</p>' +
-        (sub ? '<p class="ac-bubble-sub">' + esc(sub) + '</p>' : '') + '</div>' +
-    '</div>';
+// Demostración por defecto si la lección no define una.
+function getDemo() {
+  const step = currentStep(), l = session.lesson, exp = step.expected[0];
+  if (step.demo && step.demo.length) return step.demo;
+  return [
+    { state: 'welcome', say: l.intro, ops: [{ t: 'reset' }] },
+    { state: 'explain', say: step.observe, ops: [{ t: 'arrow', from: exp.slice(0, 2), to: exp.slice(2, 4), cls: 'idea' }] },
+    { state: 'correct', say: step.explain, ops: [{ t: 'clear' }, { t: 'play', uci: exp }] },
+  ];
 }
 
 function renderRunner() {
   const l = session.lesson, step = currentStep();
   root.innerHTML =
-    '<section class="ac-runner">' +
+    '<section class="ac-runner cine" id="ac-runner">' +
+      '<div class="ac-cine-bg" id="ac-cine-bg"></div>' +
+      '<div class="ac-cine-scrim"></div>' +
       '<div class="ac-runner-top">' +
         '<button class="ac-back" id="ac-back" type="button">← Academia</button>' +
         '<div class="ac-runner-title"><span class="ac-eyebrow">' + esc(cap(conceptName(l.concept))) + '</span><h2>' + esc(l.title) + '</h2></div>' +
-        '<div class="ac-progress-steps">' + l.steps.map((s, i) => '<span class="ac-dot-step' + (i === session.stepIdx ? ' on' : '') + (i < session.stepIdx ? ' done' : '') + '"></span>').join('') + '</div>' +
+        '<div class="ac-phase-dots" id="ac-phase-dots"></div>' +
       '</div>' +
       '<div class="ac-stage">' +
-        '<div class="ac-board-col"><div class="ac-board" id="ac-board"></div>' +
+        '<div class="ac-board-col">' +
+          '<div class="ac-board holo" id="ac-board"></div>' +
           '<div class="ac-goal" id="ac-goal">' + esc(step.goal) + '</div>' +
         '</div>' +
-        '<div class="ac-side" id="ac-side">' +
-          axiomLine('explain', l.intro, step.observe) +
-          '<div class="ac-actions" id="ac-actions">' +
-            '<button class="ac-btn ghost" id="ac-hint" type="button">Pedir una pista</button>' +
+        '<div class="ac-coach" id="ac-coach">' +
+          '<img class="ac-pose" id="ac-pose" src="' + poseFor(sceneFor('welcome')) + '" alt="AXIOM">' +
+          '<div class="ac-bubble2" id="ac-bubble" data-state="welcome">' +
+            '<p class="ac-bubble-main" id="ac-say"></p>' +
+            '<p class="ac-bubble-sub" id="ac-saysub"></p>' +
           '</div>' +
+          '<div class="ac-actions" id="ac-actions"></div>' +
           '<div class="ac-hintbox" id="ac-hintbox" hidden></div>' +
         '</div>' +
       '</div>' +
@@ -142,18 +150,81 @@ function renderRunner() {
   document.getElementById('ac-back').addEventListener('click', () => { session = null; renderHome(); });
   session.board = createBoard(document.getElementById('ac-board'), {
     fen: step.fen, orientation: step.orientation, playerColor: step.playerColor,
-    onAttempt: onPlayerMove,
+    holo: true, interactive: false, onAttempt: onPlayerMove,
   });
-  document.getElementById('ac-hint').addEventListener('click', giveHint);
+  showBeat(0);
 }
 
+// Fondo cinematográfico + pose de AXIOM según el estado + texto.
 function setAxiom(state, text, sub) {
-  const side = document.getElementById('ac-side');
-  const old = side.querySelector('.ac-axiom-panel');
-  const wrap = document.createElement('div');
-  wrap.innerHTML = axiomLine(state, text, sub);
-  const fresh = wrap.firstChild;
-  old.replaceWith(fresh);
+  const scene = sceneFor(state);
+  const bg = document.getElementById('ac-cine-bg');
+  if (bg) bg.style.backgroundImage = 'url(' + bgFor(scene) + ')';
+  const pose = document.getElementById('ac-pose');
+  if (pose) { pose.classList.remove('in'); void pose.offsetWidth; pose.src = poseFor(scene); pose.classList.add('in'); }
+  const bubble = document.getElementById('ac-bubble');
+  if (bubble) bubble.dataset.state = state;
+  const say = document.getElementById('ac-say'); if (say) say.textContent = text || '';
+  const sub2 = document.getElementById('ac-saysub'); if (sub2) sub2.textContent = sub || '';
+}
+
+function applyOps(ops) {
+  const b = session.board; if (!b) return;
+  for (const op of ops || []) {
+    if (op.t === 'reset') { const s = currentStep(); b.reset(s.fen, s.orientation, s.playerColor); }
+    else if (op.t === 'clear') b.clearOverlays();
+    else if (op.t === 'arrow') b.arrow(op.from, op.to, op.cls || 'idea');
+    else if (op.t === 'mark') b.markSquare(op.sq, op.cls || 'cand');
+    else if (op.t === 'play') b.play(op.uci);
+    else if (op.t === 'undo') b.undoLast();
+  }
+}
+
+function renderPhaseDots(n, active) {
+  const el = document.getElementById('ac-phase-dots'); if (!el) return;
+  let s = '';
+  for (let i = 0; i < n; i++) s += '<span class="ac-dot-step' + (i === active ? ' on' : '') + (i < active ? ' done' : '') + '"></span>';
+  el.innerHTML = s;
+}
+
+// ---- Fase 1: demostración guiada ----
+function showBeat(i) {
+  session.beatIdx = i;
+  const demo = getDemo(), beat = demo[i];
+  setAxiom(beat.state, beat.say, beat.sub);
+  applyOps(beat.ops);
+  renderPhaseDots(demo.length + 1, i); // +1 = práctica
+  const acts = document.getElementById('ac-actions');
+  if (i < demo.length - 1) {
+    acts.innerHTML = '<button class="ac-btn primary" id="ac-next" type="button">Siguiente →</button>';
+    document.getElementById('ac-next').onclick = () => showBeat(i + 1);
+  } else {
+    endDemo();
+  }
+}
+
+function endDemo() {
+  renderPhaseDots(getDemo().length + 1, getDemo().length); // última fase = práctica
+  setAxiom('reward', '¿Lo pruebas tú? Reconstruyo la posición y buscas la idea.', 'Sin prisa. Puedes pedir pistas cuando quieras.');
+  const acts = document.getElementById('ac-actions');
+  acts.innerHTML =
+    '<button class="ac-btn primary" id="ac-try" type="button">Pruébalo tú →</button>' +
+    '<button class="ac-btn ghost" id="ac-skip" type="button">Terminar lección</button>';
+  document.getElementById('ac-try').onclick = startPractice;
+  document.getElementById('ac-skip').onclick = () => finishLesson(false);
+}
+
+// ---- Fase 2: práctica opcional ----
+function startPractice() {
+  const step = currentStep();
+  session.phase = 'practice'; session.solved = false; session.hintLevel = -1;
+  session.board.reset(step.fen, step.orientation, step.playerColor);
+  session.board.setInteractive(true); session.board.unlock();
+  setAxiom('listening', step.observe, step.goal);
+  const acts = document.getElementById('ac-actions');
+  acts.innerHTML = '<button class="ac-btn ghost" id="ac-hint" type="button">Pedir una pista</button>';
+  document.getElementById('ac-hint').onclick = giveHint;
+  const hb = document.getElementById('ac-hintbox'); if (hb) hb.hidden = true;
 }
 
 function giveHint() {
@@ -163,8 +234,7 @@ function giveHint() {
   const lvl = session.hintLevel;
   const hints = step.hints && step.hints.length ? step.hints : LINES.hint;
   setAxiom('hint', hints[Math.min(lvl, hints.length - 1)]);
-  // Overlays progresivos: foco (1), candidatas (2), demostración (4).
-  const b = session.board; const exp = step.expected[0];
+  const b = session.board, exp = step.expected[0];
   const from = exp.slice(0, 2), to = exp.slice(2, 4);
   b.clearOverlays();
   if (lvl >= 1) b.markSquare(from, 'focus');
@@ -172,85 +242,68 @@ function giveHint() {
   if (lvl >= 4) b.arrow(from, to, 'idea');
   const hb = document.getElementById('ac-hintbox');
   hb.hidden = false;
-  hb.innerHTML = 'Pista ' + (lvl + 1) + ' de 5' + (lvl >= 4 ? ' · última' : '');
+  hb.textContent = 'Pista ' + (lvl + 1) + ' de 5' + (lvl >= 4 ? ' · última' : '');
   if (lvl >= 4) document.getElementById('ac-hint').disabled = true;
 }
 
 function onPlayerMove(uciMove, moveObj, boardApi) {
-  if (session.solved) return;
+  if (session.phase !== 'practice' || session.solved) return;
   const step = currentStep();
   const isExpected = step.expected.includes(uciMove);
   const mateOK = step.mustMate ? boardApi.game().isCheckmate() : true;
   if (isExpected && mateOK) return onCorrect();
-  // Jugada legal pero no es la idea: AXIOM avisa y se deshace.
-  onMistake(uciMove, moveObj, boardApi);
+  onMistake(uciMove, boardApi);
 }
 
-function onMistake(uciMove, moveObj, boardApi) {
+function onMistake(uciMove, boardApi) {
   const step = currentStep();
   boardApi.lock();
-  // Muestra la consecuencia: piezas propias que quedan colgadas.
-  const mover = step.playerColor;
-  const hangs = hangingSquares(boardApi.fen(), mover);
+  const hangs = hangingSquares(boardApi.fen(), step.playerColor);
   hangs.forEach(sq => boardApi.markSquare(sq, 'danger'));
   setAxiom('mistake', step.wrong || pick(LINES.mistake), hangs.length ? 'Fíjate en lo que queda sin defensa.' : '');
   boardApi.flash(uciMove.slice(2, 4));
-  setTimeout(() => {
-    boardApi.undoLast();
-    boardApi.clearOverlays();
-    boardApi.unlock();
-  }, 1400);
+  setTimeout(() => { boardApi.undoLast(); boardApi.clearOverlays(); boardApi.unlock(); }, 1400);
 }
 
-async function onCorrect() {
+function onCorrect() {
   session.solved = true;
-  const step = currentStep(), l = session.lesson;
+  const step = currentStep();
   session.board.lock();
   const exp = step.expected[0];
   session.board.clearOverlays();
   session.board.arrow(exp.slice(0, 2), exp.slice(2, 4), 'good');
   setAxiom('correct', pick(LINES.correct), step.explain);
-
-  const last = session.stepIdx >= l.steps.length - 1;
   const acts = document.getElementById('ac-actions');
-  acts.innerHTML = last
-    ? '<button class="ac-btn primary" id="ac-finish" type="button">Terminar lección</button>'
-    : '<button class="ac-btn primary" id="ac-next" type="button">Siguiente →</button>';
-  if (last) {
-    document.getElementById('ac-finish').addEventListener('click', finishLesson);
-  } else {
-    document.getElementById('ac-next').addEventListener('click', () => {
-      session.stepIdx++; session.hintLevel = -1; session.solved = false; renderRunner();
-    });
-  }
+  acts.innerHTML = '<button class="ac-btn primary" id="ac-finish" type="button">Terminar lección →</button>';
+  document.getElementById('ac-finish').onclick = () => finishLesson(true);
 }
 
-async function finishLesson() {
+async function finishLesson(practiced) {
   const l = session.lesson;
-  // Registrar resultado (memoria del mentor) si hay sesión.
+  // Ver la demo sin practicar cuenta como "mostrado" (hint 4: menos confianza).
+  const hint = practiced ? session.maxHint : 4;
   if (user) {
     try {
-      const out = await api.academyResult({ lesson: l.id, concept: l.concept, correct: true, hintUsed: session.maxHint });
+      const out = await api.academyResult({ lesson: l.id, concept: l.concept, correct: true, hintUsed: hint });
       memory = out.memory; progressByConcept = {};
       (out.progress || []).forEach(p => { progressByConcept[p.concept] = p; });
     } catch (e) {}
   }
-  renderComplete(l);
+  renderComplete(l, practiced);
 }
 
-function renderComplete(l) {
+function renderComplete(l, practiced) {
   const st = conceptStat(l.concept);
-  const scene = sceneOf('complete');
   root.innerHTML =
-    '<section class="ac-complete">' +
-      (scene ? '<div class="ac-complete-scene" style="background-image:url(' + scene + ')"></div>' : '') +
+    '<section class="ac-complete cine">' +
+      '<div class="ac-complete-scene" style="background-image:url(' + bgFor(sceneFor('complete')) + ')"></div>' +
       '<div class="ac-complete-inner">' +
-        '<img class="ac-complete-portrait" src="' + portraitOf('complete') + '" alt="AXIOM">' +
+        '<img class="ac-complete-pose" src="' + poseFor(sceneFor('complete')) + '" alt="AXIOM">' +
         '<span class="ac-eyebrow">Concepto reforzado</span>' +
         '<h1>' + esc(l.title) + '</h1>' +
-        '<p class="ac-say">' + esc(pick(LINES.complete)) + '</p>' +
+        '<p class="ac-say">' + esc(practiced ? pick(LINES.complete) : 'Bien. Has visto la idea; cuando quieras, vuelve y practícala tú.') + '</p>' +
         (user ? '<div class="ac-complete-stat"><div><b>' + st.mastery + '</b><span>Dominio</span></div><div><b>' + st.confidence + '</b><span>Confianza</span></div>' +
-          '<div><b>' + (session ? session.maxHint : 0) + '</b><span>Pistas usadas</span></div></div>' : '<p class="ac-say sub">Entra para guardar tu progreso y que AXIOM recuerde tus conceptos.</p>') +
+          '<div><b>' + (session && practiced ? session.maxHint : '—') + '</b><span>Pistas</span></div></div>' : '<p class="ac-say sub">Entra para guardar tu progreso y que AXIOM recuerde tus conceptos.</p>') +
         '<div class="ac-actions center"><button class="ac-btn primary" id="ac-toacademy" type="button">Volver a la Academia</button></div>' +
       '</div>' +
     '</section>';

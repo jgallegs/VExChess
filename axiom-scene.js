@@ -27,6 +27,16 @@ export const SCENES = {
   complete:  { bg: 'mastery-hall', pose: { id: 'complete-salute', x: 78, y: 54, w: 39, m: 'axiomFloat' }, layers: [{ id: 'mastery-star', x: 26, y: 42, w: 25, m: 'masteryReveal', depth: 'near' }, { id: 'cyan-motes', x: 51, y: 67, w: 37, m: 'motesDrift', depth: 'far' }], safe: 'left' },
 };
 
+export function bgFor(sceneId) { const s = SCENES[sceneId] || SCENES.welcome; return BG(s.bg); }
+export function poseFor(sceneId) { const s = SCENES[sceneId] || SCENES.welcome; return POSE(s.pose.id); }
+// Estado de lección -> escena del kit.
+export const STATE_SCENE = {
+  welcome: 'welcome', explain: 'explain', listening: 'listening', hint: 'hint',
+  mistake: 'warning', correct: 'correct', analyze: 'analysis', loss: 'recovery',
+  complete: 'complete', thinking: 'thinking', challenge: 'challenge', reward: 'reward',
+};
+export function sceneFor(state) { return STATE_SCENE[state] || 'explain'; }
+
 function layerWrap(cls, src, x, y, w, motion) {
   return '<div class="axs-layer ' + cls + '" style="left:' + x + '%;top:' + y + '%;width:' + w + '%">' +
     '<img class="axm-' + motion + '" src="' + src + '" alt="" aria-hidden="true"></div>';
