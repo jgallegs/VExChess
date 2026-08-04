@@ -52,7 +52,7 @@ body.home {
 @keyframes soon-pulse { 0%,100% { transform: none; } 30% { transform: translateX(-0.2rem); } 60% { transform: translateX(0.2rem); } }
 
 /* ---------- Hero ---------- */
-.hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem clamp(1rem, 3vw, 2rem) 4rem; overflow: hidden; }
+.hero { min-height: calc(100vh - var(--nav-h)); display: flex; align-items: center; padding: 3rem clamp(1rem, 3vw, 2rem) 4rem; overflow: hidden; }
 .hero-glow { position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: radial-gradient(50rem 40rem at 78% 42%, rgba(255,59,71,.16), transparent 60%),
               radial-gradient(40rem 40rem at 12% 15%, rgba(74,110,190,.10), transparent 60%); }

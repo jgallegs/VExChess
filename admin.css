@@ -6,7 +6,7 @@ body.admin-page { min-height: 100vh; }
 .admin-page .nav-link:hover { color: var(--text); }
 
 .ad-wrap { max-width: 70rem; margin: 0 auto; box-sizing: border-box;
-  padding: clamp(6.5rem, 7.5rem, 8.5rem) clamp(1rem, 4vw, 2.5rem) 3rem; }
+  padding: 2.2rem clamp(1rem, 4vw, 2.5rem) 3rem; }
 
 /* Pantallas de estado (loader / gate) */
 .ad-state { text-align: center; padding: 4rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; min-height: 50vh; justify-content: center; }

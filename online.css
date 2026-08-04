@@ -4,7 +4,7 @@
 body.ol-page { min-height: 100vh; }
 .ol-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .15s; }
 .ol-page .nav-link:hover { color: var(--text); }
-.ol-wrap { max-width: 52rem; margin: 0 auto; box-sizing: border-box; padding: clamp(6.5rem, 7.5rem, 8.5rem) clamp(1rem, 4vw, 2.5rem) 3.5rem; }
+.ol-wrap { max-width: 52rem; margin: 0 auto; box-sizing: border-box; padding: 2.2rem clamp(1rem, 4vw, 2.5rem) 3.5rem; }
 
 .ol-state { text-align: center; padding: 4.5rem 1rem; min-height: 55vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
 .ol-state-logo { height: 4.5rem; opacity: .8; }

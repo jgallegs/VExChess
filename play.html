@@ -23,31 +23,12 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
+<link rel="stylesheet" href="navbar.css?v=1">
 </head>
 <body>
-  <!-- Pantalla de inicio: el caballo aparece y el wordmark sale desde detrás -->
-  <div class="intro" id="intro">
-    <div class="intro-logo">
-      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
-      <div class="brand-text">
-        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
-        <span class="tagline">THINK AHEAD.</span>
-      </div>
-    </div>
-  </div>
-
-  <header class="navbar">
-    <div class="nav-scrim" aria-hidden="true"></div>
-    <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
-      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
-      <div class="brand-text">
-        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
-        <span class="tagline">THINK AHEAD.</span>
-      </div>
-    </a>
-    <span id="engine-status" hidden></span>
-    <div class="nav-actions">
-      <div class="vx-account"></div>
+  <header id="vx-nav" data-variant="battle">
+    <template data-slot="actions">
+      <span id="engine-status" hidden></span>
       <div class="nav-lang">
         <select id="lang" data-enhance>
           <option value="es">Español</option>
@@ -59,7 +40,7 @@
       </a>
       <button class="help-btn" id="theme-btn" title="Tema del tablero" aria-label="Tema del tablero"><img src="assets/icons/gameplay/board-theme.svg" alt="" aria-hidden="true"></button>
       <button class="help-btn" id="help-btn" title="Guía y conceptos" aria-label="Guía y conceptos"><img src="assets/icons/gameplay/help.svg" alt="" aria-hidden="true"></button>
-    </div>
+    </template>
   </header>
 
   <div class="stage">
@@ -194,7 +175,8 @@
   </div>
 
   <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="navbar.js?v=1"></script>
   <script type="module" src="auth.js?v=15"></script>
-  <script type="module" src="app.js?v=46"></script>
+  <script type="module" src="app.js?v=47"></script>
 </body>
 </html>

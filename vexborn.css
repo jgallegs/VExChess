@@ -4,7 +4,7 @@
 body.vb-page { min-height: 100vh; }
 .vb-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
 .vb-page .nav-link:hover { color: var(--text); }
-.vb-wrap { max-width: 72rem; margin: 0 auto; box-sizing: border-box; padding: clamp(5.5rem, 7rem, 8rem) clamp(0.8rem, 3vw, 1.6rem) 3rem; }
+.vb-wrap { max-width: 72rem; margin: 0 auto; box-sizing: border-box; padding: 2.2rem clamp(0.8rem, 3vw, 1.6rem) 3rem; }
 
 .vb-btn { border: none; border-radius: 0.6rem; padding: 0.6rem 1.1rem; font: 800 0.9rem 'Inter', sans-serif; cursor: pointer; transition: transform .12s, filter .12s, background .15s; }
 .vb-btn.primary { background: var(--accent); color: #fff; }

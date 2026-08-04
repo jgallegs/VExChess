@@ -5,8 +5,8 @@ body.perfil-page { min-height: 100vh; }
 .perfil-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .15s; }
 .perfil-page .nav-link:hover { color: var(--text); }
 
-.pf-wrap { max-width: 52rem; margin: 0 auto; min-height: 100vh; box-sizing: border-box;
-  padding: clamp(7.5rem, 9rem, 10rem) clamp(1rem, 4vw, 2.5rem) 3rem; display: flex; flex-direction: column; justify-content: center; gap: 1.1rem; }
+.pf-wrap { max-width: 52rem; margin: 0 auto; min-height: calc(100vh - var(--nav-h)); box-sizing: border-box;
+  padding: 2.2rem clamp(1rem, 4vw, 2.5rem) 3rem; display: flex; flex-direction: column; justify-content: center; gap: 1.1rem; }
 
 /* Invitado (sin sesión) */
 .pf-guest { text-align: center; padding: 3rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }

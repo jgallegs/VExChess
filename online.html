@@ -12,28 +12,16 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
-<link rel="stylesheet" href="online.css?v=1">
+<link rel="stylesheet" href="navbar.css?v=1">
+<link rel="stylesheet" href="online.css?v=2">
 </head>
 <body class="ol-page">
-  <header class="navbar">
-    <div class="nav-scrim" aria-hidden="true"></div>
-    <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
-      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
-      <div class="brand-text">
-        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
-        <span class="tagline">THINK AHEAD.</span>
-      </div>
-    </a>
-    <div class="nav-actions">
-      <div class="vx-account"></div>
-      <a class="nav-link" href="comunidad.html">Comunidad</a>
-      <a class="btn-play" href="play.html">vs IA <span aria-hidden="true">→</span></a>
-    </div>
-  </header>
+  <header id="vx-nav" data-variant="site"></header>
 
   <main class="ol-wrap" id="online-root"></main>
 
   <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="navbar.js?v=1"></script>
   <script type="module" src="auth.js?v=15"></script>
   <script type="module" src="online.js?v=3"></script>
 </body>

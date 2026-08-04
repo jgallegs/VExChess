@@ -12,27 +12,20 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
+<link rel="stylesheet" href="navbar.css?v=1">
 <link rel="stylesheet" href="game.css?v=4">
 </head>
 <body class="gm-page">
-  <header class="navbar">
-    <div class="nav-scrim" aria-hidden="true"></div>
-    <a class="nav-brand" href="index.html" aria-label="VEXCHESS · Inicio" title="Inicio">
-      <img class="brand-mark" src="assets/knight-logo.svg" alt="">
-      <div class="brand-text">
-        <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
-        <span class="tagline">THINK AHEAD.</span>
-      </div>
-    </a>
-    <div class="nav-actions">
-      <div class="vx-account"></div>
+  <header id="vx-nav" data-variant="battle">
+    <template data-slot="actions">
       <a class="nav-link" href="online.html">Salir</a>
-    </div>
+    </template>
   </header>
 
   <main class="gm-wrap" id="game-root"></main>
 
   <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="navbar.js?v=1"></script>
   <script type="module" src="auth.js?v=15"></script>
   <script type="module" src="game.js?v=7"></script>
 </body>

@@ -23,34 +23,14 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
-<link rel="stylesheet" href="home.css?v=4">
+<link rel="stylesheet" href="navbar.css?v=1">
+<link rel="stylesheet" href="home.css?v=5">
 </head>
 <body class="home">
 
   <!-- ===================== NAVBAR ===================== -->
-  <header class="hnav" id="top">
-    <div class="nav-scrim" aria-hidden="true"></div>
-    <div class="hnav-inner">
-      <a class="nav-brand" href="#top" aria-label="VEXCHESS">
-        <img class="brand-mark" src="assets/knight-logo.svg" alt="">
-        <div class="brand-text">
-          <img class="wm-img" src="assets/vexchess-wordmark.png" alt="VEXCHESS">
-          <span class="tagline">THINK AHEAD.</span>
-        </div>
-      </a>
-      <nav class="hnav-links" aria-label="Secciones">
-        <a href="#features">Características</a>
-        <a href="puzzles.html">Puzzles</a>
-        <a href="directo.html">En directo</a>
-        <a href="partidas.html">Mis partidas</a>
-        <a href="#roadmap">Roadmap</a>
-      </nav>
-      <div class="hnav-actions">
-        <div class="vx-account"></div>
-        <a class="btn-play" href="play.html">Jugar <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </header>
+  <span id="top"></span>
+  <header id="vx-nav" data-variant="site" data-home></header>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
@@ -196,6 +176,7 @@
   </footer>
 
   <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="navbar.js?v=1"></script>
   <script type="module" src="auth.js?v=15"></script>
   <script>
     // Año del footer

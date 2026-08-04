@@ -1148,14 +1148,8 @@ function syncCustomSelects() {
 })();
 
 // --- Arranque --------------------------------------------------------------
-// Pantalla de inicio: el caballo aparece, el wordmark sale desde detrás y luego el logo vuela a la barra
-(function playIntro() {
-  const el = document.getElementById('intro');
-  if (!el) return;
-  requestAnimationFrame(() => el.classList.add('play'));
-  setTimeout(() => el.classList.add('exit'), 2350);
-  setTimeout(() => el.remove(), 3350);
-})();
+// La pantalla de inicio (intro con la animación del logo) la gestiona navbar.js
+// en la variante "battle". Aquí ya no se dispara para evitar duplicados.
 // Al iniciar/cerrar sesión, repinta la tarjeta del jugador (nombre, avatar, Elo)
 document.addEventListener('vexchess:auth', () => { try { render(); } catch (e) {} });
 loaderKnightEl.innerHTML = brandMark('loader-mark');
