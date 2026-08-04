@@ -17,5 +17,15 @@
       "database_id": "36ad9148-a6a3-4eb5-a65f-8cce4aa95e71"
     }
   ],
+  // Multijugador en tiempo real: una GameRoom por partida + un Matchmaker global.
+  "durable_objects": {
+    "bindings": [
+      { "name": "GAME", "class_name": "GameRoom" },
+      { "name": "MATCHMAKER", "class_name": "Matchmaker" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["GameRoom", "Matchmaker"] }
+  ],
   "observability": { "enabled": true }
 }

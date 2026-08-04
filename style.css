@@ -419,6 +419,8 @@ button.ctrl.wide { flex-basis: 100%; }
 .vx-entrar:hover { background: #33405a; border-color: var(--vex-muted); }
 
 .vx-acct { position: relative; }
+.vx-chip-dot { position: absolute; top: -0.15rem; right: -0.15rem; width: 0.62rem; height: 0.62rem; border-radius: 50%; background: var(--accent); border: 0.12rem solid var(--bg, #0d1117); box-shadow: 0 0 0.4rem rgba(255,59,71,.8); z-index: 2; }
+.vx-menu-dot { display: inline-flex; align-items: center; justify-content: center; min-width: 1.05rem; height: 1.05rem; margin-left: 0.4rem; padding: 0 0.3rem; font: 800 0.64rem 'Oxanium', sans-serif; color: #fff; background: var(--accent); border-radius: 1rem; }
 .vx-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--panel-2); border: var(--hair) solid var(--border);
   border-radius: 2rem; padding: 0.3rem 0.7rem 0.3rem 0.35rem; cursor: pointer; color: var(--text); transition: border-color .12s, background .12s; }
 .vx-chip:hover { border-color: var(--vex-muted); background: #2b3547; }

@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
   role TEXT NOT NULL DEFAULT 'member',     -- owner | admin | moderator | member
   member_no INTEGER,                       -- número VEX correlativo (VEX-0001, cosmético)
   connect_code TEXT,                       -- código permanente para añadir (QR / en persona)
+  online_elo INTEGER NOT NULL DEFAULT 1200, -- Elo del multijugador online (separado del de la IA)
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   data TEXT NOT NULL DEFAULT '{}'          -- JSON extensible para datos futuros
@@ -36,6 +37,56 @@ CREATE TABLE IF NOT EXISTS friendships (
 );
 CREATE INDEX IF NOT EXISTS idx_friend_a ON friendships(a_id);
 CREATE INDEX IF NOT EXISTS idx_friend_b ON friendships(b_id);
+
+-- ===== Multijugador online =====
+-- Elo online separado del Elo contra la IA (columna users.online_elo).
+
+-- Retos entre amigos.
+CREATE TABLE IF NOT EXISTS challenges (
+  id TEXT PRIMARY KEY,
+  from_id TEXT NOT NULL,
+  to_id TEXT NOT NULL,
+  time_control TEXT NOT NULL,               -- '3+2' | '5+0' | '10+0' | ...
+  status TEXT NOT NULL,                     -- pending | accepted | declined | cancelled | expired
+  game_id TEXT,                             -- id de la partida cuando se acepta
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  FOREIGN KEY (from_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (to_id) REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_ch_to ON challenges(to_id, status);
+CREATE INDEX IF NOT EXISTS idx_ch_from ON challenges(from_id, status);
+
+-- Partidas online terminadas.
+CREATE TABLE IF NOT EXISTS pvp_games (
+  id TEXT PRIMARY KEY,
+  white_id TEXT NOT NULL,
+  black_id TEXT NOT NULL,
+  result TEXT,                              -- '1-0' | '0-1' | '1/2-1/2'
+  reason TEXT,                              -- checkmate | resign | timeout | stalemate | draw | abandon
+  pgn TEXT,
+  moves INTEGER,
+  time_control TEXT,
+  white_elo_before INTEGER, black_elo_before INTEGER,
+  white_elo_after INTEGER, black_elo_after INTEGER,
+  played_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_pvp_white ON pvp_games(white_id, played_at DESC);
+CREATE INDEX IF NOT EXISTS idx_pvp_black ON pvp_games(black_id, played_at DESC);
+
+-- Rivalidades (cara a cara agregado). Par canónico a_id < b_id.
+CREATE TABLE IF NOT EXISTS rivalries (
+  a_id TEXT NOT NULL,
+  b_id TEXT NOT NULL,
+  a_wins INTEGER NOT NULL DEFAULT 0,
+  b_wins INTEGER NOT NULL DEFAULT 0,
+  draws INTEGER NOT NULL DEFAULT 0,
+  games INTEGER NOT NULL DEFAULT 0,
+  last_played TEXT,
+  PRIMARY KEY (a_id, b_id),
+  FOREIGN KEY (a_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (b_id) REFERENCES users(id) ON DELETE CASCADE
+);
 
 -- Migración para bases ya existentes (no hace falta si se crea de cero):
 --   ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0;

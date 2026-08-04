@@ -5,6 +5,12 @@
 //  - Persistencia en D1 (binding DB). Sin dependencias externas.
 // ============================================================
 
+import {
+  challengeCreate, challengeList, challengeRespond, challengeCancel, challengePoll,
+  queueJoin, queueLeave, rivalsList, pendingChallengeCount, gameInfo, gameWs,
+} from './online.js';
+export { GameRoom, Matchmaker } from './online.js';
+
 const COOKIE = 'vex_session';
 const SESSION_DAYS = 30;
 const PBKDF2_ITER = 100000;
@@ -26,7 +32,7 @@ const BADWORDS = ['puta','puto','mierda','cabron','gilipol','joder','coño','pol
 const enc = new TextEncoder();
 function bufToHex(buf) { const b = new Uint8Array(buf); let s = ''; for (const x of b) s += x.toString(16).padStart(2, '0'); return s; }
 function hexToBuf(hex) { const a = new Uint8Array(hex.length / 2); for (let i = 0; i < a.length; i++) a[i] = parseInt(hex.substr(i * 2, 2), 16); return a; }
-function nowISO() { return new Date().toISOString(); }
+export function nowISO() { return new Date().toISOString(); }
 function genToken() { return bufToHex(crypto.getRandomValues(new Uint8Array(32))); }
 
 async function derive(password, salt, iter) {
@@ -54,10 +60,10 @@ function parseCookies(req) {
 function sessionCookie(token, maxAge) {
   return `${COOKIE}=${token}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${maxAge}`;
 }
-function json(data, status = 200, headers = {}) {
+export function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...headers } });
 }
-const errRes = (msg, status = 400, extra = {}) => json({ error: msg, ...extra }, status);
+export const errRes = (msg, status = 400, extra = {}) => json({ error: msg, ...extra }, status);
 
 // ---------- validación ----------
 function validateUsername(u) {
@@ -150,7 +156,7 @@ function publicUser(u, opts) {
     id: u.id, username: u.username, email: u.email, avatar: u.avatar,
     country: u.country || null, elo: u.elo, created_at: u.created_at,
     role, role_level: level, is_admin: level >= STAFF_LEVEL,
-    member_no: u.member_no || null,
+    member_no: u.member_no || null, online_elo: u.online_elo || 1200,
     data: safeJson(u.data, {}),
   };
   if (opts && opts.self) out.connect_code = u.connect_code || null;
@@ -160,7 +166,7 @@ function safeJson(s, def) { try { return JSON.parse(s); } catch (e) { return def
 
 // ---------- amistades ----------
 function pairOf(x, y) { return x < y ? [x, y] : [y, x]; }
-async function getFriendship(env, x, y) {
+export async function getFriendship(env, x, y) {
   const [a, b] = pairOf(x, y);
   return await env.DB.prepare('SELECT * FROM friendships WHERE a_id = ? AND b_id = ?').bind(a, b).first();
 }
@@ -197,7 +203,7 @@ async function miniProfile(env, u, meId) {
   return out;
 }
 
-async function getSession(req, env) {
+export async function getSession(req, env) {
   const token = parseCookies(req)[COOKIE];
   if (!token) return null;
   const row = await env.DB.prepare(
@@ -603,6 +609,17 @@ async function commSearch(req, env) {
   return json({ results: out });
 }
 
+// Resumen ligero para el aviso del navbar: nº de solicitudes recibidas.
+async function commSummary(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  const r = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM friendships WHERE status = 'pending' AND requested_by != ? AND (a_id = ? OR b_id = ?)"
+  ).bind(s.user.id, s.user.id, s.user.id).first();
+  const challenges = await pendingChallengeCount(env, s.user.id);
+  return json({ incoming: r ? r.n : 0, challenges });
+}
+
 async function commFriends(req, env) {
   const s = await getSession(req, env);
   if (!s) return errRes('No has iniciado sesión.', 401);
@@ -733,6 +750,7 @@ async function handleApi(req, env) {
     if (pu && m === 'GET') return await publicProfile(req, env, pu[1]);
     // --- comunidad ---
     if (path === '/api/community/search' && m === 'GET') return await commSearch(req, env);
+    if (path === '/api/community/summary' && m === 'GET') return await commSummary(req, env);
     if (path === '/api/community/friends' && m === 'GET') return await commFriends(req, env);
     if (path === '/api/community/requests' && m === 'GET') return await commRequests(req, env);
     if (path === '/api/community/request' && m === 'POST') return await commRequest(req, env);
@@ -741,6 +759,20 @@ async function handleApi(req, env) {
     if (path === '/api/community/connect' && m === 'POST') return await commConnectAdd(req, env);
     const cc = path.match(/^\/api\/connect\/([A-Za-z0-9]+)$/);
     if (cc && m === 'GET') return await commConnect(req, env, cc[1]);
+    // --- multijugador online ---
+    if (path === '/api/play/challenge' && m === 'POST') return await challengeCreate(req, env);
+    if (path === '/api/play/challenges' && m === 'GET') return await challengeList(req, env);
+    if (path === '/api/play/challenge/respond' && m === 'POST') return await challengeRespond(req, env);
+    if (path === '/api/play/challenge/cancel' && m === 'POST') return await challengeCancel(req, env);
+    const chp = path.match(/^\/api\/play\/challenge\/([A-Za-z0-9-]+)$/);
+    if (chp && m === 'GET') return await challengePoll(req, env, chp[1]);
+    if (path === '/api/play/queue' && m === 'POST') return await queueJoin(req, env);
+    if (path === '/api/play/queue' && m === 'DELETE') return await queueLeave(req, env);
+    if (path === '/api/play/rivals' && m === 'GET') return await rivalsList(req, env);
+    const gWs = path.match(/^\/api\/game\/([A-Za-z0-9-]+)\/ws$/);
+    if (gWs) { const s = await getSession(req, env); if (!s) return errRes('No has iniciado sesión.', 401); return await gameWs(req, env, gWs[1], s.user.id); }
+    const gIn = path.match(/^\/api\/game\/([A-Za-z0-9-]+)$/);
+    if (gIn && m === 'GET') return await gameInfo(env, gIn[1]);
     // --- admin ---
     if (path === '/api/admin/overview' && m === 'GET') return await adminOverview(req, env);
     if (path === '/api/admin/users' && m === 'GET') return await adminListUsers(req, env);
@@ -764,6 +796,10 @@ export default {
     // Enlaces bonitos de conexión: /connect/CÓDIGO -> sirve connect.html
     if (/^\/connect\/[A-Za-z0-9]+\/?$/.test(url.pathname)) {
       return env.ASSETS.fetch(new Request(new URL('/connect.html', url), req));
+    }
+    // Partida online: /game/ID -> sirve game.html
+    if (/^\/game\/[A-Za-z0-9-]+\/?$/.test(url.pathname)) {
+      return env.ASSETS.fetch(new Request(new URL('/game.html', url), req));
     }
     // Resto: servir la web estática
     return env.ASSETS.fetch(req);

@@ -1,0 +1,62 @@
+/* ============================================================
+   VEXCHESS · Partida online. Sin px.
+   ============================================================ */
+body.gm-page { min-height: 100vh; }
+.gm-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.gm-page .nav-link:hover { color: var(--text); }
+.gm-wrap { max-width: 34rem; margin: 0 auto; box-sizing: border-box; padding: clamp(6rem, 7rem, 8rem) clamp(0.6rem, 3vw, 1.5rem) 2.5rem; }
+
+.gm-state { text-align: center; padding: 5rem 1rem; min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+.gm-state h1 { font-family: 'Oxanium', sans-serif; font-weight: 800; margin: 0; }
+.gm-ring { width: 3rem; height: 3rem; border-radius: 50%; border: 0.28rem solid rgba(74,158,255,.15); border-top-color: var(--accent); animation: spin 1s linear infinite; }
+
+.gm-layout { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* Jugadores + relojes */
+.gm-player { display: flex; align-items: center; gap: 0.6rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.7rem; padding: 0.5rem 0.8rem; }
+.gm-player .vx-avatar.md { width: 2.2rem; height: 2.2rem; }
+.gm-player-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.gm-player-info b { font: 700 0.92rem 'Inter', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gm-player-info span { font-size: 0.72rem; color: var(--muted); }
+.gm-clock { font: 800 1.3rem 'Oxanium', sans-serif; padding: 0.2rem 0.7rem; border-radius: 0.5rem; background: var(--panel-2); border: var(--hair) solid var(--border); min-width: 4rem; text-align: center; letter-spacing: .02em; }
+.gm-player.turn .gm-clock { background: var(--accent); color: #fff; border-color: var(--accent); }
+.gm-clock.low { color: #ffb3b3; }
+.gm-player.turn .gm-clock.low { color: #fff; }
+
+/* Tablero */
+.gm-board { display: grid; grid-template-columns: repeat(8, 1fr); aspect-ratio: 1; width: 100%; border-radius: 0.6rem; overflow: hidden; box-shadow: 0 1rem 2.5rem rgba(0,0,0,.4); }
+.gm-sq { position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.gm-sq.l { background: #c9d2e3; } .gm-sq.d { background: #6b7794; }
+.gm-sq.last::after { content: ''; position: absolute; inset: 0; background: rgba(255,207,122,.42); pointer-events: none; }
+.gm-sq.sel::after { content: ''; position: absolute; inset: 0; background: rgba(74,158,255,.45); pointer-events: none; }
+.gm-sq.tgt::before { content: ''; position: absolute; width: 32%; height: 32%; border-radius: 50%; background: rgba(20,28,40,.35); }
+.gm-sq.cap::before { content: ''; position: absolute; inset: 8%; border-radius: 50%; border: 0.35rem solid rgba(20,28,40,.35); }
+.gm-pc { position: relative; width: 92%; height: 92%; z-index: 1; filter: drop-shadow(0 0.12rem 0.18rem rgba(0,0,0,.35)); pointer-events: none; }
+
+/* Barra de estado + acciones */
+.gm-bar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.3rem; }
+.gm-conn { font-size: 0.8rem; color: var(--muted); }
+.gm-actions { display: flex; gap: 0.4rem; }
+.gm-btn { border: none; border-radius: 0.5rem; padding: 0.45rem 0.8rem; font: 700 0.8rem 'Inter', sans-serif; cursor: pointer; background: var(--panel-2); color: var(--text); border: var(--hair) solid var(--border); }
+.gm-btn.ghost:hover { border-color: var(--vex-muted); }
+.gm-btn.danger { color: #ffb3b3; border-color: rgba(255,59,71,.4); background: transparent; }
+.gm-btn.danger:hover { background: rgba(255,59,71,.12); }
+
+/* Jugadas */
+.gm-moves { display: grid; grid-template-columns: 1.8rem 1fr 1fr; gap: 0.15rem 0.5rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.7rem; padding: 0.7rem 0.9rem; margin-top: 0.4rem; max-height: 8rem; overflow-y: auto; font: 600 0.82rem 'Inter', sans-serif; }
+.gm-mv-n { color: var(--muted); } .gm-mv { color: var(--text); }
+
+/* Coronación */
+.gm-promo { position: fixed; inset: 0; z-index: 350; display: flex; align-items: center; justify-content: center; background: rgba(8,11,16,.8); backdrop-filter: blur(0.3rem); }
+.gm-promo-box { display: flex; gap: 0.5rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.6); }
+.gm-promo-pc { width: 4rem; height: 4rem; background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 0.7rem; cursor: pointer; padding: 0.3rem; }
+.gm-promo-pc:hover { border-color: var(--accent); }
+.gm-promo-pc .gm-pc { width: 100%; height: 100%; }
+
+/* Fin de partida */
+.gm-end { position: fixed; inset: 0; z-index: 360; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(8,11,16,.85); backdrop-filter: blur(0.4rem); animation: vx-fade .2s ease both; }
+.gm-end-box { text-align: center; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1.2rem; padding: 2rem 2.4rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.6); }
+.gm-end-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.8rem; }
+.gm-end-title.win { color: #8fe3a0; } .gm-end-title.lose { color: #ffb3b3; } .gm-end-title.draw { color: #d7deea; }
+.gm-end-reason { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; text-transform: capitalize; }
+.gm-end-score { font: 800 1.4rem 'Oxanium', sans-serif; margin: 0.8rem 0 1.2rem; letter-spacing: .1em; }

@@ -96,7 +96,21 @@ body.cm-page { min-height: 100vh; }
 .cm-share { position: relative; width: 100%; text-align: center; }
 
 .cm-vex-side .cm-sub { margin-top: 0; }
+.cm-scan-btn { width: 100%; text-align: center; margin: 0.7rem 0 0; }
+.cm-or { text-align: center; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 0.9rem 0 0.5rem; }
 .cm-note { font-size: 0.74rem; color: var(--vex-muted); line-height: 1.5; margin-top: 1rem; }
+
+/* Escáner de cámara */
+.cm-scan { position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(6,8,12,.92); backdrop-filter: blur(0.3rem); }
+.cm-scan.open { display: flex; animation: vx-fade .18s ease both; }
+.cm-scan-box { position: relative; width: min(24rem, 92vw); aspect-ratio: 1; border-radius: 1.2rem; overflow: hidden; background: #000; box-shadow: 0 2rem 5rem rgba(0,0,0,.6); }
+.cm-scan-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cm-scan-frame { position: absolute; inset: 18%; border: 0.2rem solid rgba(255,255,255,.85); border-radius: 1rem; box-shadow: 0 0 0 100vmax rgba(0,0,0,.35); }
+.cm-scan-frame::before, .cm-scan-frame::after { content: ''; position: absolute; width: 1.6rem; height: 1.6rem; border: 0.28rem solid var(--accent); }
+.cm-scan-frame::before { top: -0.28rem; left: -0.28rem; border-right: none; border-bottom: none; border-radius: 0.6rem 0 0 0; }
+.cm-scan-frame::after { bottom: -0.28rem; right: -0.28rem; border-left: none; border-top: none; border-radius: 0 0 0.6rem 0; }
+.cm-scan-hint { position: absolute; left: 0; right: 0; bottom: 0.9rem; text-align: center; color: #fff; font: 600 0.85rem 'Inter', sans-serif; text-shadow: 0 0.1rem 0.4rem rgba(0,0,0,.8); }
+.cm-scan-x { position: absolute; top: 0.7rem; right: 0.8rem; z-index: 2; width: 2rem; height: 2rem; border-radius: 50%; background: rgba(0,0,0,.5); color: #fff; border: none; font-size: 1rem; cursor: pointer; }
 .cm-addcode { display: flex; gap: 0.4rem; margin-top: 0.3rem; }
 .cm-addcode input { flex: 1; min-width: 0; background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 0.5rem; color: var(--text);
   font: 700 0.9rem 'Oxanium', sans-serif; letter-spacing: .1em; text-transform: uppercase; padding: 0.5rem 0.7rem; outline: none; }
@@ -135,6 +149,15 @@ body.cm-page { min-height: 100vh; }
 .cn-msg, .cn-ok { margin: 0 0 0.4rem; }
 .cn-ok { color: #8fe3a0; font-weight: 700; }
 .cn-done-ico { width: 4rem; height: 4rem; display: grid; place-items: center; margin: 0 auto; border-radius: 50%; background: rgba(58,168,86,.15); color: #8fe3a0; font-size: 2rem; font-weight: 800; }
+
+/* Retar (modal) */
+.cm-ch-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.2rem; margin: 0 0 0.3rem; }
+.cm-ch-tcs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.8rem; }
+.cm-ch-tc { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 0.7rem; padding: 0.7rem 0.3rem; cursor: pointer; color: var(--text); transition: border-color .12s, background .12s; }
+.cm-ch-tc:hover { border-color: var(--accent); background: rgba(255,59,71,.08); }
+.cm-ch-tc b { font: 800 1rem 'Oxanium', sans-serif; } .cm-ch-tc span { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.cm-ch-wait { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; padding: 0.5rem 0; }
+.cm-ch-wait .cm-ring { width: 2.6rem; height: 2.6rem; }
 
 /* Toast */
 .cm-toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%) translateY(1.2rem); background: var(--panel); color: var(--text);

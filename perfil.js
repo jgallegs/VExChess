@@ -1,7 +1,7 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth, isAuthResolved } from './auth.js?v=11';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, openAuth, isAuthResolved } from './auth.js?v=13';
 import { badgeMeta } from './badges.js?v=3';
 
 const root = document.getElementById('perfil-root');

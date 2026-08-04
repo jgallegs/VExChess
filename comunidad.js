@@ -2,7 +2,7 @@
 //  VEXCHESS · Comunidad
 //  Amigos · Solicitudes · Buscar · Mi VEX ID (tarjeta + QR)
 // ============================================================
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=11';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=13';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 import qrcode from './assets/vendor/qrcode.mjs?v=1';
 
@@ -79,7 +79,7 @@ function personCard(u, ctx) {
     else if (u.status === 'pending_in') actions.push('<button class="cm-btn primary" data-act="accept" data-id="' + u.id + '">Aceptar</button>');
     else actions.push('<button class="cm-btn primary" data-act="add" data-id="' + u.id + '">Añadir</button>');
   } else if (ctx === 'friend') {
-    actions.push('<button class="cm-btn ghost" data-act="challenge" disabled title="Próximamente">Retar</button>');
+    actions.push('<button class="cm-btn primary" data-act="challenge" data-id="' + u.id + '" data-username="' + esc(u.username) + '">Retar</button>');
     actions.push('<button class="cm-btn danger" data-act="remove" data-id="' + u.id + '">Eliminar</button>');
   } else if (ctx === 'incoming') {
     actions.push('<button class="cm-btn primary" data-act="accept" data-id="' + u.id + '">Aceptar</button>');
@@ -103,6 +103,7 @@ function wirePanel(panel) {
     const act = el.dataset.act;
     el.addEventListener('click', async (e) => {
       if (act === 'profile') { openProfile(el.dataset.username); return; }
+      if (act === 'challenge') { openChallenge(el.dataset.id, el.dataset.username); return; }
       const id = el.dataset.id;
       try {
         if (act === 'add') { await api.commRequest(id); toast('Solicitud enviada', true); }
@@ -193,16 +194,19 @@ function loadVexId(panel) {
       '</div>' +
       '<div class="cm-vex-side">' +
         '<h3 class="cm-sub">Añadir en persona</h3>' +
-        '<p class="cm-muted">Enseña tu QR y que lo escaneen con la cámara, o pásales tu código. También puedes añadir a alguien con su código:</p>' +
-        '<div class="cm-addcode"><input id="cm-addcode-in" placeholder="Código (p. ej. ' + esc(fmtCode('ABCDEF')) + ')" autocomplete="off" maxlength="7">' +
+        '<p class="cm-muted">Enseña tu QR y que lo escaneen, o escanea tú el de otra persona con la cámara:</p>' +
+        '<button class="btn-play cm-scan-btn" id="cm-scan"><span aria-hidden="true">📷</span> Escanear un QR</button>' +
+        '<p class="cm-or">o añade con su código</p>' +
+        '<div class="cm-addcode"><input id="cm-addcode-in" placeholder="' + esc(fmtCode('ABCDEF')) + '" autocomplete="off" maxlength="7">' +
           '<button class="cm-btn primary" id="cm-addcode-btn">Añadir</button></div>' +
-        '<p class="cm-note">El escáner de cámara y las tarjetas NFC llegarán con la app. Nadie se añade sin que ambos confirmen.</p>' +
+        '<p class="cm-note">Las tarjetas NFC llegarán con la app. Nadie se añade sin que ambos confirmen.</p>' +
       '</div>' +
     '</div>';
 
   document.getElementById('cm-share').addEventListener('click', () => shareVex(url));
   document.getElementById('cm-addcode-btn').addEventListener('click', addByCode);
   document.getElementById('cm-addcode-in').addEventListener('keydown', e => { if (e.key === 'Enter') addByCode(); });
+  document.getElementById('cm-scan').addEventListener('click', openScanner);
 }
 function fmtCode(c) { c = (c || '').toUpperCase(); return c.length > 3 ? c.slice(0, 3) + '-' + c.slice(3) : c; }
 function reputationFromStats() {
@@ -220,6 +224,101 @@ async function shareVex(url) {
   try { if (navigator.share) { await navigator.share({ title: 'Mi VEX ID · VEXCHESS', text: 'Añádeme en VEXCHESS', url }); return; } } catch (e) { return; }
   try { await navigator.clipboard.writeText(url); toast('Enlace copiado al portapapeles', true); }
   catch (e) { toast('Copia tu enlace: ' + url); }
+}
+
+// ---------- retar a un amigo ----------
+const CH_TCS = [['1+0', 'Bullet'], ['3+0', 'Blitz'], ['3+2', 'Blitz'], ['5+0', 'Blitz'], ['10+0', 'Rápida'], ['15+10', 'Rápida']];
+let chModal = null, chPoll = null;
+function closeChallenge() { if (chPoll) { clearInterval(chPoll); chPoll = null; } if (chModal) chModal.classList.remove('open'); }
+function openChallenge(userId, username) {
+  if (!chModal) {
+    chModal = document.createElement('div');
+    chModal.className = 'cm-modal';
+    chModal.innerHTML = '<div class="cm-modal-box"><button class="cm-modal-x" aria-label="Cerrar">✕</button><div class="cm-ch-body"></div></div>';
+    document.body.appendChild(chModal);
+    chModal.querySelector('.cm-modal-x').addEventListener('click', closeChallenge);
+    chModal.addEventListener('mousedown', e => { if (e.target === chModal) closeChallenge(); });
+  }
+  const body = chModal.querySelector('.cm-ch-body');
+  body.innerHTML = '<h3 class="cm-ch-title">Retar a ' + esc(username) + '</h3>' +
+    '<p class="cm-muted">Elige el ritmo de juego:</p>' +
+    '<div class="cm-ch-tcs">' + CH_TCS.map(([v, f]) => '<button class="cm-ch-tc" data-tc="' + v + '"><b>' + v + '</b><span>' + f + '</span></button>').join('') + '</div>';
+  body.querySelectorAll('.cm-ch-tc').forEach(b => b.addEventListener('click', () => sendChallenge(userId, username, b.dataset.tc)));
+  chModal.classList.add('open');
+}
+async function sendChallenge(userId, username, tc) {
+  const body = chModal.querySelector('.cm-ch-body');
+  body.innerHTML = '<div class="cm-ch-wait"><div class="cm-ring"></div><h3 class="cm-ch-title">Esperando a ' + esc(username) + '…</h3>' +
+    '<p class="cm-muted">Reto de ' + esc(tc) + ' enviado. En cuanto acepte, empieza la partida.</p>' +
+    '<button class="cm-btn ghost" id="cm-ch-cancel">Cancelar reto</button></div>';
+  let id;
+  try { const r = await api.playChallenge(userId, tc); id = r.id; if (r.status === 'accepted' && r.game_id) { location.href = 'game/' + r.game_id; return; } }
+  catch (e) { toast(e.message || 'Error', false); closeChallenge(); return; }
+  document.getElementById('cm-ch-cancel').addEventListener('click', async () => { try { await api.playCancel(id); } catch (e) {} closeChallenge(); });
+  chPoll = setInterval(async () => {
+    try {
+      const p = await api.playChallengePoll(id);
+      if (p.status === 'accepted' && p.game_id) { clearInterval(chPoll); location.href = 'game/' + p.game_id; }
+      else if (p.status === 'declined' || p.status === 'cancelled') { closeChallenge(); toast('El reto no se completó', false); }
+    } catch (e) {}
+  }, 2000);
+}
+
+// ---------- escáner de cámara (QR) ----------
+let scanEl = null, scanStream = null, scanRAF = null;
+function extractCode(text) {
+  if (!text) return null;
+  const m = String(text).match(/\/connect\/([A-Za-z0-9]{6,})/i);
+  if (m) return m[1].toUpperCase();
+  const t = String(text).trim().replace(/[^A-Za-z0-9]/g, '');
+  if (/^[A-Za-z0-9]{6}$/.test(t)) return t.toUpperCase();
+  return null;
+}
+function closeScanner() {
+  if (scanRAF) cancelAnimationFrame(scanRAF), scanRAF = null;
+  if (scanStream) { scanStream.getTracks().forEach(t => t.stop()); scanStream = null; }
+  if (scanEl) scanEl.classList.remove('open');
+}
+async function openScanner() {
+  if (!window.jsQR) { toast('El escáner no está disponible en este navegador.', false); return; }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toast('Tu navegador no permite usar la cámara.', false); return; }
+  if (!scanEl) {
+    scanEl = document.createElement('div');
+    scanEl.className = 'cm-scan';
+    scanEl.innerHTML = '<div class="cm-scan-box"><button class="cm-scan-x" aria-label="Cerrar">✕</button>' +
+      '<video class="cm-scan-video" playsinline muted></video><div class="cm-scan-frame"></div>' +
+      '<div class="cm-scan-hint" id="cm-scan-hint">Apunta al QR de tu amig@…</div></div>';
+    document.body.appendChild(scanEl);
+    scanEl.querySelector('.cm-scan-x').addEventListener('click', closeScanner);
+    scanEl.addEventListener('mousedown', e => { if (e.target === scanEl) closeScanner(); });
+  }
+  scanEl.classList.add('open');
+  const video = scanEl.querySelector('.cm-scan-video');
+  const hint = scanEl.querySelector('#cm-scan-hint');
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  try {
+    scanStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+    video.srcObject = scanStream; await video.play();
+  } catch (e) { hint.textContent = 'No se pudo acceder a la cámara. Revisa los permisos.'; return; }
+  const tick = () => {
+    if (!scanStream) return;
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      try {
+        const img = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const res = window.jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
+        if (res && res.data) {
+          const code = extractCode(res.data);
+          if (code) { hint.textContent = '¡Encontrado! Abriendo…'; closeScanner(); location.href = 'connect/' + code; return; }
+          hint.textContent = 'Ese QR no es un VEX ID.';
+        }
+      } catch (e) {}
+    }
+    scanRAF = requestAnimationFrame(tick);
+  };
+  scanRAF = requestAnimationFrame(tick);
 }
 
 // ---------- modal perfil ----------

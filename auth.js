@@ -31,6 +31,7 @@ export const api = {
   publicProfile: (username) => req('/u/' + encodeURIComponent(username)),
   // comunidad
   commSearch: (q) => req('/community/search?q=' + encodeURIComponent(q)),
+  commSummary: () => req('/community/summary'),
   commFriends: () => req('/community/friends'),
   commRequests: () => req('/community/requests'),
   commRequest: (to) => req('/community/request', { method: 'POST', headers: JSON_H, body: JSON.stringify({ to }) }),
@@ -38,6 +39,16 @@ export const api = {
   commRemove: (user_id) => req('/community/remove', { method: 'POST', headers: JSON_H, body: JSON.stringify({ user_id }) }),
   commConnectInfo: (code) => req('/connect/' + encodeURIComponent(code)),
   commConnectAdd: (code) => req('/community/connect', { method: 'POST', headers: JSON_H, body: JSON.stringify({ code }) }),
+  // online
+  playChallenge: (to, tc) => req('/play/challenge', { method: 'POST', headers: JSON_H, body: JSON.stringify({ to, tc }) }),
+  playChallenges: () => req('/play/challenges'),
+  playRespond: (id, action) => req('/play/challenge/respond', { method: 'POST', headers: JSON_H, body: JSON.stringify({ id, action }) }),
+  playCancel: (id) => req('/play/challenge/cancel', { method: 'POST', headers: JSON_H, body: JSON.stringify({ id }) }),
+  playChallengePoll: (id) => req('/play/challenge/' + id),
+  playQueueJoin: (tc) => req('/play/queue', { method: 'POST', headers: JSON_H, body: JSON.stringify({ tc }) }),
+  playQueueLeave: () => req('/play/queue', { method: 'DELETE' }),
+  playRivals: () => req('/play/rivals'),
+  gameInfo: (id) => req('/game/' + id),
   // admin
   adminOverview: () => req('/admin/overview'),
   adminUsers: (opts = {}) => {
@@ -236,12 +247,29 @@ async function maybeMigrate() {
   } catch (e) {}
 }
 
+// ---------- avisos (solicitudes de amistad + retos) ----------
+let notifCount = 0, challengeCount = 0;
+export function getNotifCount() { return notifCount + challengeCount; }
+async function pollNotifs() {
+  if (!currentUser) { if (notifCount || challengeCount) { notifCount = 0; challengeCount = 0; renderAccounts(); } return; }
+  try {
+    const r = await api.commSummary();
+    const n = r.incoming || 0, c = r.challenges || 0;
+    if (n !== notifCount || c !== challengeCount) { notifCount = n; challengeCount = c; renderAccounts(); }
+  } catch (e) {}
+}
+export function refreshNotifs() { return pollNotifs(); }
+
 // ---------- chip de cuenta en el navbar ----------
 function accountHTML() {
   if (!currentUser) return '<button class="vx-entrar" type="button">Entrar</button>';
   const featured = currentBadges.find(b => b.featured);
+  const total = notifCount + challengeCount;
+  const dot = total > 0 ? '<span class="vx-chip-dot" title="' + total + ' aviso' + (total === 1 ? '' : 's') + '"></span>' : '';
+  const menuDot = notifCount > 0 ? '<span class="vx-menu-dot">' + notifCount + '</span>' : '';
+  const chDot = challengeCount > 0 ? '<span class="vx-menu-dot">' + challengeCount + '</span>' : '';
   return '<div class="vx-acct">' +
-      '<button class="vx-chip" type="button" aria-haspopup="true">' +
+      '<button class="vx-chip" type="button" aria-haspopup="true">' + dot +
         avatarHTML(currentUser.avatar) +
         '<span class="vx-chip-name">' + esc(currentUser.username) + '</span>' +
         (featured ? badgeIcon(featured.badge, 'chip') : '') +
@@ -249,7 +277,8 @@ function accountHTML() {
       '</button>' +
       '<div class="vx-menu">' +
         '<a href="perfil.html">Mi perfil</a>' +
-        '<a href="comunidad.html">Comunidad</a>' +
+        '<a href="online.html">Jugar online' + chDot + '</a>' +
+        '<a href="comunidad.html">Comunidad' + menuDot + '</a>' +
         '<a href="partidas.html">Mis partidas</a>' +
         (currentUser.is_admin ? '<a href="insignias.html">Inventario de insignias</a>' : '') +
         (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">Panel de admin</a>' : '') +
@@ -292,5 +321,8 @@ function wireLegacyEntrar() {
   authResolved = true;
   renderAccounts();
   emit();
-  if (currentUser) maybeMigrate();
+  if (currentUser) { maybeMigrate(); pollNotifs(); }
+  // Sondea las solicitudes recibidas para el aviso del navbar.
+  setInterval(pollNotifs, 60000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) pollNotifs(); });
 })();
