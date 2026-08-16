@@ -580,7 +580,14 @@
     "badgeFeature": "Metti in evidenza accanto al nome",
     "badgePinLimit": "Hai già 3 distintivi fissati. Rimuovine uno per fissare questo.",
     "myGamesLink": "Le mie partite",
-    "modalClose": "Chiudi"
+    "modalClose": "Chiudi",
+    "displayTitle": "Chip dell'account",
+    "displayDesc": "Scegli cosa mostrare accanto al tuo avatar nella barra superiore.",
+    "displayPcLabel": "Su computer",
+    "displayMobileLabel": "Su cellulare",
+    "displayOptBoth": "Nome e punteggio",
+    "displayOptName": "Solo nome",
+    "displayOptElo": "Solo punteggio"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Inventario dei distintivi",

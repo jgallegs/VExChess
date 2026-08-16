@@ -580,7 +580,14 @@
     "badgeFeature": "Wyróżnij obok imienia",
     "badgePinLimit": "Masz już 3 przypięte. Odepnij jedną, aby przypiąć tę.",
     "myGamesLink": "Moje partie",
-    "modalClose": "Zamknij"
+    "modalClose": "Zamknij",
+    "displayTitle": "Plakietka konta",
+    "displayDesc": "Wybierz, co pokazać obok awatara na górnym pasku.",
+    "displayPcLabel": "Na komputerze",
+    "displayMobileLabel": "Na telefonie",
+    "displayOptBoth": "Nazwa i ranking",
+    "displayOptName": "Tylko nazwa",
+    "displayOptElo": "Tylko ranking"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Inwentarz odznak",

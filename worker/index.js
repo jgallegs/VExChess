@@ -392,6 +392,15 @@ async function updateProfile(req, env) {
       return errRes('Vexborn no válido.');
     }
   }
+  // Preferencias de visualización del chip de cuenta (se guardan en users.data).
+  if (b.chip && typeof b.chip === 'object') {
+    const cur = safeJson(s.user.data, {}) || {};
+    const prev = (cur.chip && typeof cur.chip === 'object') ? cur.chip : {};
+    const pc = ['both', 'name', 'elo'].includes(b.chip.pc) ? b.chip.pc : (prev.pc || 'both');
+    const mobile = ['name', 'elo'].includes(b.chip.mobile) ? b.chip.mobile : (prev.mobile || 'elo');
+    cur.chip = { pc, mobile };
+    fields.push('data = ?'); vals.push(JSON.stringify(cur));
+  }
   if (!fields.length) return errRes('Nada que actualizar.');
   fields.push('updated_at = ?'); vals.push(nowISO());
   vals.push(s.user.id);

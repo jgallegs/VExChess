@@ -580,7 +580,14 @@
     "badgeFeature": "Mettre en avant à côté du nom",
     "badgePinLimit": "Tu as déjà 3 insignes épinglés. Retires-en un pour épingler celui-ci.",
     "myGamesLink": "Mes parties",
-    "modalClose": "Fermer"
+    "modalClose": "Fermer",
+    "displayTitle": "Puce de compte",
+    "displayDesc": "Choisis ce qui s'affiche à côté de ton avatar dans la barre supérieure.",
+    "displayPcLabel": "Sur ordinateur",
+    "displayMobileLabel": "Sur mobile",
+    "displayOptBoth": "Nom et classement",
+    "displayOptName": "Nom seul",
+    "displayOptElo": "Classement seul"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Inventaire d'insignes",

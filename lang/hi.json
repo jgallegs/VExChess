@@ -580,7 +580,14 @@
     "badgeFeature": "नाम के साथ प्रमुखता से दिखाएँ",
     "badgePinLimit": "आपके पहले से 3 पिन किए गए हैं। इसे पिन करने के लिए एक हटाएँ।",
     "myGamesLink": "मेरी बाज़ियाँ",
-    "modalClose": "बंद करें"
+    "modalClose": "बंद करें",
+    "displayTitle": "खाता चिप",
+    "displayDesc": "चुनें कि ऊपर की बार में आपके अवतार के पास क्या दिखे।",
+    "displayPcLabel": "कंप्यूटर पर",
+    "displayMobileLabel": "मोबाइल पर",
+    "displayOptBoth": "नाम और रेटिंग",
+    "displayOptName": "सिर्फ़ नाम",
+    "displayOptElo": "सिर्फ़ रेटिंग"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · बैज इन्वेंटरी",

@@ -2,7 +2,7 @@
 //  VEXCHESS · Página de perfil
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved } from './auth.js?v=18';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved, applyUserPatch } from './auth.js?v=19';
 import { badgeMeta } from './badges.js?v=3';
 import { vexbornByKey, rarityMeta } from './vexborn.js?v=2';
 
@@ -108,7 +108,35 @@ function loggedIn(u, s) {
       '<div class="pf-av-imgs">' + imgAvatars + '</div>' +
       '<div class="pf-av-classic">' + t('perfil.avatarClassic') + '</div>' +
       '<div class="pf-avatars">' + swatches + '</div>' +
-    '</section>';
+    '</section>' +
+
+    displaySection(u);
+}
+
+// Preferencias de visualización del chip de cuenta (barra superior).
+function displaySection(u) {
+  const disp = (u.data && u.data.chip) || {};
+  const pc = ['both', 'name', 'elo'].includes(disp.pc) ? disp.pc : 'both';
+  const mobile = ['name', 'elo'].includes(disp.mobile) ? disp.mobile : 'elo';
+  const seg = (pref, current, opts) =>
+    '<div class="pf-seg" data-pref="' + pref + '" role="group">' +
+      opts.map(([val, label]) =>
+        '<button type="button" class="pf-seg-btn' + (val === current ? ' active' : '') + '" data-val="' + val + '"' +
+          (val === current ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>' + label + '</button>'
+      ).join('') +
+    '</div>';
+  return '<section class="pf-card pf-display">' +
+    '<h2>' + t('perfil.displayTitle') + '</h2>' +
+    '<p class="pf-display-desc">' + t('perfil.displayDesc') + '</p>' +
+    '<div class="pf-seg-row">' +
+      '<span class="pf-seg-label">' + t('perfil.displayPcLabel') + '</span>' +
+      seg('pc', pc, [['both', t('perfil.displayOptBoth')], ['name', t('perfil.displayOptName')], ['elo', t('perfil.displayOptElo')]]) +
+    '</div>' +
+    '<div class="pf-seg-row">' +
+      '<span class="pf-seg-label">' + t('perfil.displayMobileLabel') + '</span>' +
+      seg('mobile', mobile, [['name', t('perfil.displayOptName')], ['elo', t('perfil.displayOptElo')]]) +
+    '</div>' +
+  '</section>';
 }
 function stat(label, value, cls, isText) {
   return '<div class="pf-stat' + (isText ? ' text' : '') + '"><b class="' + (cls || '') + '">' + value + '</b><span>' + label + '</span></div>';
@@ -137,6 +165,21 @@ function render() {
 
   document.querySelectorAll('.pf-badge').forEach(el => el.addEventListener('click', () => openBadgeDetail(el.dataset.badge)));
   document.querySelectorAll('.pf-pin').forEach(el => el.addEventListener('click', () => openBadgeDetail(el.dataset.badge)));
+
+  // Preferencias de visualización del chip de cuenta.
+  document.querySelectorAll('.pf-seg .pf-seg-btn').forEach(btn => btn.addEventListener('click', async () => {
+    const seg = btn.closest('.pf-seg');
+    if (!seg || btn.classList.contains('active')) return;
+    const cur = (getUser().data && getUser().data.chip) || {};
+    const chip = { pc: cur.pc || 'both', mobile: cur.mobile || 'elo' };
+    chip[seg.dataset.pref] = btn.dataset.val;
+    // Feedback inmediato en el propio control (optimista)
+    seg.querySelectorAll('.pf-seg-btn').forEach(b => { const on = b === btn; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    try {
+      const out = await api.updateProfile({ chip });
+      if (out && out.user) applyUserPatch(out.user);  // refresca el chip de la navbar
+    } catch (e) {}
+  }));
 }
 
 // ---------- Insignias ----------

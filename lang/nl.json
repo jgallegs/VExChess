@@ -580,7 +580,14 @@
     "badgeFeature": "Naast de naam uitlichten",
     "badgePinLimit": "Je hebt al 3 vastgezet. Verwijder er een om deze vast te zetten.",
     "myGamesLink": "Mijn partijen",
-    "modalClose": "Sluiten"
+    "modalClose": "Sluiten",
+    "displayTitle": "Accountchip",
+    "displayDesc": "Kies wat er naast je avatar in de bovenbalk verschijnt.",
+    "displayPcLabel": "Op de computer",
+    "displayMobileLabel": "Op mobiel",
+    "displayOptBoth": "Naam en rating",
+    "displayOptName": "Alleen naam",
+    "displayOptElo": "Alleen rating"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Insigne-inventaris",

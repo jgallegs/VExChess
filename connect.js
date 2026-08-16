@@ -4,7 +4,7 @@
 //  confirmación por ambas partes).
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML } from './auth.js?v=18';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML } from './auth.js?v=19';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 
 const root = document.getElementById('connect-root');

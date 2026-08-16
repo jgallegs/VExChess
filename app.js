@@ -9,7 +9,7 @@
 import { Chess } from './chess.js';
 import { GAME, getLang, setLang, LANGS, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=9';
 import { sfx } from './sounds.js?v=1';
-import { api, getUser, AVATAR_COLORS } from './auth.js?v=18';
+import { api, getUser, AVATAR_COLORS } from './auth.js?v=19';
 import { companionSay } from './vexborn-companion.js?v=1';
 
 // --- Idioma (delegado en el runtime i18n) ----------------------------------

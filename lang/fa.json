@@ -580,7 +580,14 @@
     "badgeFeature": "برجسته کردن کنار نام",
     "badgePinLimit": "همین حالا ۳ نشان سنجاق‌شده داری. یکی را بردار تا این را سنجاق کنی.",
     "myGamesLink": "بازی‌های من",
-    "modalClose": "بستن"
+    "modalClose": "بستن",
+    "displayTitle": "نشان حساب",
+    "displayDesc": "انتخاب کن چه چیزی کنار آواتارت در نوار بالا نشان داده شود.",
+    "displayPcLabel": "روی رایانه",
+    "displayMobileLabel": "روی موبایل",
+    "displayOptBoth": "نام و ریتینگ",
+    "displayOptName": "فقط نام",
+    "displayOptElo": "فقط ریتینگ"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · موجودی نشان‌ها",

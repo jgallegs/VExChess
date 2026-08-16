@@ -580,7 +580,14 @@
     "badgeFeature": "在名字旁突出显示",
     "badgePinLimit": "你已固定 3 个。请先取消一个再固定这个。",
     "myGamesLink": "我的对局",
-    "modalClose": "关闭"
+    "modalClose": "关闭",
+    "displayTitle": "账户标签",
+    "displayDesc": "选择在顶部栏头像旁显示的内容。",
+    "displayPcLabel": "在电脑上",
+    "displayMobileLabel": "在手机上",
+    "displayOptBoth": "名称和等级分",
+    "displayOptName": "仅名称",
+    "displayOptElo": "仅等级分"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · 徽章库",

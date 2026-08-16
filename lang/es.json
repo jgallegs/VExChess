@@ -580,7 +580,14 @@
     "badgeFeature": "Destacar junto al nombre",
     "badgePinLimit": "Ya tienes 3 fijadas. Quita una para fijar esta.",
     "myGamesLink": "Mis partidas",
-    "modalClose": "Cerrar"
+    "modalClose": "Cerrar",
+    "displayTitle": "Chip de cuenta",
+    "displayDesc": "Elige qué mostrar junto a tu avatar en la barra superior.",
+    "displayPcLabel": "En ordenador",
+    "displayMobileLabel": "En móvil",
+    "displayOptBoth": "Nombre y Elo",
+    "displayOptName": "Solo nombre",
+    "displayOptElo": "Solo Elo"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Inventario de insignias",

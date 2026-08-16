@@ -7,7 +7,7 @@
 // ============================================================
 import { badgeIcon } from './badges.js?v=3';
 import { t } from './i18n.js?v=9';
-import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=1';
+import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=2';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {
@@ -288,7 +288,8 @@ async function doSignout() {
   currentUser = null; currentStats = null; renderAccounts(); emit();
 }
 function renderAccounts() {
-  const model = { user: currentUser, badges: currentBadges, notifCount, challengeCount };
+  const display = (currentUser && currentUser.data && currentUser.data.chip) || null;
+  const model = { user: currentUser, badges: currentBadges, notifCount, challengeCount, display };
   const ctx = {
     avatarHTML, roleMeta, badgeIcon,
     onLogin: () => openAuth('login'),
@@ -297,6 +298,15 @@ function renderAccounts() {
   document.querySelectorAll('.vx-account').forEach(slot => mountAccountChip(slot, model, ctx));
 }
 document.addEventListener('click', closeAllAccountMenus);
+
+// Permite a otras vistas (p.ej. el perfil) refrescar el chip tras cambiar
+// datos del usuario en memoria (avatar, preferencias de visualización…).
+export function refreshAccountChip() { renderAccounts(); }
+export function applyUserPatch(patch) {
+  if (!currentUser || !patch) return;
+  Object.assign(currentUser, patch);
+  renderAccounts(); emit();
+}
 
 // Botones "Entrar" existentes en la web (p.ej. la home) que quieran abrir el modal
 function wireLegacyEntrar() {

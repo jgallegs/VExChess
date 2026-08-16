@@ -580,7 +580,14 @@
     "badgeFeature": "Destacar junto ao nome",
     "badgePinLimit": "Você já tem 3 fixadas. Remova uma para fixar esta.",
     "myGamesLink": "Minhas partidas",
-    "modalClose": "Fechar"
+    "modalClose": "Fechar",
+    "displayTitle": "Chip da conta",
+    "displayDesc": "Escolhe o que mostrar ao lado do teu avatar na barra superior.",
+    "displayPcLabel": "No computador",
+    "displayMobileLabel": "No telemóvel",
+    "displayOptBoth": "Nome e rating",
+    "displayOptName": "Só nome",
+    "displayOptElo": "Só rating"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Inventário de insígnias",

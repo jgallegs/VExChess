@@ -580,7 +580,14 @@
     "badgeFeature": "إبراز بجانب الاسم",
     "badgePinLimit": "لديك بالفعل 3 مثبَّتة. أزِل واحدة لتثبيت هذه.",
     "myGamesLink": "مبارياتي",
-    "modalClose": "إغلاق"
+    "modalClose": "إغلاق",
+    "displayTitle": "شارة الحساب",
+    "displayDesc": "اختر ما يظهر بجانب صورتك في الشريط العلوي.",
+    "displayPcLabel": "على الحاسوب",
+    "displayMobileLabel": "على الهاتف",
+    "displayOptBoth": "الاسم والتصنيف",
+    "displayOptName": "الاسم فقط",
+    "displayOptElo": "التصنيف فقط"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · مخزون الأوسمة",

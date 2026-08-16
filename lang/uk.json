@@ -580,7 +580,14 @@
     "badgeFeature": "Виділити поруч з іменем",
     "badgePinLimit": "У тебе вже 3 закріплених. Прибери один, щоб закріпити цей.",
     "myGamesLink": "Мої партії",
-    "modalClose": "Закрити"
+    "modalClose": "Закрити",
+    "displayTitle": "Чип акаунта",
+    "displayDesc": "Виберіть, що показувати поряд з аватаром на верхній панелі.",
+    "displayPcLabel": "На комп'ютері",
+    "displayMobileLabel": "На телефоні",
+    "displayOptBoth": "Ім'я та рейтинг",
+    "displayOptName": "Лише ім'я",
+    "displayOptElo": "Лише рейтинг"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Інвентар значків",

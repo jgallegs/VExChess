@@ -580,7 +580,14 @@
     "badgeFeature": "Neben dem Namen hervorheben",
     "badgePinLimit": "Du hast bereits 3 angeheftet. Entferne eines, um dieses anzuheften.",
     "myGamesLink": "Meine Partien",
-    "modalClose": "Schließen"
+    "modalClose": "Schließen",
+    "displayTitle": "Konto-Chip",
+    "displayDesc": "Wähle, was neben deinem Avatar in der oberen Leiste erscheint.",
+    "displayPcLabel": "Am Computer",
+    "displayMobileLabel": "Auf dem Handy",
+    "displayOptBoth": "Name & Wertung",
+    "displayOptName": "Nur Name",
+    "displayOptElo": "Nur Wertung"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Abzeichen-Inventar",

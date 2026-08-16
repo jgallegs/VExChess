@@ -1,7 +1,7 @@
 // ============================================================
 //  VEXCHESS · Lobby online (emparejamiento + retos + rivales)
 // ============================================================
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=18';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=19';
 import { t } from './i18n.js?v=9';
 
 const root = document.getElementById('online-root');

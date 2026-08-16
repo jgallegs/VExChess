@@ -580,7 +580,14 @@
     "badgeFeature": "Feature next to name",
     "badgePinLimit": "You already have 3 pinned. Remove one to pin this.",
     "myGamesLink": "My games",
-    "modalClose": "Close"
+    "modalClose": "Close",
+    "displayTitle": "Account chip",
+    "displayDesc": "Choose what to show next to your avatar in the top bar.",
+    "displayPcLabel": "On desktop",
+    "displayMobileLabel": "On mobile",
+    "displayOptBoth": "Name & Elo",
+    "displayOptName": "Name only",
+    "displayOptElo": "Elo only"
   },
   "insignias": {
     "pageTitle": "VEXCHESS · Badge inventory",
