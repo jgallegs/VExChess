@@ -1121,5 +1121,1208 @@
       "community": "Community",
       "myGames": "My games"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Initiate",
+      "aprendiz": "Apprentice",
+      "adepto": "Adept",
+      "experto": "Expert",
+      "maestro": "Master",
+      "pleno": "Full Bond"
+    },
+    "ui": {
+      "start": "Begin Path of Mastery",
+      "continue": "Continue Path",
+      "soon": "Path of Mastery · coming soon",
+      "sectionTitle": "Path of Mastery",
+      "chapter": "Chapter {n}/{total}",
+      "trialTag": "Trial",
+      "vinculo": "Bond",
+      "observe": "Observe",
+      "hint": "Ask for a hint",
+      "hintCount": "Hint {n}/{total}",
+      "lastHint": "last",
+      "correct": "Correct!",
+      "next": "Next →",
+      "teachNext": "Got it →",
+      "practice": "Practice it →",
+      "finishChapter": "Finish chapter →",
+      "chronicleUnlocked": "Chronicle unlocked",
+      "reward": "Mastery reward",
+      "completeTitle": "Path completed",
+      "completeMsg": "You have walked the entire Path. Your bond with this champion is full.",
+      "back": "Back to the codex",
+      "trialNoHints": "There are no hints in the Trial: trust what you have learned.",
+      "wrongRetry": "Try again.",
+      "yourMove": "Your move",
+      "vinculoSub": "No competitive edge · only learning, story and collection",
+      "chapterDone": "Chapter cleared",
+      "guestMsg": "Sign in to walk the Path and save your bond.",
+      "loginBtn": "Sign in",
+      "chaptersDone": "{n}/{total} chapters",
+      "trialsHint": "The last chapter is a Trial with no hints."
+    },
+    "noctis": {
+      "intro": "I am Noctis. I do not cross the darkness: I split it. I will teach you to see the two threats that fit in a single leap. Observe, predict and execute.",
+      "reward": "Title unlocked: «Twin Shadow»",
+      "chron": [
+        "Every leap of mine leaves two shadows. Only one is real.",
+        "I learned to strike where no one defends: between two pieces at once.",
+        "The king is the best hostage: it forces a reply and leaves its queen exposed.",
+        "I don't hunt the piece. I hunt the square from which two pieces are already mine.",
+        "When you see the fork before you play it, you won't need my shadows."
+      ],
+      "c1": {
+        "title": "The first shadow",
+        "teach": "The fork attacks two pieces with a single move. Let's start with the cleanest one: a check that, in passing, wins a rook.",
+        "observe": "The black king is on e8 and the rook on a8. Find the square from which a knight touches both.",
+        "goal": "Give check and attack the rook with the knight.",
+        "hints": [
+          "A knight on c7 reaches e8 and a8 at once.",
+          "The key square is a leap away: d5 → c7.",
+          "Nd5-c7+: check to the king and a fork on the rook."
+        ],
+        "explain": "Nc7+ is check: the opponent must tend to the king and the rook on a8 falls. That is the fork in its purest form: you force first and win afterward.",
+        "wrong": "Almost. A single square must touch both the king and the rook. Think of c7."
+      },
+      "c2": {
+        "title": "The king as bait",
+        "teach": "When the fork includes the king, it is unstoppable: the check forces, and the major piece is left at your mercy.",
+        "observe": "Black king on e8, queen on c8. Find the leap that gives check and also eyes the queen.",
+        "goal": "Fork the king and the queen.",
+        "hints": [
+          "From d6 a knight attacks e8 and c8.",
+          "e4 → d6, with check.",
+          "Nd6+ wins the queen after the check."
+        ],
+        "explain": "Nd6+ attacks the king (forced check) and the queen on c8. The king moves and the queen is yours. The king is the best bait for a fork.",
+        "wrong": "That's not it. The square must give check on e8 and touch c8 at once: look at d6."
+      },
+      "c3": {
+        "title": "From the other angle",
+        "teach": "The same idea works on any flank. Train your eye to see it on the right too.",
+        "observe": "King on e8, queen on g8. Find the leap that threatens both.",
+        "goal": "Check the king and attack the queen.",
+        "hints": [
+          "f6 touches e8 and g8.",
+          "g4 → f6, with check.",
+          "Nf6+ and the queen on g8 falls."
+        ],
+        "explain": "Nf6+ gives check from the other side and attacks g8. The fork has no favorite side: only correct squares.",
+        "wrong": "Not yet. Find the square that touches e8 and g8: it's f6."
+      },
+      "c4": {
+        "title": "The silent leap",
+        "teach": "Sometimes the fork's square looks harmless… until the knight arrives. Trust the pattern.",
+        "observe": "King on g8, queen on c8, and your knight on g6. Which square touches both?",
+        "goal": "Fork the king and the queen.",
+        "hints": [
+          "e7 reaches g8 and c8.",
+          "g6 → e7, with check.",
+          "Ne7+ and you win the queen."
+        ],
+        "explain": "Ne7+ connects g8 (check) with c8 (queen). A quiet leap, an enormous haul. You already recognize the pattern.",
+        "wrong": "That's not it. The square that touches g8 and c8 is e7."
+      },
+      "c5": {
+        "title": "Trial · The shadow without warning",
+        "teach": "Without check there is no warning: here the fork doesn't shout, you see it or you lose it. No hints: trust what you've learned.",
+        "observe": "Two black rooks, on d8 and f8. A single square eyes them both.",
+        "goal": "Fork both rooks.",
+        "hints": [],
+        "explain": "Ne6 attacks d8 and f8 at the same time. There is no check, but a rook will fall. You have learned to see the fork with no one to warn you.",
+        "wrong": "One rook must be attacked alongside the other. Find the square between d8 and f8."
+      }
+    },
+    "kael": {
+      "intro": "I am Kael, and my knight asks no permission: it attacks. Follow me and learn to steal tempo, develop with fury and seize the initiative before your opponent can breathe.",
+      "reward": "Tempo Rider",
+      "chron": [
+        "My knight leapt to e7 with check and the enemy queen fell without a lament.",
+        "In the corner I cornered the king and tore its rook clean away.",
+        "A leap to f7 and the silence of mate closed the game.",
+        "I punished the king that dared not develop: check, and its queen was mine.",
+        "Without hints and without doubt, the colt struck and the board surrendered."
+      ],
+      "c1": {
+        "title": "The Leap that Steals the Queen",
+        "teach": "The check commands: when you give check, the opponent obeys and you set the rhythm. A knight that checks and attacks the queen wins tempo and material in a single blow.",
+        "observe": "See where the black king and its queen stand: find a square that attacks both at once.",
+        "goal": "Give check and fork the king and the queen.",
+        "hints": [
+          "Look for a knight leap that gives check to the king on g8.",
+          "The square e7 touches the king and the queen at the same time.",
+          "Play Ne7+ and, after the king moves, capture the queen on c6."
+        ],
+        "explain": "Ne7+ is check: the king must move and cannot defend the queen, which falls on c6.",
+        "wrong": "Without check you lose the initiative; force the king and keep the queen."
+      },
+      "c2": {
+        "title": "Ambush in the Corner",
+        "teach": "The initiative is born of threatening with tempo. A knight that checks in the corner forces the king and bares its rook.",
+        "observe": "The black king sleeps on a8 and its rook on e8: a fork unites them.",
+        "goal": "Give check and win the rook.",
+        "hints": [
+          "The knight can leap to c7 giving check.",
+          "From c7 the knight attacks the king and the rook on e8.",
+          "Nc7+ and then Nxe8: the rook is yours."
+        ],
+        "explain": "Nc7+ forces the king to flee and the knight devours the rook on e8.",
+        "wrong": "Don't let the king escape for free: the check on c7 is your only key."
+      },
+      "c3": {
+        "title": "The Colt's Mate",
+        "teach": "Development culminates in the attack: when the king suffocates among its own pieces, a knight finishes it. Perfect tempo turns a leap into checkmate.",
+        "observe": "The black king is buried by its rook and its pawns; only the blow is missing.",
+        "goal": "Give checkmate with the knight.",
+        "hints": [
+          "The king has not a single free square.",
+          "A leap to f7 gives check with no possible escape.",
+          "Nf7 is mate: deliver it with pride."
+        ],
+        "explain": "Nf7# gives check and the king, smothered by its own pieces, can neither flee nor capture.",
+        "wrong": "Look for the check that cannot be escaped: f7 seals it."
+      },
+      "c4": {
+        "title": "Punishing the Lazy King",
+        "teach": "Whoever fails to develop pays: a king trapped in the center is easy prey. Attack with tempo and the initiative turns into loot.",
+        "observe": "The black king still sits on e7 and its queen roams to b4: both within a leap.",
+        "goal": "Give check in the center and win the queen.",
+        "hints": [
+          "The exposed king on e7 invites the fork.",
+          "From c6 the knight checks the king and attacks the queen on b4.",
+          "Nc6+ and then Nxb4: the queen is yours."
+        ],
+        "explain": "Nc6+ is a double-edged check: the king flees and the queen on b4 falls without remedy.",
+        "wrong": "Exploit the king in the center: only the check on c6 wins the queen."
+      },
+      "c5": {
+        "title": "The Rider's Trial: No Mercy",
+        "teach": "Here there are no hints, only your instinct. Find the leap that gives check and tears away the queen: prove you command the tempo.",
+        "observe": "The king on c8 and the queen on f5 await your verdict.",
+        "goal": "Give check and take the queen.",
+        "hints": [],
+        "explain": "Nd6+ checks the king on c8 and attacks the queen on f5; the king flees and Nxf5 closes the heist.",
+        "wrong": "The tempo slipped away: find the check that also touches the queen."
+      }
+    },
+    "aurelia": {
+      "intro": "I am Aurelia, and my queen does not move on impulse: she moves by conviction. Before I touch a piece I see the game already finished; follow me and you will learn to calculate to the very end.",
+      "reward": "Path of the Serene Queen",
+      "chron": [
+        "On the first step the queen descended to the seventh, and the king found nowhere to flee.",
+        "I saw the back rank close before it existed; its own pawns were its doom.",
+        "A pawn crossed the board and was reborn as a queen: calculation rewards patience.",
+        "I did not capture out of greed, but out of certainty; the enemy queen fell without a fight.",
+        "Without hints and without doubt I chose the only path, and mate blossomed on the diagonal."
+      ],
+      "c1": {
+        "title": "The queen's descent",
+        "teach": "To calculate is to see the final position before moving a single piece. The queen and the king together weave a net from which the rival monarch cannot escape.",
+        "observe": "Look at the black king's escape squares and discover who guards them.",
+        "goal": "Give checkmate in one move.",
+        "hints": [
+          "Your king on f6 already controls g7; the queen can lean on it.",
+          "Find the square from which the queen attacks the king without being captured.",
+          "Bring the queen to g7: the king on h8 will have no air."
+        ],
+        "explain": "Qg7 is checkmate: the king on f6 defends the queen and robs the black monarch of g8, h7 and g7.",
+        "wrong": "The king has escaped; recalculate which square closes all its exits."
+      },
+      "c2": {
+        "title": "The back rank",
+        "teach": "A king shut in behind its own pawns lives in constant danger. Knowing how to calculate the back rank decides countless games.",
+        "observe": "Watch the pawns f7, g7 and h7: they imprison their own king.",
+        "goal": "Find mate in one.",
+        "hints": [
+          "The black king has no squares ahead; its pawns smother it.",
+          "The d-file stays open all the way to the far end of the board.",
+          "Invade the eighth rank with the queen: Qd8."
+        ],
+        "explain": "Qd8 is mate: the queen dominates the whole eighth rank and the pawns prevent any flight.",
+        "wrong": "There is still an escape; make sure you command the entire rank."
+      },
+      "c3": {
+        "title": "The promotion",
+        "teach": "Choosing the variation includes choosing which piece to promote to. The queen, almost always, is the most lethal answer.",
+        "observe": "The pawn is one step from promoting and your king on f6 supports the maneuver.",
+        "goal": "Promote and give mate.",
+        "hints": [
+          "The pawn on h7 can promote at once.",
+          "Your king guards e7, f7 and g7; only the eighth rank remains to close.",
+          "Promote to queen: h8=Q is checkmate."
+        ],
+        "explain": "h8=Q is mate: the new queen controls the eighth rank while the white king covers the escape squares.",
+        "wrong": "That promotion doesn't close the net; promote to queen and calculate the mate."
+      },
+      "c4": {
+        "title": "The serene capture",
+        "teach": "Not every variation ends in checkmate; sometimes you choose the one that wins material with no risk at all. To calculate is also to recognize the clean gain.",
+        "observe": "The d-file joins your queen to the enemy queen.",
+        "goal": "Win the rival queen.",
+        "hints": [
+          "The black queen on d8 has no defense at all.",
+          "Your queen has the d-file clear.",
+          "Capture with check: Qxd8+."
+        ],
+        "explain": "Qxd8+ captures the enemy queen with check and leaves a decisive advantage, with no complication whatsoever.",
+        "wrong": "You chose an inferior variation; the clean capture was the path."
+      },
+      "c5": {
+        "title": "The decisive diagonal",
+        "teach": "Now you calculate alone: no hints, no supports, only your vision. Choose the one path that crowns all the effort.",
+        "observe": "Your knight on h5 and your queen work in silence over the king.",
+        "goal": "Find mate in one.",
+        "hints": [],
+        "explain": "Qg7 is mate: the knight on h5 defends the queen, and the king on h8 loses g8 and h7.",
+        "wrong": "That was not the path; only one move delivers the exact mate."
+      }
+    },
+    "bastion": {
+      "intro": "I am Bastion, rook and bulwark of VEXCHESS: I do not advance on closed files nor retreat before the queen. Follow me and you will learn that two united rooks are a wall that attacks.",
+      "reward": "Bulwark of the United Rooks",
+      "chron": [
+        "I claimed the open file as my own territory and my rook fell upon the eighth rank: the king had no wall behind which to hide.",
+        "I descended to the seventh rank like one patrolling a frontier, and the undefended enemy paid with its rook.",
+        "I united my two rooks shoulder to shoulder; one closed the only door while the other struck the final blow.",
+        "Fearing not the queen, I lined her up against her own king and brought her down: no piece is invincible before a well-planted rook.",
+        "Alone, without a single voice to guide me, I traced the exact skewer and the path was conquered."
+      ],
+      "c1": {
+        "title": "The open file",
+        "teach": "An open file is a road the rook claims for itself; along it, it penetrates to the enemy rear. Whoever commands the file commands the game.",
+        "observe": "Look at the b-file: it is clear from end to end, and the black king's back rank has no guard.",
+        "goal": "Invade the eighth rank and give checkmate.",
+        "hints": [
+          "The b-file is yours: no piece blocks your way.",
+          "The pawns f7, g7 and h7 shut in their own king.",
+          "Raise the rook to the far end: Rb8 is mate."
+        ],
+        "explain": "Rb8 is mate: the rook runs down the open file to the eighth rank and the pawns deny the king any flight.",
+        "wrong": "The king still breathes; take the open file all the way to the end."
+      },
+      "c2": {
+        "title": "The rook on the seventh",
+        "teach": "The seventh rank is plundering ground for the rook; there, undefended material falls. Advance along the open file and collect your prey.",
+        "observe": "The black rook on a7 stands alone, without a single defender to cover it.",
+        "goal": "Capture the enemy rook.",
+        "hints": [
+          "The a-file is clear before you.",
+          "No black piece defends the square a7.",
+          "Go down the file and capture: Rxa7."
+        ],
+        "explain": "Rxa7 wins a whole rook: the open file carries your rook to the seventh and the king on g8 is too far to respond.",
+        "wrong": "You let the loot escape; the open file was handing you the rook."
+      },
+      "c3": {
+        "title": "Connected rooks",
+        "teach": "Two rooks that protect each other are worth more than double a single one: one attacks and the other shuts the door. Connected, they weave a net the king cannot escape.",
+        "observe": "The black king on a8 can only dream of b7; watch which rook guards that square.",
+        "goal": "Give checkmate with the two rooks.",
+        "hints": [
+          "The rook on b1 already covers b7, the king's only exit.",
+          "You need to give check on the eighth rank with no flight for the king.",
+          "Bring the other rook to the eighth: Rc8 is mate."
+        ],
+        "explain": "Rc8 is mate: one rook checks on the eighth rank while its companion on b1 seals b7. That is the power of connected rooks.",
+        "wrong": "A single rook is not enough; let them both work together."
+      },
+      "c4": {
+        "title": "The rook that wins the queen",
+        "teach": "A rook well planted on an open file does not fear the queen: it faces her as an equal. With a check on the file, line up the king and the queen and collect the major piece.",
+        "observe": "The black king on a4 and the queen on a8 share the same file; you only need to open it with check.",
+        "goal": "Win the enemy queen with a skewer.",
+        "hints": [
+          "The a-file lines up the king on a4 with the queen on a8.",
+          "Give check along the a-file: you'll skewer the king with the queen behind.",
+          "Play Ra1+; when the king steps aside, Rxa8 wins the queen."
+        ],
+        "explain": "Ra1+ is a skewer: the king and the queen fall on the same file. The king must step aside and then Rxa8 takes the queen.",
+        "wrong": "The queen survived; use the file and the check to skewer her."
+      },
+      "c5": {
+        "title": "The guardian's path",
+        "teach": "Now you defend and attack with no counsel at all; only your calculation holds the position. Find the skewer that crowns the path.",
+        "observe": "The black king on e5 and the rook on e8 share the e-file, still closed.",
+        "goal": "Find the move that wins the rook.",
+        "hints": [],
+        "explain": "Re1+ skewers the king with the rook behind on the e-file; the king steps aside and Rxe8 wins the rook.",
+        "wrong": "That was not the path; a single move skewers the king and wins the rook."
+      }
+    },
+    "nyra": {
+      "intro": "I am Nyra. I do not shout my intentions: I slide them along a diagonal and wait for the board to understand. A well-placed bishop has already won the game; the opponent has only to find out.",
+      "reward": "Path of the Diagonal",
+      "chron": [
+        "On the first step I let the diagonal speak: the rook fell without my raising my voice.",
+        "I crossed the whole board in silence and found the queen off guard; infiltration asks no permission.",
+        "The knight pretended to guard the house, pinned as it was; I thanked it for the pantomime and took the rook.",
+        "I fixed the guardian against its own king and collected the queen with a check, almost with pity.",
+        "Without hints, I lined up the king with its queen and shoved one aside to keep the other."
+      ],
+      "c1": {
+        "title": "The reach of the diagonal",
+        "teach": "The bishop does not run: it reaches. A clear diagonal turns distance into an immediate threat.",
+        "observe": "Follow your bishop's diagonal to the opposite edge of the board.",
+        "goal": "Capture the rook.",
+        "hints": [
+          "Your bishop lives on a single color; look at the long diagonal it commands.",
+          "The black rook rests on that very diagonal, with no one to protect it.",
+          "Bishop from c3 to g7: run it all the way."
+        ],
+        "explain": "Bxg7 wins the rook clean: nothing stands on the diagonal and no one defends it.",
+        "wrong": "You left the diagonal half done; the rook still stands."
+      },
+      "c2": {
+        "title": "Infiltration",
+        "teach": "An open diagonal is a road to the enemy heart. The bishop slips in without a sound and collects what it finds.",
+        "observe": "The long diagonal crosses the board from your bishop to the black queen.",
+        "goal": "Win the queen.",
+        "hints": [
+          "From g2 your bishop eyes seven squares toward the far flank.",
+          "Nothing blocks the road to b7, and the queen has no escort.",
+          "Bishop to b7: infiltrate the diagonal and capture."
+        ],
+        "explain": "Bxb7 takes the queen: infiltration along the long diagonal meets no resistance at all.",
+        "wrong": "You stopped too soon; the queen waited at the end of the road."
+      },
+      "c3": {
+        "title": "The pin betrays",
+        "teach": "A pinned piece pretends to defend, but it cannot move. What it protects is, in truth, defenseless.",
+        "observe": "The knight on e6 seems to guard g7; look at what is behind it, on the e-file.",
+        "goal": "Capture the rook.",
+        "hints": [
+          "Your rook on e1 fixes the knight against its own king.",
+          "Pinned, that knight cannot recapture on g7.",
+          "Bishop from a1 to g7: the rook falls without reply."
+        ],
+        "explain": "Bxg7 wins the rook: the knight is pinned against the king and cannot make good the capture.",
+        "wrong": "You trusted its guardian; but that knight is pinned and defends nothing."
+      },
+      "c4": {
+        "title": "The pinned guardian",
+        "teach": "Pin the piece against its king and its defense becomes fiction. Then the bishop collects the queen with all courtesy.",
+        "observe": "The knight on a7 holds the queen; watch the a-file and the king at the far end.",
+        "goal": "Win the queen with check.",
+        "hints": [
+          "The rook on a1 pins the knight on a7 against the king on a8.",
+          "The queen on c6 relies only on that knight, which cannot move.",
+          "Bishop to c6: check, and the queen is yours."
+        ],
+        "explain": "Bxc6+ wins the queen with check: the pinned knight cannot recapture and the king cannot reach c6.",
+        "wrong": "The queen seemed defended; her guardian, pinned, was only an illusion."
+      },
+      "c5": {
+        "title": "The skewer",
+        "teach": "Line up the king with what it loves and force it to step aside. Behind it the queen will be left, alone, on the diagonal.",
+        "observe": "King and queen share the same diagonal, and your bishop watches it.",
+        "goal": "Win the queen.",
+        "hints": [],
+        "explain": "Be4+ skewers: the king must move and the bishop captures the queen that was behind it.",
+        "wrong": "That was not it; a single move lines up the king and dooms the queen."
+      }
+    },
+    "pip": {
+      "intro": "I am Pip, the pawn that never stops advancing. Step by step, square by square, I will teach you that even the smallest can become a giant.",
+      "reward": "Pawn's Heart",
+      "chron": [
+        "With a single brave step, Pip touched the eighth rank and a queen was born where before there was only a dream.",
+        "Fearless of the enemy rook, Pip shoved it aside and promoted in its place: nothing stops one who advances!",
+        "Faced with two roads, Pip chose the safe path and dodged the bishop's trap to promote safe and sound.",
+        "In the corner of the board, little Pip took the final step and sealed the checkmate: the humblest decided the battle.",
+        "Alone, with no hints or help, Pip promoted with check and trapped the rook: the Path of Mastery was complete."
+      ],
+      "c1": {
+        "title": "The first step to queen",
+        "teach": "A pawn that reaches the last rank transforms into the piece you choose, almost always a powerful queen. That journey to the eighth rank is called promoting, and it is every pawn's dream.",
+        "observe": "Look at my pawn on a7: only one little step remains to reach the end of the board. The enemy king is close, so we must promote now.",
+        "goal": "Promote the pawn by advancing to a8.",
+        "hints": [
+          "Count how many squares my pawn needs to reach the 8th rank.",
+          "If I wait, the black king will capture my pawn; we must act right now.",
+          "Advance from a7 to a8 and choose queen: you even give check!"
+        ],
+        "explain": "By advancing to a8 the pawn becomes a queen with check, winning at a stroke the strongest piece on the board. Any delay would let the black king eat the pawn.",
+        "wrong": "Almost, but if I don't promote now the enemy king will eat my pawn; advance to a8."
+      },
+      "c2": {
+        "title": "Promoting by capturing",
+        "teach": "A pawn promotes by pushing straight, but it can also promote by capturing diagonally. Eating a piece and turning into a queen in the same move is doubly powerful.",
+        "observe": "Notice the black rook on b8, right on the diagonal from my pawn on a7. I can eat it and promote at the same time.",
+        "goal": "Capture on b8 and promote.",
+        "hints": [
+          "A pawn captures diagonally: look at what piece is on b8.",
+          "Eating the rook and promoting on the same square is better than pushing straight.",
+          "Play a7 takes b8 and choose queen: you win the rook and create a queen with check."
+        ],
+        "explain": "By capturing on b8 I remove the enemy rook and appear as a queen with check, winning a great deal of material all at once. Pushing straight would have left the rook alive.",
+        "wrong": "Not quite: there is a diagonal capture that wins the rook and promotes at the same time; play a7 takes b8."
+      },
+      "c3": {
+        "title": "The safe road",
+        "teach": "When you have several pawns near promotion, not every promotion square is safe. Good structure teaches you to promote where the enemy cannot capture your new queen.",
+        "observe": "I have two pawns about to promote, on a7 and c7. But the enemy bishop watches the square c8, so promoting there would be a gift.",
+        "goal": "Promote on the safe side, on a8.",
+        "hints": [
+          "Notice which promotion square the black bishop watches.",
+          "If I promote on c8, the bishop will eat my queen; find the free square.",
+          "Advance the pawn from a7 to a8: no one defends or attacks that corner."
+        ],
+        "explain": "Promoting on a8 creates a queen with check that no enemy can capture, while promoting on c8 would lose it to the bishop. Choosing the safe square is pure pawn structure.",
+        "wrong": "Careful: the bishop watches c8 and would capture my queen; promote on a8 instead."
+      },
+      "c4": {
+        "title": "The decisive step",
+        "teach": "A pawn that promotes doesn't only win material: sometimes it gives the final checkmate. With help from its companions, even the humblest pawn can close the game.",
+        "observe": "My enemy king is cornered on h8. My pawn on g6 shuts off the square h7, and only my pawn on f7 is left to deal the final blow.",
+        "goal": "Promote on f8 and give mate.",
+        "hints": [
+          "The black king is in the corner: count its escape squares.",
+          "My pawn on g6 already controls h7; only the 8th rank remains to cover.",
+          "Advance f7 to f8 and promote to queen: it's checkmate."
+        ],
+        "explain": "By promoting on f8 the new queen gives check along the 8th rank, while the pawn on g6 takes away the exit via h7; the king has no escape and it's mate. Only the queen covers all the squares at once.",
+        "wrong": "Not mate yet: promote on f8 to queen and the corner king will have no escape."
+      },
+      "c5": {
+        "title": "The champion's trial",
+        "teach": "A passed pawn advances without fear, and by promoting with check it can gain time to attack another piece. Always look at what you win beyond the queen itself.",
+        "observe": "My pawn on d7 is one step from promoting, the black king rests on h8 and a lone rook watches from a5.",
+        "goal": "Promote with check and win the rook.",
+        "hints": [],
+        "explain": "By promoting on d8 a queen appears that gives check along the 8th rank and also aims at the rook on a5 along the diagonal; after the king moves, I capture the rook for free. I promote and win material in the same idea.",
+        "wrong": "Think of promoting with check: there is a square from which my new queen attacks the king and the rook at once."
+      }
+    },
+    "ordan": {
+      "intro": "I am Ordan, and I have survived more endgames than you have played games. Guard your king like your own life and learn to wield it as a weapon when the board empties: that is my whole teaching.",
+      "reward": "Path of the Throne",
+      "chron": [
+        "I pushed the enemy king against the wall with the mere gaze of my king, and the rook pronounced the sentence.",
+        "I chased it to the corner, where no throne protects, and closed the last door without haste.",
+        "I ordered my queen to hush her vain checks and seal the file; the black king was left without air.",
+        "I set my king shoulder to shoulder with the queen, wall against wall, and there was no crack to flee through.",
+        "And at the end, with no counsel or hint, I let the opposition speak: the queen descended to the eighth and it was all over."
+      ],
+      "c1": {
+        "title": "The king that corners",
+        "teach": "In the endgame, your king stops hiding and starts commanding. It is the king that shuts the enemy against the edge; the rook only strikes the blow.",
+        "observe": "See how your king on g6 faces the black king head-on: that is called opposition, and it robs the enemy of its escape squares.",
+        "goal": "Give mate on the back rank.",
+        "hints": [
+          "Your kings are in direct opposition; the black one can neither advance nor escape to the sides.",
+          "Your rook is free on the first rank and the eighth is deserted.",
+          "Rook from b1 to b8: checkmate."
+        ],
+        "explain": "Rb8 is mate: your king covers f7, g7 and h7, and the rook cuts off the only rank the enemy had left.",
+        "wrong": "The black king breathed: without your king's opposition, the rook alone can never shut it in."
+      },
+      "c2": {
+        "title": "The corner cage",
+        "teach": "The corner is the tomb of the lone king. When the enemy takes refuge in the corner, your king watches the exits and the rook closes the door.",
+        "observe": "The black king on h8 has no air left; your king on g6 seals g7, g8 and h7.",
+        "goal": "Close the cage with mate.",
+        "hints": [
+          "Count the black king's squares: your king has already taken them all but the rank.",
+          "The rook on f7 dominates the seventh; owning the eighth too will be lethal.",
+          "Rook from f7 to f8: checkmate."
+        ],
+        "explain": "Rf8 is mate: the king cornered in the corner has no flight and your monarch defends every escape square.",
+        "wrong": "You gave the prisoner air; in the corner, a single lapse sets it free."
+      },
+      "c3": {
+        "title": "The queen obeys the king",
+        "teach": "The queen is powerful, but without the king to mark the way she only hands out empty checks. Let your king steal the squares and the queen seal the rest.",
+        "observe": "Your king on f7 already guards g7 and g8; the black king has only the h-file to breathe through.",
+        "goal": "Seal the h-file with mate.",
+        "hints": [
+          "The black king on h8 depends on a single escape square: h7.",
+          "Bring your queen to the h-file to dominate h8 and h7 at once.",
+          "Queen from b1 to h1: checkmate."
+        ],
+        "explain": "Qh1 is mate: the queen takes ownership of the whole h-file while your king shuts the flight via g7 and g8.",
+        "wrong": "The queen shouted in vain; without closing the h-file, the black king slips away."
+      },
+      "c4": {
+        "title": "Shoulder to shoulder",
+        "teach": "Never bring the queen near the enemy king without your own king to shield her. Together, shoulder to shoulder, they raise a wall that leaves no crack.",
+        "observe": "Your king on f6 defends the square g7; there, and only there, the queen will be untouchable pressed against the black king.",
+        "goal": "Deliver the queen a step from the king, with mate.",
+        "hints": [
+          "The black king on h8 is suffocating; you must take g7 and g8 at once.",
+          "Only one square gives you both, and your king already protects it.",
+          "Queen from g1 to g7: protected checkmate."
+        ],
+        "explain": "Qg7 is mate: the queen embraces the black king and your king defends her, so she can be neither captured nor evaded.",
+        "wrong": "You brought the queen up without escort; a lone king would have devoured her."
+      },
+      "c5": {
+        "title": "The judgment of the opposition",
+        "teach": "Now you are alone, without my voice. Remember: first the king conquers the squares, then the heavy piece crowns the work.",
+        "observe": "Kings facing off on the e-file, and a queen that has not yet had her last word.",
+        "goal": "Find mate in one move.",
+        "hints": [],
+        "explain": "Qb8 is mate: in opposition your king denies d7, e7 and f7, and the queen arriving on the eighth rank covers the whole retreat, including f8.",
+        "wrong": "That was not it. Let your king do its work and find the rank the enemy cannot cross."
+      }
+    },
+    "eira-vhal": {
+      "intro": "We are Eira and Vhal, twin riders of the same pair of knights: I, Eira, calculate before I leap; I, Vhal, leap and then laugh. Together we teach you to look at ALL the captures and choose the one that wins most, because the good rider never takes the first one he sees.",
+      "reward": "Riders of the Double Leap",
+      "chron": [
+        "Eira pointed to the rook, Vhal pointed to the queen; the knight leapt to g5 and we came back with the enemy's crown.",
+        "Two forks opened before us: Vhal cried 'the rook', but Eira chose the queen on d6 and the board proved her right.",
+        "The colt leapt to f6 with check; the rook on g5 winked at us, yet we took the queen and the echo of the gallop.",
+        "Ne7 rang like thunder with check; we ignored the easy rook and collected the queen on g6 like good siblings.",
+        "No hints, no voices, only Vhal's instinct and Eira's calculation: b5, and the enemy queen fell in silence."
+      ],
+      "c1": {
+        "title": "Two preys, one choice",
+        "teach": "When your knight attacks several pieces at once, don't eat the first one you see: compare them. Of all the possible captures, the best is the one that takes the most material.",
+        "observe": "Look at the two squares your knight strikes: one holds a rook, the other a queen. Weigh how much each is worth before deciding.",
+        "goal": "Capture the piece of greater value.",
+        "hints": [
+          "Your knight on e4 threatens two undefended black pieces: ask which is worth more.",
+          "A queen is worth far more than a rook; that is the target.",
+          "Leap to g5 and take the queen."
+        ],
+        "explain": "Both pieces were hanging, but the queen (9) far outweighs the rook (5): capturing her wins more for the same move.",
+        "wrong": "That capture wins less: compare the value of the two pieces again."
+      },
+      "c2": {
+        "title": "Two rival forks",
+        "teach": "Sometimes you don't compare captures, but moves that create a double threat. Choose the fork that traps the most valuable piece.",
+        "observe": "Your knight has two leaps that give check and a fork at once: one pricks the rook, the other the queen. Watch what each one traps.",
+        "goal": "Give the forking check that wins the queen.",
+        "hints": [
+          "Two leaps give check from e4; both win material, but not the same.",
+          "Look for the check that attacks the king and the QUEEN at the same time.",
+          "Leap to d6: check to the king on e8 and a fork on the queen on b7."
+        ],
+        "explain": "Nd6+ attacks the king and the queen at once; the king must move and the knight collects the queen, more than the rival fork that only won the rook.",
+        "wrong": "That fork wins less: look for the check that traps the queen, not the rook."
+      },
+      "c3": {
+        "title": "Easy capture or winning leap",
+        "teach": "The most obvious capture is not always the one that wins most. Compare eating a hanging piece with a leap that creates a greater threat.",
+        "observe": "You can eat the rook on g5 at once, or leap with check and threaten the queen. See which loot is greater.",
+        "goal": "Choose the leap with check that wins the queen.",
+        "hints": [
+          "The rook on g5 is tempting, but it's only worth 5.",
+          "A check from f6 attacks the king and touches the queen on d7.",
+          "Play Nf6+; after the check, capture the queen on d7."
+        ],
+        "explain": "Nf6+ forces the king to move and leaves the queen defenseless before the knight: you win 9 instead of the 5 of the easy rook.",
+        "wrong": "You took the small loot: there was a check that won the whole queen."
+      },
+      "c4": {
+        "title": "The thunder of e7",
+        "teach": "Before capturing, check whether a leap with check wins something greater. Comparing candidates means also looking at the moves that are not yet captures.",
+        "observe": "The rook on f6 is there to be eaten, but your knight can give check from e7 and fix its gaze on the queen. Compare the two outcomes.",
+        "goal": "Give the forking check and capture the queen.",
+        "hints": [
+          "Eating the rook on f6 wins only 5 points.",
+          "From e7 your knight checks the king and threatens the queen on g6.",
+          "Play Ne7+; the king steps aside and you take the queen on g6."
+        ],
+        "explain": "Ne7+ is a fork on the king and the queen: the king must flee and the queen falls, a far greater loot than the rook.",
+        "wrong": "You won less than possible: the check on e7 was taking the queen."
+      },
+      "c5": {
+        "title": "The twins' trial",
+        "teach": "No hints, no voices: look at all your candidates and keep the one that wins most. The right leap is not always the loudest.",
+        "observe": "There is a comfortable capture and a silent leap that gives check. Only one takes the queen.",
+        "goal": "Find the move that wins the most material.",
+        "hints": [],
+        "explain": "Nb5+ checks the king on d4 and forks the queen on d6; the king cannot save her and the knight collects the major piece.",
+        "wrong": "That was not the one with the greatest loot: there is a check that wins the queen."
+      }
+    },
+    "rhazek": {
+      "intro": "I am Rhazek, and I do not collect pieces: I collect fallen kings. My knight never asks how much what it gives up is worth, only how much it wins; follow me if you dare and learn to sacrifice like one who demands, not one who begs.",
+      "reward": "Lord of the Sacrifice",
+      "chron": [
+        "My knight leapt to g6 and the rook, hidden like a dagger up the sleeve, collected the queen that thought itself safe.",
+        "A single leap to e7 and the king had no road but to its tomb; my queen entered behind and closed the slab.",
+        "In the corner I shut it in: Nf7 pushed it, Qe8 sealed it, and the king died looking at its own pawns.",
+        "I gave up my queen on g8 without trembling, because the smothered mate is worth more than a thousand crowns: my knight reigned over the king's suffocation.",
+        "Without hints or mercy, I discovered the check and tore the queen from among its guards: that is how one graduates who walks my path."
+      ],
+      "c1": {
+        "title": "The blow that discovers",
+        "teach": "The initiative is yours when your move forces and the opponent only responds. A knight that leaps can uncover the attack of a hidden piece: move with check and let the rook collect the bill.",
+        "observe": "Your knight on e5 covers the mouth of your rook on e1, and behind it waits the black king on e8. That queen on g6 believes itself untouchable behind its pawn.",
+        "goal": "Leap, uncover the check and take the queen.",
+        "hints": [
+          "Your rook on e1 aims at the king on e8, but the knight cuts off its sight.",
+          "Look for a leap that gives a discovered check and also touches the queen.",
+          "Nxg6: Black must attend to the rook's check and the queen falls."
+        ],
+        "explain": "Nxg6 opens the e-file with a rook check; Black must save the king and cannot recapture. You take the whole queen without paying a thing.",
+        "wrong": "Lukewarm: without the discovered check Black breathes and the enemy queen escapes you."
+      },
+      "c2": {
+        "title": "One leap, one mate",
+        "teach": "Sometimes your knight doesn't win material: it wins the whole board. Give check to sweep it out of the way and let your queen come in to kill.",
+        "observe": "Your knight on d5 blocks your own queen on d2. If it leaps with check, the file opens all at once toward the king on g8.",
+        "goal": "Give the knight check and finish with the queen.",
+        "hints": [
+          "Your queen on d2 wants the square d8, but the knight blocks its path.",
+          "Leap with check to e7: the king will have only one square.",
+          "Ne7+ and then Qd8 is mate; the knight watches g8."
+        ],
+        "explain": "Ne7+ clears the d-file with check and pushes the king to the corner; Qd8 is mate, with the knight covering g8. Two blows, zero doubts.",
+        "wrong": "Slow: the king is not caught by staring, and without the check there is no mate."
+      },
+      "c3": {
+        "title": "The corner with no exit",
+        "teach": "The cornered king is a prisoner that does not yet know it. A knight check pins it and your queen, now free, closes the last door.",
+        "observe": "The knight on e5 seals your queen's file on e1. The king on h8 is buried alive between g7 and h7.",
+        "goal": "Knight check and mate with the queen.",
+        "hints": [
+          "Your queen on e1 dreams of e8, but the knight shuts it in.",
+          "Nf7+ forces the king to g8, its only square.",
+          "After Nf7+ the king goes to g8; then Qe8 is mate, with the knight guarding h8."
+        ],
+        "explain": "Nf7+ drags the king to g8 and opens the e-file; Qe8 gives mate, defended by the knight on f7 and with h8 covered. The corner was its tomb.",
+        "wrong": "Weak: without the leap that gives check, your queen crashes into the pawns and there is no mate."
+      },
+      "c4": {
+        "title": "The smothered mate",
+        "teach": "Here the true sacrifice is born: you give up your queen, the costliest piece, because the mate is worth more than all the gold on the board. The knight finishes right where the queen falls.",
+        "observe": "The king on h8 is surrounded by its own: pawns on g7 and h7, rook on f8. It has only one free square left; take it away.",
+        "goal": "Chain the knight checks and sacrifice the queen to give mate.",
+        "hints": [
+          "The king suffocates among its pieces; you only need to close off g8.",
+          "Nf7+ Kg8, Nh6+ Kh8: the king returns to the corner, trapped.",
+          "Then Qg8+!! The rook is forced to take, and Nf7 is smothered mate."
+        ],
+        "explain": "After Nf7+ Kg8 Nh6+ Kh8, the sacrifice Qg8+ forces Rxg8, and Nf7 gives mate: the king dies smothered by its own. The queen is given up so the knight may reign.",
+        "wrong": "Grand, but you failed: only the exact combination with the queen sacrifice delivers the smothered mate."
+      },
+      "c5": {
+        "title": "Rhazek's trial",
+        "teach": "No hints, no voices, no net. Find the blow that uncovers the check and tears away the queen even though they think her well defended.",
+        "observe": "Your knight on e5 covers the rook on e1, and the black king waits on e8. The queen on c4 leans on its pawn on b5 and feels untouchable.",
+        "goal": "Uncover the check and capture the queen.",
+        "hints": [],
+        "explain": "Nxc4+ opens the e-file with a rook check; Black must move the king and cannot recapture with the pawn. You take the queen they thought protected.",
+        "wrong": "No: there is a discovered check that takes the queen despite its pawn."
+      }
+    },
+    "oryn": {
+      "intro": "I am Oryn, guardian of the open lines, and my weapon is the rook. Walk without haste: mastery is not conquered with fury, but with the gaze that sees the clear file before it moves.",
+      "reward": "Sentinel of the Open File",
+      "chron": [
+        "At the first threshold, Oryn raised the rook along the deserted rank and sealed the king in its corner: mate arrived in silence, without a single obstacle to stop it.",
+        "At the second trial, the open file offered itself as a straight road; the rook descended and the enemy queen fell with no defense to shelter her.",
+        "At the third step, Oryn did not capture at once: he fixed his gaze on the line, gave check and waited patiently for the king to step aside to collect his prize.",
+        "At the fourth rite, the open file was a road of death: the rook came straight down and the king, hemmed in by its own rival king, found no house to flee to.",
+        "On the last path, with no voice to guide him, Oryn read the whole rank: a precise check, a diverted king, and the enemy queen was left at the mercy of the silent steel."
+      ],
+      "c1": {
+        "title": "The Deserted Rank",
+        "teach": "A rook on a rank or file free of obstacles reaches any square on that line. When the enemy king has no escape, that open line becomes the edge of the mate.",
+        "observe": "Look at the eighth rank: it is entirely clear. Notice which squares your own king already covers around the rival monarch.",
+        "goal": "Give mate in one move with the rook.",
+        "hints": [
+          "The black king can only breathe on the eighth rank; your king closes off its escape squares downward.",
+          "Look for a square from which the rook dominates the enemy king's entire rank.",
+          "Bring the rook to a8: check with no escape."
+        ],
+        "explain": "Ra8 controls the whole eighth rank and your king on g6 watches f7, g7 and h7; the black monarch has no free square. It is mate.",
+        "wrong": "That move leaves an escape square; the open line only mates when the king has no refuge."
+      },
+      "c2": {
+        "title": "The Straight Road",
+        "teach": "An open file is an avenue the rook travels from one end to the other unchecked. Along it, it can strike an enemy piece that no defender protects.",
+        "observe": "Notice the e-file: there are no pawns or pieces cutting it. At the end of it waits the black queen, alone and unsheltered.",
+        "goal": "Capture the queen with the rook.",
+        "hints": [
+          "The e-file is completely open before your rook.",
+          "The black queen has no piece to defend her.",
+          "Travel the file to e8 and take the queen with check."
+        ],
+        "explain": "Rxe8+ travels the open file and wins the queen at no cost, and with check; the black king was too far to defend her.",
+        "wrong": "You let the avenue slip; the open file was the direct road to the queen."
+      },
+      "c3": {
+        "title": "The Gaze Before the Blow",
+        "teach": "Sometimes the rook does not capture at once: first it lines up the enemy king with the piece it covets. The check diverts the monarch and leaves the prey defenseless at the end of the line.",
+        "observe": "The black king and queen share the e-file. Your rook is not yet on that file, but it can enter it with check.",
+        "goal": "Give check on the file to win the queen.",
+        "hints": [
+          "Black king and queen are on the same file: the king in front, the queen behind.",
+          "If your rook enters the e-file with check, the king will have to step aside.",
+          "Play Re1+: the king flees the file and then the queen on e8 falls."
+        ],
+        "explain": "Re1+ is a skewer: the black king must leave the e-file and, with the line cleared, the rook captures the queen on e8. Analyzing before striking yields more than the hasty capture.",
+        "wrong": "You struck without preparing the line; first the check had to divert the king to uncover the prey."
+      },
+      "c4": {
+        "title": "The File of the Sentence",
+        "teach": "An open file doesn't only win pieces: it also delivers the king. When your own king seals the side squares, the rook descends the file and closes the last exit.",
+        "observe": "The h-file is free and the black king rests on its edge. Notice how your king on f7 watches g7 and g8, the only escape squares.",
+        "goal": "Give mate in one move with the rook.",
+        "hints": [
+          "Your king on f7 already dominates g7 and g8; the black king would have only the h-file.",
+          "Occupy the h-file with the rook to close that last route.",
+          "Play Rh1: check on the file, with no possible escape."
+        ],
+        "explain": "Rh1 gives check along the open file; g7 and g8 are covered by your king and h7 is dominated by the rook. The black monarch has no refuge: it is mate.",
+        "wrong": "The king still finds a square; the file only sentences when every flight is watched."
+      },
+      "c5": {
+        "title": "The Path of Silence",
+        "teach": "With no voices to guide you, trust your reading of the line. An open rank lets the rook skewer the king and the queen; the patient check collects afterward what haste would never reach.",
+        "observe": "Black king and queen rest on the fourth rank. Your rook, in the corner, can enter that rank at a distance from the king, without it capturing you.",
+        "goal": "Find the check that skewers and wins the queen.",
+        "hints": [],
+        "explain": "Ra4+ skewers along the fourth rank: the king, far away and unable to capture, must leave the rank, and the rook collects the queen on h4. The serene gaze defeats the impulse.",
+        "wrong": "The line called for a check that skewered the king; the direct capture was not within your reach yet."
+      }
+    },
+    "vesra": {
+      "intro": "I am Vesra, and my queen does not pursue: she shuts doors. Watch how the board narrows until all the opponent has left is to obey.",
+      "reward": "Warden of Restriction",
+      "chron": [
+        "In the first silence, the queen sat beside the enemy king, and the corner became a tomb with no exit.",
+        "She raised a file like one raising a wall, and the rival monarch discovered there was no longer anywhere to flee.",
+        "With serene courtesy she removed the only defender from the board, and the position lay bare before my will.",
+        "From the other end of the world, a single line sufficed to seal the eighth rank and pronounce the verdict.",
+        "And in the final trial, she offered a check that did not kill: it only forced a step aside, so the rook would fall on its own."
+      ],
+      "c1": {
+        "title": "The corner that closes",
+        "teach": "To restrict is to switch off squares until the king has nowhere to go. When every flight is exhausted, the check ceases to be a threat and becomes a sentence.",
+        "observe": "Look at the black king's escape squares on h8 and notice that your own king on f6 already watches g8 and g7.",
+        "goal": "Give mate in one move.",
+        "hints": [
+          "The black king breathes only through g8, g7 and h7; your king on f6 already covers two of them.",
+          "Bring the queen close to the enemy king, protected by your monarch.",
+          "Bring the queen to g7: your king holds her and the corner closes."
+        ],
+        "explain": "Queen g7 is impossible to capture because your king on f6 defends her, and she covers the last exits. Absolute restriction: it is mate.",
+        "wrong": "You left it a free square; the king escapes and the restriction breaks."
+      },
+      "c2": {
+        "title": "The wall of the file",
+        "teach": "A single piece can seal off a whole file and turn it into a wall. The king does not fall by force, but because it has no space left to occupy.",
+        "observe": "Notice the h-file, where the black king lives, and your king on f7 that seals g7 and g8.",
+        "goal": "Give mate in one move.",
+        "hints": [
+          "The king on h8 depends on the h-file and on the g-squares your king watches.",
+          "You need a piece that dominates the h-file from top to bottom.",
+          "Slide the queen to h2: the entire file becomes forbidden."
+        ],
+        "explain": "Queen h2 controls the whole h-file and your king on f7 covers g7 and g8. With no squares, the king suffocates: mate.",
+        "wrong": "The file still has a gap; the king finds air and survives."
+      },
+      "c3": {
+        "title": "The only defender",
+        "teach": "To restrict is also to eliminate whoever holds up the rival. Remove its only active piece and the whole position surrenders without resistance.",
+        "observe": "Both queens eye each other on the d-file; the black one is the only force the rival has left.",
+        "goal": "Win the enemy queen.",
+        "hints": [
+          "Your queen and the black one share the same file, the d-file.",
+          "You can capture with check and keep all the advantage.",
+          "Take on d8: you eliminate its only piece and give check at the same time."
+        ],
+        "explain": "Queen takes d8 captures the rival's only defender with check; you are left with queen against a bare king, a decisive victory.",
+        "wrong": "You spared its queen; while she lives, the rival can still defend."
+      },
+      "c4": {
+        "title": "The verdict from afar",
+        "teach": "Restriction does not require closeness: a clean line crosses the whole board. From afar, the queen can seal a rank and dictate the finish.",
+        "observe": "The black king on h8 hangs on the eighth rank; your king on g6 already guards g7 and h7.",
+        "goal": "Give mate in one move.",
+        "hints": [
+          "The king would escape only via the eighth rank or the g-squares, which your king covers.",
+          "Look to occupy the eighth rank with your queen with no obstacle in between.",
+          "Place the queen on b8: the rank is closed from a distance."
+        ],
+        "explain": "Queen b8 dominates the whole eighth rank and your king on g6 shuts the exits; the king can neither move nor cover itself: mate.",
+        "wrong": "The eighth rank is not sealed; the king slips through the crack."
+      },
+      "c5": {
+        "title": "The check that forces",
+        "teach": "Zugzwang is the courteous cruelty: not to kill, but to force a move toward ruin. A check the king must dodge can bare the piece hiding behind it.",
+        "observe": "The black king on e5 and the rook on a5 share the fifth rank; the pawn on e4 blocks any check along the e-file.",
+        "goal": "Win the rook.",
+        "hints": [],
+        "explain": "Queen h5 gives check along the fifth rank; the king must step aside and stops shielding its rook, which falls on a5. Restriction turned into loot.",
+        "wrong": "That blow forces nothing; without a forcing check, the king keeps its rook."
+      }
+    },
+    "brakkon": {
+      "intro": "I am Brakkon, and my rook does not seek glory: it shelters it. Where others launch the attack, I raise walls, and behind them the king rests without fear.",
+      "reward": "Immovable Guardian",
+      "chron": [
+        "When the enemy rook burst onto the back rank, Brakkon did not retreat: he swept it from the world with a single blow and the wall closed again.",
+        "A knight slipped in among the shadows; the rook patrolled the rank and removed it in silence, without the king lifting a finger.",
+        "The queen thought she pronounced the final check, but the rook shared her rank and brought her down: serene stone against storm.",
+        "From atop the open file, the rook descended like a slab and sealed the threat, immovable to the last square.",
+        "And in the trial, with no voice to guide him, Brakkon saw the mate hidden behind the calm and snuffed it out before it was born."
+      ],
+      "c1": {
+        "title": "The wall does not break",
+        "teach": "To defend is to recognize the one who threatens and remove it from the board before it does harm. The rook does not flee: it interposes, captures and returns calm to the king.",
+        "observe": "Look at the black rook on e1: it gives check along the first rank. Your king on h1 is shut in by its own pawns f2, g2 and h2.",
+        "goal": "Capture the rook that gives check.",
+        "hints": [
+          "Your king cannot move: its pawns f2, g2 and h2 surround it completely.",
+          "Only one of your pieces reaches the first rank to answer the check.",
+          "Bring the rook from a1 to e1 and devour the attacker."
+        ],
+        "explain": "Rook takes e1 eliminates the piece that gave check and leaves the king safe behind the wall of pawns. It is the purest defense: snuff out the threat at its source.",
+        "wrong": "The king is still in check; only your rook can snuff out that threat."
+      },
+      "c2": {
+        "title": "The watched rank",
+        "teach": "Coordination is one piece covering what the king cannot. Your rook patrols the whole rank, and when an intruder approaches, it removes it without the monarch leaving its post.",
+        "observe": "A black knight leapt to e2 and gives check to your king on g1. Your rook dominates the entire second rank from a2.",
+        "goal": "Capture the knight that gives check.",
+        "hints": [
+          "The knight on e2 attacks your king; you could flee, but there is a firmer answer.",
+          "Your rook controls the second rank from end to end.",
+          "Slide the rook from a2 to e2 and capture the knight."
+        ],
+        "explain": "Rook takes e2 doesn't only escape the check: it takes the knight and seals the king's flank. Defense and gain in the same gesture.",
+        "wrong": "Fleeing saves the king for an instant, but the intruder is still alive; better to remove it from the board."
+      },
+      "c3": {
+        "title": "Stone against the queen",
+        "teach": "No threat is too great if your defense shares its line. The rook does not fear the queen: if she invades, the rook brings her down and protects the king.",
+        "observe": "The black queen on e1 gives check along the first rank. Your king on h1 has not a single free square.",
+        "goal": "Capture the queen that gives check.",
+        "hints": [
+          "The check comes along the first rank and your king is walled in by its pawns.",
+          "Your rook on b1 shares that same rank with the queen.",
+          "Rook from b1 to e1: capture the queen and end the check."
+        ],
+        "explain": "Rook takes e1 devours the enemy queen and leaves the king intact. Trading a rook for a defending queen is a decisive exchange.",
+        "wrong": "With the king shut in, only the rook answers; let it collect the queen."
+      },
+      "c4": {
+        "title": "The slab descends",
+        "teach": "An open file is a road the rook guards from top to bottom. When danger looms beside the king, the rook comes down like a slab and covers it from afar.",
+        "observe": "The black queen on d1 gives check to your king cornered on g1. Your rook crowns the d-file from d7, with the road clear.",
+        "goal": "Capture the queen that gives check.",
+        "hints": [
+          "The queen attacks along the first rank and your king cannot leave its corner.",
+          "Notice the d-file: it is open from d7 to d1.",
+          "Bring the rook down from d7 to d1 and capture the queen."
+        ],
+        "explain": "Rook takes d1 travels the open file and eliminates the queen; the king breathes and you are left with all the advantage. The coordination between rook and king is a wall without cracks.",
+        "wrong": "There is no flight for the king; the rook must descend the file and collect the queen."
+      },
+      "c5": {
+        "title": "The calm before the mate",
+        "teach": "The most dangerous threat is the silent one: the queen and the bishop prepare Qxg2 mate without giving check yet. The true guardian sees it coming and defuses it before it bursts.",
+        "observe": "The queen on e4 and the bishop on f1 aim at g2: if you let it play, Qxg2 is mate. Your rook waits on the e-file, on e2.",
+        "goal": "Neutralize the mate threat.",
+        "hints": [],
+        "explain": "Rook takes e4 removes the queen along the e-file before it can play Qxg2 mate; the bishop is left alone and you with a winning advantage. Foreseeing the blow is the supreme defense.",
+        "wrong": "You left the threat alive: the bishop holds up the queen and Qxg2 would be mate."
+      }
+    },
+    "ilyra": {
+      "intro": "I am Ilyra, and I do not chase my enemies: I reach them from afar, along the line no one watches. A bishop does not run; it traces a straight line, and on that line it was already written who would fall.",
+      "reward": "Warden of the Diagonals",
+      "chron": [
+        "From her corner on b2, Ilyra stretched a single diagonal to the last square, and the queen that thought herself distant fell without having seen her draw near.",
+        "She set the check on the straight line and waited: the king stepped aside, obedient, and behind it waited the queen, already hers along the same line that had pushed it.",
+        "Along the light squares she crossed the board from one end to the other, and where the king believed itself safe, the diagonal had already passed through it.",
+        "She lit the check over the white squares; the king fled the line and the queen, exposed at the far end, surrendered to the bishop's gaze.",
+        "With no voice to guide her, Ilyra read the silent diagonal, pushed the king with a serene check and collected the rook it thought hidden behind its back."
+      ],
+      "c1": {
+        "title": "The diagonal has no end",
+        "teach": "A bishop rules its entire diagonal, from one edge of the board to the other, no matter how far the enemy thinks it draws away. What shares your square color is already within your reach.",
+        "observe": "Look at the long diagonal from b2: c3, d4, e5, f6, g7… and at the end, on h8, the black queen, alone and undefended.",
+        "goal": "Capture the queen along the diagonal.",
+        "hints": [
+          "The bishop on b2 and the queen on h8 share the same dark square: they are on a single line.",
+          "Check that the road between b2 and h8 is clear from beginning to end.",
+          "Slide the bishop from b2 to h8 and devour the queen."
+        ],
+        "explain": "The bishop travels the whole diagonal and captures the queen that thought itself distant; distance does not protect one who shares your square color. It is the law of the bishop: the line is yours entire.",
+        "wrong": "Only one move reaches the end of the diagonal; let the bishop run the line to the queen."
+      },
+      "c2": {
+        "title": "The ray that pierces",
+        "teach": "A check on the diagonal does not always seek the king: it uses it as a door to what it guards behind. When king and queen share your line, the king must step aside and uncovers the one that followed it.",
+        "observe": "Your bishop can leap to d4 and check the king on g7; on the same line, right behind, waits the queen on h8.",
+        "goal": "Give the check that lines up king and queen.",
+        "hints": [
+          "Look for the square from which the bishop pins the king on g7 on the long diagonal.",
+          "King on g7 and queen on h8 are on the same line: one in front, the other behind.",
+          "Play the bishop to d4 with check; when the king moves, the queen on h8 falls."
+        ],
+        "explain": "Bd4 pins the king and, after the forced flight, the bishop collects the queen that was at the far end of the line. That is the X-ray: the check on one bares the other.",
+        "wrong": "The king must step aside first; without the check that lines them up, the queen is never exposed."
+      },
+      "c3": {
+        "title": "The light squares",
+        "teach": "Each bishop lives on a single color, and over it commands from side to side of the board. Along the light squares, your gaze crosses the whole field and reaches where the king no longer shelters.",
+        "observe": "From f1 the light diagonal opens: e2, d3, c4, b5, up to a6, where the black queen rests far from her king, shut in by its own pawns.",
+        "goal": "Capture the queen along the light diagonal.",
+        "hints": [
+          "The bishop on f1 travels light squares; follow the line toward the queenside.",
+          "The queen on a6 shares that diagonal and her king is too far to rescue her.",
+          "Bring the bishop from f1 to a6 and take the queen."
+        ],
+        "explain": "The bishop crosses the whole light diagonal and captures the defenseless queen; the king, buried behind its pawns, cannot come. Command of one color is enough to decide the game.",
+        "wrong": "The queen is undefended at the end of your light line; no other move exploits that diagonal."
+      },
+      "c4": {
+        "title": "The king in front, the queen behind",
+        "teach": "Over the light squares the X-ray repeats its law: light the check and the king steps aside, revealing what it covered. The line that pushes the monarch is the same that claims its queen.",
+        "observe": "The bishop leaps to e4 and checks the king on c6; on that line, at its back, waits the queen on b7.",
+        "goal": "Give the check that lines up king and queen.",
+        "hints": [
+          "Find the light square from which the bishop pins the king on c6.",
+          "King on c6 and queen on b7 are on the same diagonal: the king in front, the queen behind.",
+          "Play the bishop to e4 with check; when the king flees, capture the queen on b7."
+        ],
+        "explain": "Be4 pins the king on the light diagonal and, by forcing its flight, leaves the queen on b7 without shelter. The king cannot return to the line to defend her, and the bishop collects her.",
+        "wrong": "Without the check that lines them up, the king guards its queen; first force it to leave the line."
+      },
+      "c5": {
+        "title": "The silent line",
+        "teach": "Not always does a queen wait at the end of the line; sometimes it is a rook that thinks itself safe, far off and in shadow. The silent diagonal also pushes the king and uncovers what it hides behind.",
+        "observe": "The black king on c6 and the rook on a8 share a light square. Your bishop can reach e4 and set them both on the same line.",
+        "goal": "Line up king and rook with a check, and collect the piece at the far end.",
+        "hints": [],
+        "explain": "Be4 pins the king on c6 on the light diagonal; forced to flee, it cannot defend the distant rook on a8, which falls along the same line. The most silent line is the one that reaches farthest.",
+        "wrong": "Another move does not line up the king with the rook; only the check on the diagonal uncovers the piece at the far end."
+      }
+    },
+    "tikk": {
+      "intro": "I am Tikk, and no, I am not just a pawn: I am the pawn that arrives FIRST. While you think, I've already promoted… with check, ready?",
+      "reward": "Guardian of the Tempo",
+      "chron": [
+        "Chapter I: Tikk crossed the board whistling, promoted with check and stole the rival's clock before he could blink.",
+        "Chapter II: without slowing, Tikk ate a knight WHILE promoting; two blows in one tempo, because the tempo is his.",
+        "Chapter III: on the other flank, same trick, same smile; promote, check, and the clock cries again.",
+        "Chapter IV: Tikk devoured a whole rook on the promotion square; the rival was still looking for his plan when he had nothing left.",
+        "Chapter V: in the Trial, Tikk scorned the queen and promoted to KNIGHT with check; the perfect zwischenzug, and no one saw it coming."
+      ],
+      "c1": {
+        "title": "The one who arrives first",
+        "teach": "In chess the strongest doesn't always win; the one who arrives EARLIER wins. Promoting with check hands you a tempo: you force the rival while you already command.",
+        "observe": "Look at my pawn on b7 and the black king on d6, right on the diagonal from the promotion square.",
+        "goal": "Promote on b8 with check.",
+        "hints": [
+          "A pawn on the seventh rank one step from promotion… don't let it pass.",
+          "Promote to queen, not rook: only the queen checks the king on d6 along the diagonal.",
+          "Play b7b8 and choose queen: check, tempo and a decisive advantage."
+        ],
+        "explain": "b8=Q gives check along the b8-d6 diagonal, gains a tempo and leaves White with queen against rook, winning.",
+        "wrong": "Too slow: without check the rival breathes and you lose the tempo."
+      },
+      "c2": {
+        "title": "Two blows, one tempo",
+        "teach": "A pawn that promotes by capturing does two things in a single tempo: it takes a piece AND becomes a queen. That is squeezing the clock to the maximum.",
+        "observe": "My pawn on b7 and that black knight on c8 begging to be devoured on promotion.",
+        "goal": "Capture on c8 promoting with check.",
+        "hints": [
+          "The pawn can capture diagonally right on promotion.",
+          "On c8 there is a knight: eat it and turn into a queen in the same move.",
+          "Play b7xc8=Q: you take the knight and check the king on e6."
+        ],
+        "explain": "bxc8=Q captures the knight, promotes and gives check along the c8-e6 diagonal: material and tempo in one stroke.",
+        "wrong": "You promoted without biting: you left the knight alive and lost half the loot."
+      },
+      "c3": {
+        "title": "Same trick, another flank",
+        "teach": "The tempo knows no flanks: a-file or h-file, whoever promotes with check commands. Repeat the pattern and the clock will stay on your side.",
+        "observe": "My pawn on g7 and the black king on d5, lined up with the long diagonal from g8.",
+        "goal": "Promote on g8 with check.",
+        "hints": [
+          "The pawn on g7 is one step from glory.",
+          "Only the queen reaches the king on d5 along the g8-d5 diagonal.",
+          "Play g7g8=Q: check, tempo gained and queen against rook."
+        ],
+        "explain": "g8=Q gives check along the g8-d5 diagonal gaining a tempo, and White is left with queen against rook, winning.",
+        "wrong": "Without check there is no tempo: the rival reorganizes and you throw away your advantage."
+      },
+      "c4": {
+        "title": "Rook for breakfast",
+        "teach": "The bigger the piece you capture on promotion, the faster the game ends. Eat, promote and give check: the clock doesn't even move.",
+        "observe": "My pawn on h7 and a whole black rook waiting on g8.",
+        "goal": "Capture the rook on g8 promoting with check.",
+        "hints": [
+          "The pawn on h7 can capture diagonally toward g8.",
+          "On g8 there is a ROOK: take it and promote at the same time.",
+          "Play h7xg8=Q: you eat the rook and check the king on e6."
+        ],
+        "explain": "hxg8=Q captures the rook, promotes and gives check along the g8-e6 diagonal: an enormous gain in a single tempo.",
+        "wrong": "You promoted on the wrong side: the rook is still alive and the rival thanks you."
+      },
+      "c5": {
+        "title": "The stolen time",
+        "teach": "Sometimes the queen is not the answer: the decisive tempo comes from the zwischenzug, the in-between blow with check that no one expects. Promote to KNIGHT, give check and steal the enemy queen before it reacts.",
+        "observe": "The king on d7 and the queen on a6 are a knight's leap from each other, from b8.",
+        "goal": "Find the promotion with check that wins the queen.",
+        "hints": [],
+        "explain": "b8=N checks the king on d7 and attacks the queen on a6 at the same time: the king must move and Nxa6 takes the queen, leaving a winning piece and pawn ahead.",
+        "wrong": "Promoting to queen only equalizes: you lose the tempo of the double check and, with it, the game."
+      }
+    },
+    "malrec": {
+      "intro": "I am Malrec, and I have survived more crownings than you will see fall. I have no queen to save me nor rooks to mourn me: only a king that walks toward danger because it learned that standing still is dying.",
+      "reward": "The King who Survives",
+      "chron": [
+        "The enemy knight prowled too close; my king did not look away, advanced to c5 and devoured it without trembling.",
+        "They brought the rook down thinking it safe on the sixth; my old king rose from his throne and tore it from the board.",
+        "The queen came for my throat, and in her arrogance she placed herself within my reach: c5, and the queen fell before the king.",
+        "I moved my king off the line and let the rook speak: b6, and in the corner the enemy king drowned in silence.",
+        "With no voices to guide me, my king went out into the open and took what none dared to touch: thus ends the path of the one who survives."
+      ],
+      "c1": {
+        "title": "The king that does not retreat",
+        "teach": "In the endgame the king stops being a fugitive and becomes an executioner. A loose piece within its reach is not forgiven: take a step forward and eat it.",
+        "observe": "Your king on d4 and the black knight on c5, a single step away, with no one to defend it. In the endgame every piece weighs like a mountain.",
+        "goal": "Advance and capture the knight.",
+        "hints": [
+          "Look at which squares your king touches; one of them holds an enemy piece.",
+          "The knight on c5 is alone, neither its king nor its pawn covers it.",
+          "Kxc5: your king takes the knight and the endgame is won."
+        ],
+        "explain": "Kxc5 wins a whole knight at no cost, because nothing defends that square. With a piece up, the endgame already has only one owner.",
+        "wrong": "Timid: moving the king away leaves the knight alive and gifts away the endgame that was already yours."
+      },
+      "c2": {
+        "title": "The throne rises",
+        "teach": "An active king in the endgame is worth more than the fear people have of it. The rook that approaches without escort is meat for your monarch.",
+        "observe": "Your king on e5, in the center, and the black rook on d6 within your reach, with no pawn or king to hold it up.",
+        "goal": "Take the rook with the king.",
+        "hints": [
+          "Your king rules the center; a neighboring square hides a rook.",
+          "The rook on d6 has no guard: neither the king on b7 nor the pawn protects it.",
+          "Kxd6: your king rises and tears the rook from the board."
+        ],
+        "explain": "Kxd6 captures an undefended rook and decides the endgame at a stroke. The central king does not flee: it collects.",
+        "wrong": "Error: any other move spares the rook and, with it, your advantage."
+      },
+      "c3": {
+        "title": "The queen within reach",
+        "teach": "Danger is your trade: when the queen comes to kill you, see whether she has come too close. To survive is to have the nerve to eat what meant to devour you.",
+        "observe": "Your king on d4 is in check from the queen on c5, but that queen is pressed against you and no one protects it. The scare hides a gift.",
+        "goal": "Answer the check by capturing the queen.",
+        "hints": [
+          "You are in check: not every check is a threat, some are a blunder.",
+          "The queen on c5 attacks you from a neighboring square, and it is alone.",
+          "Kxc5: your king answers the check by taking the whole queen."
+        ],
+        "explain": "Kxc5 escapes the check and captures the queen in a single blow, because nothing defends her. The one who threatened you lies beneath your foot.",
+        "wrong": "Fatal: fleeing the check leaves the queen alive and with it you lose the endgame and your life."
+      },
+      "c4": {
+        "title": "The king steps aside and kills",
+        "teach": "Sometimes the king's best move is to get out of the way. By stepping aside, it lets the piece its body was hiding speak, and that voice is a sentence.",
+        "observe": "Your rook on a1 and the black king on a8 share a file, but your own king on a6 blocks the sight. Your bishop on f4 watches the square b8 in silence.",
+        "goal": "Step the king aside and uncover the mate.",
+        "hints": [
+          "Your king blocks your rook's file; if it steps aside, the rook gives check on a8.",
+          "Find the square where your king, by moving, covers a7 and b7 while the bishop seals b8.",
+          "Kb6: uncover the rook's check and the black king has not a single square left."
+        ],
+        "explain": "Kb6 uncovers the rook's check along the a-file; the king on a6 now covers a7 and b7, and the bishop on f4 already covered b8. With no flight, it is mate.",
+        "wrong": "No: moving the king to any other square leaves an air hole and the mate escapes."
+      },
+      "c5": {
+        "title": "Malrec's trial",
+        "teach": "No hints, no hands to hold you. The king must go out into the open and take what others fear to touch.",
+        "observe": "Your king on c4 and the black rook on b5, active on the fifth rank. The enemy king is far, tending its pawn; no one guards the rook.",
+        "goal": "Go out with the king and capture the rook.",
+        "hints": [],
+        "explain": "Kxb5 takes an undefended rook and leaves the endgame won; the king that dares to go out collects what the timid one will never see. Neither the pawn nor the distant king can avenge it.",
+        "wrong": "No: the rook is loose and only your king, going out into the open, can take it."
+      }
+    },
+    "solenne": {
+      "intro": "I am Solenne, and I was born the humblest piece on the board: a mere pawn. But a passed pawn walks fearlessly toward the eighth rank, and whoever learns to promote learns that no modest beginning decides the ending.",
+      "reward": "Crown of the Eighth Rank",
+      "chron": [
+        "My pawn took the last step to b8 and a queen was born with check; what began small ended ruling the board.",
+        "On b7 I did not stop before the knight: I captured it by promoting on c8, and in a single step won piece and crown.",
+        "I advanced to g8 and the new queen crossed the board to pin the king; the patient pawn became a queen.",
+        "The rook thought to block my path, but on g8 I devoured it by promoting with check; that is how a passed pawn makes its way.",
+        "With no voices to guide me, I promoted to knight instead of queen and the leap trapped king and queen at once: humility too knows how to choose its form."
+      ],
+      "c1": {
+        "title": "The last step",
+        "teach": "A passed pawn is one that has no enemy pawns in front of it or on its sides: its road to promotion is clear. When it reaches the seventh rank, one more step turns it into a queen.",
+        "observe": "Your pawn on b7 has the eighth rank within reach and no rival can stop it. On promoting on b8, the new queen will face the black king on d6 head-on.",
+        "goal": "Advance the pawn and promote to queen with check.",
+        "hints": [
+          "Your pawn on b7 is a single step from the eighth rank.",
+          "Promote on b8 choosing the strongest piece and watch the king's rank.",
+          "b8=Q+ is born with check on d6; the king must respond and you win a whole queen."
+        ],
+        "explain": "b8=Q promotes with check on the eighth rank; the passed pawn had no opposition and now you are a queen up. The humblest step became the most powerful.",
+        "wrong": "You missed the last step: a pawn that does not promote wastes its whole journey."
+      },
+      "c2": {
+        "title": "Promoting by capturing",
+        "teach": "Sometimes the road to the eighth rank crosses an enemy piece diagonally: you can capture it and promote in the same move. Thus you win the piece and the crown in a single blow.",
+        "observe": "Your pawn on b7 faces the black knight on c8, right on your promotion diagonal. The king on e6 cannot arrive in time.",
+        "goal": "Capture the knight promoting to queen.",
+        "hints": [
+          "The knight on c8 is on your pawn's capture diagonal.",
+          "Don't push straight: eat the knight on promotion.",
+          "bxc8=Q+ removes the knight and gives you a queen with check; double loot."
+        ],
+        "explain": "bxc8=Q captures the knight and promotes with check at the same time; you gain piece and queen giving nothing in return. The passed pawn knows how to make its way by eating.",
+        "wrong": "Promoting straight leaves the knight alive: take the capture and collect it all."
+      },
+      "c3": {
+        "title": "The queen that crosses",
+        "teach": "Promoting doesn't only add material: it creates from nothing the fastest piece on the board. Newly born, the queen reaches in an instant what was on the other side.",
+        "observe": "Your pawn on g7 promotes freely on g8. From there, the new queen will eye the black king on d5 diagonally.",
+        "goal": "Promote to queen and check the king.",
+        "hints": [
+          "Your pawn on g7 reaches the eighth rank on its own.",
+          "Promote on g8 and look at the long diagonal toward the center.",
+          "g8=Q+ pins the king on d5 from the corner; the queen rules the board at birth."
+        ],
+        "explain": "g8=Q promotes and gives check along the g8-d5 diagonal; from a pawn a queen is born that governs the whole board. That is the reward of patience.",
+        "wrong": "Without promoting, your pawn just stands looking: take the step and let the queen be born."
+      },
+      "c4": {
+        "title": "Devouring the guardian",
+        "teach": "When a rook tries to close off the eighth rank, don't fear it: if it's on your diagonal, you capture it on promotion. The obstacle becomes your last prey.",
+        "observe": "Your pawn on h7 has the black rook on g8, on its promotion diagonal. The king on e6 will be left exposed to the new queen.",
+        "goal": "Capture the rook promoting with check.",
+        "hints": [
+          "The rook on g8 thinks it blocks you, but it's on your diagonal.",
+          "Eat it on promotion instead of pushing straight.",
+          "hxg8=Q+ removes the rook and checks e6; you win rook and crown at a stroke."
+        ],
+        "explain": "hxg8=Q captures the rook and promotes with check on e6; the guardian that wanted to stop you feeds your ascent. A passed pawn asks no permission: it makes its way.",
+        "wrong": "Pushing straight runs into the rook: capture diagonally and you'll promote by devouring it."
+      },
+      "c5": {
+        "title": "Solenne's trial",
+        "teach": "No hints, no voices. Promoting to queen is not always best: sometimes the humble piece must choose another form to trap the king and the queen at once.",
+        "observe": "Your pawn on b7 promotes freely, but the king on d7 and the queen on a6 are placed in a peculiar way. Think which piece reaches both.",
+        "goal": "Promote to the piece that gives check and wins the queen.",
+        "hints": [],
+        "explain": "b8=N promotes to a knight with check and forks the king on d7 and the queen on a6; the king must move and the queen falls. The underpromotion, humble in appearance, wins the game.",
+        "wrong": "No: promoting to queen only gives check, but there is a piece that attacks the king and the queen at once."
+      }
+    },
+    "presence": {
+      "label": "Your champion",
+      "win": "Victory. You played just as I would have taught you.",
+      "lose": "Every defeat hides a lesson. The next game is ours.",
+      "draw": "A draw. Balance is mastered too.",
+      "check": "Careful: your king is in check.",
+      "thinking": "Watch. The best move rarely shouts.",
+      "sendaCta": "Walk my Path of Mastery in the codex."
+    }
   }
 }

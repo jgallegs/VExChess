@@ -1121,5 +1121,1208 @@
       "community": "Community",
       "myGames": "Mijn partijen"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Ingewijde",
+      "aprendiz": "Leerling",
+      "adepto": "Adept",
+      "experto": "Expert",
+      "maestro": "Meester",
+      "pleno": "Volledige band"
+    },
+    "ui": {
+      "start": "Meesterschapspad starten",
+      "continue": "Pad voortzetten",
+      "soon": "Meesterschapspad · binnenkort",
+      "sectionTitle": "Meesterschapspad",
+      "chapter": "Hoofdstuk {n}/{total}",
+      "trialTag": "Proef",
+      "vinculo": "Band",
+      "observe": "Observeer",
+      "hint": "Vraag een hint",
+      "hintCount": "Hint {n}/{total}",
+      "lastHint": "laatste",
+      "correct": "Correct!",
+      "next": "Volgende →",
+      "teachNext": "Begrepen →",
+      "practice": "Oefen het →",
+      "finishChapter": "Hoofdstuk afronden →",
+      "chronicleUnlocked": "Kroniek ontgrendeld",
+      "reward": "Meesterschapsbeloning",
+      "completeTitle": "Pad voltooid",
+      "completeMsg": "Je hebt het hele Pad afgelegd. De band met deze kampioen is volledig.",
+      "back": "Terug naar de codex",
+      "trialNoHints": "In de Proef zijn er geen hints: vertrouw op wat je hebt geleerd.",
+      "wrongRetry": "Probeer het opnieuw.",
+      "yourMove": "Jouw beurt",
+      "vinculoSub": "Geen competitief voordeel · alleen leren, verhaal en verzameling",
+      "chapterDone": "Hoofdstuk voltooid",
+      "guestMsg": "Log in om het Pad af te leggen en je band te bewaren.",
+      "loginBtn": "Inloggen",
+      "chaptersDone": "{n}/{total} hoofdstukken",
+      "trialsHint": "Het laatste hoofdstuk is een Proef zonder hints."
+    },
+    "noctis": {
+      "intro": "Ik ben Noctis. Ik doorkruis de duisternis niet: ik splijt haar. Ik ga je leren de twee dreigingen te zien die in één sprong passen. Observeer, voorspel en voer uit.",
+      "reward": "Titel ontgrendeld: «Dubbele Schaduw»",
+      "chron": [
+        "Elke sprong van mij laat twee schaduwen achter. Slechts één is echt.",
+        "Ik leerde toe te slaan waar niemand verdedigt: tussen twee stukken tegelijk.",
+        "De koning is de beste gijzelaar: hij dwingt een antwoord af en laat zijn dame in de steek.",
+        "Ik zoek niet het stuk. Ik zoek het veld van waaruit twee stukken al van mij zijn.",
+        "Wanneer je de vork ziet voordat je hem speelt, heb je mijn schaduwen niet meer nodig."
+      ],
+      "c1": {
+        "title": "De eerste schaduw",
+        "teach": "De vork valt met één zet twee stukken aan. Laten we beginnen met de zuiverste vorm: een schaak dat meteen een toren buitmaakt.",
+        "observe": "De zwarte koning staat op e8 en de toren op a8. Zoek het veld van waaruit een paard beide raakt.",
+        "goal": "Geef schaak en val de toren aan met het paard.",
+        "hints": [
+          "Een paard op c7 bereikt e8 en a8 tegelijk.",
+          "Het sleutelveld ligt op één sprong: d5 → c7.",
+          "Pd5-c7+: schaak aan de koning en vork op de toren."
+        ],
+        "explain": "Pc7+ is schaak: de tegenstander moet zijn koning verdedigen en de toren op a8 valt. Dat is de vork in zijn puurste vorm: eerst dwing je, daarna win je.",
+        "wrong": "Bijna. Eén enkel veld moet de koning én de toren raken. Denk aan c7."
+      },
+      "c2": {
+        "title": "De koning als lokaas",
+        "teach": "Wanneer de vork de koning omvat, is hij niet te stoppen: het schaak dwingt en het zware stuk ligt aan je voeten.",
+        "observe": "Zwarte koning op e8, dame op c8. Vind de sprong die schaak geeft en ook naar de dame kijkt.",
+        "goal": "Vork op de koning en de dame.",
+        "hints": [
+          "Vanaf d6 valt een paard e8 en c8 aan.",
+          "e4 → d6, met schaak.",
+          "Pd6+ wint de dame na het schaak."
+        ],
+        "explain": "Pd6+ valt de koning aan (gedwongen schaak) en de dame op c8. De koning wijkt en de dame is van jou. De koning is het beste lokaas van een vork.",
+        "wrong": "Dat is het niet. Het veld moet schaak geven op e8 en tegelijk c8 raken: kijk naar d6."
+      },
+      "c3": {
+        "title": "Vanuit de andere hoek",
+        "teach": "Hetzelfde idee werkt op elke vleugel. Train je oog om het ook rechts te zien.",
+        "observe": "Koning op e8, dame op g8. Vind de sprong die beide bedreigt.",
+        "goal": "Schaak aan de koning en aanval op de dame.",
+        "hints": [
+          "f6 raakt e8 en g8.",
+          "g4 → f6, met schaak.",
+          "Pf6+ en de dame op g8 valt."
+        ],
+        "explain": "Pf6+ geeft schaak vanaf de andere kant en valt g8 aan. De vork heeft geen favoriete kant: alleen juiste velden.",
+        "wrong": "Nog niet. Zoek het veld dat e8 en g8 raakt: het is f6."
+      },
+      "c4": {
+        "title": "De stille sprong",
+        "teach": "Soms lijkt het vorkveld onschuldig... totdat het paard aankomt. Vertrouw op het patroon.",
+        "observe": "Koning op g8, dame op c8 en jouw paard op g6. Welk veld raakt beide?",
+        "goal": "Vork op de koning en de dame.",
+        "hints": [
+          "e7 bereikt g8 en c8.",
+          "g6 → e7, met schaak.",
+          "Pe7+ en je wint de dame."
+        ],
+        "explain": "Pe7+ verbindt g8 (schaak) met c8 (dame). Een rustige sprong, een enorme buit. Je herkent het patroon al.",
+        "wrong": "Dat is het niet. Het veld dat g8 en c8 raakt is e7."
+      },
+      "c5": {
+        "title": "Proef · De schaduw zonder waarschuwing",
+        "teach": "Zonder schaak is er geen waarschuwing: hier schreeuwt de vork niet, je ziet hem of je verliest hem. Zonder hints: vertrouw op wat je hebt geleerd.",
+        "observe": "Twee zwarte torens, op d8 en f8. Eén enkel veld kijkt naar beide.",
+        "goal": "Vork op de twee torens.",
+        "hints": [],
+        "explain": "Pe6 valt d8 en f8 tegelijk aan. Er is geen schaak, maar één toren zal vallen. Je hebt geleerd de vork te zien zonder dat iemand je waarschuwt.",
+        "wrong": "Eén toren moet samen met de andere aangevallen worden. Zoek het veld tussen d8 en f8."
+      }
+    },
+    "kael": {
+      "intro": "Ik ben Kael, en mijn paard vraagt geen toestemming: het valt aan. Volg mij en leer het tempo te stelen, met razernij te ontwikkelen en het initiatief te grijpen voordat de tegenstander adem kan halen.",
+      "reward": "Ruiter van het Tempo",
+      "chron": [
+        "Mijn paard sprong naar e7 met schaak en de vijandelijke dame viel zonder een klacht.",
+        "In de hoek dreef ik de koning in het nauw en rukte zijn toren met wortel en al los.",
+        "Een sprong naar f7 en de stilte van het mat sloot de partij.",
+        "Ik strafte de koning die zich niet durfde te ontwikkelen: schaak, en zijn dame was van mij.",
+        "Zonder hints en zonder twijfel sloeg het veulen toe en het bord gaf zich over."
+      ],
+      "c1": {
+        "title": "De Sprong die de Dame Steelt",
+        "teach": "Het schaak gebiedt: wanneer je schaak geeft, gehoorzaamt de tegenstander en bepaal jij het ritme. Een paard dat schaak geeft en de dame aanvalt, wint tempo en materiaal in één klap.",
+        "observe": "Kijk waar de zwarte koning en zijn dame staan: zoek een veld dat beide tegelijk aanvalt.",
+        "goal": "Geef schaak en vork de koning en de dame.",
+        "hints": [
+          "Zoek een paardsprong die schaak geeft aan de koning op g8.",
+          "Het veld e7 raakt de koning en de dame tegelijk.",
+          "Speel Pe7+ en, nadat de koning wijkt, sla de dame op c6."
+        ],
+        "explain": "Pe7+ is schaak: de koning moet wijken en kan de dame niet verdedigen, die op c6 valt.",
+        "wrong": "Zonder schaak verlies je het initiatief; dwing de koning en pak de dame."
+      },
+      "c2": {
+        "title": "Hinderlaag in de Hoek",
+        "teach": "Het initiatief ontstaat uit dreigen met tempo. Een paard dat in de hoek schaak geeft, dwingt de koning en ontbloot zijn toren.",
+        "observe": "De zwarte koning slaapt op a8 en zijn toren op e8: een vork verbindt ze.",
+        "goal": "Geef schaak en win de toren.",
+        "hints": [
+          "Het paard kan naar c7 springen met schaak.",
+          "Vanaf c7 valt het paard de koning en de toren op e8 aan.",
+          "Pc7+ en dan Pxe8: de toren is van jou."
+        ],
+        "explain": "Pc7+ dwingt de koning te vluchten en het paard verslindt de toren op e8.",
+        "wrong": "Laat de koning niet gratis ontsnappen: het schaak op c7 is je enige sleutel."
+      },
+      "c3": {
+        "title": "Het Mat van het Veulen",
+        "teach": "De ontwikkeling culmineert in de aanval: wanneer de koning stikt tussen zijn stukken, geeft een paard de genadeklap. Het perfecte tempo verandert een sprong in schaakmat.",
+        "observe": "De zwarte koning ligt begraven onder zijn toren en zijn pionnen; alleen de klap ontbreekt nog.",
+        "goal": "Geef schaakmat met het paard.",
+        "hints": [
+          "De koning heeft geen enkel vrij veld.",
+          "Een sprong naar f7 geeft schaak en er is geen ontsnapping mogelijk.",
+          "Pf7 is mat: geef het met trots."
+        ],
+        "explain": "Pf7# geeft schaak en de koning, gesmoord door zijn eigen stukken, kan niet vluchten noch slaan.",
+        "wrong": "Zoek het schaak waaraan niet te ontkomen is: f7 bezegelt het."
+      },
+      "c4": {
+        "title": "Straf voor de Luie Koning",
+        "teach": "Wie niet ontwikkelt, betaalt: een koning gevangen in het centrum is makkelijke prooi. Val aan met tempo en het initiatief wordt buit.",
+        "observe": "De zwarte koning staat nog op e7 en zijn dame dwaalt op b4: beide binnen bereik van een sprong.",
+        "goal": "Geef schaak in het centrum en win de dame.",
+        "hints": [
+          "De blootgestelde koning op e7 nodigt uit tot de vork.",
+          "Vanaf c6 geeft het paard schaak aan de koning en valt de dame op b4 aan.",
+          "Pc6+ en daarna Pxb4: de dame is van jou."
+        ],
+        "explain": "Pc6+ is een dubbelsnijdend schaak: de koning vlucht en de dame op b4 valt onherroepelijk.",
+        "wrong": "Benut de koning in het centrum: alleen het schaak op c6 wint de dame."
+      },
+      "c5": {
+        "title": "Proef van de Ruiter: Zonder Genade",
+        "teach": "Hier zijn geen hints, alleen je instinct. Vind de sprong die schaak geeft en de dame wegrukt: bewijs dat je het tempo beheerst.",
+        "observe": "De koning op c8 en de dame op f5 wachten op jouw oordeel.",
+        "goal": "Geef schaak en neem de dame mee.",
+        "hints": [],
+        "explain": "Pd6+ geeft schaak aan de koning op c8 en valt de dame op f5 aan; de koning vlucht en Pxf5 voltooit de roof.",
+        "wrong": "Het tempo ontglipte je: zoek het schaak dat ook de dame raakt."
+      }
+    },
+    "aurelia": {
+      "intro": "Ik ben Aurelia, en mijn dame beweegt niet uit impuls: zij beweegt uit overtuiging. Voordat ik een stuk aanraak, zie ik de partij al voltooid; volg mij en je zult leren tot het einde te rekenen.",
+      "reward": "Pad van de Serene Dame",
+      "chron": [
+        "Bij de eerste stap daalde de dame naar de zevende rij, en de koning vond nergens een uitweg.",
+        "Ik zag de achterste rij zich sluiten voordat hij bestond; zijn eigen pionnen waren zijn ondergang.",
+        "Een pion stak het bord over en werd herboren als dame: het rekenwerk beloont geduld.",
+        "Ik sloeg niet uit hebzucht, maar uit zekerheid; de vijandelijke dame viel zonder slag te leveren.",
+        "Zonder hints en zonder twijfel koos ik het enige pad, en het mat bloeide op de diagonaal."
+      ],
+      "c1": {
+        "title": "De afdaling van de dame",
+        "teach": "Rekenen is de eindstelling zien voordat je één stuk beweegt. De dame en de koning weven samen een net waaruit de vijandelijke vorst niet ontsnapt.",
+        "observe": "Kijk naar de vluchtvelden van de zwarte koning en ontdek wie ze bewaakt.",
+        "goal": "Geef schaakmat in één zet.",
+        "hints": [
+          "Jouw koning op f6 controleert al g7; de dame kan op hem steunen.",
+          "Zoek het veld van waaruit de dame de koning aanvalt zonder geslagen te kunnen worden.",
+          "Breng de dame naar g7: de koning op h8 komt zonder lucht te zitten."
+        ],
+        "explain": "Dg7 is schaakmat: de koning op f6 verdedigt de dame en ontneemt de zwarte vorst de velden g8, h7 en g7.",
+        "wrong": "De koning is ontsnapt; herbereken welk veld al zijn uitgangen sluit."
+      },
+      "c2": {
+        "title": "De achterste rij",
+        "teach": "Een koning opgesloten achter zijn eigen pionnen leeft in voortdurend gevaar. Het rekenwerk op de achterste rij beslist ontelbare partijen.",
+        "observe": "Bekijk de pionnen f7, g7 en h7: ze zetten hun eigen koning gevangen.",
+        "goal": "Vind het mat in één.",
+        "hints": [
+          "De zwarte koning heeft geen velden voor zich; zijn pionnen verstikken hem.",
+          "De d-lijn blijft open tot aan de achterkant van het bord.",
+          "Val de achtste rij binnen met de dame: Dd8."
+        ],
+        "explain": "Dd8 is mat: de dame beheerst de hele achtste rij en de pionnen verhinderen elke vlucht.",
+        "wrong": "Er is nog een uitweg; zorg dat je de hele rij beheerst."
+      },
+      "c3": {
+        "title": "De promotie",
+        "teach": "Het kiezen van de variant omvat het kiezen tot welk stuk je promoveert. De dame is bijna altijd het dodelijkste antwoord.",
+        "observe": "De pion staat op één stap van promotie en jouw koning op f6 ondersteunt de manoeuvre.",
+        "goal": "Promoveer en geef mat.",
+        "hints": [
+          "De pion op h7 kan onmiddellijk promoveren.",
+          "Jouw koning bewaakt e7, f7 en g7; alleen de achtste rij moet nog gesloten worden.",
+          "Promoveer tot dame: h8=D is schaakmat."
+        ],
+        "explain": "h8=D is mat: de nieuwe dame controleert de achtste rij terwijl de witte koning de vluchtvelden dekt.",
+        "wrong": "Die promotie sluit het net niet; promoveer tot dame en bereken het mat."
+      },
+      "c4": {
+        "title": "De serene slag",
+        "teach": "Niet elke variant eindigt met schaakmat; soms kies je de variant die zonder enig risico materiaal wint. Rekenen is ook de zuivere winst herkennen.",
+        "observe": "De d-lijn verbindt jouw dame met de vijandelijke dame.",
+        "goal": "Win de vijandelijke dame.",
+        "hints": [
+          "De zwarte dame op d8 heeft geen enkele verdediging.",
+          "Jouw dame beschikt over de vrije d-lijn.",
+          "Sla met schaak: Dxd8+."
+        ],
+        "explain": "Dxd8+ slaat de vijandelijke dame met schaak en levert een beslissend voordeel op, zonder enige complicatie.",
+        "wrong": "Je koos een mindere variant; de zuivere slag was het pad."
+      },
+      "c5": {
+        "title": "De beslissende diagonaal",
+        "teach": "Nu reken je alleen: zonder hints, zonder steun, alleen jouw visie. Kies het enige pad dat alle inspanning bekroont.",
+        "observe": "Jouw paard op h5 en jouw dame werken in stilte tegen de koning.",
+        "goal": "Vind het mat in één.",
+        "hints": [],
+        "explain": "Dg7 is mat: het paard op h5 verdedigt de dame, en de koning op h8 verliest g8 en h7.",
+        "wrong": "Dat was niet het pad; slechts één zet geeft het exacte mat."
+      }
+    },
+    "bastion": {
+      "intro": "Ik ben Bastion, toren en bolwerk van VEXCHESS: ik rijd niet over gesloten lijnen en wijk niet voor de dame. Volg mij en leer dat twee verenigde torens een muur zijn die aanvalt.",
+      "reward": "Bolwerk van de Verenigde Torens",
+      "chron": [
+        "Ik eiste de open lijn op als eigen gebied en mijn toren viel op de achtste rij: de koning had geen muur om zich achter te verschuilen.",
+        "Ik daalde af naar de zevende rij als iemand die een grens patrouilleert, en de onbeschermde vijand betaalde met zijn toren.",
+        "Ik verenigde mijn twee torens schouder aan schouder; de ene sloot de enige deur terwijl de andere de genadeklap gaf.",
+        "Zonder de dame te vrezen, spieste ik haar tegen haar eigen koning en sloeg haar neer: geen enkel stuk is onoverwinnelijk tegenover een goed geplaatste toren.",
+        "Alleen, zonder één stem die me leidde, trok ik de exacte spies en het pad was veroverd."
+      ],
+      "c1": {
+        "title": "De open lijn",
+        "teach": "Een open lijn is een weg die de toren voor zichzelf opeist; erlangs dringt hij door tot in de vijandelijke achterhoede. Wie de lijn beheerst, beheerst de partij.",
+        "observe": "Kijk naar de b-lijn: hij is vrij van begin tot eind, en de achterste rij van de zwarte koning heeft geen bewaking.",
+        "goal": "Val de achtste rij binnen en geef schaakmat.",
+        "hints": [
+          "De b-lijn is van jou: geen enkel stuk verspert je de weg.",
+          "De pionnen f7, g7 en h7 sluiten hun eigen koning op.",
+          "Breng de toren tot aan de achterkant: Tb8 is mat."
+        ],
+        "explain": "Tb8 is mat: de toren loopt de open lijn af tot aan de achtste rij en de pionnen ontzeggen de koning elke vlucht.",
+        "wrong": "De koning ademt nog; neem de open lijn tot het einde."
+      },
+      "c2": {
+        "title": "De toren op de zevende",
+        "teach": "De zevende rij is plundergebied voor de toren; daar valt onverdedigd materiaal. Rijd over de open lijn en incasseer je prooi.",
+        "observe": "De zwarte toren op a7 staat alleen, zonder één verdediger die hem dekt.",
+        "goal": "Sla de vijandelijke toren.",
+        "hints": [
+          "De a-lijn ligt vrij voor je.",
+          "Geen enkel zwart stuk verdedigt het veld a7.",
+          "Daal af langs de lijn en sla: Txa7."
+        ],
+        "explain": "Txa7 wint een hele toren: de open lijn brengt jouw toren naar de zevende en de koning op g8 staat te ver om te reageren.",
+        "wrong": "Je liet de buit ontsnappen; de open lijn gaf je de toren cadeau."
+      },
+      "c3": {
+        "title": "Verbonden torens",
+        "teach": "Twee torens die elkaar beschermen zijn meer waard dan het dubbele van één: de een valt aan en de ander sluit de deur. Verbonden weven ze een net waaruit de koning niet ontsnapt.",
+        "observe": "De zwarte koning op a8 kan alleen dromen van b7; kijk welke toren dat veld bewaakt.",
+        "goal": "Geef schaakmat met de twee torens.",
+        "hints": [
+          "De toren op b1 dekt al het veld b7, de enige uitgang van de koning.",
+          "Je moet schaak geven op de achtste rij zonder dat de koning kan vluchten.",
+          "Breng de andere toren naar de achtste: Tc8 is mat."
+        ],
+        "explain": "Tc8 is mat: de ene toren geeft schaak op de achtste rij terwijl zijn metgezel vanaf b1 b7 afgrendelt. Dat is de kracht van verbonden torens.",
+        "wrong": "Eén toren alleen is niet genoeg; laat beide samenwerken."
+      },
+      "c4": {
+        "title": "De toren die de dame wint",
+        "teach": "Een goed geplaatste toren op een open lijn vreest de dame niet: hij treedt haar als gelijke tegemoet. Met een schaak op de lijn zet je koning en dame op één lijn en incasseer je het zware stuk.",
+        "observe": "De zwarte koning op a4 en de dame op a8 delen dezelfde lijn; alleen moet die met schaak geopend worden.",
+        "goal": "Win de vijandelijke dame met een spies.",
+        "hints": [
+          "De a-lijn zet de koning op a4 op één lijn met de dame op a8.",
+          "Geef schaak over de a-lijn: je spiest de koning met de dame erachter.",
+          "Speel Ta1+; wanneer de koning wijkt, wint Txa8 de dame."
+        ],
+        "explain": "Ta1+ is een spies: de koning en de dame staan op dezelfde lijn. De koning moet wijken en dan neemt Txa8 de dame mee.",
+        "wrong": "De dame overleefde; gebruik de lijn en het schaak om haar te spiesen."
+      },
+      "c5": {
+        "title": "Het pad van de bewaker",
+        "teach": "Nu verdedig en val je aan zonder enig advies; alleen jouw berekening houdt de stelling overeind. Vind de spies die het pad bekroont.",
+        "observe": "De zwarte koning op e5 en de toren op e8 delen de e-lijn, nog gesloten.",
+        "goal": "Vind de zet die de toren wint.",
+        "hints": [],
+        "explain": "Te1+ spiest de koning met de toren erachter op de e-lijn; de koning wijkt en Txe8 wint de toren.",
+        "wrong": "Dat was niet het pad; slechts één zet spiest de koning en wint de toren."
+      }
+    },
+    "nyra": {
+      "intro": "Ik ben Nyra. Ik schreeuw mijn bedoelingen niet: ik laat ze over een diagonaal glijden en wacht tot het bord het begrijpt. Een goed geplaatste loper heeft de partij al gewonnen; het enige wat rest is dat de tegenstander het doorheeft.",
+      "reward": "Pad van de Diagonaal",
+      "chron": [
+        "Bij de eerste stap liet ik de diagonaal spreken: de toren viel zonder dat ik mijn stem verhief.",
+        "Ik stak in stilte het hele bord over en vond de dame onvoorbereid; infiltratie vraagt geen toestemming.",
+        "Het paard deed alsof het het huis bewaakte, gepend als het was; ik bedankte het voor de komedie en nam de toren mee.",
+        "Ik pende de bewaker tegen zijn eigen koning en raapte de dame op met een schaak, bijna met spijt.",
+        "Zonder hints zette ik de koning op één lijn met zijn dame en dreef er één weg om de andere te houden."
+      ],
+      "c1": {
+        "title": "Het bereik van de diagonaal",
+        "teach": "De loper rent niet: hij reikt. Een vrije diagonaal verandert afstand in onmiddellijke dreiging.",
+        "observe": "Volg de diagonaal van jouw loper tot aan de andere kant van het bord.",
+        "goal": "Sla de toren.",
+        "hints": [
+          "Jouw loper bewoont één enkele kleur; kijk naar de lange diagonaal die hij beheerst.",
+          "De zwarte toren rust op diezelfde diagonaal, zonder iemand die hem beschermt.",
+          "Loper van c3 naar g7: rijd hem helemaal af."
+        ],
+        "explain": "Lxg7 wint de toren zuiver: niets staat op de diagonaal en niemand verdedigt hem.",
+        "wrong": "Je liet de diagonaal halverwege; de toren staat er nog."
+      },
+      "c2": {
+        "title": "Infiltratie",
+        "teach": "Een open diagonaal is een weg tot in het vijandelijke hart. De loper glipt geluidloos naar binnen en incasseert wat hij tegenkomt.",
+        "observe": "De lange diagonaal kruist het bord van jouw loper tot aan de zwarte dame.",
+        "goal": "Win de dame.",
+        "hints": [
+          "Vanaf g2 kijkt jouw loper zeven velden ver naar de tegenoverliggende vleugel.",
+          "Niets blokkeert de weg naar b7, en de dame heeft geen escorte.",
+          "Loper naar b7: infiltreer de diagonaal en sla."
+        ],
+        "explain": "Lxb7 neemt de dame mee: de infiltratie over de lange diagonaal ondervindt geen enkele weerstand.",
+        "wrong": "Je stopte te vroeg; de dame wachtte aan het einde van de weg."
+      },
+      "c3": {
+        "title": "De penning verraadt",
+        "teach": "Een gepend stuk doet alsof het verdedigt, maar kan niet bewegen. Wat het beschermt, is in werkelijkheid onverdedigd.",
+        "observe": "Het paard op e6 lijkt g7 te bewaken; kijk wat erachter staat, op de e-lijn.",
+        "goal": "Sla de toren.",
+        "hints": [
+          "Jouw toren op e1 pent het paard tegen zijn eigen koning.",
+          "Gepend kan dat paard niet terugslaan op g7.",
+          "Loper van a1 naar g7: de toren valt zonder tegenzet."
+        ],
+        "explain": "Lxg7 wint de toren: het paard is gepend tegen de koning en kan de slag niet vergelden.",
+        "wrong": "Je vertrouwde op zijn bewaker; maar dat paard is gepend en verdedigt niets."
+      },
+      "c4": {
+        "title": "De gepende bewaker",
+        "teach": "Pen het stuk tegen zijn koning en zijn verdediging wordt een illusie. Dan raapt de loper de dame op met alle hoffelijkheid.",
+        "observe": "Het paard op a7 ondersteunt de dame; bekijk de a-lijn en de koning die achteraan staat.",
+        "goal": "Win de dame met schaak.",
+        "hints": [
+          "De toren op a1 pent het paard op a7 tegen de koning op a8.",
+          "De dame op c6 rekent alleen op dat paard, dat niet kan bewegen.",
+          "Loper naar c6: schaak, en de dame is van jou."
+        ],
+        "explain": "Lxc6+ wint de dame met schaak: het gepende paard slaat niet terug en de koning bereikt c6 niet.",
+        "wrong": "De dame leek verdedigd; haar bewaker, gepend, was slechts een illusie."
+      },
+      "c5": {
+        "title": "De spies",
+        "teach": "Zet de koning op één lijn met wat hij liefheeft en dwing hem te wijken. Erachter blijft de dame achter, alleen, op de diagonaal.",
+        "observe": "Koning en dame delen dezelfde diagonaal, en jouw loper bewaakt haar.",
+        "goal": "Win de dame.",
+        "hints": [],
+        "explain": "Le4+ spiest: de koning moet wijken en de loper slaat de dame die achter hem stond.",
+        "wrong": "Dat was het niet; slechts één zet zet de koning op één lijn en verdoemt de dame."
+      }
+    },
+    "pip": {
+      "intro": "Ik ben Pip, de pion die nooit stopt met oprukken. Stap voor stap, veld voor veld, zal ik je leren dat zelfs de allerkleinste een reus kan worden.",
+      "reward": "Pionnenhart",
+      "chron": [
+        "Met één dappere stap raakte Pip de achtste rij en werd er een dame geboren waar eerst slechts een droom was.",
+        "Zonder angst voor de vijandelijke toren duwde Pip hem opzij en promoveerde op zijn plaats: niets houdt tegen wie oprukt!",
+        "Voor twee wegen koos Pip het veilige pad en ontweek de valstrik van de loper om veilig te promoveren.",
+        "In de hoek van het bord zette de kleine Pip de laatste stap en bezegelde het schaakmat: de nederigste besliste de strijd.",
+        "Alleen, zonder hints of hulp, promoveerde Pip met schaak en ving de toren: het Meesterschapspad was voltooid."
+      ],
+      "c1": {
+        "title": "De eerste stap naar dame",
+        "teach": "Een pion die de achterste rij bereikt, verandert in het stuk dat je kiest, bijna altijd in een machtige dame. Die reis naar de achtste rij heet promoveren, en het is de droom van elke pion.",
+        "observe": "Kijk naar mijn pion op a7: hij hoeft nog maar één stapje te zetten om het einde van het bord te bereiken. De vijandelijke koning is dichtbij, dus we moeten nu promoveren.",
+        "goal": "Promoveer de pion door naar a8 te gaan.",
+        "hints": [
+          "Tel hoeveel velden mijn pion nog nodig heeft om rij 8 te bereiken.",
+          "Als ik wacht, slaat de zwarte koning mijn pion; we moeten nu meteen handelen.",
+          "Ga van a7 naar a8 en kies dame: je geeft ook nog schaak!"
+        ],
+        "explain": "Door naar a8 op te rukken verandert de pion in een dame met schaak, en wint hij in één klap het sterkste stuk van het bord. Elk uitstel zou de zwarte koning zijn pion laten opeten.",
+        "wrong": "Bijna, maar als ik nu niet promoveer eet de vijandelijke koning mijn pion; ruk op naar a8."
+      },
+      "c2": {
+        "title": "Promoveren met slag",
+        "teach": "Een pion promoveert door recht op te rukken, maar kan ook promoveren door diagonaal te slaan. Een stuk opeten en in dezelfde zet in een dame veranderen is dubbel zo krachtig.",
+        "observe": "Let op de zwarte toren op b8, precies diagonaal van mijn pion op a7. Ik kan hem opeten en tegelijk promoveren.",
+        "goal": "Sla op b8 en promoveer.",
+        "hints": [
+          "Een pion slaat diagonaal: kijk welk stuk op b8 staat.",
+          "De toren opeten en op hetzelfde veld promoveren is beter dan recht oprukken.",
+          "Speel a7xb8 en kies dame: je wint de toren en creëert een dame met schaak."
+        ],
+        "explain": "Door op b8 te slaan schakel ik de vijandelijke toren uit en verschijn ik als dame met schaak, en win ik in één keer heel veel materiaal. Recht oprukken zou de toren in leven hebben gelaten.",
+        "wrong": "Niet helemaal: er bestaat een diagonale slag die de toren wint en tegelijk promoveert; speel a7xb8."
+      },
+      "c3": {
+        "title": "De veilige weg",
+        "teach": "Wanneer je meerdere pionnen dicht bij promotie hebt, zijn niet alle promotievelden veilig. Een goede structuur leert je te promoveren waar de vijand jouw nieuwe dame niet kan slaan.",
+        "observe": "Ik heb twee pionnen op het punt van promoveren, op a7 en op c7. Maar de vijandelijke loper bewaakt het veld c8, dus daar promoveren zou een cadeau zijn.",
+        "goal": "Promoveer aan de veilige kant op a8.",
+        "hints": [
+          "Kijk welk promotieveld de zwarte loper bewaakt.",
+          "Als ik op c8 promoveer, eet de loper mijn dame; zoek het vrije veld.",
+          "Ruk de pion van a7 naar a8 op: niemand verdedigt of valt die hoek aan."
+        ],
+        "explain": "Promoveren op a8 creëert een dame met schaak die geen vijand kan slaan, terwijl promoveren op c8 haar aan de loper zou verliezen. Het veilige veld kiezen is pure pionnenstructuur.",
+        "wrong": "Voorzichtig: de loper bewaakt c8 en zou mijn dame slaan; promoveer liever op a8."
+      },
+      "c4": {
+        "title": "De beslissende stap",
+        "teach": "Een pion die promoveert wint niet alleen materiaal: soms geeft hij het laatste schaakmat. Met de hulp van zijn metgezellen kan zelfs de nederigste pion de partij afsluiten.",
+        "observe": "Mijn vijandelijke koning is in de hoek h8 gedreven. Mijn pion op g6 sluit hem het veld h7 af, en alleen mijn pion op f7 ontbreekt nog voor de genadeklap.",
+        "goal": "Promoveer op f8 en geef mat.",
+        "hints": [
+          "De zwarte koning staat in de hoek: tel zijn vluchtvelden.",
+          "Mijn pion op g6 controleert al h7; alleen rij 8 moet nog gedekt worden.",
+          "Ruk f7 naar f8 op en promoveer tot dame: het is schaakmat."
+        ],
+        "explain": "Door op f8 te promoveren geeft de nieuwe dame schaak over rij 8, terwijl de pion op g6 hem de uitgang via h7 ontneemt; de koning heeft geen ontsnapping en het is mat. Alleen de dame dekt alle velden tegelijk.",
+        "wrong": "Het is nog geen mat: promoveer op f8 tot dame en de koning in de hoek komt zonder ontsnapping te zitten."
+      },
+      "c5": {
+        "title": "De proef van de kampioen",
+        "teach": "Een vrijpion rukt zonder angst op, en door met schaak te promoveren kan hij tijd winnen om een ander stuk aan te vallen. Kijk altijd wat je naast de dame zelf nog wint.",
+        "observe": "Mijn pion op d7 staat op één stap van promotie, de zwarte koning rust op h8 en een eenzame toren bewaakt vanaf a5.",
+        "goal": "Promoveer met schaak en win de toren.",
+        "hints": [],
+        "explain": "Door op d8 te promoveren verschijnt een dame die schaak geeft over rij 8 en bovendien de toren op a5 langs de diagonaal aanvalt; nadat de koning wijkt, sla ik de toren gratis. Ik promoveer en win materiaal in hetzelfde idee.",
+        "wrong": "Denk aan promoveren met schaak: er is een veld van waaruit mijn nieuwe dame de koning én de toren tegelijk aanvalt."
+      }
+    },
+    "ordan": {
+      "intro": "Ik ben Ordan, en ik heb meer eindspelen overleefd dan jij partijen hebt gespeeld. Bewaak je koning als je eigen leven en leer hem als een wapen te hanteren wanneer het bord leegloopt: dat is heel mijn lering.",
+      "reward": "Pad van de Troon",
+      "chron": [
+        "Ik duwde de vijandelijke koning tegen de muur met de blik van mijn koning alleen, en de toren sprak het vonnis uit.",
+        "Ik achtervolgde hem tot in de hoek, waar geen troon beschermt, en sloot zonder haast de laatste deur.",
+        "Ik beval mijn dame haar ijdele schaakjes te staken en de lijn te verzegelen; de zwarte koning kwam zonder lucht te zitten.",
+        "Ik zette mijn koning schouder aan schouder met de dame, muur tegen muur, en er was geen kier om door te vluchten.",
+        "En aan het einde, zonder raad of hint, liet ik de oppositie spreken: de dame daalde naar de achtste en alles was voorbij."
+      ],
+      "c1": {
+        "title": "De koning die insluit",
+        "teach": "In het eindspel houdt je koning op zich te verschuilen en begint hij te gebieden. Hij is het die de vijand tegen de rand drijft; de toren geeft slechts de klap.",
+        "observe": "Kijk hoe jouw koning op g6 de zwarte koning frontaal tegemoet treedt: dat heet oppositie, en het ontneemt hem de vluchtvelden.",
+        "goal": "Geef mat op de achterste rij.",
+        "hints": [
+          "Jouw koningen staan in directe oppositie; de zwarte kan niet oprukken noch via de flanken ontsnappen.",
+          "Jouw toren staat vrij op de eerste rij en de achtste is verlaten.",
+          "Toren van b1 naar b8: schaakmat."
+        ],
+        "explain": "Tb8 is mat: jouw koning dekt f7, g7 en h7, en de toren snijdt de enige rij af die de vijand nog restte.",
+        "wrong": "De zwarte koning ademde: zonder de oppositie van jouw koning sluit de toren hem nooit alleen in."
+      },
+      "c2": {
+        "title": "De kooi van de hoek",
+        "teach": "De hoek is het graf van de eenzame koning. Wanneer de vijand zich in de hoek verschuilt, bewaakt jouw koning de uitgangen en sluit de toren de deur.",
+        "observe": "De zwarte koning op h8 heeft geen lucht meer; jouw koning op g6 verzegelt g7, g8 en h7.",
+        "goal": "Sluit de kooi met mat.",
+        "hints": [
+          "Tel de velden van de zwarte koning: jouw koning heeft ze hem allemaal ontnomen behalve de rij.",
+          "De toren op f7 beheerst de zevende; ook heer van de achtste zal hij dodelijk zijn.",
+          "Toren van f7 naar f8: schaakmat."
+        ],
+        "explain": "Tf8 is mat: de in de hoek gedreven koning heeft geen vlucht en jouw vorst verdedigt elk vluchtveld.",
+        "wrong": "Je gaf de gevangene lucht; in de hoek bevrijdt één enkele onachtzaamheid hem."
+      },
+      "c3": {
+        "title": "De dame gehoorzaamt de koning",
+        "teach": "De dame is machtig, maar zonder de koning die haar de weg wijst, deelt zij slechts lege schaakjes uit. Laat jouw koning de velden stelen en de dame de rest verzegelen.",
+        "observe": "Jouw koning op f7 bewaakt al g7 en g8; de zwarte koning kan alleen nog ademen via de h-lijn.",
+        "goal": "Verzegel de h-lijn met mat.",
+        "hints": [
+          "De zwarte koning op h8 hangt af van één enkel vluchtveld: h7.",
+          "Breng jouw dame naar de h-lijn om h8 en h7 in één keer te beheersen.",
+          "Dame van b1 naar h1: schaakmat."
+        ],
+        "explain": "Dh1 is mat: de dame maakt zich meester van de hele h-lijn terwijl jouw koning de vlucht via g7 en g8 afdekt.",
+        "wrong": "De dame schreeuwde tevergeefs; zonder de h-lijn te sluiten glipt de zwarte koning weg."
+      },
+      "c4": {
+        "title": "Schouder aan schouder",
+        "teach": "Breng de dame nooit dicht bij de vijandelijke koning zonder dat jouw eigen koning haar schild is. Samen, schouder aan schouder, richten ze een muur op die geen kier laat.",
+        "observe": "Jouw koning op f6 verdedigt het veld g7; daar, en alleen daar, zal de dame onaantastbaar zijn tegen de zwarte koning aan.",
+        "goal": "Zet de dame één stap van de koning, met mat.",
+        "hints": [
+          "De zwarte koning op h8 stikt; alleen g7 en g8 moeten hem nog ontnomen worden.",
+          "Slechts één veld geeft je beide, en jouw koning beschermt het al.",
+          "Dame van g1 naar g7: beschermd schaakmat."
+        ],
+        "explain": "Dg7 is mat: de dame omarmt de zwarte koning en jouw koning verdedigt haar, zodat ze niet geslagen noch ontweken kan worden.",
+        "wrong": "Je bracht de dame zonder escorte; een koning alleen zou haar verslonden hebben."
+      },
+      "c5": {
+        "title": "Het oordeel van de oppositie",
+        "teach": "Nu sta je er alleen voor, zonder mijn stem. Onthoud: eerst verovert de koning de velden, daarna bekroont het zware stuk het werk.",
+        "observe": "Koningen tegenover elkaar op de e-lijn, en een dame die haar laatste woord nog niet heeft gesproken.",
+        "goal": "Vind het mat in één zet.",
+        "hints": [],
+        "explain": "Db8 is mat: in oppositie ontzegt jouw koning d7, e7 en f7, en de dame die de achtste rij bereikt dekt de hele terugtocht, inclusief f8.",
+        "wrong": "Dat was het niet. Laat jouw koning zijn werk doen en zoek de rij die de vijand niet kan oversteken."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Wij zijn Eira en Vhal, tweelingruiters van hetzelfde span paarden: ik, Eira, reken voordat ik spring; ik, Vhal, spring en lach daarna. Samen leren we je ALLE slagen te bekijken en die te kiezen die het meest wint, want de goede ruiter neemt nooit de eerste die hij ziet.",
+      "reward": "Ruiters van de Dubbele Sprong",
+      "chron": [
+        "Eira wees de toren aan, Vhal wees de dame aan; het paard sprong naar g5 en we keerden terug met de kroon van de vijand.",
+        "Twee vorken openden zich voor ons: Vhal riep 'de toren', maar Eira koos de dame op d6 en het bord gaf ons gelijk.",
+        "Het veulen sprong naar f6 met schaak; de toren op g5 knipoogde naar ons, maar wij namen de dame mee en de echo van de galop.",
+        "Pe7 klonk als een donderslag met schaak; we negeerden de makkelijke toren en incasseerden de dame op g6 als goede broers.",
+        "Zonder hints, zonder stemmen, alleen het instinct van Vhal en het rekenwerk van Eira: b5, en de vijandelijke dame viel in stilte."
+      ],
+      "c1": {
+        "title": "Twee prooien, één keuze",
+        "teach": "Wanneer jouw paard meerdere stukken tegelijk aanvalt, eet dan niet het eerste dat je ziet: vergelijk ze. Van alle mogelijke slagen is de beste die welke het meeste materiaal wint.",
+        "observe": "Kijk naar de twee velden die jouw paard treft: het ene bewaakt een toren, het andere een dame. Weeg af hoeveel elk waard is voordat je beslist.",
+        "goal": "Sla het stuk met de hoogste waarde.",
+        "hints": [
+          "Jouw paard op e4 bedreigt twee onverdedigde zwarte stukken: vraag je af welk meer waard is.",
+          "Een dame is veel meer waard dan een toren; dat is het doelwit.",
+          "Spring naar g5 en neem de dame mee."
+        ],
+        "explain": "Beide stukken stonden en prise, maar de dame (9) overtreft ruimschoots de toren (5): haar slaan is meer winnen voor dezelfde zet.",
+        "wrong": "Die slag wint minder: vergelijk opnieuw de waarde van de twee stukken."
+      },
+      "c2": {
+        "title": "Twee rivaliserende vorken",
+        "teach": "Soms vergelijk je geen slagen, maar zetten die een dubbele dreiging creëren. Kies de vork die het waardevolste stuk vangt.",
+        "observe": "Jouw paard heeft twee sprongen die tegelijk schaak en vork geven: de ene prikt de toren, de andere de dame. Kijk wat elk vangt.",
+        "goal": "Geef het vorkschaak dat de dame wint.",
+        "hints": [
+          "Twee sprongen geven schaak vanaf e4; beide winnen materiaal, maar niet hetzelfde.",
+          "Zoek het schaak dat de koning en de DAME tegelijk aanvalt.",
+          "Spring naar d6: schaak aan de koning op e8 en vork op de dame op b7."
+        ],
+        "explain": "Pd6+ valt de koning en de dame in één keer aan; de koning moet wijken en het paard incasseert de dame, meer dan de rivaliserende vork die slechts de toren won.",
+        "wrong": "Die vork wint minder: zoek het schaak dat de dame vangt, niet de toren."
+      },
+      "c3": {
+        "title": "Makkelijke slag of winnende sprong",
+        "teach": "De meest voor de hand liggende slag is niet altijd die welke het meeste wint. Vergelijk het opeten van een hangend stuk met een sprong die een grotere dreiging creëert.",
+        "observe": "Je kunt de toren op g5 meteen opeten, of met schaak springen en de dame bedreigen. Kijk welke buit groter is.",
+        "goal": "Kies de sprong met schaak die de dame wint.",
+        "hints": [
+          "De toren op g5 is verleidelijk, maar is slechts 5 waard.",
+          "Een schaak vanaf f6 valt de koning aan en raakt de dame op d7.",
+          "Speel Pf6+; na het schaak, sla de dame op d7."
+        ],
+        "explain": "Pf6+ dwingt de koning te wijken en laat de dame onverdedigd tegenover het paard: je wint 9 in plaats van de 5 van de makkelijke toren.",
+        "wrong": "Je nam de kleine buit: er was een schaak dat de hele dame won."
+      },
+      "c4": {
+        "title": "De donderslag van e7",
+        "teach": "Kijk voordat je slaat of een sprong met schaak iets groters wint. Kandidaten vergelijken betekent ook kijken naar de zetten die nog geen slagen zijn.",
+        "observe": "De toren op f6 staat er om te slaan, maar jouw paard kan schaak geven vanaf e7 en zijn blik op de dame richten. Vergelijk de twee eindstellingen.",
+        "goal": "Geef het vorkschaak en sla de dame.",
+        "hints": [
+          "De toren op f6 opeten wint slechts 5 punten.",
+          "Vanaf e7 geeft jouw paard schaak aan de koning en bedreigt de dame op g6.",
+          "Speel Pe7+; de koning wijkt en je neemt de dame op g6."
+        ],
+        "explain": "Pe7+ is een vork op de koning en de dame: de koning moet vluchten en de dame valt, een veel grotere buit dan de toren.",
+        "wrong": "Je won minder dan mogelijk: het schaak op e7 nam de dame mee."
+      },
+      "c5": {
+        "title": "De proef van de tweeling",
+        "teach": "Zonder hints of stemmen: bekijk al je kandidaten en houd die welke het meeste wint. De juiste sprong is niet altijd de luidruchtigste.",
+        "observe": "Er is een comfortabele slag en een stille sprong die schaak geeft. Slechts één neemt de dame mee.",
+        "goal": "Vind de zet die het meeste materiaal wint.",
+        "hints": [],
+        "explain": "Pb5+ geeft schaak aan de koning op d4 en vorkt de dame op d6; de koning kan haar niet redden en het paard incasseert het zware stuk.",
+        "wrong": "Dat was niet die met de grootste buit: er bestaat een schaak dat de dame wint."
+      }
+    },
+    "rhazek": {
+      "intro": "Ik ben Rhazek, en ik verzamel geen stukken: ik verzamel gevallen koningen. Mijn paard vraagt nooit hoeveel waard is wat het opgeeft, alleen hoeveel het wint; volg mij als je durft en leer offeren als iemand die eist, niet als iemand die smeekt.",
+      "reward": "Heer van het Offer",
+      "chron": [
+        "Mijn paard sprong naar g6 en de toren, verborgen als een dolk in de mouw, incasseerde de dame die zich veilig waande.",
+        "Eén enkele sprong naar e7 en de koning had geen andere weg dan zijn graf; mijn dame kwam erachteraan en sloot de grafsteen.",
+        "In de hoek sloot ik hem op: Pf7 duwde hem, De8 verzegelde hem, en de koning stierf starend naar zijn eigen pionnen.",
+        "Ik gaf mijn dame op g8 zonder te beven, want het smoormat is meer waard dan duizend kronen: mijn paard heerste over de verstikking van de koning.",
+        "Zonder hints of genade ontdekte ik het schaak en rukte de dame tussen haar bewakers vandaan: zo studeert af wie mijn pad bewandelt."
+      ],
+      "c1": {
+        "title": "De slag die ontdekt",
+        "teach": "Het initiatief is van jou wanneer jouw zet dwingt en de tegenstander slechts reageert. Een paard dat springt kan de aanval van een verborgen stuk onthullen: beweeg met schaak en laat de toren de rekening incasseren.",
+        "observe": "Jouw paard op e5 sluit de mond van jouw toren op e1, en daarachter wacht de zwarte koning op e8. Die dame op g6 waant zich onaantastbaar achter haar pion.",
+        "goal": "Spring, ontdek het schaak en neem de dame mee.",
+        "hints": [
+          "Jouw toren op e1 richt zich op de koning op e8, maar het paard snijdt zijn blik af.",
+          "Zoek een sprong die aftrekschaak geeft en bovendien de dame raakt.",
+          "Pxg6: zwart moet het schaak van de toren pareren en de dame valt."
+        ],
+        "explain": "Pxg6 opent de e-lijn met torenschaak; zwart moet de koning redden en kan niet terugpakken. Je neemt de hele dame mee zonder iets te betalen.",
+        "wrong": "Lauw: zonder het aftrekschaak ademt zwart en de vijandelijke dame ontglipt je."
+      },
+      "c2": {
+        "title": "Eén sprong, één mat",
+        "teach": "Soms wint jouw paard geen materiaal: het wint het hele bord. Geef schaak om het uit de weg te ruimen en laat jouw dame binnenkomen om te doden.",
+        "observe": "Jouw paard op d5 hindert jouw eigen dame op d2. Als het met schaak springt, opent de lijn zich plotseling naar de koning op g8.",
+        "goal": "Geef het paardschaak en maak het af met de dame.",
+        "hints": [
+          "Jouw dame op d2 verlangt naar het veld d8, maar het paard verspert de weg.",
+          "Spring met schaak naar e7: de koning zal slechts één veld hebben.",
+          "Pe7+ en dan Dd8 is mat; het paard bewaakt g8."
+        ],
+        "explain": "Pe7+ maakt de d-lijn vrij met schaak en duwt de koning in de hoek; Dd8 is mat, met het paard dat g8 dekt. Twee slagen, nul twijfel.",
+        "wrong": "Traag: de koning vang je niet door te staren, en zonder het schaak is er geen mat."
+      },
+      "c3": {
+        "title": "De hoek zonder uitweg",
+        "teach": "De ingesloten koning is een gevangene die het nog niet weet. Een paardschaak pent hem vast en jouw dame, nu vrij, sluit de laatste deur.",
+        "observe": "Het paard op e5 verzegelt de lijn van jouw dame op e1. De koning op h8 ligt levend begraven tussen g7 en h7.",
+        "goal": "Paardschaak en mat met de dame.",
+        "hints": [
+          "Jouw dame op e1 droomt van e8, maar het paard sluit haar op.",
+          "Pf7+ dwingt de koning naar g8, zijn enige veld.",
+          "Na Pf7+ gaat de koning naar g8; dan is De8 mat, met het paard dat h8 bewaakt."
+        ],
+        "explain": "Pf7+ rukt de koning naar g8 en opent de e-lijn; De8 geeft mat, verdedigd door het paard op f7 en met h8 afgedekt. De hoek was zijn graf.",
+        "wrong": "Slap: zonder de sprong die schaak geeft botst jouw dame tegen de pionnen en is er geen mat."
+      },
+      "c4": {
+        "title": "Het smoormat",
+        "teach": "Hier wordt het ware offer geboren: je geeft jouw dame op, het duurste stuk, want het mat is meer waard dan al het goud van het bord. Het paard maakt het af precies waar de dame valt.",
+        "observe": "De koning op h8 is omringd door de zijnen: pionnen op g7 en h7, toren op f8. Hem rest slechts één vrij veld; ontneem het hem.",
+        "goal": "Rijg de paardschaakjes aaneen en offer de dame om mat te geven.",
+        "hints": [
+          "De koning stikt tussen zijn stukken; je hoeft hem alleen g8 nog te sluiten.",
+          "Pf7+ Kg8, Ph6+ Kh8: de koning keert terug naar de hoek, gevangen.",
+          "Dan Dg8+!! De toren is gedwongen te slaan, en Pf7 is smoormat."
+        ],
+        "explain": "Na Pf7+ Kg8 Ph6+ Kh8 dwingt het offer Dg8+ tot Txg8, en Pf7 geeft mat: de koning sterft gesmoord door de zijnen. De dame wordt opgegeven zodat het paard kan heersen.",
+        "wrong": "Groots, maar je faalde: alleen de exacte combinatie met het damoffer geeft het smoormat."
+      },
+      "c5": {
+        "title": "De proef van Rhazek",
+        "teach": "Zonder hints, zonder stemmen, zonder vangnet. Vind de slag die het schaak ontdekt en de dame wegrukt, ook al wanen ze haar goed verdedigd.",
+        "observe": "Jouw paard op e5 sluit de toren op e1 af, en de zwarte koning wacht op e8. De dame op c4 steunt op haar pion op b5 en voelt zich onaantastbaar.",
+        "goal": "Ontdek het schaak en sla de dame.",
+        "hints": [],
+        "explain": "Pxc4+ opent de e-lijn met torenschaak; zwart moet de koning bewegen en komt niet toe aan terugpakken met de pion. Je neemt de dame mee die ze beschermd waanden.",
+        "wrong": "Nee: er bestaat een aftrekschaak dat de dame meeneemt ondanks haar pion."
+      }
+    },
+    "oryn": {
+      "intro": "Ik ben Oryn, bewaker van de open lijnen, en mijn wapen is de toren. Loop zonder haast: meesterschap wordt niet veroverd met razernij, maar met de blik die de vrije lijn ziet voordat hij beweegt.",
+      "reward": "Wachter van de Open Lijn",
+      "chron": [
+        "Bij de eerste drempel hief Oryn de toren over de verlaten rij en verzegelde de koning in zijn hoek: het mat kwam in stilte, zonder één enkel obstakel dat het tegenhield.",
+        "Voor de tweede proef bood de open lijn zich aan als een rechte weg; de toren daalde af en de vijandelijke dame viel zonder verdediging die haar beschermde.",
+        "Bij de derde stap sloeg Oryn niet meteen: hij richtte zijn blik op de lijn, gaf schaak en wachtte geduldig tot de koning wijkte om zijn prijs te incasseren.",
+        "Bij het vierde ritueel was de open lijn een pad des doods: de toren daalde recht af en de koning, omsingeld door zijn eigen rivaliserende koning, vond geen huis om te vluchten.",
+        "Op het laatste pad, zonder stem die hem leidde, las Oryn de hele rij: een precies schaak, een afgeleide koning, en de vijandelijke dame lag aan de genade van het zwijgende staal."
+      ],
+      "c1": {
+        "title": "De Verlaten Rij",
+        "teach": "Een toren op een rij of lijn zonder obstakels bereikt elk veld van die lijn. Wanneer de vijandelijke koning geen ontsnapping heeft, wordt die open lijn de scherpte van het mat.",
+        "observe": "Kijk naar de achtste rij: hij is geheel vrij. Bekijk welke velden jouw eigen koning al dekt rondom de tegenoverliggende vorst.",
+        "goal": "Geef mat in één zet met de toren.",
+        "hints": [
+          "De zwarte koning kan alleen ademen op de achtste rij; jouw koning sluit hem de vluchtvelden naar beneden af.",
+          "Zoek een veld van waaruit de toren de hele rij van de vijandelijke koning beheerst.",
+          "Breng de toren naar a8: schaak zonder ontsnapping."
+        ],
+        "explain": "Ta8 beheerst de hele achtste rij en jouw koning op g6 bewaakt f7, g7 en h7; de zwarte vorst heeft geen enkel vrij veld. Het is mat.",
+        "wrong": "Die zet laat een vluchtveld open; de open lijn doodt alleen wanneer de koning geen toevlucht heeft."
+      },
+      "c2": {
+        "title": "De Rechte Weg",
+        "teach": "Een open lijn is een laan die de toren van het ene uiteinde naar het andere afrijdt zonder rem. Erlangs kan hij een vijandelijk stuk slaan dat geen verdediger beschermt.",
+        "observe": "Let op de e-lijn: er zijn geen pionnen of stukken die hem doorsnijden. Aan het einde ervan wacht de zwarte dame, alleen en zonder bescherming.",
+        "goal": "Sla de dame met de toren.",
+        "hints": [
+          "De e-lijn ligt volledig open voor jouw toren.",
+          "De zwarte dame heeft geen enkel stuk dat haar verdedigt.",
+          "Rijd de lijn af tot e8 en neem de dame met schaak."
+        ],
+        "explain": "Txe8+ rijdt de open lijn af en wint de dame zonder kosten, bovendien met schaak; de zwarte koning stond te ver om haar te verdedigen.",
+        "wrong": "Je liet de laan ontsnappen; de open lijn was de directe weg naar de dame."
+      },
+      "c3": {
+        "title": "De Blik Voor de Slag",
+        "teach": "Soms slaat de toren niet meteen: eerst zet hij de vijandelijke koning op één lijn met het stuk dat hij begeert. Het schaak leidt de vorst af en laat de prooi onverdedigd aan het einde van de lijn.",
+        "observe": "De zwarte koning en dame delen de e-lijn. Jouw toren staat nog niet op die lijn, maar kan hem met schaak betreden.",
+        "goal": "Geef schaak op de lijn om de dame te winnen.",
+        "hints": [
+          "Zwarte koning en dame staan op dezelfde lijn: de koning ervoor, de dame erachter.",
+          "Als jouw toren de e-lijn met schaak betreedt, zal de koning moeten wijken.",
+          "Speel Te1+: de koning vlucht van de lijn en daarna valt de dame op e8."
+        ],
+        "explain": "Te1+ is een spies: de zwarte koning moet de e-lijn verlaten en, met de lijn vrij, slaat de toren de dame op e8. Analyseren voordat je slaat levert meer op dan de overhaaste slag.",
+        "wrong": "Je sloeg zonder de lijn voor te bereiden; eerst moest het schaak de koning wegdrijven om de prooi bloot te leggen."
+      },
+      "c4": {
+        "title": "De Lijn van het Vonnis",
+        "teach": "Een open lijn wint niet alleen stukken: hij levert ook de koning uit. Wanneer jouw eigen koning de zijvelden verzegelt, daalt de toren over de lijn af en sluit de laatste uitgang.",
+        "observe": "De h-lijn is vrij en de zwarte koning rust aan zijn rand. Merk op hoe jouw koning op f7 g7 en g8 bewaakt, de enige vluchtvelden.",
+        "goal": "Geef mat in één zet met de toren.",
+        "hints": [
+          "Jouw koning op f7 beheerst al g7 en g8; de zwarte koning zou alleen de h-lijn overhouden.",
+          "Bezet de h-lijn met de toren om die laatste weg te sluiten.",
+          "Speel Th1: schaak op de lijn, zonder mogelijke ontsnapping."
+        ],
+        "explain": "Th1 geeft schaak over de open lijn; g7 en g8 dekt jouw koning en h7 beheerst de toren. De zwarte vorst heeft geen toevlucht: het is mat.",
+        "wrong": "De koning vindt nog een veld; de lijn veroordeelt alleen wanneer elke vlucht bewaakt is."
+      },
+      "c5": {
+        "title": "Het Pad van de Stilte",
+        "teach": "Zonder stemmen die je leiden, vertrouw op het lezen van de lijn. Een open rij laat de toren de koning en de dame spiesen; het geduldige schaak incasseert daarna wat de haast nooit zou bereiken.",
+        "observe": "Zwarte koning en dame rusten op de vierde rij. Jouw toren, in de hoek, kan die rij betreden op afstand van de koning, zonder dat deze hem slaat.",
+        "goal": "Vind het schaak dat spiest en de dame wint.",
+        "hints": [],
+        "explain": "Ta4+ spiest over de vierde rij: de koning, ver weg en niet in staat te slaan, moet de rij verlaten, en de toren raapt de dame op h4 op. De serene blik overwint de impuls.",
+        "wrong": "De lijn vroeg om een schaak dat de koning spieste; de directe slag was nog niet binnen jouw bereik."
+      }
+    },
+    "vesra": {
+      "intro": "Ik ben Vesra, en mijn dame achtervolgt niet: zij sluit deuren. Kijk hoe het bord versmalt tot de tegenstander alleen nog kan gehoorzamen.",
+      "reward": "Bewaarster van de Beperking",
+      "chron": [
+        "In de eerste stilte ging de dame naast de vijandelijke koning zitten, en de hoek werd een graf zonder uitweg.",
+        "Zij richtte een lijn op als iemand die een muur bouwt, en de tegenoverliggende vorst ontdekte dat er nergens meer een uitweg was.",
+        "Met serene hoffelijkheid haalde zij de enige verdedigster van het bord, en de stelling lag naakt voor mijn wil.",
+        "Vanaf het andere uiteinde van de wereld volstond één enkele lijn om de achtste rij te verzegelen en het vonnis uit te spreken.",
+        "En in de laatste proef bood zij een schaak dat niet doodde: het dwong slechts tot wijken, opdat de toren vanzelf zou vallen."
+      ],
+      "c1": {
+        "title": "De hoek die zich sluit",
+        "teach": "Beperken is velden uitdoven tot de koning nergens heen kan. Wanneer elke vlucht opdroogt, houdt het schaak op een dreiging te zijn en wordt het een vonnis.",
+        "observe": "Kijk naar de vluchtvelden van de zwarte koning op h8 en merk op dat jouw eigen koning op f6 al g8 en g7 bewaakt.",
+        "goal": "Geef mat in één zet.",
+        "hints": [
+          "De zwarte koning ademt alleen via g8, g7 en h7; jouw koning op f6 dekt er al twee van.",
+          "Breng de dame dicht bij de vijandelijke koning, beschermd door jouw vorst.",
+          "Breng de dame naar g7: jouw koning ondersteunt haar en de hoek sluit zich."
+        ],
+        "explain": "Dg7 is onmogelijk te slaan omdat jouw koning op f6 haar verdedigt, en zij dekt de laatste uitgangen. Absolute beperking: het is mat.",
+        "wrong": "Je liet hem een vrij veld; de koning ontsnapt en de beperking breekt."
+      },
+      "c2": {
+        "title": "De muur van de lijn",
+        "teach": "Eén enkel stuk kan een hele lijn afsluiten en in een muur veranderen. De koning valt niet door geweld, maar omdat hem geen ruimte rest om te bezetten.",
+        "observe": "Let op de h-lijn, waar de zwarte koning woont, en op jouw koning op f7 die g7 en g8 verzegelt.",
+        "goal": "Geef mat in één zet.",
+        "hints": [
+          "De koning op h8 hangt af van de h-lijn en van de g-velden die jouw koning bewaakt.",
+          "Je hebt een stuk nodig dat de h-lijn van boven naar beneden beheerst.",
+          "Schuif de dame naar h2: de hele lijn wordt verboden gebied."
+        ],
+        "explain": "Dh2 beheerst de hele h-lijn en jouw koning op f7 dekt g7 en g8. Zonder velden stikt de koning: mat.",
+        "wrong": "De lijn heeft nog een gat; de koning vindt lucht en overleeft."
+      },
+      "c3": {
+        "title": "De enige verdedigster",
+        "teach": "Beperken is ook diegene uitschakelen die de tegenstander overeind houdt. Verwijder zijn enige actieve stuk en de hele stelling geeft zich zonder verzet.",
+        "observe": "Beide dames kijken elkaar aan op de d-lijn; de zwarte is de enige kracht die de tegenstander nog rest.",
+        "goal": "Win de vijandelijke dame.",
+        "hints": [
+          "Jouw dame en de zwarte delen dezelfde lijn, de d.",
+          "Je kunt met schaak slaan en het hele voordeel behouden.",
+          "Sla op d8: je schakelt zijn enige stuk uit en geeft tegelijk schaak."
+        ],
+        "explain": "Dxd8 slaat met schaak de enige verdedigster van de tegenstander; je houdt dame tegen kale koning over, een beslissende overwinning.",
+        "wrong": "Je hebt zijn dame gespaard; zolang zij leeft, kan de tegenstander zich nog verdedigen."
+      },
+      "c4": {
+        "title": "Het vonnis op afstand",
+        "teach": "Beperking vereist geen nabijheid: een schone lijn doorkruist het hele bord. Van veraf kan de dame een rij verzegelen en het einde dicteren.",
+        "observe": "De zwarte koning op h8 hangt aan de achtste rij; jouw koning op g6 bewaakt al g7 en h7.",
+        "goal": "Geef mat in één zet.",
+        "hints": [
+          "De koning zou alleen via de achtste rij of via de g-velden ontsnappen, die jouw koning dekt.",
+          "Zoek de achtste rij te bezetten met jouw dame zonder obstakels ertussen.",
+          "Plaats de dame op b8: de rij wordt vanaf de afstand gesloten."
+        ],
+        "explain": "Db8 beheerst de hele achtste rij en jouw koning op g6 dekt de uitgangen; de koning kan niet bewegen noch zich dekken: mat.",
+        "wrong": "De achtste rij is niet verzegeld; de koning glipt door de kier weg."
+      },
+      "c5": {
+        "title": "Het schaak dat dwingt",
+        "teach": "Zugzwang is de hoffelijke wreedheid: niet doden, maar dwingen te bewegen naar de ondergang. Een schaak dat de koning moet ontwijken kan het stuk ontbloten dat zich achter hem verschool.",
+        "observe": "De zwarte koning op e5 en de toren op a5 delen de vijfde rij; de pion op e4 dekt elk schaak over de e-lijn af.",
+        "goal": "Win de toren.",
+        "hints": [],
+        "explain": "Dh5 geeft schaak over de vijfde rij; de koning moet wijken en houdt op zijn toren te beschutten, die op a5 valt. De beperking omgezet in buit.",
+        "wrong": "Die slag dwingt tot niets; zonder gedwongen schaak behoudt de koning zijn toren."
+      }
+    },
+    "brakkon": {
+      "intro": "Ik ben Brakkon, en mijn toren zoekt geen roem: hij beschermt haar. Waar anderen de aanval inzetten, richt ik muren op, en daarachter rust de koning zonder angst.",
+      "reward": "Onwrikbare Bewaker",
+      "chron": [
+        "Toen de vijandelijke toren op de achterste rij binnenbrak, week Brakkon niet terug: hij ruimde hem met één klap uit de wereld en de muur sloot zich weer.",
+        "Een paard glipte tussen de schaduwen; de toren patrouilleerde de rij en verwijderde het in stilte, zonder dat de koning een vinger verroerde.",
+        "De dame meende het laatste schaak uit te spreken, maar de toren deelde haar rij en sloeg haar neer: serene steen tegen storm.",
+        "Vanaf de top van de open lijn daalde de toren als een grafsteen af en verzegelde de dreiging, onwrikbaar tot het laatste veld.",
+        "En in de proef, zonder stem die hem leidde, zag Brakkon het mat verborgen achter de kalmte en doofde het voordat het geboren werd."
+      ],
+      "c1": {
+        "title": "De muur breekt niet",
+        "teach": "Verdedigen is degene die dreigt herkennen en hem van het bord verwijderen voordat hij schade aanricht. De toren vlucht niet: hij werpt zich ertussen, slaat en geeft de koning zijn rust terug.",
+        "observe": "Kijk naar de zwarte toren op e1: hij geeft schaak over de eerste rij. Jouw koning op h1 is opgesloten door zijn eigen pionnen f2, g2 en h2.",
+        "goal": "Sla de toren die schaak geeft.",
+        "hints": [
+          "Jouw koning kan niet bewegen: zijn pionnen f2, g2 en h2 omringen hem volledig.",
+          "Slechts één van jouw stukken bereikt de eerste rij om op het schaak te reageren.",
+          "Breng de toren van a1 naar e1 en verslind de aanvaller."
+        ],
+        "explain": "Txe1 schakelt het stuk uit dat schaak gaf en laat de koning veilig achter de muur van pionnen. Het is de zuiverste verdediging: de dreiging bij de bron doven.",
+        "wrong": "De koning staat nog schaak; alleen jouw toren kan die dreiging doven."
+      },
+      "c2": {
+        "title": "De bewaakte rij",
+        "teach": "Coördinatie is een stuk dat dekt wat de koning niet kan. Jouw toren patrouilleert de hele rij, en wanneer een indringer nadert, verwijdert hij hem zonder dat de vorst zijn post verlaat.",
+        "observe": "Een zwart paard sprong naar e2 en geeft schaak aan jouw koning op g1. Jouw toren beheerst de hele tweede rij vanaf a2.",
+        "goal": "Sla het paard dat schaak geeft.",
+        "hints": [
+          "Het paard op e2 valt jouw koning aan; je zou kunnen vluchten, maar er is een steviger antwoord.",
+          "Jouw toren beheerst de tweede rij van het ene uiteinde naar het andere.",
+          "Schuif de toren van a2 naar e2 en sla het paard."
+        ],
+        "explain": "Txe2 komt niet alleen uit het schaak: hij neemt het paard mee en verzegelt de vleugel van de koning. Verdediging en winst in één gebaar.",
+        "wrong": "Vluchten redt de koning voor een moment, maar de indringer leeft nog; beter hem van het bord verwijderen."
+      },
+      "c3": {
+        "title": "Steen tegen de dame",
+        "teach": "Geen enkele dreiging is te groot als jouw verdediging haar lijn deelt. De toren vreest de dame niet: als zij binnenvalt, slaat de toren haar neer en beschermt de koning.",
+        "observe": "De zwarte dame op e1 geeft schaak over de eerste rij. Jouw koning op h1 heeft geen enkel vrij veld.",
+        "goal": "Sla de dame die schaak geeft.",
+        "hints": [
+          "Het schaak komt over de eerste rij en jouw koning is ommuurd door zijn pionnen.",
+          "Jouw toren op b1 deelt diezelfde rij met de dame.",
+          "Toren van b1 naar e1: sla de dame en beëindig het schaak."
+        ],
+        "explain": "Txe1 verslindt de vijandelijke dame en laat de koning ongedeerd. Een toren ruilen voor een verdedigende dame is een beslissende ruil.",
+        "wrong": "Met de opgesloten koning reageert alleen de toren; laat haar de dame incasseren."
+      },
+      "c4": {
+        "title": "De grafsteen daalt af",
+        "teach": "Een open lijn is een weg die de toren van boven tot onder bewaakt. Wanneer het gevaar naast de koning opdoemt, daalt de toren als een grafsteen af en dekt hem vanaf de afstand.",
+        "observe": "De zwarte dame op d1 geeft schaak aan jouw ingesloten koning op g1. Jouw toren bekroont de d-lijn vanaf d7, met de weg vrij.",
+        "goal": "Sla de dame die schaak geeft.",
+        "hints": [
+          "De dame valt aan over de eerste rij en jouw koning kan zijn hoek niet verlaten.",
+          "Bekijk de d-lijn: hij is open van d7 tot d1.",
+          "Daal de toren van d7 naar d1 af en sla de dame."
+        ],
+        "explain": "Txd1 rijdt de open lijn af en schakelt de dame uit; de koning ademt en jij houdt het hele voordeel over. De coördinatie tussen toren en koning is een muur zonder scheuren.",
+        "wrong": "Er is geen vlucht voor de koning; de toren moet over de lijn afdalen en de dame incasseren."
+      },
+      "c5": {
+        "title": "De kalmte voor het mat",
+        "teach": "De gevaarlijkste dreiging is de stille: de dame en de loper bereiden Dxg2 mat voor zonder al schaak te geven. De ware bewaker ziet het aankomen en schakelt het uit voordat het ontploft.",
+        "observe": "De dame op e4 en de loper op f1 richten zich op g2: als je hem laat spelen, is Dxg2 mat. Jouw toren wacht op de e-lijn, op e2.",
+        "goal": "Neutraliseer de matdreiging.",
+        "hints": [],
+        "explain": "Txe4 verwijdert de dame over de e-lijn voordat zij Dxg2 mat voltrekt; de loper blijft alleen achter en jij met winnend voordeel. De klap voorzien is de opperste verdediging.",
+        "wrong": "Je liet de dreiging in leven: de loper ondersteunt de dame en Dxg2 zou mat zijn."
+      }
+    },
+    "ilyra": {
+      "intro": "Ik ben Ilyra, en ik achtervolg mijn vijanden niet: ik bereik ze van veraf, over de lijn waar niemand naar kijkt. Een loper rent niet; hij trekt een rechte lijn, en in die lijn stond al geschreven wie zou vallen.",
+      "reward": "Bewaarster van de Diagonalen",
+      "chron": [
+        "Vanuit haar hoek op b2 spande Ilyra één enkele diagonaal tot aan het laatste veld, en de dame die zich ver waande viel zonder haar te hebben zien naderen.",
+        "Zij zette het schaak op de rechte lijn en wachtte: de koning wijkte, gehoorzaam, en daarachter wachtte de dame, al de hare langs dezelfde lijn die hem had weggeduwd.",
+        "Over de lichte velden kruiste zij het bord van het ene uiteinde naar het andere, en waar de koning zich veilig waande, had de diagonaal hem al doorboord.",
+        "Zij ontstak het schaak over de witte velden; de koning vluchtte van de rechte lijn en de dame, blootgesteld achteraan, gaf zich over aan de blik van de loper.",
+        "Zonder stem die haar leidde, las Ilyra de stille diagonaal, duwde de koning met een sereen schaak en raapte de toren op die hij verborgen waande achter zijn rug."
+      ],
+      "c1": {
+        "title": "De diagonaal heeft geen einde",
+        "teach": "Een loper regeert zijn hele diagonaal, van de ene rand van het bord tot de andere, hoe ver de vijand zich ook waant. Wat jouw veldkleur deelt, is al binnen jouw bereik.",
+        "observe": "Kijk naar de lange diagonaal vanaf b2: c3, d4, e5, f6, g7... en aan het einde, op h8, de zwarte dame, alleen en zonder verdediging.",
+        "goal": "Sla de dame over de diagonaal.",
+        "hints": [
+          "De loper op b2 en de dame op h8 delen hetzelfde donkere veld: ze staan op één rechte lijn.",
+          "Controleer dat de weg tussen b2 en h8 vrij is van begin tot eind.",
+          "Schuif de loper van b2 naar h8 en verslind de dame."
+        ],
+        "explain": "De loper rijdt de hele diagonaal af en slaat de dame die zich ver waande; afstand beschermt niet wie jouw veldkleur deelt. Het is de wet van de loper: de rechte lijn is helemaal van jou.",
+        "wrong": "Slechts één zet bereikt het einde van de diagonaal; laat de loper de rechte lijn tot de dame afrijden."
+      },
+      "c2": {
+        "title": "De straal die doorboort",
+        "teach": "Een schaak op de diagonaal zoekt niet altijd de koning: het gebruikt hem als deur naar wat hij bewaakt. Wanneer koning en dame jouw rechte lijn delen, moet de koning wijken en onthult hij wie hem volgde.",
+        "observe": "Jouw loper kan naar d4 springen en schaak geven aan de koning op g7; op dezelfde rechte lijn, precies erachter, wacht de dame op h8.",
+        "goal": "Geef het schaak dat koning en dame op één lijn zet.",
+        "hints": [
+          "Zoek het veld van waaruit de loper de koning op g7 op de lange diagonaal pent.",
+          "Koning op g7 en dame op h8 staan op dezelfde rechte lijn: de een ervoor, de ander erachter.",
+          "Speel de loper naar d4 met schaak; wanneer de koning wijkt, valt de dame op h8."
+        ],
+        "explain": "Ld4 pent de koning en, na de gedwongen vlucht, incasseert de loper de dame die aan het einde van de rechte lijn stond. Dat is de röntgenaanval: het schaak op de een ontbloot de ander.",
+        "wrong": "De koning moet eerst wijken; zonder het schaak dat ze op één lijn zet, komt de dame nooit bloot te staan."
+      },
+      "c3": {
+        "title": "De lichte velden",
+        "teach": "Elke loper leeft op één enkele kleur, en daarover heerst hij van kant tot kant van het bord. Over de lichte velden kruist jouw blik het hele veld en bereikt waar de koning niet meer beschermt.",
+        "observe": "Vanaf f1 opent zich de lichte diagonaal: e2, d3, c4, b5, tot a6, waar de zwarte dame ver van haar koning rust, opgesloten door zijn eigen pionnen.",
+        "goal": "Sla de dame over de lichte diagonaal.",
+        "hints": [
+          "De loper op f1 rijdt lichte velden af; volg de rechte lijn naar de damevleugel.",
+          "De dame op a6 deelt die diagonaal en haar koning staat te ver om haar te hulp te komen.",
+          "Breng de loper van f1 naar a6 en neem de dame."
+        ],
+        "explain": "De loper kruist de hele lichte diagonaal en slaat de onverdedigde dame; de koning, begraven achter zijn pionnen, kan niet komen. De heerschappij over één kleur volstaat om de partij te beslissen.",
+        "wrong": "De dame staat onverdedigd aan het einde van jouw lichte rechte lijn; geen andere zet benut die diagonaal."
+      },
+      "c4": {
+        "title": "De koning voorop, de dame erachter",
+        "teach": "Over de lichte velden herhaalt de röntgenaanval zijn wet: ontsteek het schaak en de koning wijkt, en onthult wat hij dekte. De lijn die de vorst wegduwt, is dezelfde die zijn dame opeist.",
+        "observe": "De loper springt naar e4 en geeft schaak aan de koning op c6; op die rechte lijn, achter zijn rug, wacht de dame op b7.",
+        "goal": "Geef het schaak dat koning en dame op één lijn zet.",
+        "hints": [
+          "Vind het lichte veld van waaruit de loper de koning op c6 pent.",
+          "Koning op c6 en dame op b7 staan op dezelfde diagonaal: de koning voorop, de dame erachter.",
+          "Speel de loper naar e4 met schaak; wanneer de koning vlucht, sla de dame op b7."
+        ],
+        "explain": "Le4 pent de koning op de lichte diagonaal en, door zijn vlucht te forceren, laat hij de dame op b7 zonder beschutting. De koning kan niet terugkeren naar de rechte lijn om haar te verdedigen, en de loper raapt haar op.",
+        "wrong": "Zonder het schaak dat ze spiest, bewaakt de koning zijn dame; dwing hem eerst de rechte lijn te verlaten."
+      },
+      "c5": {
+        "title": "De stille lijn",
+        "teach": "Niet altijd wacht een dame aan het einde van de rechte lijn; soms is het een toren die zich veilig waant, ver weg en in de schaduw. De stille diagonaal duwt ook de koning weg en onthult wat hij erachter verbergt.",
+        "observe": "De zwarte koning op c6 en de toren op a8 delen een licht veld. Jouw loper kan e4 bereiken en beide op dezelfde rechte lijn zetten.",
+        "goal": "Zet koning en toren op één lijn met een schaak, en incasseer het stuk aan het einde.",
+        "hints": [],
+        "explain": "Le4 pent de koning op c6 op de lichte diagonaal; gedwongen te vluchten, slaagt hij er niet in de verre toren op a8 te verdedigen, die langs dezelfde rechte lijn valt. De stilste lijn is die welke het verst reikt.",
+        "wrong": "Een andere zet zet de koning niet op één lijn met de toren; alleen het schaak op de diagonaal onthult het stuk aan het einde."
+      }
+    },
+    "tikk": {
+      "intro": "Ik ben Tikk, en nee, ik ben niet zomaar een pion: ik ben de pion die als EERSTE aankomt. Terwijl jij nadenkt, ben ik al gepromoveerd... met schaak, klaar?",
+      "reward": "Bewaker van het Tempo",
+      "chron": [
+        "Hoofdstuk I: Tikk stak fluitend het bord over, promoveerde met schaak en stal de tegenstander de klok voordat hij met zijn ogen knipperde.",
+        "Hoofdstuk II: zonder te remmen at Tikk een paard op TERWIJL hij promoveerde; twee slagen in één tempo, want het tempo is van hem.",
+        "Hoofdstuk III: langs de andere flank, dezelfde truc, dezelfde glimlach; promoveer, schaak, en de klok huilt weer.",
+        "Hoofdstuk IV: Tikk verslond een hele toren op het promotieveld; de tegenstander zocht nog naar zijn plan toen hij er geen meer had.",
+        "Hoofdstuk V: in de Proef versmaadde Tikk de dame en promoveerde tot PAARD met schaak; de perfecte zwischenzug, en niemand zag het aankomen."
+      ],
+      "c1": {
+        "title": "Wie het eerst aankomt",
+        "teach": "In het schaak wint niet altijd de sterkste, maar wie EERDER aankomt. Promoveren met schaak schenkt je een tempo: je dwingt de tegenstander terwijl jij al gebiedt.",
+        "observe": "Kijk naar mijn pion op b7 en naar de zwarte koning op d6, precies op de diagonaal van het promotieveld.",
+        "goal": "Promoveer op b8 met schaak.",
+        "hints": [
+          "Een pion op de zevende rij, één stap van de bevordering... laat hem niet lopen.",
+          "Promoveer tot dame, niet tot toren: alleen de dame geeft schaak aan de koning op d6 over de diagonaal.",
+          "Speel b7b8 en kies dame: schaak, tempo en beslissend voordeel."
+        ],
+        "explain": "b8=D geeft schaak over de diagonaal b8-d6, wint een tempo en laat wit met dame tegen toren, gewonnen.",
+        "wrong": "Te traag: zonder schaak ademt de tegenstander en verlies jij het tempo."
+      },
+      "c2": {
+        "title": "Twee slagen, één tempo",
+        "teach": "Een pion die promoveert met slag doet twee dingen in één tempo: hij neemt een stuk mee ÉN wordt dame geboren. Dat is de klok maximaal uitknijpen.",
+        "observe": "Mijn pion op b7 en dat zwarte paard op c8 dat schreeuwt om verslonden te worden bij de promotie.",
+        "goal": "Sla op c8 en promoveer met schaak.",
+        "hints": [
+          "De pion kan diagonaal slaan precies bij het promoveren.",
+          "Op c8 staat een paard: eet het op en word dame in dezelfde beweging.",
+          "Speel b7xc8=D: je neemt het paard mee en geeft schaak aan de koning op e6."
+        ],
+        "explain": "bxc8=D slaat het paard, promoveert en geeft schaak over de diagonaal c8-e6: materiaal en tempo in één beweging.",
+        "wrong": "Je promoveerde zonder te bijten: je liet het paard leven en verloor de halve buit."
+      },
+      "c3": {
+        "title": "Zelfde truc, andere flank",
+        "teach": "Het tempo kent geen flanken: het maakt niet uit of het de a of de h is, wie met schaak promoveert gebiedt. Herhaal het patroon en de klok blijft aan jouw kant.",
+        "observe": "Mijn pion op g7 en de zwarte koning op d5, op één lijn met de lange diagonaal vanaf g8.",
+        "goal": "Promoveer op g8 met schaak.",
+        "hints": [
+          "De pion op g7 staat één stap van de glorie.",
+          "Alleen de dame bereikt de koning op d5 over de diagonaal g8-d5.",
+          "Speel g7g8=D: schaak, gewonnen tempo en dame tegen toren."
+        ],
+        "explain": "g8=D geeft schaak over de diagonaal g8-d5 en wint een tempo, en wit blijft met dame tegen toren, gewonnen.",
+        "wrong": "Zonder schaak is er geen tempo: de tegenstander herschikt zich en jij gooit je voordeel weg."
+      },
+      "c4": {
+        "title": "Toren als ontbijt",
+        "teach": "Hoe groter het stuk dat je slaat bij de promotie, hoe sneller de partij eindigt. Eet, promoveer en geef schaak: de klok loopt niet eens door.",
+        "observe": "Mijn pion op h7 en een hele zwarte toren die op g8 wacht.",
+        "goal": "Sla de toren op g8 en promoveer met schaak.",
+        "hints": [
+          "De pion op h7 kan diagonaal slaan richting g8.",
+          "Op g8 staat een TOREN: neem hem mee en promoveer tegelijk.",
+          "Speel h7xg8=D: je eet de toren op en geeft schaak aan de koning op e6."
+        ],
+        "explain": "hxg8=D slaat de toren, promoveert en geeft schaak over de diagonaal g8-e6: enorme winst in één tempo.",
+        "wrong": "Je promoveerde aan de verkeerde kant: de toren leeft nog en de tegenstander is je dankbaar."
+      },
+      "c5": {
+        "title": "De gestolen tijd",
+        "teach": "Soms is de dame niet het antwoord: het beslissende tempo geeft de zwischenzug, de tussenzet met schaak die niemand verwacht. Promoveer tot PAARD, geef schaak en steel de vijandelijke dame voordat hij reageert.",
+        "observe": "De koning op d7 en de dame op a6 staan een paardsprong van elkaar vanaf b8.",
+        "goal": "Vind de promotie met schaak die de dame wint.",
+        "hints": [],
+        "explain": "b8=P geeft schaak aan de koning op d7 en valt tegelijk de dame op a6 aan: de koning moet wijken en Pxa6 neemt de dame mee, met een gewonnen voorsprong van stuk en pion.",
+        "wrong": "Tot dame promoveren maakt slechts gelijk: je verliest het tempo van het dubbele schaak en daarmee de partij."
+      }
+    },
+    "malrec": {
+      "intro": "Ik ben Malrec, en ik heb meer promoties overleefd dan jij er zult zien vallen. Ik heb geen dame die me redt noch torens die me bewenen: slechts een koning die het gevaar tegemoet loopt omdat hij leerde dat stil blijven staan sterven is.",
+      "reward": "De Koning die Overleeft",
+      "chron": [
+        "Het vijandelijke paard zwierf te dichtbij; mijn koning wendde de blik niet af, rukte op naar c5 en verslond het zonder te beven.",
+        "Ze brachten de toren naar beneden in de waan dat hij veilig was op de zesde; mijn oude koning verhief zich van zijn troon en rukte hem van het bord.",
+        "De dame kwam mijn keel zoeken, en in haar arrogantie plaatste ze zich binnen mijn handbereik: c5, en de dame viel voor de koning.",
+        "Ik haalde mijn koning uit de lijn en liet de toren spreken: b6, en in de hoek stikte de vijandelijke koning in de stilte.",
+        "Zonder stemmen die me leidden, trad mijn koning naar buiten en nam wat niemand durfde te nemen: zo eindigt het pad van wie overleeft."
+      ],
+      "c1": {
+        "title": "De koning die niet terugwijkt",
+        "teach": "In het eindspel houdt de koning op een vluchteling te zijn en wordt hij beul. Een los stuk binnen zijn bereik wordt niet vergeven: zet een stap voorwaarts en eet het op.",
+        "observe": "Jouw koning op d4 en het zwarte paard op c5, op één enkele stap, zonder iemand die het verdedigt. In het eindspel weegt elk stuk als een berg.",
+        "goal": "Ruk op en sla het paard.",
+        "hints": [
+          "Kijk welke velden jouw koning raakt; een ervan bewaakt een vijandelijk stuk.",
+          "Het paard op c5 staat alleen, noch zijn koning noch zijn pion dekt het.",
+          "Kxc5: jouw koning neemt het paard mee en het eindspel is gewonnen."
+        ],
+        "explain": "Kxc5 wint een heel paard zonder kosten, want niets verdedigt dat veld. Met een stuk voorsprong heeft het eindspel nog maar één eigenaar.",
+        "wrong": "Schuchter: de koning terugtrekken laat het paard leven en je geeft het eindspel weg dat al van jou was."
+      },
+      "c2": {
+        "title": "De troon verheft zich",
+        "teach": "Een actieve koning in het eindspel is meer waard dan de angst die men voor hem heeft. De toren die zonder escorte nadert, is voer voor jouw vorst.",
+        "observe": "Jouw koning op e5, in het centrum, en de zwarte toren op d6 binnen handbereik, zonder pion of koning die hem overeind houden.",
+        "goal": "Neem de toren met de koning.",
+        "hints": [
+          "Jouw koning gebiedt in het centrum; een naburig veld verbergt een toren.",
+          "De toren op d6 heeft geen bewaking: noch de koning op b7 noch de pion beschermt hem.",
+          "Kxd6: jouw koning verheft zich en rukt de toren van het bord."
+        ],
+        "explain": "Kxd6 slaat een onverdedigde toren en beslist het eindspel in één klap. De centrale koning vlucht niet: hij incasseert.",
+        "wrong": "Fout: elke andere zet spaart de toren en daarmee jouw voordeel."
+      },
+      "c3": {
+        "title": "De dame binnen bereik",
+        "teach": "Het gevaar is jouw vak: wanneer de dame je komt doden, kijk of ze te dichtbij is gekomen. Overleven is de moed hebben te eten wat jou wilde verslinden.",
+        "observe": "Jouw koning op d4 staat schaak van de dame op c5, maar die dame kleeft aan je en niemand beschermt haar. De schrik verbergt een cadeau.",
+        "goal": "Reageer op het schaak door de dame te slaan.",
+        "hints": [
+          "Je staat schaak: niet elk schaak is een dreiging, sommige zijn een onachtzaamheid.",
+          "De dame op c5 valt je aan vanaf een naburig veld, en staat alleen.",
+          "Kxc5: jouw koning reageert op het schaak door de hele dame mee te nemen."
+        ],
+        "explain": "Kxc5 komt uit het schaak en slaat de dame in één klap, want niets verdedigt haar. Wie jou bedreigde ligt onder jouw voet.",
+        "wrong": "Fataal: van het schaak vluchten laat de dame leven en daarmee verlies je het eindspel en je leven."
+      },
+      "c4": {
+        "title": "De koning wijkt en doodt",
+        "teach": "Soms is de beste zet van de koning zich uit de weg te ruimen. Door te wijken laat hij het stuk spreken dat zijn lichaam verborg, en die stem is een vonnis.",
+        "observe": "Jouw toren op a1 en de zwarte koning op a8 delen de lijn, maar jouw eigen koning op a6 dekt de blik af. Jouw loper op f4 bewaakt in stilte het veld b8.",
+        "goal": "Wijk met de koning en ontdek het mat.",
+        "hints": [
+          "Jouw koning dekt de lijn van jouw toren; als hij wijkt, geeft de toren schaak op a8.",
+          "Zoek het veld waar jouw koning, door te bewegen, a7 en b7 dekt terwijl de loper b8 verzegelt.",
+          "Kb6: ontdek het torenschaak en de zwarte koning houdt geen enkel veld over."
+        ],
+        "explain": "Kb6 ontdekt het schaak van de toren over de a-lijn; de koning op a6 gaat a7 en b7 dekken, en de loper op f4 dekte b8 al. Zonder vlucht is het mat.",
+        "wrong": "Nee: de koning naar elk ander veld bewegen laat een luchtgat en het mat ontsnapt."
+      },
+      "c5": {
+        "title": "De proef van Malrec",
+        "teach": "Zonder hints, zonder handen die je overeind houden. De koning moet het open veld op en nemen wat anderen vrezen aan te raken.",
+        "observe": "Jouw koning op c4 en de zwarte toren op b5, actief op de vijfde rij. De vijandelijke koning staat ver weg, zorgend voor zijn pion; niemand bewaakt de toren.",
+        "goal": "Trek eruit met de koning en sla de toren.",
+        "hints": [],
+        "explain": "Kxb5 neemt een onverdedigde toren mee en laat het eindspel gewonnen; de koning die durft uit te breken incasseert wat de schuchtere nooit zal zien. Noch de pion noch de verre koning kunnen haar wreken.",
+        "wrong": "Nee: de toren staat los en alleen jouw koning, het open veld op, neemt hem mee."
+      }
+    },
+    "solenne": {
+      "intro": "Ik ben Solenne, en ik werd geboren als het nederigste stuk van het bord: een simpele pion. Maar een vrijpion loopt zonder angst naar de achtste rij, en wie leert promoveren leert dat geen enkel bescheiden begin het einde bepaalt.",
+      "reward": "Kroon van de Achtste Rij",
+      "chron": [
+        "Mijn pion zette de laatste stap naar b8 en werd dame geboren met schaak; wat klein begon, eindigde met heerschappij over het bord.",
+        "Op b7 stopte ik niet voor het paard: ik sloeg het bij de promotie op c8, en in één stap won ik stuk en kroon.",
+        "Ik rukte op naar g8 en de nieuwe dame kruiste het bord om de koning te pennen; de geduldige pion werd dame.",
+        "De toren meende mij de weg te versperren, maar op g8 verslond ik hem bij de promotie met schaak; zo baant een vrijpion zich een weg.",
+        "Zonder stemmen die me leidden, promoveerde ik tot paard in plaats van dame en de sprong ving koning en dame tegelijk: de nederigheid weet ook haar vorm te kiezen."
+      ],
+      "c1": {
+        "title": "De laatste stap",
+        "teach": "Een vrijpion is er een die geen vijandelijke pionnen meer voor zich of naast zich heeft: zijn weg naar de promotie is vrij. Wanneer hij de zevende rij bereikt, verandert één stap meer hem in een dame.",
+        "observe": "Jouw pion op b7 heeft de achtste rij binnen bereik en geen enkele rivaal kan hem tegenhouden. Bij de promotie op b8 zal de nieuwe dame de zwarte koning op d6 frontaal aankijken.",
+        "goal": "Ruk de pion op en promoveer tot dame met schaak.",
+        "hints": [
+          "Jouw pion op b7 staat één enkele stap van de achtste rij.",
+          "Promoveer op b8 door het sterkste stuk te kiezen en bekijk de rij van de koning.",
+          "b8=D+ wordt geboren met schaak op d6; de koning moet reageren en jij wint een hele dame."
+        ],
+        "explain": "b8=D promoveert met schaak op de achtste rij; de vrijpion had geen tegenstand en nu heb je een dame voorsprong. De nederigste stap werd de machtigste.",
+        "wrong": "Je vergat de laatste stap te zetten: een pion die niet promoveert verspilt zijn hele weg."
+      },
+      "c2": {
+        "title": "Promoveren met slag",
+        "teach": "Soms kruist de weg naar de achtste rij een vijandelijk stuk in de diagonaal: je kunt het slaan en promoveren in dezelfde beweging. Zo win je het stuk en de kroon in één klap.",
+        "observe": "Jouw pion op b7 heeft voor zich het zwarte paard op c8, precies op zijn promotiediagonaal. De koning op e6 kan niet op tijd komen.",
+        "goal": "Sla het paard door tot dame te promoveren.",
+        "hints": [
+          "Het paard op c8 staat op de slagdiagonaal van jouw pion.",
+          "Ruk niet recht op: eet het paard op bij de promotie.",
+          "bxc8=D+ schakelt het paard uit en geeft je een dame met schaak; dubbele buit."
+        ],
+        "explain": "bxc8=D slaat het paard en promoveert tegelijk met schaak; je telt stuk en dame op zonder iets terug te geven. De vrijpion weet zich al etend een weg te banen.",
+        "wrong": "Recht promoveren laat het paard leven: benut de slag en neem alles mee."
+      },
+      "c3": {
+        "title": "De dame die oversteekt",
+        "teach": "Promoveren telt niet alleen materiaal op: het schept uit het niets het snelste stuk van het bord. Pasgeboren bereikt de dame in een oogwenk wat aan de andere kant stond.",
+        "observe": "Jouw pion op g7 promoveert vrij op g8. Vandaar zal de nieuwe dame de zwarte koning op d5 diagonaal zien.",
+        "goal": "Promoveer tot dame en geef schaak aan de koning.",
+        "hints": [
+          "Jouw pion op g7 bereikt alleen de achtste rij.",
+          "Promoveer op g8 en bekijk de lange diagonaal naar het centrum.",
+          "g8=D+ pent de koning op d5 vanuit de hoek; de dame beheerst het bord bij haar geboorte."
+        ],
+        "explain": "g8=D promoveert en geeft schaak over de diagonaal g8-d5; uit een pion wordt een dame geboren die het hele bord regeert. Dat is de beloning van het geduld.",
+        "wrong": "Zonder te promoveren blijft jouw pion staan te kijken: zet de stap en laat de dame geboren worden."
+      },
+      "c4": {
+        "title": "De bewaker verslinden",
+        "teach": "Wanneer een toren probeert je de achtste rij te versperren, vrees hem niet: als hij op jouw diagonaal staat, sla je hem bij de promotie. Het obstakel wordt jouw laatste prooi.",
+        "observe": "Jouw pion op h7 heeft de zwarte toren op g8, op zijn promotiediagonaal. De koning op e6 zal blootgesteld staan aan de nieuwe dame.",
+        "goal": "Sla de toren en promoveer met schaak.",
+        "hints": [
+          "De toren op g8 denkt je te blokkeren, maar staat op jouw diagonaal.",
+          "Eet hem op bij de promotie in plaats van recht te duwen.",
+          "hxg8=D+ schakelt de toren uit en geeft schaak op e6; je wint toren en kroon in één klap."
+        ],
+        "explain": "hxg8=D slaat de toren en promoveert met schaak op e6; de bewaker die je wilde tegenhouden voedt jouw opgang. Een vrijpion vraagt geen toestemming: hij baant zich een weg.",
+        "wrong": "Recht duwen botst tegen de toren: sla diagonaal en je promoveert door hem te verslinden."
+      },
+      "c5": {
+        "title": "De proef van Solenne",
+        "teach": "Zonder hints of stemmen. Tot dame promoveren is niet altijd het beste: soms moet het nederige stuk een andere vorm kiezen om koning en dame tegelijk te vangen.",
+        "observe": "Jouw pion op b7 promoveert vrij, maar de koning op d7 en de dame op a6 staan op een eigenaardige manier geplaatst. Bedenk welk stuk ze beide bereikt.",
+        "goal": "Promoveer tot het stuk dat schaak geeft en win de dame.",
+        "hints": [],
+        "explain": "b8=P promoveert tot paard met schaak en vorkt de koning op d7 en de dame op a6; de koning moet wijken en de dame valt. De onderpromotie, bescheiden in schijn, wint de partij.",
+        "wrong": "Nee: tot dame promoveren geeft slechts schaak, maar er bestaat een stuk dat de koning en de dame tegelijk aanvalt."
+      }
+    },
+    "presence": {
+      "label": "Jouw kampioen",
+      "win": "Overwinning. Je speelde precies zoals ik je zou hebben geleerd.",
+      "lose": "Elke nederlaag verbergt een les. De volgende partij is voor ons.",
+      "draw": "Remise. Ook evenwicht wordt beheerst.",
+      "check": "Pas op: je koning staat schaak.",
+      "thinking": "Kijk. De beste zet schreeuwt zelden.",
+      "sendaCta": "Bewandel mijn Pad van Meesterschap in de codex."
+    }
   }
 }

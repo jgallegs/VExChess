@@ -1121,5 +1121,1208 @@
       "community": "Comunidad",
       "myGames": "Mis partidas"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Iniciado",
+      "aprendiz": "Aprendiz",
+      "adepto": "Adepto",
+      "experto": "Experto",
+      "maestro": "Maestro",
+      "pleno": "Vínculo pleno"
+    },
+    "ui": {
+      "start": "Iniciar Senda de Maestría",
+      "continue": "Continuar Senda",
+      "soon": "Senda de Maestría · próximamente",
+      "sectionTitle": "Senda de Maestría",
+      "chapter": "Capítulo {n}/{total}",
+      "trialTag": "Trial",
+      "vinculo": "Vínculo",
+      "observe": "Observa",
+      "hint": "Pedir una pista",
+      "hintCount": "Pista {n}/{total}",
+      "lastHint": "última",
+      "correct": "¡Correcto!",
+      "next": "Siguiente →",
+      "teachNext": "Entendido →",
+      "practice": "Practícalo →",
+      "finishChapter": "Terminar capítulo →",
+      "chronicleUnlocked": "Crónica desbloqueada",
+      "reward": "Recompensa de maestría",
+      "completeTitle": "Senda completada",
+      "completeMsg": "Has recorrido la Senda entera. El vínculo con este campeón es pleno.",
+      "back": "Volver al códice",
+      "trialNoHints": "En el Trial no hay pistas: confía en lo que has aprendido.",
+      "wrongRetry": "Vuelve a intentarlo.",
+      "yourMove": "Te toca",
+      "vinculoSub": "Sin ventaja competitiva · solo aprendizaje, narrativa y colección",
+      "chapterDone": "Capítulo superado",
+      "guestMsg": "Entra para recorrer la Senda y guardar tu vínculo.",
+      "loginBtn": "Entrar",
+      "chaptersDone": "{n}/{total} capítulos",
+      "trialsHint": "El último capítulo es un Trial sin pistas."
+    },
+    "noctis": {
+      "intro": "Soy Noctis. No atravieso la oscuridad: la divido. Voy a enseñarte a ver las dos amenazas que caben en un solo salto. Observa, predice y ejecuta.",
+      "reward": "Título desbloqueado: «Doble Sombra»",
+      "chron": [
+        "Cada salto mío deja dos sombras. Solo una es real.",
+        "Aprendí a golpear donde nadie defiende: entre dos piezas a la vez.",
+        "El rey es el mejor rehén: obliga a responder y deja libre a su reina.",
+        "No busco la pieza. Busco la casilla desde la que dos piezas ya son mías.",
+        "Cuando veas la horquilla antes de moverla, no necesitarás mis sombras."
+      ],
+      "c1": {
+        "title": "La primera sombra",
+        "teach": "La horquilla ataca dos piezas con una sola jugada. Empecemos por la más limpia: un jaque que, de paso, se lleva una torre.",
+        "observe": "El rey negro está en e8 y la torre en a8. Busca la casilla desde la que un caballo toque a las dos.",
+        "goal": "Da jaque y ataca la torre con el caballo.",
+        "hints": [
+          "Un caballo en c7 alcanza e8 y a8 a la vez.",
+          "La casilla clave está a un salto: d5 → c7.",
+          "Cd5-c7+: jaque al rey y horquilla a la torre."
+        ],
+        "explain": "Cc7+ es jaque: el rival debe atender a su rey y la torre de a8 cae. Esa es la horquilla en su forma más pura: obligas primero y ganas después.",
+        "wrong": "Casi. Una sola casilla debe tocar al rey y a la torre. Piensa en c7."
+      },
+      "c2": {
+        "title": "El rey como cebo",
+        "teach": "Cuando la horquilla incluye al rey, es imparable: el jaque obliga y la pieza mayor queda a tu merced.",
+        "observe": "Rey negro en e8, dama en c8. Encuentra el salto que da jaque y también mira a la dama.",
+        "goal": "Horquilla al rey y a la dama.",
+        "hints": [
+          "Desde d6 un caballo ataca e8 y c8.",
+          "e4 → d6, con jaque.",
+          "Cd6+ gana la dama tras el jaque."
+        ],
+        "explain": "Cd6+ ataca al rey (jaque forzoso) y a la dama en c8. El rey se mueve y la dama es tuya. El rey es el mejor cebo de una horquilla.",
+        "wrong": "No es esa. La casilla debe dar jaque en e8 y tocar c8 a la vez: mira d6."
+      },
+      "c3": {
+        "title": "Desde el otro ángulo",
+        "teach": "La misma idea funciona en cualquier flanco. Entrena el ojo para verla también por la derecha.",
+        "observe": "Rey en e8, dama en g8. Encuentra el salto que amenaza a los dos.",
+        "goal": "Jaque al rey y ataque a la dama.",
+        "hints": [
+          "f6 toca e8 y g8.",
+          "g4 → f6, con jaque.",
+          "Cf6+ y la dama de g8 cae."
+        ],
+        "explain": "Cf6+ da jaque desde el otro lado y ataca g8. La horquilla no tiene lado favorito: solo casillas correctas.",
+        "wrong": "Aún no. Busca la casilla que toque e8 y g8: es f6."
+      },
+      "c4": {
+        "title": "El salto silencioso",
+        "teach": "A veces la casilla de la horquilla parece inofensiva… hasta que el caballo llega. Confía en el patrón.",
+        "observe": "Rey en g8, dama en c8 y tu caballo en g6. ¿Qué casilla toca a ambos?",
+        "goal": "Horquilla al rey y a la dama.",
+        "hints": [
+          "e7 alcanza g8 y c8.",
+          "g6 → e7, con jaque.",
+          "Ce7+ y ganas la dama."
+        ],
+        "explain": "Ce7+ conecta g8 (jaque) con c8 (dama). Un salto tranquilo, un botín enorme. Ya reconoces el patrón.",
+        "wrong": "No es esa. La casilla que toca g8 y c8 es e7."
+      },
+      "c5": {
+        "title": "Trial · La sombra sin aviso",
+        "teach": "Sin jaque no hay aviso: aquí la horquilla no grita, la ves o la pierdes. Sin pistas: confía en lo aprendido.",
+        "observe": "Dos torres negras, en d8 y f8. Una sola casilla las mira a las dos.",
+        "goal": "Horquilla a las dos torres.",
+        "hints": [],
+        "explain": "Ce6 ataca d8 y f8 al mismo tiempo. No hay jaque, pero una torre caerá. Has aprendido a ver la horquilla sin que nadie te avise.",
+        "wrong": "Una torre debe quedar atacada junto a la otra. Busca la casilla entre d8 y f8."
+      }
+    },
+    "kael": {
+      "intro": "Soy Kael, y mi caballo no pide permiso: ataca. Sígueme y aprende a robar el tempo, desarrollar con furia y quedarte con la iniciativa antes de que el rival respire.",
+      "reward": "Jinete del Tempo",
+      "chron": [
+        "Mi caballo saltó a e7 con jaque y la dama enemiga cayó sin un lamento.",
+        "En el rincón acorralé al rey y le arranqué la torre de cuajo.",
+        "Un salto a f7 y el silencio del mate cerró la partida.",
+        "Castigué al rey que no se atrevió a desarrollarse: jaque, y su dama fue mía.",
+        "Sin pistas y sin dudas, el potro golpeó y el tablero se rindió."
+      ],
+      "c1": {
+        "title": "El Salto que Roba la Dama",
+        "teach": "El jaque manda: cuando das jaque, el rival obedece y tú marcas el ritmo. Un caballo que jaquea y ataca la dama gana tempo y material de un solo golpe.",
+        "observe": "Mira dónde están el rey negro y su dama: busca una casilla que ataque a los dos a la vez.",
+        "goal": "Da jaque y bifurca al rey y la dama.",
+        "hints": [
+          "Busca un salto de caballo que dé jaque al rey en g8.",
+          "La casilla e7 toca al rey y a la dama al mismo tiempo.",
+          "Juega Ce7+ y, tras mover el rey, captura la dama en c6."
+        ],
+        "explain": "Ce7+ es jaque: el rey debe moverse y no puede defender la dama, que cae en c6.",
+        "wrong": "Sin jaque pierdes la iniciativa; obliga al rey y quédate con la dama."
+      },
+      "c2": {
+        "title": "Emboscada en el Rincon",
+        "teach": "La iniciativa nace de amenazar con tempo. Un caballo que jaquea en el rincón fuerza al rey y desnuda su torre.",
+        "observe": "El rey negro duerme en a8 y su torre en e8: una horquilla los une.",
+        "goal": "Da jaque y gana la torre.",
+        "hints": [
+          "El caballo puede saltar a c7 dando jaque.",
+          "Desde c7 el caballo ataca al rey y a la torre de e8.",
+          "Cc7+ y luego Cxe8: la torre es tuya."
+        ],
+        "explain": "Cc7+ obliga al rey a huir y el caballo devora la torre en e8.",
+        "wrong": "No dejes escapar al rey de balde: el jaque en c7 es tu única llave."
+      },
+      "c3": {
+        "title": "El Mate del Potro",
+        "teach": "El desarrollo culmina en el ataque: cuando el rey se asfixia entre sus piezas, un caballo remata. El tempo perfecto convierte un salto en jaque mate.",
+        "observe": "El rey negro está sepultado por su torre y sus peones; solo falta el golpe.",
+        "goal": "Da jaque mate con el caballo.",
+        "hints": [
+          "El rey no tiene ni una casilla libre.",
+          "Un salto a f7 da jaque y no hay escape posible.",
+          "Cf7 es mate: entrégalo con orgullo."
+        ],
+        "explain": "Cf7# da jaque y el rey, ahogado por sus propias piezas, no puede huir ni capturar.",
+        "wrong": "Busca el jaque del que no se puede escapar: f7 lo sella."
+      },
+      "c4": {
+        "title": "Castigo al Rey Perezoso",
+        "teach": "Quien no desarrolla, paga: un rey atrapado en el centro es presa fácil. Ataca con tempo y la iniciativa se vuelve botín.",
+        "observe": "El rey negro sigue en e7 y su dama vaga por b4: ambos al alcance de un salto.",
+        "goal": "Da jaque en el centro y gana la dama.",
+        "hints": [
+          "El rey expuesto en e7 invita a la horquilla.",
+          "Desde c6 el caballo jaquea al rey y ataca la dama en b4.",
+          "Cc6+ y después Cxb4: la dama es tuya."
+        ],
+        "explain": "Cc6+ es jaque de doble filo: el rey huye y la dama de b4 cae sin remedio.",
+        "wrong": "Aprovecha al rey en el centro: solo el jaque en c6 gana la dama."
+      },
+      "c5": {
+        "title": "Prueba del Jinete: Sin Piedad",
+        "teach": "Aquí no hay pistas, solo tu instinto. Encuentra el salto que da jaque y arranca la dama: demuestra que dominas el tempo.",
+        "observe": "El rey en c8 y la dama en f5 esperan tu veredicto.",
+        "goal": "Da jaque y llévate la dama.",
+        "hints": [],
+        "explain": "Cd6+ jaquea al rey en c8 y ataca la dama en f5; el rey huye y Cxf5 cierra el atraco.",
+        "wrong": "El tempo se te escapó: busca el jaque que también toca la dama."
+      }
+    },
+    "aurelia": {
+      "intro": "Soy Aurelia, y mi dama no se mueve por impulso: se mueve por convicción. Antes de tocar una pieza veo la partida terminada; sígueme y aprenderás a calcular hasta el final.",
+      "reward": "Senda de la Dama Serena",
+      "chron": [
+        "En el primer paso la dama descendió al séptimo, y el rey no encontró a dónde huir.",
+        "Vi la última fila cerrarse antes de que existiera; sus propios peones fueron su condena.",
+        "Un peón cruzó el tablero y renació convertido en reina: el cálculo premia a la paciencia.",
+        "No capturé por codicia, sino por certeza; la dama enemiga cayó sin librar batalla.",
+        "Sin pistas y sin dudas elegí la única senda, y el mate floreció sobre la diagonal."
+      ],
+      "c1": {
+        "title": "El descenso de la dama",
+        "teach": "Calcular es ver la posición final antes de mover una sola pieza. La dama y el rey tejen juntos una red de la que el monarca rival no escapa.",
+        "observe": "Mira las casillas de escape del rey negro y descubre quién las vigila.",
+        "goal": "Da jaque mate en una jugada.",
+        "hints": [
+          "Tu rey en f6 ya controla g7; la dama puede apoyarse en él.",
+          "Busca la casilla desde la que la dama ataque al rey sin poder ser capturada.",
+          "Lleva la dama a g7: el rey de h8 quedará sin aire."
+        ],
+        "explain": "Dg7 es jaque mate: el rey de f6 defiende a la dama y le arrebata al monarca negro las casillas g8, h7 y g7.",
+        "wrong": "El rey ha escapado; recalcula qué casilla cierra todas sus salidas."
+      },
+      "c2": {
+        "title": "La ultima fila",
+        "teach": "Un rey encerrado tras sus propios peones vive en peligro constante. Saber calcular la fila del fondo decide innumerables partidas.",
+        "observe": "Observa los peones f7, g7 y h7: aprisionan a su propio rey.",
+        "goal": "Encuentra el mate en una.",
+        "hints": [
+          "El rey negro no tiene casillas por delante; sus peones lo asfixian.",
+          "La columna d permanece abierta hasta el fondo del tablero.",
+          "Invade la octava fila con la dama: Dd8."
+        ],
+        "explain": "Dd8 es mate: la dama domina toda la octava fila y los peones impiden cualquier huida.",
+        "wrong": "Aun queda una salida; asegurate de dominar la fila completa."
+      },
+      "c3": {
+        "title": "La coronacion",
+        "teach": "Elegir la variante incluye elegir en qué pieza coronar. La dama, casi siempre, es la respuesta más letal.",
+        "observe": "El peón está a un paso de coronar y tu rey en f6 sostiene la maniobra.",
+        "goal": "Corona y da mate.",
+        "hints": [
+          "El peón de h7 puede coronar de inmediato.",
+          "Tu rey vigila e7, f7 y g7; solo falta cerrar la octava fila.",
+          "Corona en dama: h8=D es jaque mate."
+        ],
+        "explain": "h8=D es mate: la nueva dama controla la octava fila mientras el rey blanco cubre las casillas de fuga.",
+        "wrong": "Esa promoción no cierra la red; corona en dama y calcula el mate."
+      },
+      "c4": {
+        "title": "La captura serena",
+        "teach": "No toda variante se corona con jaque mate; a veces se elige la que gana material sin el menor riesgo. Calcular es también reconocer la ganancia limpia.",
+        "observe": "La columna d une a tu dama con la dama enemiga.",
+        "goal": "Gana la dama rival.",
+        "hints": [
+          "La dama negra en d8 no tiene ninguna defensa.",
+          "Tu dama dispone de la columna d despejada.",
+          "Captura con jaque: Dxd8+."
+        ],
+        "explain": "Dxd8+ captura la dama enemiga con jaque y deja una ventaja decisiva, sin complicación alguna.",
+        "wrong": "Elegiste una variante inferior; la captura limpia era la senda."
+      },
+      "c5": {
+        "title": "La diagonal decisiva",
+        "teach": "Ahora calculas sola: sin pistas, sin apoyos, solo tu visión. Elige la única senda que corona todo el esfuerzo.",
+        "observe": "Tu caballo en h5 y tu dama trabajan en silencio sobre el rey.",
+        "goal": "Halla el mate en una.",
+        "hints": [],
+        "explain": "Dg7 es mate: el caballo de h5 defiende a la dama, y el rey de h8 pierde g8 y h7.",
+        "wrong": "No era la senda; solo una jugada entrega el mate exacto."
+      }
+    },
+    "bastion": {
+      "intro": "Soy Bastion, torre y baluarte de VEXCHESS: no avanzo por columnas cerradas ni retrocedo ante la dama. Sigueme y aprenderas que dos torres unidas son una muralla que ataca.",
+      "reward": "Baluarte de las Torres Unidas",
+      "chron": [
+        "Reclame la columna abierta como territorio propio y mi torre cayo sobre la octava fila: el rey no tuvo muro tras el cual esconderse.",
+        "Descendi a la septima fila como quien patrulla una frontera, y el enemigo desguarnecido pago con su torre.",
+        "Uni mis dos torres hombro con hombro; una cerro la unica puerta mientras la otra daba el golpe final.",
+        "Sin temer a la dama, la enfile contra su propio rey y la derribe: ninguna pieza es invencible ante una torre bien plantada.",
+        "Solo, sin una sola voz que me guiara, trace la enfilada exacta y la senda quedo conquistada."
+      ],
+      "c1": {
+        "title": "La columna abierta",
+        "teach": "Una columna abierta es un camino que la torre reclama para si; por ella penetra hasta la retaguardia enemiga. Quien domina la columna domina la partida.",
+        "observe": "Mira la columna b: esta despejada de principio a fin, y la ultima fila del rey negro no tiene guardia.",
+        "goal": "Invade la octava fila y da jaque mate.",
+        "hints": [
+          "La columna b es tuya: ninguna pieza te cierra el paso.",
+          "Los peones f7, g7 y h7 encierran a su propio rey.",
+          "Sube la torre hasta el fondo: Tb8 es mate."
+        ],
+        "explain": "Tb8 es mate: la torre recorre la columna abierta hasta la octava fila y los peones niegan al rey toda huida.",
+        "wrong": "El rey respira todavia; toma la columna abierta hasta el final."
+      },
+      "c2": {
+        "title": "La torre en la septima",
+        "teach": "La septima fila es tierra de saqueo para la torre; alli cae el material sin defensa. Avanza por la columna abierta y cobra tu presa.",
+        "observe": "La torre negra en a7 esta sola, sin un solo defensor que la cubra.",
+        "goal": "Captura la torre enemiga.",
+        "hints": [
+          "La columna a esta despejada ante ti.",
+          "Ninguna pieza negra defiende la casilla a7.",
+          "Baja por la columna y captura: Txa7."
+        ],
+        "explain": "Txa7 gana una torre entera: la columna abierta lleva tu torre a la septima y el rey en g8 esta demasiado lejos para responder.",
+        "wrong": "Dejaste escapar el botin; la columna abierta te entregaba la torre."
+      },
+      "c3": {
+        "title": "Torres conectadas",
+        "teach": "Dos torres que se protegen valen mas que el doble de una sola: una ataca y la otra cierra la puerta. Conectadas, tejen una red de la que el rey no escapa.",
+        "observe": "El rey negro en a8 solo puede sonar con b7; observa que torre vigila esa casilla.",
+        "goal": "Da jaque mate con las dos torres.",
+        "hints": [
+          "La torre de b1 ya cubre la casilla b7, unica salida del rey.",
+          "Necesitas dar jaque en la octava fila sin que el rey pueda huir.",
+          "Lleva la otra torre a la octava: Tc8 es mate."
+        ],
+        "explain": "Tc8 es mate: una torre da jaque en la octava fila mientras su companera desde b1 clausura b7. Ese es el poder de las torres conectadas.",
+        "wrong": "Una sola torre no basta; deja que ambas trabajen juntas."
+      },
+      "c4": {
+        "title": "La torre que gana a la dama",
+        "teach": "Una torre bien plantada en columna abierta no teme a la dama: la enfrenta de igual a igual. Con un jaque en la columna, alinea al rey y a la dama y cobra la pieza mayor.",
+        "observe": "El rey negro en a4 y la dama en a8 comparten la misma columna; solo falta abrirla con jaque.",
+        "goal": "Gana la dama enemiga con una enfilada.",
+        "hints": [
+          "La columna a alinea al rey de a4 con la dama de a8.",
+          "Da jaque por la columna a: enfilaras al rey con la dama detras.",
+          "Juega Ta1+; cuando el rey se aparte, Txa8 gana la dama."
+        ],
+        "explain": "Ta1+ es una enfilada: el rey y la dama caen en la misma columna. El rey debe apartarse y entonces Txa8 se lleva la dama.",
+        "wrong": "La dama sobrevivio; usa la columna y el jaque para enfilarla."
+      },
+      "c5": {
+        "title": "La senda del guardian",
+        "teach": "Ahora defiendes y atacas sin consejo alguno; solo tu calculo sostiene la posicion. Encuentra la enfilada que corona la senda.",
+        "observe": "El rey negro en e5 y la torre en e8 comparten la columna e, aun cerrada.",
+        "goal": "Halla la jugada que gana la torre.",
+        "hints": [],
+        "explain": "Te1+ enfila al rey con la torre detras en la columna e; el rey se aparta y Txe8 gana la torre.",
+        "wrong": "No era la senda; una sola jugada enfila al rey y gana la torre."
+      }
+    },
+    "nyra": {
+      "intro": "Soy Nyra. No grito mis intenciones: las deslizo por una diagonal y espero a que el tablero comprenda. Un alfil bien colocado ya ganó la partida; solo falta que el rival se entere.",
+      "reward": "Senda de la Diagonal",
+      "chron": [
+        "En el primer paso dejé que la diagonal hablara: la torre cayó sin que yo alzara la voz.",
+        "Crucé el tablero entero en silencio y encontré a la dama desprevenida; la infiltración no pide permiso.",
+        "El caballo fingía guardar la casa, clavado como estaba; le agradecí la comedia y me llevé la torre.",
+        "Fijé al guardián contra su propio rey y recogí la dama con un jaque, casi con pena.",
+        "Sin pistas, alineé al rey con su reina y aparté a uno para quedarme con la otra."
+      ],
+      "c1": {
+        "title": "El alcance de la diagonal",
+        "teach": "El alfil no corre: alcanza. Una diagonal despejada convierte la distancia en amenaza inmediata.",
+        "observe": "Sigue la diagonal de tu alfil hasta el extremo opuesto del tablero.",
+        "goal": "Captura la torre.",
+        "hints": [
+          "Tu alfil habita un solo color; mira la diagonal larga que domina.",
+          "La torre negra descansa sobre esa misma diagonal, sin quien la proteja.",
+          "Alfil de c3 a g7: recórrela entera."
+        ],
+        "explain": "Axg7 gana la torre limpia: nada se interpone en la diagonal y nadie la defiende.",
+        "wrong": "Dejaste la diagonal a medias; la torre sigue en pie."
+      },
+      "c2": {
+        "title": "Infiltracion",
+        "teach": "Una diagonal abierta es un camino hasta el corazon enemigo. El alfil se cuela sin ruido y cobra lo que encuentra.",
+        "observe": "La diagonal larga cruza el tablero desde tu alfil hasta la dama negra.",
+        "goal": "Gana la dama.",
+        "hints": [
+          "Desde g2 tu alfil mira siete casillas hacia el flanco contrario.",
+          "Nada bloquea el camino hasta b7, y la dama no tiene escolta.",
+          "Alfil a b7: infiltra la diagonal y captura."
+        ],
+        "explain": "Axb7 se lleva la dama: la infiltracion por la diagonal larga no encuentra resistencia alguna.",
+        "wrong": "Te detuviste antes de tiempo; la dama aguardaba al final del camino."
+      },
+      "c3": {
+        "title": "La clavada delata",
+        "teach": "Una pieza clavada finge defender, pero no puede moverse. Aquello que protege esta, en realidad, indefenso.",
+        "observe": "El caballo de e6 parece cuidar g7; mira que hay detras de el, en la columna e.",
+        "goal": "Captura la torre.",
+        "hints": [
+          "Tu torre en e1 fija al caballo contra su propio rey.",
+          "Clavado, ese caballo no podra recapturar en g7.",
+          "Alfil de a1 a g7: la torre cae sin replica."
+        ],
+        "explain": "Axg7 gana la torre: el caballo esta clavado contra el rey y no puede reponer la captura.",
+        "wrong": "Confiaste en su guardian; pero ese caballo esta clavado y no defiende nada."
+      },
+      "c4": {
+        "title": "El guardian clavado",
+        "teach": "Clava a la pieza contra su rey y su defensa se vuelve ficcion. Entonces el alfil recoge la dama con toda cortesia.",
+        "observe": "El caballo de a7 sostiene a la dama; observa la columna a y al rey que hay al fondo.",
+        "goal": "Gana la dama con jaque.",
+        "hints": [
+          "La torre de a1 clava al caballo de a7 contra el rey a8.",
+          "La dama de c6 solo cuenta con ese caballo, que no puede moverse.",
+          "Alfil a c6: jaque, y la dama es tuya."
+        ],
+        "explain": "Axc6+ gana la dama con jaque: el caballo clavado no recaptura y el rey no alcanza c6.",
+        "wrong": "La dama parecia defendida; su guardian, clavado, solo era una ilusion."
+      },
+      "c5": {
+        "title": "El ensarte",
+        "teach": "Alinea al rey con aquello que ama y obligalo a apartarse. Detras quedara la dama, sola, sobre la diagonal.",
+        "observe": "Rey y dama comparten una misma diagonal, y tu alfil la vigila.",
+        "goal": "Gana la dama.",
+        "hints": [],
+        "explain": "Ae4+ ensarta: el rey debe moverse y el alfil captura la dama que quedaba a su espalda.",
+        "wrong": "No era esa; una sola jugada alinea al rey y condena a la dama."
+      }
+    },
+    "pip": {
+      "intro": "Soy Pip, el peon que nunca deja de avanzar. Paso a paso, casilla a casilla, te ensenare que hasta el mas pequeno puede convertirse en gigante.",
+      "reward": "Corazon de Peon",
+      "chron": [
+        "Con un solo paso valiente, Pip toco la octava fila y nacio una reina donde antes solo habia un sueno.",
+        "Sin miedo a la torre enemiga, Pip la aparto de un empujon y corono en su lugar: !nada detiene a quien avanza!",
+        "Ante dos caminos, Pip eligio el sendero seguro y esquivo la trampa del alfil para coronar sano y salvo.",
+        "En la esquina del tablero, el pequeno Pip dio el paso final y sello el jaque mate: el mas humilde decidio la batalla.",
+        "Solo, sin pistas ni ayuda, Pip corono con jaque y atrapo a la torre: la Senda de Maestria estaba completa."
+      ],
+      "c1": {
+        "title": "El primer paso a reina",
+        "teach": "Un peon que alcanza la ultima fila se transforma en la pieza que elijas, casi siempre en una poderosa reina. Ese viaje hasta la octava fila se llama coronar, y es el sueno de todo peon.",
+        "observe": "Mira mi peon en a7: solo le queda un pasito para llegar al final del tablero. El rey enemigo esta cerca, asi que hay que coronar ya.",
+        "goal": "Corona el peon avanzando a a8.",
+        "hints": [
+          "Cuenta cuantas casillas le faltan a mi peon para llegar a la fila 8.",
+          "Si espero, el rey negro capturara mi peon; hay que actuar ahora mismo.",
+          "Avanza de a7 a a8 y elige reina: !ademas das jaque!"
+        ],
+        "explain": "Al avanzar a a8 el peon se convierte en reina con jaque, ganando de golpe la pieza mas fuerte del tablero. Cualquier demora dejaria que el rey negro se comiera el peon.",
+        "wrong": "Casi, pero si no corono ahora el rey enemigo se comera mi peon; avanza a a8."
+      },
+      "c2": {
+        "title": "Corono capturando",
+        "teach": "Un peon corona empujando recto, pero tambien puede coronar capturando en diagonal. Comer una pieza y transformarse en reina en la misma jugada es doblemente poderoso.",
+        "observe": "Fijate en la torre negra en b8, justo en diagonal a mi peon de a7. Puedo comerla y coronar al mismo tiempo.",
+        "goal": "Captura en b8 y corona.",
+        "hints": [
+          "Un peon captura en diagonal: mira que pieza hay en b8.",
+          "Comer la torre y coronar en la misma casilla es mejor que avanzar recto.",
+          "Juega a7 por b8 y elige reina: ganas la torre y creas una reina con jaque."
+        ],
+        "explain": "Al capturar en b8 elimino la torre enemiga y aparezco convertido en reina con jaque, ganando muchisimo material de una sola vez. Avanzar recto habria dejado viva a la torre.",
+        "wrong": "No del todo: existe una captura en diagonal que gana la torre y corona a la vez; juega a7 por b8."
+      },
+      "c3": {
+        "title": "El camino seguro",
+        "teach": "Cuando tienes varios peones cerca de coronar, no todas las casillas de promocion son seguras. La buena estructura te ensena a coronar donde el enemigo no pueda capturar a tu nueva reina.",
+        "observe": "Tengo dos peones a punto de coronar, en a7 y en c7. Pero el alfil enemigo vigila la casilla c8, asi que coronar ahi seria un regalo.",
+        "goal": "Corona por el lado seguro en a8.",
+        "hints": [
+          "Observa que casilla de coronacion vigila el alfil negro.",
+          "Si corono en c8, el alfil se comera mi reina; busca la casilla libre.",
+          "Avanza el peon de a7 a a8: nadie defiende ni ataca esa esquina."
+        ],
+        "explain": "Coronar en a8 crea una reina con jaque que ningun enemigo puede capturar, mientras que coronar en c8 la perderia ante el alfil. Elegir la casilla segura es pura estructura de peones.",
+        "wrong": "Cuidado: el alfil vigila c8 y capturaria mi reina; corona mejor en a8."
+      },
+      "c4": {
+        "title": "El paso decisivo",
+        "teach": "Un peon que corona no solo gana material: a veces da el jaque mate final. Con la ayuda de sus companeros, hasta el peon mas humilde puede cerrar la partida.",
+        "observe": "Mi rey enemigo esta acorralado en la esquina h8. Mi peon de g6 le cierra la casilla h7, y solo falta mi peon de f7 para dar el golpe final.",
+        "goal": "Corona en f8 y da mate.",
+        "hints": [
+          "El rey negro esta en la esquina: cuenta sus casillas de escape.",
+          "Mi peon de g6 ya controla h7; solo falta cubrir la fila 8.",
+          "Avanza f7 a f8 y corona reina: es jaque mate."
+        ],
+        "explain": "Al coronar en f8 la nueva reina da jaque por la fila 8, mientras el peon de g6 le quita la salida por h7; el rey no tiene escape y es mate. Solo la reina cubre todas las casillas a la vez.",
+        "wrong": "Aun no es mate: corona en f8 con reina y el rey de la esquina quedara sin escape."
+      },
+      "c5": {
+        "title": "La prueba del campeon",
+        "teach": "Un peon pasado avanza sin miedo, y al coronar con jaque puede ganar tiempo para atacar otra pieza. Mira siempre que ganas ademas de la propia reina.",
+        "observe": "Mi peon de d7 esta a un paso de coronar, el rey negro descansa en h8 y una torre solitaria vigila desde a5.",
+        "goal": "Corona con jaque y gana la torre.",
+        "hints": [],
+        "explain": "Al coronar en d8 aparece una reina que da jaque por la fila 8 y ademas apunta a la torre de a5 por la diagonal; tras mover el rey, capturo la torre gratis. Corono y gano material en la misma idea.",
+        "wrong": "Piensa en coronar con jaque: hay una casilla desde la que mi nueva reina ataca al rey y a la torre a la vez."
+      }
+    },
+    "ordan": {
+      "intro": "Soy Ordan, y he sobrevivido a mas finales de los que tu has jugado partidas. Guarda a tu rey como a tu propia vida y aprende a empunarlo como un arma cuando el tablero se vacie: esa es toda mi ensenanza.",
+      "reward": "Senda del Trono",
+      "chron": [
+        "Empuje al rey enemigo contra el muro con la sola mirada de mi rey, y la torre pronuncio la sentencia.",
+        "Lo persegui hasta el rincon, donde ningun trono protege, y cerre la ultima puerta sin prisa.",
+        "Ordene a mi dama que callara sus jaques vanos y sellara la columna; el rey negro se quedo sin aire.",
+        "Puse a mi rey hombro con hombro con la dama, muralla contra muralla, y no hubo rendija por donde huir.",
+        "Y al final, sin consejo ni pista, deje que la oposicion hablara: la dama descendio a la octava y todo termino."
+      ],
+      "c1": {
+        "title": "El rey que acorrala",
+        "teach": "En el final, tu rey deja de esconderse y empieza a mandar. Es el quien encierra al enemigo contra el borde; la torre solo asesta el golpe.",
+        "observe": "Mira como tu rey en g6 encara de frente al rey negro: eso se llama oposicion, y le roba las casillas de fuga.",
+        "goal": "Da mate en la ultima fila.",
+        "hints": [
+          "Tus reyes estan en oposicion directa; el negro no puede avanzar ni escapar por los flancos.",
+          "Tu torre esta libre en la primera fila y la octava esta desierta.",
+          "Torre de b1 a b8: jaque mate."
+        ],
+        "explain": "Rb8 es mate: tu rey cubre f7, g7 y h7, y la torre corta la unica fila que le quedaba al enemigo.",
+        "wrong": "El rey negro respiro: sin la oposicion de tu rey, la torre sola jamas lo encierra."
+      },
+      "c2": {
+        "title": "La jaula del rincon",
+        "teach": "El rincon es la tumba del rey solitario. Cuando el enemigo se refugia en la esquina, tu rey vigila las salidas y la torre cierra la puerta.",
+        "observe": "El rey negro en h8 ya no tiene aire; tu rey en g6 sella g7, g8 y h7.",
+        "goal": "Cierra la jaula con mate.",
+        "hints": [
+          "Cuenta las casillas del rey negro: tu rey ya se las ha quitado todas menos la fila.",
+          "La torre en f7 domina la septima; duena tambien de la octava sera letal.",
+          "Torre de f7 a f8: jaque mate."
+        ],
+        "explain": "Rf8 es mate: el rey acorralado en el rincon no tiene fuga y tu monarca defiende cada casilla de escape.",
+        "wrong": "Diste aire al prisionero; en la esquina, un solo descuido lo libera."
+      },
+      "c3": {
+        "title": "La dama obedece al rey",
+        "teach": "La dama es poderosa, pero sin el rey que le marque el camino solo reparte jaques vacios. Deja que tu rey robe las casillas y que la dama selle el resto.",
+        "observe": "Tu rey en f7 ya guarda g7 y g8; al rey negro solo le queda respirar por la columna h.",
+        "goal": "Sella la columna h con mate.",
+        "hints": [
+          "El rey negro en h8 depende de una sola casilla de escape: h7.",
+          "Lleva tu dama a la columna h para dominar h8 y h7 de una vez.",
+          "Dama de b1 a h1: jaque mate."
+        ],
+        "explain": "Qh1 es mate: la dama se aduena de toda la columna h mientras tu rey tapa la huida por g7 y g8.",
+        "wrong": "La dama grito en vano; sin cerrar la columna h, el rey negro se escurre."
+      },
+      "c4": {
+        "title": "Hombro con hombro",
+        "teach": "Nunca acerques la dama al rey enemigo sin que tu propio rey la escude. Juntos, hombro con hombro, levantan una muralla que no deja rendija.",
+        "observe": "Tu rey en f6 defiende la casilla g7; ahi, y solo ahi, la dama sera intocable pegada al rey negro.",
+        "goal": "Entrega la dama a un paso del rey, con mate.",
+        "hints": [
+          "El rey negro en h8 se asfixia; falta quitarle g7 y g8 a la vez.",
+          "Solo una casilla te da ambas cosas, y tu rey ya la protege.",
+          "Dama de g1 a g7: jaque mate protegido."
+        ],
+        "explain": "Qg7 es mate: la dama abraza al rey negro y tu rey la defiende, de modo que no puede ser capturada ni esquivada.",
+        "wrong": "Acercaste la dama sin escolta; un rey solo la habria devorado."
+      },
+      "c5": {
+        "title": "El juicio de la oposicion",
+        "teach": "Ahora estas solo, sin mi voz. Recuerda: primero el rey conquista las casillas, despues la pieza pesada corona el trabajo.",
+        "observe": "Reyes enfrentados en la columna e, y una dama que aun no ha dicho su ultima palabra.",
+        "goal": "Encuentra el mate en una jugada.",
+        "hints": [],
+        "explain": "Qb8 es mate: en oposicion tu rey niega d7, e7 y f7, y la dama que llega a la octava fila cubre toda la retirada, incluida f8.",
+        "wrong": "No era esa. Deja que tu rey haga su trabajo y busca la fila que el enemigo no puede cruzar."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Somos Eira y Vhal, jinetes gemelos del mismo par de caballos: yo, Eira, calculo antes de saltar; yo, Vhal, salto y luego me río. Juntos te enseñamos a mirar TODAS las capturas y elegir la que gana mas, porque el buen jinete nunca toma la primera que ve.",
+      "reward": "Jinetes del Doble Salto",
+      "chron": [
+        "Eira senalo la torre, Vhal senalo la dama; el caballo salto a g5 y volvimos con la corona del enemigo.",
+        "Dos horquillas se abrieron ante nosotros: Vhal grito 'la torre', pero Eira eligio la dama en d6 y el tablero nos dio la razon.",
+        "El potro salto a f6 con jaque; la torre en g5 nos hacia guinos, mas nosotros nos llevamos la dama y el eco del galope.",
+        "Ne7 sono como un trueno con jaque; ignoramos la torre facil y cobramos la dama en g6 como buenos hermanos.",
+        "Sin pistas, sin voces, solo el instinto de Vhal y el calculo de Eira: b5, y la dama enemiga cayo en silencio."
+      ],
+      "c1": {
+        "title": "Dos presas, una eleccion",
+        "teach": "Cuando tu caballo ataca a varias piezas a la vez, no comas la primera que veas: comparalas. Entre todas las capturas posibles, la mejor es la que se lleva mas material.",
+        "observe": "Mira las dos casillas que golpea tu caballo: una guarda una torre, la otra una dama. Pesa cuanto vale cada una antes de decidir.",
+        "goal": "Captura la pieza de mayor valor.",
+        "hints": [
+          "Tu caballo en e4 amenaza dos piezas negras sin defensa: pregunta cual vale mas.",
+          "Una dama vale mucho mas que una torre; ese es el objetivo.",
+          "Salta a g5 y llevate la dama."
+        ],
+        "explain": "Ambas piezas estaban colgadas, pero la dama (9) supera con creces a la torre (5): capturarla es ganar mas por la misma jugada.",
+        "wrong": "Esa captura gana menos: vuelve a comparar el valor de las dos piezas."
+      },
+      "c2": {
+        "title": "Dos horquillas rivales",
+        "teach": "A veces no comparas capturas, sino jugadas que crean una amenaza doble. Elige la horquilla que atrape la pieza mas valiosa.",
+        "observe": "Tu caballo tiene dos saltos que dan jaque y horquilla a la vez: uno pincha la torre, otro la dama. Observa que atrapa cada uno.",
+        "goal": "Da el jaque en horquilla que gane la dama.",
+        "hints": [
+          "Dos saltos dan jaque desde e4; ambos ganan material, pero no el mismo.",
+          "Busca el jaque que ataque al rey y a la DAMA al mismo tiempo.",
+          "Salta a d6: jaque al rey en e8 y horquilla a la dama en b7."
+        ],
+        "explain": "Nd6+ ataca al rey y a la dama de golpe; el rey debe moverse y el caballo cobra la dama, mas que la horquilla rival que solo ganaba la torre.",
+        "wrong": "Esa horquilla gana menos: busca el jaque que atrape a la dama, no a la torre."
+      },
+      "c3": {
+        "title": "Captura facil o salto ganador",
+        "teach": "La captura mas evidente no siempre es la que mas gana. Compara comerte una pieza colgada con un salto que crea una amenaza mayor.",
+        "observe": "Puedes comer la torre en g5 de inmediato, o saltar con jaque y amenazar la dama. Mira cual botin es mayor.",
+        "goal": "Elige el salto con jaque que gane la dama.",
+        "hints": [
+          "La torre en g5 es tentadora, pero solo vale 5.",
+          "Un jaque desde f6 ataca al rey y toca la dama en d7.",
+          "Juega Nf6+; tras el jaque, captura la dama en d7."
+        ],
+        "explain": "Nf6+ obliga al rey a moverse y deja la dama indefensa ante el caballo: ganas 9 en vez de los 5 de la torre facil.",
+        "wrong": "Tomaste el botin pequeno: habia un jaque que ganaba la dama entera."
+      },
+      "c4": {
+        "title": "El trueno de e7",
+        "teach": "Antes de capturar, revisa si un salto con jaque gana algo mayor. Comparar candidatas significa mirar tambien las jugadas que aun no son capturas.",
+        "observe": "La torre en f6 esta ahi para comerla, pero tu caballo puede dar jaque desde e7 y clavar la mirada en la dama. Compara los dos finales.",
+        "goal": "Da el jaque en horquilla y captura la dama.",
+        "hints": [
+          "Comer la torre en f6 gana solo 5 puntos.",
+          "Desde e7 tu caballo da jaque al rey y amenaza la dama en g6.",
+          "Juega Ne7+; el rey se aparta y tomas la dama en g6."
+        ],
+        "explain": "Ne7+ es una horquilla al rey y la dama: el rey debe huir y la dama cae, un botin mucho mayor que la torre.",
+        "wrong": "Ganaste menos de lo posible: el jaque en e7 se llevaba la dama."
+      },
+      "c5": {
+        "title": "La prueba de los gemelos",
+        "teach": "Sin pistas ni voces: mira todas tus candidatas y quedate con la que mas gana. El salto correcto no siempre es el mas ruidoso.",
+        "observe": "Hay una captura comoda y un salto silencioso que da jaque. Solo una se lleva la dama.",
+        "goal": "Encuentra la jugada que gana mas material.",
+        "hints": [],
+        "explain": "Nb5+ da jaque al rey en d4 y horquilla la dama en d6; el rey no puede salvarla y el caballo cobra la pieza mayor.",
+        "wrong": "Esa no era la de mayor botin: existe un jaque que gana la dama."
+      }
+    },
+    "rhazek": {
+      "intro": "Soy Rhazek, y no colecciono piezas: colecciono reyes caidos. Mi caballo nunca pregunta cuanto vale lo que entrega, solo cuanto gana; sigueme si te atreves y aprende a sacrificar como quien exige, no como quien ruega.",
+      "reward": "Senor del Sacrificio",
+      "chron": [
+        "Mi caballo salto a g6 y la torre, oculta como una daga en la manga, cobro la dama que se creia a salvo.",
+        "Un solo salto a e7 y el rey no tuvo mas camino que su tumba; mi dama entro detras y cerro la lapida.",
+        "En el rincon lo encerre: Cf7 lo empujo, De8 lo sello, y el rey murio mirando a sus propios peones.",
+        "Entregue mi dama en g8 sin temblar, porque el mate de la coz vale mas que mil coronas: mi caballo reino sobre el ahogo del rey.",
+        "Sin pistas ni clemencia, descubri el jaque y arranque la dama de entre sus guardias: asi se gradua quien camina mi senda."
+      ],
+      "c1": {
+        "title": "El golpe que descubre",
+        "teach": "La iniciativa es tuya cuando tu jugada obliga y el rival solo responde. Un caballo que salta puede destapar el ataque de una pieza escondida: mueve con jaque y deja que la torre cobre la factura.",
+        "observe": "Tu caballo en e5 tapa la boca de tu torre en e1, y detras espera el rey negro en e8. Esa dama en g6 se cree intocable tras su peon.",
+        "goal": "Salta, descubre el jaque y llevate la dama.",
+        "hints": [
+          "Tu torre en e1 apunta al rey en e8, pero el caballo le corta la mira.",
+          "Busca un salto que de jaque descubierto y ademas toque a la dama.",
+          "Cxg6: el negro debe atender el jaque de la torre y la dama cae."
+        ],
+        "explain": "Cxg6 abre la columna e con jaque de torre; el negro debe salvar al rey y no puede recuperar. Te llevas la dama entera sin pagar nada.",
+        "wrong": "Tibio: sin el jaque descubierto el negro respira y la dama enemiga se te escapa."
+      },
+      "c2": {
+        "title": "Un salto, un mate",
+        "teach": "A veces tu caballo no gana material: gana el tablero entero. Da jaque para apartarlo de en medio y deja que tu dama entre a matar.",
+        "observe": "Tu caballo en d5 estorba a tu propia dama en d2. Si salta con jaque, la columna se abre de golpe hacia el rey en g8.",
+        "goal": "Da el jaque de caballo y remata con la dama.",
+        "hints": [
+          "Tu dama en d2 desea la casilla d8, pero el caballo le tapa el paso.",
+          "Salta con jaque a e7: el rey solo tendra una casilla.",
+          "Ce7+ y luego Dd8 es mate; el caballo vigila g8."
+        ],
+        "explain": "Ce7+ despeja la columna d con jaque y empuja al rey al rincon; Dd8 es mate, con el caballo cubriendo g8. Dos golpes, cero dudas.",
+        "wrong": "Lento: al rey no se le caza mirando, y sin el jaque no hay mate."
+      },
+      "c3": {
+        "title": "El rincon sin salida",
+        "teach": "El rey acorralado es un prisionero que todavia no lo sabe. Un jaque de caballo lo clava y tu dama, ya libre, cierra la ultima puerta.",
+        "observe": "El caballo en e5 sella la columna de tu dama en e1. El rey en h8 esta enterrado vivo entre g7 y h7.",
+        "goal": "Jaque de caballo y mate con la dama.",
+        "hints": [
+          "Tu dama en e1 suena con e8, pero el caballo la encierra.",
+          "Cf7+ obliga al rey a g8, su unica casilla.",
+          "Tras Cf7+ el rey va a g8; entonces De8 es mate, con el caballo guardando h8."
+        ],
+        "explain": "Cf7+ arranca al rey a g8 y abre la columna e; De8 da mate, defendida por el caballo en f7 y con h8 tapada. El rincon fue su tumba.",
+        "wrong": "Flojo: sin el salto que da jaque, tu dama choca con los peones y no hay mate."
+      },
+      "c4": {
+        "title": "El mate de la coz",
+        "teach": "Aqui nace el sacrificio verdadero: entregas tu dama, la pieza mas cara, porque el mate vale mas que todo el oro del tablero. El caballo remata justo donde la dama cae.",
+        "observe": "El rey en h8 esta rodeado por los suyos: peones en g7 y h7, torre en f8. Solo le queda una casilla libre; quitasela.",
+        "goal": "Encadena los jaques de caballo y sacrifica la dama para dar mate.",
+        "hints": [
+          "El rey se ahoga entre sus piezas; solo te falta cerrarle g8.",
+          "Cf7+ Rg8, Ch6+ Rh8: el rey vuelve al rincon, atrapado.",
+          "Entonces Dg8+!! La torre esta obligada a comer, y Cf7 es mate de la coz."
+        ],
+        "explain": "Tras Cf7+ Rg8 Ch6+ Rh8, el sacrificio Dg8+ obliga a Txg8, y Cf7 da mate: el rey muere ahogado por los suyos. La dama se entrega para que el caballo reine.",
+        "wrong": "Grandioso, pero fallaste: solo la combinacion exacta con el sacrificio de dama entrega el mate de la coz."
+      },
+      "c5": {
+        "title": "La prueba de Rhazek",
+        "teach": "Sin pistas, sin voces, sin red. Halla el golpe que descubre el jaque y arranca la dama aunque la crean bien defendida.",
+        "observe": "Tu caballo en e5 tapa la torre en e1, y el rey negro aguarda en e8. La dama en c4 se apoya en su peon de b5 y se siente intocable.",
+        "goal": "Descubre el jaque y captura la dama.",
+        "hints": [],
+        "explain": "Cxc4+ abre la columna e con jaque de torre; el negro debe mover el rey y no llega a recuperar con el peon. Te llevas la dama que creian protegida.",
+        "wrong": "No: existe un jaque descubierto que se lleva la dama pese a su peon."
+      }
+    },
+    "oryn": {
+      "intro": "Soy Oryn, guardián de las líneas abiertas, y mi arma es la torre. Camina sin prisa: la maestría no se conquista con furia, sino con la mirada que ve la columna despejada antes de moverse.",
+      "reward": "Centinela de la Columna Abierta",
+      "chron": [
+        "En el primer umbral, Oryn alzó la torre por la fila desierta y selló al rey en su rincón: el mate llegó en silencio, sin un solo obstáculo que lo detuviera.",
+        "Ante la segunda prueba, la columna abierta se ofreció como un camino recto; la torre descendió y la dama enemiga cayó sin defensa que la amparara.",
+        "En el tercer paso, Oryn no capturó de golpe: clavó su mirada en la línea, dio jaque y esperó paciente a que el rey se apartara para cobrar su premio.",
+        "En el cuarto rito, la columna abierta fue senda de muerte: la torre bajó recta y el rey, cercado por su propio rey rival, no halló casa donde huir.",
+        "En la última senda, sin voz que lo guiara, Oryn leyó la fila entera: un jaque preciso, un rey desviado, y la dama enemiga quedó a merced del acero silencioso."
+      ],
+      "c1": {
+        "title": "La Fila Desierta",
+        "teach": "Una torre en una fila o columna sin obstáculos alcanza cualquier casilla de esa línea. Cuando el rey enemigo no tiene escape, esa línea abierta se vuelve el filo del mate.",
+        "observe": "Mira la octava fila: está enteramente despejada. Observa qué casillas cubre ya tu propio rey alrededor del monarca contrario.",
+        "goal": "Da mate en una jugada con la torre.",
+        "hints": [
+          "El rey negro solo puede respirar en la octava fila; tu rey le cierra las casillas de huida hacia abajo.",
+          "Busca una casilla desde la que la torre domine toda la fila del rey enemigo.",
+          "Lleva la torre a a8: jaque sin escape."
+        ],
+        "explain": "Ra8 controla toda la octava fila y tu rey en g6 vigila f7, g7 y h7; el monarca negro no tiene ninguna casilla libre. Es mate.",
+        "wrong": "Esa jugada deja una casilla de huida; la línea abierta solo mata cuando el rey no tiene refugio."
+      },
+      "c2": {
+        "title": "El Camino Recto",
+        "teach": "Una columna abierta es una avenida que la torre recorre de un extremo a otro sin freno. Por ella puede golpear una pieza enemiga que ningún defensor protege.",
+        "observe": "Fíjate en la columna e: no hay peones ni piezas que la corten. Al final de ella aguarda la dama negra, sola y sin amparo.",
+        "goal": "Captura la dama con la torre.",
+        "hints": [
+          "La columna e está completamente abierta ante tu torre.",
+          "La dama negra no tiene ninguna pieza que la defienda.",
+          "Recorre la columna hasta e8 y toma la dama con jaque."
+        ],
+        "explain": "Txe8+ recorre la columna abierta y gana la dama sin coste, además con jaque; el rey negro estaba demasiado lejos para defenderla.",
+        "wrong": "Has dejado escapar la avenida; la columna abierta era el camino directo a la dama."
+      },
+      "c3": {
+        "title": "La Mirada Antes del Golpe",
+        "teach": "A veces la torre no captura de inmediato: primero alinea al rey enemigo con la pieza que codicia. El jaque desvía al monarca y deja la presa indefensa al final de la línea.",
+        "observe": "El rey y la dama negros comparten la columna e. Tu torre aún no está en esa columna, pero puede entrar en ella con jaque.",
+        "goal": "Da jaque en la columna para ganar la dama.",
+        "hints": [
+          "Rey y dama negros están sobre la misma columna: el rey delante, la dama detrás.",
+          "Si tu torre entra en la columna e con jaque, el rey deberá apartarse.",
+          "Juega Te1+: el rey huye de la columna y luego cae la dama en e8."
+        ],
+        "explain": "Te1+ es un enfilado: el rey negro debe abandonar la columna e y, despejada la línea, la torre captura la dama en e8. Analizar antes de golpear rinde más que la captura apresurada.",
+        "wrong": "Golpeaste sin preparar la línea; primero el jaque debía apartar al rey para descubrir la presa."
+      },
+      "c4": {
+        "title": "La Columna de la Sentencia",
+        "teach": "Una columna abierta no solo gana piezas: también entrega al rey. Cuando tu propio rey sella las casillas laterales, la torre desciende por la columna y clausura la última salida.",
+        "observe": "La columna h está libre y el rey negro descansa en su borde. Advierte cómo tu rey en f7 vigila g7 y g8, las únicas casillas de fuga.",
+        "goal": "Da mate en una jugada con la torre.",
+        "hints": [
+          "Tu rey en f7 ya domina g7 y g8; al rey negro solo le quedaría la columna h.",
+          "Ocupa la columna h con la torre para cerrar esa última vía.",
+          "Juega Th1: jaque en la columna, sin escape posible."
+        ],
+        "explain": "Th1 da jaque por la columna abierta; g7 y g8 los cubre tu rey y h7 lo domina la torre. El monarca negro no tiene refugio: es mate.",
+        "wrong": "El rey aún encuentra una casilla; la columna solo sentencia cuando cada huida está vigilada."
+      },
+      "c5": {
+        "title": "La Senda del Silencio",
+        "teach": "Sin voces que te guíen, confía en la lectura de la línea. Una fila abierta permite a la torre enfilar al rey y a la dama; el jaque paciente cobra después lo que la prisa jamás alcanzaría.",
+        "observe": "Rey y dama negros reposan sobre la cuarta fila. Tu torre, en la esquina, puede entrar en esa fila a distancia del rey, sin que este la capture.",
+        "goal": "Encuentra el jaque que enfila y gana la dama.",
+        "hints": [],
+        "explain": "Ta4+ enfila por la cuarta fila: el rey, lejos y sin poder capturar, debe salir de la fila, y la torre recoge la dama en h4. La mirada serena vence al impulso.",
+        "wrong": "La línea pedía un jaque que enfilara al rey; la captura directa no estaba a tu alcance todavía."
+      }
+    },
+    "vesra": {
+      "intro": "Soy Vesra, y mi dama no persigue: cierra puertas. Observa cómo el tablero se estrecha hasta que al rival solo le queda obedecer.",
+      "reward": "Guardiana de la Restriccion",
+      "chron": [
+        "En el primer silencio, la dama se sento junto al rey enemigo, y el rincon se volvio una tumba sin salida.",
+        "Levanto una columna como quien alza un muro, y el monarca contrario descubrio que ya no habia por donde huir.",
+        "Con serena cortesia retiro del tablero a la unica defensora, y la posicion quedo desnuda ante mi voluntad.",
+        "Desde el otro extremo del mundo, una sola linea basto para sellar la octava fila y pronunciar el veredicto.",
+        "Y en la prueba final, ofrecio un jaque que no mataba: solo obligaba a apartarse, para que la torre cayera sola."
+      ],
+      "c1": {
+        "title": "El rincon que se cierra",
+        "teach": "Restringir es apagar casillas hasta que el rey no tenga adonde ir. Cuando toda huida se agota, el jaque deja de ser amenaza y se vuelve sentencia.",
+        "observe": "Mira las casillas de escape del rey negro en h8 y advierte que tu propio rey en f6 ya vigila g8 y g7.",
+        "goal": "Da mate en una jugada.",
+        "hints": [
+          "El rey negro solo respira por g8, g7 y h7; tu rey en f6 ya cubre dos de ellas.",
+          "Acerca la dama al rey enemigo, protegida por tu monarca.",
+          "Lleva la dama a g7: tu rey la sostiene y el rincon se cierra."
+        ],
+        "explain": "Dama g7 es imposible de capturar porque tu rey en f6 la defiende, y cubre las ultimas salidas. Restriccion absoluta: es mate.",
+        "wrong": "Le has dejado una casilla libre; el rey escapa y la restriccion se rompe."
+      },
+      "c2": {
+        "title": "El muro de la columna",
+        "teach": "Una sola pieza puede clausurar toda una columna y convertirla en pared. El rey no cae por la fuerza, sino porque no le queda espacio que ocupar.",
+        "observe": "Fijate en la columna h, donde vive el rey negro, y en tu rey de f7 que sella g7 y g8.",
+        "goal": "Da mate en una jugada.",
+        "hints": [
+          "El rey en h8 depende de la columna h y de las casillas g que tu rey vigila.",
+          "Necesitas una pieza que domine la columna h de arriba a abajo.",
+          "Desliza la dama hasta h2: la columna entera queda prohibida."
+        ],
+        "explain": "Dama h2 controla toda la columna h y tu rey en f7 cubre g7 y g8. Sin casillas, el rey se ahoga: mate.",
+        "wrong": "La columna sigue teniendo un hueco; el rey encuentra aire y sobrevive."
+      },
+      "c3": {
+        "title": "La unica defensora",
+        "teach": "Restringir tambien es eliminar a quien sostiene al rival. Retira su unica pieza activa y la posicion entera se rinde sin resistencia.",
+        "observe": "Ambas damas se miran en la columna d; la negra es la unica fuerza que le queda al rival.",
+        "goal": "Gana la dama enemiga.",
+        "hints": [
+          "Tu dama y la negra comparten la misma columna, la d.",
+          "Puedes capturar con jaque y quedarte con toda la ventaja.",
+          "Toma en d8: eliminas su unica pieza y das jaque a la vez."
+        ],
+        "explain": "Dama por d8 captura con jaque la unica defensora del rival; te quedas con dama contra rey solo, victoria decisiva.",
+        "wrong": "Has perdonado a su dama; mientras viva, el rival aun puede defenderse."
+      },
+      "c4": {
+        "title": "El veredicto a distancia",
+        "teach": "La restriccion no exige cercania: una linea limpia atraviesa el tablero entero. Desde lejos, la dama puede sellar una fila y dictar el final.",
+        "observe": "El rey negro en h8 pende de la octava fila; tu rey en g6 ya guarda g7 y h7.",
+        "goal": "Da mate en una jugada.",
+        "hints": [
+          "El rey solo escaparia por la octava fila o por las casillas g, que tu rey cubre.",
+          "Busca ocupar la octava fila con tu dama sin obstaculos por medio.",
+          "Coloca la dama en b8: la fila queda cerrada desde la distancia."
+        ],
+        "explain": "Dama b8 domina toda la octava fila y tu rey en g6 tapa las salidas; el rey no puede moverse ni cubrirse: mate.",
+        "wrong": "La octava fila no ha quedado sellada; el rey se escurre por la rendija."
+      },
+      "c5": {
+        "title": "El jaque que obliga",
+        "teach": "El zugzwang es la crueldad cortes: no matar, sino forzar a moverse hacia la ruina. Un jaque que el rey debe eludir puede desnudar a la pieza que se escondia tras el.",
+        "observe": "El rey negro en e5 y la torre en a5 comparten la quinta fila; el peon de e4 tapa cualquier jaque por la columna e.",
+        "goal": "Gana la torre.",
+        "hints": [],
+        "explain": "Dama h5 da jaque por la quinta fila; el rey debe apartarse y deja de escudar a su torre, que cae en a5. La restriccion convertida en botin.",
+        "wrong": "Ese golpe no obliga a nada; sin jaque forzoso, el rey conserva su torre."
+      }
+    },
+    "brakkon": {
+      "intro": "Soy Brakkon, y mi torre no busca la gloria: la resguarda. Donde otros lanzan el ataque, yo levanto muros, y tras ellos el rey descansa sin miedo.",
+      "reward": "Guardian Inamovible",
+      "chron": [
+        "Cuando la torre enemiga irrumpio en la ultima fila, Brakkon no retrocedio: la aparto del mundo de un solo golpe y el muro volvio a cerrarse.",
+        "Un caballo se colo entre las sombras; la torre patrullo la fila y lo retiro en silencio, sin que el rey moviera un dedo.",
+        "La dama creyo pronunciar el jaque final, pero la torre compartia su fila y la derribo: piedra serena contra tormenta.",
+        "Desde lo alto de la columna abierta, la torre descendio como una losa y sello la amenaza, inamovible hasta el ultimo escaque.",
+        "Y en la prueba, sin voz que le guiara, Brakkon vio el mate escondido tras la calma y lo apago antes de que naciera."
+      ],
+      "c1": {
+        "title": "El muro no se rompe",
+        "teach": "Defender es reconocer al que amenaza y retirarlo del tablero antes de que haga dano. La torre no huye: se interpone, captura y devuelve la calma al rey.",
+        "observe": "Mira la torre negra en e1: da jaque por la primera fila. Tu rey en h1 esta encerrado por sus propios peones f2, g2 y h2.",
+        "goal": "Captura la torre que da jaque.",
+        "hints": [
+          "Tu rey no puede moverse: sus peones f2, g2 y h2 lo rodean por completo.",
+          "Solo una pieza tuya alcanza la primera fila para responder al jaque.",
+          "Lleva la torre de a1 a e1 y devora a la atacante."
+        ],
+        "explain": "Torre por e1 elimina a la pieza que daba jaque y deja al rey a salvo tras el muro de peones. Es la defensa mas pura: apagar la amenaza en su origen.",
+        "wrong": "El rey sigue en jaque; solo tu torre puede apagar esa amenaza."
+      },
+      "c2": {
+        "title": "La fila vigilada",
+        "teach": "La coordinacion es una pieza que cubre lo que el rey no puede. Tu torre patrulla la fila entera, y cuando un intruso se acerca, lo retira sin que el monarca abandone su puesto.",
+        "observe": "Un caballo negro salto a e2 y da jaque a tu rey en g1. Tu torre domina toda la segunda fila desde a2.",
+        "goal": "Captura el caballo que da jaque.",
+        "hints": [
+          "El caballo en e2 ataca a tu rey; podrias huir, pero hay una respuesta mas firme.",
+          "Tu torre controla la segunda fila de un extremo a otro.",
+          "Desliza la torre de a2 a e2 y captura al caballo."
+        ],
+        "explain": "Torre por e2 no solo sale del jaque: se lleva al caballo y sella el flanco del rey. Defensa y ganancia en un mismo gesto.",
+        "wrong": "Huir salva al rey por un instante, pero el intruso sigue vivo; mejor retirarlo del tablero."
+      },
+      "c3": {
+        "title": "Piedra contra la dama",
+        "teach": "Ninguna amenaza es demasiado grande si tu defensa comparte su linea. La torre no teme a la dama: si esta invade, la torre la derriba y protege al rey.",
+        "observe": "La dama negra en e1 da jaque por la primera fila. Tu rey en h1 no tiene ni una casilla libre.",
+        "goal": "Captura la dama que da jaque.",
+        "hints": [
+          "El jaque llega por la primera fila y tu rey esta amurallado por sus peones.",
+          "Tu torre en b1 comparte esa misma fila con la dama.",
+          "Torre de b1 a e1: captura la dama y termina el jaque."
+        ],
+        "explain": "Torre por e1 devora a la dama enemiga y deja al rey intacto. Cambiar una torre por una dama defendiendo es un trueque decisivo.",
+        "wrong": "Con el rey encerrado, solo la torre responde; deja que ella cobre a la dama."
+      },
+      "c4": {
+        "title": "La losa desciende",
+        "teach": "Una columna abierta es un camino que la torre guarda de arriba abajo. Cuando el peligro asoma junto al rey, la torre baja como una losa y lo cubre desde la distancia.",
+        "observe": "La dama negra en d1 da jaque a tu rey acorralado en g1. Tu torre corona la columna d desde d7, con el camino despejado.",
+        "goal": "Captura la dama que da jaque.",
+        "hints": [
+          "La dama ataca por la primera fila y tu rey no puede salir de su rincon.",
+          "Observa la columna d: esta abierta de d7 hasta d1.",
+          "Baja la torre de d7 a d1 y captura la dama."
+        ],
+        "explain": "Torre por d1 recorre la columna abierta y elimina a la dama; el rey respira y tu quedas con toda la ventaja. La coordinacion entre torre y rey es un muro sin grietas.",
+        "wrong": "No hay huida para el rey; la torre debe descender por la columna y cobrar la dama."
+      },
+      "c5": {
+        "title": "La calma antes del mate",
+        "teach": "La amenaza mas peligrosa es la silenciosa: la dama y el alfil preparan Dxg2 mate sin dar jaque todavia. El guardian verdadero la ve venir y la desactiva antes de que estalle.",
+        "observe": "La dama en e4 y el alfil en f1 apuntan a g2: si le dejas jugar, Dxg2 es mate. Tu torre aguarda en la columna e, en e2.",
+        "goal": "Neutraliza la amenaza de mate.",
+        "hints": [],
+        "explain": "Torre por e4 retira a la dama por la columna e antes de que consume Dxg2 mate; el alfil queda solo y tu, con ventaja ganadora. Prever el golpe es la defensa suprema.",
+        "wrong": "Dejaste viva la amenaza: el alfil sostiene a la dama y Dxg2 seria mate."
+      }
+    },
+    "ilyra": {
+      "intro": "Soy Ilyra, y no persigo a mis enemigos: los alcanzo desde lejos, por la linea que nadie mira. Un alfil no corre; traza una recta, y en esa recta ya estaba escrito quien caeria.",
+      "reward": "Guardiana de las Diagonales",
+      "chron": [
+        "Desde su rincon en b2, Ilyra tendio una sola diagonal hasta el ultimo escaque, y la dama que se creia lejana cayo sin haberla visto acercarse.",
+        "Puso el jaque en la recta y espero: el rey se aparto, obediente, y detras aguardaba la dama, ya suya por la misma linea que lo habia empujado.",
+        "Por las casillas claras cruzo el tablero de un extremo a otro, y donde el rey creyo estar a salvo, la diagonal ya lo habia atravesado.",
+        "Encendio el jaque sobre las casillas blancas; el rey huyo de la recta y la reina, expuesta al fondo, se rindio a la mirada del alfil.",
+        "Sin voz que la guiara, Ilyra leyo la diagonal callada, empujo al rey con un jaque sereno y recogio la torre que el creia oculta tras su espalda."
+      ],
+      "c1": {
+        "title": "La diagonal no tiene fin",
+        "teach": "Un alfil gobierna su diagonal entera, de un borde del tablero al otro, sin importar cuanto crea alejarse el enemigo. Lo que comparte tu color de casilla, ya esta a tu alcance.",
+        "observe": "Mira la diagonal larga desde b2: c3, d4, e5, f6, g7... y al final, en h8, la dama negra, sola y sin defensa.",
+        "goal": "Captura la dama por la diagonal.",
+        "hints": [
+          "El alfil en b2 y la dama en h8 comparten la misma casilla oscura: estan en una sola recta.",
+          "Comprueba que el camino entre b2 y h8 esta despejado de principio a fin.",
+          "Desliza el alfil de b2 hasta h8 y devora a la dama."
+        ],
+        "explain": "El alfil recorre la diagonal completa y captura la dama que se creia distante; la distancia no protege a quien comparte tu color de casilla. Es la ley del alfil: la recta es tuya entera.",
+        "wrong": "Solo una jugada alcanza el fondo de la diagonal; deja que el alfil recorra la recta hasta la dama."
+      },
+      "c2": {
+        "title": "El rayo que atraviesa",
+        "teach": "Un jaque en la diagonal no siempre busca al rey: lo usa como puerta hacia lo que guarda detras. Cuando rey y dama comparten tu recta, el rey debe apartarse y descubre a la que le seguia.",
+        "observe": "Tu alfil puede saltar a d4 y dar jaque al rey en g7; en la misma recta, justo detras, espera la dama en h8.",
+        "goal": "Da el jaque que alinea rey y dama.",
+        "hints": [
+          "Busca la casilla desde la que el alfil clave al rey de g7 en la diagonal larga.",
+          "Rey en g7 y dama en h8 estan en la misma recta: uno delante, la otra detras.",
+          "Juega el alfil a d4 con jaque; cuando el rey se mueva, cae la dama en h8."
+        ],
+        "explain": "Bad4 clava al rey y, tras la fuga forzada, el alfil cobra la dama que quedaba al fondo de la recta. Ese es el rayo X: el jaque sobre uno desnuda a la otra.",
+        "wrong": "El rey debe apartarse primero; sin el jaque que los alinea, la dama nunca queda expuesta."
+      },
+      "c3": {
+        "title": "Las casillas claras",
+        "teach": "Cada alfil vive en un solo color, y sobre el manda de lado a lado del tablero. Por las casillas claras, tu mirada cruza el campo entero y llega donde el rey ya no ampara.",
+        "observe": "Desde f1 se abre la diagonal clara: e2, d3, c4, b5, hasta a6, donde la dama negra descansa lejos de su rey, encerrado por sus propios peones.",
+        "goal": "Captura la dama por la diagonal clara.",
+        "hints": [
+          "El alfil de f1 recorre casillas claras; sigue la recta hacia el flanco de dama.",
+          "La dama en a6 comparte esa diagonal y su rey esta demasiado lejos para socorrerla.",
+          "Lleva el alfil de f1 a a6 y toma la dama."
+        ],
+        "explain": "El alfil cruza toda la diagonal clara y captura la dama indefensa; el rey, sepultado tras sus peones, no puede acudir. El dominio de un color basta para decidir la partida.",
+        "wrong": "La dama esta sin defensa al final de tu recta clara; ninguna otra jugada aprovecha esa diagonal."
+      },
+      "c4": {
+        "title": "El rey delante, la reina detras",
+        "teach": "Sobre las casillas claras el rayo X repite su ley: enciende el jaque y el rey se aparta, revelando lo que cubria. La linea que empuja al monarca es la misma que reclama a su dama.",
+        "observe": "El alfil salta a e4 y da jaque al rey en c6; en esa recta, a su espalda, aguarda la dama en b7.",
+        "goal": "Da el jaque que alinea rey y dama.",
+        "hints": [
+          "Encuentra la casilla clara desde la que el alfil clave al rey de c6.",
+          "Rey en c6 y dama en b7 estan en la misma diagonal: el rey delante, la reina detras.",
+          "Juega el alfil a e4 con jaque; cuando el rey huya, captura la dama en b7."
+        ],
+        "explain": "Be4 clava al rey en la diagonal clara y, al forzar su fuga, deja a la dama de b7 sin abrigo. El rey no puede regresar a la recta para defenderla, y el alfil la recoge.",
+        "wrong": "Sin el jaque que los enfila, el rey guarda a su dama; primero oblígalo a dejar la recta."
+      },
+      "c5": {
+        "title": "La linea callada",
+        "teach": "No siempre espera una dama al fondo de la recta; a veces es una torre que se cree a salvo, lejos y en la sombra. La diagonal callada tambien empuja al rey y descubre lo que oculta detras.",
+        "observe": "El rey negro en c6 y la torre en a8 comparten una casilla clara. Tu alfil puede llegar a e4 y ponerlos a ambos en la misma recta.",
+        "goal": "Alinea rey y torre con un jaque, y cobra la pieza del fondo.",
+        "hints": [],
+        "explain": "Be4 clava al rey de c6 en la diagonal clara; obligado a huir, no logra defender la torre lejana de a8, que cae por la misma recta. La linea mas silenciosa es la que mas lejos alcanza.",
+        "wrong": "Otra jugada no enfila al rey con la torre; solo el jaque en la diagonal descubre la pieza del fondo."
+      }
+    },
+    "tikk": {
+      "intro": "Soy Tikk, y no, no soy solo un peon: soy el peon que llega PRIMERO. Mientras tu piensas, yo ya corone... con jaque, listo?",
+      "reward": "Guardian del Tempo",
+      "chron": [
+        "Capitulo I: Tikk cruzo el tablero silbando, corono con jaque y le robo el reloj al rival antes de que pestaneara.",
+        "Capitulo II: sin frenar, Tikk se comio un caballo AL coronar; dos golpes en un tiempo, porque el tempo es suyo.",
+        "Capitulo III: por el otro flanco, mismo truco, misma sonrisa; corona, jaque, y el reloj vuelve a llorar.",
+        "Capitulo IV: Tikk devoro una torre entera en la casilla de coronacion; el rival aun buscaba su plan cuando ya no le quedaba.",
+        "Capitulo V: en el Trial, Tikk desprecio la dama y corono CABALLO con jaque; el zwischenzug perfecto, y nadie lo vio venir."
+      ],
+      "c1": {
+        "title": "El que llega primero",
+        "teach": "En el ajedrez no siempre gana el mas fuerte, gana el que llega ANTES. Coronar con jaque te regala un tiempo: obligas al rival mientras tu ya mandas.",
+        "observe": "Mira mi peon en b7 y al rey negro en d6, justo en la diagonal de la casilla de coronacion.",
+        "goal": "Corona en b8 con jaque.",
+        "hints": [
+          "Un peon en la septima fila a un paso del ascenso... no lo dejes pasar.",
+          "Corona a dama, no a torre: solo la dama da jaque al rey de d6 por la diagonal.",
+          "Juega b7b8 y elige dama: jaque, tempo y ventaja decisiva."
+        ],
+        "explain": "b8=Q da jaque por la diagonal b8-d6, gana un tiempo y deja a las blancas con dama contra torre, ganando.",
+        "wrong": "Demasiado lento: sin jaque el rival respira y tu pierdes el tempo."
+      },
+      "c2": {
+        "title": "Dos golpes, un tiempo",
+        "teach": "Un peon que corona capturando hace dos cosas en un solo tiempo: se lleva una pieza Y nace dama. Eso es exprimir el reloj al maximo.",
+        "observe": "Mi peon de b7 y ese caballo negro en c8 pidiendo a gritos que lo devore al coronar.",
+        "goal": "Captura en c8 coronando con jaque.",
+        "hints": [
+          "El peon puede capturar en diagonal justo al coronar.",
+          "En c8 hay un caballo: comelo y hazte dama en el mismo movimiento.",
+          "Juega b7xc8=D: te llevas el caballo y das jaque al rey de e6."
+        ],
+        "explain": "bxc8=Q captura el caballo, corona y da jaque en la diagonal c8-e6: material y tempo de una sola tacada.",
+        "wrong": "Coronaste sin morder: dejaste el caballo vivo y perdiste medio botin."
+      },
+      "c3": {
+        "title": "Mismo truco, otro flanco",
+        "teach": "El tempo no entiende de flancos: da igual la a que la h, el que corona con jaque manda. Repite el patron y el reloj seguira de tu lado.",
+        "observe": "Mi peon en g7 y el rey negro en d5, alineado con la diagonal larga desde g8.",
+        "goal": "Corona en g8 con jaque.",
+        "hints": [
+          "El peon de g7 esta a un paso de la gloria.",
+          "Solo la dama alcanza al rey de d5 por la diagonal g8-d5.",
+          "Juega g7g8=D: jaque, tiempo ganado y dama contra torre."
+        ],
+        "explain": "g8=Q da jaque por la diagonal g8-d5 ganando un tiempo, y las blancas quedan con dama contra torre, ganando.",
+        "wrong": "Sin jaque no hay tempo: el rival se reorganiza y tiras tu ventaja."
+      },
+      "c4": {
+        "title": "Torre para desayunar",
+        "teach": "Cuanto mas grande la pieza que capturas al coronar, mas rapido se acaba la partida. Come, corona y da jaque: el reloj ni siquiera avanza.",
+        "observe": "Mi peon en h7 y una torre negra entera esperando en g8.",
+        "goal": "Captura la torre en g8 coronando con jaque.",
+        "hints": [
+          "El peon de h7 puede capturar en diagonal hacia g8.",
+          "En g8 hay una TORRE: llevatela y corona a la vez.",
+          "Juega h7xg8=D: te comes la torre y das jaque al rey de e6."
+        ],
+        "explain": "hxg8=Q captura la torre, corona y da jaque en la diagonal g8-e6: ganancia enorme en un solo tiempo.",
+        "wrong": "Coronaste de lado equivocado: la torre sigue viva y el rival te lo agradece."
+      },
+      "c5": {
+        "title": "El tiempo robado",
+        "teach": "A veces la dama no es la respuesta: el tempo decisivo lo da el zwischenzug, el golpe intermedio con jaque que nadie espera. Corona CABALLO, da jaque y roba la dama enemiga antes de que reaccione.",
+        "observe": "El rey en d7 y la dama en a6 estan a un salto de caballo el uno del otro desde b8.",
+        "goal": "Encuentra la coronacion con jaque que gana la dama.",
+        "hints": [],
+        "explain": "b8=C da jaque al rey de d7 y ataca a la vez la dama de a6: el rey debe moverse y Cxa6 se lleva la dama, dejando pieza y peon de ventaja ganadora.",
+        "wrong": "Coronar dama solo iguala: pierdes el tempo del jaque doble y con el, la partida."
+      }
+    },
+    "malrec": {
+      "intro": "Soy Malrec, y he sobrevivido a mas coronas de las que tu veras caer. No tengo dama que me salve ni torres que me lloren: solo un rey que camina hacia el peligro porque aprendio que quedarse quieto es morir.",
+      "reward": "El Rey que Sobrevive",
+      "chron": [
+        "El caballo enemigo ronde demasiado cerca; mi rey no aparto la mirada, avanzo a c5 y lo devoro sin temblar.",
+        "Bajaron la torre creyendola a salvo en la sexta; mi viejo rey se levanto de su trono y la arranco del tablero.",
+        "La dama vino a por mi garganta, y en su arrogancia se puso al alcance de mi mano: c5, y la reina cayo ante el peon.",
+        "Aparte mi rey de la linea y deje que la torre hablara: b6, y en el rincon el rey enemigo se ahogo en el silencio.",
+        "Sin voces que me guiaran, mi rey salio al raso y tomo lo que ninguno se atrevio a tomar: asi termina la senda del que sobrevive."
+      ],
+      "c1": {
+        "title": "El rey que no retrocede",
+        "teach": "En el final el rey deja de ser un fugitivo y se vuelve verdugo. Una pieza suelta a su alcance no se perdona: da un paso adelante y comela.",
+        "observe": "Tu rey en d4 y el caballo negro en c5, a un solo paso, sin nadie que lo defienda. En el final cada pieza pesa como una montana.",
+        "goal": "Avanza y captura el caballo.",
+        "hints": [
+          "Mira que casillas toca tu rey; una de ellas guarda una pieza enemiga.",
+          "El caballo en c5 esta solo, ni su rey ni su peon lo cubren.",
+          "Rxc5: tu rey se lleva el caballo y el final queda ganado."
+        ],
+        "explain": "Rxc5 gana un caballo entero sin coste, porque nada defiende esa casilla. Con una pieza de ventaja el final ya solo tiene un dueno.",
+        "wrong": "Timido: apartar el rey deja vivo al caballo y regalas el final que ya era tuyo."
+      },
+      "c2": {
+        "title": "El trono se levanta",
+        "teach": "Un rey activo en el final vale mas que el miedo que le tienen. La torre que se acerca sin escolta es carne para tu monarca.",
+        "observe": "Tu rey en e5, en el centro, y la torre negra en d6 al alcance de tu mano, sin peon ni rey que la sostengan.",
+        "goal": "Toma la torre con el rey.",
+        "hints": [
+          "Tu rey manda en el centro; una casilla vecina esconde una torre.",
+          "La torre en d6 no tiene guardia: ni el rey en b7 ni el peon la protegen.",
+          "Rxd6: tu rey se alza y arranca la torre del tablero."
+        ],
+        "explain": "Rxd6 captura una torre indefensa y decide el final de golpe. El rey central no huye: cobra.",
+        "wrong": "Error: cualquier otra jugada perdona a la torre y con ella tu ventaja."
+      },
+      "c3": {
+        "title": "La reina al alcance",
+        "teach": "El peligro es tu oficio: cuando la dama viene a matarte, mira si se ha acercado demasiado. Sobrevivir es tener el temple de comer aquello que pretendia devorarte.",
+        "observe": "Tu rey en d4 esta en jaque de la dama en c5, pero esa dama esta pegada a ti y nadie la protege. El susto esconde un regalo.",
+        "goal": "Responde al jaque capturando la dama.",
+        "hints": [
+          "Estas en jaque: no todo jaque es una amenaza, algunos son un descuido.",
+          "La dama en c5 te ataca desde una casilla vecina, y esta sola.",
+          "Rxc5: tu rey responde al jaque llevandose la dama entera."
+        ],
+        "explain": "Rxc5 sale del jaque y captura la dama de un solo golpe, porque nada la defiende. Quien te amenazaba yace bajo tu pie.",
+        "wrong": "Fatal: huir del jaque deja viva a la dama y con ella pierdes el final y la vida."
+      },
+      "c4": {
+        "title": "El rey se aparta y mata",
+        "teach": "A veces la mejor jugada del rey es quitarse de en medio. Al apartarse, deja hablar a la pieza que escondia su cuerpo, y esa voz es sentencia.",
+        "observe": "Tu torre en a1 y el rey negro en a8 comparten columna, pero tu propio rey en a6 tapa la mira. Tu alfil en f4 vigila en silencio la casilla b8.",
+        "goal": "Aparta el rey y descubre el mate.",
+        "hints": [
+          "Tu rey tapa la columna de tu torre; si se aparta, la torre da jaque en a8.",
+          "Busca la casilla donde tu rey, al moverse, cubra a7 y b7 mientras el alfil sella b8.",
+          "Rb6: descubre el jaque de torre y al rey negro no le queda ni una casilla."
+        ],
+        "explain": "Rb6 descubre el jaque de la torre por la columna a; el rey en a6 pasa a cubrir a7 y b7, y el alfil de f4 ya tapaba b8. Sin huida, es mate.",
+        "wrong": "No: mover el rey a cualquier otra casilla deja un respiradero y el mate se escapa."
+      },
+      "c5": {
+        "title": "La prueba de Malrec",
+        "teach": "Sin pistas, sin manos que te sostengan. El rey debe salir al descampado y tomar lo que otros temen tocar.",
+        "observe": "Tu rey en c4 y la torre negra en b5, activa en la quinta fila. El rey enemigo esta lejos, cuidando su peon; nadie guarda la torre.",
+        "goal": "Sal con el rey y captura la torre.",
+        "hints": [],
+        "explain": "Rxb5 se lleva una torre indefensa y deja el final ganado; el rey que se atreve a salir cobra lo que el timido nunca vera. Ni el peon ni el rey lejano pueden vengarla.",
+        "wrong": "No: la torre esta suelta y solo tu rey, saliendo al raso, se la lleva."
+      }
+    },
+    "solenne": {
+      "intro": "Soy Solenne, y naci siendo la pieza mas humilde del tablero: un simple peon. Pero un peon pasado camina sin miedo hacia la octava fila, y quien aprende a coronar aprende que ningun comienzo modesto decide el final.",
+      "reward": "Corona de la Octava Fila",
+      "chron": [
+        "Mi peon dio el ultimo paso a b8 y nacio dama con jaque; lo que empezo pequeno termino gobernando el tablero.",
+        "En b7 no me detuve ante el caballo: lo captura al coronar en c8, y de un solo paso gane pieza y corona.",
+        "Avance a g8 y la nueva dama cruzo el tablero para clavar al rey; el peon paciente se hizo reina.",
+        "La torre creyo cerrarme el paso, pero en g8 la devore al coronar con jaque; asi se abre camino un peon pasado.",
+        "Sin voces que me guiaran, corone caballo en vez de dama y el salto atrapo a rey y reina a la vez: la humildad tambien sabe elegir su forma."
+      ],
+      "c1": {
+        "title": "El ultimo paso",
+        "teach": "Un peon pasado es aquel que ya no tiene peones enemigos delante ni a sus lados: su camino a la coronacion esta libre. Cuando llega a la septima fila, un paso mas lo convierte en dama.",
+        "observe": "Tu peon en b7 tiene la octava fila al alcance y ningun rival puede frenarlo. Al coronar en b8, la nueva dama mirara de frente al rey negro en d6.",
+        "goal": "Avanza el peon y corona dama con jaque.",
+        "hints": [
+          "Tu peon en b7 esta a un solo paso de la octava fila.",
+          "Corona en b8 eligiendo la pieza mas fuerte y observa la fila del rey.",
+          "b8=D+ nace con jaque sobre d6; el rey debe atender y tu ganas una dama entera."
+        ],
+        "explain": "b8=D corona con jaque en la octava fila; el peon pasado no tenia oposicion y ahora eres una dama de ventaja. El paso mas humilde se volvio el mas poderoso.",
+        "wrong": "Te falto dar el ultimo paso: un peon que no corona desperdicia todo su camino."
+      },
+      "c2": {
+        "title": "Coronar capturando",
+        "teach": "A veces el camino a la octava fila cruza una pieza enemiga en diagonal: puedes capturarla y coronar en el mismo movimiento. Asi ganas la pieza y la corona de un solo golpe.",
+        "observe": "Tu peon en b7 tiene enfrente al caballo negro en c8, justo en tu diagonal de coronacion. El rey en e6 no puede acudir a tiempo.",
+        "goal": "Captura el caballo coronando dama.",
+        "hints": [
+          "El caballo en c8 esta en la diagonal de captura de tu peon.",
+          "No avances recto: comete el caballo al coronar.",
+          "bxc8=D+ elimina el caballo y te da una dama con jaque; doble botin."
+        ],
+        "explain": "bxc8=D captura el caballo y corona con jaque a la vez; sumas pieza y dama sin dar nada a cambio. El peon pasado sabe abrirse paso comiendo.",
+        "wrong": "Coronar recto deja vivo al caballo: aprovecha la captura y llevatelo todo."
+      },
+      "c3": {
+        "title": "La reina que cruza",
+        "teach": "Coronar no solo suma material: crea de la nada la pieza mas veloz del tablero. Recien nacida, la dama alcanza en un instante lo que estaba al otro lado.",
+        "observe": "Tu peon en g7 corona libre en g8. Desde alli, la nueva dama vera en diagonal al rey negro en d5.",
+        "goal": "Corona dama y da jaque al rey.",
+        "hints": [
+          "Tu peon en g7 llega solo a la octava fila.",
+          "Corona en g8 y mira la larga diagonal hacia el centro.",
+          "g8=D+ clava al rey en d5 desde la esquina; la reina domina el tablero al nacer."
+        ],
+        "explain": "g8=D corona y da jaque en la diagonal g8-d5; de un peon nace una dama que gobierna todo el tablero. Ese es el premio de la paciencia.",
+        "wrong": "Sin coronar, tu peon se queda mirando: da el paso y deja nacer a la reina."
+      },
+      "c4": {
+        "title": "Devorar al guardian",
+        "teach": "Cuando una torre intenta cerrarte la octava fila, no la temas: si esta en tu diagonal, la capturas al coronar. El obstaculo se vuelve tu ultima presa.",
+        "observe": "Tu peon en h7 tiene a la torre negra en g8, en su diagonal de coronacion. El rey en e6 quedara expuesto a la nueva dama.",
+        "goal": "Captura la torre coronando con jaque.",
+        "hints": [
+          "La torre en g8 cree bloquearte, pero esta en tu diagonal.",
+          "Comela al coronar en vez de empujar recto.",
+          "hxg8=D+ elimina la torre y da jaque a e6; ganas torre y corona de golpe."
+        ],
+        "explain": "hxg8=D captura la torre y corona con jaque sobre e6; el guardian que queria detenerte alimenta tu ascenso. Un peon pasado no pide permiso: se abre paso.",
+        "wrong": "Empujar recto tropieza con la torre: captura en diagonal y coronaras devorandola."
+      },
+      "c5": {
+        "title": "La prueba de Solenne",
+        "teach": "Sin pistas ni voces. Coronar dama no siempre es lo mejor: a veces la pieza humilde debe elegir otra forma para atrapar al rey y a la reina a la vez.",
+        "observe": "Tu peon en b7 corona libre, pero el rey en d7 y la dama en a6 estan colocados de un modo peculiar. Piensa que pieza los alcanza a ambos.",
+        "goal": "Corona la pieza que da jaque y gana la dama.",
+        "hints": [],
+        "explain": "b8=C corona caballo con jaque y bifurca al rey en d7 y a la dama en a6; el rey debe moverse y la dama cae. La subpromocion, humilde en apariencia, gana la partida.",
+        "wrong": "No: coronar dama solo da jaque, pero existe una pieza que ataca al rey y a la dama a la vez."
+      }
+    },
+    "presence": {
+      "label": "Tu campeón",
+      "win": "Victoria. Has jugado como yo te habría enseñado.",
+      "lose": "Cada derrota esconde una lección. La próxima es nuestra.",
+      "draw": "Tablas. El equilibrio también se domina.",
+      "check": "Cuidado: tu rey está en jaque.",
+      "thinking": "Observa. La mejor jugada rara vez grita.",
+      "sendaCta": "Recorre mi Senda de Maestría en el códice."
+    }
   }
 }

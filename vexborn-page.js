@@ -9,11 +9,20 @@ import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=16';
 import {
   VEXBORN, EXPANSIONS, expansions, rarityMeta, vexbornByKey, vexbornByCollection,
   vexbornAvailable, vexbornPortrait, vexbornCard, vexbornSplash, vexbornBanner,
-} from './vexborn.js?v=4';
+} from './vexborn.js?v=5';
+import { openSenda } from './vexborn-senda.js?v=1';
+import { sendaAvailable, vinculoLevelName } from './vexborn-mastery.js?v=1';
 
 const root = document.getElementById('vexborn-root');
 let user = null;
 let equipping = false;
+let mastery = { champions: {} };
+
+async function loadMastery() {
+  if (!user) { mastery = { champions: {} }; return; }
+  try { const r = await fetch('/api/vexborn/mastery', { credentials: 'include' }); if (r.ok) mastery = await r.json(); } catch (e) {}
+}
+function masteryOf(key) { return (mastery.champions && mastery.champions[key]) || null; }
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function pieceEmoji(v) {
@@ -132,8 +141,11 @@ function expansionHTML(exp) {
 function cardHTML(v) {
   const rm = rarityMeta(v.rarity);
   const isEq = equippedKey() === v.key;
+  const mv = (masteryOf(v.key) || {}).vinculo || 0;
+  const ring = (user && mv > 0) ? '<span class="vb-card-ring" style="--v:' + mv + '" title="' + t('vexborn.mastery.label') + ' ' + mv + '%"><b>' + mv + '</b></span>' : '';
   return '<button class="vb-card' + (isEq ? ' equipped' : '') + '" type="button"' +
       ' data-key="' + esc(v.key) + '" style="--rar:' + rm.color + '">' +
+      ring +
       '<span class="vb-card-rar" style="--rar:' + rm.color + '">' + esc(rm.label) + '</span>' +
       (isEq ? '<span class="vb-card-eqtag">' + t('vexborn.card.equipped') + '</span>' : '') +
       '<span class="vb-card-art"><img src="' + esc(vexbornPortrait(v)) + '" alt="" loading="lazy"></span>' +
@@ -162,6 +174,25 @@ function nullTeaserHTML(exp) {
 
 function footerNoteHTML() {
   return '<p class="vb-legal">' + t('vexborn.legal') + '</p>';
+}
+
+// Bloque "Senda de Maestría" en la ficha: barra de vínculo + botón si está disponible.
+function sendaBlockHTML(v) {
+  const rm = rarityMeta(v.rarity);
+  if (user && sendaAvailable(v.key)) {
+    const m = masteryOf(v.key) || { vinculo: 0, chapters: [] };
+    const vinc = m.vinculo || 0;
+    const started = (m.chapters || []).length > 0;
+    return '<div class="vb-fi-senda" style="--acc:' + rm.color + '">' +
+        '<div class="vb-fi-senda-top"><b>' + t('vexborn.mastery.label') + '</b><span>' + esc(vinculoLevelName(vinc)) + ' · ' + t('vm.ui.vinculo') + ' ' + vinc + '%</span></div>' +
+        '<div class="vm-bar"><i style="width:' + vinc + '%"></i></div>' +
+        '<div class="vb-fi-actions" style="margin-top:.7rem"><button class="vb-btn primary" data-senda="' + esc(v.key) + '" type="button">' + (started ? t('vm.ui.continue') : t('vm.ui.start')) + '</button></div>' +
+        '<small style="display:block;margin-top:.5rem;color:var(--muted);font-size:.76rem">' + t('vexborn.mastery.note') + '</small>' +
+      '</div>';
+  }
+  // Sin sesión, o Senda aún no disponible para este campeón → teaser.
+  const line = sendaAvailable(v.key) ? t('vm.ui.guestMsg') : t('vexborn.mastery.teaser');
+  return '<div class="vb-fi-mastery"><b>' + t('vexborn.mastery.label') + '</b><span>' + esc(line) + '</span><small>' + t('vexborn.mastery.note') + '</small></div>';
 }
 
 // ---------- ficha (detalle) ----------
@@ -202,7 +233,7 @@ function openFicha(key) {
         '</div>' +
         '<div class="vb-fi-block"><span>' + t('vexborn.chronicleLabel') + '</span><p>' + esc(v.desc) + '</p></div>' +
         '<div class="vb-fi-block"><span>' + t('vexborn.ficha.personality') + '</span><p>' + esc(v.personality) + '</p></div>' +
-        '<div class="vb-fi-mastery"><b>' + t('vexborn.mastery.label') + '</b><span>' + t('vexborn.mastery.teaser') + '</span><small>' + t('vexborn.mastery.note') + '</small></div>' +
+        sendaBlockHTML(v) +
         '<div class="vb-fi-actions">' + action + '</div>' +
       '</div>' +
     '</div>';
@@ -214,6 +245,8 @@ function openFicha(key) {
   wrap.querySelector('.vb-modal-scrim').addEventListener('click', close);
   const eqBtn = wrap.querySelector('[data-equip]');
   if (eqBtn) eqBtn.addEventListener('click', () => { const k = eqBtn.getAttribute('data-equip'); close(); doEquip(k || null); });
+  const sBtn = wrap.querySelector('[data-senda]');
+  if (sBtn) sBtn.addEventListener('click', () => { close(); startSenda(v); });
   const onKey = (e) => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onKey); } };
   document.addEventListener('keydown', onKey);
 }
@@ -270,6 +303,14 @@ function wireCards() {
   });
 }
 
+// ---------- Senda de Maestría ----------
+function startSenda(v) {
+  openSenda({
+    root, champ: v.key, name: v.name, mastery: masteryOf(v.key),
+    onExit: async () => { await loadMastery(); render(); },
+  });
+}
+
 // ---------- init ----------
-onAuth(u => { user = u; render(); });
+onAuth(async (u) => { user = u; await loadMastery(); render(); });
 render();

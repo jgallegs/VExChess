@@ -173,6 +173,20 @@ CREATE TABLE IF NOT EXISTS academy_progress (
 );
 CREATE INDEX IF NOT EXISTS idx_academy_prog_user ON academy_progress(user_id);
 
+-- Senda de Maestría de los Vexborn: progreso por campeón (sin ventaja competitiva).
+CREATE TABLE IF NOT EXISTS vexborn_mastery (
+  user_id TEXT NOT NULL,
+  champion TEXT NOT NULL,                  -- 'noctis' | 'kael' | ...
+  chapters TEXT NOT NULL DEFAULT '[]',     -- JSON: ids de capítulos completados
+  vinculo INTEGER NOT NULL DEFAULT 0,      -- 0-100: nivel de vínculo con el campeón
+  best_hint INTEGER NOT NULL DEFAULT 0,    -- pista máxima usada (0-4)
+  attempts INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT,
+  PRIMARY KEY (user_id, champion),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_vexmastery_user ON vexborn_mastery(user_id);
+
 CREATE TABLE IF NOT EXISTS user_badges (
   user_id TEXT NOT NULL,
   badge TEXT NOT NULL,                     -- id de la insignia (creator, staff, first-move, ...)

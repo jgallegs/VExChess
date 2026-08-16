@@ -1121,5 +1121,1208 @@
       "community": "Comunidade",
       "myGames": "Minhas partidas"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Iniciado",
+      "aprendiz": "Aprendiz",
+      "adepto": "Adepto",
+      "experto": "Perito",
+      "maestro": "Mestre",
+      "pleno": "Vínculo pleno"
+    },
+    "ui": {
+      "start": "Iniciar Senda da Maestria",
+      "continue": "Continuar Senda",
+      "soon": "Senda da Maestria · em breve",
+      "sectionTitle": "Senda da Maestria",
+      "chapter": "Capítulo {n}/{total}",
+      "trialTag": "Prova",
+      "vinculo": "Vínculo",
+      "observe": "Observa",
+      "hint": "Pedir uma dica",
+      "hintCount": "Dica {n}/{total}",
+      "lastHint": "última",
+      "correct": "Correto!",
+      "next": "Seguinte →",
+      "teachNext": "Entendido →",
+      "practice": "Pratica →",
+      "finishChapter": "Terminar capítulo →",
+      "chronicleUnlocked": "Crónica desbloqueada",
+      "reward": "Recompensa de maestria",
+      "completeTitle": "Senda concluída",
+      "completeMsg": "Percorreste a Senda inteira. O vínculo com este campeão é pleno.",
+      "back": "Voltar ao códice",
+      "trialNoHints": "Na Prova não há dicas: confia no que aprendeste.",
+      "wrongRetry": "Tenta outra vez.",
+      "yourMove": "É a tua vez",
+      "vinculoSub": "Sem vantagem competitiva · apenas aprendizagem, narrativa e coleção",
+      "chapterDone": "Capítulo superado",
+      "guestMsg": "Entra para percorrer a Senda e guardar o teu vínculo.",
+      "loginBtn": "Entrar",
+      "chaptersDone": "{n}/{total} capítulos",
+      "trialsHint": "O último capítulo é uma Prova sem dicas."
+    },
+    "noctis": {
+      "intro": "Sou Noctis. Não atravesso a escuridão: divido-a. Vou ensinar-te a ver as duas ameaças que cabem num só salto. Observa, prevê e executa.",
+      "reward": "Título desbloqueado: «Sombra Dupla»",
+      "chron": [
+        "Cada salto meu deixa duas sombras. Só uma é real.",
+        "Aprendi a golpear onde ninguém defende: entre duas peças ao mesmo tempo.",
+        "O rei é o melhor refém: obriga a responder e deixa livre a sua dama.",
+        "Não procuro a peça. Procuro a casa a partir da qual duas peças já são minhas.",
+        "Quando vires o garfo antes de o executares, não precisarás das minhas sombras."
+      ],
+      "c1": {
+        "title": "A primeira sombra",
+        "teach": "O garfo ataca duas peças com um só lance. Comecemos pelo mais limpo: um xeque que, de caminho, leva uma torre.",
+        "observe": "O rei negro está em e8 e a torre em a8. Procura a casa a partir da qual um cavalo toque as duas.",
+        "goal": "Dá xeque e ataca a torre com o cavalo.",
+        "hints": [
+          "Um cavalo em c7 alcança e8 e a8 ao mesmo tempo.",
+          "A casa chave está a um salto: d5 → c7.",
+          "Cd5-c7+: xeque ao rei e garfo à torre."
+        ],
+        "explain": "Cc7+ é xeque: o adversário tem de atender ao rei e a torre de a8 cai. Esse é o garfo na sua forma mais pura: obrigas primeiro e ganhas depois.",
+        "wrong": "Quase. Uma só casa deve tocar o rei e a torre. Pensa em c7."
+      },
+      "c2": {
+        "title": "O rei como isco",
+        "teach": "Quando o garfo inclui o rei, é imparável: o xeque obriga e a peça maior fica à tua mercê.",
+        "observe": "Rei negro em e8, dama em c8. Encontra o salto que dá xeque e também mira a dama.",
+        "goal": "Garfo ao rei e à dama.",
+        "hints": [
+          "A partir de d6 um cavalo ataca e8 e c8.",
+          "e4 → d6, com xeque.",
+          "Cd6+ ganha a dama após o xeque."
+        ],
+        "explain": "Cd6+ ataca o rei (xeque forçoso) e a dama em c8. O rei move-se e a dama é tua. O rei é o melhor isco de um garfo.",
+        "wrong": "Não é essa. A casa deve dar xeque em e8 e tocar c8 ao mesmo tempo: olha para d6."
+      },
+      "c3": {
+        "title": "Do outro ângulo",
+        "teach": "A mesma ideia funciona em qualquer flanco. Treina o olho para a veres também pela direita.",
+        "observe": "Rei em e8, dama em g8. Encontra o salto que ameaça os dois.",
+        "goal": "Xeque ao rei e ataque à dama.",
+        "hints": [
+          "f6 toca e8 e g8.",
+          "g4 → f6, com xeque.",
+          "Cf6+ e a dama de g8 cai."
+        ],
+        "explain": "Cf6+ dá xeque do outro lado e ataca g8. O garfo não tem lado favorito: só casas corretas.",
+        "wrong": "Ainda não. Procura a casa que toque e8 e g8: é f6."
+      },
+      "c4": {
+        "title": "O salto silencioso",
+        "teach": "Às vezes a casa do garfo parece inofensiva… até o cavalo chegar. Confia no padrão.",
+        "observe": "Rei em g8, dama em c8 e o teu cavalo em g6. Que casa toca ambos?",
+        "goal": "Garfo ao rei e à dama.",
+        "hints": [
+          "e7 alcança g8 e c8.",
+          "g6 → e7, com xeque.",
+          "Ce7+ e ganhas a dama."
+        ],
+        "explain": "Ce7+ liga g8 (xeque) a c8 (dama). Um salto tranquilo, um butim enorme. Já reconheces o padrão.",
+        "wrong": "Não é essa. A casa que toca g8 e c8 é e7."
+      },
+      "c5": {
+        "title": "Prova · A sombra sem aviso",
+        "teach": "Sem xeque não há aviso: aqui o garfo não grita, ou o vês ou o perdes. Sem dicas: confia no que aprendeste.",
+        "observe": "Duas torres negras, em d8 e f8. Uma só casa mira as duas.",
+        "goal": "Garfo às duas torres.",
+        "hints": [],
+        "explain": "Ce6 ataca d8 e f8 ao mesmo tempo. Não há xeque, mas uma torre cairá. Aprendeste a ver o garfo sem que ninguém te avise.",
+        "wrong": "Uma torre deve ficar atacada junto à outra. Procura a casa entre d8 e f8."
+      }
+    },
+    "kael": {
+      "intro": "Sou Kael, e o meu cavalo não pede licença: ataca. Segue-me e aprende a roubar o tempo, desenvolver com fúria e ficar com a iniciativa antes de o adversário respirar.",
+      "reward": "Cavaleiro do Tempo",
+      "chron": [
+        "O meu cavalo saltou para e7 com xeque e a dama inimiga caiu sem um lamento.",
+        "No canto encurralei o rei e arranquei-lhe a torre pela raiz.",
+        "Um salto para f7 e o silêncio do mate fechou a partida.",
+        "Castiguei o rei que não se atreveu a desenvolver-se: xeque, e a sua dama foi minha.",
+        "Sem dicas e sem dúvidas, o corcel golpeou e o tabuleiro rendeu-se."
+      ],
+      "c1": {
+        "title": "O Salto que Rouba a Dama",
+        "teach": "O xeque manda: quando dás xeque, o adversário obedece e és tu que marcas o ritmo. Um cavalo que dá xeque e ataca a dama ganha tempo e material de um só golpe.",
+        "observe": "Repara onde estão o rei negro e a sua dama: procura uma casa que ataque os dois ao mesmo tempo.",
+        "goal": "Dá xeque e faz garfo ao rei e à dama.",
+        "hints": [
+          "Procura um salto de cavalo que dê xeque ao rei em g8.",
+          "A casa e7 toca o rei e a dama ao mesmo tempo.",
+          "Joga Ce7+ e, depois de o rei mover, captura a dama em c6."
+        ],
+        "explain": "Ce7+ é xeque: o rei tem de mover e não pode defender a dama, que cai em c6.",
+        "wrong": "Sem xeque perdes a iniciativa; obriga o rei e fica com a dama."
+      },
+      "c2": {
+        "title": "Emboscada no Canto",
+        "teach": "A iniciativa nasce de ameaçar com tempo. Um cavalo que dá xeque no canto força o rei e desnuda a sua torre.",
+        "observe": "O rei negro dorme em a8 e a sua torre em e8: um garfo une-os.",
+        "goal": "Dá xeque e ganha a torre.",
+        "hints": [
+          "O cavalo pode saltar para c7 dando xeque.",
+          "A partir de c7 o cavalo ataca o rei e a torre de e8.",
+          "Cc7+ e depois Cxe8: a torre é tua."
+        ],
+        "explain": "Cc7+ obriga o rei a fugir e o cavalo devora a torre em e8.",
+        "wrong": "Não deixes o rei escapar de graça: o xeque em c7 é a tua única chave."
+      },
+      "c3": {
+        "title": "O Mate do Corcel",
+        "teach": "O desenvolvimento culmina no ataque: quando o rei se asfixia entre as suas peças, um cavalo remata. O tempo perfeito converte um salto em xeque-mate.",
+        "observe": "O rei negro está sepultado pela sua torre e pelos seus peões; só falta o golpe.",
+        "goal": "Dá xeque-mate com o cavalo.",
+        "hints": [
+          "O rei não tem nem uma casa livre.",
+          "Um salto para f7 dá xeque e não há escape possível.",
+          "Cf7 é mate: entrega-o com orgulho."
+        ],
+        "explain": "Cf7# dá xeque e o rei, afogado pelas suas próprias peças, não pode fugir nem capturar.",
+        "wrong": "Procura o xeque do qual não se pode escapar: f7 sela-o."
+      },
+      "c4": {
+        "title": "Castigo ao Rei Preguiçoso",
+        "teach": "Quem não desenvolve, paga: um rei preso no centro é presa fácil. Ataca com tempo e a iniciativa torna-se butim.",
+        "observe": "O rei negro continua em e7 e a sua dama vagueia por b4: ambos ao alcance de um salto.",
+        "goal": "Dá xeque no centro e ganha a dama.",
+        "hints": [
+          "O rei exposto em e7 convida ao garfo.",
+          "A partir de c6 o cavalo dá xeque ao rei e ataca a dama em b4.",
+          "Cc6+ e depois Cxb4: a dama é tua."
+        ],
+        "explain": "Cc6+ é xeque de dois gumes: o rei foge e a dama de b4 cai sem remédio.",
+        "wrong": "Aproveita o rei no centro: só o xeque em c6 ganha a dama."
+      },
+      "c5": {
+        "title": "Prova do Cavaleiro: Sem Piedade",
+        "teach": "Aqui não há dicas, só o teu instinto. Encontra o salto que dá xeque e arranca a dama: mostra que dominas o tempo.",
+        "observe": "O rei em c8 e a dama em f5 esperam o teu veredicto.",
+        "goal": "Dá xeque e leva a dama.",
+        "hints": [],
+        "explain": "Cd6+ dá xeque ao rei em c8 e ataca a dama em f5; o rei foge e Cxf5 fecha o assalto.",
+        "wrong": "O tempo escapou-te: procura o xeque que também toca a dama."
+      }
+    },
+    "aurelia": {
+      "intro": "Sou Aurelia, e a minha dama não se move por impulso: move-se por convicção. Antes de tocar numa peça vejo a partida terminada; segue-me e aprenderás a calcular até ao fim.",
+      "reward": "Senda da Dama Serena",
+      "chron": [
+        "No primeiro passo a dama desceu à sétima, e o rei não encontrou para onde fugir.",
+        "Vi a última linha fechar-se antes de existir; os seus próprios peões foram a sua condenação.",
+        "Um peão cruzou o tabuleiro e renasceu convertido em dama: o cálculo premeia a paciência.",
+        "Não capturei por cobiça, mas por certeza; a dama inimiga caiu sem travar batalha.",
+        "Sem dicas e sem dúvidas escolhi a única senda, e o mate floresceu sobre a diagonal."
+      ],
+      "c1": {
+        "title": "A descida da dama",
+        "teach": "Calcular é ver a posição final antes de mover uma só peça. A dama e o rei tecem juntos uma rede da qual o monarca adversário não escapa.",
+        "observe": "Repara nas casas de escape do rei negro e descobre quem as vigia.",
+        "goal": "Dá xeque-mate num lance.",
+        "hints": [
+          "O teu rei em f6 já controla g7; a dama pode apoiar-se nele.",
+          "Procura a casa a partir da qual a dama ataque o rei sem poder ser capturada.",
+          "Leva a dama para g7: o rei de h8 ficará sem ar."
+        ],
+        "explain": "Dg7 é xeque-mate: o rei de f6 defende a dama e retira ao monarca negro as casas g8, h7 e g7.",
+        "wrong": "O rei escapou; recalcula que casa fecha todas as suas saídas."
+      },
+      "c2": {
+        "title": "A última linha",
+        "teach": "Um rei fechado atrás dos seus próprios peões vive em perigo constante. Saber calcular a linha do fundo decide inúmeras partidas.",
+        "observe": "Observa os peões f7, g7 e h7: aprisionam o seu próprio rei.",
+        "goal": "Encontra o mate num lance.",
+        "hints": [
+          "O rei negro não tem casas à sua frente; os seus peões asfixiam-no.",
+          "A coluna d permanece aberta até ao fundo do tabuleiro.",
+          "Invade a oitava linha com a dama: Dd8."
+        ],
+        "explain": "Dd8 é mate: a dama domina toda a oitava linha e os peões impedem qualquer fuga.",
+        "wrong": "Ainda resta uma saída; certifica-te de dominar a linha completa."
+      },
+      "c3": {
+        "title": "A promoção",
+        "teach": "Escolher a variante inclui escolher em que peça promover. A dama, quase sempre, é a resposta mais letal.",
+        "observe": "O peão está a um passo de promover e o teu rei em f6 sustenta a manobra.",
+        "goal": "Promove e dá mate.",
+        "hints": [
+          "O peão de h7 pode promover de imediato.",
+          "O teu rei vigia e7, f7 e g7; só falta fechar a oitava linha.",
+          "Promove a dama: h8=D é xeque-mate."
+        ],
+        "explain": "h8=D é mate: a nova dama controla a oitava linha enquanto o rei branco cobre as casas de fuga.",
+        "wrong": "Essa promoção não fecha a rede; promove a dama e calcula o mate."
+      },
+      "c4": {
+        "title": "A captura serena",
+        "teach": "Nem toda a variante se coroa com xeque-mate; às vezes escolhe-se a que ganha material sem o menor risco. Calcular é também reconhecer o ganho limpo.",
+        "observe": "A coluna d une a tua dama à dama inimiga.",
+        "goal": "Ganha a dama adversária.",
+        "hints": [
+          "A dama negra em d8 não tem qualquer defesa.",
+          "A tua dama dispõe da coluna d desimpedida.",
+          "Captura com xeque: Dxd8+."
+        ],
+        "explain": "Dxd8+ captura a dama inimiga com xeque e deixa uma vantagem decisiva, sem complicação alguma.",
+        "wrong": "Escolheste uma variante inferior; a captura limpa era a senda."
+      },
+      "c5": {
+        "title": "A diagonal decisiva",
+        "teach": "Agora calculas sozinha: sem dicas, sem apoios, só a tua visão. Escolhe a única senda que coroa todo o esforço.",
+        "observe": "O teu cavalo em h5 e a tua dama trabalham em silêncio sobre o rei.",
+        "goal": "Encontra o mate num lance.",
+        "hints": [],
+        "explain": "Dg7 é mate: o cavalo de h5 defende a dama, e o rei de h8 perde g8 e h7.",
+        "wrong": "Não era a senda; só um lance entrega o mate exato."
+      }
+    },
+    "bastion": {
+      "intro": "Sou Bastion, torre e baluarte de VEXCHESS: não avanço por colunas fechadas nem recuo diante da dama. Segue-me e aprenderás que duas torres unidas são uma muralha que ataca.",
+      "reward": "Baluarte das Torres Unidas",
+      "chron": [
+        "Reclamei a coluna aberta como território próprio e a minha torre caiu sobre a oitava linha: o rei não teve muro atrás do qual esconder-se.",
+        "Desci à sétima linha como quem patrulha uma fronteira, e o inimigo desguarnecido pagou com a sua torre.",
+        "Uni as minhas duas torres ombro a ombro; uma fechou a única porta enquanto a outra dava o golpe final.",
+        "Sem temer a dama, espetei-a contra o seu próprio rei e derrubei-a: nenhuma peça é invencível diante de uma torre bem plantada.",
+        "Sozinho, sem uma só voz que me guiasse, tracei o espeto exato e a senda ficou conquistada."
+      ],
+      "c1": {
+        "title": "A coluna aberta",
+        "teach": "Uma coluna aberta é um caminho que a torre reclama para si; por ela penetra até à retaguarda inimiga. Quem domina a coluna domina a partida.",
+        "observe": "Repara na coluna b: está desimpedida de princípio a fim, e a última linha do rei negro não tem guarda.",
+        "goal": "Invade a oitava linha e dá xeque-mate.",
+        "hints": [
+          "A coluna b é tua: nenhuma peça te fecha a passagem.",
+          "Os peões f7, g7 e h7 fecham o seu próprio rei.",
+          "Sobe a torre até ao fundo: Tb8 é mate."
+        ],
+        "explain": "Tb8 é mate: a torre percorre a coluna aberta até à oitava linha e os peões negam ao rei toda a fuga.",
+        "wrong": "O rei ainda respira; toma a coluna aberta até ao fim."
+      },
+      "c2": {
+        "title": "A torre na sétima",
+        "teach": "A sétima linha é terra de saque para a torre; ali cai o material sem defesa. Avança pela coluna aberta e cobra a tua presa.",
+        "observe": "A torre negra em a7 está sozinha, sem um só defensor que a cubra.",
+        "goal": "Captura a torre inimiga.",
+        "hints": [
+          "A coluna a está desimpedida à tua frente.",
+          "Nenhuma peça negra defende a casa a7.",
+          "Desce pela coluna e captura: Txa7."
+        ],
+        "explain": "Txa7 ganha uma torre inteira: a coluna aberta leva a tua torre à sétima e o rei em g8 está demasiado longe para responder.",
+        "wrong": "Deixaste escapar o butim; a coluna aberta entregava-te a torre."
+      },
+      "c3": {
+        "title": "Torres ligadas",
+        "teach": "Duas torres que se protegem valem mais do que o dobro de uma só: uma ataca e a outra fecha a porta. Ligadas, tecem uma rede da qual o rei não escapa.",
+        "observe": "O rei negro em a8 só pode sonhar com b7; observa que torre vigia essa casa.",
+        "goal": "Dá xeque-mate com as duas torres.",
+        "hints": [
+          "A torre de b1 já cobre a casa b7, única saída do rei.",
+          "Precisas de dar xeque na oitava linha sem que o rei possa fugir.",
+          "Leva a outra torre à oitava: Tc8 é mate."
+        ],
+        "explain": "Tc8 é mate: uma torre dá xeque na oitava linha enquanto a sua companheira desde b1 fecha b7. Esse é o poder das torres ligadas.",
+        "wrong": "Uma só torre não basta; deixa que ambas trabalhem juntas."
+      },
+      "c4": {
+        "title": "A torre que ganha a dama",
+        "teach": "Uma torre bem plantada em coluna aberta não teme a dama: enfrenta-a de igual para igual. Com um xeque na coluna, alinha o rei e a dama e cobra a peça maior.",
+        "observe": "O rei negro em a4 e a dama em a8 partilham a mesma coluna; só falta abri-la com xeque.",
+        "goal": "Ganha a dama inimiga com um espeto.",
+        "hints": [
+          "A coluna a alinha o rei de a4 com a dama de a8.",
+          "Dá xeque pela coluna a: espetarás o rei com a dama atrás.",
+          "Joga Ta1+; quando o rei se afastar, Txa8 ganha a dama."
+        ],
+        "explain": "Ta1+ é um espeto: o rei e a dama ficam na mesma coluna. O rei tem de se afastar e então Txa8 leva a dama.",
+        "wrong": "A dama sobreviveu; usa a coluna e o xeque para a espetar."
+      },
+      "c5": {
+        "title": "A senda do guardião",
+        "teach": "Agora defendes e atacas sem conselho algum; só o teu cálculo sustenta a posição. Encontra o espeto que coroa a senda.",
+        "observe": "O rei negro em e5 e a torre em e8 partilham a coluna e, ainda fechada.",
+        "goal": "Encontra o lance que ganha a torre.",
+        "hints": [],
+        "explain": "Te1+ espeta o rei com a torre atrás na coluna e; o rei afasta-se e Txe8 ganha a torre.",
+        "wrong": "Não era a senda; um só lance espeta o rei e ganha a torre."
+      }
+    },
+    "nyra": {
+      "intro": "Sou Nyra. Não grito as minhas intenções: deslizo-as por uma diagonal e espero que o tabuleiro compreenda. Um bispo bem colocado já ganhou a partida; só falta que o adversário perceba.",
+      "reward": "Senda da Diagonal",
+      "chron": [
+        "No primeiro passo deixei que a diagonal falasse: a torre caiu sem que eu erguesse a voz.",
+        "Cruzei o tabuleiro inteiro em silêncio e encontrei a dama desprevenida; a infiltração não pede licença.",
+        "O cavalo fingia guardar a casa, cravado como estava; agradeci-lhe a comédia e levei a torre.",
+        "Cravei o guardião contra o seu próprio rei e recolhi a dama com um xeque, quase com pena.",
+        "Sem dicas, alinhei o rei com a sua dama e afastei um para ficar com a outra."
+      ],
+      "c1": {
+        "title": "O alcance da diagonal",
+        "teach": "O bispo não corre: alcança. Uma diagonal desimpedida converte a distância em ameaça imediata.",
+        "observe": "Segue a diagonal do teu bispo até ao extremo oposto do tabuleiro.",
+        "goal": "Captura a torre.",
+        "hints": [
+          "O teu bispo habita uma só cor; repara na diagonal longa que domina.",
+          "A torre negra descansa sobre essa mesma diagonal, sem quem a proteja.",
+          "Bispo de c3 para g7: percorre-a inteira."
+        ],
+        "explain": "Bxg7 ganha a torre limpa: nada se interpõe na diagonal e ninguém a defende.",
+        "wrong": "Deixaste a diagonal a meio; a torre continua de pé."
+      },
+      "c2": {
+        "title": "Infiltração",
+        "teach": "Uma diagonal aberta é um caminho até ao coração inimigo. O bispo esgueira-se sem ruído e cobra o que encontra.",
+        "observe": "A diagonal longa cruza o tabuleiro desde o teu bispo até à dama negra.",
+        "goal": "Ganha a dama.",
+        "hints": [
+          "A partir de g2 o teu bispo mira sete casas em direção ao flanco contrário.",
+          "Nada bloqueia o caminho até b7, e a dama não tem escolta.",
+          "Bispo para b7: infiltra a diagonal e captura."
+        ],
+        "explain": "Bxb7 leva a dama: a infiltração pela diagonal longa não encontra resistência alguma.",
+        "wrong": "Paraste antes de tempo; a dama aguardava no fim do caminho."
+      },
+      "c3": {
+        "title": "A cravada denuncia",
+        "teach": "Uma peça cravada finge defender, mas não pode mover-se. Aquilo que protege está, na realidade, indefeso.",
+        "observe": "O cavalo de e6 parece cuidar de g7; repara no que há atrás dele, na coluna e.",
+        "goal": "Captura a torre.",
+        "hints": [
+          "A tua torre em e1 crava o cavalo contra o seu próprio rei.",
+          "Cravado, esse cavalo não poderá recapturar em g7.",
+          "Bispo de a1 para g7: a torre cai sem réplica."
+        ],
+        "explain": "Bxg7 ganha a torre: o cavalo está cravado contra o rei e não pode repor a captura.",
+        "wrong": "Confiaste no seu guardião; mas esse cavalo está cravado e não defende nada."
+      },
+      "c4": {
+        "title": "O guardião cravado",
+        "teach": "Crava a peça contra o seu rei e a sua defesa torna-se ficção. Então o bispo recolhe a dama com toda a cortesia.",
+        "observe": "O cavalo de a7 sustenta a dama; observa a coluna a e o rei que há ao fundo.",
+        "goal": "Ganha a dama com xeque.",
+        "hints": [
+          "A torre de a1 crava o cavalo de a7 contra o rei em a8.",
+          "A dama de c6 só conta com esse cavalo, que não pode mover-se.",
+          "Bispo para c6: xeque, e a dama é tua."
+        ],
+        "explain": "Bxc6+ ganha a dama com xeque: o cavalo cravado não recaptura e o rei não alcança c6.",
+        "wrong": "A dama parecia defendida; o seu guardião, cravado, era apenas uma ilusão."
+      },
+      "c5": {
+        "title": "O espeto",
+        "teach": "Alinha o rei com aquilo que ama e obriga-o a afastar-se. Atrás ficará a dama, sozinha, sobre a diagonal.",
+        "observe": "Rei e dama partilham a mesma diagonal, e o teu bispo vigia-a.",
+        "goal": "Ganha a dama.",
+        "hints": [],
+        "explain": "Be4+ espeta: o rei tem de mover-se e o bispo captura a dama que ficava atrás dele.",
+        "wrong": "Não era essa; um só lance alinha o rei e condena a dama."
+      }
+    },
+    "pip": {
+      "intro": "Sou Pip, o peão que nunca deixa de avançar. Passo a passo, casa a casa, vou ensinar-te que até o mais pequeno pode tornar-se gigante.",
+      "reward": "Coração de Peão",
+      "chron": [
+        "Com um só passo corajoso, Pip tocou a oitava linha e nasceu uma dama onde antes só havia um sonho.",
+        "Sem medo da torre inimiga, Pip afastou-a com um empurrão e promoveu no seu lugar: nada detém quem avança!",
+        "Perante dois caminhos, Pip escolheu o trilho seguro e evitou a armadilha do bispo para promover são e salvo.",
+        "No canto do tabuleiro, o pequeno Pip deu o passo final e selou o xeque-mate: o mais humilde decidiu a batalha.",
+        "Sozinho, sem dicas nem ajuda, Pip promoveu com xeque e apanhou a torre: a Senda da Maestria estava completa."
+      ],
+      "c1": {
+        "title": "O primeiro passo a dama",
+        "teach": "Um peão que alcança a última linha transforma-se na peça que escolheres, quase sempre numa poderosa dama. Essa viagem até à oitava linha chama-se promover, e é o sonho de todo o peão.",
+        "observe": "Olha para o meu peão em a7: só lhe falta um passinho para chegar ao fim do tabuleiro. O rei inimigo está perto, por isso há que promover já.",
+        "goal": "Promove o peão avançando para a8.",
+        "hints": [
+          "Conta quantas casas faltam ao meu peão para chegar à linha 8.",
+          "Se esperar, o rei negro capturará o meu peão; há que agir já.",
+          "Avança de a7 para a8 e escolhe dama: ainda por cima dás xeque!"
+        ],
+        "explain": "Ao avançar para a8 o peão converte-se em dama com xeque, ganhando de imediato a peça mais forte do tabuleiro. Qualquer demora deixaria o rei negro comer o peão.",
+        "wrong": "Quase, mas se não promover agora o rei inimigo comerá o meu peão; avança para a8."
+      },
+      "c2": {
+        "title": "Promovo capturando",
+        "teach": "Um peão promove empurrando a direito, mas também pode promover capturando na diagonal. Comer uma peça e transformar-se em dama no mesmo lance é duplamente poderoso.",
+        "observe": "Repara na torre negra em b8, mesmo na diagonal do meu peão de a7. Posso comê-la e promover ao mesmo tempo.",
+        "goal": "Captura em b8 e promove.",
+        "hints": [
+          "Um peão captura na diagonal: repara na peça que há em b8.",
+          "Comer a torre e promover na mesma casa é melhor do que avançar a direito.",
+          "Joga a7 x b8 e escolhe dama: ganhas a torre e crias uma dama com xeque."
+        ],
+        "explain": "Ao capturar em b8 elimino a torre inimiga e apareço convertido em dama com xeque, ganhando muitíssimo material de uma só vez. Avançar a direito teria deixado a torre viva.",
+        "wrong": "Não de todo: existe uma captura na diagonal que ganha a torre e promove ao mesmo tempo; joga a7 x b8."
+      },
+      "c3": {
+        "title": "O caminho seguro",
+        "teach": "Quando tens vários peões perto de promover, nem todas as casas de promoção são seguras. A boa estrutura ensina-te a promover onde o inimigo não possa capturar a tua nova dama.",
+        "observe": "Tenho dois peões prestes a promover, em a7 e em c7. Mas o bispo inimigo vigia a casa c8, por isso promover ali seria uma prenda.",
+        "goal": "Promove pelo lado seguro em a8.",
+        "hints": [
+          "Observa que casa de promoção vigia o bispo negro.",
+          "Se promover em c8, o bispo comerá a minha dama; procura a casa livre.",
+          "Avança o peão de a7 para a8: ninguém defende nem ataca esse canto."
+        ],
+        "explain": "Promover em a8 cria uma dama com xeque que nenhum inimigo pode capturar, enquanto promover em c8 a perderia diante do bispo. Escolher a casa segura é pura estrutura de peões.",
+        "wrong": "Cuidado: o bispo vigia c8 e capturaria a minha dama; promove antes em a8."
+      },
+      "c4": {
+        "title": "O passo decisivo",
+        "teach": "Um peão que promove não só ganha material: às vezes dá o xeque-mate final. Com a ajuda dos seus companheiros, até o peão mais humilde pode fechar a partida.",
+        "observe": "O rei inimigo está encurralado no canto h8. O meu peão de g6 fecha-lhe a casa h7, e só falta o meu peão de f7 para dar o golpe final.",
+        "goal": "Promove em f8 e dá mate.",
+        "hints": [
+          "O rei negro está no canto: conta as suas casas de escape.",
+          "O meu peão de g6 já controla h7; só falta cobrir a linha 8.",
+          "Avança f7 para f8 e promove dama: é xeque-mate."
+        ],
+        "explain": "Ao promover em f8 a nova dama dá xeque pela linha 8, enquanto o peão de g6 lhe tira a saída por h7; o rei não tem escape e é mate. Só a dama cobre todas as casas ao mesmo tempo.",
+        "wrong": "Ainda não é mate: promove em f8 com dama e o rei do canto ficará sem escape."
+      },
+      "c5": {
+        "title": "A prova do campeão",
+        "teach": "Um peão passado avança sem medo, e ao promover com xeque pode ganhar tempo para atacar outra peça. Repara sempre no que ganas além da própria dama.",
+        "observe": "O meu peão de d7 está a um passo de promover, o rei negro descansa em h8 e uma torre solitária vigia desde a5.",
+        "goal": "Promove com xeque e ganha a torre.",
+        "hints": [],
+        "explain": "Ao promover em d8 aparece uma dama que dá xeque pela linha 8 e ainda aponta à torre de a5 pela diagonal; depois de o rei mover, capturo a torre de graça. Promovo e ganho material na mesma ideia.",
+        "wrong": "Pensa em promover com xeque: há uma casa a partir da qual a minha nova dama ataca o rei e a torre ao mesmo tempo."
+      }
+    },
+    "ordan": {
+      "intro": "Sou Ordan, e sobrevivi a mais finais do que tu jogaste partidas. Guarda o teu rei como à tua própria vida e aprende a empunhá-lo como uma arma quando o tabuleiro se esvaziar: esse é todo o meu ensinamento.",
+      "reward": "Senda do Trono",
+      "chron": [
+        "Empurrei o rei inimigo contra o muro com o simples olhar do meu rei, e a torre pronunciou a sentença.",
+        "Persegui-o até ao canto, onde nenhum trono protege, e fechei a última porta sem pressa.",
+        "Ordenei à minha dama que calasse os seus xeques vãos e selasse a coluna; o rei negro ficou sem ar.",
+        "Pus o meu rei ombro a ombro com a dama, muralha contra muralha, e não houve fresta por onde fugir.",
+        "E no fim, sem conselho nem dica, deixei que a oposição falasse: a dama desceu à oitava e tudo terminou."
+      ],
+      "c1": {
+        "title": "O rei que encurrala",
+        "teach": "No final, o teu rei deixa de se esconder e começa a mandar. É ele quem fecha o inimigo contra a borda; a torre só desfere o golpe.",
+        "observe": "Repara como o teu rei em g6 encara de frente o rei negro: isso chama-se oposição, e rouba-lhe as casas de fuga.",
+        "goal": "Dá mate na última linha.",
+        "hints": [
+          "Os reis estão em oposição direta; o negro não pode avançar nem escapar pelos flancos.",
+          "A tua torre está livre na primeira linha e a oitava está deserta.",
+          "Torre de b1 para b8: xeque-mate."
+        ],
+        "explain": "Tb8 é mate: o teu rei cobre f7, g7 e h7, e a torre corta a única linha que restava ao inimigo.",
+        "wrong": "O rei negro respirou: sem a oposição do teu rei, a torre sozinha nunca o fecha."
+      },
+      "c2": {
+        "title": "A jaula do canto",
+        "teach": "O canto é a sepultura do rei solitário. Quando o inimigo se refugia no canto, o teu rei vigia as saídas e a torre fecha a porta.",
+        "observe": "O rei negro em h8 já não tem ar; o teu rei em g6 sela g7, g8 e h7.",
+        "goal": "Fecha a jaula com mate.",
+        "hints": [
+          "Conta as casas do rei negro: o teu rei já lhas tirou todas menos a linha.",
+          "A torre em f7 domina a sétima; dona também da oitava será letal.",
+          "Torre de f7 para f8: xeque-mate."
+        ],
+        "explain": "Tf8 é mate: o rei encurralado no canto não tem fuga e o teu monarca defende cada casa de escape.",
+        "wrong": "Deste ar ao prisioneiro; no canto, um só descuido liberta-o."
+      },
+      "c3": {
+        "title": "A dama obedece ao rei",
+        "teach": "A dama é poderosa, mas sem o rei que lhe marque o caminho só distribui xeques vazios. Deixa que o teu rei roube as casas e que a dama sele o resto.",
+        "observe": "O teu rei em f7 já guarda g7 e g8; ao rei negro só resta respirar pela coluna h.",
+        "goal": "Sela a coluna h com mate.",
+        "hints": [
+          "O rei negro em h8 depende de uma só casa de escape: h7.",
+          "Leva a tua dama à coluna h para dominar h8 e h7 de uma vez.",
+          "Dama de b1 para h1: xeque-mate."
+        ],
+        "explain": "Dh1 é mate: a dama apodera-se de toda a coluna h enquanto o teu rei tapa a fuga por g7 e g8.",
+        "wrong": "A dama gritou em vão; sem fechar a coluna h, o rei negro escapa."
+      },
+      "c4": {
+        "title": "Ombro a ombro",
+        "teach": "Nunca aproximes a dama do rei inimigo sem que o teu próprio rei a escude. Juntos, ombro a ombro, erguem uma muralha que não deixa fresta.",
+        "observe": "O teu rei em f6 defende a casa g7; ali, e só ali, a dama será intocável colada ao rei negro.",
+        "goal": "Entrega a dama a um passo do rei, com mate.",
+        "hints": [
+          "O rei negro em h8 asfixia-se; falta tirar-lhe g7 e g8 ao mesmo tempo.",
+          "Só uma casa te dá ambas as coisas, e o teu rei já a protege.",
+          "Dama de g1 para g7: xeque-mate protegido."
+        ],
+        "explain": "Dg7 é mate: a dama abraça o rei negro e o teu rei defende-a, de modo que não pode ser capturada nem evitada.",
+        "wrong": "Aproximaste a dama sem escolta; um rei sozinho tê-la-ia devorado."
+      },
+      "c5": {
+        "title": "O julgamento da oposição",
+        "teach": "Agora estás sozinho, sem a minha voz. Lembra-te: primeiro o rei conquista as casas, depois a peça pesada coroa o trabalho.",
+        "observe": "Reis frente a frente na coluna e, e uma dama que ainda não disse a sua última palavra.",
+        "goal": "Encontra o mate num lance.",
+        "hints": [],
+        "explain": "Db8 é mate: em oposição o teu rei nega d7, e7 e f7, e a dama que chega à oitava linha cobre toda a retirada, incluindo f8.",
+        "wrong": "Não era essa. Deixa que o teu rei faça o seu trabalho e procura a linha que o inimigo não pode cruzar."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Somos Eira e Vhal, cavaleiros gémeos do mesmo par de cavalos: eu, Eira, calculo antes de saltar; eu, Vhal, salto e depois rio-me. Juntos ensinamos-te a olhar para TODAS as capturas e escolher a que ganha mais, porque o bom cavaleiro nunca toma a primeira que vê.",
+      "reward": "Cavaleiros do Salto Duplo",
+      "chron": [
+        "Eira apontou a torre, Vhal apontou a dama; o cavalo saltou para g5 e voltámos com a coroa do inimigo.",
+        "Dois garfos abriram-se à nossa frente: Vhal gritou 'a torre', mas Eira escolheu a dama em d6 e o tabuleiro deu-nos razão.",
+        "O corcel saltou para f6 com xeque; a torre em g5 fazia-nos olhinhos, mas nós levámos a dama e o eco do galope.",
+        "Ce7 soou como um trovão com xeque; ignorámos a torre fácil e cobrámos a dama em g6 como bons irmãos.",
+        "Sem dicas, sem vozes, só o instinto de Vhal e o cálculo de Eira: b5, e a dama inimiga caiu em silêncio."
+      ],
+      "c1": {
+        "title": "Duas presas, uma escolha",
+        "teach": "Quando o teu cavalo ataca várias peças ao mesmo tempo, não comas a primeira que vires: compara-as. Entre todas as capturas possíveis, a melhor é a que leva mais material.",
+        "observe": "Repara nas duas casas que o teu cavalo golpeia: uma guarda uma torre, a outra uma dama. Pesa quanto vale cada uma antes de decidir.",
+        "goal": "Captura a peça de maior valor.",
+        "hints": [
+          "O teu cavalo em e4 ameaça duas peças negras sem defesa: pergunta qual vale mais.",
+          "Uma dama vale muito mais do que uma torre; esse é o objetivo.",
+          "Salta para g5 e leva a dama."
+        ],
+        "explain": "Ambas as peças estavam penduradas, mas a dama (9) supera de longe a torre (5): capturá-la é ganhar mais pelo mesmo lance.",
+        "wrong": "Essa captura ganha menos: volta a comparar o valor das duas peças."
+      },
+      "c2": {
+        "title": "Dois garfos rivais",
+        "teach": "Às vezes não comparas capturas, mas lances que criam uma ameaça dupla. Escolhe o garfo que apanhe a peça mais valiosa.",
+        "observe": "O teu cavalo tem dois saltos que dão xeque e garfo ao mesmo tempo: um pica a torre, o outro a dama. Observa o que cada um apanha.",
+        "goal": "Dá o xeque em garfo que ganhe a dama.",
+        "hints": [
+          "Dois saltos dão xeque a partir de e4; ambos ganham material, mas não o mesmo.",
+          "Procura o xeque que ataque o rei e a DAMA ao mesmo tempo.",
+          "Salta para d6: xeque ao rei em e8 e garfo à dama em b7."
+        ],
+        "explain": "Cd6+ ataca o rei e a dama de uma vez; o rei tem de mover-se e o cavalo cobra a dama, mais do que o garfo rival que só ganhava a torre.",
+        "wrong": "Esse garfo ganha menos: procura o xeque que apanhe a dama, não a torre."
+      },
+      "c3": {
+        "title": "Captura fácil ou salto vencedor",
+        "teach": "A captura mais evidente nem sempre é a que mais ganha. Compara comer uma peça pendurada com um salto que cria uma ameaça maior.",
+        "observe": "Podes comer a torre em g5 de imediato, ou saltar com xeque e ameaçar a dama. Repara em qual butim é maior.",
+        "goal": "Escolhe o salto com xeque que ganhe a dama.",
+        "hints": [
+          "A torre em g5 é tentadora, mas só vale 5.",
+          "Um xeque a partir de f6 ataca o rei e toca a dama em d7.",
+          "Joga Cf6+; após o xeque, captura a dama em d7."
+        ],
+        "explain": "Cf6+ obriga o rei a mover-se e deixa a dama indefesa perante o cavalo: ganhas 9 em vez dos 5 da torre fácil.",
+        "wrong": "Tomaste o butim pequeno: havia um xeque que ganhava a dama inteira."
+      },
+      "c4": {
+        "title": "O trovão de e7",
+        "teach": "Antes de capturar, verifica se um salto com xeque ganha algo maior. Comparar candidatas significa olhar também para os lances que ainda não são capturas.",
+        "observe": "A torre em f6 está ali para a comeres, mas o teu cavalo pode dar xeque a partir de e7 e cravar o olhar na dama. Compara os dois finais.",
+        "goal": "Dá o xeque em garfo e captura a dama.",
+        "hints": [
+          "Comer a torre em f6 ganha só 5 pontos.",
+          "A partir de e7 o teu cavalo dá xeque ao rei e ameaça a dama em g6.",
+          "Joga Ce7+; o rei afasta-se e tomas a dama em g6."
+        ],
+        "explain": "Ce7+ é um garfo ao rei e à dama: o rei tem de fugir e a dama cai, um butim muito maior do que a torre.",
+        "wrong": "Ganhaste menos do que o possível: o xeque em e7 levava a dama."
+      },
+      "c5": {
+        "title": "A prova dos gémeos",
+        "teach": "Sem dicas nem vozes: olha para todas as tuas candidatas e fica com a que mais ganha. O salto correto nem sempre é o mais ruidoso.",
+        "observe": "Há uma captura cómoda e um salto silencioso que dá xeque. Só uma leva a dama.",
+        "goal": "Encontra o lance que ganha mais material.",
+        "hints": [],
+        "explain": "Cb5+ dá xeque ao rei em d4 e faz garfo à dama em d6; o rei não a pode salvar e o cavalo cobra a peça maior.",
+        "wrong": "Essa não era a de maior butim: existe um xeque que ganha a dama."
+      }
+    },
+    "rhazek": {
+      "intro": "Sou Rhazek, e não coleciono peças: coleciono reis caídos. O meu cavalo nunca pergunta quanto vale o que entrega, só quanto ganha; segue-me se te atreves e aprende a sacrificar como quem exige, não como quem implora.",
+      "reward": "Senhor do Sacrifício",
+      "chron": [
+        "O meu cavalo saltou para g6 e a torre, oculta como uma adaga na manga, cobrou a dama que se julgava a salvo.",
+        "Um só salto para e7 e o rei não teve mais caminho do que a sua sepultura; a minha dama entrou atrás e fechou a lápide.",
+        "No canto encerrei-o: Cf7 empurrou-o, De8 selou-o, e o rei morreu a olhar para os seus próprios peões.",
+        "Entreguei a minha dama em g8 sem tremer, porque o mate afogado vale mais do que mil coroas: o meu cavalo reinou sobre o afogamento do rei.",
+        "Sem dicas nem clemência, descobri o xeque e arranquei a dama de entre os seus guardas: assim se gradua quem percorre a minha senda."
+      ],
+      "c1": {
+        "title": "O golpe que descobre",
+        "teach": "A iniciativa é tua quando o teu lance obriga e o adversário só responde. Um cavalo que salta pode destapar o ataque de uma peça escondida: move com xeque e deixa que a torre cobre a fatura.",
+        "observe": "O teu cavalo em e5 tapa a boca da tua torre em e1, e atrás espera o rei negro em e8. Aquela dama em g6 julga-se intocável atrás do seu peão.",
+        "goal": "Salta, descobre o xeque e leva a dama.",
+        "hints": [
+          "A tua torre em e1 aponta ao rei em e8, mas o cavalo corta-lhe a linha de mira.",
+          "Procura um salto que dê xeque descoberto e ainda toque a dama.",
+          "Cxg6: o negro tem de atender ao xeque da torre e a dama cai."
+        ],
+        "explain": "Cxg6 abre a coluna e com xeque de torre; o negro tem de salvar o rei e não pode recuperar. Levas a dama inteira sem pagar nada.",
+        "wrong": "Tíbio: sem o xeque descoberto o negro respira e a dama inimiga escapa-te."
+      },
+      "c2": {
+        "title": "Um salto, um mate",
+        "teach": "Às vezes o teu cavalo não ganha material: ganha o tabuleiro inteiro. Dá xeque para o afastar do meio e deixa que a tua dama entre para matar.",
+        "observe": "O teu cavalo em d5 estorva a tua própria dama em d2. Se saltar com xeque, a coluna abre-se de repente em direção ao rei em g8.",
+        "goal": "Dá o xeque de cavalo e remata com a dama.",
+        "hints": [
+          "A tua dama em d2 deseja a casa d8, mas o cavalo tapa-lhe a passagem.",
+          "Salta com xeque para e7: o rei só terá uma casa.",
+          "Ce7+ e depois Dd8 é mate; o cavalo vigia g8."
+        ],
+        "explain": "Ce7+ desimpede a coluna d com xeque e empurra o rei para o canto; Dd8 é mate, com o cavalo a cobrir g8. Dois golpes, zero dúvidas.",
+        "wrong": "Lento: o rei não se caça a olhar, e sem o xeque não há mate."
+      },
+      "c3": {
+        "title": "O canto sem saída",
+        "teach": "O rei encurralado é um prisioneiro que ainda não o sabe. Um xeque de cavalo prende-o e a tua dama, já livre, fecha a última porta.",
+        "observe": "O cavalo em e5 sela a coluna da tua dama em e1. O rei em h8 está enterrado vivo entre g7 e h7.",
+        "goal": "Xeque de cavalo e mate com a dama.",
+        "hints": [
+          "A tua dama em e1 sonha com e8, mas o cavalo fecha-a.",
+          "Cf7+ obriga o rei a g8, a sua única casa.",
+          "Após Cf7+ o rei vai para g8; então De8 é mate, com o cavalo a guardar h8."
+        ],
+        "explain": "Cf7+ arranca o rei para g8 e abre a coluna e; De8 dá mate, defendida pelo cavalo em f7 e com h8 tapada. O canto foi a sua sepultura.",
+        "wrong": "Fraco: sem o salto que dá xeque, a tua dama choca com os peões e não há mate."
+      },
+      "c4": {
+        "title": "O mate afogado",
+        "teach": "Aqui nasce o sacrifício verdadeiro: entregas a tua dama, a peça mais cara, porque o mate vale mais do que todo o ouro do tabuleiro. O cavalo remata mesmo onde a dama cai.",
+        "observe": "O rei em h8 está rodeado pelos seus: peões em g7 e h7, torre em f8. Só lhe resta uma casa livre; tira-lha.",
+        "goal": "Encadeia os xeques de cavalo e sacrifica a dama para dar mate.",
+        "hints": [
+          "O rei afoga-se entre as suas peças; só te falta fechar-lhe g8.",
+          "Cf7+ Rg8, Ch6+ Rh8: o rei volta ao canto, apanhado.",
+          "Então Dg8+!! A torre é obrigada a comer, e Cf7 é mate afogado."
+        ],
+        "explain": "Após Cf7+ Rg8 Ch6+ Rh8, o sacrifício Dg8+ obriga a Txg8, e Cf7 dá mate: o rei morre afogado pelos seus. A dama entrega-se para que o cavalo reine.",
+        "wrong": "Grandioso, mas falhaste: só a combinação exata com o sacrifício de dama entrega o mate afogado."
+      },
+      "c5": {
+        "title": "A prova de Rhazek",
+        "teach": "Sem dicas, sem vozes, sem rede. Encontra o golpe que descobre o xeque e arranca a dama ainda que a julguem bem defendida.",
+        "observe": "O teu cavalo em e5 tapa a torre em e1, e o rei negro aguarda em e8. A dama em c4 apoia-se no seu peão de b5 e sente-se intocável.",
+        "goal": "Descobre o xeque e captura a dama.",
+        "hints": [],
+        "explain": "Cxc4+ abre a coluna e com xeque de torre; o negro tem de mover o rei e não chega a recuperar com o peão. Levas a dama que julgavam protegida.",
+        "wrong": "Não: existe um xeque descoberto que leva a dama apesar do seu peão."
+      }
+    },
+    "oryn": {
+      "intro": "Sou Oryn, guardião das linhas abertas, e a minha arma é a torre. Caminha sem pressa: a maestria não se conquista com fúria, mas com o olhar que vê a coluna desimpedida antes de se mover.",
+      "reward": "Sentinela da Coluna Aberta",
+      "chron": [
+        "No primeiro limiar, Oryn ergueu a torre pela linha deserta e selou o rei no seu canto: o mate chegou em silêncio, sem um só obstáculo que o detivesse.",
+        "Perante a segunda prova, a coluna aberta ofereceu-se como um caminho reto; a torre desceu e a dama inimiga caiu sem defesa que a amparasse.",
+        "No terceiro passo, Oryn não capturou de imediato: cravou o olhar na linha, deu xeque e esperou paciente que o rei se afastasse para cobrar o seu prémio.",
+        "No quarto rito, a coluna aberta foi senda de morte: a torre desceu a direito e o rei, cercado pelo rei rival, não encontrou casa para onde fugir.",
+        "Na última senda, sem voz que o guiasse, Oryn leu a linha inteira: um xeque preciso, um rei desviado, e a dama inimiga ficou à mercê do aço silencioso."
+      ],
+      "c1": {
+        "title": "A Linha Deserta",
+        "teach": "Uma torre numa linha ou coluna sem obstáculos alcança qualquer casa dessa linha. Quando o rei inimigo não tem escape, essa linha aberta torna-se o fio do mate.",
+        "observe": "Repara na oitava linha: está inteiramente desimpedida. Observa que casas o teu próprio rei já cobre à volta do monarca adversário.",
+        "goal": "Dá mate num lance com a torre.",
+        "hints": [
+          "O rei negro só pode respirar na oitava linha; o teu rei fecha-lhe as casas de fuga para baixo.",
+          "Procura uma casa a partir da qual a torre domine toda a linha do rei inimigo.",
+          "Leva a torre para a8: xeque sem escape."
+        ],
+        "explain": "Ta8 controla toda a oitava linha e o teu rei em g6 vigia f7, g7 e h7; o monarca negro não tem qualquer casa livre. É mate.",
+        "wrong": "Esse lance deixa uma casa de fuga; a linha aberta só mata quando o rei não tem refúgio."
+      },
+      "c2": {
+        "title": "O Caminho Reto",
+        "teach": "Uma coluna aberta é uma avenida que a torre percorre de um extremo ao outro sem travão. Por ela pode golpear uma peça inimiga que nenhum defensor protege.",
+        "observe": "Repara na coluna e: não há peões nem peças que a cortem. No fim dela aguarda a dama negra, sozinha e sem amparo.",
+        "goal": "Captura a dama com a torre.",
+        "hints": [
+          "A coluna e está completamente aberta à tua torre.",
+          "A dama negra não tem qualquer peça que a defenda.",
+          "Percorre a coluna até e8 e toma a dama com xeque."
+        ],
+        "explain": "Txe8+ percorre a coluna aberta e ganha a dama sem custo, ainda por cima com xeque; o rei negro estava demasiado longe para a defender.",
+        "wrong": "Deixaste escapar a avenida; a coluna aberta era o caminho direto à dama."
+      },
+      "c3": {
+        "title": "O Olhar Antes do Golpe",
+        "teach": "Às vezes a torre não captura de imediato: primeiro alinha o rei inimigo com a peça que cobiça. O xeque desvia o monarca e deixa a presa indefesa no fim da linha.",
+        "observe": "O rei e a dama negros partilham a coluna e. A tua torre ainda não está nessa coluna, mas pode entrar nela com xeque.",
+        "goal": "Dá xeque na coluna para ganhar a dama.",
+        "hints": [
+          "Rei e dama negros estão sobre a mesma coluna: o rei à frente, a dama atrás.",
+          "Se a tua torre entrar na coluna e com xeque, o rei terá de se afastar.",
+          "Joga Te1+: o rei foge da coluna e depois cai a dama em e8."
+        ],
+        "explain": "Te1+ é um espeto: o rei negro tem de abandonar a coluna e e, desimpedida a linha, a torre captura a dama em e8. Analisar antes de golpear rende mais do que a captura apressada.",
+        "wrong": "Golpeaste sem preparar a linha; primeiro o xeque devia afastar o rei para descobrir a presa."
+      },
+      "c4": {
+        "title": "A Coluna da Sentença",
+        "teach": "Uma coluna aberta não só ganha peças: também entrega o rei. Quando o teu próprio rei sela as casas laterais, a torre desce pela coluna e fecha a última saída.",
+        "observe": "A coluna h está livre e o rei negro descansa na sua borda. Repara como o teu rei em f7 vigia g7 e g8, as únicas casas de fuga.",
+        "goal": "Dá mate num lance com a torre.",
+        "hints": [
+          "O teu rei em f7 já domina g7 e g8; ao rei negro só restaria a coluna h.",
+          "Ocupa a coluna h com a torre para fechar essa última via.",
+          "Joga Th1: xeque na coluna, sem escape possível."
+        ],
+        "explain": "Th1 dá xeque pela coluna aberta; g7 e g8 são cobertas pelo teu rei e h7 é dominada pela torre. O monarca negro não tem refúgio: é mate.",
+        "wrong": "O rei ainda encontra uma casa; a coluna só sentencia quando cada fuga está vigiada."
+      },
+      "c5": {
+        "title": "A Senda do Silêncio",
+        "teach": "Sem vozes que te guiem, confia na leitura da linha. Uma linha aberta permite à torre espetar o rei e a dama; o xeque paciente cobra depois o que a pressa nunca alcançaria.",
+        "observe": "Rei e dama negros repousam sobre a quarta linha. A tua torre, no canto, pode entrar nessa linha à distância do rei, sem que este a capture.",
+        "goal": "Encontra o xeque que espeta e ganha a dama.",
+        "hints": [],
+        "explain": "Ta4+ espeta pela quarta linha: o rei, longe e sem poder capturar, tem de sair da linha, e a torre recolhe a dama em h4. O olhar sereno vence o impulso.",
+        "wrong": "A linha pedia um xeque que espetasse o rei; a captura direta ainda não estava ao teu alcance."
+      }
+    },
+    "vesra": {
+      "intro": "Sou Vesra, e a minha dama não persegue: fecha portas. Observa como o tabuleiro se estreita até que ao adversário só resta obedecer.",
+      "reward": "Guardiã da Restrição",
+      "chron": [
+        "No primeiro silêncio, a dama sentou-se junto ao rei inimigo, e o canto tornou-se uma sepultura sem saída.",
+        "Ergueu uma coluna como quem levanta um muro, e o monarca adversário descobriu que já não havia por onde fugir.",
+        "Com serena cortesia retirou do tabuleiro a única defensora, e a posição ficou desnuda perante a minha vontade.",
+        "Do outro extremo do mundo, uma só linha bastou para selar a oitava linha e pronunciar o veredicto.",
+        "E na prova final, ofereceu um xeque que não matava: só obrigava a afastar-se, para que a torre caísse sozinha."
+      ],
+      "c1": {
+        "title": "O canto que se fecha",
+        "teach": "Restringir é apagar casas até que o rei não tenha para onde ir. Quando toda a fuga se esgota, o xeque deixa de ser ameaça e torna-se sentença.",
+        "observe": "Repara nas casas de escape do rei negro em h8 e nota que o teu próprio rei em f6 já vigia g8 e g7.",
+        "goal": "Dá mate num lance.",
+        "hints": [
+          "O rei negro só respira por g8, g7 e h7; o teu rei em f6 já cobre duas delas.",
+          "Aproxima a dama do rei inimigo, protegida pelo teu monarca.",
+          "Leva a dama para g7: o teu rei sustenta-a e o canto fecha-se."
+        ],
+        "explain": "Dama g7 é impossível de capturar porque o teu rei em f6 a defende, e cobre as últimas saídas. Restrição absoluta: é mate.",
+        "wrong": "Deixaste-lhe uma casa livre; o rei escapa e a restrição quebra-se."
+      },
+      "c2": {
+        "title": "O muro da coluna",
+        "teach": "Uma só peça pode fechar toda uma coluna e convertê-la em parede. O rei não cai pela força, mas porque não lhe resta espaço para ocupar.",
+        "observe": "Repara na coluna h, onde vive o rei negro, e no teu rei de f7 que sela g7 e g8.",
+        "goal": "Dá mate num lance.",
+        "hints": [
+          "O rei em h8 depende da coluna h e das casas g que o teu rei vigia.",
+          "Precisas de uma peça que domine a coluna h de cima a baixo.",
+          "Desliza a dama até h2: a coluna inteira fica proibida."
+        ],
+        "explain": "Dama h2 controla toda a coluna h e o teu rei em f7 cobre g7 e g8. Sem casas, o rei afoga-se: mate.",
+        "wrong": "A coluna continua a ter uma brecha; o rei encontra ar e sobrevive."
+      },
+      "c3": {
+        "title": "A única defensora",
+        "teach": "Restringir é também eliminar quem sustenta o adversário. Retira a sua única peça ativa e a posição inteira rende-se sem resistência.",
+        "observe": "Ambas as damas se olham na coluna d; a negra é a única força que resta ao adversário.",
+        "goal": "Ganha a dama inimiga.",
+        "hints": [
+          "A tua dama e a negra partilham a mesma coluna, a d.",
+          "Podes capturar com xeque e ficar com toda a vantagem.",
+          "Toma em d8: eliminas a sua única peça e dás xeque ao mesmo tempo."
+        ],
+        "explain": "Dama x d8 captura com xeque a única defensora do adversário; ficas com dama contra rei sozinho, vitória decisiva.",
+        "wrong": "Perdoaste a sua dama; enquanto viva, o adversário ainda se pode defender."
+      },
+      "c4": {
+        "title": "O veredicto à distância",
+        "teach": "A restrição não exige proximidade: uma linha limpa atravessa o tabuleiro inteiro. De longe, a dama pode selar uma linha e ditar o final.",
+        "observe": "O rei negro em h8 pende da oitava linha; o teu rei em g6 já guarda g7 e h7.",
+        "goal": "Dá mate num lance.",
+        "hints": [
+          "O rei só escaparia pela oitava linha ou pelas casas g, que o teu rei cobre.",
+          "Procura ocupar a oitava linha com a tua dama sem obstáculos pelo meio.",
+          "Coloca a dama em b8: a linha fica fechada à distância."
+        ],
+        "explain": "Dama b8 domina toda a oitava linha e o teu rei em g6 tapa as saídas; o rei não se pode mover nem cobrir: mate.",
+        "wrong": "A oitava linha não ficou selada; o rei escapa pela fresta."
+      },
+      "c5": {
+        "title": "O xeque que obriga",
+        "teach": "O zugzwang é a crueldade cortês: não matar, mas forçar a mover-se para a ruína. Um xeque que o rei deve evitar pode desnudar a peça que se escondia atrás dele.",
+        "observe": "O rei negro em e5 e a torre em a5 partilham a quinta linha; o peão de e4 tapa qualquer xeque pela coluna e.",
+        "goal": "Ganha a torre.",
+        "hints": [],
+        "explain": "Dama h5 dá xeque pela quinta linha; o rei tem de se afastar e deixa de escudar a sua torre, que cai em a5. A restrição convertida em butim.",
+        "wrong": "Esse golpe não obriga a nada; sem xeque forçoso, o rei conserva a sua torre."
+      }
+    },
+    "brakkon": {
+      "intro": "Sou Brakkon, e a minha torre não procura a glória: resguarda-a. Onde outros lançam o ataque, eu ergo muros, e atrás deles o rei descansa sem medo.",
+      "reward": "Guardião Inamovível",
+      "chron": [
+        "Quando a torre inimiga irrompeu na última linha, Brakkon não recuou: afastou-a do mundo com um só golpe e o muro voltou a fechar-se.",
+        "Um cavalo esgueirou-se entre as sombras; a torre patrulhou a linha e retirou-o em silêncio, sem que o rei mexesse um dedo.",
+        "A dama julgou pronunciar o xeque final, mas a torre partilhava a sua linha e derrubou-a: pedra serena contra tempestade.",
+        "Do alto da coluna aberta, a torre desceu como uma laje e selou a ameaça, inamovível até à última casa.",
+        "E na prova, sem voz que o guiasse, Brakkon viu o mate escondido atrás da calma e apagou-o antes de nascer."
+      ],
+      "c1": {
+        "title": "O muro não se quebra",
+        "teach": "Defender é reconhecer quem ameaça e retirá-lo do tabuleiro antes de fazer dano. A torre não foge: interpõe-se, captura e devolve a calma ao rei.",
+        "observe": "Repara na torre negra em e1: dá xeque pela primeira linha. O teu rei em h1 está fechado pelos seus próprios peões f2, g2 e h2.",
+        "goal": "Captura a torre que dá xeque.",
+        "hints": [
+          "O teu rei não se pode mover: os seus peões f2, g2 e h2 rodeiam-no por completo.",
+          "Só uma peça tua alcança a primeira linha para responder ao xeque.",
+          "Leva a torre de a1 para e1 e devora a atacante."
+        ],
+        "explain": "Torre x e1 elimina a peça que dava xeque e deixa o rei a salvo atrás do muro de peões. É a defesa mais pura: apagar a ameaça na origem.",
+        "wrong": "O rei continua em xeque; só a tua torre pode apagar essa ameaça."
+      },
+      "c2": {
+        "title": "A linha vigiada",
+        "teach": "A coordenação é uma peça que cobre o que o rei não pode. A tua torre patrulha a linha inteira, e quando um intruso se aproxima, retira-o sem que o monarca abandone o seu posto.",
+        "observe": "Um cavalo negro saltou para e2 e dá xeque ao teu rei em g1. A tua torre domina toda a segunda linha desde a2.",
+        "goal": "Captura o cavalo que dá xeque.",
+        "hints": [
+          "O cavalo em e2 ataca o teu rei; poderias fugir, mas há uma resposta mais firme.",
+          "A tua torre controla a segunda linha de um extremo ao outro.",
+          "Desliza a torre de a2 para e2 e captura o cavalo."
+        ],
+        "explain": "Torre x e2 não só sai do xeque: leva o cavalo e sela o flanco do rei. Defesa e ganho num só gesto.",
+        "wrong": "Fugir salva o rei por um instante, mas o intruso continua vivo; melhor retirá-lo do tabuleiro."
+      },
+      "c3": {
+        "title": "Pedra contra a dama",
+        "teach": "Nenhuma ameaça é demasiado grande se a tua defesa partilhar a sua linha. A torre não teme a dama: se esta invade, a torre derruba-a e protege o rei.",
+        "observe": "A dama negra em e1 dá xeque pela primeira linha. O teu rei em h1 não tem nem uma casa livre.",
+        "goal": "Captura a dama que dá xeque.",
+        "hints": [
+          "O xeque chega pela primeira linha e o teu rei está amuralhado pelos seus peões.",
+          "A tua torre em b1 partilha essa mesma linha com a dama.",
+          "Torre de b1 para e1: captura a dama e termina o xeque."
+        ],
+        "explain": "Torre x e1 devora a dama inimiga e deixa o rei intacto. Trocar uma torre por uma dama enquanto defendes é uma troca decisiva.",
+        "wrong": "Com o rei fechado, só a torre responde; deixa que ela cobre a dama."
+      },
+      "c4": {
+        "title": "A laje desce",
+        "teach": "Uma coluna aberta é um caminho que a torre guarda de cima a baixo. Quando o perigo assoma junto ao rei, a torre desce como uma laje e cobre-o à distância.",
+        "observe": "A dama negra em d1 dá xeque ao teu rei encurralado em g1. A tua torre coroa a coluna d desde d7, com o caminho desimpedido.",
+        "goal": "Captura a dama que dá xeque.",
+        "hints": [
+          "A dama ataca pela primeira linha e o teu rei não pode sair do seu canto.",
+          "Observa a coluna d: está aberta de d7 até d1.",
+          "Desce a torre de d7 para d1 e captura a dama."
+        ],
+        "explain": "Torre x d1 percorre a coluna aberta e elimina a dama; o rei respira e ficas com toda a vantagem. A coordenação entre torre e rei é um muro sem fendas.",
+        "wrong": "Não há fuga para o rei; a torre deve descer pela coluna e cobrar a dama."
+      },
+      "c5": {
+        "title": "A calma antes do mate",
+        "teach": "A ameaça mais perigosa é a silenciosa: a dama e o bispo preparam Dxg2 mate sem dar xeque ainda. O guardião verdadeiro vê-a chegar e desativa-a antes de rebentar.",
+        "observe": "A dama em e4 e o bispo em f1 apontam a g2: se o deixas jogar, Dxg2 é mate. A tua torre aguarda na coluna e, em e2.",
+        "goal": "Neutraliza a ameaça de mate.",
+        "hints": [],
+        "explain": "Torre x e4 retira a dama pela coluna e antes de consumar Dxg2 mate; o bispo fica sozinho e tu, com vantagem vencedora. Prever o golpe é a defesa suprema.",
+        "wrong": "Deixaste a ameaça viva: o bispo sustenta a dama e Dxg2 seria mate."
+      }
+    },
+    "ilyra": {
+      "intro": "Sou Ilyra, e não persigo os meus inimigos: alcanço-os de longe, pela linha que ninguém repara. Um bispo não corre; traça uma reta, e nessa reta já estava escrito quem cairia.",
+      "reward": "Guardiã das Diagonais",
+      "chron": [
+        "Do seu canto em b2, Ilyra estendeu uma só diagonal até à última casa, e a dama que se julgava distante caiu sem a ter visto aproximar-se.",
+        "Pôs o xeque na reta e esperou: o rei afastou-se, obediente, e atrás aguardava a dama, já sua pela mesma linha que o havia empurrado.",
+        "Pelas casas claras cruzou o tabuleiro de um extremo ao outro, e onde o rei julgou estar a salvo, a diagonal já o tinha atravessado.",
+        "Acendeu o xeque sobre as casas brancas; o rei fugiu da reta e a dama, exposta ao fundo, rendeu-se ao olhar do bispo.",
+        "Sem voz que a guiasse, Ilyra leu a diagonal calada, empurrou o rei com um xeque sereno e recolheu a torre que ele julgava oculta atrás das suas costas."
+      ],
+      "c1": {
+        "title": "A diagonal não tem fim",
+        "teach": "Um bispo governa a sua diagonal inteira, de uma borda do tabuleiro à outra, por mais que o inimigo julgue afastar-se. O que partilha a cor da tua casa já está ao teu alcance.",
+        "observe": "Repara na diagonal longa desde b2: c3, d4, e5, f6, g7... e no fim, em h8, a dama negra, sozinha e sem defesa.",
+        "goal": "Captura a dama pela diagonal.",
+        "hints": [
+          "O bispo em b2 e a dama em h8 partilham a mesma casa escura: estão numa só reta.",
+          "Verifica que o caminho entre b2 e h8 está desimpedido de princípio a fim.",
+          "Desliza o bispo de b2 até h8 e devora a dama."
+        ],
+        "explain": "O bispo percorre a diagonal completa e captura a dama que se julgava distante; a distância não protege quem partilha a cor da tua casa. É a lei do bispo: a reta é tua inteira.",
+        "wrong": "Só um lance alcança o fundo da diagonal; deixa que o bispo percorra a reta até à dama."
+      },
+      "c2": {
+        "title": "O raio que atravessa",
+        "teach": "Um xeque na diagonal nem sempre procura o rei: usa-o como porta para o que guarda atrás. Quando rei e dama partilham a tua reta, o rei tem de se afastar e descobre a que o seguia.",
+        "observe": "O teu bispo pode saltar para d4 e dar xeque ao rei em g7; na mesma reta, mesmo atrás, espera a dama em h8.",
+        "goal": "Dá o xeque que alinha rei e dama.",
+        "hints": [
+          "Procura a casa a partir da qual o bispo crave o rei de g7 na diagonal longa.",
+          "Rei em g7 e dama em h8 estão na mesma reta: um à frente, a outra atrás.",
+          "Joga o bispo para d4 com xeque; quando o rei mover, cai a dama em h8."
+        ],
+        "explain": "Bd4 crava o rei e, após a fuga forçada, o bispo cobra a dama que ficava no fundo da reta. Esse é o raio X: o xeque sobre um desnuda a outra.",
+        "wrong": "O rei tem de se afastar primeiro; sem o xeque que os alinha, a dama nunca fica exposta."
+      },
+      "c3": {
+        "title": "As casas claras",
+        "teach": "Cada bispo vive numa só cor, e sobre ela manda de lado a lado do tabuleiro. Pelas casas claras, o teu olhar cruza o campo inteiro e chega onde o rei já não ampara.",
+        "observe": "Desde f1 abre-se a diagonal clara: e2, d3, c4, b5, até a6, onde a dama negra descansa longe do seu rei, fechado pelos seus próprios peões.",
+        "goal": "Captura a dama pela diagonal clara.",
+        "hints": [
+          "O bispo de f1 percorre casas claras; segue a reta em direção ao flanco de dama.",
+          "A dama em a6 partilha essa diagonal e o seu rei está demasiado longe para a socorrer.",
+          "Leva o bispo de f1 para a6 e toma a dama."
+        ],
+        "explain": "O bispo cruza toda a diagonal clara e captura a dama indefesa; o rei, sepultado atrás dos seus peões, não pode acudir. O domínio de uma cor basta para decidir a partida.",
+        "wrong": "A dama está sem defesa no fim da tua reta clara; nenhum outro lance aproveita essa diagonal."
+      },
+      "c4": {
+        "title": "O rei à frente, a dama atrás",
+        "teach": "Sobre as casas claras o raio X repete a sua lei: acende o xeque e o rei afasta-se, revelando o que cobria. A linha que empurra o monarca é a mesma que reclama a sua dama.",
+        "observe": "O bispo salta para e4 e dá xeque ao rei em c6; nessa reta, atrás dele, aguarda a dama em b7.",
+        "goal": "Dá o xeque que alinha rei e dama.",
+        "hints": [
+          "Encontra a casa clara a partir da qual o bispo crave o rei de c6.",
+          "Rei em c6 e dama em b7 estão na mesma diagonal: o rei à frente, a dama atrás.",
+          "Joga o bispo para e4 com xeque; quando o rei fugir, captura a dama em b7."
+        ],
+        "explain": "Be4 crava o rei na diagonal clara e, ao forçar a sua fuga, deixa a dama de b7 sem abrigo. O rei não pode regressar à reta para a defender, e o bispo recolhe-a.",
+        "wrong": "Sem o xeque que os espeta, o rei guarda a sua dama; primeiro obriga-o a deixar a reta."
+      },
+      "c5": {
+        "title": "A linha calada",
+        "teach": "Nem sempre espera uma dama no fundo da reta; às vezes é uma torre que se julga a salvo, longe e na sombra. A diagonal calada também empurra o rei e descobre o que oculta atrás.",
+        "observe": "O rei negro em c6 e a torre em a8 partilham uma casa clara. O teu bispo pode chegar a e4 e pô-los a ambos na mesma reta.",
+        "goal": "Alinha rei e torre com um xeque, e cobra a peça do fundo.",
+        "hints": [],
+        "explain": "Be4 crava o rei de c6 na diagonal clara; obrigado a fugir, não consegue defender a torre distante de a8, que cai pela mesma reta. A linha mais silenciosa é a que mais longe alcança.",
+        "wrong": "Outro lance não espeta o rei com a torre; só o xeque na diagonal descobre a peça do fundo."
+      }
+    },
+    "tikk": {
+      "intro": "Sou Tikk, e não, não sou só um peão: sou o peão que chega PRIMEIRO. Enquanto tu pensas, eu já promovi... com xeque, pronto?",
+      "reward": "Guardião do Tempo",
+      "chron": [
+        "Capítulo I: Tikk cruzou o tabuleiro a assobiar, promoveu com xeque e roubou o relógio ao adversário antes de ele pestanejar.",
+        "Capítulo II: sem travar, Tikk comeu um cavalo AO promover; dois golpes num tempo, porque o tempo é dele.",
+        "Capítulo III: pelo outro flanco, mesmo truque, mesmo sorriso; promove, xeque, e o relógio volta a chorar.",
+        "Capítulo IV: Tikk devorou uma torre inteira na casa de promoção; o adversário ainda procurava o seu plano quando já não lhe restava.",
+        "Capítulo V: na Prova, Tikk desprezou a dama e promoveu CAVALO com xeque; o zwischenzug perfeito, e ninguém o viu chegar."
+      ],
+      "c1": {
+        "title": "O que chega primeiro",
+        "teach": "No xadrez nem sempre ganha o mais forte, ganha quem chega ANTES. Promover com xeque oferece-te um tempo: obrigas o adversário enquanto já mandas.",
+        "observe": "Olha para o meu peão em b7 e para o rei negro em d6, mesmo na diagonal da casa de promoção.",
+        "goal": "Promove em b8 com xeque.",
+        "hints": [
+          "Um peão na sétima linha a um passo da subida... não o deixes passar.",
+          "Promove a dama, não a torre: só a dama dá xeque ao rei de d6 pela diagonal.",
+          "Joga b7b8 e escolhe dama: xeque, tempo e vantagem decisiva."
+        ],
+        "explain": "b8=D dá xeque pela diagonal b8-d6, ganha um tempo e deixa as brancas com dama contra torre, ganhando.",
+        "wrong": "Demasiado lento: sem xeque o adversário respira e tu perdes o tempo."
+      },
+      "c2": {
+        "title": "Dois golpes, um tempo",
+        "teach": "Um peão que promove capturando faz duas coisas num só tempo: leva uma peça E nasce dama. Isso é espremer o relógio ao máximo.",
+        "observe": "O meu peão de b7 e aquele cavalo negro em c8 a pedir aos gritos que o devore ao promover.",
+        "goal": "Captura em c8 promovendo com xeque.",
+        "hints": [
+          "O peão pode capturar na diagonal mesmo ao promover.",
+          "Em c8 há um cavalo: come-o e torna-te dama no mesmo movimento.",
+          "Joga b7xc8=D: levas o cavalo e dás xeque ao rei de e6."
+        ],
+        "explain": "bxc8=D captura o cavalo, promove e dá xeque na diagonal c8-e6: material e tempo de uma só tacada.",
+        "wrong": "Promoveste sem morder: deixaste o cavalo vivo e perdeste meio butim."
+      },
+      "c3": {
+        "title": "Mesmo truque, outro flanco",
+        "teach": "O tempo não entende de flancos: tanto faz a coluna a como a h, quem promove com xeque manda. Repete o padrão e o relógio continuará do teu lado.",
+        "observe": "O meu peão em g7 e o rei negro em d5, alinhado com a diagonal longa desde g8.",
+        "goal": "Promove em g8 com xeque.",
+        "hints": [
+          "O peão de g7 está a um passo da glória.",
+          "Só a dama alcança o rei de d5 pela diagonal g8-d5.",
+          "Joga g7g8=D: xeque, tempo ganho e dama contra torre."
+        ],
+        "explain": "g8=D dá xeque pela diagonal g8-d5 ganhando um tempo, e as brancas ficam com dama contra torre, ganhando.",
+        "wrong": "Sem xeque não há tempo: o adversário reorganiza-se e deitas fora a tua vantagem."
+      },
+      "c4": {
+        "title": "Torre ao pequeno-almoço",
+        "teach": "Quanto maior a peça que capturas ao promover, mais depressa acaba a partida. Come, promove e dá xeque: o relógio nem sequer avança.",
+        "observe": "O meu peão em h7 e uma torre negra inteira à espera em g8.",
+        "goal": "Captura a torre em g8 promovendo com xeque.",
+        "hints": [
+          "O peão de h7 pode capturar na diagonal em direção a g8.",
+          "Em g8 há uma TORRE: leva-a e promove ao mesmo tempo.",
+          "Joga h7xg8=D: comes a torre e dás xeque ao rei de e6."
+        ],
+        "explain": "hxg8=D captura a torre, promove e dá xeque na diagonal g8-e6: ganho enorme num só tempo.",
+        "wrong": "Promoveste do lado errado: a torre continua viva e o adversário agradece-te."
+      },
+      "c5": {
+        "title": "O tempo roubado",
+        "teach": "Às vezes a dama não é a resposta: o tempo decisivo vem do zwischenzug, o lance intermédio com xeque que ninguém espera. Promove CAVALO, dá xeque e rouba a dama inimiga antes de ela reagir.",
+        "observe": "O rei em d7 e a dama em a6 estão a um salto de cavalo um do outro desde b8.",
+        "goal": "Encontra a promoção com xeque que ganha a dama.",
+        "hints": [],
+        "explain": "b8=C dá xeque ao rei de d7 e ataca ao mesmo tempo a dama de a6: o rei tem de mover-se e Cxa6 leva a dama, deixando peça e peão de vantagem vencedora.",
+        "wrong": "Promover dama apenas iguala: perdes o tempo do xeque duplo e com ele, a partida."
+      }
+    },
+    "malrec": {
+      "intro": "Sou Malrec, e sobrevivi a mais coroas do que tu verás cair. Não tenho dama que me salve nem torres que me chorem: só um rei que caminha para o perigo porque aprendeu que ficar parado é morrer.",
+      "reward": "O Rei que Sobrevive",
+      "chron": [
+        "O cavalo inimigo rondou demasiado perto; o meu rei não desviou o olhar, avançou para c5 e devorou-o sem tremer.",
+        "Desceram a torre julgando-a a salvo na sexta; o meu velho rei ergueu-se do seu trono e arrancou-a do tabuleiro.",
+        "A dama veio à minha garganta, e na sua arrogância pôs-se ao alcance da minha mão: c5, e a dama caiu perante o peão.",
+        "Afastei o meu rei da linha e deixei que a torre falasse: b6, e no canto o rei inimigo afogou-se no silêncio.",
+        "Sem vozes que me guiassem, o meu rei saiu para o descampado e tomou o que nenhum se atreveu a tomar: assim termina a senda de quem sobrevive."
+      ],
+      "c1": {
+        "title": "O rei que não recua",
+        "teach": "No final o rei deixa de ser um fugitivo e torna-se carrasco. Uma peça solta ao seu alcance não se perdoa: dá um passo em frente e come-a.",
+        "observe": "O teu rei em d4 e o cavalo negro em c5, a um só passo, sem ninguém que o defenda. No final cada peça pesa como uma montanha.",
+        "goal": "Avança e captura o cavalo.",
+        "hints": [
+          "Repara nas casas que o teu rei toca; uma delas guarda uma peça inimiga.",
+          "O cavalo em c5 está sozinho, nem o seu rei nem o seu peão o cobrem.",
+          "Rxc5: o teu rei leva o cavalo e o final fica ganho."
+        ],
+        "explain": "Rxc5 ganha um cavalo inteiro sem custo, porque nada defende essa casa. Com uma peça de vantagem o final já só tem um dono.",
+        "wrong": "Tímido: afastar o rei deixa o cavalo vivo e ofereces o final que já era teu."
+      },
+      "c2": {
+        "title": "O trono ergue-se",
+        "teach": "Um rei ativo no final vale mais do que o medo que lhe têm. A torre que se aproxima sem escolta é carne para o teu monarca.",
+        "observe": "O teu rei em e5, no centro, e a torre negra em d6 ao alcance da tua mão, sem peão nem rei que a sustentem.",
+        "goal": "Toma a torre com o rei.",
+        "hints": [
+          "O teu rei manda no centro; uma casa vizinha esconde uma torre.",
+          "A torre em d6 não tem guarda: nem o rei em b7 nem o peão a protegem.",
+          "Rxd6: o teu rei ergue-se e arranca a torre do tabuleiro."
+        ],
+        "explain": "Rxd6 captura uma torre indefesa e decide o final de imediato. O rei central não foge: cobra.",
+        "wrong": "Erro: qualquer outro lance perdoa a torre e com ela a tua vantagem."
+      },
+      "c3": {
+        "title": "A dama ao alcance",
+        "teach": "O perigo é o teu ofício: quando a dama vem matar-te, repara se se aproximou demasiado. Sobreviver é ter a têmpera de comer aquilo que pretendia devorar-te.",
+        "observe": "O teu rei em d4 está em xeque da dama em c5, mas essa dama está colada a ti e ninguém a protege. O susto esconde uma prenda.",
+        "goal": "Responde ao xeque capturando a dama.",
+        "hints": [
+          "Estás em xeque: nem todo o xeque é uma ameaça, alguns são um descuido.",
+          "A dama em c5 ataca-te de uma casa vizinha, e está sozinha.",
+          "Rxc5: o teu rei responde ao xeque levando a dama inteira."
+        ],
+        "explain": "Rxc5 sai do xeque e captura a dama de um só golpe, porque nada a defende. Quem te ameaçava jaz sob o teu pé.",
+        "wrong": "Fatal: fugir do xeque deixa a dama viva e com ela perdes o final e a vida."
+      },
+      "c4": {
+        "title": "O rei afasta-se e mata",
+        "teach": "Às vezes o melhor lance do rei é sair do meio. Ao afastar-se, deixa falar a peça que o seu corpo escondia, e essa voz é sentença.",
+        "observe": "A tua torre em a1 e o rei negro em a8 partilham coluna, mas o teu próprio rei em a6 tapa a linha de mira. O teu bispo em f4 vigia em silêncio a casa b8.",
+        "goal": "Afasta o rei e descobre o mate.",
+        "hints": [
+          "O teu rei tapa a coluna da tua torre; se se afastar, a torre dá xeque em a8.",
+          "Procura a casa onde o teu rei, ao mover-se, cubra a7 e b7 enquanto o bispo sela b8.",
+          "Rb6: descobre o xeque de torre e ao rei negro não resta nem uma casa."
+        ],
+        "explain": "Rb6 descobre o xeque da torre pela coluna a; o rei em a6 passa a cobrir a7 e b7, e o bispo de f4 já tapava b8. Sem fuga, é mate.",
+        "wrong": "Não: mover o rei para qualquer outra casa deixa um respiradouro e o mate escapa."
+      },
+      "c5": {
+        "title": "A prova de Malrec",
+        "teach": "Sem dicas, sem mãos que te sustentem. O rei tem de sair para o descampado e tomar o que outros temem tocar.",
+        "observe": "O teu rei em c4 e a torre negra em b5, ativa na quinta linha. O rei inimigo está longe, a cuidar do seu peão; ninguém guarda a torre.",
+        "goal": "Sai com o rei e captura a torre.",
+        "hints": [],
+        "explain": "Rxb5 leva uma torre indefesa e deixa o final ganho; o rei que se atreve a sair cobra o que o tímido nunca verá. Nem o peão nem o rei distante a podem vingar.",
+        "wrong": "Não: a torre está solta e só o teu rei, saindo para o descampado, a leva."
+      }
+    },
+    "solenne": {
+      "intro": "Sou Solenne, e nasci sendo a peça mais humilde do tabuleiro: um simples peão. Mas um peão passado caminha sem medo para a oitava linha, e quem aprende a promover aprende que nenhum começo modesto decide o final.",
+      "reward": "Coroa da Oitava Linha",
+      "chron": [
+        "O meu peão deu o último passo para b8 e nasceu dama com xeque; o que começou pequeno acabou a governar o tabuleiro.",
+        "Em b7 não parei diante do cavalo: capturei-o ao promover em c8, e de um só passo ganhei peça e coroa.",
+        "Avancei para g8 e a nova dama cruzou o tabuleiro para cravar o rei; o peão paciente fez-se dama.",
+        "A torre julgou fechar-me a passagem, mas em g8 devorei-a ao promover com xeque; assim abre caminho um peão passado.",
+        "Sem vozes que me guiassem, promovi cavalo em vez de dama e o salto apanhou rei e dama ao mesmo tempo: a humildade também sabe escolher a sua forma."
+      ],
+      "c1": {
+        "title": "O último passo",
+        "teach": "Um peão passado é aquele que já não tem peões inimigos à frente nem ao lado: o seu caminho até à promoção está livre. Quando chega à sétima linha, um passo mais converte-o em dama.",
+        "observe": "O teu peão em b7 tem a oitava linha ao alcance e nenhum adversário o pode travar. Ao promover em b8, a nova dama olhará de frente o rei negro em d6.",
+        "goal": "Avança o peão e promove dama com xeque.",
+        "hints": [
+          "O teu peão em b7 está a um só passo da oitava linha.",
+          "Promove em b8 escolhendo a peça mais forte e observa a linha do rei.",
+          "b8=D+ nasce com xeque sobre d6; o rei tem de atender e ganhas uma dama inteira."
+        ],
+        "explain": "b8=D promove com xeque na oitava linha; o peão passado não tinha oposição e agora tens uma dama de vantagem. O passo mais humilde tornou-se o mais poderoso.",
+        "wrong": "Faltou-te dar o último passo: um peão que não promove desperdiça todo o seu caminho."
+      },
+      "c2": {
+        "title": "Promover capturando",
+        "teach": "Às vezes o caminho até à oitava linha cruza uma peça inimiga na diagonal: podes capturá-la e promover no mesmo movimento. Assim ganhas a peça e a coroa de um só golpe.",
+        "observe": "O teu peão em b7 tem à frente o cavalo negro em c8, mesmo na tua diagonal de promoção. O rei em e6 não pode acudir a tempo.",
+        "goal": "Captura o cavalo promovendo dama.",
+        "hints": [
+          "O cavalo em c8 está na diagonal de captura do teu peão.",
+          "Não avances a direito: come o cavalo ao promover.",
+          "bxc8=D+ elimina o cavalo e dá-te uma dama com xeque; duplo butim."
+        ],
+        "explain": "bxc8=D captura o cavalo e promove com xeque ao mesmo tempo; somas peça e dama sem dar nada em troca. O peão passado sabe abrir caminho a comer.",
+        "wrong": "Promover a direito deixa o cavalo vivo: aproveita a captura e leva tudo."
+      },
+      "c3": {
+        "title": "A dama que cruza",
+        "teach": "Promover não só soma material: cria do nada a peça mais veloz do tabuleiro. Recém-nascida, a dama alcança num instante o que estava do outro lado.",
+        "observe": "O teu peão em g7 promove livre em g8. Dali, a nova dama verá em diagonal o rei negro em d5.",
+        "goal": "Promove dama e dá xeque ao rei.",
+        "hints": [
+          "O teu peão em g7 chega sozinho à oitava linha.",
+          "Promove em g8 e repara na longa diagonal em direção ao centro.",
+          "g8=D+ crava o rei em d5 desde o canto; a dama domina o tabuleiro ao nascer."
+        ],
+        "explain": "g8=D promove e dá xeque na diagonal g8-d5; de um peão nasce uma dama que governa todo o tabuleiro. Esse é o prémio da paciência.",
+        "wrong": "Sem promover, o teu peão fica a olhar: dá o passo e deixa nascer a dama."
+      },
+      "c4": {
+        "title": "Devorar o guardião",
+        "teach": "Quando uma torre tenta fechar-te a oitava linha, não a temas: se está na tua diagonal, capturá-la ao promover. O obstáculo torna-se a tua última presa.",
+        "observe": "O teu peão em h7 tem a torre negra em g8, na sua diagonal de promoção. O rei em e6 ficará exposto à nova dama.",
+        "goal": "Captura a torre promovendo com xeque.",
+        "hints": [
+          "A torre em g8 julga bloquear-te, mas está na tua diagonal.",
+          "Come-a ao promover em vez de empurrar a direito.",
+          "hxg8=D+ elimina a torre e dá xeque a e6; ganhas torre e coroa de imediato."
+        ],
+        "explain": "hxg8=D captura a torre e promove com xeque sobre e6; o guardião que queria deter-te alimenta a tua subida. Um peão passado não pede licença: abre caminho.",
+        "wrong": "Empurrar a direito esbarra na torre: captura na diagonal e promoverás devorando-a."
+      },
+      "c5": {
+        "title": "A prova de Solenne",
+        "teach": "Sem dicas nem vozes. Promover dama nem sempre é o melhor: às vezes a peça humilde deve escolher outra forma para apanhar o rei e a dama ao mesmo tempo.",
+        "observe": "O teu peão em b7 promove livre, mas o rei em d7 e a dama em a6 estão colocados de um modo peculiar. Pensa em que peça os alcança a ambos.",
+        "goal": "Promove a peça que dá xeque e ganha a dama.",
+        "hints": [],
+        "explain": "b8=C promove cavalo com xeque e faz garfo ao rei em d7 e à dama em a6; o rei tem de mover-se e a dama cai. A subpromoção, humilde na aparência, ganha a partida.",
+        "wrong": "Não: promover dama só dá xeque, mas existe uma peça que ataca o rei e a dama ao mesmo tempo."
+      }
+    },
+    "presence": {
+      "label": "O teu campeão",
+      "win": "Vitória. Jogaste como eu te teria ensinado.",
+      "lose": "Cada derrota esconde uma lição. A próxima partida é nossa.",
+      "draw": "Empate. O equilíbrio também se domina.",
+      "check": "Cuidado: o teu rei está em xeque.",
+      "thinking": "Observa. O melhor lance raramente grita.",
+      "sendaCta": "Percorre a minha Senda de Maestria no códice."
+    }
   }
 }

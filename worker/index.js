@@ -501,6 +501,57 @@ async function academyResult(req, env) {
   return json(await academyState(env, uid));
 }
 
+// ============================================================
+//  VEXBORN · Senda de Maestría (progreso por campeón, sin ventaja)
+// ============================================================
+async function vexbornMasteryState(env, uid) {
+  const { results } = await env.DB.prepare(
+    'SELECT champion, chapters, vinculo, best_hint, attempts FROM vexborn_mastery WHERE user_id = ?'
+  ).bind(uid).all();
+  const champions = {};
+  for (const r of results || []) {
+    champions[r.champion] = { chapters: safeJson(r.chapters, []), vinculo: r.vinculo, bestHint: r.best_hint, attempts: r.attempts };
+  }
+  return { champions };
+}
+
+async function vexbornMasteryGet(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  return json(await vexbornMasteryState(env, s.user.id));
+}
+
+async function vexbornMasteryProgress(req, env) {
+  const s = await getSession(req, env);
+  if (!s) return errRes('No has iniciado sesión.', 401);
+  let b; try { b = await req.json(); } catch (e) { return errRes('JSON no válido.'); }
+  const champion = typeof b.champion === 'string' ? b.champion.slice(0, 40) : '';
+  const chapter = typeof b.chapter === 'string' ? b.chapter.slice(0, 60) : '';
+  if (!champion || !chapter) return errRes('Faltan datos.');
+  const correct = !!b.correct;
+  const hint = Math.max(0, Math.min(4, (b.hintUsed | 0)));
+  const total = Math.max(1, Math.min(20, (b.totalChapters | 0) || 5));
+  const now = nowISO(), uid = s.user.id;
+
+  const row = await env.DB.prepare('SELECT * FROM vexborn_mastery WHERE user_id = ? AND champion = ?').bind(uid, champion).first();
+  let chapters = safeJson(row ? row.chapters : '[]', []);
+  let vinculo = row ? row.vinculo : 0;
+  let bestHint = Math.max(row ? row.best_hint : 0, hint);
+  let attempts = (row ? row.attempts : 0) + 1;
+  // El progreso solo cuenta cuando la idea se resuelve correctamente (validado en cliente por chess.js).
+  if (correct && !chapters.includes(chapter)) {
+    chapters.push(chapter);
+    vinculo = Math.min(100, Math.round(chapters.length / total * 100));
+  }
+  await env.DB.prepare(
+    `INSERT INTO vexborn_mastery (user_id, champion, chapters, vinculo, best_hint, attempts, updated_at)
+     VALUES (?,?,?,?,?,?,?)
+     ON CONFLICT(user_id, champion) DO UPDATE SET chapters=excluded.chapters, vinculo=excluded.vinculo,
+       best_hint=excluded.best_hint, attempts=excluded.attempts, updated_at=excluded.updated_at`
+  ).bind(uid, champion, JSON.stringify(chapters), vinculo, bestHint, attempts, now).run();
+  return json(await vexbornMasteryState(env, uid));
+}
+
 async function listGames(req, env) {
   const s = await getSession(req, env);
   if (!s) return errRes('No has iniciado sesión.', 401);
@@ -891,6 +942,8 @@ async function handleApi(req, env) {
     if (path === '/api/profile' && m === 'PUT') return await updateProfile(req, env);
     if (path === '/api/academy' && m === 'GET') return await academyGet(req, env);
     if (path === '/api/academy/result' && m === 'POST') return await academyResult(req, env);
+    if (path === '/api/vexborn/mastery' && m === 'GET') return await vexbornMasteryGet(req, env);
+    if (path === '/api/vexborn/mastery/progress' && m === 'POST') return await vexbornMasteryProgress(req, env);
     if (path === '/api/profile/badges' && m === 'PUT') return await updateBadges(req, env);
     if (path === '/api/games' && m === 'GET') return await listGames(req, env);
     if (path === '/api/games' && m === 'POST') return await saveGame(req, env);

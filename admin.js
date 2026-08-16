@@ -8,7 +8,7 @@ import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, role
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
 
 const ELO_LEVEL = 80, ROLE_LEVEL = 80;
-const root = document.getElementById('admin-root');
+const root = document.getElementById('adm-root');
 const state = { q: '', role: 'all', sort: 'recent', offset: 0, limit: 25, total: 0, users: [], selId: null };
 let mounted = false, currentDetail = null, searchTimer = null, overview = null;
 
@@ -17,29 +17,29 @@ function fmtDate(iso) { try { return new Date(iso).toLocaleDateString('es-ES', {
 function roleChip(role, big) {
   const m = roleMeta(role);
   if (role === 'member' && !big) return '';
-  return '<span class="ad-role-chip' + (big ? ' big' : '') + '" style="--rc:' + m.color + '">' + esc(m.label) + '</span>';
+  return '<span class="adm-role-chip' + (big ? ' big' : '') + '" style="--rc:' + m.color + '">' + esc(m.label) + '</span>';
 }
 
 // ---------- pantallas de estado ----------
 function loaderHTML() {
-  return '<section class="ad-state"><div class="pf-loading-inner"><div class="pf-loading-ring"></div>' +
+  return '<section class="adm-state"><div class="pf-loading-inner"><div class="pf-loading-ring"></div>' +
     '<img class="pf-loading-knight" src="assets/knight-logo.svg" alt=""></div><p>' + t('admin.loading') + '</p></section>';
 }
 function gateHTML(title, msg, showLogin) {
-  return '<section class="ad-state"><img src="assets/knight-logo.svg" alt="" class="ad-state-logo">' +
+  return '<section class="adm-state"><img src="assets/knight-logo.svg" alt="" class="adm-state-logo">' +
     '<h1>' + esc(title) + '</h1><p>' + esc(msg) + '</p>' +
-    (showLogin ? '<button class="btn-play" id="ad-login">' + t('admin.loginBtn') + ' <span aria-hidden="true">→</span></button>' : '<a class="btn-play" href="index.html">' + t('admin.backHome') + ' <span aria-hidden="true">→</span></a>') +
+    (showLogin ? '<button class="btn-play" id="adm-login">' + t('admin.loginBtn') + ' <span aria-hidden="true">→</span></button>' : '<a class="btn-play" href="index.html">' + t('admin.backHome') + ' <span aria-hidden="true">→</span></a>') +
     '</section>';
 }
 
 // ---------- toast ----------
 let toastEl = null;
 function toast(msg, ok) {
-  if (!toastEl) { toastEl = document.createElement('div'); toastEl.className = 'ad-toast'; document.body.appendChild(toastEl); }
+  if (!toastEl) { toastEl = document.createElement('div'); toastEl.className = 'adm-toast'; document.body.appendChild(toastEl); }
   toastEl.textContent = msg;
-  toastEl.className = 'ad-toast show' + (ok ? ' ok' : ' err');
+  toastEl.className = 'adm-toast show' + (ok ? ' ok' : ' err');
   clearTimeout(toastEl._t);
-  toastEl._t = setTimeout(() => { toastEl.className = 'ad-toast'; }, 2600);
+  toastEl._t = setTimeout(() => { toastEl.className = 'adm-toast'; }, 2600);
 }
 
 // ---------- montaje ----------
@@ -49,7 +49,7 @@ function render() {
   if (!u) {
     root.innerHTML = gateHTML(t('admin.gateLoginTitle'), t('admin.gateLoginMsg'), true);
     mounted = false;
-    const lb = document.getElementById('ad-login');
+    const lb = document.getElementById('adm-login');
     if (lb) lb.addEventListener('click', () => openAuth('login'));
     return;
   }
@@ -63,25 +63,25 @@ function mountShell() {
   const sortOpts = [['recent', t('admin.sortRecent')], ['oldest', t('admin.sortOldest')], ['elo_desc', t('admin.sortEloDesc')], ['elo_asc', t('admin.sortEloAsc')], ['name', t('admin.sortName')]]
     .map(([v, l]) => '<option value="' + v + '">' + l + '</option>').join('');
   root.innerHTML =
-    '<section class="ad-topbar">' +
-      '<div><span class="eyebrow">' + t('admin.eyebrow') + '</span><h1 class="ad-title">' + t('admin.controlCenterTitle') + '</h1></div>' +
-      '<a class="ad-inv-link" href="insignias.html"><span class="ad-inv-ico">🏅</span> ' + t('admin.badgeInventoryLink') + '</a>' +
+    '<section class="adm-topbar">' +
+      '<div><span class="eyebrow">' + t('admin.eyebrow') + '</span><h1 class="adm-title">' + t('admin.controlCenterTitle') + '</h1></div>' +
+      '<a class="adm-inv-link" href="insignias.html"><span class="adm-inv-ico">🏅</span> ' + t('admin.badgeInventoryLink') + '</a>' +
     '</section>' +
-    '<div class="ad-dash" id="ad-dash"></div>' +
-    '<div class="ad-toolbar">' +
-      '<div class="ad-search"><svg viewBox="0 0 24 24" width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>' +
-        '<input id="ad-q" type="search" placeholder="' + t('admin.searchPlaceholder') + '" autocomplete="off"></div>' +
-      '<select id="ad-role" class="ad-select">' + roleOpts + '</select>' +
-      '<select id="ad-sort" class="ad-select">' + sortOpts + '</select>' +
+    '<div class="adm-dash" id="adm-dash"></div>' +
+    '<div class="adm-toolbar">' +
+      '<div class="adm-search"><svg viewBox="0 0 24 24" width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>' +
+        '<input id="adm-q" type="search" placeholder="' + t('admin.searchPlaceholder') + '" autocomplete="off"></div>' +
+      '<select id="adm-role" class="adm-select">' + roleOpts + '</select>' +
+      '<select id="adm-sort" class="adm-select">' + sortOpts + '</select>' +
     '</div>' +
-    '<div class="ad-cols">' +
-      '<div class="ad-list-col"><div class="ad-list" id="ad-list"></div><div class="ad-pager" id="ad-pager"></div></div>' +
-      '<div class="ad-detail" id="ad-detail"><div class="ad-detail-empty"><img src="assets/knight-logo.svg" alt=""><p>' + t('admin.detailEmpty') + '</p></div></div>' +
+    '<div class="adm-cols">' +
+      '<div class="adm-list-col"><div class="adm-list" id="adm-list"></div><div class="adm-pager" id="adm-pager"></div></div>' +
+      '<div class="adm-detail" id="adm-detail"><div class="adm-detail-empty"><img src="assets/knight-logo.svg" alt=""><p>' + t('admin.detailEmpty') + '</p></div></div>' +
     '</div>';
-  const q = document.getElementById('ad-q');
+  const q = document.getElementById('adm-q');
   q.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => { state.q = q.value.trim(); state.offset = 0; loadUsers(); }, 250); });
-  document.getElementById('ad-role').addEventListener('change', e => { state.role = e.target.value; state.offset = 0; loadUsers(); });
-  document.getElementById('ad-sort').addEventListener('change', e => { state.sort = e.target.value; state.offset = 0; loadUsers(); });
+  document.getElementById('adm-role').addEventListener('change', e => { state.role = e.target.value; state.offset = 0; loadUsers(); });
+  document.getElementById('adm-sort').addEventListener('change', e => { state.sort = e.target.value; state.offset = 0; loadUsers(); });
 }
 
 // ---------- dashboard ----------
@@ -89,7 +89,7 @@ async function loadOverview() {
   try { overview = await api.adminOverview(); renderDash(); } catch (e) { /* silencioso */ }
 }
 function renderDash() {
-  const dash = document.getElementById('ad-dash');
+  const dash = document.getElementById('adm-dash');
   if (!dash || !overview) return;
   const o = overview;
   dash.innerHTML =
@@ -99,49 +99,49 @@ function renderDash() {
     dashCard(t('admin.dashGames'), o.total_games, t('admin.dashGamesSub'));
 }
 function dashCard(label, value, sub) {
-  return '<div class="ad-dash-card"><b>' + value + '</b><span class="ad-dash-label">' + label + '</span><span class="ad-dash-sub">' + sub + '</span></div>';
+  return '<div class="adm-dash-card"><b>' + value + '</b><span class="adm-dash-label">' + label + '</span><span class="adm-dash-sub">' + sub + '</span></div>';
 }
 
 // ---------- lista ----------
 async function loadUsers() {
-  const list = document.getElementById('ad-list');
-  if (list) list.innerHTML = '<div class="ad-loading-row">' + t('admin.loadingUsers') + '</div>';
+  const list = document.getElementById('adm-list');
+  if (list) list.innerHTML = '<div class="adm-loading-row">' + t('admin.loadingUsers') + '</div>';
   try {
     const data = await api.adminUsers({ q: state.q, role: state.role, sort: state.sort, limit: state.limit, offset: state.offset });
     state.users = data.users || []; state.total = data.total || 0;
     renderList();
   } catch (e) {
-    if (list) list.innerHTML = '<div class="ad-error">' + esc(e.message || t('admin.loadError')) + '</div>';
+    if (list) list.innerHTML = '<div class="adm-error">' + esc(e.message || t('admin.loadError')) + '</div>';
   }
 }
 function rowHTML(u) {
-  return '<button class="ad-row' + (u.id === state.selId ? ' sel' : '') + '" data-id="' + u.id + '">' +
+  return '<button class="adm-row' + (u.id === state.selId ? ' sel' : '') + '" data-id="' + u.id + '">' +
       avatarHTML(u.avatar, 'sm') +
-      '<span class="ad-row-main"><span class="ad-row-name">' + esc(u.username) + roleChip(u.role) + '</span>' +
-        '<span class="ad-row-mail">' + esc(u.email) + '</span></span>' +
-      '<span class="ad-row-stat"><b>' + u.elo + '</b><i>' + t('admin.rowEloLabel') + '</i></span>' +
-      '<span class="ad-row-stat hide-sm"><b>' + u.badge_count + '</b><i>' + t('admin.rowBadgesLabel') + '</i></span>' +
-      '<span class="ad-row-stat hide-sm"><b>' + u.games_count + '</b><i>' + t('admin.rowGamesLabel') + '</i></span>' +
+      '<span class="adm-row-main"><span class="adm-row-name">' + esc(u.username) + roleChip(u.role) + '</span>' +
+        '<span class="adm-row-mail">' + esc(u.email) + '</span></span>' +
+      '<span class="adm-row-stat"><b>' + u.elo + '</b><i>' + t('admin.rowEloLabel') + '</i></span>' +
+      '<span class="adm-row-stat hide-sm"><b>' + u.badge_count + '</b><i>' + t('admin.rowBadgesLabel') + '</i></span>' +
+      '<span class="adm-row-stat hide-sm"><b>' + u.games_count + '</b><i>' + t('admin.rowGamesLabel') + '</i></span>' +
     '</button>';
 }
 function renderList() {
-  const list = document.getElementById('ad-list');
+  const list = document.getElementById('adm-list');
   if (!list) return;
-  if (!state.users.length) { list.innerHTML = '<div class="ad-empty">' + t('admin.emptyResults') + '</div>'; renderPager(); return; }
+  if (!state.users.length) { list.innerHTML = '<div class="adm-empty">' + t('admin.emptyResults') + '</div>'; renderPager(); return; }
   list.innerHTML = state.users.map(rowHTML).join('');
-  list.querySelectorAll('.ad-row').forEach(r => r.addEventListener('click', () => selectUser(r.dataset.id)));
+  list.querySelectorAll('.adm-row').forEach(r => r.addEventListener('click', () => selectUser(r.dataset.id)));
   renderPager();
 }
 function renderPager() {
-  const pager = document.getElementById('ad-pager');
+  const pager = document.getElementById('adm-pager');
   if (!pager) return;
   const pages = Math.max(1, Math.ceil(state.total / state.limit));
   const cur = Math.floor(state.offset / state.limit) + 1;
   pager.innerHTML =
-    '<button class="ad-page-btn" id="ad-prev"' + (state.offset <= 0 ? ' disabled' : '') + '>' + t('admin.pagerPrev') + '</button>' +
-    '<span class="ad-page-info">' + t('admin.pagerInfo', { total: state.total, s: (state.total === 1 ? '' : 's'), cur: cur, pages: pages }) + '</span>' +
-    '<button class="ad-page-btn" id="ad-next"' + (cur >= pages ? ' disabled' : '') + '>' + t('admin.pagerNext') + '</button>';
-  const prev = document.getElementById('ad-prev'), next = document.getElementById('ad-next');
+    '<button class="adm-page-btn" id="adm-prev"' + (state.offset <= 0 ? ' disabled' : '') + '>' + t('admin.pagerPrev') + '</button>' +
+    '<span class="adm-page-info">' + t('admin.pagerInfo', { total: state.total, s: (state.total === 1 ? '' : 's'), cur: cur, pages: pages }) + '</span>' +
+    '<button class="adm-page-btn" id="adm-next"' + (cur >= pages ? ' disabled' : '') + '>' + t('admin.pagerNext') + '</button>';
+  const prev = document.getElementById('adm-prev'), next = document.getElementById('adm-next');
   if (prev) prev.addEventListener('click', () => { state.offset = Math.max(0, state.offset - state.limit); loadUsers(); });
   if (next) next.addEventListener('click', () => { state.offset += state.limit; loadUsers(); });
 }
@@ -149,14 +149,14 @@ function renderPager() {
 // ---------- ficha ----------
 async function selectUser(id) {
   state.selId = id;
-  document.querySelectorAll('.ad-row').forEach(r => r.classList.toggle('sel', r.dataset.id === id));
-  const detail = document.getElementById('ad-detail');
-  detail.innerHTML = '<div class="ad-loading-row">' + t('admin.loadingDetail') + '</div>';
+  document.querySelectorAll('.adm-row').forEach(r => r.classList.toggle('sel', r.dataset.id === id));
+  const detail = document.getElementById('adm-detail');
+  detail.innerHTML = '<div class="adm-loading-row">' + t('admin.loadingDetail') + '</div>';
   try { currentDetail = await api.adminUser(id); renderDetail(); }
-  catch (e) { detail.innerHTML = '<div class="ad-error">' + esc(e.message || t('admin.error')) + '</div>'; }
+  catch (e) { detail.innerHTML = '<div class="adm-error">' + esc(e.message || t('admin.error')) + '</div>'; }
 }
 function renderDetail() {
-  const detail = document.getElementById('ad-detail');
+  const detail = document.getElementById('adm-detail');
   const d = currentDetail; if (!d) return;
   const u = d.user, s = d.stats || {};
   const owned = new Set((d.badges || []).map(b => b.badge));
@@ -172,58 +172,58 @@ function renderDetail() {
 
   // Selector de rol (solo roles por debajo del nivel del actor, sin owner)
   let roleControl;
-  if (u.role === 'owner') roleControl = '<div class="ad-role-static">' + roleChip('owner', true) + '<span class="ad-field-note">' + t('admin.ownerStaticNote') + '</span></div>';
-  else if (isSelf) roleControl = '<div class="ad-role-static">' + roleChip(u.role, true) + '<span class="ad-field-note">' + t('admin.selfRoleNote') + '</span></div>';
-  else if (!canRole) roleControl = '<div class="ad-role-static">' + roleChip(u.role, true) + '<span class="ad-field-note">' + t('admin.needHigherRankNote') + '</span></div>';
+  if (u.role === 'owner') roleControl = '<div class="adm-role-static">' + roleChip('owner', true) + '<span class="adm-field-note">' + t('admin.ownerStaticNote') + '</span></div>';
+  else if (isSelf) roleControl = '<div class="adm-role-static">' + roleChip(u.role, true) + '<span class="adm-field-note">' + t('admin.selfRoleNote') + '</span></div>';
+  else if (!canRole) roleControl = '<div class="adm-role-static">' + roleChip(u.role, true) + '<span class="adm-field-note">' + t('admin.needHigherRankNote') + '</span></div>';
   else {
     const opts = Object.keys(ROLES).filter(r => r !== 'owner' && roleLevel(r) < actorLevel)
       .map(r => '<option value="' + r + '"' + (r === u.role ? ' selected' : '') + '>' + roleMeta(r).label + '</option>').join('');
-    roleControl = '<select id="ad-role-sel" class="ad-select role">' + opts + '</select>';
+    roleControl = '<select id="adm-role-sel" class="adm-select role">' + opts + '</select>';
   }
 
   const badgeGrid = Object.keys(BADGE_CATALOG).map(id => {
     const m = BADGE_CATALOG[id]; const has = owned.has(id);
-    return '<button class="ad-badge' + (has ? ' has' : '') + (canBadges ? '' : ' ro') + '" data-badge="' + id + '" style="--bc:' + m.color + '" title="' + esc(m.desc) + '"' + (canBadges ? '' : ' disabled') + '>' +
+    return '<button class="adm-badge' + (has ? ' has' : '') + (canBadges ? '' : ' ro') + '" data-badge="' + id + '" style="--bc:' + m.color + '" title="' + esc(m.desc) + '"' + (canBadges ? '' : ' disabled') + '>' +
         badgeIcon(id, 'admin') +
-        '<span class="ad-badge-name">' + esc(m.name) + '</span>' +
-        '<span class="ad-badge-act">' + (has ? t('admin.badgeGranted') : t('admin.badgeGrant')) + '</span>' +
+        '<span class="adm-badge-name">' + esc(m.name) + '</span>' +
+        '<span class="adm-badge-act">' + (has ? t('admin.badgeGranted') : t('admin.badgeGrant')) + '</span>' +
       '</button>';
   }).join('');
 
   detail.innerHTML =
-    '<div class="ad-card">' +
-      '<div class="ad-user-head">' + avatarHTML(u.avatar, 'lg') +
-        '<div class="ad-user-id"><div class="ad-user-name">' + esc(u.username) + roleChip(u.role) + '</div>' +
-          '<div class="ad-user-mail">' + esc(u.email) + '</div>' +
-          '<div class="ad-user-sub">' + t('admin.memberSince', { date: fmtDate(u.created_at) }) + ' · <span class="ad-uid">' + esc(u.id) + '</span></div>' +
+    '<div class="adm-card">' +
+      '<div class="adm-user-head">' + avatarHTML(u.avatar, 'lg') +
+        '<div class="adm-user-id"><div class="adm-user-name">' + esc(u.username) + roleChip(u.role) + '</div>' +
+          '<div class="adm-user-mail">' + esc(u.email) + '</div>' +
+          '<div class="adm-user-sub">' + t('admin.memberSince', { date: fmtDate(u.created_at) }) + ' · <span class="adm-uid">' + esc(u.id) + '</span></div>' +
         '</div>' +
       '</div>' +
-      '<div class="ad-mini-stats">' +
+      '<div class="adm-mini-stats">' +
         miniStat(t('admin.miniPartidas'), s.played || 0) + miniStat(t('admin.miniVictorias'), s.wins || 0, 'w') +
         miniStat(t('admin.miniDerrotas'), s.losses || 0, 'l') + miniStat(t('admin.miniElo'), u.elo) +
       '</div>' +
-      '<div class="ad-controls">' +
-        '<div class="ad-field"><label>' + t('admin.fieldRol') + '</label>' + roleControl + '</div>' +
-        '<div class="ad-field"><label>' + t('admin.fieldElo') + '</label><div class="ad-elo-row">' +
-          '<input type="number" id="ad-elo" min="100" max="3500" value="' + u.elo + '"' + (canElo ? '' : ' disabled') + '>' +
-          (canElo ? '<button class="ad-btn" id="ad-elo-save">' + t('admin.eloSave') + '</button>' : '') + '</div>' +
-          (canElo ? '' : '<span class="ad-field-note">' + t('admin.eloRankNote') + '</span>') + '</div>' +
+      '<div class="adm-controls">' +
+        '<div class="adm-field"><label>' + t('admin.fieldRol') + '</label>' + roleControl + '</div>' +
+        '<div class="adm-field"><label>' + t('admin.fieldElo') + '</label><div class="adm-elo-row">' +
+          '<input type="number" id="adm-elo" min="100" max="3500" value="' + u.elo + '"' + (canElo ? '' : ' disabled') + '>' +
+          (canElo ? '<button class="adm-btn" id="adm-elo-save">' + t('admin.eloSave') + '</button>' : '') + '</div>' +
+          (canElo ? '' : '<span class="adm-field-note">' + t('admin.eloRankNote') + '</span>') + '</div>' +
       '</div>' +
     '</div>' +
-    '<div class="ad-card">' +
-      '<h3 class="ad-card-title">' + t('admin.badgesTitle') + ' <span class="ad-badges-n">' + owned.size + ' / ' + Object.keys(BADGE_CATALOG).length + '</span></h3>' +
-      '<p class="ad-card-hint">' + (canBadges ? t('admin.badgesHintEditable') : t('admin.badgesHintReadonly')) + '</p>' +
-      '<div class="ad-badges">' + badgeGrid + '</div>' +
+    '<div class="adm-card">' +
+      '<h3 class="adm-card-title">' + t('admin.badgesTitle') + ' <span class="adm-badges-n">' + owned.size + ' / ' + Object.keys(BADGE_CATALOG).length + '</span></h3>' +
+      '<p class="adm-card-hint">' + (canBadges ? t('admin.badgesHintEditable') : t('admin.badgesHintReadonly')) + '</p>' +
+      '<div class="adm-badges">' + badgeGrid + '</div>' +
     '</div>';
 
-  if (canBadges) detail.querySelectorAll('.ad-badge').forEach(b => b.addEventListener('click', () => toggleBadge(u.id, b.dataset.badge, owned.has(b.dataset.badge))));
-  const eloSave = detail.querySelector('#ad-elo-save');
-  if (eloSave) eloSave.addEventListener('click', () => saveElo(u.id, detail.querySelector('#ad-elo').value));
-  const roleSel = detail.querySelector('#ad-role-sel');
+  if (canBadges) detail.querySelectorAll('.adm-badge').forEach(b => b.addEventListener('click', () => toggleBadge(u.id, b.dataset.badge, owned.has(b.dataset.badge))));
+  const eloSave = detail.querySelector('#adm-elo-save');
+  if (eloSave) eloSave.addEventListener('click', () => saveElo(u.id, detail.querySelector('#adm-elo').value));
+  const roleSel = detail.querySelector('#adm-role-sel');
   if (roleSel) roleSel.addEventListener('change', () => setRole(u.id, roleSel.value));
 }
 function miniStat(label, value, cls) {
-  return '<div class="ad-mini"><b class="' + (cls || '') + '">' + value + '</b><span>' + label + '</span></div>';
+  return '<div class="adm-mini"><b class="' + (cls || '') + '">' + value + '</b><span>' + label + '</span></div>';
 }
 
 // ---------- acciones ----------

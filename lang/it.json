@@ -1121,5 +1121,1208 @@
       "community": "Comunità",
       "myGames": "Le mie partite"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Iniziato",
+      "aprendiz": "Apprendista",
+      "adepto": "Adepto",
+      "experto": "Esperto",
+      "maestro": "Maestro",
+      "pleno": "Vincolo pieno"
+    },
+    "ui": {
+      "start": "Inizia il Sentiero della Maestria",
+      "continue": "Continua il Sentiero",
+      "soon": "Sentiero della Maestria · prossimamente",
+      "sectionTitle": "Sentiero della Maestria",
+      "chapter": "Capitolo {n}/{total}",
+      "trialTag": "Trial",
+      "vinculo": "Vincolo",
+      "observe": "Osserva",
+      "hint": "Chiedi un indizio",
+      "hintCount": "Indizio {n}/{total}",
+      "lastHint": "ultimo",
+      "correct": "Corretto!",
+      "next": "Avanti →",
+      "teachNext": "Capito →",
+      "practice": "Mettilo in pratica →",
+      "finishChapter": "Termina il capitolo →",
+      "chronicleUnlocked": "Cronaca sbloccata",
+      "reward": "Ricompensa di maestria",
+      "completeTitle": "Sentiero completato",
+      "completeMsg": "Hai percorso l'intero Sentiero. Il vincolo con questo campione è pieno.",
+      "back": "Torna al codice",
+      "trialNoHints": "Nel Trial non ci sono indizi: fidati di ciò che hai imparato.",
+      "wrongRetry": "Riprova.",
+      "yourMove": "Tocca a te",
+      "vinculoSub": "Nessun vantaggio competitivo · solo apprendimento, narrativa e collezione",
+      "chapterDone": "Capitolo superato",
+      "guestMsg": "Accedi per percorrere il Sentiero e salvare il tuo vincolo.",
+      "loginBtn": "Accedi",
+      "chaptersDone": "{n}/{total} capitoli",
+      "trialsHint": "L'ultimo capitolo è un Trial senza indizi."
+    },
+    "noctis": {
+      "intro": "Sono Noctis. Non attraverso l'oscurità: la divido. Ti insegnerò a vedere le due minacce che stanno in un solo salto. Osserva, prevedi ed esegui.",
+      "reward": "Titolo sbloccato: «Doppia Ombra»",
+      "chron": [
+        "Ogni mio salto lascia due ombre. Solo una è reale.",
+        "Ho imparato a colpire dove nessuno difende: tra due pezzi alla volta.",
+        "Il re è il miglior ostaggio: obbliga a rispondere e lascia libera la sua donna.",
+        "Non cerco il pezzo. Cerco la casa dalla quale due pezzi sono già miei.",
+        "Quando vedrai la forchetta prima di giocarla, non avrai bisogno delle mie ombre."
+      ],
+      "c1": {
+        "title": "La prima ombra",
+        "teach": "La forchetta attacca due pezzi con una sola mossa. Cominciamo dalla più pulita: uno scacco che, di passaggio, si porta via una torre.",
+        "observe": "Il re nero è in e8 e la torre in a8. Cerca la casa dalla quale un cavallo tocchi entrambe.",
+        "goal": "Dai scacco e attacca la torre con il cavallo.",
+        "hints": [
+          "Un cavallo in c7 raggiunge e8 e a8 allo stesso tempo.",
+          "La casa chiave è a un salto: d5 → c7.",
+          "Cd5-c7+: scacco al re e forchetta alla torre."
+        ],
+        "explain": "Cc7+ è scacco: l'avversario deve badare al suo re e la torre di a8 cade. Questa è la forchetta nella sua forma più pura: obblighi prima e guadagni dopo.",
+        "wrong": "Quasi. Una sola casa deve toccare il re e la torre. Pensa a c7."
+      },
+      "c2": {
+        "title": "Il re come esca",
+        "teach": "Quando la forchetta include il re, è inarrestabile: lo scacco obbliga e il pezzo maggiore resta alla tua mercé.",
+        "observe": "Re nero in e8, donna in c8. Trova il salto che dà scacco e guarda anche la donna.",
+        "goal": "Forchetta al re e alla donna.",
+        "hints": [
+          "Da d6 un cavallo attacca e8 e c8.",
+          "e4 → d6, con scacco.",
+          "Cd6+ guadagna la donna dopo lo scacco."
+        ],
+        "explain": "Cd6+ attacca il re (scacco forzato) e la donna in c8. Il re si muove e la donna è tua. Il re è la migliore esca di una forchetta.",
+        "wrong": "Non è quella. La casa deve dare scacco in e8 e toccare c8 allo stesso tempo: guarda d6."
+      },
+      "c3": {
+        "title": "Dall'altra angolazione",
+        "teach": "La stessa idea funziona su qualsiasi lato. Allena l'occhio a vederla anche da destra.",
+        "observe": "Re in e8, donna in g8. Trova il salto che minaccia entrambi.",
+        "goal": "Scacco al re e attacco alla donna.",
+        "hints": [
+          "f6 tocca e8 e g8.",
+          "g4 → f6, con scacco.",
+          "Cf6+ e la donna di g8 cade."
+        ],
+        "explain": "Cf6+ dà scacco dall'altro lato e attacca g8. La forchetta non ha un lato preferito: solo case corrette.",
+        "wrong": "Non ancora. Cerca la casa che tocchi e8 e g8: è f6."
+      },
+      "c4": {
+        "title": "Il salto silenzioso",
+        "teach": "A volte la casa della forchetta sembra innocua… finché il cavallo non arriva. Fidati dello schema.",
+        "observe": "Re in g8, donna in c8 e il tuo cavallo in g6. Quale casa tocca entrambi?",
+        "goal": "Forchetta al re e alla donna.",
+        "hints": [
+          "e7 raggiunge g8 e c8.",
+          "g6 → e7, con scacco.",
+          "Ce7+ e guadagni la donna."
+        ],
+        "explain": "Ce7+ collega g8 (scacco) con c8 (donna). Un salto tranquillo, un bottino enorme. Ormai riconosci lo schema.",
+        "wrong": "Non è quella. La casa che tocca g8 e c8 è e7."
+      },
+      "c5": {
+        "title": "Trial · L'ombra senza avviso",
+        "teach": "Senza scacco non c'è avviso: qui la forchetta non grida, la vedi o la perdi. Senza indizi: fidati di ciò che hai imparato.",
+        "observe": "Due torri nere, in d8 e f8. Una sola casa le guarda entrambe.",
+        "goal": "Forchetta alle due torri.",
+        "hints": [],
+        "explain": "Ce6 attacca d8 e f8 allo stesso tempo. Non c'è scacco, ma una torre cadrà. Hai imparato a vedere la forchetta senza che nessuno ti avvisi.",
+        "wrong": "Una torre deve restare attaccata insieme all'altra. Cerca la casa tra d8 e f8."
+      }
+    },
+    "kael": {
+      "intro": "Sono Kael, e il mio cavallo non chiede permesso: attacca. Seguimi e impara a rubare il tempo, a sviluppare con furia e a tenerti l'iniziativa prima che l'avversario respiri.",
+      "reward": "Cavaliere del Tempo",
+      "chron": [
+        "Il mio cavallo saltò in e7 con scacco e la donna nemica cadde senza un lamento.",
+        "Nell'angolo accerchiai il re e gli strappai la torre di netto.",
+        "Un salto in f7 e il silenzio del matto chiuse la partita.",
+        "Punii il re che non osò svilupparsi: scacco, e la sua donna fu mia.",
+        "Senza indizi e senza dubbi, il puledro colpì e la scacchiera si arrese."
+      ],
+      "c1": {
+        "title": "Il Salto che Ruba la Donna",
+        "teach": "Lo scacco comanda: quando dai scacco, l'avversario obbedisce e tu detti il ritmo. Un cavallo che dà scacco e attacca la donna guadagna tempo e materiale in un solo colpo.",
+        "observe": "Guarda dove sono il re nero e la sua donna: cerca una casa che attacchi entrambi allo stesso tempo.",
+        "goal": "Dai scacco e biforca il re e la donna.",
+        "hints": [
+          "Cerca un salto di cavallo che dia scacco al re in g8.",
+          "La casa e7 tocca il re e la donna allo stesso tempo.",
+          "Gioca Ce7+ e, dopo aver mosso il re, cattura la donna in c6."
+        ],
+        "explain": "Ce7+ è scacco: il re deve muoversi e non può difendere la donna, che cade in c6.",
+        "wrong": "Senza scacco perdi l'iniziativa; obbliga il re e tieniti la donna."
+      },
+      "c2": {
+        "title": "Imboscata nell'Angolo",
+        "teach": "L'iniziativa nasce dal minacciare con tempo. Un cavallo che dà scacco nell'angolo forza il re e denuda la sua torre.",
+        "observe": "Il re nero dorme in a8 e la sua torre in e8: una forchetta li unisce.",
+        "goal": "Dai scacco e guadagna la torre.",
+        "hints": [
+          "Il cavallo può saltare in c7 dando scacco.",
+          "Da c7 il cavallo attacca il re e la torre di e8.",
+          "Cc7+ e poi Cxe8: la torre è tua."
+        ],
+        "explain": "Cc7+ obbliga il re a fuggire e il cavallo divora la torre in e8.",
+        "wrong": "Non lasciar scappare il re gratis: lo scacco in c7 è la tua unica chiave."
+      },
+      "c3": {
+        "title": "Il Matto del Puledro",
+        "teach": "Lo sviluppo culmina nell'attacco: quando il re soffoca tra i suoi pezzi, un cavallo dà il colpo di grazia. Il tempo perfetto trasforma un salto in scacco matto.",
+        "observe": "Il re nero è sepolto dalla sua torre e dai suoi pedoni; manca solo il colpo.",
+        "goal": "Dai scacco matto con il cavallo.",
+        "hints": [
+          "Il re non ha nemmeno una casa libera.",
+          "Un salto in f7 dà scacco e non c'è scampo possibile.",
+          "Cf7 è matto: consegnalo con orgoglio."
+        ],
+        "explain": "Cf7# dà scacco e il re, soffocato dai suoi stessi pezzi, non può fuggire né catturare.",
+        "wrong": "Cerca lo scacco a cui non si può sfuggire: f7 lo sigilla."
+      },
+      "c4": {
+        "title": "Castigo al Re Pigro",
+        "teach": "Chi non sviluppa, paga: un re intrappolato al centro è preda facile. Attacca con tempo e l'iniziativa diventa bottino.",
+        "observe": "Il re nero è ancora in e7 e la sua donna vaga per b4: entrambi alla portata di un salto.",
+        "goal": "Dai scacco al centro e guadagna la donna.",
+        "hints": [
+          "Il re esposto in e7 invita alla forchetta.",
+          "Da c6 il cavallo dà scacco al re e attacca la donna in b4.",
+          "Cc6+ e poi Cxb4: la donna è tua."
+        ],
+        "explain": "Cc6+ è uno scacco a doppio taglio: il re fugge e la donna di b4 cade senza rimedio.",
+        "wrong": "Approfitta del re al centro: solo lo scacco in c6 guadagna la donna."
+      },
+      "c5": {
+        "title": "Prova del Cavaliere: Senza Pietà",
+        "teach": "Qui non ci sono indizi, solo il tuo istinto. Trova il salto che dà scacco e strappa la donna: dimostra che domini il tempo.",
+        "observe": "Il re in c8 e la donna in f5 attendono il tuo verdetto.",
+        "goal": "Dai scacco e portati via la donna.",
+        "hints": [],
+        "explain": "Cd6+ dà scacco al re in c8 e attacca la donna in f5; il re fugge e Cxf5 chiude il colpo.",
+        "wrong": "Il tempo ti è sfuggito: cerca lo scacco che tocca anche la donna."
+      }
+    },
+    "aurelia": {
+      "intro": "Sono Aurelia, e la mia donna non si muove per impulso: si muove per convinzione. Prima di toccare un pezzo vedo la partita finita; seguimi e imparerai a calcolare fino al finale.",
+      "reward": "Sentiero della Donna Serena",
+      "chron": [
+        "Al primo passo la donna scese in settima, e il re non trovò dove fuggire.",
+        "Vidi l'ultima traversa chiudersi prima che esistesse; i suoi stessi pedoni furono la sua condanna.",
+        "Un pedone attraversò la scacchiera e rinacque trasformato in regina: il calcolo premia la pazienza.",
+        "Non catturai per avidità, ma per certezza; la donna nemica cadde senza dar battaglia.",
+        "Senza indizi e senza dubbi scelsi l'unico sentiero, e il matto fiorì sulla diagonale."
+      ],
+      "c1": {
+        "title": "La discesa della donna",
+        "teach": "Calcolare è vedere la posizione finale prima di muovere un solo pezzo. La donna e il re tessono insieme una rete dalla quale il monarca avversario non sfugge.",
+        "observe": "Guarda le case di fuga del re nero e scopri chi le sorveglia.",
+        "goal": "Dai scacco matto in una mossa.",
+        "hints": [
+          "Il tuo re in f6 controlla già g7; la donna può appoggiarsi a lui.",
+          "Cerca la casa dalla quale la donna attacchi il re senza poter essere catturata.",
+          "Porta la donna in g7: il re di h8 resterà senz'aria."
+        ],
+        "explain": "Dg7 è scacco matto: il re di f6 difende la donna e toglie al monarca nero le case g8, h7 e g7.",
+        "wrong": "Il re è scappato; ricalcola quale casa chiude tutte le sue uscite."
+      },
+      "c2": {
+        "title": "L'ultima traversa",
+        "teach": "Un re rinchiuso dietro i propri pedoni vive in pericolo costante. Saper calcolare la traversa di fondo decide innumerevoli partite.",
+        "observe": "Osserva i pedoni f7, g7 e h7: imprigionano il loro stesso re.",
+        "goal": "Trova il matto in una.",
+        "hints": [
+          "Il re nero non ha case davanti a sé; i suoi pedoni lo soffocano.",
+          "La colonna d resta aperta fino in fondo alla scacchiera.",
+          "Invadi l'ottava traversa con la donna: Dd8."
+        ],
+        "explain": "Dd8 è matto: la donna domina tutta l'ottava traversa e i pedoni impediscono ogni fuga.",
+        "wrong": "C'è ancora un'uscita; assicurati di dominare l'intera traversa."
+      },
+      "c3": {
+        "title": "La promozione",
+        "teach": "Scegliere la variante include scegliere in quale pezzo promuovere. La donna, quasi sempre, è la risposta più letale.",
+        "observe": "Il pedone è a un passo dalla promozione e il tuo re in f6 sostiene la manovra.",
+        "goal": "Promuovi e dai matto.",
+        "hints": [
+          "Il pedone di h7 può promuovere immediatamente.",
+          "Il tuo re sorveglia e7, f7 e g7; manca solo chiudere l'ottava traversa.",
+          "Promuovi a donna: h8=D è scacco matto."
+        ],
+        "explain": "h8=D è matto: la nuova donna controlla l'ottava traversa mentre il re bianco copre le case di fuga.",
+        "wrong": "Quella promozione non chiude la rete; promuovi a donna e calcola il matto."
+      },
+      "c4": {
+        "title": "La cattura serena",
+        "teach": "Non ogni variante si corona con scacco matto; a volte si sceglie quella che guadagna materiale senza il minimo rischio. Calcolare è anche riconoscere il guadagno pulito.",
+        "observe": "La colonna d unisce la tua donna alla donna nemica.",
+        "goal": "Guadagna la donna avversaria.",
+        "hints": [
+          "La donna nera in d8 non ha alcuna difesa.",
+          "La tua donna dispone della colonna d sgombra.",
+          "Cattura con scacco: Dxd8+."
+        ],
+        "explain": "Dxd8+ cattura la donna nemica con scacco e lascia un vantaggio decisivo, senza alcuna complicazione.",
+        "wrong": "Hai scelto una variante inferiore; la cattura pulita era il sentiero."
+      },
+      "c5": {
+        "title": "La diagonale decisiva",
+        "teach": "Ora calcoli da sola: senza indizi, senza appoggi, solo la tua visione. Scegli l'unico sentiero che corona tutto lo sforzo.",
+        "observe": "Il tuo cavallo in h5 e la tua donna lavorano in silenzio sul re.",
+        "goal": "Trova il matto in una.",
+        "hints": [],
+        "explain": "Dg7 è matto: il cavallo di h5 difende la donna, e il re di h8 perde g8 e h7.",
+        "wrong": "Non era il sentiero; solo una mossa consegna il matto esatto."
+      }
+    },
+    "bastion": {
+      "intro": "Sono Bastion, torre e baluardo di VEXCHESS: non avanzo per colonne chiuse né indietreggio davanti alla donna. Seguimi e imparerai che due torri unite sono una muraglia che attacca.",
+      "reward": "Baluardo delle Torri Unite",
+      "chron": [
+        "Reclamai la colonna aperta come territorio mio e la mia torre calò sull'ottava traversa: il re non ebbe muro dietro cui nascondersi.",
+        "Discesi in settima traversa come chi pattuglia una frontiera, e il nemico sguarnito pagò con la sua torre.",
+        "Unii le mie due torri spalla a spalla; una chiuse l'unica porta mentre l'altra dava il colpo finale.",
+        "Senza temere la donna, la infilai contro il suo stesso re e la abbattei: nessun pezzo è invincibile davanti a una torre ben piazzata.",
+        "Solo, senza una sola voce a guidarmi, tracciai l'infilata esatta e il sentiero fu conquistato."
+      ],
+      "c1": {
+        "title": "La colonna aperta",
+        "teach": "Una colonna aperta è un cammino che la torre reclama per sé; per essa penetra fino alle retrovie nemiche. Chi domina la colonna domina la partita.",
+        "observe": "Guarda la colonna b: è sgombra da cima a fondo, e l'ultima traversa del re nero non ha guardia.",
+        "goal": "Invadi l'ottava traversa e dai scacco matto.",
+        "hints": [
+          "La colonna b è tua: nessun pezzo ti sbarra il passo.",
+          "I pedoni f7, g7 e h7 rinchiudono il loro stesso re.",
+          "Sali con la torre fino in fondo: Tb8 è matto."
+        ],
+        "explain": "Tb8 è matto: la torre percorre la colonna aperta fino all'ottava traversa e i pedoni negano al re ogni fuga.",
+        "wrong": "Il re respira ancora; prendi la colonna aperta fino in fondo."
+      },
+      "c2": {
+        "title": "La torre in settima",
+        "teach": "La settima traversa è terra di saccheggio per la torre; lì cade il materiale senza difesa. Avanza per la colonna aperta e riscuoti la tua preda.",
+        "observe": "La torre nera in a7 è sola, senza un solo difensore che la copra.",
+        "goal": "Cattura la torre nemica.",
+        "hints": [
+          "La colonna a è sgombra davanti a te.",
+          "Nessun pezzo nero difende la casa a7.",
+          "Scendi per la colonna e cattura: Txa7."
+        ],
+        "explain": "Txa7 guadagna una torre intera: la colonna aperta porta la tua torre in settima e il re in g8 è troppo lontano per rispondere.",
+        "wrong": "Ti sei lasciato scappare il bottino; la colonna aperta ti consegnava la torre."
+      },
+      "c3": {
+        "title": "Torri collegate",
+        "teach": "Due torri che si proteggono valgono più del doppio di una sola: una attacca e l'altra chiude la porta. Collegate, tessono una rete dalla quale il re non sfugge.",
+        "observe": "Il re nero in a8 può solo sognare b7; osserva quale torre sorveglia quella casa.",
+        "goal": "Dai scacco matto con le due torri.",
+        "hints": [
+          "La torre di b1 copre già la casa b7, unica uscita del re.",
+          "Devi dare scacco sull'ottava traversa senza che il re possa fuggire.",
+          "Porta l'altra torre in ottava: Tc8 è matto."
+        ],
+        "explain": "Tc8 è matto: una torre dà scacco sull'ottava traversa mentre la sua compagna da b1 sbarra b7. Questo è il potere delle torri collegate.",
+        "wrong": "Una sola torre non basta; lascia che lavorino entrambe insieme."
+      },
+      "c4": {
+        "title": "La torre che guadagna la donna",
+        "teach": "Una torre ben piazzata su colonna aperta non teme la donna: la affronta ad armi pari. Con uno scacco sulla colonna, allinea il re e la donna e riscuoti il pezzo maggiore.",
+        "observe": "Il re nero in a4 e la donna in a8 condividono la stessa colonna; manca solo aprirla con scacco.",
+        "goal": "Guadagna la donna nemica con un'infilata.",
+        "hints": [
+          "La colonna a allinea il re di a4 con la donna di a8.",
+          "Dai scacco sulla colonna a: infilerai il re con la donna dietro.",
+          "Gioca Ta1+; quando il re si sposta, Txa8 guadagna la donna."
+        ],
+        "explain": "Ta1+ è un'infilata: il re e la donna cadono sulla stessa colonna. Il re deve spostarsi e allora Txa8 si porta via la donna.",
+        "wrong": "La donna è sopravvissuta; usa la colonna e lo scacco per infilarla."
+      },
+      "c5": {
+        "title": "Il sentiero del guardiano",
+        "teach": "Ora difendi e attacchi senza alcun consiglio; solo il tuo calcolo sostiene la posizione. Trova l'infilata che corona il sentiero.",
+        "observe": "Il re nero in e5 e la torre in e8 condividono la colonna e, ancora chiusa.",
+        "goal": "Trova la mossa che guadagna la torre.",
+        "hints": [],
+        "explain": "Te1+ infila il re con la torre dietro sulla colonna e; il re si sposta e Txe8 guadagna la torre.",
+        "wrong": "Non era il sentiero; una sola mossa infila il re e guadagna la torre."
+      }
+    },
+    "nyra": {
+      "intro": "Sono Nyra. Non grido le mie intenzioni: le faccio scivolare lungo una diagonale e aspetto che la scacchiera comprenda. Un alfiere ben piazzato ha già vinto la partita; manca solo che l'avversario se ne accorga.",
+      "reward": "Sentiero della Diagonale",
+      "chron": [
+        "Al primo passo lasciai parlare la diagonale: la torre cadde senza che io alzassi la voce.",
+        "Attraversai l'intera scacchiera in silenzio e trovai la donna impreparata; l'infiltrazione non chiede permesso.",
+        "Il cavallo fingeva di sorvegliare la casa, inchiodato com'era; lo ringraziai per la commedia e mi portai via la torre.",
+        "Fissai il guardiano contro il suo stesso re e raccolsi la donna con uno scacco, quasi con pena.",
+        "Senza indizi, allineai il re con la sua regina e ne spostai uno per tenermi l'altra."
+      ],
+      "c1": {
+        "title": "La portata della diagonale",
+        "teach": "L'alfiere non corre: raggiunge. Una diagonale sgombra trasforma la distanza in minaccia immediata.",
+        "observe": "Segui la diagonale del tuo alfiere fino all'estremo opposto della scacchiera.",
+        "goal": "Cattura la torre.",
+        "hints": [
+          "Il tuo alfiere abita un solo colore; guarda la diagonale lunga che domina.",
+          "La torre nera riposa su quella stessa diagonale, senza chi la protegga.",
+          "Alfiere da c3 a g7: percorrila tutta."
+        ],
+        "explain": "Axg7 guadagna la torre pulita: nulla si frappone sulla diagonale e nessuno la difende.",
+        "wrong": "Hai lasciato la diagonale a metà; la torre è ancora in piedi."
+      },
+      "c2": {
+        "title": "Infiltrazione",
+        "teach": "Una diagonale aperta è un cammino fino al cuore nemico. L'alfiere si insinua senza rumore e riscuote ciò che trova.",
+        "observe": "La diagonale lunga attraversa la scacchiera dal tuo alfiere fino alla donna nera.",
+        "goal": "Guadagna la donna.",
+        "hints": [
+          "Da g2 il tuo alfiere guarda sette case verso il fianco opposto.",
+          "Nulla blocca il cammino fino a b7, e la donna non ha scorta.",
+          "Alfiere in b7: infiltra la diagonale e cattura."
+        ],
+        "explain": "Axb7 si porta via la donna: l'infiltrazione lungo la diagonale lunga non incontra alcuna resistenza.",
+        "wrong": "Ti sei fermato troppo presto; la donna attendeva alla fine del cammino."
+      },
+      "c3": {
+        "title": "L'inchiodatura tradisce",
+        "teach": "Un pezzo inchiodato finge di difendere, ma non può muoversi. Ciò che protegge è, in realtà, indifeso.",
+        "observe": "Il cavallo di e6 sembra custodire g7; guarda cosa c'è dietro di lui, sulla colonna e.",
+        "goal": "Cattura la torre.",
+        "hints": [
+          "La tua torre in e1 fissa il cavallo contro il suo stesso re.",
+          "Inchiodato, quel cavallo non potrà ricatturare in g7.",
+          "Alfiere da a1 a g7: la torre cade senza replica."
+        ],
+        "explain": "Axg7 guadagna la torre: il cavallo è inchiodato contro il re e non può rimpiazzare la cattura.",
+        "wrong": "Hai confidato nel suo guardiano; ma quel cavallo è inchiodato e non difende nulla."
+      },
+      "c4": {
+        "title": "Il guardiano inchiodato",
+        "teach": "Inchioda il pezzo contro il suo re e la sua difesa diventa finzione. Allora l'alfiere raccoglie la donna con tutta cortesia.",
+        "observe": "Il cavallo di a7 sostiene la donna; osserva la colonna a e il re che c'è in fondo.",
+        "goal": "Guadagna la donna con scacco.",
+        "hints": [
+          "La torre di a1 inchioda il cavallo di a7 contro il re a8.",
+          "La donna di c6 conta solo su quel cavallo, che non può muoversi.",
+          "Alfiere in c6: scacco, e la donna è tua."
+        ],
+        "explain": "Axc6+ guadagna la donna con scacco: il cavallo inchiodato non ricattura e il re non raggiunge c6.",
+        "wrong": "La donna sembrava difesa; il suo guardiano, inchiodato, era solo un'illusione."
+      },
+      "c5": {
+        "title": "L'infilata",
+        "teach": "Allinea il re con ciò che ama e obbligalo a spostarsi. Dietro resterà la donna, sola, sulla diagonale.",
+        "observe": "Re e donna condividono una stessa diagonale, e il tuo alfiere la sorveglia.",
+        "goal": "Guadagna la donna.",
+        "hints": [],
+        "explain": "Ae4+ infila: il re deve muoversi e l'alfiere cattura la donna che restava alle sue spalle.",
+        "wrong": "Non era quella; una sola mossa allinea il re e condanna la donna."
+      }
+    },
+    "pip": {
+      "intro": "Sono Pip, il pedone che non smette mai di avanzare. Passo dopo passo, casa dopo casa, ti insegnerò che perfino il più piccolo può diventare un gigante.",
+      "reward": "Cuore di Pedone",
+      "chron": [
+        "Con un solo passo coraggioso, Pip toccò l'ottava traversa e nacque una regina dove prima c'era solo un sogno.",
+        "Senza paura della torre nemica, Pip la scansò con una spinta e promosse al suo posto: nulla ferma chi avanza!",
+        "Davanti a due cammini, Pip scelse il sentiero sicuro ed evitò la trappola dell'alfiere per promuovere sano e salvo.",
+        "Nell'angolo della scacchiera, il piccolo Pip fece il passo finale e sigillò lo scacco matto: il più umile decise la battaglia.",
+        "Solo, senza indizi né aiuto, Pip promosse con scacco e catturò la torre: il Sentiero della Maestria era completo."
+      ],
+      "c1": {
+        "title": "Il primo passo verso regina",
+        "teach": "Un pedone che raggiunge l'ultima traversa si trasforma nel pezzo che scegli, quasi sempre in una potente regina. Quel viaggio fino all'ottava traversa si chiama promozione, ed è il sogno di ogni pedone.",
+        "observe": "Guarda il mio pedone in a7: gli manca solo un passettino per arrivare alla fine della scacchiera. Il re nemico è vicino, quindi bisogna promuovere subito.",
+        "goal": "Promuovi il pedone avanzando in a8.",
+        "hints": [
+          "Conta quante case mancano al mio pedone per arrivare alla traversa 8.",
+          "Se aspetto, il re nero catturerà il mio pedone; bisogna agire adesso.",
+          "Avanza da a7 ad a8 e scegli regina: dai anche scacco!"
+        ],
+        "explain": "Avanzando in a8 il pedone si trasforma in regina con scacco, guadagnando di colpo il pezzo più forte della scacchiera. Qualsiasi ritardo lascerebbe che il re nero mangiasse il pedone.",
+        "wrong": "Quasi, ma se non promuovo ora il re nemico mangerà il mio pedone; avanza in a8."
+      },
+      "c2": {
+        "title": "Promuovo catturando",
+        "teach": "Un pedone promuove spingendo dritto, ma può anche promuovere catturando in diagonale. Mangiare un pezzo e trasformarsi in regina nella stessa mossa è doppiamente potente.",
+        "observe": "Guarda la torre nera in b8, proprio in diagonale al mio pedone di a7. Posso mangiarla e promuovere allo stesso tempo.",
+        "goal": "Cattura in b8 e promuovi.",
+        "hints": [
+          "Un pedone cattura in diagonale: guarda che pezzo c'è in b8.",
+          "Mangiare la torre e promuovere sulla stessa casa è meglio che avanzare dritto.",
+          "Gioca a7 per b8 e scegli regina: guadagni la torre e crei una regina con scacco."
+        ],
+        "explain": "Catturando in b8 elimino la torre nemica e appaio trasformato in regina con scacco, guadagnando moltissimo materiale in una sola volta. Avanzare dritto avrebbe lasciato viva la torre.",
+        "wrong": "Non del tutto: esiste una cattura in diagonale che guadagna la torre e promuove insieme; gioca a7 per b8."
+      },
+      "c3": {
+        "title": "Il cammino sicuro",
+        "teach": "Quando hai vari pedoni vicini alla promozione, non tutte le case di promozione sono sicure. La buona struttura ti insegna a promuovere dove il nemico non possa catturare la tua nuova regina.",
+        "observe": "Ho due pedoni pronti a promuovere, in a7 e in c7. Ma l'alfiere nemico sorveglia la casa c8, quindi promuovere lì sarebbe un regalo.",
+        "goal": "Promuovi dal lato sicuro in a8.",
+        "hints": [
+          "Osserva quale casa di promozione sorveglia l'alfiere nero.",
+          "Se promuovo in c8, l'alfiere mangerà la mia regina; cerca la casa libera.",
+          "Avanza il pedone da a7 ad a8: nessuno difende né attacca quell'angolo."
+        ],
+        "explain": "Promuovere in a8 crea una regina con scacco che nessun nemico può catturare, mentre promuovere in c8 la perderebbe per l'alfiere. Scegliere la casa sicura è pura struttura di pedoni.",
+        "wrong": "Attenzione: l'alfiere sorveglia c8 e catturerebbe la mia regina; promuovi meglio in a8."
+      },
+      "c4": {
+        "title": "Il passo decisivo",
+        "teach": "Un pedone che promuove non guadagna solo materiale: a volte dà lo scacco matto finale. Con l'aiuto dei suoi compagni, perfino il pedone più umile può chiudere la partita.",
+        "observe": "Il re nemico è accerchiato nell'angolo h8. Il mio pedone di g6 gli chiude la casa h7, e manca solo il mio pedone di f7 per dare il colpo finale.",
+        "goal": "Promuovi in f8 e dai matto.",
+        "hints": [
+          "Il re nero è nell'angolo: conta le sue case di fuga.",
+          "Il mio pedone di g6 controlla già h7; manca solo coprire la traversa 8.",
+          "Avanza f7 in f8 e promuovi a regina: è scacco matto."
+        ],
+        "explain": "Promuovendo in f8 la nuova regina dà scacco lungo la traversa 8, mentre il pedone di g6 le toglie l'uscita per h7; il re non ha scampo ed è matto. Solo la regina copre tutte le case allo stesso tempo.",
+        "wrong": "Non è ancora matto: promuovi in f8 a regina e il re dell'angolo resterà senza scampo."
+      },
+      "c5": {
+        "title": "La prova del campione",
+        "teach": "Un pedone passato avanza senza paura, e promuovendo con scacco può guadagnare tempo per attaccare un altro pezzo. Guarda sempre cosa guadagni oltre alla regina stessa.",
+        "observe": "Il mio pedone di d7 è a un passo dalla promozione, il re nero riposa in h8 e una torre solitaria sorveglia da a5.",
+        "goal": "Promuovi con scacco e guadagna la torre.",
+        "hints": [],
+        "explain": "Promuovendo in d8 appare una regina che dà scacco lungo la traversa 8 e inoltre punta alla torre di a5 lungo la diagonale; dopo aver mosso il re, catturo la torre gratis. Promuovo e guadagno materiale nella stessa idea.",
+        "wrong": "Pensa a promuovere con scacco: c'è una casa dalla quale la mia nuova regina attacca il re e la torre allo stesso tempo."
+      }
+    },
+    "ordan": {
+      "intro": "Sono Ordan, e sono sopravvissuto a più finali di quante partite tu abbia giocato. Custodisci il tuo re come la tua stessa vita e impara a impugnarlo come un'arma quando la scacchiera si svuota: questo è tutto il mio insegnamento.",
+      "reward": "Sentiero del Trono",
+      "chron": [
+        "Spinsi il re nemico contro il muro con il solo sguardo del mio re, e la torre pronunciò la sentenza.",
+        "Lo inseguii fino all'angolo, dove nessun trono protegge, e chiusi l'ultima porta senza fretta.",
+        "Ordinai alla mia donna di tacere i suoi scacchi vani e di sigillare la colonna; il re nero restò senz'aria.",
+        "Misi il mio re spalla a spalla con la donna, muraglia contro muraglia, e non ci fu fessura da cui fuggire.",
+        "E alla fine, senza consiglio né indizio, lasciai parlare l'opposizione: la donna scese in ottava e tutto finì."
+      ],
+      "c1": {
+        "title": "Il re che accerchia",
+        "teach": "Nel finale, il tuo re smette di nascondersi e comincia a comandare. È lui che rinchiude il nemico contro il bordo; la torre si limita ad assestare il colpo.",
+        "observe": "Guarda come il tuo re in g6 fronteggia il re nero: questo si chiama opposizione, e gli ruba le case di fuga.",
+        "goal": "Dai matto sull'ultima traversa.",
+        "hints": [
+          "I tuoi re sono in opposizione diretta; il nero non può avanzare né scappare dai lati.",
+          "La tua torre è libera sulla prima traversa e l'ottava è deserta.",
+          "Torre da b1 a b8: scacco matto."
+        ],
+        "explain": "Tb8 è matto: il tuo re copre f7, g7 e h7, e la torre taglia l'unica traversa che restava al nemico.",
+        "wrong": "Il re nero ha respirato: senza l'opposizione del tuo re, la torre da sola non lo rinchiude mai."
+      },
+      "c2": {
+        "title": "La gabbia dell'angolo",
+        "teach": "L'angolo è la tomba del re solitario. Quando il nemico si rifugia nell'angolo, il tuo re sorveglia le uscite e la torre chiude la porta.",
+        "observe": "Il re nero in h8 non ha più aria; il tuo re in g6 sigilla g7, g8 e h7.",
+        "goal": "Chiudi la gabbia con il matto.",
+        "hints": [
+          "Conta le case del re nero: il tuo re gliele ha già tolte tutte tranne la traversa.",
+          "La torre in f7 domina la settima; padrona anche dell'ottava sarà letale.",
+          "Torre da f7 a f8: scacco matto."
+        ],
+        "explain": "Tf8 è matto: il re accerchiato nell'angolo non ha fuga e il tuo monarca difende ogni casa di scampo.",
+        "wrong": "Hai dato aria al prigioniero; nell'angolo, una sola distrazione lo libera."
+      },
+      "c3": {
+        "title": "La donna obbedisce al re",
+        "teach": "La donna è potente, ma senza il re che le indichi il cammino distribuisce solo scacchi vuoti. Lascia che il tuo re rubi le case e che la donna sigilli il resto.",
+        "observe": "Il tuo re in f7 custodisce già g7 e g8; al re nero resta solo respirare lungo la colonna h.",
+        "goal": "Sigilla la colonna h con il matto.",
+        "hints": [
+          "Il re nero in h8 dipende da una sola casa di fuga: h7.",
+          "Porta la tua donna sulla colonna h per dominare h8 e h7 in una volta.",
+          "Donna da b1 a h1: scacco matto."
+        ],
+        "explain": "Dh1 è matto: la donna si impossessa di tutta la colonna h mentre il tuo re tappa la fuga per g7 e g8.",
+        "wrong": "La donna ha gridato invano; senza chiudere la colonna h, il re nero scivola via."
+      },
+      "c4": {
+        "title": "Spalla a spalla",
+        "teach": "Non avvicinare mai la donna al re nemico senza che il tuo re la scudi. Insieme, spalla a spalla, alzano una muraglia che non lascia fessure.",
+        "observe": "Il tuo re in f6 difende la casa g7; lì, e solo lì, la donna sarà intoccabile incollata al re nero.",
+        "goal": "Consegna la donna a un passo dal re, con matto.",
+        "hints": [
+          "Il re nero in h8 soffoca; manca togliergli g7 e g8 in una volta.",
+          "Solo una casa ti dà entrambe le cose, e il tuo re la protegge già.",
+          "Donna da g1 a g7: scacco matto protetto."
+        ],
+        "explain": "Dg7 è matto: la donna abbraccia il re nero e il tuo re la difende, così che non può essere catturata né aggirata.",
+        "wrong": "Hai avvicinato la donna senza scorta; un re solo l'avrebbe divorata."
+      },
+      "c5": {
+        "title": "Il giudizio dell'opposizione",
+        "teach": "Ora sei solo, senza la mia voce. Ricorda: prima il re conquista le case, poi il pezzo pesante corona il lavoro.",
+        "observe": "Re contrapposti sulla colonna e, e una donna che non ha ancora detto la sua ultima parola.",
+        "goal": "Trova il matto in una mossa.",
+        "hints": [],
+        "explain": "Db8 è matto: in opposizione il tuo re nega d7, e7 e f7, e la donna che arriva sull'ottava traversa copre tutta la ritirata, inclusa f8.",
+        "wrong": "Non era quella. Lascia che il tuo re faccia il suo lavoro e cerca la traversa che il nemico non può attraversare."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Siamo Eira e Vhal, cavalieri gemelli della stessa coppia di cavalli: io, Eira, calcolo prima di saltare; io, Vhal, salto e poi rido. Insieme ti insegniamo a guardare TUTTE le catture e scegliere quella che guadagna di più, perché il buon cavaliere non prende mai la prima che vede.",
+      "reward": "Cavalieri del Doppio Salto",
+      "chron": [
+        "Eira indicò la torre, Vhal indicò la donna; il cavallo saltò in g5 e tornammo con la corona del nemico.",
+        "Due forchette si aprirono davanti a noi: Vhal gridò 'la torre', ma Eira scelse la donna in d6 e la scacchiera ci diede ragione.",
+        "Il puledro saltò in f6 con scacco; la torre in g5 ci faceva l'occhiolino, ma noi ci portammo via la donna e l'eco del galoppo.",
+        "Ce7 risuonò come un tuono con scacco; ignorammo la torre facile e riscuotemmo la donna in g6 come buoni fratelli.",
+        "Senza indizi, senza voci, solo l'istinto di Vhal e il calcolo di Eira: b5, e la donna nemica cadde in silenzio."
+      ],
+      "c1": {
+        "title": "Due prede, una scelta",
+        "teach": "Quando il tuo cavallo attacca più pezzi alla volta, non mangiare il primo che vedi: confrontali. Tra tutte le catture possibili, la migliore è quella che si porta via più materiale.",
+        "observe": "Guarda le due case che colpisce il tuo cavallo: una custodisce una torre, l'altra una donna. Pesa quanto vale ciascuna prima di decidere.",
+        "goal": "Cattura il pezzo di maggior valore.",
+        "hints": [
+          "Il tuo cavallo in e4 minaccia due pezzi neri senza difesa: chiediti quale vale di più.",
+          "Una donna vale molto più di una torre; quello è l'obiettivo.",
+          "Salta in g5 e portati via la donna."
+        ],
+        "explain": "Entrambi i pezzi erano in presa, ma la donna (9) supera di gran lunga la torre (5): catturarla è guadagnare di più con la stessa mossa.",
+        "wrong": "Quella cattura guadagna meno: torna a confrontare il valore dei due pezzi."
+      },
+      "c2": {
+        "title": "Due forchette rivali",
+        "teach": "A volte non confronti catture, ma mosse che creano una minaccia doppia. Scegli la forchetta che catturi il pezzo più prezioso.",
+        "observe": "Il tuo cavallo ha due salti che danno scacco e forchetta allo stesso tempo: uno punge la torre, l'altro la donna. Osserva cosa cattura ciascuno.",
+        "goal": "Dai lo scacco in forchetta che guadagna la donna.",
+        "hints": [
+          "Due salti danno scacco da e4; entrambi guadagnano materiale, ma non lo stesso.",
+          "Cerca lo scacco che attacchi il re e la DONNA allo stesso tempo.",
+          "Salta in d6: scacco al re in e8 e forchetta alla donna in b7."
+        ],
+        "explain": "Cd6+ attacca il re e la donna di colpo; il re deve muoversi e il cavallo riscuote la donna, più della forchetta rivale che guadagnava solo la torre.",
+        "wrong": "Quella forchetta guadagna meno: cerca lo scacco che catturi la donna, non la torre."
+      },
+      "c3": {
+        "title": "Cattura facile o salto vincente",
+        "teach": "La cattura più evidente non è sempre quella che guadagna di più. Confronta mangiarti un pezzo in presa con un salto che crea una minaccia maggiore.",
+        "observe": "Puoi mangiare la torre in g5 immediatamente, oppure saltare con scacco e minacciare la donna. Guarda quale bottino è maggiore.",
+        "goal": "Scegli il salto con scacco che guadagna la donna.",
+        "hints": [
+          "La torre in g5 è allettante, ma vale solo 5.",
+          "Uno scacco da f6 attacca il re e tocca la donna in d7.",
+          "Gioca Cf6+; dopo lo scacco, cattura la donna in d7."
+        ],
+        "explain": "Cf6+ obbliga il re a muoversi e lascia la donna indifesa davanti al cavallo: guadagni 9 invece dei 5 della torre facile.",
+        "wrong": "Hai preso il bottino piccolo: c'era uno scacco che guadagnava l'intera donna."
+      },
+      "c4": {
+        "title": "Il tuono di e7",
+        "teach": "Prima di catturare, controlla se un salto con scacco guadagna qualcosa di più grande. Confrontare le candidate significa guardare anche le mosse che non sono ancora catture.",
+        "observe": "La torre in f6 è lì per mangiarla, ma il tuo cavallo può dare scacco da e7 e puntare lo sguardo sulla donna. Confronta i due finali.",
+        "goal": "Dai lo scacco in forchetta e cattura la donna.",
+        "hints": [
+          "Mangiare la torre in f6 guadagna solo 5 punti.",
+          "Da e7 il tuo cavallo dà scacco al re e minaccia la donna in g6.",
+          "Gioca Ce7+; il re si sposta e prendi la donna in g6."
+        ],
+        "explain": "Ce7+ è una forchetta al re e alla donna: il re deve fuggire e la donna cade, un bottino molto maggiore della torre.",
+        "wrong": "Hai guadagnato meno del possibile: lo scacco in e7 si portava via la donna."
+      },
+      "c5": {
+        "title": "La prova dei gemelli",
+        "teach": "Senza indizi né voci: guarda tutte le tue candidate e tieniti quella che guadagna di più. Il salto corretto non è sempre il più rumoroso.",
+        "observe": "C'è una cattura comoda e un salto silenzioso che dà scacco. Solo uno si porta via la donna.",
+        "goal": "Trova la mossa che guadagna più materiale.",
+        "hints": [],
+        "explain": "Cb5+ dà scacco al re in d4 e forchetta la donna in d6; il re non può salvarla e il cavallo riscuote il pezzo maggiore.",
+        "wrong": "Quella non era quella dal bottino maggiore: esiste uno scacco che guadagna la donna."
+      }
+    },
+    "rhazek": {
+      "intro": "Sono Rhazek, e non colleziono pezzi: colleziono re caduti. Il mio cavallo non chiede mai quanto vale ciò che consegna, solo quanto guadagna; seguimi se ne hai il coraggio e impara a sacrificare come chi esige, non come chi implora.",
+      "reward": "Signore del Sacrificio",
+      "chron": [
+        "Il mio cavallo saltò in g6 e la torre, nascosta come un pugnale nella manica, riscosse la donna che si credeva al sicuro.",
+        "Un solo salto in e7 e il re non ebbe altra via che la sua tomba; la mia donna entrò dietro e chiuse la lapide.",
+        "Nell'angolo lo rinchiusi: Cf7 lo spinse, De8 lo sigillò, e il re morì guardando i suoi stessi pedoni.",
+        "Consegnai la mia donna in g8 senza tremare, perché il matto affogato vale più di mille corone: il mio cavallo regnò sul soffocamento del re.",
+        "Senza indizi né clemenza, scoprii lo scacco e strappai la donna tra le sue guardie: così si diploma chi cammina sul mio sentiero."
+      ],
+      "c1": {
+        "title": "Il colpo che scopre",
+        "teach": "L'iniziativa è tua quando la tua mossa obbliga e l'avversario si limita a rispondere. Un cavallo che salta può svelare l'attacco di un pezzo nascosto: muovi con scacco e lascia che la torre riscuota il conto.",
+        "observe": "Il tuo cavallo in e5 tappa la bocca della tua torre in e1, e dietro attende il re nero in e8. Quella donna in g6 si crede intoccabile dietro il suo pedone.",
+        "goal": "Salta, scopri lo scacco e portati via la donna.",
+        "hints": [
+          "La tua torre in e1 punta al re in e8, ma il cavallo le taglia la mira.",
+          "Cerca un salto che dia scacco di scoperta e tocchi anche la donna.",
+          "Cxg6: il nero deve badare allo scacco della torre e la donna cade."
+        ],
+        "explain": "Cxg6 apre la colonna e con scacco di torre; il nero deve salvare il re e non può recuperare. Ti porti via l'intera donna senza pagare nulla.",
+        "wrong": "Tiepido: senza lo scacco di scoperta il nero respira e la donna nemica ti sfugge."
+      },
+      "c2": {
+        "title": "Un salto, un matto",
+        "teach": "A volte il tuo cavallo non guadagna materiale: guadagna l'intera scacchiera. Dai scacco per toglierlo di mezzo e lascia che la tua donna entri a uccidere.",
+        "observe": "Il tuo cavallo in d5 intralcia la tua stessa donna in d2. Se salta con scacco, la colonna si apre di colpo verso il re in g8.",
+        "goal": "Dai lo scacco di cavallo e finisci con la donna.",
+        "hints": [
+          "La tua donna in d2 desidera la casa d8, ma il cavallo le tappa il passo.",
+          "Salta con scacco in e7: il re avrà una sola casa.",
+          "Ce7+ e poi Dd8 è matto; il cavallo sorveglia g8."
+        ],
+        "explain": "Ce7+ sgombra la colonna d con scacco e spinge il re nell'angolo; Dd8 è matto, con il cavallo che copre g8. Due colpi, zero dubbi.",
+        "wrong": "Lento: il re non si caccia guardandolo, e senza lo scacco non c'è matto."
+      },
+      "c3": {
+        "title": "L'angolo senza uscita",
+        "teach": "Il re accerchiato è un prigioniero che ancora non lo sa. Uno scacco di cavallo lo inchioda e la tua donna, ormai libera, chiude l'ultima porta.",
+        "observe": "Il cavallo in e5 sigilla la colonna della tua donna in e1. Il re in h8 è sepolto vivo tra g7 e h7.",
+        "goal": "Scacco di cavallo e matto con la donna.",
+        "hints": [
+          "La tua donna in e1 sogna e8, ma il cavallo la rinchiude.",
+          "Cf7+ obbliga il re in g8, la sua unica casa.",
+          "Dopo Cf7+ il re va in g8; allora De8 è matto, con il cavallo che custodisce h8."
+        ],
+        "explain": "Cf7+ strappa il re verso g8 e apre la colonna e; De8 dà matto, difesa dal cavallo in f7 e con h8 tappata. L'angolo fu la sua tomba.",
+        "wrong": "Debole: senza il salto che dà scacco, la tua donna urta contro i pedoni e non c'è matto."
+      },
+      "c4": {
+        "title": "Il matto affogato",
+        "teach": "Qui nasce il sacrificio vero: consegni la tua donna, il pezzo più costoso, perché il matto vale più di tutto l'oro della scacchiera. Il cavallo dà il colpo di grazia proprio dove la donna cade.",
+        "observe": "Il re in h8 è circondato dai suoi: pedoni in g7 e h7, torre in f8. Gli resta una sola casa libera; togligliela.",
+        "goal": "Concatena gli scacchi di cavallo e sacrifica la donna per dare matto.",
+        "hints": [
+          "Il re soffoca tra i suoi pezzi; ti resta solo da chiudergli g8.",
+          "Cf7+ Rg8, Ch6+ Rh8: il re torna nell'angolo, intrappolato.",
+          "Allora Dg8+!! La torre è obbligata a mangiare, e Cf7 è matto affogato."
+        ],
+        "explain": "Dopo Cf7+ Rg8 Ch6+ Rh8, il sacrificio Dg8+ obbliga a Txg8, e Cf7 dà matto: il re muore soffocato dai suoi. La donna si consegna perché il cavallo regni.",
+        "wrong": "Grandioso, ma hai fallito: solo la combinazione esatta con il sacrificio di donna consegna il matto affogato."
+      },
+      "c5": {
+        "title": "La prova di Rhazek",
+        "teach": "Senza indizi, senza voci, senza rete. Trova il colpo che scopre lo scacco e strappa la donna anche se la credono ben difesa.",
+        "observe": "Il tuo cavallo in e5 tappa la torre in e1, e il re nero attende in e8. La donna in c4 si appoggia al suo pedone di b5 e si sente intoccabile.",
+        "goal": "Scopri lo scacco e cattura la donna.",
+        "hints": [],
+        "explain": "Cxc4+ apre la colonna e con scacco di torre; il nero deve muovere il re e non fa in tempo a recuperare con il pedone. Ti porti via la donna che credevano protetta.",
+        "wrong": "No: esiste uno scacco di scoperta che si porta via la donna nonostante il suo pedone."
+      }
+    },
+    "oryn": {
+      "intro": "Sono Oryn, guardiano delle linee aperte, e la mia arma è la torre. Cammina senza fretta: la maestria non si conquista con la furia, ma con lo sguardo che vede la colonna sgombra prima di muoversi.",
+      "reward": "Sentinella della Colonna Aperta",
+      "chron": [
+        "Sulla prima soglia, Oryn alzò la torre lungo la traversa deserta e sigillò il re nel suo angolo: il matto arrivò in silenzio, senza un solo ostacolo a fermarlo.",
+        "Davanti alla seconda prova, la colonna aperta si offrì come un cammino diritto; la torre discese e la donna nemica cadde senza difesa a proteggerla.",
+        "Al terzo passo, Oryn non catturò di colpo: fissò lo sguardo sulla linea, diede scacco e attese paziente che il re si spostasse per riscuotere il suo premio.",
+        "Nel quarto rito, la colonna aperta fu sentiero di morte: la torre scese diritta e il re, accerchiato dal suo stesso re rivale, non trovò casa dove fuggire.",
+        "Sull'ultimo sentiero, senza voce a guidarlo, Oryn lesse l'intera traversa: uno scacco preciso, un re deviato, e la donna nemica restò alla mercé dell'acciaio silenzioso."
+      ],
+      "c1": {
+        "title": "La Traversa Deserta",
+        "teach": "Una torre su una traversa o colonna senza ostacoli raggiunge qualsiasi casa di quella linea. Quando il re nemico non ha scampo, quella linea aperta diventa il filo del matto.",
+        "observe": "Guarda l'ottava traversa: è interamente sgombra. Osserva quali case copre già il tuo stesso re attorno al monarca avversario.",
+        "goal": "Dai matto in una mossa con la torre.",
+        "hints": [
+          "Il re nero può respirare solo sull'ottava traversa; il tuo re gli chiude le case di fuga verso il basso.",
+          "Cerca una casa dalla quale la torre domini tutta la traversa del re nemico.",
+          "Porta la torre in a8: scacco senza scampo."
+        ],
+        "explain": "Ta8 controlla tutta l'ottava traversa e il tuo re in g6 sorveglia f7, g7 e h7; il monarca nero non ha alcuna casa libera. È matto.",
+        "wrong": "Quella mossa lascia una casa di fuga; la linea aperta uccide solo quando il re non ha rifugio."
+      },
+      "c2": {
+        "title": "Il Cammino Diritto",
+        "teach": "Una colonna aperta è un viale che la torre percorre da un estremo all'altro senza freno. Attraverso di essa può colpire un pezzo nemico che nessun difensore protegge.",
+        "observe": "Guarda la colonna e: non ci sono pedoni né pezzi che la taglino. Alla sua estremità attende la donna nera, sola e senza riparo.",
+        "goal": "Cattura la donna con la torre.",
+        "hints": [
+          "La colonna e è completamente aperta davanti alla tua torre.",
+          "La donna nera non ha alcun pezzo che la difenda.",
+          "Percorri la colonna fino a e8 e prendi la donna con scacco."
+        ],
+        "explain": "Txe8+ percorre la colonna aperta e guadagna la donna senza costo, per giunta con scacco; il re nero era troppo lontano per difenderla.",
+        "wrong": "Hai lasciato scappare il viale; la colonna aperta era il cammino diretto alla donna."
+      },
+      "c3": {
+        "title": "Lo Sguardo Prima del Colpo",
+        "teach": "A volte la torre non cattura subito: prima allinea il re nemico con il pezzo che brama. Lo scacco devia il monarca e lascia la preda indifesa alla fine della linea.",
+        "observe": "Il re e la donna neri condividono la colonna e. La tua torre non è ancora su quella colonna, ma può entrarvi con scacco.",
+        "goal": "Dai scacco sulla colonna per guadagnare la donna.",
+        "hints": [
+          "Re e donna neri sono sulla stessa colonna: il re davanti, la donna dietro.",
+          "Se la tua torre entra sulla colonna e con scacco, il re dovrà spostarsi.",
+          "Gioca Te1+: il re fugge dalla colonna e poi cade la donna in e8."
+        ],
+        "explain": "Te1+ è un'infilata: il re nero deve abbandonare la colonna e e, sgombrata la linea, la torre cattura la donna in e8. Analizzare prima di colpire rende più della cattura affrettata.",
+        "wrong": "Hai colpito senza preparare la linea; prima lo scacco doveva spostare il re per scoprire la preda."
+      },
+      "c4": {
+        "title": "La Colonna della Sentenza",
+        "teach": "Una colonna aperta non guadagna solo pezzi: consegna anche il re. Quando il tuo stesso re sigilla le case laterali, la torre discende lungo la colonna e chiude l'ultima uscita.",
+        "observe": "La colonna h è libera e il re nero riposa sul suo bordo. Nota come il tuo re in f7 sorveglia g7 e g8, le uniche case di fuga.",
+        "goal": "Dai matto in una mossa con la torre.",
+        "hints": [
+          "Il tuo re in f7 domina già g7 e g8; al re nero resterebbe solo la colonna h.",
+          "Occupa la colonna h con la torre per chiudere quest'ultima via.",
+          "Gioca Th1: scacco sulla colonna, senza scampo possibile."
+        ],
+        "explain": "Th1 dà scacco lungo la colonna aperta; g7 e g8 li copre il tuo re e h7 lo domina la torre. Il monarca nero non ha rifugio: è matto.",
+        "wrong": "Il re trova ancora una casa; la colonna sentenzia solo quando ogni fuga è sorvegliata."
+      },
+      "c5": {
+        "title": "Il Sentiero del Silenzio",
+        "teach": "Senza voci a guidarti, fidati della lettura della linea. Una traversa aperta permette alla torre di infilare il re e la donna; lo scacco paziente riscuote poi ciò che la fretta non raggiungerebbe mai.",
+        "observe": "Re e donna neri riposano sulla quarta traversa. La tua torre, nell'angolo, può entrare in quella traversa a distanza dal re, senza che questo la catturi.",
+        "goal": "Trova lo scacco che infila e guadagna la donna.",
+        "hints": [],
+        "explain": "Ta4+ infila lungo la quarta traversa: il re, lontano e senza poter catturare, deve uscire dalla traversa, e la torre raccoglie la donna in h4. Lo sguardo sereno vince l'impulso.",
+        "wrong": "La linea chiedeva uno scacco che infilasse il re; la cattura diretta non era ancora alla tua portata."
+      }
+    },
+    "vesra": {
+      "intro": "Sono Vesra, e la mia donna non insegue: chiude porte. Osserva come la scacchiera si restringe finché all'avversario non resta che obbedire.",
+      "reward": "Guardiana della Restrizione",
+      "chron": [
+        "Nel primo silenzio, la donna si sedette accanto al re nemico, e l'angolo divenne una tomba senza uscita.",
+        "Alzò una colonna come chi erge un muro, e il monarca avversario scoprì che non c'era più dove fuggire.",
+        "Con serena cortesia ritirò dalla scacchiera l'unica difenditrice, e la posizione restò nuda davanti alla mia volontà.",
+        "Dall'altro capo del mondo, una sola linea bastò a sigillare l'ottava traversa e pronunciare il verdetto.",
+        "E nella prova finale, offrì uno scacco che non uccideva: obbligava solo a spostarsi, perché la torre cadesse da sola."
+      ],
+      "c1": {
+        "title": "L'angolo che si chiude",
+        "teach": "Restringere è spegnere case finché il re non ha più dove andare. Quando ogni fuga si esaurisce, lo scacco smette di essere minaccia e diventa sentenza.",
+        "observe": "Guarda le case di fuga del re nero in h8 e nota che il tuo stesso re in f6 sorveglia già g8 e g7.",
+        "goal": "Dai matto in una mossa.",
+        "hints": [
+          "Il re nero respira solo per g8, g7 e h7; il tuo re in f6 ne copre già due.",
+          "Avvicina la donna al re nemico, protetta dal tuo monarca.",
+          "Porta la donna in g7: il tuo re la sostiene e l'angolo si chiude."
+        ],
+        "explain": "Donna g7 è impossibile da catturare perché il tuo re in f6 la difende, e copre le ultime uscite. Restrizione assoluta: è matto.",
+        "wrong": "Gli hai lasciato una casa libera; il re scappa e la restrizione si spezza."
+      },
+      "c2": {
+        "title": "Il muro della colonna",
+        "teach": "Un solo pezzo può sbarrare un'intera colonna e trasformarla in parete. Il re non cade per la forza, ma perché non gli resta spazio da occupare.",
+        "observe": "Guarda la colonna h, dove vive il re nero, e il tuo re di f7 che sigilla g7 e g8.",
+        "goal": "Dai matto in una mossa.",
+        "hints": [
+          "Il re in h8 dipende dalla colonna h e dalle case g che il tuo re sorveglia.",
+          "Ti serve un pezzo che domini la colonna h da cima a fondo.",
+          "Fai scivolare la donna fino a h2: l'intera colonna è proibita."
+        ],
+        "explain": "Donna h2 controlla tutta la colonna h e il tuo re in f7 copre g7 e g8. Senza case, il re soffoca: matto.",
+        "wrong": "La colonna ha ancora un varco; il re trova aria e sopravvive."
+      },
+      "c3": {
+        "title": "L'unica difenditrice",
+        "teach": "Restringere è anche eliminare chi sostiene l'avversario. Ritira il suo unico pezzo attivo e l'intera posizione si arrende senza resistenza.",
+        "observe": "Entrambe le donne si guardano sulla colonna d; la nera è l'unica forza che resta all'avversario.",
+        "goal": "Guadagna la donna nemica.",
+        "hints": [
+          "La tua donna e la nera condividono la stessa colonna, la d.",
+          "Puoi catturare con scacco e tenerti tutto il vantaggio.",
+          "Prendi in d8: elimini il suo unico pezzo e dai scacco allo stesso tempo."
+        ],
+        "explain": "Donna per d8 cattura con scacco l'unica difenditrice dell'avversario; ti resta con donna contro re solo, vittoria decisiva.",
+        "wrong": "Hai risparmiato la sua donna; finché vive, l'avversario può ancora difendersi."
+      },
+      "c4": {
+        "title": "Il verdetto a distanza",
+        "teach": "La restrizione non esige vicinanza: una linea pulita attraversa l'intera scacchiera. Da lontano, la donna può sigillare una traversa e dettare il finale.",
+        "observe": "Il re nero in h8 pende dall'ottava traversa; il tuo re in g6 custodisce già g7 e h7.",
+        "goal": "Dai matto in una mossa.",
+        "hints": [
+          "Il re scapperebbe solo per l'ottava traversa o per le case g, che il tuo re copre.",
+          "Cerca di occupare l'ottava traversa con la tua donna senza ostacoli di mezzo.",
+          "Colloca la donna in b8: la traversa resta chiusa dalla distanza."
+        ],
+        "explain": "Donna b8 domina tutta l'ottava traversa e il tuo re in g6 tappa le uscite; il re non può muoversi né coprirsi: matto.",
+        "wrong": "L'ottava traversa non è stata sigillata; il re scivola via dalla fessura."
+      },
+      "c5": {
+        "title": "Lo scacco che obbliga",
+        "teach": "Lo zugzwang è la crudeltà cortese: non uccidere, ma forzare a muoversi verso la rovina. Uno scacco che il re deve eludere può denudare il pezzo che si nascondeva dietro di lui.",
+        "observe": "Il re nero in e5 e la torre in a5 condividono la quinta traversa; il pedone di e4 tappa ogni scacco lungo la colonna e.",
+        "goal": "Guadagna la torre.",
+        "hints": [],
+        "explain": "Donna h5 dà scacco lungo la quinta traversa; il re deve spostarsi e smette di scudare la sua torre, che cade in a5. La restrizione trasformata in bottino.",
+        "wrong": "Quel colpo non obbliga a nulla; senza scacco forzato, il re conserva la sua torre."
+      }
+    },
+    "brakkon": {
+      "intro": "Sono Brakkon, e la mia torre non cerca la gloria: la protegge. Dove altri lanciano l'attacco, io alzo muri, e dietro di essi il re riposa senza paura.",
+      "reward": "Guardiano Inamovibile",
+      "chron": [
+        "Quando la torre nemica irruppe sull'ultima traversa, Brakkon non indietreggiò: la tolse dal mondo con un solo colpo e il muro tornò a chiudersi.",
+        "Un cavallo si insinuò tra le ombre; la torre pattugliò la traversa e lo ritirò in silenzio, senza che il re muovesse un dito.",
+        "La donna credette di pronunciare lo scacco finale, ma la torre condivideva la sua traversa e la abbatté: pietra serena contro tempesta.",
+        "Dall'alto della colonna aperta, la torre discese come una lastra e sigillò la minaccia, inamovibile fino all'ultima casa.",
+        "E nella prova, senza voce a guidarlo, Brakkon vide il matto nascosto dietro la calma e lo spense prima che nascesse."
+      ],
+      "c1": {
+        "title": "Il muro non si spezza",
+        "teach": "Difendere è riconoscere chi minaccia e ritirarlo dalla scacchiera prima che faccia danno. La torre non fugge: si interpone, cattura e restituisce la calma al re.",
+        "observe": "Guarda la torre nera in e1: dà scacco lungo la prima traversa. Il tuo re in h1 è rinchiuso dai suoi stessi pedoni f2, g2 e h2.",
+        "goal": "Cattura la torre che dà scacco.",
+        "hints": [
+          "Il tuo re non può muoversi: i suoi pedoni f2, g2 e h2 lo circondano del tutto.",
+          "Solo un tuo pezzo raggiunge la prima traversa per rispondere allo scacco.",
+          "Porta la torre da a1 a e1 e divora l'attaccante."
+        ],
+        "explain": "Torre per e1 elimina il pezzo che dava scacco e lascia il re al sicuro dietro il muro di pedoni. È la difesa più pura: spegnere la minaccia alla sua origine.",
+        "wrong": "Il re è ancora sotto scacco; solo la tua torre può spegnere quella minaccia."
+      },
+      "c2": {
+        "title": "La traversa sorvegliata",
+        "teach": "La coordinazione è un pezzo che copre ciò che il re non può. La tua torre pattuglia l'intera traversa, e quando un intruso si avvicina, lo ritira senza che il monarca abbandoni il suo posto.",
+        "observe": "Un cavallo nero saltò in e2 e dà scacco al tuo re in g1. La tua torre domina tutta la seconda traversa da a2.",
+        "goal": "Cattura il cavallo che dà scacco.",
+        "hints": [
+          "Il cavallo in e2 attacca il tuo re; potresti fuggire, ma c'è una risposta più solida.",
+          "La tua torre controlla la seconda traversa da un estremo all'altro.",
+          "Fai scivolare la torre da a2 a e2 e cattura il cavallo."
+        ],
+        "explain": "Torre per e2 non solo esce dallo scacco: si porta via il cavallo e sigilla il fianco del re. Difesa e guadagno in un solo gesto.",
+        "wrong": "Fuggire salva il re per un istante, ma l'intruso resta vivo; meglio toglierlo dalla scacchiera."
+      },
+      "c3": {
+        "title": "Pietra contro la donna",
+        "teach": "Nessuna minaccia è troppo grande se la tua difesa condivide la sua linea. La torre non teme la donna: se questa invade, la torre la abbatte e protegge il re.",
+        "observe": "La donna nera in e1 dà scacco lungo la prima traversa. Il tuo re in h1 non ha nemmeno una casa libera.",
+        "goal": "Cattura la donna che dà scacco.",
+        "hints": [
+          "Lo scacco arriva lungo la prima traversa e il tuo re è murato dai suoi pedoni.",
+          "La tua torre in b1 condivide quella stessa traversa con la donna.",
+          "Torre da b1 a e1: cattura la donna e finisci lo scacco."
+        ],
+        "explain": "Torre per e1 divora la donna nemica e lascia il re intatto. Cambiare una torre per una donna in difesa è uno scambio decisivo.",
+        "wrong": "Con il re rinchiuso, solo la torre risponde; lascia che sia lei a riscuotere la donna."
+      },
+      "c4": {
+        "title": "La lastra discende",
+        "teach": "Una colonna aperta è un cammino che la torre custodisce dall'alto in basso. Quando il pericolo affiora accanto al re, la torre scende come una lastra e lo copre dalla distanza.",
+        "observe": "La donna nera in d1 dà scacco al tuo re accerchiato in g1. La tua torre corona la colonna d da d7, con il cammino sgombro.",
+        "goal": "Cattura la donna che dà scacco.",
+        "hints": [
+          "La donna attacca lungo la prima traversa e il tuo re non può uscire dal suo angolo.",
+          "Guarda la colonna d: è aperta da d7 fino a d1.",
+          "Scendi con la torre da d7 a d1 e cattura la donna."
+        ],
+        "explain": "Torre per d1 percorre la colonna aperta ed elimina la donna; il re respira e tu resti con tutto il vantaggio. La coordinazione tra torre e re è un muro senza crepe.",
+        "wrong": "Non c'è fuga per il re; la torre deve discendere lungo la colonna e riscuotere la donna."
+      },
+      "c5": {
+        "title": "La calma prima del matto",
+        "teach": "La minaccia più pericolosa è quella silenziosa: la donna e l'alfiere preparano Dxg2 matto senza dare ancora scacco. Il vero guardiano la vede arrivare e la disinnesca prima che esploda.",
+        "observe": "La donna in e4 e l'alfiere in f1 puntano a g2: se lo lasci giocare, Dxg2 è matto. La tua torre attende sulla colonna e, in e2.",
+        "goal": "Neutralizza la minaccia di matto.",
+        "hints": [],
+        "explain": "Torre per e4 ritira la donna lungo la colonna e prima che consumi Dxg2 matto; l'alfiere resta solo e tu con vantaggio vincente. Prevedere il colpo è la difesa suprema.",
+        "wrong": "Hai lasciato viva la minaccia: l'alfiere sostiene la donna e Dxg2 sarebbe matto."
+      }
+    },
+    "ilyra": {
+      "intro": "Sono Ilyra, e non inseguo i miei nemici: li raggiungo da lontano, lungo la linea che nessuno guarda. Un alfiere non corre; traccia una retta, e in quella retta era già scritto chi sarebbe caduto.",
+      "reward": "Guardiana delle Diagonali",
+      "chron": [
+        "Dal suo angolo in b2, Ilyra tese una sola diagonale fino all'ultima casa, e la donna che si credeva lontana cadde senza averla vista avvicinarsi.",
+        "Pose lo scacco sulla retta e attese: il re si spostò, obbediente, e dietro attendeva la donna, già sua per la stessa linea che l'aveva spinto.",
+        "Lungo le case chiare attraversò la scacchiera da un estremo all'altro, e dove il re si credeva al sicuro, la diagonale l'aveva già trapassato.",
+        "Accese lo scacco sulle case bianche; il re fuggì dalla retta e la regina, esposta in fondo, si arrese allo sguardo dell'alfiere.",
+        "Senza voce a guidarla, Ilyra lesse la diagonale silenziosa, spinse il re con uno scacco sereno e raccolse la torre che credeva nascosta dietro la sua schiena."
+      ],
+      "c1": {
+        "title": "La diagonale non ha fine",
+        "teach": "Un alfiere governa la sua intera diagonale, da un bordo della scacchiera all'altro, non importa quanto il nemico creda di allontanarsi. Ciò che condivide il colore della tua casa è già alla tua portata.",
+        "observe": "Guarda la diagonale lunga da b2: c3, d4, e5, f6, g7... e in fondo, in h8, la donna nera, sola e senza difesa.",
+        "goal": "Cattura la donna lungo la diagonale.",
+        "hints": [
+          "L'alfiere in b2 e la donna in h8 condividono la stessa casa scura: sono su un'unica retta.",
+          "Verifica che il cammino tra b2 e h8 sia sgombro da cima a fondo.",
+          "Fai scivolare l'alfiere da b2 fino a h8 e divora la donna."
+        ],
+        "explain": "L'alfiere percorre l'intera diagonale e cattura la donna che si credeva distante; la distanza non protegge chi condivide il colore della tua casa. È la legge dell'alfiere: la retta è tua per intero.",
+        "wrong": "Solo una mossa raggiunge il fondo della diagonale; lascia che l'alfiere percorra la retta fino alla donna."
+      },
+      "c2": {
+        "title": "Il raggio che trapassa",
+        "teach": "Uno scacco sulla diagonale non sempre cerca il re: lo usa come porta verso ciò che custodisce dietro. Quando re e donna condividono la tua retta, il re deve spostarsi e scopre chi lo seguiva.",
+        "observe": "Il tuo alfiere può saltare in d4 e dare scacco al re in g7; sulla stessa retta, proprio dietro, attende la donna in h8.",
+        "goal": "Dai lo scacco che allinea re e donna.",
+        "hints": [
+          "Cerca la casa dalla quale l'alfiere inchiodi il re di g7 sulla diagonale lunga.",
+          "Re in g7 e donna in h8 sono sulla stessa retta: uno davanti, l'altra dietro.",
+          "Gioca l'alfiere in d4 con scacco; quando il re si muove, cade la donna in h8."
+        ],
+        "explain": "Ad4 inchioda il re e, dopo la fuga forzata, l'alfiere riscuote la donna che restava in fondo alla retta. Questi sono i raggi X: lo scacco su uno denuda l'altra.",
+        "wrong": "Il re deve spostarsi prima; senza lo scacco che li allinea, la donna non resta mai esposta."
+      },
+      "c3": {
+        "title": "Le case chiare",
+        "teach": "Ogni alfiere vive su un solo colore, e su di esso comanda da un lato all'altro della scacchiera. Lungo le case chiare, il tuo sguardo attraversa l'intero campo e arriva dove il re non ripara più.",
+        "observe": "Da f1 si apre la diagonale chiara: e2, d3, c4, b5, fino a a6, dove la donna nera riposa lontano dal suo re, rinchiuso dai suoi stessi pedoni.",
+        "goal": "Cattura la donna lungo la diagonale chiara.",
+        "hints": [
+          "L'alfiere di f1 percorre case chiare; segui la retta verso il fianco di donna.",
+          "La donna in a6 condivide quella diagonale e il suo re è troppo lontano per soccorrerla.",
+          "Porta l'alfiere da f1 a a6 e prendi la donna."
+        ],
+        "explain": "L'alfiere attraversa tutta la diagonale chiara e cattura la donna indifesa; il re, sepolto dietro i suoi pedoni, non può accorrere. Il dominio di un colore basta a decidere la partita.",
+        "wrong": "La donna è senza difesa in fondo alla tua retta chiara; nessun'altra mossa sfrutta quella diagonale."
+      },
+      "c4": {
+        "title": "Il re davanti, la regina dietro",
+        "teach": "Sulle case chiare i raggi X ripetono la loro legge: accendi lo scacco e il re si sposta, rivelando ciò che copriva. La linea che spinge il monarca è la stessa che reclama la sua donna.",
+        "observe": "L'alfiere salta in e4 e dà scacco al re in c6; su quella retta, alle sue spalle, attende la donna in b7.",
+        "goal": "Dai lo scacco che allinea re e donna.",
+        "hints": [
+          "Trova la casa chiara dalla quale l'alfiere inchiodi il re di c6.",
+          "Re in c6 e donna in b7 sono sulla stessa diagonale: il re davanti, la regina dietro.",
+          "Gioca l'alfiere in e4 con scacco; quando il re fugge, cattura la donna in b7."
+        ],
+        "explain": "Ae4 inchioda il re sulla diagonale chiara e, forzandone la fuga, lascia la donna di b7 senza riparo. Il re non può tornare sulla retta per difenderla, e l'alfiere la raccoglie.",
+        "wrong": "Senza lo scacco che li infila, il re custodisce la sua donna; prima obbligalo a lasciare la retta."
+      },
+      "c5": {
+        "title": "La linea silenziosa",
+        "teach": "Non sempre attende una donna in fondo alla retta; a volte è una torre che si crede al sicuro, lontana e nell'ombra. La diagonale silenziosa spinge anch'essa il re e scopre ciò che nasconde dietro.",
+        "observe": "Il re nero in c6 e la torre in a8 condividono una casa chiara. Il tuo alfiere può arrivare in e4 e metterli entrambi sulla stessa retta.",
+        "goal": "Allinea re e torre con uno scacco, e riscuoti il pezzo in fondo.",
+        "hints": [],
+        "explain": "Ae4 inchioda il re di c6 sulla diagonale chiara; obbligato a fuggire, non riesce a difendere la torre lontana di a8, che cade lungo la stessa retta. La linea più silenziosa è quella che arriva più lontano.",
+        "wrong": "Un'altra mossa non infila il re con la torre; solo lo scacco sulla diagonale scopre il pezzo in fondo."
+      }
+    },
+    "tikk": {
+      "intro": "Sono Tikk, e no, non sono solo un pedone: sono il pedone che arriva PRIMO. Mentre tu pensi, io ho già promosso... con scacco, pronto?",
+      "reward": "Guardiano del Tempo",
+      "chron": [
+        "Capitolo I: Tikk attraversò la scacchiera fischiettando, promosse con scacco e rubò l'orologio all'avversario prima che battesse ciglio.",
+        "Capitolo II: senza frenare, Tikk si mangiò un cavallo PROMUOVENDO; due colpi in un tempo, perché il tempo è suo.",
+        "Capitolo III: dall'altro fianco, stesso trucco, stesso sorriso; promuove, scacco, e l'orologio torna a piangere.",
+        "Capitolo IV: Tikk divorò un'intera torre sulla casa di promozione; l'avversario cercava ancora il suo piano quando non gli restava più nulla.",
+        "Capitolo V: nel Trial, Tikk disprezzò la donna e promosse a CAVALLO con scacco; lo zwischenzug perfetto, e nessuno lo vide arrivare."
+      ],
+      "c1": {
+        "title": "Chi arriva primo",
+        "teach": "Negli scacchi non sempre vince il più forte, vince chi arriva PRIMA. Promuovere con scacco ti regala un tempo: obblighi l'avversario mentre tu comandi già.",
+        "observe": "Guarda il mio pedone in b7 e il re nero in d6, proprio sulla diagonale della casa di promozione.",
+        "goal": "Promuovi in b8 con scacco.",
+        "hints": [
+          "Un pedone in settima traversa a un passo dall'ascesa... non lasciarlo passare.",
+          "Promuovi a donna, non a torre: solo la donna dà scacco al re di d6 lungo la diagonale.",
+          "Gioca b7b8 e scegli donna: scacco, tempo e vantaggio decisivo."
+        ],
+        "explain": "b8=D dà scacco lungo la diagonale b8-d6, guadagna un tempo e lascia il Bianco con donna contro torre, in vantaggio vincente.",
+        "wrong": "Troppo lento: senza scacco l'avversario respira e tu perdi il tempo."
+      },
+      "c2": {
+        "title": "Due colpi, un tempo",
+        "teach": "Un pedone che promuove catturando fa due cose in un solo tempo: si porta via un pezzo E nasce donna. Questo è spremere l'orologio al massimo.",
+        "observe": "Il mio pedone di b7 e quel cavallo nero in c8 che chiede a gran voce di essere divorato al momento della promozione.",
+        "goal": "Cattura in c8 promuovendo con scacco.",
+        "hints": [
+          "Il pedone può catturare in diagonale proprio al momento della promozione.",
+          "In c8 c'è un cavallo: mangialo e diventa donna nello stesso movimento.",
+          "Gioca b7xc8=D: ti porti via il cavallo e dai scacco al re di e6."
+        ],
+        "explain": "bxc8=D cattura il cavallo, promuove e dà scacco lungo la diagonale c8-e6: materiale e tempo in un solo colpo.",
+        "wrong": "Hai promosso senza mordere: hai lasciato vivo il cavallo e perso metà del bottino."
+      },
+      "c3": {
+        "title": "Stesso trucco, altro fianco",
+        "teach": "Il tempo non conosce fianchi: che sia l'a o l'h, chi promuove con scacco comanda. Ripeti lo schema e l'orologio resterà dalla tua parte.",
+        "observe": "Il mio pedone in g7 e il re nero in d5, allineato con la diagonale lunga da g8.",
+        "goal": "Promuovi in g8 con scacco.",
+        "hints": [
+          "Il pedone di g7 è a un passo dalla gloria.",
+          "Solo la donna raggiunge il re di d5 lungo la diagonale g8-d5.",
+          "Gioca g7g8=D: scacco, tempo guadagnato e donna contro torre."
+        ],
+        "explain": "g8=D dà scacco lungo la diagonale g8-d5 guadagnando un tempo, e il Bianco resta con donna contro torre, in vantaggio vincente.",
+        "wrong": "Senza scacco non c'è tempo: l'avversario si riorganizza e butti via il tuo vantaggio."
+      },
+      "c4": {
+        "title": "Torre per colazione",
+        "teach": "Più grande è il pezzo che catturi al momento della promozione, più in fretta finisce la partita. Mangia, promuovi e dai scacco: l'orologio non avanza nemmeno.",
+        "observe": "Il mio pedone in h7 e un'intera torre nera che aspetta in g8.",
+        "goal": "Cattura la torre in g8 promuovendo con scacco.",
+        "hints": [
+          "Il pedone di h7 può catturare in diagonale verso g8.",
+          "In g8 c'è una TORRE: portatela via e promuovi insieme.",
+          "Gioca h7xg8=D: ti mangi la torre e dai scacco al re di e6."
+        ],
+        "explain": "hxg8=D cattura la torre, promuove e dà scacco lungo la diagonale g8-e6: guadagno enorme in un solo tempo.",
+        "wrong": "Hai promosso dal lato sbagliato: la torre è ancora viva e l'avversario ti ringrazia."
+      },
+      "c5": {
+        "title": "Il tempo rubato",
+        "teach": "A volte la donna non è la risposta: il tempo decisivo lo dà lo zwischenzug, la mossa intermedia con scacco che nessuno si aspetta. Promuovi a CAVALLO, dai scacco e ruba la donna nemica prima che reagisca.",
+        "observe": "Il re in d7 e la donna in a6 sono a un salto di cavallo l'uno dall'altra da b8.",
+        "goal": "Trova la promozione con scacco che guadagna la donna.",
+        "hints": [],
+        "explain": "b8=C dà scacco al re di d7 e attacca allo stesso tempo la donna di a6: il re deve muoversi e Cxa6 si porta via la donna, lasciando pezzo e pedone di vantaggio vincente.",
+        "wrong": "Promuovere a donna pareggia soltanto: perdi il tempo dello scacco doppio e con esso la partita."
+      }
+    },
+    "malrec": {
+      "intro": "Sono Malrec, e sono sopravvissuto a più promozioni di quante ne vedrai cadere. Non ho donna che mi salvi né torri che mi piangano: solo un re che cammina verso il pericolo perché ha imparato che restare fermo è morire.",
+      "reward": "Il Re che Sopravvive",
+      "chron": [
+        "Il cavallo nemico si aggirava troppo vicino; il mio re non distolse lo sguardo, avanzò in c5 e lo divorò senza tremare.",
+        "Calarono la torre credendola al sicuro in sesta; il mio vecchio re si alzò dal suo trono e la strappò dalla scacchiera.",
+        "La donna venne per la mia gola, e nella sua arroganza si mise alla portata della mia mano: c5, e la regina cadde davanti al pedone.",
+        "Spostai il mio re dalla linea e lasciai parlare la torre: b6, e nell'angolo il re nemico affogò nel silenzio.",
+        "Senza voci a guidarmi, il mio re uscì allo scoperto e prese ciò che nessuno osò toccare: così finisce il sentiero di chi sopravvive."
+      ],
+      "c1": {
+        "title": "Il re che non indietreggia",
+        "teach": "Nel finale il re smette di essere un fuggitivo e diventa carnefice. Un pezzo sciolto alla sua portata non si perdona: fai un passo avanti e mangialo.",
+        "observe": "Il tuo re in d4 e il cavallo nero in c5, a un solo passo, senza nessuno che lo difenda. Nel finale ogni pezzo pesa come una montagna.",
+        "goal": "Avanza e cattura il cavallo.",
+        "hints": [
+          "Guarda quali case tocca il tuo re; una di esse custodisce un pezzo nemico.",
+          "Il cavallo in c5 è solo, né il suo re né il suo pedone lo coprono.",
+          "Rxc5: il tuo re si porta via il cavallo e il finale è vinto."
+        ],
+        "explain": "Rxc5 guadagna un intero cavallo senza costo, perché nulla difende quella casa. Con un pezzo di vantaggio il finale ha ormai un solo padrone.",
+        "wrong": "Timido: spostare il re lascia vivo il cavallo e regali il finale che era già tuo."
+      },
+      "c2": {
+        "title": "Il trono si leva",
+        "teach": "Un re attivo nel finale vale più della paura che gli hanno. La torre che si avvicina senza scorta è carne per il tuo monarca.",
+        "observe": "Il tuo re in e5, al centro, e la torre nera in d6 alla portata della tua mano, senza pedone né re che la sostengano.",
+        "goal": "Prendi la torre con il re.",
+        "hints": [
+          "Il tuo re comanda al centro; una casa vicina nasconde una torre.",
+          "La torre in d6 non ha guardia: né il re in b7 né il pedone la proteggono.",
+          "Rxd6: il tuo re si leva e strappa la torre dalla scacchiera."
+        ],
+        "explain": "Rxd6 cattura una torre indifesa e decide il finale di colpo. Il re centrale non fugge: riscuote.",
+        "wrong": "Errore: qualsiasi altra mossa perdona la torre e con essa il tuo vantaggio."
+      },
+      "c3": {
+        "title": "La regina alla portata",
+        "teach": "Il pericolo è il tuo mestiere: quando la donna viene a ucciderti, guarda se si è avvicinata troppo. Sopravvivere è avere il coraggio di mangiare ciò che pretendeva di divorarti.",
+        "observe": "Il tuo re in d4 è sotto scacco della donna in c5, ma quella donna è incollata a te e nessuno la protegge. Lo spavento nasconde un regalo.",
+        "goal": "Rispondi allo scacco catturando la donna.",
+        "hints": [
+          "Sei sotto scacco: non ogni scacco è una minaccia, alcuni sono una distrazione.",
+          "La donna in c5 ti attacca da una casa vicina, ed è sola.",
+          "Rxc5: il tuo re risponde allo scacco portandosi via l'intera donna."
+        ],
+        "explain": "Rxc5 esce dallo scacco e cattura la donna in un solo colpo, perché nulla la difende. Chi ti minacciava giace sotto il tuo piede.",
+        "wrong": "Fatale: fuggire dallo scacco lascia viva la donna e con essa perdi il finale e la vita."
+      },
+      "c4": {
+        "title": "Il re si sposta e uccide",
+        "teach": "A volte la mossa migliore del re è togliersi di mezzo. Spostandosi, lascia parlare il pezzo che il suo corpo nascondeva, e quella voce è sentenza.",
+        "observe": "La tua torre in a1 e il re nero in a8 condividono la colonna, ma il tuo stesso re in a6 tappa la mira. Il tuo alfiere in f4 sorveglia in silenzio la casa b8.",
+        "goal": "Sposta il re e scopri il matto.",
+        "hints": [
+          "Il tuo re tappa la colonna della tua torre; se si sposta, la torre dà scacco in a8.",
+          "Cerca la casa dove il tuo re, muovendosi, copra a7 e b7 mentre l'alfiere sigilla b8.",
+          "Rb6: scopre lo scacco di torre e al re nero non resta nemmeno una casa."
+        ],
+        "explain": "Rb6 scopre lo scacco della torre lungo la colonna a; il re in a6 passa a coprire a7 e b7, e l'alfiere di f4 tappava già b8. Senza fuga, è matto.",
+        "wrong": "No: muovere il re in qualsiasi altra casa lascia uno sfiatatoio e il matto sfugge."
+      },
+      "c5": {
+        "title": "La prova di Malrec",
+        "teach": "Senza indizi, senza mani a sostenerti. Il re deve uscire allo scoperto e prendere ciò che altri temono di toccare.",
+        "observe": "Il tuo re in c4 e la torre nera in b5, attiva sulla quinta traversa. Il re nemico è lontano, a curare il suo pedone; nessuno custodisce la torre.",
+        "goal": "Esci con il re e cattura la torre.",
+        "hints": [],
+        "explain": "Rxb5 si porta via una torre indifesa e lascia il finale vinto; il re che osa uscire riscuote ciò che il timido non vedrà mai. Né il pedone né il re lontano possono vendicarla.",
+        "wrong": "No: la torre è sciolta e solo il tuo re, uscendo allo scoperto, se la porta via."
+      }
+    },
+    "solenne": {
+      "intro": "Sono Solenne, e sono nata come il pezzo più umile della scacchiera: un semplice pedone. Ma un pedone passato cammina senza paura verso l'ottava traversa, e chi impara a promuovere impara che nessun inizio modesto decide il finale.",
+      "reward": "Corona dell'Ottava Traversa",
+      "chron": [
+        "Il mio pedone fece l'ultimo passo in b8 e nacque donna con scacco; ciò che iniziò piccolo finì governando la scacchiera.",
+        "In b7 non mi fermai davanti al cavallo: lo catturai promuovendo in c8, e con un solo passo guadagnai pezzo e corona.",
+        "Avanzai in g8 e la nuova donna attraversò la scacchiera per inchiodare il re; il pedone paziente si fece regina.",
+        "La torre credette di sbarrarmi il passo, ma in g8 la divorai promuovendo con scacco; così si apre il cammino un pedone passato.",
+        "Senza voci a guidarmi, promossi a cavallo invece che a donna e il salto catturò re e regina allo stesso tempo: anche l'umiltà sa scegliere la sua forma."
+      ],
+      "c1": {
+        "title": "L'ultimo passo",
+        "teach": "Un pedone passato è quello che non ha più pedoni nemici davanti né ai lati: il suo cammino verso la promozione è libero. Quando arriva sulla settima traversa, un passo in più lo trasforma in donna.",
+        "observe": "Il tuo pedone in b7 ha l'ottava traversa alla portata e nessun avversario può fermarlo. Promuovendo in b8, la nuova donna guarderà in faccia il re nero in d6.",
+        "goal": "Avanza il pedone e promuovi a donna con scacco.",
+        "hints": [
+          "Il tuo pedone in b7 è a un solo passo dall'ottava traversa.",
+          "Promuovi in b8 scegliendo il pezzo più forte e osserva la traversa del re.",
+          "b8=D+ nasce con scacco su d6; il re deve badarvi e tu guadagni un'intera donna."
+        ],
+        "explain": "b8=D promuove con scacco sull'ottava traversa; il pedone passato non aveva opposizione e ora sei una donna in vantaggio. Il passo più umile è diventato il più potente.",
+        "wrong": "Ti è mancato l'ultimo passo: un pedone che non promuove spreca tutto il suo cammino."
+      },
+      "c2": {
+        "title": "Promuovere catturando",
+        "teach": "A volte il cammino verso l'ottava traversa incrocia un pezzo nemico in diagonale: puoi catturarlo e promuovere nello stesso movimento. Così guadagni il pezzo e la corona in un solo colpo.",
+        "observe": "Il tuo pedone in b7 ha davanti il cavallo nero in c8, proprio sulla tua diagonale di promozione. Il re in e6 non può accorrere in tempo.",
+        "goal": "Cattura il cavallo promuovendo a donna.",
+        "hints": [
+          "Il cavallo in c8 è sulla diagonale di cattura del tuo pedone.",
+          "Non avanzare dritto: mangiati il cavallo al momento della promozione.",
+          "bxc8=D+ elimina il cavallo e ti dà una donna con scacco; doppio bottino."
+        ],
+        "explain": "bxc8=D cattura il cavallo e promuove con scacco allo stesso tempo; sommi pezzo e donna senza dare nulla in cambio. Il pedone passato sa aprirsi il cammino mangiando.",
+        "wrong": "Promuovere dritto lascia vivo il cavallo: sfrutta la cattura e portati via tutto."
+      },
+      "c3": {
+        "title": "La regina che attraversa",
+        "teach": "Promuovere non somma solo materiale: crea dal nulla il pezzo più veloce della scacchiera. Appena nata, la donna raggiunge in un istante ciò che era dall'altra parte.",
+        "observe": "Il tuo pedone in g7 promuove libero in g8. Da lì, la nuova donna vedrà in diagonale il re nero in d5.",
+        "goal": "Promuovi a donna e dai scacco al re.",
+        "hints": [
+          "Il tuo pedone in g7 arriva da solo all'ottava traversa.",
+          "Promuovi in g8 e guarda la lunga diagonale verso il centro.",
+          "g8=D+ inchioda il re in d5 dall'angolo; la regina domina la scacchiera appena nata."
+        ],
+        "explain": "g8=D promuove e dà scacco lungo la diagonale g8-d5; da un pedone nasce una donna che governa l'intera scacchiera. Questo è il premio della pazienza.",
+        "wrong": "Senza promuovere, il tuo pedone resta a guardare: fai il passo e lascia nascere la regina."
+      },
+      "c4": {
+        "title": "Divorare il guardiano",
+        "teach": "Quando una torre cerca di chiuderti l'ottava traversa, non temerla: se è sulla tua diagonale, la catturi al momento della promozione. L'ostacolo diventa la tua ultima preda.",
+        "observe": "Il tuo pedone in h7 ha la torre nera in g8, sulla sua diagonale di promozione. Il re in e6 resterà esposto alla nuova donna.",
+        "goal": "Cattura la torre promuovendo con scacco.",
+        "hints": [
+          "La torre in g8 crede di bloccarti, ma è sulla tua diagonale.",
+          "Mangiala al momento della promozione invece di spingere dritto.",
+          "hxg8=D+ elimina la torre e dà scacco in e6; guadagni torre e corona di colpo."
+        ],
+        "explain": "hxg8=D cattura la torre e promuove con scacco su e6; il guardiano che voleva fermarti alimenta la tua ascesa. Un pedone passato non chiede permesso: si apre il cammino.",
+        "wrong": "Spingere dritto inciampa nella torre: cattura in diagonale e promuoverai divorandola."
+      },
+      "c5": {
+        "title": "La prova di Solenne",
+        "teach": "Senza indizi né voci. Promuovere a donna non è sempre la scelta migliore: a volte il pezzo umile deve scegliere un'altra forma per catturare il re e la regina allo stesso tempo.",
+        "observe": "Il tuo pedone in b7 promuove libero, ma il re in d7 e la donna in a6 sono disposti in modo particolare. Pensa a quale pezzo li raggiunge entrambi.",
+        "goal": "Promuovi il pezzo che dà scacco e guadagna la donna.",
+        "hints": [],
+        "explain": "b8=C promuove a cavallo con scacco e biforca il re in d7 e la donna in a6; il re deve muoversi e la donna cade. La sottopromozione, umile in apparenza, vince la partita.",
+        "wrong": "No: promuovere a donna dà solo scacco, ma esiste un pezzo che attacca il re e la donna allo stesso tempo."
+      }
+    },
+    "presence": {
+      "label": "Il tuo campione",
+      "win": "Vittoria. Hai giocato come ti avrei insegnato io.",
+      "lose": "Ogni sconfitta nasconde una lezione. La prossima partita è nostra.",
+      "draw": "Patta. Anche l'equilibrio si padroneggia.",
+      "check": "Attento: il tuo re è sotto scacco.",
+      "thinking": "Osserva. La mossa migliore raramente urla.",
+      "sendaCta": "Percorri il mio Sentiero della Maestria nel codice."
+    }
   }
 }

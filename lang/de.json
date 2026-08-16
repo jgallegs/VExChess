@@ -1121,5 +1121,1208 @@
       "community": "Community",
       "myGames": "Meine Partien"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Eingeweihter",
+      "aprendiz": "Lehrling",
+      "adepto": "Adept",
+      "experto": "Experte",
+      "maestro": "Meister",
+      "pleno": "Volle Bindung"
+    },
+    "ui": {
+      "start": "Meisterpfad beginnen",
+      "continue": "Pfad fortsetzen",
+      "soon": "Meisterpfad · demnächst",
+      "sectionTitle": "Meisterpfad",
+      "chapter": "Kapitel {n}/{total}",
+      "trialTag": "Trial",
+      "vinculo": "Bindung",
+      "observe": "Beobachte",
+      "hint": "Einen Hinweis erbitten",
+      "hintCount": "Hinweis {n}/{total}",
+      "lastHint": "letzter",
+      "correct": "Richtig!",
+      "next": "Weiter →",
+      "teachNext": "Verstanden →",
+      "practice": "Übe es →",
+      "finishChapter": "Kapitel beenden →",
+      "chronicleUnlocked": "Chronik freigeschaltet",
+      "reward": "Meisterschaftsbelohnung",
+      "completeTitle": "Pfad abgeschlossen",
+      "completeMsg": "Du hast den gesamten Pfad durchlaufen. Die Bindung zu diesem Champion ist vollkommen.",
+      "back": "Zurück zum Kodex",
+      "trialNoHints": "Im Trial gibt es keine Hinweise: vertraue auf das, was du gelernt hast.",
+      "wrongRetry": "Versuch es noch einmal.",
+      "yourMove": "Du bist am Zug",
+      "vinculoSub": "Kein Wettbewerbsvorteil · nur Lernen, Erzählung und Sammlung",
+      "chapterDone": "Kapitel bestanden",
+      "guestMsg": "Melde dich an, um den Pfad zu durchlaufen und deine Bindung zu speichern.",
+      "loginBtn": "Anmelden",
+      "chaptersDone": "{n}/{total} Kapitel",
+      "trialsHint": "Das letzte Kapitel ist ein Trial ohne Hinweise."
+    },
+    "noctis": {
+      "intro": "Ich bin Noctis. Ich durchquere die Dunkelheit nicht: ich teile sie. Ich werde dir beibringen, die zwei Bedrohungen zu sehen, die in einen einzigen Sprung passen. Beobachte, sage voraus und führe aus.",
+      "reward": "Titel freigeschaltet: «Doppelschatten»",
+      "chron": [
+        "Jeder meiner Sprünge wirft zwei Schatten. Nur einer ist echt.",
+        "Ich lernte, dort zuzuschlagen, wo niemand verteidigt: zwischen zwei Figuren zugleich.",
+        "Der König ist die beste Geisel: er zwingt zur Antwort und gibt seine Dame preis.",
+        "Ich suche nicht die Figur. Ich suche das Feld, von dem aus zwei Figuren bereits mir gehören.",
+        "Wenn du die Gabel siehst, bevor du sie ziehst, wirst du meine Schatten nicht brauchen."
+      ],
+      "c1": {
+        "title": "Der erste Schatten",
+        "teach": "Die Gabel greift zwei Figuren mit einem einzigen Zug an. Beginnen wir mit der saubersten: einem Schach, das nebenbei einen Turm mitnimmt.",
+        "observe": "Der schwarze König steht auf e8 und der Turm auf a8. Suche das Feld, von dem aus ein Springer beide berührt.",
+        "goal": "Gib Schach und greife den Turm mit dem Springer an.",
+        "hints": [
+          "Ein Springer auf c7 erreicht e8 und a8 zugleich.",
+          "Das Schlüsselfeld ist einen Sprung entfernt: d5 → c7.",
+          "Sd5-c7+: Schach dem König und Gabel gegen den Turm."
+        ],
+        "explain": "Sc7+ ist Schach: der Gegner muss seinen König retten und der Turm auf a8 fällt. Das ist die Gabel in ihrer reinsten Form: erst zwingst du, dann gewinnst du.",
+        "wrong": "Fast. Ein einziges Feld muss den König und den Turm berühren. Denk an c7."
+      },
+      "c2": {
+        "title": "Der König als Köder",
+        "teach": "Wenn die Gabel den König einschließt, ist sie unaufhaltsam: das Schach zwingt und die schwere Figur liegt dir zu Füßen.",
+        "observe": "Schwarzer König auf e8, Dame auf c8. Finde den Sprung, der Schach gibt und zugleich die Dame anvisiert.",
+        "goal": "Gabel gegen König und Dame.",
+        "hints": [
+          "Von d6 aus greift ein Springer e8 und c8 an.",
+          "e4 → d6, mit Schach.",
+          "Sd6+ gewinnt die Dame nach dem Schach."
+        ],
+        "explain": "Sd6+ greift den König (erzwungenes Schach) und die Dame auf c8 an. Der König zieht weg und die Dame gehört dir. Der König ist der beste Köder einer Gabel.",
+        "wrong": "Das ist es nicht. Das Feld muss auf e8 Schach geben und zugleich c8 berühren: schau auf d6."
+      },
+      "c3": {
+        "title": "Aus dem anderen Winkel",
+        "teach": "Dieselbe Idee funktioniert an jedem Flügel. Trainiere dein Auge, sie auch von rechts zu sehen.",
+        "observe": "König auf e8, Dame auf g8. Finde den Sprung, der beide bedroht.",
+        "goal": "Schach dem König und Angriff auf die Dame.",
+        "hints": [
+          "f6 berührt e8 und g8.",
+          "g4 → f6, mit Schach.",
+          "Sf6+ und die Dame auf g8 fällt."
+        ],
+        "explain": "Sf6+ gibt Schach von der anderen Seite und greift g8 an. Die Gabel hat keine Lieblingsseite: nur richtige Felder.",
+        "wrong": "Noch nicht. Suche das Feld, das e8 und g8 berührt: es ist f6."
+      },
+      "c4": {
+        "title": "Der lautlose Sprung",
+        "teach": "Manchmal wirkt das Gabelfeld harmlos… bis der Springer ankommt. Vertraue dem Muster.",
+        "observe": "König auf g8, Dame auf c8 und dein Springer auf g6. Welches Feld berührt beide?",
+        "goal": "Gabel gegen König und Dame.",
+        "hints": [
+          "e7 erreicht g8 und c8.",
+          "g6 → e7, mit Schach.",
+          "Se7+ und du gewinnst die Dame."
+        ],
+        "explain": "Se7+ verbindet g8 (Schach) mit c8 (Dame). Ein ruhiger Sprung, gewaltige Beute. Du erkennst das Muster bereits.",
+        "wrong": "Das ist es nicht. Das Feld, das g8 und c8 berührt, ist e7."
+      },
+      "c5": {
+        "title": "Trial · Der Schatten ohne Warnung",
+        "teach": "Ohne Schach gibt es keine Warnung: hier schreit die Gabel nicht, du siehst sie oder verlierst sie. Ohne Hinweise: vertraue auf das Gelernte.",
+        "observe": "Zwei schwarze Türme, auf d8 und f8. Ein einziges Feld visiert beide an.",
+        "goal": "Gabel gegen beide Türme.",
+        "hints": [],
+        "explain": "Se6 greift d8 und f8 gleichzeitig an. Es gibt kein Schach, aber ein Turm wird fallen. Du hast gelernt, die Gabel zu sehen, ohne dass dich jemand warnt.",
+        "wrong": "Ein Turm muss zusammen mit dem anderen angegriffen werden. Suche das Feld zwischen d8 und f8."
+      }
+    },
+    "kael": {
+      "intro": "Ich bin Kael, und mein Springer bittet nicht um Erlaubnis: er greift an. Folge mir und lerne, das Tempo zu stehlen, mit Wucht zu entwickeln und die Initiative zu behalten, ehe der Gegner Luft holt.",
+      "reward": "Reiter des Tempos",
+      "chron": [
+        "Mein Springer sprang mit Schach nach e7 und die feindliche Dame fiel ohne einen Klagelaut.",
+        "In der Ecke trieb ich den König in die Enge und riss ihm den Turm mit Stumpf und Stiel heraus.",
+        "Ein Sprung nach f7 und die Stille des Matts beschloss die Partie.",
+        "Ich bestrafte den König, der sich nicht zu entwickeln wagte: Schach, und seine Dame war mein.",
+        "Ohne Hinweise und ohne Zweifel schlug das Fohlen zu und das Brett gab sich geschlagen."
+      ],
+      "c1": {
+        "title": "Der Sprung, der die Dame stiehlt",
+        "teach": "Das Schach befiehlt: wenn du Schach gibst, gehorcht der Gegner und du bestimmst den Rhythmus. Ein Springer, der Schach bietet und die Dame angreift, gewinnt Tempo und Material mit einem einzigen Schlag.",
+        "observe": "Sieh, wo der schwarze König und seine Dame stehen: suche ein Feld, das beide zugleich angreift.",
+        "goal": "Gib Schach und gabele König und Dame.",
+        "hints": [
+          "Suche einen Springersprung, der dem König auf g8 Schach gibt.",
+          "Das Feld e7 berührt den König und die Dame zugleich.",
+          "Spiele Se7+ und schlage nach dem Königszug die Dame auf c6."
+        ],
+        "explain": "Se7+ ist Schach: der König muss ziehen und kann die Dame nicht verteidigen, die auf c6 fällt.",
+        "wrong": "Ohne Schach verlierst du die Initiative; zwinge den König und behalte die Dame."
+      },
+      "c2": {
+        "title": "Hinterhalt in der Ecke",
+        "teach": "Die Initiative entspringt der Drohung mit Tempo. Ein Springer, der in der Ecke Schach bietet, zwingt den König und entblößt seinen Turm.",
+        "observe": "Der schwarze König schläft auf a8 und sein Turm auf e8: eine Gabel vereint sie.",
+        "goal": "Gib Schach und gewinne den Turm.",
+        "hints": [
+          "Der Springer kann mit Schach nach c7 springen.",
+          "Von c7 aus greift der Springer den König und den Turm auf e8 an.",
+          "Sc7+ und dann Sxe8: der Turm gehört dir."
+        ],
+        "explain": "Sc7+ zwingt den König zur Flucht und der Springer verschlingt den Turm auf e8.",
+        "wrong": "Lass den König nicht ungestraft entkommen: das Schach auf c7 ist dein einziger Schlüssel."
+      },
+      "c3": {
+        "title": "Das Matt des Fohlens",
+        "teach": "Die Entwicklung gipfelt im Angriff: wenn der König zwischen seinen Figuren erstickt, gibt ein Springer den letzten Stoß. Das perfekte Tempo verwandelt einen Sprung in ein Schachmatt.",
+        "observe": "Der schwarze König ist von seinem Turm und seinen Bauern begraben; es fehlt nur der Schlag.",
+        "goal": "Gib Schachmatt mit dem Springer.",
+        "hints": [
+          "Der König hat kein einziges freies Feld.",
+          "Ein Sprung nach f7 gibt Schach und es gibt kein Entkommen.",
+          "Sf7 ist Matt: liefere es mit Stolz."
+        ],
+        "explain": "Sf7# gibt Schach und der König, erstickt von seinen eigenen Figuren, kann weder fliehen noch schlagen.",
+        "wrong": "Suche das Schach, dem man nicht entkommen kann: f7 besiegelt es."
+      },
+      "c4": {
+        "title": "Strafe für den trägen König",
+        "teach": "Wer nicht entwickelt, zahlt: ein im Zentrum gefangener König ist leichte Beute. Greife mit Tempo an und die Initiative wird zur Beute.",
+        "observe": "Der schwarze König steht noch auf e7 und seine Dame irrt auf b4 umher: beide in Reichweite eines Sprungs.",
+        "goal": "Gib Schach im Zentrum und gewinne die Dame.",
+        "hints": [
+          "Der exponierte König auf e7 lädt zur Gabel ein.",
+          "Von c6 aus bietet der Springer dem König Schach und greift die Dame auf b4 an.",
+          "Sc6+ und danach Sxb4: die Dame gehört dir."
+        ],
+        "explain": "Sc6+ ist ein zweischneidiges Schach: der König flieht und die Dame auf b4 fällt rettungslos.",
+        "wrong": "Nutze den König im Zentrum: nur das Schach auf c6 gewinnt die Dame."
+      },
+      "c5": {
+        "title": "Prüfung des Reiters: Ohne Gnade",
+        "teach": "Hier gibt es keine Hinweise, nur dein Instinkt. Finde den Sprung, der Schach gibt und die Dame entreißt: beweise, dass du das Tempo beherrschst.",
+        "observe": "Der König auf c8 und die Dame auf f5 erwarten dein Urteil.",
+        "goal": "Gib Schach und nimm die Dame mit.",
+        "hints": [],
+        "explain": "Sd6+ bietet dem König auf c8 Schach und greift die Dame auf f5 an; der König flieht und Sxf5 vollendet den Raub.",
+        "wrong": "Das Tempo ist dir entglitten: suche das Schach, das auch die Dame berührt."
+      }
+    },
+    "aurelia": {
+      "intro": "Ich bin Aurelia, und meine Dame zieht nicht aus Laune: sie zieht aus Überzeugung. Bevor ich eine Figur berühre, sehe ich die Partie beendet; folge mir und du lernst, bis zum Ende zu rechnen.",
+      "reward": "Pfad der Gelassenen Dame",
+      "chron": [
+        "Im ersten Schritt stieg die Dame auf die siebte Reihe hinab, und der König fand keinen Ort zur Flucht.",
+        "Ich sah die Grundreihe sich schließen, bevor sie existierte; seine eigenen Bauern waren seine Verdammnis.",
+        "Ein Bauer durchquerte das Brett und wurde als Dame wiedergeboren: die Berechnung belohnt die Geduld.",
+        "Ich schlug nicht aus Gier, sondern aus Gewissheit; die feindliche Dame fiel, ohne die Schlacht zu schlagen.",
+        "Ohne Hinweise und ohne Zweifel wählte ich den einzigen Pfad, und das Matt erblühte auf der Diagonale."
+      ],
+      "c1": {
+        "title": "Der Abstieg der Dame",
+        "teach": "Rechnen heißt, die Endstellung zu sehen, bevor man eine einzige Figur zieht. Dame und König weben gemeinsam ein Netz, dem der gegnerische Monarch nicht entrinnt.",
+        "observe": "Sieh dir die Fluchtfelder des schwarzen Königs an und entdecke, wer sie bewacht.",
+        "goal": "Gib Schachmatt in einem Zug.",
+        "hints": [
+          "Dein König auf f6 kontrolliert bereits g7; die Dame kann sich auf ihn stützen.",
+          "Suche das Feld, von dem aus die Dame den König angreift, ohne geschlagen werden zu können.",
+          "Führe die Dame nach g7: der König auf h8 bleibt ohne Luft."
+        ],
+        "explain": "Dg7 ist Schachmatt: der König auf f6 verteidigt die Dame und raubt dem schwarzen Monarchen die Felder g8, h7 und g7.",
+        "wrong": "Der König ist entkommen; berechne neu, welches Feld all seine Ausgänge schließt."
+      },
+      "c2": {
+        "title": "Die letzte Reihe",
+        "teach": "Ein König, der hinter seinen eigenen Bauern eingesperrt ist, lebt in ständiger Gefahr. Die Grundreihe berechnen zu können entscheidet unzählige Partien.",
+        "observe": "Beobachte die Bauern f7, g7 und h7: sie sperren ihren eigenen König ein.",
+        "goal": "Finde das Matt in einem Zug.",
+        "hints": [
+          "Der schwarze König hat keine Felder vor sich; seine Bauern ersticken ihn.",
+          "Die d-Linie bleibt bis zum Ende des Bretts offen.",
+          "Dringe mit der Dame in die achte Reihe ein: Dd8."
+        ],
+        "explain": "Dd8 ist Matt: die Dame beherrscht die gesamte achte Reihe und die Bauern verhindern jede Flucht.",
+        "wrong": "Es bleibt noch ein Ausgang; stelle sicher, dass du die ganze Reihe beherrschst."
+      },
+      "c3": {
+        "title": "Die Umwandlung",
+        "teach": "Die Variante zu wählen schließt ein, in welche Figur man umwandelt. Die Dame ist fast immer die tödlichste Antwort.",
+        "observe": "Der Bauer steht einen Schritt vor der Umwandlung und dein König auf f6 stützt das Manöver.",
+        "goal": "Wandle um und gib Matt.",
+        "hints": [
+          "Der Bauer auf h7 kann sofort umwandeln.",
+          "Dein König bewacht e7, f7 und g7; es fehlt nur, die achte Reihe zu schließen.",
+          "Wandle in eine Dame um: h8=D ist Schachmatt."
+        ],
+        "explain": "h8=D ist Matt: die neue Dame kontrolliert die achte Reihe, während der weiße König die Fluchtfelder deckt.",
+        "wrong": "Diese Umwandlung schließt das Netz nicht; wandle in eine Dame um und berechne das Matt."
+      },
+      "c4": {
+        "title": "Der gelassene Schlag",
+        "teach": "Nicht jede Variante krönt sich mit Schachmatt; manchmal wählt man die, die ohne das geringste Risiko Material gewinnt. Rechnen heißt auch, den sauberen Gewinn zu erkennen.",
+        "observe": "Die d-Linie verbindet deine Dame mit der feindlichen Dame.",
+        "goal": "Gewinne die gegnerische Dame.",
+        "hints": [
+          "Die schwarze Dame auf d8 hat keinerlei Verteidigung.",
+          "Deine Dame verfügt über die freie d-Linie.",
+          "Schlage mit Schach: Dxd8+."
+        ],
+        "explain": "Dxd8+ schlägt die feindliche Dame mit Schach und verschafft einen entscheidenden Vorteil, ohne jede Komplikation.",
+        "wrong": "Du hast eine schlechtere Variante gewählt; der saubere Schlag war der Pfad."
+      },
+      "c5": {
+        "title": "Die entscheidende Diagonale",
+        "teach": "Jetzt rechnest du allein: ohne Hinweise, ohne Stützen, nur deine Vision. Wähle den einzigen Pfad, der all die Mühe krönt.",
+        "observe": "Dein Springer auf h5 und deine Dame arbeiten still am König.",
+        "goal": "Finde das Matt in einem Zug.",
+        "hints": [],
+        "explain": "Dg7 ist Matt: der Springer auf h5 verteidigt die Dame, und der König auf h8 verliert g8 und h7.",
+        "wrong": "Das war nicht der Pfad; nur ein Zug liefert das genaue Matt."
+      }
+    },
+    "bastion": {
+      "intro": "Ich bin Bastion, Turm und Bollwerk von VEXCHESS: ich rücke nicht über geschlossene Linien vor, noch weiche ich vor der Dame zurück. Folge mir und du lernst, dass zwei vereinte Türme eine Mauer sind, die angreift.",
+      "reward": "Bollwerk der Vereinten Türme",
+      "chron": [
+        "Ich beanspruchte die offene Linie als eigenes Gebiet und mein Turm fiel auf die achte Reihe: der König hatte keine Mauer, hinter der er sich verstecken konnte.",
+        "Ich stieg zur siebten Reihe hinab wie einer, der eine Grenze bewacht, und der ungeschützte Feind zahlte mit seinem Turm.",
+        "Ich vereinte meine beiden Türme Schulter an Schulter; einer schloss die einzige Tür, während der andere den letzten Schlag führte.",
+        "Ohne die Dame zu fürchten, spießte ich sie gegen ihren eigenen König und stürzte sie: keine Figur ist unbesiegbar vor einem gut postierten Turm.",
+        "Allein, ohne eine einzige Stimme, die mich leitete, zog ich den genauen Spieß und der Pfad war erobert."
+      ],
+      "c1": {
+        "title": "Die offene Linie",
+        "teach": "Eine offene Linie ist ein Weg, den der Turm für sich beansprucht; über sie dringt er bis in den feindlichen Rücken vor. Wer die Linie beherrscht, beherrscht die Partie.",
+        "observe": "Sieh dir die b-Linie an: sie ist von Anfang bis Ende frei, und die Grundreihe des schwarzen Königs hat keine Wache.",
+        "goal": "Dringe in die achte Reihe ein und gib Schachmatt.",
+        "hints": [
+          "Die b-Linie gehört dir: keine Figur versperrt dir den Weg.",
+          "Die Bauern f7, g7 und h7 sperren ihren eigenen König ein.",
+          "Führe den Turm bis zum Grund: Tb8 ist Matt."
+        ],
+        "explain": "Tb8 ist Matt: der Turm durchläuft die offene Linie bis zur achten Reihe und die Bauern verweigern dem König jede Flucht.",
+        "wrong": "Der König atmet noch; nimm die offene Linie bis zum Ende."
+      },
+      "c2": {
+        "title": "Der Turm auf der siebten",
+        "teach": "Die siebte Reihe ist Beuteland für den Turm; dort fällt das Material ohne Verteidigung. Rücke über die offene Linie vor und hole dir deine Beute.",
+        "observe": "Der schwarze Turm auf a7 steht allein, ohne einen einzigen Verteidiger, der ihn deckt.",
+        "goal": "Schlage den feindlichen Turm.",
+        "hints": [
+          "Die a-Linie ist vor dir frei.",
+          "Keine schwarze Figur verteidigt das Feld a7.",
+          "Steige über die Linie hinab und schlage: Txa7."
+        ],
+        "explain": "Txa7 gewinnt einen ganzen Turm: die offene Linie führt deinen Turm auf die siebte und der König auf g8 ist zu weit entfernt, um zu reagieren.",
+        "wrong": "Du hast die Beute entkommen lassen; die offene Linie lieferte dir den Turm."
+      },
+      "c3": {
+        "title": "Verbundene Türme",
+        "teach": "Zwei Türme, die sich schützen, sind mehr wert als das Doppelte eines einzelnen: einer greift an und der andere schließt die Tür. Verbunden weben sie ein Netz, dem der König nicht entrinnt.",
+        "observe": "Der schwarze König auf a8 kann nur von b7 träumen; beobachte, welcher Turm dieses Feld bewacht.",
+        "goal": "Gib Schachmatt mit den beiden Türmen.",
+        "hints": [
+          "Der Turm auf b1 deckt bereits das Feld b7, den einzigen Ausgang des Königs.",
+          "Du musst auf der achten Reihe Schach geben, ohne dass der König fliehen kann.",
+          "Führe den anderen Turm auf die achte: Tc8 ist Matt."
+        ],
+        "explain": "Tc8 ist Matt: ein Turm gibt Schach auf der achten Reihe, während sein Gefährte von b1 aus b7 versperrt. Das ist die Macht der verbundenen Türme.",
+        "wrong": "Ein einzelner Turm genügt nicht; lass beide zusammenarbeiten."
+      },
+      "c4": {
+        "title": "Der Turm, der die Dame gewinnt",
+        "teach": "Ein gut postierter Turm auf offener Linie fürchtet die Dame nicht: er stellt sich ihr auf Augenhöhe. Mit einem Schach auf der Linie richtest du König und Dame aus und kassierst die schwere Figur.",
+        "observe": "Der schwarze König auf a4 und die Dame auf a8 teilen dieselbe Linie; es fehlt nur, sie mit Schach zu öffnen.",
+        "goal": "Gewinne die feindliche Dame mit einem Spieß.",
+        "hints": [
+          "Die a-Linie richtet den König auf a4 mit der Dame auf a8 aus.",
+          "Gib Schach über die a-Linie: du spießt den König mit der Dame dahinter.",
+          "Spiele Ta1+; wenn der König zur Seite geht, gewinnt Txa8 die Dame."
+        ],
+        "explain": "Ta1+ ist ein Spieß: König und Dame fallen auf dieselbe Linie. Der König muss zur Seite gehen und dann holt Txa8 die Dame.",
+        "wrong": "Die Dame überlebte; nutze die Linie und das Schach, um sie zu spießen."
+      },
+      "c5": {
+        "title": "Der Pfad des Wächters",
+        "teach": "Jetzt verteidigst und greifst du ohne jeden Rat an; nur deine Berechnung hält die Stellung. Finde den Spieß, der den Pfad krönt.",
+        "observe": "Der schwarze König auf e5 und der Turm auf e8 teilen die e-Linie, die noch geschlossen ist.",
+        "goal": "Finde den Zug, der den Turm gewinnt.",
+        "hints": [],
+        "explain": "Te1+ spießt den König mit dem Turm dahinter auf der e-Linie; der König geht zur Seite und Txe8 gewinnt den Turm.",
+        "wrong": "Das war nicht der Pfad; ein einziger Zug spießt den König und gewinnt den Turm."
+      }
+    },
+    "nyra": {
+      "intro": "Ich bin Nyra. Ich schreie meine Absichten nicht heraus: ich lasse sie über eine Diagonale gleiten und warte, bis das Brett begreift. Ein gut aufgestellter Läufer hat die Partie bereits gewonnen; es fehlt nur, dass der Gegner es merkt.",
+      "reward": "Pfad der Diagonale",
+      "chron": [
+        "Im ersten Schritt ließ ich die Diagonale sprechen: der Turm fiel, ohne dass ich die Stimme erhob.",
+        "Ich durchquerte das ganze Brett in Stille und fand die Dame unvorbereitet; die Infiltration bittet nicht um Erlaubnis.",
+        "Der Springer gab vor, das Haus zu hüten, gefesselt wie er war; ich dankte ihm für die Komödie und nahm den Turm mit.",
+        "Ich fesselte den Wächter an seinen eigenen König und holte die Dame mit einem Schach, fast mit Bedauern.",
+        "Ohne Hinweise richtete ich den König mit seiner Dame aus und schob den einen zur Seite, um die andere zu behalten."
+      ],
+      "c1": {
+        "title": "Die Reichweite der Diagonale",
+        "teach": "Der Läufer rennt nicht: er reicht. Eine freie Diagonale verwandelt Entfernung in unmittelbare Bedrohung.",
+        "observe": "Folge der Diagonale deines Läufers bis zum anderen Ende des Bretts.",
+        "goal": "Schlage den Turm.",
+        "hints": [
+          "Dein Läufer bewohnt nur eine Farbe; sieh dir die lange Diagonale an, die er beherrscht.",
+          "Der schwarze Turm ruht auf derselben Diagonale, ohne jemanden, der ihn schützt.",
+          "Läufer von c3 nach g7: durchlaufe sie ganz."
+        ],
+        "explain": "Lxg7 gewinnt den Turm sauber: nichts stellt sich der Diagonale in den Weg und niemand verteidigt ihn.",
+        "wrong": "Du hast die Diagonale halb gelassen; der Turm steht noch."
+      },
+      "c2": {
+        "title": "Infiltration",
+        "teach": "Eine offene Diagonale ist ein Weg bis ins feindliche Herz. Der Läufer schleicht sich lautlos hinein und kassiert, was er findet.",
+        "observe": "Die lange Diagonale durchquert das Brett von deinem Läufer bis zur schwarzen Dame.",
+        "goal": "Gewinne die Dame.",
+        "hints": [
+          "Von g2 aus blickt dein Läufer sieben Felder zum gegnerischen Flügel.",
+          "Nichts blockiert den Weg bis b7, und die Dame hat keine Bedeckung.",
+          "Läufer nach b7: infiltriere die Diagonale und schlage."
+        ],
+        "explain": "Lxb7 nimmt die Dame mit: die Infiltration über die lange Diagonale trifft auf keinerlei Widerstand.",
+        "wrong": "Du hast zu früh angehalten; die Dame wartete am Ende des Weges."
+      },
+      "c3": {
+        "title": "Die Fesselung verrät",
+        "teach": "Eine gefesselte Figur gibt vor zu verteidigen, kann sich aber nicht bewegen. Was sie schützt, ist in Wahrheit ungedeckt.",
+        "observe": "Der Springer auf e6 scheint g7 zu hüten; sieh, was hinter ihm ist, auf der e-Linie.",
+        "goal": "Schlage den Turm.",
+        "hints": [
+          "Dein Turm auf e1 fesselt den Springer an seinen eigenen König.",
+          "Gefesselt kann dieser Springer auf g7 nicht zurückschlagen.",
+          "Läufer von a1 nach g7: der Turm fällt ohne Antwort."
+        ],
+        "explain": "Lxg7 gewinnt den Turm: der Springer ist an den König gefesselt und kann den Schlag nicht erwidern.",
+        "wrong": "Du hast auf seinen Wächter vertraut; aber dieser Springer ist gefesselt und verteidigt nichts."
+      },
+      "c4": {
+        "title": "Der gefesselte Wächter",
+        "teach": "Fessle die Figur an ihren König und ihre Verteidigung wird zur Fiktion. Dann holt der Läufer die Dame mit aller Höflichkeit.",
+        "observe": "Der Springer auf a7 stützt die Dame; beobachte die a-Linie und den König am Ende.",
+        "goal": "Gewinne die Dame mit Schach.",
+        "hints": [
+          "Der Turm auf a1 fesselt den Springer auf a7 an den König auf a8.",
+          "Die Dame auf c6 zählt nur auf diesen Springer, der sich nicht bewegen kann.",
+          "Läufer nach c6: Schach, und die Dame gehört dir."
+        ],
+        "explain": "Lxc6+ gewinnt die Dame mit Schach: der gefesselte Springer schlägt nicht zurück und der König erreicht c6 nicht.",
+        "wrong": "Die Dame schien verteidigt; ihr Wächter, gefesselt, war nur eine Illusion."
+      },
+      "c5": {
+        "title": "Der Spieß",
+        "teach": "Richte den König mit dem aus, was er liebt, und zwinge ihn, zur Seite zu gehen. Dahinter bleibt die Dame allein auf der Diagonale.",
+        "observe": "König und Dame teilen dieselbe Diagonale, und dein Läufer bewacht sie.",
+        "goal": "Gewinne die Dame.",
+        "hints": [],
+        "explain": "Le4+ spießt: der König muss ziehen und der Läufer schlägt die Dame, die in seinem Rücken stand.",
+        "wrong": "Das war es nicht; ein einziger Zug richtet den König aus und verurteilt die Dame."
+      }
+    },
+    "pip": {
+      "intro": "Ich bin Pip, der Bauer, der niemals aufhört vorzurücken. Schritt für Schritt, Feld für Feld, lehre ich dich, dass selbst der Kleinste zum Riesen werden kann.",
+      "reward": "Herz eines Bauern",
+      "chron": [
+        "Mit einem einzigen mutigen Schritt berührte Pip die achte Reihe und eine Dame wurde geboren, wo zuvor nur ein Traum war.",
+        "Ohne Angst vor dem feindlichen Turm schob Pip ihn beiseite und wandelte an seiner Stelle um: nichts hält den auf, der vorrückt!",
+        "Vor zwei Wegen wählte Pip den sicheren Pfad und wich der Falle des Läufers aus, um heil und unversehrt umzuwandeln.",
+        "In der Ecke des Bretts tat der kleine Pip den letzten Schritt und besiegelte das Schachmatt: der Bescheidenste entschied die Schlacht.",
+        "Allein, ohne Hinweise noch Hilfe, wandelte Pip mit Schach um und fing den Turm: der Meisterpfad war vollendet."
+      ],
+      "c1": {
+        "title": "Der erste Schritt zur Dame",
+        "teach": "Ein Bauer, der die letzte Reihe erreicht, verwandelt sich in die Figur deiner Wahl, fast immer in eine mächtige Dame. Diese Reise bis zur achten Reihe nennt man Umwandlung, und sie ist der Traum jedes Bauern.",
+        "observe": "Sieh meinen Bauern auf a7: ihm fehlt nur ein Schrittchen bis zum Ende des Bretts. Der feindliche König ist nah, also muss man jetzt umwandeln.",
+        "goal": "Wandle den Bauern um, indem du nach a8 vorrückst.",
+        "hints": [
+          "Zähle, wie viele Felder meinem Bauern bis zur achten Reihe fehlen.",
+          "Wenn ich warte, schlägt der schwarze König meinen Bauern; man muss jetzt sofort handeln.",
+          "Rücke von a7 nach a8 vor und wähle eine Dame: außerdem gibst du Schach!"
+        ],
+        "explain": "Beim Vorrücken nach a8 verwandelt sich der Bauer mit Schach in eine Dame und gewinnt auf einen Schlag die stärkste Figur des Bretts. Jede Verzögerung würde den schwarzen König meinen Bauern schlagen lassen.",
+        "wrong": "Fast, aber wenn ich jetzt nicht umwandle, frisst der feindliche König meinen Bauern; rücke nach a8 vor."
+      },
+      "c2": {
+        "title": "Ich wandle schlagend um",
+        "teach": "Ein Bauer wandelt geradeaus schiebend um, aber er kann auch schlagend in der Diagonale umwandeln. Eine Figur zu schlagen und sich im selben Zug in eine Dame zu verwandeln ist doppelt mächtig.",
+        "observe": "Achte auf den schwarzen Turm auf b8, genau in der Diagonale meines Bauern von a7. Ich kann ihn schlagen und zugleich umwandeln.",
+        "goal": "Schlage auf b8 und wandle um.",
+        "hints": [
+          "Ein Bauer schlägt in der Diagonale: sieh, welche Figur auf b8 steht.",
+          "Den Turm zu schlagen und umzuwandeln auf demselben Feld ist besser als geradeaus vorzurücken.",
+          "Spiele a7 mal b8 und wähle eine Dame: du gewinnst den Turm und erschaffst eine Dame mit Schach."
+        ],
+        "explain": "Beim Schlagen auf b8 beseitige ich den feindlichen Turm und erscheine als Dame mit Schach, wobei ich auf einmal sehr viel Material gewinne. Geradeaus vorzurücken hätte den Turm am Leben gelassen.",
+        "wrong": "Nicht ganz: es gibt einen Schlag in der Diagonale, der den Turm gewinnt und zugleich umwandelt; spiele a7 mal b8."
+      },
+      "c3": {
+        "title": "Der sichere Weg",
+        "teach": "Wenn du mehrere Bauern nahe der Umwandlung hast, sind nicht alle Umwandlungsfelder sicher. Die gute Struktur lehrt dich, dort umzuwandeln, wo der Feind deine neue Dame nicht schlagen kann.",
+        "observe": "Ich habe zwei Bauern kurz vor der Umwandlung, auf a7 und c7. Aber der feindliche Läufer bewacht das Feld c8, dort umzuwandeln wäre also ein Geschenk.",
+        "goal": "Wandle auf der sicheren Seite auf a8 um.",
+        "hints": [
+          "Beobachte, welches Umwandlungsfeld der schwarze Läufer bewacht.",
+          "Wenn ich auf c8 umwandle, frisst der Läufer meine Dame; suche das freie Feld.",
+          "Rücke den Bauern von a7 nach a8 vor: niemand verteidigt oder greift diese Ecke an."
+        ],
+        "explain": "Auf a8 umzuwandeln erschafft eine Dame mit Schach, die kein Feind schlagen kann, während sie auf c8 umzuwandeln sie an den Läufer verlöre. Das sichere Feld zu wählen ist reine Bauernstruktur.",
+        "wrong": "Vorsicht: der Läufer bewacht c8 und würde meine Dame schlagen; wandle besser auf a8 um."
+      },
+      "c4": {
+        "title": "Der entscheidende Schritt",
+        "teach": "Ein Bauer, der umwandelt, gewinnt nicht nur Material: manchmal gibt er das finale Schachmatt. Mit Hilfe seiner Gefährten kann selbst der bescheidenste Bauer die Partie beschließen.",
+        "observe": "Mein feindlicher König ist in der Ecke h8 in die Enge getrieben. Mein Bauer auf g6 versperrt ihm das Feld h7, und es fehlt nur mein Bauer auf f7 für den letzten Schlag.",
+        "goal": "Wandle auf f8 um und gib Matt.",
+        "hints": [
+          "Der schwarze König steht in der Ecke: zähle seine Fluchtfelder.",
+          "Mein Bauer auf g6 kontrolliert bereits h7; es fehlt nur, die achte Reihe zu decken.",
+          "Rücke f7 nach f8 vor und wandle in eine Dame um: es ist Schachmatt."
+        ],
+        "explain": "Bei der Umwandlung auf f8 gibt die neue Dame Schach über die achte Reihe, während der Bauer auf g6 ihm den Ausgang über h7 nimmt; der König hat kein Entkommen und es ist Matt. Nur die Dame deckt alle Felder zugleich.",
+        "wrong": "Noch ist es kein Matt: wandle auf f8 in eine Dame um und der König in der Ecke bleibt ohne Entkommen."
+      },
+      "c5": {
+        "title": "Die Prüfung des Champions",
+        "teach": "Ein Freibauer rückt ohne Angst vor, und beim Umwandeln mit Schach kann er Zeit gewinnen, um eine andere Figur anzugreifen. Sieh stets, was du außer der Dame selbst gewinnst.",
+        "observe": "Mein Bauer auf d7 steht einen Schritt vor der Umwandlung, der schwarze König ruht auf h8 und ein einsamer Turm bewacht von a5 aus.",
+        "goal": "Wandle mit Schach um und gewinne den Turm.",
+        "hints": [],
+        "explain": "Bei der Umwandlung auf d8 erscheint eine Dame, die Schach über die achte Reihe gibt und außerdem über die Diagonale auf den Turm auf a5 zielt; nach dem Königszug schlage ich den Turm gratis. Ich wandle um und gewinne Material in derselben Idee.",
+        "wrong": "Denk daran, mit Schach umzuwandeln: es gibt ein Feld, von dem aus meine neue Dame den König und den Turm zugleich angreift."
+      }
+    },
+    "ordan": {
+      "intro": "Ich bin Ordan, und ich habe mehr Endspiele überlebt, als du Partien gespielt hast. Hüte deinen König wie dein eigenes Leben und lerne, ihn als Waffe zu führen, wenn sich das Brett leert: das ist meine ganze Lehre.",
+      "reward": "Pfad des Throns",
+      "chron": [
+        "Ich drängte den feindlichen König allein mit dem Blick meines Königs gegen die Mauer, und der Turm sprach das Urteil.",
+        "Ich verfolgte ihn bis in die Ecke, wo kein Thron schützt, und schloss ohne Eile die letzte Tür.",
+        "Ich befahl meiner Dame, ihre eitlen Schachs zu verstummen und die Linie zu versiegeln; der schwarze König blieb ohne Luft.",
+        "Ich stellte meinen König Schulter an Schulter zur Dame, Mauer gegen Mauer, und es gab keine Ritze, durch die er fliehen konnte.",
+        "Und am Ende, ohne Rat noch Hinweis, ließ ich die Opposition sprechen: die Dame stieg auf die achte hinab und alles war vorbei."
+      ],
+      "c1": {
+        "title": "Der König, der in die Enge treibt",
+        "teach": "Im Endspiel hört dein König auf, sich zu verstecken, und beginnt zu befehlen. Er ist es, der den Feind gegen den Rand einschließt; der Turm versetzt nur den Schlag.",
+        "observe": "Sieh, wie dein König auf g6 dem schwarzen König frontal gegenübersteht: das nennt man Opposition, und sie raubt ihm die Fluchtfelder.",
+        "goal": "Gib Matt auf der letzten Reihe.",
+        "hints": [
+          "Deine Könige stehen in direkter Opposition; der schwarze kann weder vorrücken noch über die Flügel entkommen.",
+          "Dein Turm ist frei auf der ersten Reihe und die achte ist verlassen.",
+          "Turm von b1 nach b8: Schachmatt."
+        ],
+        "explain": "Tb8 ist Matt: dein König deckt f7, g7 und h7, und der Turm schneidet die einzige Reihe ab, die dem Feind blieb.",
+        "wrong": "Der schwarze König atmete auf: ohne die Opposition deines Königs schließt der Turm allein ihn niemals ein."
+      },
+      "c2": {
+        "title": "Der Käfig in der Ecke",
+        "teach": "Die Ecke ist das Grab des einsamen Königs. Wenn sich der Feind in die Ecke flüchtet, bewacht dein König die Ausgänge und der Turm schließt die Tür.",
+        "observe": "Der schwarze König auf h8 hat keine Luft mehr; dein König auf g6 versiegelt g7, g8 und h7.",
+        "goal": "Schließe den Käfig mit Matt.",
+        "hints": [
+          "Zähle die Felder des schwarzen Königs: dein König hat sie ihm alle bis auf die Reihe genommen.",
+          "Der Turm auf f7 beherrscht die siebte; auch Herr der achten zu sein wird tödlich sein.",
+          "Turm von f7 nach f8: Schachmatt."
+        ],
+        "explain": "Tf8 ist Matt: der in die Ecke getriebene König hat keine Flucht und dein Monarch verteidigt jedes Fluchtfeld.",
+        "wrong": "Du hast dem Gefangenen Luft gegeben; in der Ecke befreit ihn eine einzige Unachtsamkeit."
+      },
+      "c3": {
+        "title": "Die Dame gehorcht dem König",
+        "teach": "Die Dame ist mächtig, aber ohne den König, der ihr den Weg weist, verteilt sie nur leere Schachs. Lass deinen König die Felder rauben und die Dame den Rest versiegeln.",
+        "observe": "Dein König auf f7 bewacht bereits g7 und g8; dem schwarzen König bleibt nur, über die h-Linie zu atmen.",
+        "goal": "Versiegle die h-Linie mit Matt.",
+        "hints": [
+          "Der schwarze König auf h8 hängt von einem einzigen Fluchtfeld ab: h7.",
+          "Führe deine Dame auf die h-Linie, um h8 und h7 auf einmal zu beherrschen.",
+          "Dame von b1 nach h1: Schachmatt."
+        ],
+        "explain": "Dh1 ist Matt: die Dame bemächtigt sich der ganzen h-Linie, während dein König die Flucht über g7 und g8 versperrt.",
+        "wrong": "Die Dame schrie vergebens; ohne die h-Linie zu schließen, entwischt der schwarze König."
+      },
+      "c4": {
+        "title": "Schulter an Schulter",
+        "teach": "Nähere die Dame niemals dem feindlichen König, ohne dass dein eigener König sie schützt. Zusammen, Schulter an Schulter, errichten sie eine Mauer, die keine Ritze lässt.",
+        "observe": "Dein König auf f6 verteidigt das Feld g7; dort, und nur dort, wird die Dame unantastbar, an den schwarzen König geschmiegt.",
+        "goal": "Liefere die Dame einen Schritt vom König entfernt, mit Matt.",
+        "hints": [
+          "Der schwarze König auf h8 erstickt; es fehlt, ihm g7 und g8 zugleich zu nehmen.",
+          "Nur ein Feld gibt dir beides, und dein König schützt es bereits.",
+          "Dame von g1 nach g7: geschütztes Schachmatt."
+        ],
+        "explain": "Dg7 ist Matt: die Dame umarmt den schwarzen König und dein König verteidigt sie, sodass sie weder geschlagen noch umgangen werden kann.",
+        "wrong": "Du hast die Dame ohne Bedeckung genähert; ein König allein hätte sie verschlungen."
+      },
+      "c5": {
+        "title": "Das Urteil der Opposition",
+        "teach": "Jetzt bist du allein, ohne meine Stimme. Denk daran: zuerst erobert der König die Felder, dann krönt die schwere Figur die Arbeit.",
+        "observe": "Könige auf der e-Linie gegenübergestellt, und eine Dame, die ihr letztes Wort noch nicht gesprochen hat.",
+        "goal": "Finde das Matt in einem Zug.",
+        "hints": [],
+        "explain": "Db8 ist Matt: in der Opposition verweigert dein König d7, e7 und f7, und die Dame, die die achte Reihe erreicht, deckt den ganzen Rückzug, einschließlich f8.",
+        "wrong": "Das war es nicht. Lass deinen König seine Arbeit tun und suche die Reihe, die der Feind nicht überqueren kann."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Wir sind Eira und Vhal, Zwillingsreiter desselben Springerpaares: ich, Eira, rechne, bevor ich springe; ich, Vhal, springe und lache danach. Gemeinsam lehren wir dich, ALLE Schläge zu betrachten und den zu wählen, der am meisten gewinnt, denn der gute Reiter nimmt nie den ersten, den er sieht.",
+      "reward": "Reiter des Doppelsprungs",
+      "chron": [
+        "Eira zeigte auf den Turm, Vhal zeigte auf die Dame; der Springer sprang nach g5 und wir kehrten mit der Krone des Feindes zurück.",
+        "Zwei Gabeln taten sich vor uns auf: Vhal rief 'den Turm', doch Eira wählte die Dame auf d6 und das Brett gab uns recht.",
+        "Das Fohlen sprang mit Schach nach f6; der Turm auf g5 zwinkerte uns zu, doch wir nahmen die Dame und das Echo des Galopps.",
+        "Se7 klang wie ein Donner mit Schach; wir ignorierten den leichten Turm und kassierten die Dame auf g6 wie gute Geschwister.",
+        "Ohne Hinweise, ohne Stimmen, nur der Instinkt von Vhal und die Berechnung von Eira: b5, und die feindliche Dame fiel in Stille."
+      ],
+      "c1": {
+        "title": "Zwei Beuten, eine Wahl",
+        "teach": "Wenn dein Springer mehrere Figuren zugleich angreift, friss nicht die erste, die du siehst: vergleiche sie. Unter allen möglichen Schlägen ist der beste der, der am meisten Material einbringt.",
+        "observe": "Sieh dir die beiden Felder an, die dein Springer angreift: eines birgt einen Turm, das andere eine Dame. Wäge ab, wie viel jede wert ist, bevor du entscheidest.",
+        "goal": "Schlage die wertvollere Figur.",
+        "hints": [
+          "Dein Springer auf e4 bedroht zwei ungedeckte schwarze Figuren: frage, welche mehr wert ist.",
+          "Eine Dame ist viel mehr wert als ein Turm; das ist das Ziel.",
+          "Springe nach g5 und nimm die Dame mit."
+        ],
+        "explain": "Beide Figuren hingen ungedeckt, aber die Dame (9) übertrifft den Turm (5) bei weitem: sie zu schlagen bedeutet, mit demselben Zug mehr zu gewinnen.",
+        "wrong": "Dieser Schlag gewinnt weniger: vergleiche noch einmal den Wert der beiden Figuren."
+      },
+      "c2": {
+        "title": "Zwei rivalisierende Gabeln",
+        "teach": "Manchmal vergleichst du keine Schläge, sondern Züge, die eine doppelte Drohung erschaffen. Wähle die Gabel, die die wertvollere Figur fängt.",
+        "observe": "Dein Springer hat zwei Sprünge, die zugleich Schach und Gabel geben: einer sticht den Turm, der andere die Dame. Beobachte, was jeder fängt.",
+        "goal": "Gib das Gabelschach, das die Dame gewinnt.",
+        "hints": [
+          "Zwei Sprünge geben von e4 aus Schach; beide gewinnen Material, aber nicht dasselbe.",
+          "Suche das Schach, das den König und die DAME zugleich angreift.",
+          "Springe nach d6: Schach dem König auf e8 und Gabel gegen die Dame auf b7."
+        ],
+        "explain": "Sd6+ greift König und Dame auf einen Schlag an; der König muss ziehen und der Springer kassiert die Dame, mehr als die rivalisierende Gabel, die nur den Turm gewann.",
+        "wrong": "Diese Gabel gewinnt weniger: suche das Schach, das die Dame fängt, nicht den Turm."
+      },
+      "c3": {
+        "title": "Leichter Schlag oder gewinnender Sprung",
+        "teach": "Der offensichtlichste Schlag ist nicht immer der, der am meisten gewinnt. Vergleiche, eine hängende Figur zu schlagen, mit einem Sprung, der eine größere Drohung erschafft.",
+        "observe": "Du kannst den Turm auf g5 sofort schlagen oder mit Schach springen und die Dame bedrohen. Sieh, welche Beute größer ist.",
+        "goal": "Wähle den Sprung mit Schach, der die Dame gewinnt.",
+        "hints": [
+          "Der Turm auf g5 ist verlockend, aber er ist nur 5 wert.",
+          "Ein Schach von f6 aus greift den König an und berührt die Dame auf d7.",
+          "Spiele Sf6+; nach dem Schach schlage die Dame auf d7."
+        ],
+        "explain": "Sf6+ zwingt den König zu ziehen und lässt die Dame ungeschützt vor dem Springer: du gewinnst 9 statt der 5 des leichten Turms.",
+        "wrong": "Du hast die kleine Beute genommen: es gab ein Schach, das die ganze Dame gewann."
+      },
+      "c4": {
+        "title": "Der Donner von e7",
+        "teach": "Bevor du schlägst, prüfe, ob ein Sprung mit Schach etwas Größeres gewinnt. Kandidaten zu vergleichen heißt, auch die Züge zu betrachten, die noch keine Schläge sind.",
+        "observe": "Der Turm auf f6 ist da, um ihn zu schlagen, aber dein Springer kann von e7 aus Schach geben und den Blick auf die Dame heften. Vergleiche die beiden Ausgänge.",
+        "goal": "Gib das Gabelschach und schlage die Dame.",
+        "hints": [
+          "Den Turm auf f6 zu schlagen gewinnt nur 5 Punkte.",
+          "Von e7 aus gibt dein Springer dem König Schach und bedroht die Dame auf g6.",
+          "Spiele Se7+; der König geht zur Seite und du nimmst die Dame auf g6."
+        ],
+        "explain": "Se7+ ist eine Gabel gegen König und Dame: der König muss fliehen und die Dame fällt, eine weit größere Beute als der Turm.",
+        "wrong": "Du hast weniger als möglich gewonnen: das Schach auf e7 nahm die Dame mit."
+      },
+      "c5": {
+        "title": "Die Prüfung der Zwillinge",
+        "teach": "Ohne Hinweise noch Stimmen: betrachte all deine Kandidaten und behalte den, der am meisten gewinnt. Der richtige Sprung ist nicht immer der lauteste.",
+        "observe": "Es gibt einen bequemen Schlag und einen lautlosen Sprung, der Schach gibt. Nur einer nimmt die Dame mit.",
+        "goal": "Finde den Zug, der am meisten Material gewinnt.",
+        "hints": [],
+        "explain": "Sb5+ gibt dem König auf d4 Schach und gabelt die Dame auf d6; der König kann sie nicht retten und der Springer kassiert die schwere Figur.",
+        "wrong": "Das war nicht der mit der größten Beute: es gibt ein Schach, das die Dame gewinnt."
+      }
+    },
+    "rhazek": {
+      "intro": "Ich bin Rhazek, und ich sammle keine Figuren: ich sammle gefallene Könige. Mein Springer fragt nie, wie viel das wert ist, was er hergibt, nur wie viel er gewinnt; folge mir, wenn du dich traust, und lerne zu opfern wie einer, der fordert, nicht wie einer, der fleht.",
+      "reward": "Herr des Opfers",
+      "chron": [
+        "Mein Springer sprang nach g6 und der Turm, verborgen wie ein Dolch im Ärmel, kassierte die Dame, die sich in Sicherheit wähnte.",
+        "Ein einziger Sprung nach e7 und der König hatte keinen Weg außer seinem Grab; meine Dame trat dahinter ein und schloss den Grabstein.",
+        "In der Ecke schloss ich ihn ein: Sf7 trieb ihn, De8 versiegelte ihn, und der König starb, seine eigenen Bauern anblickend.",
+        "Ich gab meine Dame auf g8 ohne Zittern her, denn das erstickte Matt ist mehr wert als tausend Kronen: mein Springer herrschte über die Erstickung des Königs.",
+        "Ohne Hinweise noch Gnade entdeckte ich das Schach und riss die Dame aus ihren Wachen: so graduiert, wer meinen Pfad geht."
+      ],
+      "c1": {
+        "title": "Der Schlag, der abzieht",
+        "teach": "Die Initiative gehört dir, wenn dein Zug zwingt und der Gegner nur antwortet. Ein springender Springer kann den Angriff einer verborgenen Figur aufdecken: ziehe mit Schach und lass den Turm die Rechnung kassieren.",
+        "observe": "Dein Springer auf e5 verdeckt die Mündung deines Turms auf e1, und dahinter wartet der schwarze König auf e8. Jene Dame auf g6 glaubt sich hinter ihrem Bauern unantastbar.",
+        "goal": "Springe, decke das Schach auf und nimm die Dame mit.",
+        "hints": [
+          "Dein Turm auf e1 zielt auf den König auf e8, aber der Springer schneidet ihm die Sicht ab.",
+          "Suche einen Sprung, der Abzugsschach gibt und außerdem die Dame berührt.",
+          "Sxg6: Schwarz muss das Turmschach parieren und die Dame fällt."
+        ],
+        "explain": "Sxg6 öffnet die e-Linie mit Turmschach; Schwarz muss den König retten und kann nicht zurückgewinnen. Du nimmst die ganze Dame mit, ohne etwas zu zahlen.",
+        "wrong": "Lauwarm: ohne das Abzugsschach atmet Schwarz auf und die feindliche Dame entwischt dir."
+      },
+      "c2": {
+        "title": "Ein Sprung, ein Matt",
+        "teach": "Manchmal gewinnt dein Springer kein Material: er gewinnt das ganze Brett. Gib Schach, um ihn aus dem Weg zu räumen, und lass deine Dame zum Töten eintreten.",
+        "observe": "Dein Springer auf d5 steht deiner eigenen Dame auf d2 im Weg. Springt er mit Schach, öffnet sich die Linie schlagartig zum König auf g8.",
+        "goal": "Gib das Springerschach und vollende mit der Dame.",
+        "hints": [
+          "Deine Dame auf d2 begehrt das Feld d8, aber der Springer versperrt ihr den Weg.",
+          "Springe mit Schach nach e7: der König wird nur ein Feld haben.",
+          "Se7+ und dann Dd8 ist Matt; der Springer bewacht g8."
+        ],
+        "explain": "Se7+ räumt die d-Linie mit Schach und drängt den König in die Ecke; Dd8 ist Matt, mit dem Springer, der g8 deckt. Zwei Schläge, null Zweifel.",
+        "wrong": "Langsam: der König wird nicht durch Anblicken gefangen, und ohne das Schach gibt es kein Matt."
+      },
+      "c3": {
+        "title": "Die Ecke ohne Ausweg",
+        "teach": "Der in die Enge getriebene König ist ein Gefangener, der es noch nicht weiß. Ein Springerschach fesselt ihn und deine nun freie Dame schließt die letzte Tür.",
+        "observe": "Der Springer auf e5 versiegelt die Linie deiner Dame auf e1. Der König auf h8 ist lebendig begraben zwischen g7 und h7.",
+        "goal": "Springerschach und Matt mit der Dame.",
+        "hints": [
+          "Deine Dame auf e1 träumt von e8, aber der Springer sperrt sie ein.",
+          "Sf7+ zwingt den König nach g8, sein einziges Feld.",
+          "Nach Sf7+ geht der König nach g8; dann ist De8 Matt, mit dem Springer, der h8 bewacht."
+        ],
+        "explain": "Sf7+ reißt den König nach g8 und öffnet die e-Linie; De8 gibt Matt, verteidigt vom Springer auf f7 und mit versperrtem h8. Die Ecke war sein Grab.",
+        "wrong": "Schwach: ohne den Sprung, der Schach gibt, prallt deine Dame auf die Bauern und es gibt kein Matt."
+      },
+      "c4": {
+        "title": "Das erstickte Matt",
+        "teach": "Hier entsteht das wahre Opfer: du gibst deine Dame her, die teuerste Figur, weil das Matt mehr wert ist als alles Gold des Bretts. Der Springer vollendet genau dort, wo die Dame fällt.",
+        "observe": "Der König auf h8 ist von den Seinen umringt: Bauern auf g7 und h7, Turm auf f8. Ihm bleibt nur ein freies Feld; nimm es ihm.",
+        "goal": "Verkette die Springerschachs und opfere die Dame, um Matt zu geben.",
+        "hints": [
+          "Der König erstickt zwischen seinen Figuren; es fehlt nur, ihm g8 zu schließen.",
+          "Sf7+ Kg8, Sh6+ Kh8: der König kehrt in die Ecke zurück, gefangen.",
+          "Dann Dg8+!! Der Turm ist gezwungen zu schlagen, und Sf7 ist ersticktes Matt."
+        ],
+        "explain": "Nach Sf7+ Kg8 Sh6+ Kh8 zwingt das Opfer Dg8+ zu Txg8, und Sf7 gibt Matt: der König stirbt, erstickt von den Seinen. Die Dame wird hergegeben, damit der Springer herrsche.",
+        "wrong": "Großartig, aber du hast gefehlt: nur die genaue Kombination mit dem Damenopfer liefert das erstickte Matt."
+      },
+      "c5": {
+        "title": "Die Prüfung von Rhazek",
+        "teach": "Ohne Hinweise, ohne Stimmen, ohne Netz. Finde den Schlag, der das Schach aufdeckt und die Dame entreißt, auch wenn man sie für gut verteidigt hält.",
+        "observe": "Dein Springer auf e5 verdeckt den Turm auf e1, und der schwarze König wartet auf e8. Die Dame auf c4 stützt sich auf ihren Bauern auf b5 und fühlt sich unantastbar.",
+        "goal": "Decke das Schach auf und schlage die Dame.",
+        "hints": [],
+        "explain": "Sxc4+ öffnet die e-Linie mit Turmschach; Schwarz muss den König ziehen und kommt nicht dazu, mit dem Bauern zurückzugewinnen. Du nimmst die Dame mit, die man für geschützt hielt.",
+        "wrong": "Nein: es gibt ein Abzugsschach, das die Dame trotz ihres Bauern mitnimmt."
+      }
+    },
+    "oryn": {
+      "intro": "Ich bin Oryn, Wächter der offenen Linien, und meine Waffe ist der Turm. Geh ohne Eile: die Meisterschaft erobert man nicht mit Wut, sondern mit dem Blick, der die freie Linie sieht, bevor er zieht.",
+      "reward": "Wächter der Offenen Linie",
+      "chron": [
+        "An der ersten Schwelle erhob Oryn den Turm über die verlassene Reihe und versiegelte den König in seiner Ecke: das Matt kam in Stille, ohne ein einziges Hindernis, das es aufhielt.",
+        "Vor der zweiten Prüfung bot sich die offene Linie als gerader Weg; der Turm stieg hinab und die feindliche Dame fiel ohne Verteidigung, die sie schützte.",
+        "Im dritten Schritt schlug Oryn nicht sofort: er heftete seinen Blick auf die Linie, gab Schach und wartete geduldig, bis der König zur Seite ging, um seinen Preis zu kassieren.",
+        "Im vierten Ritus war die offene Linie ein Weg des Todes: der Turm stieg gerade hinab und der König, vom gegnerischen König eingekreist, fand kein Haus zur Flucht.",
+        "Auf dem letzten Pfad, ohne Stimme, die ihn leitete, las Oryn die ganze Reihe: ein präzises Schach, ein abgelenkter König, und die feindliche Dame lag dem stillen Stahl auf Gnade und Ungnade."
+      ],
+      "c1": {
+        "title": "Die Verlassene Reihe",
+        "teach": "Ein Turm auf einer Reihe oder Linie ohne Hindernisse erreicht jedes Feld dieser Linie. Wenn der feindliche König kein Entkommen hat, wird diese offene Linie zur Schneide des Matts.",
+        "observe": "Sieh dir die achte Reihe an: sie ist völlig frei. Beobachte, welche Felder dein eigener König um den gegnerischen Monarchen bereits deckt.",
+        "goal": "Gib Matt in einem Zug mit dem Turm.",
+        "hints": [
+          "Der schwarze König kann nur auf der achten Reihe atmen; dein König versperrt ihm die Fluchtfelder nach unten.",
+          "Suche ein Feld, von dem aus der Turm die ganze Reihe des feindlichen Königs beherrscht.",
+          "Führe den Turm nach a8: Schach ohne Entkommen."
+        ],
+        "explain": "Ta8 kontrolliert die ganze achte Reihe und dein König auf g6 bewacht f7, g7 und h7; der schwarze Monarch hat kein freies Feld. Es ist Matt.",
+        "wrong": "Dieser Zug lässt ein Fluchtfeld; die offene Linie tötet nur, wenn der König keine Zuflucht hat."
+      },
+      "c2": {
+        "title": "Der Gerade Weg",
+        "teach": "Eine offene Linie ist eine Avenue, die der Turm von einem Ende zum anderen ohne Halt durchläuft. Über sie kann er eine feindliche Figur schlagen, die kein Verteidiger schützt.",
+        "observe": "Achte auf die e-Linie: es gibt keine Bauern noch Figuren, die sie durchschneiden. An ihrem Ende wartet die schwarze Dame, allein und ohne Schutz.",
+        "goal": "Schlage die Dame mit dem Turm.",
+        "hints": [
+          "Die e-Linie ist völlig offen vor deinem Turm.",
+          "Die schwarze Dame hat keine Figur, die sie verteidigt.",
+          "Durchlaufe die Linie bis e8 und nimm die Dame mit Schach."
+        ],
+        "explain": "Txe8+ durchläuft die offene Linie und gewinnt die Dame ohne Kosten, dazu mit Schach; der schwarze König war zu weit entfernt, um sie zu verteidigen.",
+        "wrong": "Du hast die Avenue entkommen lassen; die offene Linie war der direkte Weg zur Dame."
+      },
+      "c3": {
+        "title": "Der Blick vor dem Schlag",
+        "teach": "Manchmal schlägt der Turm nicht sofort: zuerst richtet er den feindlichen König mit der Figur aus, die er begehrt. Das Schach lenkt den Monarchen ab und lässt die Beute am Ende der Linie ungeschützt.",
+        "observe": "Der schwarze König und die Dame teilen die e-Linie. Dein Turm ist noch nicht auf dieser Linie, aber er kann mit Schach in sie eintreten.",
+        "goal": "Gib Schach auf der Linie, um die Dame zu gewinnen.",
+        "hints": [
+          "Der schwarze König und die Dame stehen auf derselben Linie: der König vorne, die Dame dahinter.",
+          "Wenn dein Turm mit Schach in die e-Linie eintritt, muss der König zur Seite gehen.",
+          "Spiele Te1+: der König flieht von der Linie und dann fällt die Dame auf e8."
+        ],
+        "explain": "Te1+ ist ein Spieß: der schwarze König muss die e-Linie verlassen und, mit freier Linie, schlägt der Turm die Dame auf e8. Vor dem Schlag zu analysieren zahlt sich mehr aus als der überstürzte Schlag.",
+        "wrong": "Du hast geschlagen, ohne die Linie vorzubereiten; zuerst musste das Schach den König beiseite lenken, um die Beute freizulegen."
+      },
+      "c4": {
+        "title": "Die Linie des Urteils",
+        "teach": "Eine offene Linie gewinnt nicht nur Figuren: sie liefert auch den König. Wenn dein eigener König die seitlichen Felder versiegelt, steigt der Turm über die Linie hinab und schließt den letzten Ausgang.",
+        "observe": "Die h-Linie ist frei und der schwarze König ruht an ihrem Rand. Beachte, wie dein König auf f7 g7 und g8 bewacht, die einzigen Fluchtfelder.",
+        "goal": "Gib Matt in einem Zug mit dem Turm.",
+        "hints": [
+          "Dein König auf f7 beherrscht bereits g7 und g8; dem schwarzen König bliebe nur die h-Linie.",
+          "Besetze die h-Linie mit dem Turm, um diesen letzten Weg zu schließen.",
+          "Spiele Th1: Schach auf der Linie, ohne mögliches Entkommen."
+        ],
+        "explain": "Th1 gibt Schach über die offene Linie; g7 und g8 deckt dein König und h7 beherrscht der Turm. Der schwarze Monarch hat keine Zuflucht: es ist Matt.",
+        "wrong": "Der König findet noch ein Feld; die Linie richtet nur, wenn jede Flucht bewacht ist."
+      },
+      "c5": {
+        "title": "Der Pfad der Stille",
+        "teach": "Ohne Stimmen, die dich leiten, vertraue auf das Lesen der Linie. Eine offene Reihe erlaubt dem Turm, König und Dame zu spießen; das geduldige Schach kassiert danach, was die Eile niemals erreichen würde.",
+        "observe": "Der schwarze König und die Dame ruhen auf der vierten Reihe. Dein Turm in der Ecke kann in diese Reihe eintreten, in Abstand zum König, ohne dass dieser ihn schlagen kann.",
+        "goal": "Finde das Schach, das spießt und die Dame gewinnt.",
+        "hints": [],
+        "explain": "Ta4+ spießt über die vierte Reihe: der König, fern und unfähig zu schlagen, muss die Reihe verlassen, und der Turm holt die Dame auf h4. Der gelassene Blick besiegt den Impuls.",
+        "wrong": "Die Linie verlangte ein Schach, das den König spießte; der direkte Schlag war noch nicht in deiner Reichweite."
+      }
+    },
+    "vesra": {
+      "intro": "Ich bin Vesra, und meine Dame verfolgt nicht: sie schließt Türen. Beobachte, wie sich das Brett verengt, bis dem Gegner nur bleibt zu gehorchen.",
+      "reward": "Hüterin der Einschränkung",
+      "chron": [
+        "In der ersten Stille setzte sich die Dame neben den feindlichen König, und die Ecke wurde zu einem Grab ohne Ausweg.",
+        "Sie errichtete eine Linie wie einer, der eine Mauer aufrichtet, und der gegnerische Monarch entdeckte, dass es keinen Weg zur Flucht mehr gab.",
+        "Mit gelassener Höflichkeit entfernte sie die einzige Verteidigerin vom Brett, und die Stellung lag nackt vor meinem Willen.",
+        "Vom anderen Ende der Welt genügte eine einzige Linie, um die achte Reihe zu versiegeln und das Urteil zu sprechen.",
+        "Und in der letzten Prüfung bot sie ein Schach, das nicht tötete: es zwang nur zum Beiseitegehen, damit der Turm allein fiel."
+      ],
+      "c1": {
+        "title": "Die Ecke, die sich schließt",
+        "teach": "Einschränken heißt, Felder auszulöschen, bis der König keinen Ort mehr hat, wohin er gehen kann. Wenn jede Flucht erschöpft ist, hört das Schach auf, Drohung zu sein, und wird zum Urteil.",
+        "observe": "Sieh dir die Fluchtfelder des schwarzen Königs auf h8 an und beachte, dass dein eigener König auf f6 bereits g8 und g7 bewacht.",
+        "goal": "Gib Matt in einem Zug.",
+        "hints": [
+          "Der schwarze König atmet nur über g8, g7 und h7; dein König auf f6 deckt bereits zwei davon.",
+          "Nähere die Dame dem feindlichen König, geschützt von deinem Monarchen.",
+          "Führe die Dame nach g7: dein König hält sie und die Ecke schließt sich."
+        ],
+        "explain": "Dame g7 ist unmöglich zu schlagen, weil dein König auf f6 sie verteidigt, und sie deckt die letzten Ausgänge. Absolute Einschränkung: es ist Matt.",
+        "wrong": "Du hast ihm ein freies Feld gelassen; der König entkommt und die Einschränkung bricht."
+      },
+      "c2": {
+        "title": "Die Mauer der Linie",
+        "teach": "Eine einzige Figur kann eine ganze Linie schließen und sie in eine Wand verwandeln. Der König fällt nicht durch Gewalt, sondern weil ihm kein Raum bleibt, den er einnehmen könnte.",
+        "observe": "Achte auf die h-Linie, wo der schwarze König lebt, und auf deinen König auf f7, der g7 und g8 versiegelt.",
+        "goal": "Gib Matt in einem Zug.",
+        "hints": [
+          "Der König auf h8 hängt von der h-Linie und den g-Feldern ab, die dein König bewacht.",
+          "Du brauchst eine Figur, die die h-Linie von oben bis unten beherrscht.",
+          "Gleite mit der Dame nach h2: die ganze Linie ist verboten."
+        ],
+        "explain": "Dame h2 kontrolliert die ganze h-Linie und dein König auf f7 deckt g7 und g8. Ohne Felder erstickt der König: Matt.",
+        "wrong": "Die Linie hat noch eine Lücke; der König findet Luft und überlebt."
+      },
+      "c3": {
+        "title": "Die einzige Verteidigerin",
+        "teach": "Einschränken heißt auch, den zu beseitigen, der den Gegner stützt. Entferne seine einzige aktive Figur und die ganze Stellung ergibt sich ohne Widerstand.",
+        "observe": "Beide Damen blicken sich auf der d-Linie an; die schwarze ist die einzige Kraft, die dem Gegner bleibt.",
+        "goal": "Gewinne die feindliche Dame.",
+        "hints": [
+          "Deine Dame und die schwarze teilen dieselbe Linie, die d.",
+          "Du kannst mit Schach schlagen und den ganzen Vorteil behalten.",
+          "Schlage auf d8: du beseitigst seine einzige Figur und gibst zugleich Schach."
+        ],
+        "explain": "Dame mal d8 schlägt mit Schach die einzige Verteidigerin des Gegners; du behältst Dame gegen bloßen König, ein entscheidender Sieg.",
+        "wrong": "Du hast seine Dame verschont; solange sie lebt, kann sich der Gegner noch verteidigen."
+      },
+      "c4": {
+        "title": "Das Urteil aus der Ferne",
+        "teach": "Die Einschränkung verlangt keine Nähe: eine saubere Linie durchquert das ganze Brett. Aus der Ferne kann die Dame eine Reihe versiegeln und das Ende diktieren.",
+        "observe": "Der schwarze König auf h8 hängt an der achten Reihe; dein König auf g6 bewacht bereits g7 und h7.",
+        "goal": "Gib Matt in einem Zug.",
+        "hints": [
+          "Der König könnte nur über die achte Reihe oder über die g-Felder entkommen, die dein König deckt.",
+          "Suche, die achte Reihe mit deiner Dame ohne Hindernisse dazwischen zu besetzen.",
+          "Stelle die Dame auf b8: die Reihe ist aus der Ferne geschlossen."
+        ],
+        "explain": "Dame b8 beherrscht die ganze achte Reihe und dein König auf g6 versperrt die Ausgänge; der König kann sich weder bewegen noch decken: Matt.",
+        "wrong": "Die achte Reihe ist nicht versiegelt; der König entwischt durch die Ritze."
+      },
+      "c5": {
+        "title": "Das Schach, das zwingt",
+        "teach": "Der Zugzwang ist die höfliche Grausamkeit: nicht töten, sondern zwingen, sich in den Untergang zu bewegen. Ein Schach, dem der König ausweichen muss, kann die Figur entblößen, die sich hinter ihm verbarg.",
+        "observe": "Der schwarze König auf e5 und der Turm auf a5 teilen die fünfte Reihe; der Bauer auf e4 versperrt jedes Schach über die e-Linie.",
+        "goal": "Gewinne den Turm.",
+        "hints": [],
+        "explain": "Dame h5 gibt Schach über die fünfte Reihe; der König muss zur Seite gehen und hört auf, seinen Turm zu decken, der auf a5 fällt. Die Einschränkung in Beute verwandelt.",
+        "wrong": "Dieser Schlag zwingt zu nichts; ohne erzwungenes Schach behält der König seinen Turm."
+      }
+    },
+    "brakkon": {
+      "intro": "Ich bin Brakkon, und mein Turm sucht nicht den Ruhm: er behütet ihn. Wo andere den Angriff starten, errichte ich Mauern, und hinter ihnen ruht der König ohne Furcht.",
+      "reward": "Unbeweglicher Wächter",
+      "chron": [
+        "Als der feindliche Turm in die letzte Reihe einbrach, wich Brakkon nicht zurück: er entfernte ihn mit einem einzigen Schlag aus der Welt und die Mauer schloss sich wieder.",
+        "Ein Springer schlich sich durch die Schatten; der Turm patrouillierte die Reihe und entfernte ihn in Stille, ohne dass der König einen Finger rührte.",
+        "Die Dame glaubte das letzte Schach auszusprechen, aber der Turm teilte ihre Reihe und stürzte sie: ruhiger Stein gegen Sturm.",
+        "Von der Höhe der offenen Linie stieg der Turm wie eine Steinplatte hinab und versiegelte die Bedrohung, unbeweglich bis zum letzten Feld.",
+        "Und in der Prüfung, ohne Stimme, die ihn leitete, sah Brakkon das hinter der Ruhe verborgene Matt und löschte es, bevor es geboren wurde."
+      ],
+      "c1": {
+        "title": "Die Mauer bricht nicht",
+        "teach": "Verteidigen heißt, den zu erkennen, der droht, und ihn vom Brett zu entfernen, bevor er Schaden anrichtet. Der Turm flieht nicht: er stellt sich dazwischen, schlägt und gibt dem König die Ruhe zurück.",
+        "observe": "Sieh dir den schwarzen Turm auf e1 an: er gibt Schach über die erste Reihe. Dein König auf h1 ist von seinen eigenen Bauern f2, g2 und h2 eingesperrt.",
+        "goal": "Schlage den Turm, der Schach gibt.",
+        "hints": [
+          "Dein König kann sich nicht bewegen: seine Bauern f2, g2 und h2 umringen ihn vollständig.",
+          "Nur eine deiner Figuren erreicht die erste Reihe, um auf das Schach zu antworten.",
+          "Führe den Turm von a1 nach e1 und verschlinge den Angreifer."
+        ],
+        "explain": "Turm mal e1 beseitigt die Figur, die Schach gab, und lässt den König sicher hinter der Bauernmauer. Es ist die reinste Verteidigung: die Bedrohung an ihrem Ursprung löschen.",
+        "wrong": "Der König steht noch im Schach; nur dein Turm kann diese Bedrohung löschen."
+      },
+      "c2": {
+        "title": "Die bewachte Reihe",
+        "teach": "Die Koordination ist eine Figur, die deckt, was der König nicht kann. Dein Turm patrouilliert die ganze Reihe, und wenn sich ein Eindringling nähert, entfernt er ihn, ohne dass der Monarch seinen Posten verlässt.",
+        "observe": "Ein schwarzer Springer sprang nach e2 und gibt deinem König auf g1 Schach. Dein Turm beherrscht von a2 aus die ganze zweite Reihe.",
+        "goal": "Schlage den Springer, der Schach gibt.",
+        "hints": [
+          "Der Springer auf e2 greift deinen König an; du könntest fliehen, aber es gibt eine festere Antwort.",
+          "Dein Turm kontrolliert die zweite Reihe von einem Ende zum anderen.",
+          "Gleite mit dem Turm von a2 nach e2 und schlage den Springer."
+        ],
+        "explain": "Turm mal e2 kommt nicht nur aus dem Schach heraus: er nimmt den Springer mit und versiegelt den Königsflügel. Verteidigung und Gewinn in einer Geste.",
+        "wrong": "Fliehen rettet den König für einen Augenblick, aber der Eindringling lebt weiter; besser, ihn vom Brett zu entfernen."
+      },
+      "c3": {
+        "title": "Stein gegen die Dame",
+        "teach": "Keine Bedrohung ist zu groß, wenn deine Verteidigung ihre Linie teilt. Der Turm fürchtet die Dame nicht: wenn sie eindringt, stürzt der Turm sie und schützt den König.",
+        "observe": "Die schwarze Dame auf e1 gibt Schach über die erste Reihe. Dein König auf h1 hat kein einziges freies Feld.",
+        "goal": "Schlage die Dame, die Schach gibt.",
+        "hints": [
+          "Das Schach kommt über die erste Reihe und dein König ist von seinen Bauern ummauert.",
+          "Dein Turm auf b1 teilt dieselbe Reihe mit der Dame.",
+          "Turm von b1 nach e1: schlage die Dame und beende das Schach."
+        ],
+        "explain": "Turm mal e1 verschlingt die feindliche Dame und lässt den König unversehrt. Einen Turm gegen eine Dame zu tauschen, während man verteidigt, ist ein entscheidender Tausch.",
+        "wrong": "Mit dem eingesperrten König antwortet nur der Turm; lass ihn die Dame kassieren."
+      },
+      "c4": {
+        "title": "Die Steinplatte steigt hinab",
+        "teach": "Eine offene Linie ist ein Weg, den der Turm von oben bis unten bewacht. Wenn die Gefahr neben dem König auftaucht, steigt der Turm wie eine Steinplatte hinab und deckt ihn aus der Ferne.",
+        "observe": "Die schwarze Dame auf d1 gibt deinem in g1 eingekesselten König Schach. Dein Turm krönt die d-Linie von d7 aus, mit freiem Weg.",
+        "goal": "Schlage die Dame, die Schach gibt.",
+        "hints": [
+          "Die Dame greift über die erste Reihe an und dein König kann seine Ecke nicht verlassen.",
+          "Beobachte die d-Linie: sie ist von d7 bis d1 offen.",
+          "Steige mit dem Turm von d7 nach d1 hinab und schlage die Dame."
+        ],
+        "explain": "Turm mal d1 durchläuft die offene Linie und beseitigt die Dame; der König atmet auf und du behältst den ganzen Vorteil. Die Koordination zwischen Turm und König ist eine Mauer ohne Risse.",
+        "wrong": "Es gibt keine Flucht für den König; der Turm muss über die Linie hinabsteigen und die Dame kassieren."
+      },
+      "c5": {
+        "title": "Die Ruhe vor dem Matt",
+        "teach": "Die gefährlichste Bedrohung ist die stille: Dame und Läufer bereiten Dxg2 matt vor, ohne noch Schach zu geben. Der wahre Wächter sieht es kommen und entschärft es, bevor es explodiert.",
+        "observe": "Die Dame auf e4 und der Läufer auf f1 zielen auf g2: wenn du ihn ziehen lässt, ist Dxg2 Matt. Dein Turm wartet auf der e-Linie, auf e2.",
+        "goal": "Neutralisiere die Mattdrohung.",
+        "hints": [],
+        "explain": "Turm mal e4 entfernt die Dame über die e-Linie, bevor sie Dxg2 matt vollzieht; der Läufer bleibt allein und du mit gewinnendem Vorteil. Den Schlag vorherzusehen ist die höchste Verteidigung.",
+        "wrong": "Du hast die Bedrohung am Leben gelassen: der Läufer stützt die Dame und Dxg2 wäre Matt."
+      }
+    },
+    "ilyra": {
+      "intro": "Ich bin Ilyra, und ich verfolge meine Feinde nicht: ich erreiche sie aus der Ferne, über die Linie, die niemand beachtet. Ein Läufer rennt nicht; er zieht eine Gerade, und auf dieser Geraden stand bereits geschrieben, wer fallen würde.",
+      "reward": "Hüterin der Diagonalen",
+      "chron": [
+        "Von ihrer Ecke auf b2 aus spannte Ilyra eine einzige Diagonale bis zum letzten Feld, und die Dame, die sich fern glaubte, fiel, ohne sie kommen zu sehen.",
+        "Sie setzte das Schach auf die Gerade und wartete: der König ging gehorsam zur Seite, und dahinter wartete die Dame, schon ihr durch dieselbe Linie, die ihn geschoben hatte.",
+        "Über die hellen Felder durchquerte sie das Brett von einem Ende zum anderen, und wo der König sich in Sicherheit glaubte, hatte die Diagonale ihn bereits durchdrungen.",
+        "Sie entzündete das Schach auf den weißen Feldern; der König floh von der Geraden und die Dame, am Ende entblößt, ergab sich dem Blick des Läufers.",
+        "Ohne Stimme, die sie leitete, las Ilyra die stille Diagonale, schob den König mit einem gelassenen Schach und holte den Turm, den er hinter seinem Rücken verborgen glaubte."
+      ],
+      "c1": {
+        "title": "Die Diagonale hat kein Ende",
+        "teach": "Ein Läufer beherrscht seine ganze Diagonale, von einem Rand des Bretts zum anderen, gleich wie weit der Feind sich entfernt zu glauben meint. Was deine Feldfarbe teilt, ist bereits in deiner Reichweite.",
+        "observe": "Sieh dir die lange Diagonale von b2 aus an: c3, d4, e5, f6, g7... und am Ende, auf h8, die schwarze Dame, allein und ohne Verteidigung.",
+        "goal": "Schlage die Dame über die Diagonale.",
+        "hints": [
+          "Der Läufer auf b2 und die Dame auf h8 teilen dasselbe dunkle Feld: sie stehen auf einer einzigen Geraden.",
+          "Überprüfe, dass der Weg zwischen b2 und h8 von Anfang bis Ende frei ist.",
+          "Gleite mit dem Läufer von b2 bis h8 und verschlinge die Dame."
+        ],
+        "explain": "Der Läufer durchläuft die ganze Diagonale und schlägt die Dame, die sich fern glaubte; die Entfernung schützt den nicht, der deine Feldfarbe teilt. Das ist das Gesetz des Läufers: die Gerade gehört dir ganz.",
+        "wrong": "Nur ein Zug erreicht das Ende der Diagonale; lass den Läufer die Gerade bis zur Dame durchlaufen."
+      },
+      "c2": {
+        "title": "Der Strahl, der durchdringt",
+        "teach": "Ein Schach auf der Diagonale sucht nicht immer den König: es nutzt ihn als Tür zu dem, was er dahinter hütet. Wenn König und Dame deine Gerade teilen, muss der König zur Seite gehen und deckt die auf, die ihm folgte.",
+        "observe": "Dein Läufer kann nach d4 springen und dem König auf g7 Schach geben; auf derselben Geraden, direkt dahinter, wartet die Dame auf h8.",
+        "goal": "Gib das Schach, das König und Dame ausrichtet.",
+        "hints": [
+          "Suche das Feld, von dem aus der Läufer den König auf g7 auf der langen Diagonale fesselt.",
+          "König auf g7 und Dame auf h8 stehen auf derselben Geraden: einer vorne, die andere dahinter.",
+          "Spiele den Läufer nach d4 mit Schach; wenn der König zieht, fällt die Dame auf h8."
+        ],
+        "explain": "Ld4 fesselt den König und, nach der erzwungenen Flucht, kassiert der Läufer die Dame, die am Ende der Geraden stand. Das ist der Röntgenangriff: das Schach über den einen entblößt die andere.",
+        "wrong": "Der König muss zuerst zur Seite gehen; ohne das Schach, das sie ausrichtet, wird die Dame nie entblößt."
+      },
+      "c3": {
+        "title": "Die hellen Felder",
+        "teach": "Jeder Läufer lebt auf einer einzigen Farbe, und auf ihr befiehlt er von Seite zu Seite des Bretts. Über die hellen Felder durchquert dein Blick das ganze Feld und erreicht, wo der König nicht mehr schützt.",
+        "observe": "Von f1 aus öffnet sich die helle Diagonale: e2, d3, c4, b5, bis a6, wo die schwarze Dame fern von ihrem König ruht, von seinen eigenen Bauern eingesperrt.",
+        "goal": "Schlage die Dame über die helle Diagonale.",
+        "hints": [
+          "Der Läufer auf f1 durchläuft helle Felder; folge der Geraden zum Damenflügel.",
+          "Die Dame auf a6 teilt diese Diagonale und ihr König ist zu weit entfernt, um ihr zu helfen.",
+          "Führe den Läufer von f1 nach a6 und nimm die Dame."
+        ],
+        "explain": "Der Läufer durchquert die ganze helle Diagonale und schlägt die ungeschützte Dame; der König, hinter seinen Bauern begraben, kann nicht herbeieilen. Die Beherrschung einer Farbe genügt, um die Partie zu entscheiden.",
+        "wrong": "Die Dame steht ohne Verteidigung am Ende deiner hellen Geraden; kein anderer Zug nutzt diese Diagonale."
+      },
+      "c4": {
+        "title": "Der König vorne, die Dame dahinter",
+        "teach": "Über die hellen Felder wiederholt der Röntgenangriff sein Gesetz: entzünde das Schach und der König geht zur Seite, wobei er aufdeckt, was er deckte. Die Linie, die den Monarchen schiebt, ist dieselbe, die seine Dame fordert.",
+        "observe": "Der Läufer springt nach e4 und gibt dem König auf c6 Schach; auf dieser Geraden, in seinem Rücken, wartet die Dame auf b7.",
+        "goal": "Gib das Schach, das König und Dame ausrichtet.",
+        "hints": [
+          "Finde das helle Feld, von dem aus der Läufer den König auf c6 fesselt.",
+          "König auf c6 und Dame auf b7 stehen auf derselben Diagonale: der König vorne, die Dame dahinter.",
+          "Spiele den Läufer nach e4 mit Schach; wenn der König flieht, schlage die Dame auf b7."
+        ],
+        "explain": "Le4 fesselt den König auf der hellen Diagonale und, indem es seine Flucht erzwingt, lässt es die Dame auf b7 ohne Schutz. Der König kann nicht auf die Gerade zurückkehren, um sie zu verteidigen, und der Läufer holt sie.",
+        "wrong": "Ohne das Schach, das sie spießt, schützt der König seine Dame; zwinge ihn zuerst, die Gerade zu verlassen."
+      },
+      "c5": {
+        "title": "Die stille Linie",
+        "teach": "Nicht immer wartet eine Dame am Ende der Geraden; manchmal ist es ein Turm, der sich in Sicherheit glaubt, fern und im Schatten. Die stille Diagonale schiebt auch den König und deckt auf, was sie dahinter verbirgt.",
+        "observe": "Der schwarze König auf c6 und der Turm auf a8 teilen ein helles Feld. Dein Läufer kann nach e4 gelangen und beide auf dieselbe Gerade stellen.",
+        "goal": "Richte König und Turm mit einem Schach aus und kassiere die Figur am Ende.",
+        "hints": [],
+        "explain": "Le4 fesselt den König auf c6 auf der hellen Diagonale; zur Flucht gezwungen, gelingt es ihm nicht, den fernen Turm auf a8 zu verteidigen, der über dieselbe Gerade fällt. Die stillste Linie ist die, die am weitesten reicht.",
+        "wrong": "Ein anderer Zug richtet den König nicht mit dem Turm aus; nur das Schach auf der Diagonale deckt die Figur am Ende auf."
+      }
+    },
+    "tikk": {
+      "intro": "Ich bin Tikk, und nein, ich bin nicht nur ein Bauer: ich bin der Bauer, der als ERSTER ankommt. Während du nachdenkst, habe ich schon umgewandelt... mit Schach, bereit?",
+      "reward": "Hüter des Tempos",
+      "chron": [
+        "Kapitel I: Tikk durchquerte pfeifend das Brett, wandelte mit Schach um und stahl dem Gegner die Uhr, ehe er blinzelte.",
+        "Kapitel II: ohne zu bremsen, fraß Tikk einen Springer BEIM Umwandeln; zwei Schläge in einem Tempo, denn das Tempo gehört ihm.",
+        "Kapitel III: über den anderen Flügel, gleicher Trick, gleiches Lächeln; Umwandlung, Schach, und die Uhr weint erneut.",
+        "Kapitel IV: Tikk verschlang einen ganzen Turm auf dem Umwandlungsfeld; der Gegner suchte noch seinen Plan, als ihm nichts mehr blieb.",
+        "Kapitel V: im Trial verschmähte Tikk die Dame und wandelte in einen SPRINGER mit Schach um; der perfekte Zwischenzug, und niemand sah ihn kommen."
+      ],
+      "c1": {
+        "title": "Der als Erster ankommt",
+        "teach": "Im Schach gewinnt nicht immer der Stärkste, es gewinnt der, der FRÜHER ankommt. Mit Schach umzuwandeln schenkt dir ein Tempo: du zwingst den Gegner, während du bereits befiehlst.",
+        "observe": "Sieh meinen Bauern auf b7 und den schwarzen König auf d6, genau auf der Diagonale des Umwandlungsfeldes.",
+        "goal": "Wandle auf b8 mit Schach um.",
+        "hints": [
+          "Ein Bauer auf der siebten Reihe, einen Schritt vor dem Aufstieg... lass ihn nicht vorbei.",
+          "Wandle in eine Dame um, nicht in einen Turm: nur die Dame gibt dem König auf d6 Schach über die Diagonale.",
+          "Spiele b7-b8 und wähle eine Dame: Schach, Tempo und entscheidender Vorteil."
+        ],
+        "explain": "b8=D gibt Schach über die Diagonale b8-d6, gewinnt ein Tempo und lässt Weiß mit Dame gegen Turm gewinnend zurück.",
+        "wrong": "Zu langsam: ohne Schach atmet der Gegner auf und du verlierst das Tempo."
+      },
+      "c2": {
+        "title": "Zwei Schläge, ein Tempo",
+        "teach": "Ein Bauer, der schlagend umwandelt, tut zwei Dinge in einem einzigen Tempo: er nimmt eine Figur mit UND wird Dame. Das heißt, die Uhr maximal auszupressen.",
+        "observe": "Mein Bauer auf b7 und jener schwarze Springer auf c8, der lautstark darum bittet, beim Umwandeln verschlungen zu werden.",
+        "goal": "Schlage auf c8 und wandle mit Schach um.",
+        "hints": [
+          "Der Bauer kann in der Diagonale genau beim Umwandeln schlagen.",
+          "Auf c8 steht ein Springer: friss ihn und werde im selben Zug Dame.",
+          "Spiele b7xc8=D: du nimmst den Springer mit und gibst dem König auf e6 Schach."
+        ],
+        "explain": "bxc8=D schlägt den Springer, wandelt um und gibt Schach auf der Diagonale c8-e6: Material und Tempo in einem Zug.",
+        "wrong": "Du hast umgewandelt, ohne zu beißen: du hast den Springer am Leben gelassen und die halbe Beute verloren."
+      },
+      "c3": {
+        "title": "Gleicher Trick, anderer Flügel",
+        "teach": "Das Tempo versteht nichts von Flügeln: egal ob a oder h, wer mit Schach umwandelt, befiehlt. Wiederhole das Muster und die Uhr bleibt auf deiner Seite.",
+        "observe": "Mein Bauer auf g7 und der schwarze König auf d5, ausgerichtet mit der langen Diagonale von g8 aus.",
+        "goal": "Wandle auf g8 mit Schach um.",
+        "hints": [
+          "Der Bauer auf g7 steht einen Schritt vor dem Ruhm.",
+          "Nur die Dame erreicht den König auf d5 über die Diagonale g8-d5.",
+          "Spiele g7-g8=D: Schach, gewonnenes Tempo und Dame gegen Turm."
+        ],
+        "explain": "g8=D gibt Schach über die Diagonale g8-d5 und gewinnt ein Tempo, und Weiß bleibt mit Dame gegen Turm gewinnend zurück.",
+        "wrong": "Ohne Schach gibt es kein Tempo: der Gegner ordnet sich neu und du wirfst deinen Vorteil weg."
+      },
+      "c4": {
+        "title": "Turm zum Frühstück",
+        "teach": "Je größer die Figur, die du beim Umwandeln schlägst, desto schneller endet die Partie. Friss, wandle um und gib Schach: die Uhr rückt nicht einmal vor.",
+        "observe": "Mein Bauer auf h7 und ein ganzer schwarzer Turm, der auf g8 wartet.",
+        "goal": "Schlage den Turm auf g8 und wandle mit Schach um.",
+        "hints": [
+          "Der Bauer auf h7 kann in der Diagonale nach g8 schlagen.",
+          "Auf g8 steht ein TURM: nimm ihn mit und wandle zugleich um.",
+          "Spiele h7xg8=D: du frisst den Turm und gibst dem König auf e6 Schach."
+        ],
+        "explain": "hxg8=D schlägt den Turm, wandelt um und gibt Schach auf der Diagonale g8-e6: gewaltiger Gewinn in einem einzigen Tempo.",
+        "wrong": "Du hast auf der falschen Seite umgewandelt: der Turm lebt noch und der Gegner dankt es dir."
+      },
+      "c5": {
+        "title": "Das gestohlene Tempo",
+        "teach": "Manchmal ist die Dame nicht die Antwort: das entscheidende Tempo gibt der Zwischenzug, der überraschende Zwischenschlag mit Schach. Wandle in einen SPRINGER um, gib Schach und stiehl die feindliche Dame, ehe er reagiert.",
+        "observe": "Der König auf d7 und die Dame auf a6 stehen einen Springersprung voneinander entfernt, von b8 aus.",
+        "goal": "Finde die Umwandlung mit Schach, die die Dame gewinnt.",
+        "hints": [],
+        "explain": "b8=S gibt dem König auf d7 Schach und greift zugleich die Dame auf a6 an: der König muss ziehen und Sxa6 nimmt die Dame mit, mit gewinnendem Vorteil von Figur und Bauer.",
+        "wrong": "In eine Dame umzuwandeln gleicht nur aus: du verlierst das Tempo des Doppelschachs und mit ihm die Partie."
+      }
+    },
+    "malrec": {
+      "intro": "Ich bin Malrec, und ich habe mehr Kronen überlebt, als du fallen sehen wirst. Ich habe keine Dame, die mich rettet, noch Türme, die mich beweinen: nur einen König, der der Gefahr entgegengeht, weil er lernte, dass Stillstehen den Tod bedeutet.",
+      "reward": "Der König, der Überlebt",
+      "chron": [
+        "Der feindliche Springer streifte zu nah; mein König wandte den Blick nicht ab, rückte nach c5 vor und verschlang ihn ohne Zittern.",
+        "Sie senkten den Turm, ihn auf der sechsten sicher wähnend; mein alter König erhob sich von seinem Thron und riss ihn vom Brett.",
+        "Die Dame kam mir an die Kehle, und in ihrer Arroganz stellte sie sich in Reichweite meiner Hand: c5, und die Dame fiel vor dem König.",
+        "Ich brachte meinen König aus der Linie und ließ den Turm sprechen: b6, und in der Ecke erstickte der feindliche König in der Stille.",
+        "Ohne Stimmen, die mich leiteten, trat mein König ins Freie und nahm, was keiner zu nehmen wagte: so endet der Pfad dessen, der überlebt."
+      ],
+      "c1": {
+        "title": "Der König, der nicht zurückweicht",
+        "teach": "Im Endspiel hört der König auf, ein Flüchtling zu sein, und wird zum Henker. Eine lose Figur in seiner Reichweite wird nicht verziehen: tritt einen Schritt vor und friss sie.",
+        "observe": "Dein König auf d4 und der schwarze Springer auf c5, einen einzigen Schritt entfernt, ohne jemanden, der ihn verteidigt. Im Endspiel wiegt jede Figur wie ein Berg.",
+        "goal": "Rücke vor und schlage den Springer.",
+        "hints": [
+          "Sieh, welche Felder dein König berührt; eines davon birgt eine feindliche Figur.",
+          "Der Springer auf c5 steht allein, weder sein König noch sein Bauer decken ihn.",
+          "Kxc5: dein König nimmt den Springer mit und das Endspiel ist gewonnen."
+        ],
+        "explain": "Kxc5 gewinnt einen ganzen Springer ohne Kosten, weil nichts dieses Feld verteidigt. Mit einer Figur Vorteil hat das Endspiel nur noch einen Herrn.",
+        "wrong": "Zaghaft: den König beiseitezustellen lässt den Springer am Leben und verschenkt das Endspiel, das bereits deins war."
+      },
+      "c2": {
+        "title": "Der Thron erhebt sich",
+        "teach": "Ein aktiver König im Endspiel ist mehr wert als die Furcht, die man vor ihm hat. Der Turm, der sich ohne Bedeckung nähert, ist Fleisch für deinen Monarchen.",
+        "observe": "Dein König auf e5, im Zentrum, und der schwarze Turm auf d6 in Reichweite deiner Hand, ohne Bauern noch König, die ihn stützen.",
+        "goal": "Nimm den Turm mit dem König.",
+        "hints": [
+          "Dein König herrscht im Zentrum; ein Nachbarfeld verbirgt einen Turm.",
+          "Der Turm auf d6 hat keine Wache: weder der König auf b7 noch der Bauer schützen ihn.",
+          "Kxd6: dein König erhebt sich und reißt den Turm vom Brett."
+        ],
+        "explain": "Kxd6 schlägt einen ungeschützten Turm und entscheidet das Endspiel auf einen Schlag. Der zentrale König flieht nicht: er kassiert.",
+        "wrong": "Fehler: jeder andere Zug verschont den Turm und mit ihm deinen Vorteil."
+      },
+      "c3": {
+        "title": "Die Dame in Reichweite",
+        "teach": "Die Gefahr ist dein Handwerk: wenn die Dame kommt, um dich zu töten, sieh, ob sie sich zu weit genähert hat. Überleben heißt, die Fassung zu haben, das zu fressen, was dich verschlingen wollte.",
+        "observe": "Dein König auf d4 steht im Schach der Dame auf c5, aber diese Dame klebt an dir und niemand schützt sie. Der Schreck verbirgt ein Geschenk.",
+        "goal": "Antworte auf das Schach, indem du die Dame schlägst.",
+        "hints": [
+          "Du stehst im Schach: nicht jedes Schach ist eine Drohung, manche sind eine Unachtsamkeit.",
+          "Die Dame auf c5 greift dich von einem Nachbarfeld an und steht allein.",
+          "Kxc5: dein König antwortet auf das Schach, indem er die ganze Dame mitnimmt."
+        ],
+        "explain": "Kxc5 kommt aus dem Schach heraus und schlägt die Dame mit einem einzigen Schlag, weil nichts sie verteidigt. Die dich bedrohte, liegt unter deinem Fuß.",
+        "wrong": "Fatal: vor dem Schach zu fliehen lässt die Dame am Leben und mit ihr verlierst du das Endspiel und das Leben."
+      },
+      "c4": {
+        "title": "Der König geht zur Seite und tötet",
+        "teach": "Manchmal ist der beste Zug des Königs, sich aus dem Weg zu stellen. Indem er zur Seite geht, lässt er die Figur sprechen, die sein Körper verbarg, und diese Stimme ist ein Urteil.",
+        "observe": "Dein Turm auf a1 und der schwarze König auf a8 teilen die Linie, aber dein eigener König auf a6 verdeckt die Sicht. Dein Läufer auf f4 bewacht in Stille das Feld b8.",
+        "goal": "Geh mit dem König zur Seite und decke das Matt auf.",
+        "hints": [
+          "Dein König verdeckt die Linie deines Turms; geht er zur Seite, gibt der Turm Schach auf a8.",
+          "Suche das Feld, wo dein König beim Ziehen a7 und b7 deckt, während der Läufer b8 versiegelt.",
+          "Kb6: deckt das Turmschach auf und dem schwarzen König bleibt kein einziges Feld."
+        ],
+        "explain": "Kb6 deckt das Schach des Turms über die a-Linie auf; der König auf a6 deckt nun a7 und b7, und der Läufer auf f4 versperrte bereits b8. Ohne Flucht ist es Matt.",
+        "wrong": "Nein: den König auf irgendein anderes Feld zu ziehen lässt ein Luftloch und das Matt entwischt."
+      },
+      "c5": {
+        "title": "Die Prüfung von Malrec",
+        "teach": "Ohne Hinweise, ohne Hände, die dich halten. Der König muss ins offene Feld hinaustreten und nehmen, was andere zu berühren fürchten.",
+        "observe": "Dein König auf c4 und der schwarze Turm auf b5, aktiv auf der fünften Reihe. Der feindliche König ist fern und hütet seinen Bauern; niemand bewacht den Turm.",
+        "goal": "Geh mit dem König hinaus und schlage den Turm.",
+        "hints": [],
+        "explain": "Kxb5 nimmt einen ungeschützten Turm mit und lässt das Endspiel gewonnen; der König, der sich hinauszuwagen traut, kassiert, was der Zaghafte nie sehen wird. Weder der Bauer noch der ferne König können ihn rächen.",
+        "wrong": "Nein: der Turm steht lose und nur dein König, der ins Freie tritt, nimmt ihn mit."
+      }
+    },
+    "solenne": {
+      "intro": "Ich bin Solenne, und ich wurde als die bescheidenste Figur des Bretts geboren: ein einfacher Bauer. Aber ein Freibauer geht ohne Furcht zur achten Reihe, und wer zu krönen lernt, lernt, dass kein bescheidener Anfang das Ende entscheidet.",
+      "reward": "Krone der Achten Reihe",
+      "chron": [
+        "Mein Bauer tat den letzten Schritt nach b8 und wurde Dame mit Schach; was klein begann, endete das Brett beherrschend.",
+        "Auf b7 hielt ich nicht vor dem Springer inne: ich schlug ihn beim Umwandeln auf c8, und mit einem einzigen Schritt gewann ich Figur und Krone.",
+        "Ich rückte nach g8 vor und die neue Dame durchquerte das Brett, um den König zu fesseln; der geduldige Bauer wurde Dame.",
+        "Der Turm glaubte mir den Weg zu versperren, aber auf g8 verschlang ich ihn beim Umwandeln mit Schach; so bahnt sich ein Freibauer den Weg.",
+        "Ohne Stimmen, die mich leiteten, wandelte ich in einen Springer statt in eine Dame um, und der Sprung fing König und Dame zugleich: die Bescheidenheit versteht es auch, ihre Form zu wählen."
+      ],
+      "c1": {
+        "title": "Der letzte Schritt",
+        "teach": "Ein Freibauer ist einer, der weder feindliche Bauern vor sich noch an seinen Seiten hat: sein Weg zur Umwandlung ist frei. Wenn er die siebte Reihe erreicht, verwandelt ihn ein Schritt mehr in eine Dame.",
+        "observe": "Dein Bauer auf b7 hat die achte Reihe in Reichweite und kein Gegner kann ihn aufhalten. Bei der Umwandlung auf b8 wird die neue Dame dem schwarzen König auf d6 frontal ins Auge blicken.",
+        "goal": "Rücke den Bauern vor und wandle mit Schach in eine Dame um.",
+        "hints": [
+          "Dein Bauer auf b7 steht einen einzigen Schritt vor der achten Reihe.",
+          "Wandle auf b8 um, indem du die stärkste Figur wählst, und beobachte die Reihe des Königs.",
+          "b8=D+ entsteht mit Schach auf d6; der König muss reagieren und du gewinnst eine ganze Dame."
+        ],
+        "explain": "b8=D wandelt mit Schach auf der achten Reihe um; der Freibauer hatte keinen Widerstand und nun hast du eine Dame Vorteil. Der bescheidenste Schritt wurde der mächtigste.",
+        "wrong": "Dir fehlte der letzte Schritt: ein Bauer, der nicht umwandelt, vergeudet seinen ganzen Weg."
+      },
+      "c2": {
+        "title": "Schlagend umwandeln",
+        "teach": "Manchmal kreuzt der Weg zur achten Reihe eine feindliche Figur in der Diagonale: du kannst sie schlagen und im selben Zug umwandeln. So gewinnst du die Figur und die Krone auf einen Schlag.",
+        "observe": "Dein Bauer auf b7 hat vor sich den schwarzen Springer auf c8, genau in deiner Umwandlungsdiagonale. Der König auf e6 kann nicht rechtzeitig herbeieilen.",
+        "goal": "Schlage den Springer und wandle in eine Dame um.",
+        "hints": [
+          "Der Springer auf c8 steht in der Schlagdiagonale deines Bauern.",
+          "Rücke nicht geradeaus vor: friss den Springer beim Umwandeln.",
+          "bxc8=D+ beseitigt den Springer und gibt dir eine Dame mit Schach; doppelte Beute."
+        ],
+        "explain": "bxc8=D schlägt den Springer und wandelt zugleich mit Schach um; du addierst Figur und Dame, ohne etwas herzugeben. Der Freibauer versteht es, sich fressend den Weg zu bahnen.",
+        "wrong": "Geradeaus umzuwandeln lässt den Springer am Leben: nutze den Schlag und nimm alles mit."
+      },
+      "c3": {
+        "title": "Die Dame, die überquert",
+        "teach": "Umwandeln addiert nicht nur Material: es erschafft aus dem Nichts die schnellste Figur des Bretts. Kaum geboren, erreicht die Dame im Nu, was auf der anderen Seite stand.",
+        "observe": "Dein Bauer auf g7 wandelt frei auf g8 um. Von dort wird die neue Dame in der Diagonale den schwarzen König auf d5 sehen.",
+        "goal": "Wandle in eine Dame um und gib dem König Schach.",
+        "hints": [
+          "Dein Bauer auf g7 erreicht allein die achte Reihe.",
+          "Wandle auf g8 um und sieh die lange Diagonale zum Zentrum.",
+          "g8=D+ fesselt den König auf d5 aus der Ecke; die Dame beherrscht das Brett bei ihrer Geburt."
+        ],
+        "explain": "g8=D wandelt um und gibt Schach auf der Diagonale g8-d5; aus einem Bauern entsteht eine Dame, die das ganze Brett beherrscht. Das ist der Lohn der Geduld.",
+        "wrong": "Ohne umzuwandeln bleibt dein Bauer stehen und schaut zu: tu den Schritt und lass die Dame geboren werden."
+      },
+      "c4": {
+        "title": "Den Wächter verschlingen",
+        "teach": "Wenn ein Turm versucht, dir die achte Reihe zu versperren, fürchte ihn nicht: steht er in deiner Diagonale, schlägst du ihn beim Umwandeln. Das Hindernis wird zu deiner letzten Beute.",
+        "observe": "Dein Bauer auf h7 hat den schwarzen Turm auf g8, in seiner Umwandlungsdiagonale. Der König auf e6 wird der neuen Dame ausgesetzt sein.",
+        "goal": "Schlage den Turm und wandle mit Schach um.",
+        "hints": [
+          "Der Turm auf g8 glaubt dich zu blockieren, aber er steht in deiner Diagonale.",
+          "Friss ihn beim Umwandeln, statt geradeaus zu schieben.",
+          "hxg8=D+ beseitigt den Turm und gibt Schach auf e6; du gewinnst Turm und Krone auf einen Schlag."
+        ],
+        "explain": "hxg8=D schlägt den Turm und wandelt mit Schach auf e6 um; der Wächter, der dich aufhalten wollte, nährt deinen Aufstieg. Ein Freibauer bittet nicht um Erlaubnis: er bahnt sich den Weg.",
+        "wrong": "Geradeaus zu schieben stößt auf den Turm: schlage in der Diagonale und du wirst umwandeln, indem du ihn verschlingst."
+      },
+      "c5": {
+        "title": "Die Prüfung von Solenne",
+        "teach": "Ohne Hinweise noch Stimmen. In eine Dame umzuwandeln ist nicht immer das Beste: manchmal muss die bescheidene Figur eine andere Form wählen, um König und Dame zugleich zu fangen.",
+        "observe": "Dein Bauer auf b7 wandelt frei um, aber der König auf d7 und die Dame auf a6 stehen auf eine eigentümliche Weise. Denk nach, welche Figur beide erreicht.",
+        "goal": "Wandle in die Figur um, die Schach gibt, und gewinne die Dame.",
+        "hints": [],
+        "explain": "b8=S wandelt mit Schach in einen Springer um und gabelt den König auf d7 und die Dame auf a6; der König muss ziehen und die Dame fällt. Die Unterverwandlung, dem Schein nach bescheiden, gewinnt die Partie.",
+        "wrong": "Nein: in eine Dame umzuwandeln gibt nur Schach, aber es gibt eine Figur, die den König und die Dame zugleich angreift."
+      }
+    },
+    "presence": {
+      "label": "Dein Champion",
+      "win": "Sieg. Du hast gespielt, wie ich es dir beigebracht hätte.",
+      "lose": "Jede Niederlage birgt eine Lektion. Die nächste Partie gehört uns.",
+      "draw": "Remis. Auch das Gleichgewicht will gemeistert sein.",
+      "check": "Vorsicht: Dein König steht im Schach.",
+      "thinking": "Beobachte. Der beste Zug schreit selten.",
+      "sendaCta": "Beschreite meinen Pfad der Meisterschaft im Kodex."
+    }
   }
 }

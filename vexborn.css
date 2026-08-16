@@ -205,3 +205,98 @@ body.vb-page { min-height: 100vh; }
   .vb-fi-concept, .vb-fi-fragment { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
   .vb-fi-concept b, .vb-fi-fragment b { text-align: left; }
 }
+
+/* ============================================================
+   SENDA DE MAESTRÍA — tablero holográfico (reusa .ab-*) + UI
+   ============================================================ */
+.vm-runner { --ax-cyan: #39D5FF; --ax-gold: #F4C763; }
+.vm-board { --acb: min(58vh, 26rem); }
+.ab-board { position: relative; width: var(--acb, min(64vh, 30rem)); aspect-ratio: 1; border-radius: 0.7rem; overflow: hidden;
+  box-shadow: 0 1.2rem 3rem rgba(0,0,0,.5), 0 0 0 0.5rem #22303f, 0 0 0 0.56rem #2c3d50; user-select: none; }
+.ab-grid { display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(8, 1fr); width: 100%; height: 100%; }
+.ab-sq { position: relative; display: flex; align-items: center; justify-content: center; }
+.ab-sq.light { background: var(--light); } .ab-sq.dark { background: var(--dark); }
+.ab-sq .pc { width: 86%; height: 86%; filter: drop-shadow(0 0.12rem 0.14rem rgba(0,0,0,.3)); pointer-events: none; position: relative; z-index: 2; }
+.ab-sq.sel::before { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 0.2rem var(--ax-cyan); z-index: 1; }
+.ab-sq.last::before { content: ''; position: absolute; inset: 0; background: rgba(57,213,255,.16); z-index: 0; }
+.ab-dot { position: absolute; width: 30%; height: 30%; border-radius: 50%; background: rgba(57,213,255,.5); z-index: 1; }
+.ab-dot.cap { width: 86%; height: 86%; background: none; border: 0.28rem solid rgba(57,213,255,.55); box-sizing: border-box; }
+.ab-coord { position: absolute; font-size: 0.55rem; font-weight: 700; color: rgba(0,0,0,.4); z-index: 2; pointer-events: none; }
+.ab-sq.dark .ab-coord { color: rgba(255,255,255,.45); }
+.ab-coord.rank { top: 0.12rem; left: 0.18rem; } .ab-coord.file { bottom: 0.06rem; right: 0.2rem; }
+.ab-sq.mk-focus::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle, rgba(57,213,255,.35), transparent 70%); z-index: 1; }
+.ab-sq.mk-cand::after { content: ''; position: absolute; inset: 12%; border-radius: 50%; box-shadow: 0 0 0 0.2rem var(--ax-cyan); z-index: 1; animation: ac-pulse 1.2s ease-in-out infinite; }
+.ab-sq.mk-danger::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 0.22rem rgba(255,59,71,.85); z-index: 1; animation: ac-pulse 0.8s ease-in-out infinite; }
+@keyframes ac-pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+.ab-shake { animation: ac-shake .35s ease; }
+@keyframes ac-shake { 0%,100% { transform: none; } 25% { transform: translateX(-0.18rem); } 75% { transform: translateX(0.18rem); } }
+.ab-ov { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; }
+.ab-arrow { stroke: var(--ax-cyan); stroke-width: 0.16; fill: none; stroke-linecap: round; opacity: .92; }
+.ab-arrow.head { fill: var(--ax-cyan); stroke: none; }
+.ab-arrow.good { stroke: var(--ax-gold); } .ab-arrow.good.head { fill: var(--ax-gold); stroke: none; }
+@media (prefers-reduced-motion: reduce) { .ab-sq.mk-cand::after, .ab-sq.mk-danger::after { animation: none; } .ac-axiom-panel { animation: none; } }
+.ab-board.holo { background: #08111c; box-shadow: 0 0 2.2rem rgba(57,213,255,.28), inset 0 0 3rem rgba(57,213,255,.08), 0 1rem 3rem rgba(0,0,0,.55); border: var(--hair) solid rgba(57,213,255,.4); }
+.ab-board.holo .ab-sq { box-shadow: inset 0 0 0 0.03rem rgba(57,213,255,.18); }
+.ab-board.holo .ab-sq.light { background: rgba(57,213,255,.11); }
+.ab-board.holo .ab-sq.dark { background: rgba(18,42,66,.55); }
+.ab-board.holo .ab-coord { color: rgba(57,213,255,.5); }
+.ab-board.holo .ab-sq .pc { filter: none; }
+.ab-board.holo .pc-w { filter: drop-shadow(0 0 0.22rem rgba(57,213,255,.95)) drop-shadow(0 0 0.5rem rgba(57,213,255,.55)); }
+.ab-board.holo .pc-b { filter: brightness(1.55) saturate(1.1) drop-shadow(0 0 0.22rem rgba(255,90,100,.85)) drop-shadow(0 0 0.5rem rgba(255,59,71,.4)); }
+.ab-board.holo .ab-sq.sel::before { box-shadow: inset 0 0 0 0.2rem var(--ax-cyan), inset 0 0 1rem rgba(57,213,255,.5); }
+
+/* Senda — layout y UI */
+.vm-runner { position: relative; border-radius: 1.1rem; overflow: hidden; border: var(--hair) solid var(--border); background: radial-gradient(60rem 30rem at 50% -20%, color-mix(in srgb, var(--acc) 16%, #0b1220), #0b1220 70%); padding: clamp(1rem,3vw,1.6rem); }
+.vm-top { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.vm-back { background: transparent; border: var(--hair) solid var(--border); color: var(--text); border-radius: 0.6rem; padding: 0.45rem 0.8rem; cursor: pointer; font: 700 0.85rem 'Inter',sans-serif; }
+.vm-back:hover { border-color: var(--acc); }
+.vm-id { display: flex; align-items: center; gap: 0.6rem; }
+.vm-id img { width: 2.6rem; height: 2.6rem; border-radius: 50%; object-fit: cover; border: var(--hair) solid color-mix(in srgb,var(--acc) 55%,transparent); }
+.vm-id b { font: 800 1rem 'Oxanium',sans-serif; display: block; }
+.vm-id span { font-size: 0.74rem; color: var(--muted); }
+.vm-vinculo { margin-left: auto; min-width: 12rem; }
+.vm-vinculo-top { display: flex; justify-content: space-between; font: 700 0.72rem 'Inter',sans-serif; margin-bottom: 0.25rem; }
+.vm-vinculo-top b { color: color-mix(in srgb,var(--acc) 75%,var(--text)); }
+.vm-vinculo-top span { color: var(--muted); }
+.vm-bar { height: 0.5rem; border-radius: 999px; background: var(--panel-2); overflow: hidden; border: var(--hair) solid var(--border); }
+.vm-bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--acc), color-mix(in srgb,var(--acc) 40%,#fff)); border-radius: 999px; transition: width .6s cubic-bezier(.4,1.3,.5,1); }
+.vm-dots { display: flex; gap: 0.35rem; margin: 0 0 0.8rem; }
+.vm-dot { width: 1.5rem; height: 0.34rem; border-radius: 999px; background: var(--panel-2); border: var(--hair) solid var(--border); }
+.vm-dot.done { background: var(--acc); }
+.vm-dot.on { background: color-mix(in srgb,var(--acc) 55%,#fff); box-shadow: 0 0 0.5rem var(--acc); }
+.vm-dot.trial { position: relative; }
+.vm-dot.trial::after { content: '★'; position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); font-size: 0.6rem; color: var(--acc); }
+.vm-stage { display: grid; grid-template-columns: minmax(0,1fr) minmax(15rem,22rem); gap: clamp(1rem,3vw,1.8rem); align-items: start; }
+.vm-board-col { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.vm-goal { font: 700 0.9rem 'Inter',sans-serif; color: color-mix(in srgb,var(--acc) 70%,var(--text)); text-align: center; background: color-mix(in srgb,var(--acc) 10%,var(--panel-2)); border: var(--hair) solid color-mix(in srgb,var(--acc) 30%,var(--border)); border-radius: 0.6rem; padding: 0.5rem 0.9rem; max-width: 28rem; }
+.vm-coach { display: flex; flex-direction: column; gap: 0.7rem; }
+.vm-pose { width: 4.4rem; height: 4.4rem; border-radius: 0.8rem; object-fit: cover; border: var(--hair) solid color-mix(in srgb,var(--acc) 45%,transparent); box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,.4); }
+.vm-bubble { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.9rem; padding: 0.85rem 1rem; }
+.vm-bubble .eyebrow { color: var(--acc); font: 800 0.66rem 'Oxanium',sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.vm-bubble-main { margin: 0.3rem 0 0; line-height: 1.5; font-size: 0.95rem; }
+.vm-bubble-sub { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; line-height: 1.45; }
+.vm-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.vm-hintbox { font-size: 0.78rem; color: var(--acc); font-weight: 700; }
+.vm-chronicle { margin-top: 0.6rem; border-left: 0.2rem solid var(--acc); background: color-mix(in srgb,var(--acc) 8%,var(--panel-2)); padding: 0.6rem 0.85rem; border-radius: 0 0.6rem 0.6rem 0; }
+.vm-chronicle .eyebrow { color: var(--acc); font: 800 0.64rem 'Oxanium',sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.vm-chronicle p { margin: 0.25rem 0 0; font-style: italic; line-height: 1.5; }
+.vm-btn { border: none; border-radius: 0.6rem; padding: 0.55rem 1rem; font: 800 0.88rem 'Inter',sans-serif; cursor: pointer; transition: filter .12s, transform .12s; }
+.vm-btn.primary { background: var(--acc); color: #06202b; } .vm-btn.primary:hover { filter: brightness(1.08); transform: translateY(-0.05rem); }
+.vm-btn.ghost { background: transparent; color: var(--text); border: var(--hair) solid var(--border); } .vm-btn.ghost:hover { border-color: var(--acc); }
+/* Completado */
+.vm-complete { text-align: center; padding: 1.6rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.vm-complete img { width: 7rem; height: 7rem; border-radius: 1rem; object-fit: cover; border: var(--hair) solid var(--acc); box-shadow: 0 0 2rem color-mix(in srgb,var(--acc) 40%,transparent); }
+.vm-complete h2 { font: 800 1.6rem 'Oxanium',sans-serif; margin: 0.4rem 0 0; }
+.vm-complete .vm-reward { font: 800 0.95rem 'Oxanium',sans-serif; color: var(--acc); border: var(--hair) solid var(--acc); border-radius: 999px; padding: 0.35rem 0.9rem; }
+.vm-chron-list { max-width: 34rem; margin: 0.6rem auto 0; display: grid; gap: 0.4rem; text-align: left; }
+.vm-chron-list li { list-style: none; font-style: italic; color: var(--muted); border-left: 0.15rem solid color-mix(in srgb,var(--acc) 50%,transparent); padding-left: 0.7rem; }
+/* Códice: botón Senda + progreso en ficha, anillo en tarjeta */
+.vb-fi-senda { margin-top: 1rem; padding: 0.9rem; border-radius: 0.75rem; border: var(--hair) solid color-mix(in srgb,var(--rar,var(--accent)) 40%,var(--border)); background: var(--panel-2); }
+.vb-fi-senda-top { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.5rem; }
+.vb-fi-senda-top b { font: 800 0.92rem 'Oxanium',sans-serif; }
+.vb-fi-senda-top span { font-size: 0.76rem; color: var(--muted); }
+.vb-fi-senda .vm-bar { margin-bottom: 0.6rem; }
+.vb-card-ring { position: absolute; top: 0.4rem; left: 0.4rem; z-index: 3; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: conic-gradient(var(--rar,var(--accent)) calc(var(--v,0)*1%), rgba(255,255,255,.12) 0); display: grid; place-items: center; }
+.vb-card-ring::after { content: ''; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: var(--panel); }
+.vb-card-ring b { position: absolute; font: 800 0.5rem 'Inter',sans-serif; color: var(--text); z-index: 1; }
+@media (max-width: 760px) { .vm-stage { grid-template-columns: 1fr; } .vm-vinculo { margin-left: 0; width: 100%; } }

@@ -9,7 +9,8 @@
 import { Chess } from './chess.js';
 import { GAME, getLang, setLang, LANGS, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=9';
 import { sfx } from './sounds.js?v=1';
-import { api, getUser, AVATAR_COLORS } from './auth.js?v=16';
+import { api, getUser, AVATAR_COLORS } from './auth.js?v=17';
+import { companionSay } from './vexborn-companion.js?v=1';
 
 // --- Idioma (delegado en el runtime i18n) ----------------------------------
 let lang = getLang();
@@ -147,10 +148,10 @@ function applyUci(uci) {
 // Elige el efecto de sonido según la jugada y el estado resultante.
 function moveSound(mv) {
   if (!mv) return;
-  if (game.isCheckmate()) { (game.turn() === humanColor ? sfx.lose : sfx.win)(); return; }
-  if (game.isStalemate() || game.isDraw()) { sfx.draw(); return; }
+  if (game.isCheckmate()) { const lost = game.turn() === humanColor; (lost ? sfx.lose : sfx.win)(); companionSay(lost ? 'lose' : 'win'); return; }
+  if (game.isStalemate() || game.isDraw()) { sfx.draw(); companionSay('draw'); return; }
   const f = mv.flags || '';
-  if (game.isCheck()) { sfx.check(); return; }
+  if (game.isCheck()) { sfx.check(); if (game.turn() === humanColor) companionSay('check'); return; }
   if (f.includes('p')) { sfx.promote(); return; }
   if (f.includes('k') || f.includes('q')) { sfx.castle(); return; }
   if (f.includes('c') || f.includes('e')) { sfx.capture(); return; }

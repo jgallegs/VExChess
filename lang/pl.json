@@ -1121,5 +1121,1208 @@
       "community": "Społeczność",
       "myGames": "Moje partie"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Wtajemniczony",
+      "aprendiz": "Uczeń",
+      "adepto": "Adept",
+      "experto": "Ekspert",
+      "maestro": "Mistrz",
+      "pleno": "Pełna więź"
+    },
+    "ui": {
+      "start": "Rozpocznij Ścieżkę Mistrzostwa",
+      "continue": "Kontynuuj Ścieżkę",
+      "soon": "Ścieżka Mistrzostwa · wkrótce",
+      "sectionTitle": "Ścieżka Mistrzostwa",
+      "chapter": "Rozdział {n}/{total}",
+      "trialTag": "Próba",
+      "vinculo": "Więź",
+      "observe": "Obserwuj",
+      "hint": "Poproś o wskazówkę",
+      "hintCount": "Wskazówka {n}/{total}",
+      "lastHint": "ostatnia",
+      "correct": "Zgadza się!",
+      "next": "Dalej →",
+      "teachNext": "Rozumiem →",
+      "practice": "Przećwicz to →",
+      "finishChapter": "Zakończ rozdział →",
+      "chronicleUnlocked": "Kronika odblokowana",
+      "reward": "Nagroda mistrzostwa",
+      "completeTitle": "Ścieżka ukończona",
+      "completeMsg": "Przeszedłeś całą Ścieżkę. Więź z tym mistrzem jest pełna.",
+      "back": "Wróć do kodeksu",
+      "trialNoHints": "W Próbie nie ma wskazówek: zaufaj temu, czego się nauczyłeś.",
+      "wrongRetry": "Spróbuj jeszcze raz.",
+      "yourMove": "Twój ruch",
+      "vinculoSub": "Bez przewagi rywalizacyjnej · tylko nauka, narracja i kolekcja",
+      "chapterDone": "Rozdział zaliczony",
+      "guestMsg": "Zaloguj się, aby przejść Ścieżkę i zachować swoją więź.",
+      "loginBtn": "Zaloguj się",
+      "chaptersDone": "{n}/{total} rozdziałów",
+      "trialsHint": "Ostatni rozdział to Próba bez wskazówek."
+    },
+    "noctis": {
+      "intro": "Jestem Noctis. Nie przenikam mroku: dzielę go. Nauczę cię dostrzegać dwa zagrożenia mieszczące się w jednym skoku. Obserwuj, przewiduj i wykonuj.",
+      "reward": "Tytuł odblokowany: «Podwójny Cień»",
+      "chron": [
+        "Każdy mój skok pozostawia dwa cienie. Tylko jeden jest prawdziwy.",
+        "Nauczyłem się uderzać tam, gdzie nikt nie broni: między dwie figury naraz.",
+        "Król to najlepszy zakładnik: zmusza do reakcji i zostawia jego hetmana bez osłony.",
+        "Nie szukam figury. Szukam pola, z którego dwie figury są już moje.",
+        "Kiedy zobaczysz widełki, zanim je zagrasz, nie będziesz potrzebował moich cieni."
+      ],
+      "c1": {
+        "title": "Pierwszy cień",
+        "teach": "Widełki atakują dwie figury jednym posunięciem. Zacznijmy od najczystszych: szach, który przy okazji zgarnia wieżę.",
+        "observe": "Czarny król stoi na e8, a wieża na a8. Znajdź pole, z którego skoczek dosięga obu naraz.",
+        "goal": "Daj szacha i zaatakuj wieżę skoczkiem.",
+        "hints": [
+          "Skoczek na c7 sięga jednocześnie e8 i a8.",
+          "Kluczowe pole leży o jeden skok: d5 → c7.",
+          "Sd5-c7+: szach królowi i widełki na wieżę."
+        ],
+        "explain": "Sc7+ to szach: rywal musi zająć się królem, a wieża z a8 pada. To widełki w najczystszej postaci: najpierw zmuszasz, potem zgarniasz.",
+        "wrong": "Blisko. Jedno pole musi dosięgać króla i wieżę. Pomyśl o c7."
+      },
+      "c2": {
+        "title": "Król jako przynęta",
+        "teach": "Gdy widełki obejmują króla, są nie do zatrzymania: szach zmusza, a ciężka figura zostaje na twojej łasce.",
+        "observe": "Czarny król na e8, hetman na c8. Znajdź skok, który daje szacha i zarazem celuje w hetmana.",
+        "goal": "Widełki na króla i hetmana.",
+        "hints": [
+          "Z d6 skoczek atakuje e8 i c8.",
+          "e4 → d6, z szachem.",
+          "Sd6+ zdobywa hetmana po szachu."
+        ],
+        "explain": "Sd6+ atakuje króla (szach wymuszony) i hetmana na c8. Król się rusza, a hetman jest twój. Król to najlepsza przynęta widełek.",
+        "wrong": "To nie to. Pole musi dawać szacha na e8 i dosięgać c8 naraz: patrz na d6."
+      },
+      "c3": {
+        "title": "Z innego kąta",
+        "teach": "Ta sama idea działa na każdym skrzydle. Wytrenuj oko, by widzieć ją także od prawej.",
+        "observe": "Król na e8, hetman na g8. Znajdź skok, który zagraża obu.",
+        "goal": "Szach królowi i atak na hetmana.",
+        "hints": [
+          "f6 dosięga e8 i g8.",
+          "g4 → f6, z szachem.",
+          "Sf6+ i hetman z g8 pada."
+        ],
+        "explain": "Sf6+ daje szacha z drugiej strony i atakuje g8. Widełki nie mają ulubionej strony: tylko właściwe pola.",
+        "wrong": "Jeszcze nie. Szukaj pola dosięgającego e8 i g8: to f6."
+      },
+      "c4": {
+        "title": "Cichy skok",
+        "teach": "Czasem pole widełek wygląda niegroźnie… dopóki skoczek nie dotrze. Zaufaj wzorcowi.",
+        "observe": "Król na g8, hetman na c8, a twój skoczek na g6. Które pole dosięga obu?",
+        "goal": "Widełki na króla i hetmana.",
+        "hints": [
+          "e7 sięga g8 i c8.",
+          "g6 → e7, z szachem.",
+          "Se7+ i zdobywasz hetmana."
+        ],
+        "explain": "Se7+ łączy g8 (szach) z c8 (hetman). Spokojny skok, ogromny łup. Już rozpoznajesz wzorzec.",
+        "wrong": "To nie to. Pole dosięgające g8 i c8 to e7."
+      },
+      "c5": {
+        "title": "Próba · Cień bez ostrzeżenia",
+        "teach": "Bez szacha nie ma ostrzeżenia: tu widełki nie krzyczą, albo je widzisz, albo je tracisz. Bez wskazówek: zaufaj temu, czego się nauczyłeś.",
+        "observe": "Dwie czarne wieże, na d8 i f8. Jedno pole spogląda na obie naraz.",
+        "goal": "Widełki na obie wieże.",
+        "hints": [],
+        "explain": "Se6 atakuje d8 i f8 jednocześnie. Nie ma szacha, ale jedna wieża padnie. Nauczyłeś się widzieć widełki, choć nikt cię nie uprzedza.",
+        "wrong": "Jedna wieża musi zostać zaatakowana wraz z drugą. Szukaj pola między d8 a f8."
+      }
+    },
+    "kael": {
+      "intro": "Jestem Kael, a mój skoczek nie prosi o pozwolenie: atakuje. Podążaj za mną i naucz się kraść tempo, rozwijać się z furią i zagarniać inicjatywę, zanim rywal zaczerpnie tchu.",
+      "reward": "Jeździec Tempa",
+      "chron": [
+        "Mój skoczek wskoczył na e7 z szachem i wrogi hetman padł bez jednego jęku.",
+        "W kącie osaczyłem króla i wyrwałem mu wieżę z korzeniami.",
+        "Skok na f7 i cisza mata zamknęła partię.",
+        "Ukarałem króla, który nie odważył się rozwinąć: szach, i jego hetman był mój.",
+        "Bez wskazówek i bez wahania rumak uderzył, a szachownica się poddała."
+      ],
+      "c1": {
+        "title": "Skok, który kradnie hetmana",
+        "teach": "Szach rządzi: gdy dajesz szacha, rywal słucha, a ty narzucasz rytm. Skoczek dający szacha i atakujący hetmana zdobywa tempo i materiał jednym uderzeniem.",
+        "observe": "Zobacz, gdzie stoi czarny król i jego hetman: szukaj pola, które atakuje obu naraz.",
+        "goal": "Daj szacha i rozdwój króla oraz hetmana.",
+        "hints": [
+          "Szukaj skoku skoczka, który daje szacha królowi na g8.",
+          "Pole e7 dosięga króla i hetmana jednocześnie.",
+          "Zagraj Se7+ i po ruchu króla zabij hetmana na c6."
+        ],
+        "explain": "Se7+ to szach: król musi się ruszyć i nie może bronić hetmana, który pada na c6.",
+        "wrong": "Bez szacha tracisz inicjatywę; zmuś króla i zagarnij hetmana."
+      },
+      "c2": {
+        "title": "Zasadzka w Kącie",
+        "teach": "Inicjatywa rodzi się z groźby z tempem. Skoczek dający szacha w kącie zmusza króla i obnaża jego wieżę.",
+        "observe": "Czarny król śpi na a8, a jego wieża na e8: widełki je łączą.",
+        "goal": "Daj szacha i zdobądź wieżę.",
+        "hints": [
+          "Skoczek może wskoczyć na c7 z szachem.",
+          "Z c7 skoczek atakuje króla i wieżę na e8.",
+          "Sc7+, a potem Sxe8: wieża jest twoja."
+        ],
+        "explain": "Sc7+ zmusza króla do ucieczki, a skoczek pożera wieżę na e8.",
+        "wrong": "Nie pozwól królowi zbiec za darmo: szach na c7 to twój jedyny klucz."
+      },
+      "c3": {
+        "title": "Mat Rumaka",
+        "teach": "Rozwój wieńczy atak: gdy król dusi się między własnymi figurami, skoczek dobija. Idealne tempo zamienia skok w mata.",
+        "observe": "Czarny król jest pogrzebany pod swoją wieżą i pionami; brakuje tylko ciosu.",
+        "goal": "Daj mata skoczkiem.",
+        "hints": [
+          "Król nie ma ani jednego wolnego pola.",
+          "Skok na f7 daje szacha i nie ma ucieczki.",
+          "Sf7 to mat: zadaj go z dumą."
+        ],
+        "explain": "Sf7# daje szacha, a król, uduszony własnymi figurami, nie może uciec ani bić.",
+        "wrong": "Szukaj szacha, przed którym nie ma ucieczki: f7 go przypieczętowuje."
+      },
+      "c4": {
+        "title": "Kara dla Leniwego Króla",
+        "teach": "Kto się nie rozwija, płaci: król uwięziony w centrum jest łatwym łupem. Atakuj z tempem, a inicjatywa zamieni się w zdobycz.",
+        "observe": "Czarny król wciąż tkwi na e7, a jego hetman błąka się po b4: obaj w zasięgu skoku.",
+        "goal": "Daj szacha w centrum i zdobądź hetmana.",
+        "hints": [
+          "Odsłonięty król na e7 zaprasza do widełek.",
+          "Z c6 skoczek daje szacha królowi i atakuje hetmana na b4.",
+          "Sc6+, a potem Sxb4: hetman jest twój."
+        ],
+        "explain": "Sc6+ to obosieczny szach: król ucieka, a hetman z b4 pada bez ratunku.",
+        "wrong": "Wykorzystaj króla w centrum: tylko szach na c6 zdobywa hetmana."
+      },
+      "c5": {
+        "title": "Próba Jeźdźca: Bez Litości",
+        "teach": "Tu nie ma wskazówek, tylko twój instynkt. Znajdź skok dający szacha i wyrwij hetmana: udowodnij, że panujesz nad tempem.",
+        "observe": "Król na c8 i hetman na f5 czekają na twój werdykt.",
+        "goal": "Daj szacha i zabierz hetmana.",
+        "hints": [],
+        "explain": "Sd6+ daje szacha królowi na c8 i atakuje hetmana na f5; król ucieka, a Sxf5 wieńczy napad.",
+        "wrong": "Tempo ci umknęło: szukaj szacha, który dosięga też hetmana."
+      }
+    },
+    "aurelia": {
+      "intro": "Jestem Aurelia, a mój hetman nie porusza się z impulsu: porusza się z przekonania. Zanim dotknę figury, widzę już skończoną partię; podążaj za mną, a nauczysz się liczyć aż do końca.",
+      "reward": "Ścieżka Spokojnego Hetmana",
+      "chron": [
+        "W pierwszym kroku hetman zszedł na siódmy rząd, a król nie znalazł, dokąd uciec.",
+        "Ujrzałam, jak ostatni rząd zamyka się, zanim jeszcze zaistniał; własne piony stały się jego wyrokiem.",
+        "Pion przemierzył szachownicę i odrodził się jako hetman: rachunek nagradza cierpliwość.",
+        "Nie biłam z chciwości, lecz z pewności; wrogi hetman padł bez stoczenia bitwy.",
+        "Bez wskazówek i bez wahania wybrałam jedyną ścieżkę, a mat rozkwitł na przekątnej."
+      ],
+      "c1": {
+        "title": "Zejście hetmana",
+        "teach": "Liczyć to widzieć pozycję końcową, zanim ruszysz choćby jedną figurę. Hetman i król razem tkają sieć, z której wrogi monarcha nie ujdzie.",
+        "observe": "Spójrz na pola ucieczki czarnego króla i odkryj, kto ich pilnuje.",
+        "goal": "Daj mata w jednym posunięciu.",
+        "hints": [
+          "Twój król na f6 już kontroluje g7; hetman może się o niego oprzeć.",
+          "Szukaj pola, z którego hetman zaatakuje króla, nie mogąc zostać zbity.",
+          "Zaprowadź hetmana na g7: król z h8 zostanie bez powietrza."
+        ],
+        "explain": "Hg7 to mat: król z f6 broni hetmana i odbiera czarnemu monarsze pola g8, h7 i g7.",
+        "wrong": "Król uciekł; przelicz jeszcze raz, które pole zamyka wszystkie jego wyjścia."
+      },
+      "c2": {
+        "title": "Ostatni rząd",
+        "teach": "Król zamknięty za własnymi pionami żyje w ciągłym niebezpieczeństwie. Umiejętność liczenia ostatniego rzędu rozstrzyga niezliczone partie.",
+        "observe": "Przyjrzyj się pionom f7, g7 i h7: więżą własnego króla.",
+        "goal": "Znajdź mata w jednym ruchu.",
+        "hints": [
+          "Czarny król nie ma pól przed sobą; piony go duszą.",
+          "Kolumna d pozostaje otwarta aż do samego dna szachownicy.",
+          "Wtargnij na ósmy rząd hetmanem: Hd8."
+        ],
+        "explain": "Hd8 to mat: hetman panuje nad całym ósmym rzędem, a piony uniemożliwiają jakąkolwiek ucieczkę.",
+        "wrong": "Wciąż zostaje wyjście; upewnij się, że panujesz nad całym rzędem."
+      },
+      "c3": {
+        "title": "Koronacja",
+        "teach": "Wybór wariantu obejmuje wybór figury do promocji. Hetman prawie zawsze jest najbardziej zabójczą odpowiedzią.",
+        "observe": "Pion jest o krok od promocji, a twój król na f6 podtrzymuje manewr.",
+        "goal": "Promuj i daj mata.",
+        "hints": [
+          "Pion z h7 może natychmiast promować.",
+          "Twój król pilnuje e7, f7 i g7; brakuje tylko zamknięcia ósmego rzędu.",
+          "Promuj na hetmana: h8=H to mat."
+        ],
+        "explain": "h8=H to mat: nowy hetman kontroluje ósmy rząd, a biały król zakrywa pola ucieczki.",
+        "wrong": "Ta promocja nie zamyka sieci; promuj na hetmana i przelicz mata."
+      },
+      "c4": {
+        "title": "Spokojne bicie",
+        "teach": "Nie każdy wariant wieńczy mat; czasem wybiera się ten, który zdobywa materiał bez najmniejszego ryzyka. Liczyć to także rozpoznawać czysty zysk.",
+        "observe": "Kolumna d łączy twojego hetmana z wrogim hetmanem.",
+        "goal": "Zdobądź hetmana rywala.",
+        "hints": [
+          "Czarny hetman na d8 nie ma żadnej obrony.",
+          "Twój hetman dysponuje odsłoniętą kolumną d.",
+          "Bij z szachem: Hxd8+."
+        ],
+        "explain": "Hxd8+ bije wrogiego hetmana z szachem i daje decydującą przewagę, bez żadnych komplikacji.",
+        "wrong": "Wybrałaś gorszy wariant; czyste bicie było właściwą ścieżką."
+      },
+      "c5": {
+        "title": "Decydująca przekątna",
+        "teach": "Teraz liczysz sama: bez wskazówek, bez podpór, tylko twoja wizja. Wybierz jedyną ścieżkę wieńczącą cały trud.",
+        "observe": "Twój skoczek na h5 i twój hetman pracują w ciszy nad królem.",
+        "goal": "Znajdź mata w jednym ruchu.",
+        "hints": [],
+        "explain": "Hg7 to mat: skoczek z h5 broni hetmana, a król z h8 traci g8 i h7.",
+        "wrong": "To nie była ta ścieżka; tylko jedno posunięcie daje dokładnego mata."
+      }
+    },
+    "bastion": {
+      "intro": "Jestem Bastion, wieża i twierdza VEXCHESS: nie idę zamkniętymi kolumnami ani nie cofam się przed hetmanem. Podążaj za mną, a poznasz, że dwie połączone wieże to mur, który atakuje.",
+      "reward": "Twierdza Połączonych Wież",
+      "chron": [
+        "Zawłaszczyłem otwartą kolumnę jak własne terytorium, a moja wieża spadła na ósmy rząd: król nie miał muru, za którym mógłby się skryć.",
+        "Zszedłem na siódmy rząd niczym patrol na granicy, a odsłonięty wróg zapłacił swoją wieżą.",
+        "Złączyłem dwie wieże ramię w ramię; jedna zamknęła jedyne drzwi, druga zadała ostateczny cios.",
+        "Nie bojąc się hetmana, ustawiłem go w jednej linii z jego własnym królem i obaliłem: żadna figura nie jest niezwyciężona wobec dobrze ustawionej wieży.",
+        "Sam, bez jednego głosu, który by mnie prowadził, wykreśliłem dokładną szpilę i ścieżka została zdobyta."
+      ],
+      "c1": {
+        "title": "Otwarta kolumna",
+        "teach": "Otwarta kolumna to droga, którą wieża zawłaszcza dla siebie; nią wnika na tyły wroga. Kto panuje nad kolumną, panuje nad partią.",
+        "observe": "Spójrz na kolumnę b: jest odsłonięta od początku do końca, a ostatni rząd czarnego króla nie ma straży.",
+        "goal": "Wtargnij na ósmy rząd i daj mata.",
+        "hints": [
+          "Kolumna b jest twoja: żadna figura nie zamyka ci drogi.",
+          "Piony f7, g7 i h7 więżą własnego króla.",
+          "Wjedź wieżą na sam koniec: Wb8 to mat."
+        ],
+        "explain": "Wb8 to mat: wieża przebiega otwartą kolumnę aż do ósmego rzędu, a piony odbierają królowi wszelką ucieczkę.",
+        "wrong": "Król wciąż oddycha; zajmij otwartą kolumnę do samego końca."
+      },
+      "c2": {
+        "title": "Wieża na siódmym",
+        "teach": "Siódmy rząd to łupieżcza ziemia dla wieży; tam bezbronny materiał pada. Ruszaj otwartą kolumną i zbierz swoją zdobycz.",
+        "observe": "Czarna wieża na a7 jest sama, bez jednego obrońcy, który by ją krył.",
+        "goal": "Zbij wrogą wieżę.",
+        "hints": [
+          "Kolumna a jest przed tobą odsłonięta.",
+          "Żadna czarna figura nie broni pola a7.",
+          "Zjedź kolumną i bij: Wxa7."
+        ],
+        "explain": "Wxa7 zdobywa całą wieżę: otwarta kolumna prowadzi twoją wieżę na siódmy rząd, a król na g8 jest zbyt daleko, by zareagować.",
+        "wrong": "Pozwoliłeś umknąć łupowi; otwarta kolumna oddawała ci wieżę."
+      },
+      "c3": {
+        "title": "Połączone wieże",
+        "teach": "Dwie wieże, które się bronią, warte są więcej niż podwójna wartość jednej: jedna atakuje, druga zamyka drzwi. Połączone, tkają sieć, z której król nie ujdzie.",
+        "observe": "Czarny król na a8 może już tylko marzyć o b7; zobacz, która wieża pilnuje tego pola.",
+        "goal": "Daj mata dwiema wieżami.",
+        "hints": [
+          "Wieża z b1 już kryje pole b7, jedyne wyjście króla.",
+          "Musisz dać szacha na ósmym rzędzie tak, by król nie mógł uciec.",
+          "Zaprowadź drugą wieżę na ósmy rząd: Wc8 to mat."
+        ],
+        "explain": "Wc8 to mat: jedna wieża daje szacha na ósmym rzędzie, a jej towarzyszka z b1 blokuje b7. Oto potęga połączonych wież.",
+        "wrong": "Jedna wieża nie wystarczy; pozwól im pracować razem."
+      },
+      "c4": {
+        "title": "Wieża, która zdobywa hetmana",
+        "teach": "Wieża dobrze ustawiona na otwartej kolumnie nie boi się hetmana: staje z nim jak równy z równym. Szachem po kolumnie ustaw króla i hetmana w jednej linii i zgarnij ciężką figurę.",
+        "observe": "Czarny król na a4 i hetman na a8 dzielą tę samą kolumnę; wystarczy otworzyć ją szachem.",
+        "goal": "Zdobądź wrogiego hetmana szpilą.",
+        "hints": [
+          "Kolumna a ustawia króla z a4 w linii z hetmanem z a8.",
+          "Daj szacha po kolumnie a: nadziejesz króla z hetmanem za nim.",
+          "Zagraj Wa1+; gdy król się usunie, Wxa8 zdobywa hetmana."
+        ],
+        "explain": "Wa1+ to szpila: król i hetman padają w tej samej kolumnie. Król musi się usunąć, a wtedy Wxa8 zabiera hetmana.",
+        "wrong": "Hetman przetrwał; użyj kolumny i szacha, by go nadziać."
+      },
+      "c5": {
+        "title": "Ścieżka strażnika",
+        "teach": "Teraz bronisz i atakujesz bez żadnej rady; tylko twój rachunek podtrzymuje pozycję. Znajdź szpilę, która wieńczy ścieżkę.",
+        "observe": "Czarny król na e5 i wieża na e8 dzielą kolumnę e, wciąż zamkniętą.",
+        "goal": "Znajdź posunięcie zdobywające wieżę.",
+        "hints": [],
+        "explain": "We1+ nadziewa króla z wieżą za nim w kolumnie e; król się usuwa, a Wxe8 zdobywa wieżę.",
+        "wrong": "To nie była ta ścieżka; jedno posunięcie nadziewa króla i zdobywa wieżę."
+      }
+    },
+    "nyra": {
+      "intro": "Jestem Nyra. Nie wykrzykuję swoich zamiarów: przesuwam je po przekątnej i czekam, aż szachownica zrozumie. Dobrze ustawiony goniec już wygrał partię; brakuje tylko, by rywal się zorientował.",
+      "reward": "Ścieżka Przekątnej",
+      "chron": [
+        "W pierwszym kroku pozwoliłam przemówić przekątnej: wieża padła, a ja nie podniosłam głosu.",
+        "Przemierzyłam całą szachownicę w ciszy i zastałam hetmana nieprzygotowanego; infiltracja nie prosi o pozwolenie.",
+        "Skoczek udawał, że strzeże domu, będąc związanym; podziękowałam mu za komedię i zabrałam wieżę.",
+        "Przybiłam strażnika do własnego króla i zebrałam hetmana z szachem, niemal z żalem.",
+        "Bez wskazówek ustawiłam króla w linii z jego hetmanem i usunęłam jednego, by zagarnąć drugiego."
+      ],
+      "c1": {
+        "title": "Zasięg przekątnej",
+        "teach": "Goniec nie biegnie: dosięga. Odsłonięta przekątna zamienia dystans w natychmiastową groźbę.",
+        "observe": "Podążaj przekątną swojego gońca aż na przeciwległy kraniec szachownicy.",
+        "goal": "Zbij wieżę.",
+        "hints": [
+          "Twój goniec żyje na jednym kolorze; spójrz na długą przekątną, którą panuje.",
+          "Czarna wieża spoczywa na tej samej przekątnej, bez nikogo, kto by ją bronił.",
+          "Goniec z c3 na g7: przemierz ją całą."
+        ],
+        "explain": "Gxg7 zdobywa czystą wieżę: nic nie stoi na przekątnej i nikt jej nie broni.",
+        "wrong": "Zostawiłaś przekątną w połowie; wieża wciąż stoi."
+      },
+      "c2": {
+        "title": "Infiltracja",
+        "teach": "Otwarta przekątna to droga aż do serca wroga. Goniec wślizguje się bezszelestnie i zbiera to, co napotka.",
+        "observe": "Długa przekątna przecina szachownicę od twojego gońca aż do czarnego hetmana.",
+        "goal": "Zdobądź hetmana.",
+        "hints": [
+          "Z g2 twój goniec spogląda siedem pól ku przeciwnemu skrzydłu.",
+          "Nic nie blokuje drogi do b7, a hetman nie ma eskorty.",
+          "Goniec na b7: przeniknij przekątną i bij."
+        ],
+        "explain": "Gxb7 zabiera hetmana: infiltracja długą przekątną nie napotyka żadnego oporu.",
+        "wrong": "Zatrzymałaś się przedwcześnie; hetman czekał na końcu drogi."
+      },
+      "c3": {
+        "title": "Związanie zdradza",
+        "teach": "Związana figura udaje, że broni, lecz nie może się ruszyć. To, co osłania, jest w rzeczywistości bezbronne.",
+        "observe": "Skoczek z e6 zdaje się strzec g7; spójrz, co jest za nim, w kolumnie e.",
+        "goal": "Zbij wieżę.",
+        "hints": [
+          "Twoja wieża na e1 przybija skoczka do własnego króla.",
+          "Związany, ten skoczek nie odbije na g7.",
+          "Goniec z a1 na g7: wieża pada bez odpowiedzi."
+        ],
+        "explain": "Gxg7 zdobywa wieżę: skoczek jest związany z królem i nie może odbić bicia.",
+        "wrong": "Zaufałaś jego strażnikowi; lecz ten skoczek jest związany i niczego nie broni."
+      },
+      "c4": {
+        "title": "Związany strażnik",
+        "teach": "Przybij figurę do jej króla, a jej obrona stanie się fikcją. Wtedy goniec zbiera hetmana z całą kurtuazją.",
+        "observe": "Skoczek z a7 podtrzymuje hetmana; obserwuj kolumnę a i króla na jej końcu.",
+        "goal": "Zdobądź hetmana z szachem.",
+        "hints": [
+          "Wieża z a1 wiąże skoczka z a7 z królem na a8.",
+          "Hetman z c6 liczy tylko na tego skoczka, który nie może się ruszyć.",
+          "Goniec na c6: szach, i hetman jest twój."
+        ],
+        "explain": "Gxc6+ zdobywa hetmana z szachem: związany skoczek nie odbija, a król nie dosięga c6.",
+        "wrong": "Hetman zdawał się broniony; jego strażnik, związany, był tylko złudzeniem."
+      },
+      "c5": {
+        "title": "Szpila",
+        "teach": "Ustaw króla w linii z tym, co kocha, i zmuś go do usunięcia się. Za nim zostanie hetman, sam, na przekątnej.",
+        "observe": "Król i hetman dzielą tę samą przekątną, a twój goniec ją pilnuje.",
+        "goal": "Zdobądź hetmana.",
+        "hints": [],
+        "explain": "Ge4+ nadziewa: król musi się ruszyć, a goniec bije hetmana, który został za jego plecami.",
+        "wrong": "To nie to; jedno posunięcie ustawia króla w linii i skazuje hetmana."
+      }
+    },
+    "pip": {
+      "intro": "Jestem Pip, pion, który nigdy nie przestaje iść naprzód. Krok po kroku, pole po polu, nauczę cię, że nawet najmniejszy może stać się olbrzymem.",
+      "reward": "Serce Piona",
+      "chron": [
+        "Jednym odważnym krokiem Pip dotknął ósmego rzędu i narodził się hetman tam, gdzie wcześniej było tylko marzenie.",
+        "Nie bojąc się wrogiej wieży, Pip odepchnął ją i promował na jej miejscu: nic nie zatrzyma tego, kto idzie naprzód!",
+        "Wobec dwóch dróg Pip wybrał bezpieczną ścieżkę i uniknął pułapki gońca, by promować cały i zdrowy.",
+        "W rogu szachownicy mały Pip postawił ostatni krok i przypieczętował mata: najskromniejszy rozstrzygnął bitwę.",
+        "Sam, bez wskazówek i pomocy, Pip promował z szachem i schwytał wieżę: Ścieżka Mistrzostwa była ukończona."
+      ],
+      "c1": {
+        "title": "Pierwszy krok do hetmana",
+        "teach": "Pion, który dociera do ostatniego rzędu, przemienia się w figurę, którą wybierzesz, prawie zawsze w potężnego hetmana. Ta podróż aż na ósmy rząd zwie się promocją i jest marzeniem każdego piona.",
+        "observe": "Spójrz na mój pion na a7: został mu tylko jeden kroczek do końca szachownicy. Wrogi król jest blisko, więc trzeba promować już teraz.",
+        "goal": "Promuj piona, idąc na a8.",
+        "hints": [
+          "Policz, ile pól brakuje mojemu pionowi, by dojść na rząd 8.",
+          "Jeśli poczekam, czarny król zbije mój pion; trzeba działać teraz.",
+          "Idź z a7 na a8 i wybierz hetmana: dodatkowo dajesz szacha!"
+        ],
+        "explain": "Wchodząc na a8, pion zmienia się w hetmana z szachem, zdobywając naraz najsilniejszą figurę na szachownicy. Każda zwłoka pozwoliłaby czarnemu królowi zjeść piona.",
+        "wrong": "Blisko, ale jeśli nie promuję teraz, wrogi król zje mojego piona; idź na a8."
+      },
+      "c2": {
+        "title": "Promuję, bijąc",
+        "teach": "Pion promuje, prąc prosto, ale może też promować, bijąc na ukos. Zjeść figurę i przemienić się w hetmana w tym samym posunięciu to podwójna potęga.",
+        "observe": "Zwróć uwagę na czarną wieżę na b8, akurat na ukos od mojego piona z a7. Mogę ją zjeść i promować jednocześnie.",
+        "goal": "Zbij na b8 i promuj.",
+        "hints": [
+          "Pion bije na ukos: zobacz, jaka figura stoi na b8.",
+          "Zjeść wieżę i promować na tym samym polu jest lepsze niż iść prosto.",
+          "Zagraj a7 na b8 i wybierz hetmana: zdobywasz wieżę i tworzysz hetmana z szachem."
+        ],
+        "explain": "Bijąc na b8, usuwam wrogą wieżę i pojawiam się przemieniony w hetmana z szachem, zdobywając mnóstwo materiału za jednym razem. Marsz prosto zostawiłby wieżę przy życiu.",
+        "wrong": "Nie do końca: istnieje bicie na ukos, które zdobywa wieżę i promuje zarazem; zagraj a7 na b8."
+      },
+      "c3": {
+        "title": "Bezpieczna droga",
+        "teach": "Gdy masz kilka pionów blisko promocji, nie wszystkie pola promocji są bezpieczne. Dobra struktura uczy cię promować tam, gdzie wróg nie może zbić twojego nowego hetmana.",
+        "observe": "Mam dwa piony gotowe do promocji, na a7 i c7. Ale wrogi goniec pilnuje pola c8, więc promowanie tam byłoby prezentem.",
+        "goal": "Promuj po bezpiecznej stronie na a8.",
+        "hints": [
+          "Zobacz, które pole promocji pilnuje czarny goniec.",
+          "Jeśli promuję na c8, goniec zje mojego hetmana; szukaj wolnego pola.",
+          "Idź pionem z a7 na a8: nikt nie broni ani nie atakuje tego rogu."
+        ],
+        "explain": "Promocja na a8 tworzy hetmana z szachem, którego żaden wróg nie może zbić, podczas gdy promocja na c8 straciłaby go przez gońca. Wybór bezpiecznego pola to czysta struktura pionów.",
+        "wrong": "Uwaga: goniec pilnuje c8 i zbiłby mojego hetmana; promuj lepiej na a8."
+      },
+      "c4": {
+        "title": "Decydujący krok",
+        "teach": "Pion, który promuje, nie tylko zdobywa materiał: czasem daje ostatecznego mata. Z pomocą towarzyszy nawet najskromniejszy pion może zamknąć partię.",
+        "observe": "Wrogi król jest osaczony w rogu h8. Mój pion z g6 zamyka mu pole h7, a brakuje tylko mojego piona z f7, by zadać ostateczny cios.",
+        "goal": "Promuj na f8 i daj mata.",
+        "hints": [
+          "Czarny król jest w rogu: policz jego pola ucieczki.",
+          "Mój pion z g6 już kontroluje h7; brakuje tylko osłonięcia rzędu 8.",
+          "Idź f7 na f8 i promuj na hetmana: to mat."
+        ],
+        "explain": "Promując na f8, nowy hetman daje szacha po rzędzie 8, a pion z g6 odbiera wyjście przez h7; król nie ma ucieczki i to mat. Tylko hetman kryje wszystkie pola naraz.",
+        "wrong": "Jeszcze nie mat: promuj na f8 na hetmana, a król z rogu zostanie bez ucieczki."
+      },
+      "c5": {
+        "title": "Próba mistrza",
+        "teach": "Wolny pion idzie naprzód bez lęku, a promując z szachem, może zyskać czas na atak innej figury. Zawsze patrz, co zdobywasz oprócz samego hetmana.",
+        "observe": "Mój pion z d7 jest o krok od promocji, czarny król spoczywa na h8, a samotna wieża pilnuje z a5.",
+        "goal": "Promuj z szachem i zdobądź wieżę.",
+        "hints": [],
+        "explain": "Promując na d8, pojawia się hetman, który daje szacha po rzędzie 8, a przy tym celuje w wieżę z a5 po przekątnej; po ruchu króla biorę wieżę za darmo. Promuję i zdobywam materiał tą samą ideą.",
+        "wrong": "Pomyśl o promocji z szachem: jest pole, z którego mój nowy hetman atakuje króla i wieżę naraz."
+      }
+    },
+    "ordan": {
+      "intro": "Jestem Ordan i przetrwałem więcej końcówek, niż ty rozegrałeś partii. Strzeż swojego króla jak własnego życia i naucz się dzierżyć go jak broń, gdy szachownica opustoszeje: to całe moje nauczanie.",
+      "reward": "Ścieżka Tronu",
+      "chron": [
+        "Przyparłem wrogiego króla do muru samym spojrzeniem mojego króla, a wieża wydała wyrok.",
+        "Ścigałem go aż do kąta, gdzie żaden tron nie chroni, i bez pośpiechu zamknąłem ostatnie drzwi.",
+        "Rozkazałem hetmanowi, by uciszył próżne szachy i zapieczętował kolumnę; czarny król został bez powietrza.",
+        "Ustawiłem króla ramię w ramię z hetmanem, mur przy murze, i nie było szczeliny, którą można by uciec.",
+        "A na końcu, bez rady i wskazówki, pozwoliłem przemówić opozycji: hetman zszedł na ósmy i wszystko się skończyło."
+      ],
+      "c1": {
+        "title": "Król, który osacza",
+        "teach": "W końcówce twój król przestaje się chować i zaczyna rządzić. To on zamyka wroga przy krawędzi; wieża tylko zadaje cios.",
+        "observe": "Spójrz, jak twój król na g6 staje twarzą w twarz z czarnym królem: to zwie się opozycją i odbiera mu pola ucieczki.",
+        "goal": "Daj mata na ostatnim rzędzie.",
+        "hints": [
+          "Twoi królowie stoją w bezpośredniej opozycji; czarny nie może iść naprzód ani uciec skrzydłami.",
+          "Twoja wieża jest wolna na pierwszym rzędzie, a ósmy jest pusty.",
+          "Wieża z b1 na b8: mat."
+        ],
+        "explain": "Wb8 to mat: twój król kryje f7, g7 i h7, a wieża odcina jedyny rząd, jaki pozostał wrogowi.",
+        "wrong": "Czarny król odetchnął: bez opozycji twojego króla wieża sama nigdy go nie zamknie."
+      },
+      "c2": {
+        "title": "Klatka w kącie",
+        "teach": "Kąt to grób samotnego króla. Gdy wróg chroni się w rogu, twój król pilnuje wyjść, a wieża zamyka drzwi.",
+        "observe": "Czarny król na h8 nie ma już powietrza; twój król na g6 pieczętuje g7, g8 i h7.",
+        "goal": "Zamknij klatkę matem.",
+        "hints": [
+          "Policz pola czarnego króla: twój król zabrał mu już wszystkie oprócz rzędu.",
+          "Wieża na f7 panuje nad siódmym; gdy zawładnie też ósmym, będzie śmiertelna.",
+          "Wieża z f7 na f8: mat."
+        ],
+        "explain": "Wf8 to mat: osaczony w rogu król nie ma ucieczki, a twój monarcha broni każdego pola ucieczki.",
+        "wrong": "Dałeś więźniowi powietrza; w kącie jedno niedopatrzenie go uwalnia."
+      },
+      "c3": {
+        "title": "Hetman słucha króla",
+        "teach": "Hetman jest potężny, lecz bez króla, który wskaże mu drogę, rozdaje tylko puste szachy. Pozwól królowi zabierać pola, a hetmanowi zapieczętować resztę.",
+        "observe": "Twój król na f7 strzeże już g7 i g8; czarnemu królowi zostało tylko oddychać kolumną h.",
+        "goal": "Zapieczętuj kolumnę h matem.",
+        "hints": [
+          "Czarny król na h8 zależy od jednego pola ucieczki: h7.",
+          "Zaprowadź hetmana na kolumnę h, by opanować h8 i h7 naraz.",
+          "Hetman z b1 na h1: mat."
+        ],
+        "explain": "Hh1 to mat: hetman zawłaszcza całą kolumnę h, a twój król zakrywa ucieczkę przez g7 i g8.",
+        "wrong": "Hetman krzyczał na darmo; bez zamknięcia kolumny h czarny król się wymyka."
+      },
+      "c4": {
+        "title": "Ramię w ramię",
+        "teach": "Nigdy nie zbliżaj hetmana do wrogiego króla bez osłony własnego króla. Razem, ramię w ramię, wznoszą mur bez szczeliny.",
+        "observe": "Twój król na f6 broni pola g7; tam, i tylko tam, hetman będzie nietykalny tuż przy czarnym królu.",
+        "goal": "Oddaj hetmana o krok od króla, z matem.",
+        "hints": [
+          "Czarny król na h8 się dusi; brakuje odebrania mu g7 i g8 naraz.",
+          "Tylko jedno pole daje ci oba, a twój król już je broni.",
+          "Hetman z g1 na g7: mat z osłoną."
+        ],
+        "explain": "Hg7 to mat: hetman obejmuje czarnego króla, a twój król go broni, tak że nie może zostać zbity ani ominięty.",
+        "wrong": "Zbliżyłeś hetmana bez eskorty; samotny król by go pożarł."
+      },
+      "c5": {
+        "title": "Sąd opozycji",
+        "teach": "Teraz jesteś sam, bez mojego głosu. Pamiętaj: najpierw król zdobywa pola, potem ciężka figura wieńczy dzieło.",
+        "observe": "Królowie naprzeciw siebie w kolumnie e, a hetman, który nie powiedział jeszcze ostatniego słowa.",
+        "goal": "Znajdź mata w jednym posunięciu.",
+        "hints": [],
+        "explain": "Hb8 to mat: w opozycji twój król odbiera d7, e7 i f7, a hetman docierający na ósmy rząd kryje całą drogę odwrotu, wliczając f8.",
+        "wrong": "To nie to. Pozwól królowi wykonać swoją pracę i szukaj rzędu, którego wróg nie może przekroczyć."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Jesteśmy Eira i Vhal, bliźniaczy jeźdźcy tej samej pary skoczków: ja, Eira, liczę, zanim skoczę; ja, Vhal, skaczę, a potem się śmieję. Razem uczymy cię patrzeć na WSZYSTKIE bicia i wybierać to, które zdobywa najwięcej, bo dobry jeździec nigdy nie bierze pierwszego, które widzi.",
+      "reward": "Jeźdźcy Podwójnego Skoku",
+      "chron": [
+        "Eira wskazała wieżę, Vhal wskazał hetmana; skoczek wskoczył na g5 i wróciliśmy z koroną wroga.",
+        "Dwie widełki otworzyły się przed nami: Vhal krzyknął 'wieża', lecz Eira wybrała hetmana na d6 i szachownica przyznała nam rację.",
+        "Rumak wskoczył na f6 z szachem; wieża na g5 mrugała do nas, lecz my zabraliśmy hetmana i echo galopu.",
+        "Se7 zabrzmiał jak grom z szachem; zignorowaliśmy łatwą wieżę i zebraliśmy hetmana na g6 jak dobrzy bracia.",
+        "Bez wskazówek, bez głosów, tylko instynkt Vhala i rachunek Eiry: b5, i wrogi hetman padł w ciszy."
+      ],
+      "c1": {
+        "title": "Dwie zdobycze, jeden wybór",
+        "teach": "Gdy twój skoczek atakuje kilka figur naraz, nie zjadaj pierwszej, którą widzisz: porównaj je. Spośród wszystkich możliwych bić najlepsze jest to, które zabiera najwięcej materiału.",
+        "observe": "Spójrz na dwa pola, które uderza twój skoczek: jedno kryje wieżę, drugie hetmana. Zważ, ile warte jest każde, zanim zdecydujesz.",
+        "goal": "Zbij figurę o wyższej wartości.",
+        "hints": [
+          "Twój skoczek na e4 zagraża dwóm czarnym figurom bez obrony: zapytaj, która jest więcej warta.",
+          "Hetman jest wart znacznie więcej niż wieża; oto cel.",
+          "Skocz na g5 i zabierz hetmana."
+        ],
+        "explain": "Obie figury były zawieszone, ale hetman (9) znacznie przewyższa wieżę (5): zbicie go to więcej zysku za to samo posunięcie.",
+        "wrong": "To bicie zdobywa mniej: porównaj jeszcze raz wartość obu figur."
+      },
+      "c2": {
+        "title": "Dwie rywalizujące widełki",
+        "teach": "Czasem nie porównujesz bić, lecz posunięcia tworzące podwójną groźbę. Wybierz widełki, które schwytają najcenniejszą figurę.",
+        "observe": "Twój skoczek ma dwa skoki dające szacha i widełki naraz: jeden nakłuwa wieżę, drugi hetmana. Zobacz, co łapie każdy.",
+        "goal": "Daj szacha z widełkami, który zdobędzie hetmana.",
+        "hints": [
+          "Dwa skoki dają szacha z e4; oba zdobywają materiał, ale nie ten sam.",
+          "Szukaj szacha, który atakuje króla i HETMANA jednocześnie.",
+          "Skocz na d6: szach królowi na e8 i widełki na hetmana na b7."
+        ],
+        "explain": "Sd6+ atakuje króla i hetmana naraz; król musi się ruszyć, a skoczek zbiera hetmana, więcej niż rywalizujące widełki, które zdobywały tylko wieżę.",
+        "wrong": "Te widełki zdobywają mniej: szukaj szacha, który łapie hetmana, a nie wieżę."
+      },
+      "c3": {
+        "title": "Łatwe bicie czy zwycięski skok",
+        "teach": "Najbardziej oczywiste bicie nie zawsze zdobywa najwięcej. Porównaj zjedzenie zawieszonej figury ze skokiem, który tworzy większą groźbę.",
+        "observe": "Możesz od razu zjeść wieżę na g5 albo skoczyć z szachem i zagrozić hetmanowi. Zobacz, który łup jest większy.",
+        "goal": "Wybierz skok z szachem, który zdobędzie hetmana.",
+        "hints": [
+          "Wieża na g5 kusi, ale warta jest tylko 5.",
+          "Szach z f6 atakuje króla i dosięga hetmana na d7.",
+          "Zagraj Sf6+; po szachu zbij hetmana na d7."
+        ],
+        "explain": "Sf6+ zmusza króla do ruchu i zostawia hetmana bez obrony wobec skoczka: zdobywasz 9 zamiast 5 za łatwą wieżę.",
+        "wrong": "Wziąłeś mały łup: był szach, który zdobywał całego hetmana."
+      },
+      "c4": {
+        "title": "Grom z e7",
+        "teach": "Zanim zbijesz, sprawdź, czy skok z szachem zdobywa coś większego. Porównywać kandydatów znaczy patrzeć także na posunięcia, które nie są jeszcze biciami.",
+        "observe": "Wieża na f6 jest do zjedzenia, ale twój skoczek może dać szacha z e7 i wbić spojrzenie w hetmana. Porównaj oba końce.",
+        "goal": "Daj szacha z widełkami i zbij hetmana.",
+        "hints": [
+          "Zjedzenie wieży na f6 zdobywa tylko 5 punktów.",
+          "Z e7 twój skoczek daje szacha królowi i grozi hetmanowi na g6.",
+          "Zagraj Se7+; król się usuwa, a ty bierzesz hetmana na g6."
+        ],
+        "explain": "Se7+ to widełki na króla i hetmana: król musi uciec, a hetman pada, łup znacznie większy niż wieża.",
+        "wrong": "Zdobyłeś mniej, niż mogłeś: szach na e7 zabierał hetmana."
+      },
+      "c5": {
+        "title": "Próba bliźniaków",
+        "teach": "Bez wskazówek i głosów: spójrz na wszystkich kandydatów i wybierz tego, który zdobywa najwięcej. Właściwy skok nie zawsze jest najgłośniejszy.",
+        "observe": "Jest wygodne bicie i cichy skok dający szacha. Tylko jeden zabiera hetmana.",
+        "goal": "Znajdź posunięcie zdobywające najwięcej materiału.",
+        "hints": [],
+        "explain": "Sb5+ daje szacha królowi na d4 i widełki na hetmana na d6; król nie może go ocalić, a skoczek zbiera ciężką figurę.",
+        "wrong": "To nie był ten o największym łupie: istnieje szach, który zdobywa hetmana."
+      }
+    },
+    "rhazek": {
+      "intro": "Jestem Rhazek i nie kolekcjonuję figur: kolekcjonuję poległych królów. Mój skoczek nigdy nie pyta, ile warte jest to, co oddaje, tylko ile zyskuje; podążaj za mną, jeśli się odważysz, i naucz się poświęcać jak ten, kto żąda, a nie jak ten, kto błaga.",
+      "reward": "Pan Poświęcenia",
+      "chron": [
+        "Mój skoczek wskoczył na g6, a wieża, ukryta jak sztylet w rękawie, zebrała hetmana, który uważał się za bezpiecznego.",
+        "Jeden skok na e7 i król nie miał innej drogi niż do grobu; mój hetman wszedł za nim i zamknął płytę.",
+        "W rogu go zamknąłem: Sf7 go zepchnął, He8 go zapieczętował, a król umarł, patrząc na własne piony.",
+        "Oddałem hetmana na g8 bez drżenia, bo mat duszący wart jest więcej niż tysiąc koron: mój skoczek zapanował nad uduszeniem króla.",
+        "Bez wskazówek i litości odkryłem szacha i wyrwałem hetmana spośród jego straży: tak awansuje ten, kto idzie moją ścieżką."
+      ],
+      "c1": {
+        "title": "Cios, który odkrywa",
+        "teach": "Inicjatywa jest twoja, gdy twoje posunięcie zmusza, a rywal tylko odpowiada. Skoczek, który skacze, może odsłonić atak ukrytej figury: rusz się z szachem i pozwól wieży zebrać rachunek.",
+        "observe": "Twój skoczek na e5 zamyka usta twojej wieży na e1, a za nim czeka czarny król na e8. Ten hetman na g6 uważa się za nietykalnego za swoim pionem.",
+        "goal": "Skocz, odkryj szacha i zabierz hetmana.",
+        "hints": [
+          "Twoja wieża na e1 celuje w króla na e8, ale skoczek przecina jej linię.",
+          "Szukaj skoku, który daje szacha z odsłony i przy tym dosięga hetmana.",
+          "Sxg6: czarne muszą zająć się szachem wieży, a hetman pada."
+        ],
+        "explain": "Sxg6 otwiera kolumnę e z szachem wieży; czarne muszą ratować króla i nie mogą odbić. Zabierasz całego hetmana, nic nie płacąc.",
+        "wrong": "Letnio: bez szacha z odsłony czarne oddychają, a wrogi hetman ci umyka."
+      },
+      "c2": {
+        "title": "Jeden skok, jeden mat",
+        "teach": "Czasem twój skoczek nie zdobywa materiału: zdobywa całą szachownicę. Daj szacha, by usunąć go z drogi, i pozwól hetmanowi wejść, by zabić.",
+        "observe": "Twój skoczek na d5 przeszkadza własnemu hetmanowi na d2. Jeśli skoczy z szachem, kolumna otworzy się nagle ku królowi na g8.",
+        "goal": "Daj szacha skoczkiem i dobij hetmanem.",
+        "hints": [
+          "Twój hetman na d2 pragnie pola d8, ale skoczek zamyka mu przejście.",
+          "Skocz z szachem na e7: król będzie miał tylko jedno pole.",
+          "Se7+, a potem Hd8 to mat; skoczek pilnuje g8."
+        ],
+        "explain": "Se7+ odsłania kolumnę d z szachem i spycha króla w róg; Hd8 to mat, a skoczek kryje g8. Dwa ciosy, zero wątpliwości.",
+        "wrong": "Powoli: króla nie osaczy się spojrzeniem, a bez szacha nie ma mata."
+      },
+      "c3": {
+        "title": "Róg bez wyjścia",
+        "teach": "Osaczony król to więzień, który jeszcze o tym nie wie. Szach skoczka go przybija, a twój hetman, już wolny, zamyka ostatnie drzwi.",
+        "observe": "Skoczek na e5 pieczętuje kolumnę twojego hetmana na e1. Król na h8 jest pogrzebany żywcem między g7 a h7.",
+        "goal": "Szach skoczkiem i mat hetmanem.",
+        "hints": [
+          "Twój hetman na e1 marzy o e8, ale skoczek go zamyka.",
+          "Sf7+ zmusza króla na g8, jego jedyne pole.",
+          "Po Sf7+ król idzie na g8; wtedy He8 to mat, a skoczek strzeże h8."
+        ],
+        "explain": "Sf7+ wyrywa króla na g8 i otwiera kolumnę e; He8 daje mata, broniony przez skoczka na f7 i z zamkniętym h8. Róg był jego grobem.",
+        "wrong": "Słabo: bez skoku dającego szacha twój hetman zderza się z pionami i nie ma mata."
+      },
+      "c4": {
+        "title": "Mat duszący",
+        "teach": "Tu rodzi się prawdziwe poświęcenie: oddajesz hetmana, najdroższą figurę, bo mat wart jest więcej niż całe złoto szachownicy. Skoczek dobija dokładnie tam, gdzie hetman pada.",
+        "observe": "Król na h8 jest otoczony przez swoich: piony na g7 i h7, wieża na f8. Zostało mu tylko jedno wolne pole; odbierz je.",
+        "goal": "Splot szachy skoczka i poświęć hetmana, by dać mata.",
+        "hints": [
+          "Król dusi się między swoimi figurami; brakuje tylko zamknąć mu g8.",
+          "Sf7+ Kg8, Sh6+ Kh8: król wraca w róg, uwięziony.",
+          "Wtedy Hg8+!! Wieża jest zmuszona bić, a Sf7 to mat duszący."
+        ],
+        "explain": "Po Sf7+ Kg8 Sh6+ Kh8 poświęcenie Hg8+ zmusza do Wxg8, a Sf7 daje mata: król umiera uduszony przez swoich. Hetman oddaje się, by skoczek zapanował.",
+        "wrong": "Wspaniale, ale spudłowałeś: tylko dokładna kombinacja z poświęceniem hetmana daje mata duszącego."
+      },
+      "c5": {
+        "title": "Próba Rhazeka",
+        "teach": "Bez wskazówek, bez głosów, bez siatki. Znajdź cios, który odkrywa szacha, i wyrwij hetmana, choćby uważano go za dobrze bronionego.",
+        "observe": "Twój skoczek na e5 zasłania wieżę na e1, a czarny król czeka na e8. Hetman na c4 opiera się na pionie z b5 i czuje się nietykalny.",
+        "goal": "Odkryj szacha i zbij hetmana.",
+        "hints": [],
+        "explain": "Sxc4+ otwiera kolumnę e z szachem wieży; czarne muszą ruszyć króla i nie zdążą odbić pionem. Zabierasz hetmana, którego uważali za bronionego.",
+        "wrong": "Nie: istnieje szach z odsłony, który zabiera hetmana mimo jego piona."
+      }
+    },
+    "oryn": {
+      "intro": "Jestem Oryn, strażnik otwartych linii, a moją bronią jest wieża. Idź bez pośpiechu: mistrzostwa nie zdobywa się furią, lecz spojrzeniem, które widzi odsłoniętą kolumnę, zanim się poruszy.",
+      "reward": "Wartownik Otwartej Kolumny",
+      "chron": [
+        "Na pierwszym progu Oryn wzniósł wieżę po pustym rzędzie i zamknął króla w jego kącie: mat przyszedł w ciszy, bez jednej przeszkody, która by go zatrzymała.",
+        "Wobec drugiej próby otwarta kolumna sama się otworzyła jak prosta droga; wieża zeszła, a wrogi hetman padł bez obrony, która by go osłoniła.",
+        "W trzecim kroku Oryn nie zbił od razu: wbił spojrzenie w linię, dał szacha i cierpliwie czekał, aż król się usunie, by zebrać nagrodę.",
+        "W czwartym rytuale otwarta kolumna stała się ścieżką śmierci: wieża zjechała prosto, a król, osaczony przez własnego rywala-króla, nie znalazł domu, dokąd uciec.",
+        "Na ostatniej ścieżce, bez głosu, który by go prowadził, Oryn odczytał cały rząd: precyzyjny szach, odsunięty król, i wrogi hetman został na łasce cichej stali."
+      ],
+      "c1": {
+        "title": "Pusty Rząd",
+        "teach": "Wieża w rzędzie lub kolumnie bez przeszkód dosięga każdego pola tej linii. Gdy wrogi król nie ma ucieczki, ta otwarta linia staje się ostrzem mata.",
+        "observe": "Spójrz na ósmy rząd: jest całkowicie odsłonięty. Zauważ, które pola kryje już twój król wokół wrogiego monarchy.",
+        "goal": "Daj mata w jednym posunięciu wieżą.",
+        "hints": [
+          "Czarny król może oddychać tylko na ósmym rzędzie; twój król zamyka mu pola ucieczki w dół.",
+          "Szukaj pola, z którego wieża opanuje cały rząd wrogiego króla.",
+          "Zaprowadź wieżę na a8: szach bez ucieczki."
+        ],
+        "explain": "Wa8 kontroluje cały ósmy rząd, a twój król na g6 pilnuje f7, g7 i h7; czarny monarcha nie ma ani jednego wolnego pola. To mat.",
+        "wrong": "To posunięcie zostawia pole ucieczki; otwarta linia zabija tylko wtedy, gdy król nie ma schronienia."
+      },
+      "c2": {
+        "title": "Prosta Droga",
+        "teach": "Otwarta kolumna to aleja, którą wieża przebiega od krańca do krańca bez hamulca. Nią może uderzyć wrogą figurę, której żaden obrońca nie chroni.",
+        "observe": "Zwróć uwagę na kolumnę e: nie ma pionów ani figur, które by ją przecinały. Na jej końcu czeka czarny hetman, sam i bez osłony.",
+        "goal": "Zbij hetmana wieżą.",
+        "hints": [
+          "Kolumna e jest całkowicie otwarta przed twoją wieżą.",
+          "Czarny hetman nie ma żadnej figury, która by go broniła.",
+          "Przebiegnij kolumnę aż na e8 i zabierz hetmana z szachem."
+        ],
+        "explain": "Wxe8+ przebiega otwartą kolumnę i zdobywa hetmana bez kosztu, w dodatku z szachem; czarny król był zbyt daleko, by go bronić.",
+        "wrong": "Pozwoliłeś umknąć alei; otwarta kolumna była bezpośrednią drogą do hetmana."
+      },
+      "c3": {
+        "title": "Spojrzenie Przed Ciosem",
+        "teach": "Czasem wieża nie bije od razu: najpierw ustawia wrogiego króla w linii z figurą, której pożąda. Szach odsuwa monarchę i zostawia zdobycz bezbronną na końcu linii.",
+        "observe": "Czarny król i hetman dzielą kolumnę e. Twoja wieża nie jest jeszcze w tej kolumnie, ale może w nią wejść z szachem.",
+        "goal": "Daj szacha w kolumnie, by zdobyć hetmana.",
+        "hints": [
+          "Czarny król i hetman są w tej samej kolumnie: król z przodu, hetman z tyłu.",
+          "Jeśli twoja wieża wejdzie w kolumnę e z szachem, król będzie musiał się usunąć.",
+          "Zagraj We1+: król ucieka z kolumny, a potem pada hetman na e8."
+        ],
+        "explain": "We1+ to szpila: czarny król musi opuścić kolumnę e, a po odsłonięciu linii wieża bije hetmana na e8. Analiza przed ciosem daje więcej niż pospieszne bicie.",
+        "wrong": "Uderzyłeś bez przygotowania linii; najpierw szach miał odsunąć króla, by odsłonić zdobycz."
+      },
+      "c4": {
+        "title": "Kolumna Wyroku",
+        "teach": "Otwarta kolumna nie tylko zdobywa figury: wydaje też króla. Gdy twój własny król pieczętuje boczne pola, wieża zjeżdża kolumną i zamyka ostatnie wyjście.",
+        "observe": "Kolumna h jest wolna, a czarny król spoczywa na jej krawędzi. Zauważ, jak twój król na f7 pilnuje g7 i g8, jedynych pól ucieczki.",
+        "goal": "Daj mata w jednym posunięciu wieżą.",
+        "hints": [
+          "Twój król na f7 panuje już nad g7 i g8; czarnemu królowi zostałaby tylko kolumna h.",
+          "Zajmij kolumnę h wieżą, by zamknąć tę ostatnią drogę.",
+          "Zagraj Wh1: szach w kolumnie, bez możliwej ucieczki."
+        ],
+        "explain": "Wh1 daje szacha po otwartej kolumnie; g7 i g8 kryje twój król, a h7 panuje wieża. Czarny monarcha nie ma schronienia: to mat.",
+        "wrong": "Król wciąż znajduje pole; kolumna wydaje wyrok tylko wtedy, gdy każda ucieczka jest pilnowana."
+      },
+      "c5": {
+        "title": "Ścieżka Ciszy",
+        "teach": "Bez głosów, które by cię prowadziły, zaufaj odczytowi linii. Otwarty rząd pozwala wieży nadziać króla i hetmana; cierpliwy szach zbiera potem to, czego pośpiech nigdy by nie dosięgnął.",
+        "observe": "Czarny król i hetman spoczywają na czwartym rzędzie. Twoja wieża, w rogu, może wejść w ten rząd z dala od króla, tak że nie może jej zbić.",
+        "goal": "Znajdź szacha, który nadziewa i zdobywa hetmana.",
+        "hints": [],
+        "explain": "Wa4+ nadziewa po czwartym rzędzie: król, daleki i niezdolny bić, musi opuścić rząd, a wieża zbiera hetmana na h4. Spokojne spojrzenie zwycięża impuls.",
+        "wrong": "Linia wymagała szacha, który nadziewa króla; bezpośrednie bicie nie było jeszcze w twoim zasięgu."
+      }
+    },
+    "vesra": {
+      "intro": "Jestem Vesra, a mój hetman nie ściga: zamyka drzwi. Obserwuj, jak szachownica się zwęża, aż rywalowi zostanie tylko posłuszeństwo.",
+      "reward": "Strażniczka Ograniczenia",
+      "chron": [
+        "W pierwszej ciszy hetman usiadł przy wrogim królu, a róg stał się grobem bez wyjścia.",
+        "Wzniósł kolumnę jak ten, kto stawia mur, a przeciwny monarcha odkrył, że nie ma już którędy uciec.",
+        "Ze spokojną kurtuazją usunął z szachownicy jedyną obrończynię, a pozycja stanęła naga wobec mej woli.",
+        "Z drugiego krańca świata jedna linia wystarczyła, by zapieczętować ósmy rząd i wygłosić werdykt.",
+        "A w ostatniej próbie zaoferował szacha, który nie zabijał: tylko zmuszał do usunięcia się, by wieża padła sama."
+      ],
+      "c1": {
+        "title": "Róg, który się zamyka",
+        "teach": "Ograniczać to gasić pola, aż król nie ma dokąd pójść. Gdy wszelka ucieczka się wyczerpie, szach przestaje być groźbą i staje się wyrokiem.",
+        "observe": "Spójrz na pola ucieczki czarnego króla na h8 i zauważ, że twój król na f6 pilnuje już g8 i g7.",
+        "goal": "Daj mata w jednym posunięciu.",
+        "hints": [
+          "Czarny król oddycha tylko przez g8, g7 i h7; twój król na f6 kryje już dwa z nich.",
+          "Zbliż hetmana do wrogiego króla, pod osłoną twojego monarchy.",
+          "Zaprowadź hetmana na g7: twój król go podtrzymuje, a róg się zamyka."
+        ],
+        "explain": "Hetman g7 jest nie do zbicia, bo twój król na f6 go broni, i kryje ostatnie wyjścia. Absolutne ograniczenie: to mat.",
+        "wrong": "Zostawiłaś mu wolne pole; król ucieka, a ograniczenie się rozpada."
+      },
+      "c2": {
+        "title": "Mur kolumny",
+        "teach": "Jedna figura może zamknąć całą kolumnę i zamienić ją w ścianę. Król pada nie siłą, lecz dlatego, że nie zostaje mu przestrzeni do zajęcia.",
+        "observe": "Zwróć uwagę na kolumnę h, gdzie mieszka czarny król, i na twojego króla z f7, który pieczętuje g7 i g8.",
+        "goal": "Daj mata w jednym posunięciu.",
+        "hints": [
+          "Król na h8 zależy od kolumny h i od pól g, które pilnuje twój król.",
+          "Potrzebujesz figury, która opanuje kolumnę h od góry do dołu.",
+          "Przesuń hetmana na h2: cała kolumna zostaje zakazana."
+        ],
+        "explain": "Hetman h2 kontroluje całą kolumnę h, a twój król na f7 kryje g7 i g8. Bez pól król się dusi: mat.",
+        "wrong": "Kolumna wciąż ma lukę; król znajduje powietrze i przeżywa."
+      },
+      "c3": {
+        "title": "Jedyna obrończyni",
+        "teach": "Ograniczać to także usuwać tego, kto podtrzymuje rywala. Zabierz jego jedyną aktywną figurę, a cała pozycja się poddaje bez oporu.",
+        "observe": "Oba hetmany patrzą na siebie w kolumnie d; czarny to jedyna siła, jaka zostaje rywalowi.",
+        "goal": "Zdobądź wrogiego hetmana.",
+        "hints": [
+          "Twój hetman i czarny dzielą tę samą kolumnę, d.",
+          "Możesz zbić z szachem i zachować całą przewagę.",
+          "Zbij na d8: usuwasz jego jedyną figurę i dajesz szacha naraz."
+        ],
+        "explain": "Hetman na d8 bije z szachem jedyną obrończynię rywala; zostajesz z hetmanem przeciw samotnemu królowi, decydujące zwycięstwo.",
+        "wrong": "Oszczędziłaś jego hetmana; póki żyje, rywal wciąż może się bronić."
+      },
+      "c4": {
+        "title": "Werdykt z dystansu",
+        "teach": "Ograniczenie nie wymaga bliskości: czysta linia przecina całą szachownicę. Z daleka hetman może zapieczętować rząd i podyktować koniec.",
+        "observe": "Czarny król na h8 wisi na ósmym rzędzie; twój król na g6 strzeże już g7 i h7.",
+        "goal": "Daj mata w jednym posunięciu.",
+        "hints": [
+          "Król uciekłby tylko przez ósmy rząd lub pola g, które kryje twój król.",
+          "Szukaj zajęcia ósmego rzędu hetmanem, bez przeszkód po drodze.",
+          "Postaw hetmana na b8: rząd zostaje zamknięty z dystansu."
+        ],
+        "explain": "Hetman b8 panuje nad całym ósmym rzędem, a twój król na g6 zakrywa wyjścia; król nie może się ruszyć ani zasłonić: mat.",
+        "wrong": "Ósmy rząd nie został zapieczętowany; król wymyka się przez szczelinę."
+      },
+      "c5": {
+        "title": "Szach, który zmusza",
+        "teach": "Zugzwang to uprzejme okrucieństwo: nie zabijać, lecz zmuszać do ruchu ku zgubie. Szach, którego król musi uniknąć, może obnażyć figurę, która się za nim kryła.",
+        "observe": "Czarny król na e5 i wieża na a5 dzielą piąty rząd; pion na e4 zasłania każdy szach po kolumnie e.",
+        "goal": "Zdobądź wieżę.",
+        "hints": [],
+        "explain": "Hetman h5 daje szacha po piątym rzędzie; król musi się usunąć i przestaje osłaniać swoją wieżę, która pada na a5. Ograniczenie zamienione w łup.",
+        "wrong": "Ten cios do niczego nie zmusza; bez wymuszonego szacha król zachowuje swoją wieżę."
+      }
+    },
+    "brakkon": {
+      "intro": "Jestem Brakkon, a moja wieża nie szuka chwały: strzeże jej. Gdzie inni rzucają atak, ja wznoszę mury, a za nimi król odpoczywa bez lęku.",
+      "reward": "Nieporuszony Strażnik",
+      "chron": [
+        "Gdy wroga wieża wtargnęła na ostatni rząd, Brakkon nie cofnął się: usunął ją ze świata jednym ciosem, a mur znów się zamknął.",
+        "Skoczek wśliznął się między cienie; wieża spatrolowała rząd i usunęła go w ciszy, a król nie ruszył palcem.",
+        "Hetman sądził, że wygłosi ostatni szach, lecz wieża dzieliła jego rząd i go obaliła: spokojny kamień przeciw burzy.",
+        "Z wysokości otwartej kolumny wieża zjechała jak głaz i zapieczętowała groźbę, nieporuszona aż do ostatniego pola.",
+        "A w próbie, bez głosu, który by go prowadził, Brakkon ujrzał mata skrytego za spokojem i zgasił go, zanim się narodził."
+      ],
+      "c1": {
+        "title": "Mur się nie łamie",
+        "teach": "Bronić to rozpoznać tego, kto zagraża, i usunąć go z szachownicy, zanim wyrządzi szkodę. Wieża nie ucieka: staje na drodze, bije i przywraca królowi spokój.",
+        "observe": "Spójrz na czarną wieżę na e1: daje szacha po pierwszym rzędzie. Twój król na h1 jest zamknięty przez własne piony f2, g2 i h2.",
+        "goal": "Zbij wieżę, która daje szacha.",
+        "hints": [
+          "Twój król nie może się ruszyć: piony f2, g2 i h2 otaczają go całkowicie.",
+          "Tylko jedna twoja figura dosięga pierwszego rzędu, by odpowiedzieć na szacha.",
+          "Zaprowadź wieżę z a1 na e1 i pożryj napastniczkę."
+        ],
+        "explain": "Wieża na e1 usuwa figurę dającą szacha i zostawia króla bezpiecznym za murem pionów. To najczystsza obrona: zgasić groźbę u jej źródła.",
+        "wrong": "Król wciąż jest w szachu; tylko twoja wieża może zgasić tę groźbę."
+      },
+      "c2": {
+        "title": "Pilnowany rząd",
+        "teach": "Koordynacja to figura kryjąca to, czego król nie może. Twoja wieża patroluje cały rząd, a gdy zbliża się intruz, usuwa go bez opuszczania posterunku przez monarchę.",
+        "observe": "Czarny skoczek wskoczył na e2 i daje szacha twojemu królowi na g1. Twoja wieża panuje nad całym drugim rzędem z a2.",
+        "goal": "Zbij skoczka, który daje szacha.",
+        "hints": [
+          "Skoczek na e2 atakuje twojego króla; mógłbyś uciec, ale jest twardsza odpowiedź.",
+          "Twoja wieża kontroluje drugi rząd od krańca do krańca.",
+          "Przesuń wieżę z a2 na e2 i zbij skoczka."
+        ],
+        "explain": "Wieża na e2 nie tylko wychodzi z szacha: zabiera skoczka i pieczętuje skrzydło króla. Obrona i zysk w jednym geście.",
+        "wrong": "Ucieczka ratuje króla na chwilę, ale intruz wciąż żyje; lepiej usunąć go z szachownicy."
+      },
+      "c3": {
+        "title": "Kamień przeciw hetmanowi",
+        "teach": "Żadna groźba nie jest zbyt wielka, jeśli twoja obrona dzieli jej linię. Wieża nie boi się hetmana: jeśli ten wtargnie, wieża go obala i chroni króla.",
+        "observe": "Czarny hetman na e1 daje szacha po pierwszym rzędzie. Twój król na h1 nie ma ani jednego wolnego pola.",
+        "goal": "Zbij hetmana, który daje szacha.",
+        "hints": [
+          "Szach przychodzi po pierwszym rzędzie, a twój król jest zamurowany przez piony.",
+          "Twoja wieża na b1 dzieli ten sam rząd z hetmanem.",
+          "Wieża z b1 na e1: zbij hetmana i zakończ szacha."
+        ],
+        "explain": "Wieża na e1 pożera wrogiego hetmana i zostawia króla nietkniętego. Wymiana wieży za broniącego hetmana to decydujący handel.",
+        "wrong": "Z zamkniętym królem tylko wieża odpowiada; pozwól jej zebrać hetmana."
+      },
+      "c4": {
+        "title": "Głaz zjeżdża",
+        "teach": "Otwarta kolumna to droga, którą wieża strzeże z góry na dół. Gdy niebezpieczeństwo zbliża się do króla, wieża zjeżdża jak głaz i kryje go z dystansu.",
+        "observe": "Czarny hetman na d1 daje szacha twojemu królowi osaczonemu na g1. Twoja wieża wieńczy kolumnę d z d7, z odsłoniętą drogą.",
+        "goal": "Zbij hetmana, który daje szacha.",
+        "hints": [
+          "Hetman atakuje po pierwszym rzędzie, a twój król nie może opuścić swojego kąta.",
+          "Zauważ kolumnę d: jest otwarta od d7 aż do d1.",
+          "Zjedź wieżą z d7 na d1 i zbij hetmana."
+        ],
+        "explain": "Wieża na d1 przebiega otwartą kolumnę i usuwa hetmana; król oddycha, a ty zostajesz z całą przewagą. Koordynacja wieży i króla to mur bez pęknięć.",
+        "wrong": "Nie ma ucieczki dla króla; wieża musi zjechać kolumną i zebrać hetmana."
+      },
+      "c5": {
+        "title": "Cisza przed matem",
+        "teach": "Najgroźniejsza jest groźba cicha: hetman i goniec szykują Hxg2 mat, jeszcze nie dając szacha. Prawdziwy strażnik widzi ją nadchodzącą i unieszkodliwia, zanim wybuchnie.",
+        "observe": "Hetman na e4 i goniec na f1 celują w g2: jeśli pozwolisz mu zagrać, Hxg2 to mat. Twoja wieża czeka w kolumnie e, na e2.",
+        "goal": "Zneutralizuj groźbę mata.",
+        "hints": [],
+        "explain": "Wieża na e4 usuwa hetmana po kolumnie e, zanim wykona Hxg2 mat; goniec zostaje sam, a ty z wygrywającą przewagą. Przewidzieć cios to najwyższa obrona.",
+        "wrong": "Zostawiłeś groźbę przy życiu: goniec podtrzymuje hetmana i Hxg2 byłoby matem."
+      }
+    },
+    "ilyra": {
+      "intro": "Jestem Ilyra i nie ścigam wrogów: dosięgam ich z daleka, po linii, na którą nikt nie patrzy. Goniec nie biegnie; kreśli prostą, a na tej prostej już było zapisane, kto padnie.",
+      "reward": "Strażniczka Przekątnych",
+      "chron": [
+        "Ze swojego kąta na b2 Ilyra rozciągnęła jedną przekątną aż do ostatniego pola, a hetman, który uważał się za odległego, padł, nie widząc jej nadejścia.",
+        "Postawiła szacha na prostej i czekała: król usunął się posłusznie, a za nim czekał hetman, już jej, po tej samej linii, która go zepchnęła.",
+        "Po jasnych polach przecięła szachownicę od krańca do krańca, a tam, gdzie król sądził, że jest bezpieczny, przekątna już go przeszyła.",
+        "Zapaliła szacha na białych polach; król uciekł z prostej, a hetman, odsłonięty na końcu, poddał się spojrzeniu gońca.",
+        "Bez głosu, który by ją prowadził, Ilyra odczytała cichą przekątną, zepchnęła króla spokojnym szachem i zebrała wieżę, którą uważał za skrytą za plecami."
+      ],
+      "c1": {
+        "title": "Przekątna nie ma końca",
+        "teach": "Goniec rządzi całą swoją przekątną, od jednej krawędzi szachownicy po drugą, bez względu na to, jak daleko wróg mniema się oddalony. To, co dzieli twój kolor pola, jest już w twoim zasięgu.",
+        "observe": "Spójrz na długą przekątną z b2: c3, d4, e5, f6, g7... a na końcu, na h8, czarny hetman, sam i bez obrony.",
+        "goal": "Zbij hetmana po przekątnej.",
+        "hints": [
+          "Goniec na b2 i hetman na h8 dzielą to samo ciemne pole: są na jednej prostej.",
+          "Sprawdź, że droga między b2 a h8 jest odsłonięta od początku do końca.",
+          "Przesuń gońca z b2 aż na h8 i pożryj hetmana."
+        ],
+        "explain": "Goniec przebiega całą przekątną i bije hetmana, który uważał się za odległego; dystans nie chroni tego, kto dzieli twój kolor pola. To prawo gońca: prosta jest twoja cała.",
+        "wrong": "Tylko jedno posunięcie sięga końca przekątnej; pozwól gońcowi przebiec prostą aż do hetmana."
+      },
+      "c2": {
+        "title": "Promień, który przeszywa",
+        "teach": "Szach na przekątnej nie zawsze szuka króla: używa go jak drzwi do tego, co kryje za sobą. Gdy król i hetman dzielą twoją prostą, król musi się usunąć i odsłania tego, kto za nim szedł.",
+        "observe": "Twój goniec może skoczyć na d4 i dać szacha królowi na g7; na tej samej prostej, tuż za nim, czeka hetman na h8.",
+        "goal": "Daj szacha, który ustawia króla i hetmana w linii.",
+        "hints": [
+          "Szukaj pola, z którego goniec związuje króla z g7 na długiej przekątnej.",
+          "Król na g7 i hetman na h8 są na tej samej prostej: jeden z przodu, drugi z tyłu.",
+          "Zagraj gońcem na d4 z szachem; gdy król się ruszy, pada hetman na h8."
+        ],
+        "explain": "Gd4 związuje króla, a po wymuszonej ucieczce goniec zbiera hetmana, który został na końcu prostej. To promień X: szach na jednego obnaża drugiego.",
+        "wrong": "Król musi się najpierw usunąć; bez szacha, który ich ustawia w linii, hetman nigdy nie zostanie odsłonięty."
+      },
+      "c3": {
+        "title": "Jasne pola",
+        "teach": "Każdy goniec żyje na jednym kolorze i na nim rządzi od strony do strony szachownicy. Po jasnych polach twoje spojrzenie przecina całe pole i dociera tam, gdzie król już nie osłania.",
+        "observe": "Z f1 otwiera się jasna przekątna: e2, d3, c4, b5, aż do a6, gdzie czarny hetman spoczywa z dala od swojego króla, zamkniętego przez własne piony.",
+        "goal": "Zbij hetmana po jasnej przekątnej.",
+        "hints": [
+          "Goniec z f1 przebiega jasne pola; podążaj prostą ku skrzydłu hetmana.",
+          "Hetman na a6 dzieli tę przekątną, a jego król jest zbyt daleko, by mu pomóc.",
+          "Zaprowadź gońca z f1 na a6 i zabierz hetmana."
+        ],
+        "explain": "Goniec przecina całą jasną przekątną i bije bezbronnego hetmana; król, pogrzebany za swoimi pionami, nie może przybyć. Panowanie nad jednym kolorem wystarczy, by rozstrzygnąć partię.",
+        "wrong": "Hetman jest bez obrony na końcu twojej jasnej prostej; żadne inne posunięcie nie wykorzystuje tej przekątnej."
+      },
+      "c4": {
+        "title": "Król z przodu, hetman z tyłu",
+        "teach": "Na jasnych polach promień X powtarza swoje prawo: zapal szacha, a król się usunie, odsłaniając to, co krył. Linia, która spycha monarchę, jest tą samą, która upomina się o jego hetmana.",
+        "observe": "Goniec skacze na e4 i daje szacha królowi na c6; na tej prostej, za jego plecami, czeka hetman na b7.",
+        "goal": "Daj szacha, który ustawia króla i hetmana w linii.",
+        "hints": [
+          "Znajdź jasne pole, z którego goniec związuje króla z c6.",
+          "Król na c6 i hetman na b7 są na tej samej przekątnej: król z przodu, hetman z tyłu.",
+          "Zagraj gońcem na e4 z szachem; gdy król ucieknie, zbij hetmana na b7."
+        ],
+        "explain": "Ge4 związuje króla na jasnej przekątnej, a zmuszając go do ucieczki, zostawia hetmana z b7 bez osłony. Król nie może wrócić na prostą, by go bronić, a goniec go zbiera.",
+        "wrong": "Bez szacha, który ich nadziewa, król strzeże hetmana; najpierw zmuś go do opuszczenia prostej."
+      },
+      "c5": {
+        "title": "Cicha linia",
+        "teach": "Nie zawsze na końcu prostej czeka hetman; czasem to wieża, która czuje się bezpieczna, daleko i w cieniu. Cicha przekątna też spycha króla i odsłania to, co kryje za sobą.",
+        "observe": "Czarny król na c6 i wieża na a8 dzielą jasne pole. Twój goniec może dotrzeć na e4 i ustawić oboje na tej samej prostej.",
+        "goal": "Ustaw króla i wieżę w linii szachem i zbierz figurę z końca.",
+        "hints": [],
+        "explain": "Ge4 związuje króla z c6 na jasnej przekątnej; zmuszony do ucieczki, nie zdoła obronić odległej wieży z a8, która pada po tej samej prostej. Najcichsza linia sięga najdalej.",
+        "wrong": "Inne posunięcie nie nadziewa króla z wieżą; tylko szach na przekątnej odsłania figurę z końca."
+      }
+    },
+    "tikk": {
+      "intro": "Jestem Tikk i nie, nie jestem tylko pionem: jestem pionem, który dociera PIERWSZY. Kiedy ty myślisz, ja już promowałem... z szachem, gotowy?",
+      "reward": "Strażnik Tempa",
+      "chron": [
+        "Rozdział I: Tikk przemknął przez szachownicę, gwiżdżąc, promował z szachem i ukradł rywalowi zegar, zanim ten mrugnął.",
+        "Rozdział II: bez hamowania Tikk zjadł skoczka PRZY promocji; dwa ciosy w jednym tempie, bo tempo jest jego.",
+        "Rozdział III: na drugim skrzydle ten sam trik, ten sam uśmiech; promocja, szach, i zegar znów płacze.",
+        "Rozdział IV: Tikk pożarł całą wieżę na polu promocji; rywal wciąż szukał planu, gdy nic mu już nie zostało.",
+        "Rozdział V: w Próbie Tikk wzgardził hetmanem i promował na SKOCZKA z szachem; idealny zwischenzug, którego nikt nie przewidział."
+      ],
+      "c1": {
+        "title": "Ten, kto dociera pierwszy",
+        "teach": "W szachach nie zawsze wygrywa najsilniejszy, wygrywa ten, kto dociera WCZEŚNIEJ. Promocja z szachem daruje ci tempo: zmuszasz rywala, a ty już rządzisz.",
+        "observe": "Spójrz na mój pion na b7 i czarnego króla na d6, akurat na przekątnej pola promocji.",
+        "goal": "Promuj na b8 z szachem.",
+        "hints": [
+          "Pion na siódmym rzędzie o krok od awansu... nie przepuść go.",
+          "Promuj na hetmana, nie na wieżę: tylko hetman daje szacha królowi z d6 po przekątnej.",
+          "Zagraj b7b8 i wybierz hetmana: szach, tempo i decydująca przewaga."
+        ],
+        "explain": "b8=H daje szacha po przekątnej b8-d6, zyskuje tempo i zostawia białe z hetmanem przeciw wieży, wygrywając.",
+        "wrong": "Zbyt wolno: bez szacha rywal oddycha, a ty tracisz tempo."
+      },
+      "c2": {
+        "title": "Dwa ciosy, jedno tempo",
+        "teach": "Pion, który promuje, bijąc, robi dwie rzeczy w jednym tempie: zabiera figurę I rodzi się jako hetman. To wyciskanie zegara do maksimum.",
+        "observe": "Mój pion z b7 i ten czarny skoczek na c8, który wręcz prosi, bym go pożarł przy promocji.",
+        "goal": "Zbij na c8, promując z szachem.",
+        "hints": [
+          "Pion może bić na ukos właśnie przy promocji.",
+          "Na c8 stoi skoczek: zjedz go i stań się hetmanem w tym samym ruchu.",
+          "Zagraj b7xc8=H: zabierasz skoczka i dajesz szacha królowi z e6."
+        ],
+        "explain": "bxc8=H bije skoczka, promuje i daje szacha po przekątnej c8-e6: materiał i tempo za jednym pociągnięciem.",
+        "wrong": "Promowałeś bez ugryzienia: zostawiłeś skoczka przy życiu i straciłeś pół łupu."
+      },
+      "c3": {
+        "title": "Ten sam trik, inne skrzydło",
+        "teach": "Tempo nie zna skrzydeł: obojętne czy a, czy h, ten, kto promuje z szachem, rządzi. Powtórz wzorzec, a zegar wciąż będzie po twojej stronie.",
+        "observe": "Mój pion na g7 i czarny król na d5, ustawiony na długiej przekątnej z g8.",
+        "goal": "Promuj na g8 z szachem.",
+        "hints": [
+          "Pion z g7 jest o krok od chwały.",
+          "Tylko hetman dosięga króla z d5 po przekątnej g8-d5.",
+          "Zagraj g7g8=H: szach, zyskane tempo i hetman przeciw wieży."
+        ],
+        "explain": "g8=H daje szacha po przekątnej g8-d5, zyskując tempo, a białe zostają z hetmanem przeciw wieży, wygrywając.",
+        "wrong": "Bez szacha nie ma tempa: rywal się przegrupowuje, a ty trwonisz przewagę."
+      },
+      "c4": {
+        "title": "Wieża na śniadanie",
+        "teach": "Im większa figura, którą bijesz przy promocji, tym szybciej kończy się partia. Zjedz, promuj i daj szacha: zegar nawet nie drgnie.",
+        "observe": "Mój pion na h7 i cała czarna wieża czeka na g8.",
+        "goal": "Zbij wieżę na g8, promując z szachem.",
+        "hints": [
+          "Pion z h7 może bić na ukos ku g8.",
+          "Na g8 stoi WIEŻA: zabierz ją i promuj naraz.",
+          "Zagraj h7xg8=H: zjadasz wieżę i dajesz szacha królowi z e6."
+        ],
+        "explain": "hxg8=H bije wieżę, promuje i daje szacha po przekątnej g8-e6: ogromny zysk w jednym tempie.",
+        "wrong": "Promowałeś ze złej strony: wieża wciąż żyje, a rywal ci dziękuje."
+      },
+      "c5": {
+        "title": "Skradzione tempo",
+        "teach": "Czasem hetman nie jest odpowiedzią: decydujące tempo daje zwischenzug, pośredni cios z szachem, którego nikt się nie spodziewa. Promuj na SKOCZKA, daj szacha i ukradnij wrogiego hetmana, zanim zareaguje.",
+        "observe": "Król na d7 i hetman na a6 są o skok skoczka od siebie, licząc od b8.",
+        "goal": "Znajdź promocję z szachem, która zdobywa hetmana.",
+        "hints": [],
+        "explain": "b8=S daje szacha królowi z d7 i atakuje zarazem hetmana z a6: król musi się ruszyć, a Sxa6 zabiera hetmana, dając wygrywającą przewagę figury i piona.",
+        "wrong": "Promocja na hetmana tylko wyrównuje: tracisz tempo podwójnego szacha, a z nim partię."
+      }
+    },
+    "malrec": {
+      "intro": "Jestem Malrec i przeżyłem więcej koron, niż ty ujrzysz upadających. Nie mam hetmana, który by mnie ratował, ani wież, które by mnie opłakiwały: tylko króla, który idzie ku niebezpieczeństwu, bo nauczył się, że trwanie w bezruchu to śmierć.",
+      "reward": "Król, który Przeżywa",
+      "chron": [
+        "Wrogi skoczek krążył zbyt blisko; mój król nie odwrócił wzroku, ruszył na c5 i pożarł go bez drżenia.",
+        "Zeszli wieżą, sądząc ją bezpieczną na szóstym; mój stary król wstał z tronu i wyrwał ją z szachownicy.",
+        "Hetman przyszedł po moje gardło, a w swej pysze znalazł się w zasięgu mej ręki: c5, i hetman padł przed pionem.",
+        "Odsunąłem króla z linii i pozwoliłem przemówić wieży: b6, a w rogu wrogi król udusił się w ciszy.",
+        "Bez głosów, które by mnie prowadziły, mój król wyszedł na otwarte pole i wziął to, czego nikt nie odważył się tknąć: tak kończy się ścieżka tego, kto przeżywa."
+      ],
+      "c1": {
+        "title": "Król, który się nie cofa",
+        "teach": "W końcówce król przestaje być zbiegiem i staje się katem. Luźnej figury w jego zasięgu się nie daruje: postąp krok naprzód i ją zjedz.",
+        "observe": "Twój król na d4 i czarny skoczek na c5, o jeden krok, bez nikogo, kto by go bronił. W końcówce każda figura waży jak góra.",
+        "goal": "Postąp naprzód i zbij skoczka.",
+        "hints": [
+          "Zobacz, które pola dosięga twój król; jedno z nich kryje wrogą figurę.",
+          "Skoczek na c5 jest sam, ani jego król, ani pion go nie kryją.",
+          "Kxc5: twój król zabiera skoczka, a końcówka jest wygrana."
+        ],
+        "explain": "Kxc5 zdobywa całego skoczka bez kosztu, bo nic nie broni tego pola. Z przewagą figury końcówka ma już tylko jednego pana.",
+        "wrong": "Nieśmiało: odsunięcie króla zostawia skoczka przy życiu i darowuje końcówkę, która była już twoja."
+      },
+      "c2": {
+        "title": "Tron powstaje",
+        "teach": "Aktywny król w końcówce wart jest więcej niż strach, jaki się przed nim czuje. Wieża, która zbliża się bez eskorty, to mięso dla twojego monarchy.",
+        "observe": "Twój król na e5, w centrum, i czarna wieża na d6 w zasięgu twej ręki, bez piona ani króla, które by ją podtrzymywały.",
+        "goal": "Zabierz wieżę królem.",
+        "hints": [
+          "Twój król rządzi w centrum; sąsiednie pole kryje wieżę.",
+          "Wieża na d6 nie ma straży: ani król na b7, ani pion jej nie chronią.",
+          "Kxd6: twój król powstaje i wyrywa wieżę z szachownicy."
+        ],
+        "explain": "Kxd6 bije bezbronną wieżę i rozstrzyga końcówkę od razu. Centralny król nie ucieka: zbiera.",
+        "wrong": "Błąd: każde inne posunięcie daruje wieżę, a z nią twoją przewagę."
+      },
+      "c3": {
+        "title": "Hetman w zasięgu",
+        "teach": "Niebezpieczeństwo to twój fach: gdy hetman przychodzi cię zabić, patrz, czy nie zbliżył się zbytnio. Przeżyć to mieć hart, by zjeść to, co chciało cię pożreć.",
+        "observe": "Twój król na d4 jest w szachu od hetmana na c5, ale ten hetman przylega do ciebie i nikt go nie chroni. Strach kryje prezent.",
+        "goal": "Odpowiedz na szacha, bijąc hetmana.",
+        "hints": [
+          "Jesteś w szachu: nie każdy szach to groźba, niektóre to niedopatrzenie.",
+          "Hetman na c5 atakuje cię z sąsiedniego pola i jest sam.",
+          "Kxc5: twój król odpowiada na szacha, zabierając całego hetmana."
+        ],
+        "explain": "Kxc5 wychodzi z szacha i bije hetmana jednym ciosem, bo nic go nie broni. Ten, kto ci groził, leży pod twoją stopą.",
+        "wrong": "Fatalnie: ucieczka od szacha zostawia hetmana przy życiu, a z nim tracisz końcówkę i życie."
+      },
+      "c4": {
+        "title": "Król się usuwa i zabija",
+        "teach": "Czasem najlepszym posunięciem króla jest zejście z drogi. Usuwając się, pozwala przemówić figurze, którą krył swoim ciałem, a ten głos to wyrok.",
+        "observe": "Twoja wieża na a1 i czarny król na a8 dzielą kolumnę, ale twój własny król na a6 zasłania linię. Twój goniec na f4 pilnuje w ciszy pola b8.",
+        "goal": "Usuń króla i odkryj mata.",
+        "hints": [
+          "Twój król zasłania kolumnę twojej wieży; jeśli się usunie, wieża da szacha na a8.",
+          "Szukaj pola, gdzie twój król, ruszając się, kryje a7 i b7, podczas gdy goniec pieczętuje b8.",
+          "Kb6: odkrywa szacha wieży, a czarnemu królowi nie zostaje ani jedno pole."
+        ],
+        "explain": "Kb6 odkrywa szacha wieży po kolumnie a; król na a6 zaczyna kryć a7 i b7, a goniec z f4 już zasłaniał b8. Bez ucieczki, to mat.",
+        "wrong": "Nie: ruch króla na jakiekolwiek inne pole zostawia oddech i mat się wymyka."
+      },
+      "c5": {
+        "title": "Próba Malreca",
+        "teach": "Bez wskazówek, bez rąk, które by cię podtrzymały. Król musi wyjść na otwarte pole i wziąć to, czego inni boją się dotknąć.",
+        "observe": "Twój król na c4 i czarna wieża na b5, aktywna na piątym rzędzie. Wrogi król jest daleko, strzegąc swojego piona; nikt nie broni wieży.",
+        "goal": "Wyjdź królem i zbij wieżę.",
+        "hints": [],
+        "explain": "Kxb5 zabiera bezbronną wieżę i zostawia wygraną końcówkę; król, który waży się wyjść, zbiera to, czego nieśmiały nigdy nie ujrzy. Ani pion, ani odległy król nie mogą jej pomścić.",
+        "wrong": "Nie: wieża jest luźna i tylko twój król, wychodząc na otwarte pole, ją zabiera."
+      }
+    },
+    "solenne": {
+      "intro": "Jestem Solenne i urodziłam się jako najskromniejsza figura szachownicy: zwykły pion. Ale wolny pion idzie bez lęku ku ósmemu rzędowi, a kto uczy się promować, ten pojmuje, że żaden skromny początek nie decyduje o końcu.",
+      "reward": "Korona Ósmego Rzędu",
+      "chron": [
+        "Mój pion postawił ostatni krok na b8 i narodził się jako hetman z szachem; to, co zaczęło się małe, skończyło, rządząc szachownicą.",
+        "Na b7 nie zatrzymałam się przed skoczkiem: zbiłam go przy promocji na c8 i jednym krokiem zdobyłam figurę i koronę.",
+        "Poszłam na g8, a nowy hetman przeciął szachownicę, by związać króla; cierpliwy pion stał się hetmanem.",
+        "Wieża sądziła, że zamknie mi drogę, lecz na g8 pożarłam ją przy promocji z szachem; tak toruje sobie drogę wolny pion.",
+        "Bez głosów, które by mnie prowadziły, promowałam na skoczka zamiast na hetmana, a skok schwytał króla i hetmana naraz: pokora też umie wybrać swą postać."
+      ],
+      "c1": {
+        "title": "Ostatni krok",
+        "teach": "Wolny pion to taki, który nie ma już wrogich pionów ani przed sobą, ani po bokach: jego droga do promocji jest wolna. Gdy dociera na siódmy rząd, jeden krok więcej zmienia go w hetmana.",
+        "observe": "Twój pion na b7 ma ósmy rząd w zasięgu i żaden rywal nie może go powstrzymać. Promując na b8, nowy hetman spojrzy prosto na czarnego króla na d6.",
+        "goal": "Idź pionem i promuj na hetmana z szachem.",
+        "hints": [
+          "Twój pion na b7 jest o jeden krok od ósmego rzędu.",
+          "Promuj na b8, wybierając najsilniejszą figurę, i spójrz na rząd króla.",
+          "b8=H+ rodzi się z szachem na d6; król musi się nim zająć, a ty zdobywasz całego hetmana."
+        ],
+        "explain": "b8=H promuje z szachem na ósmym rzędzie; wolny pion nie miał oporu, a teraz masz przewagę hetmana. Najskromniejszy krok stał się najpotężniejszy.",
+        "wrong": "Zabrakło ostatniego kroku: pion, który nie promuje, trwoni całą swoją drogę."
+      },
+      "c2": {
+        "title": "Promocja przez bicie",
+        "teach": "Czasem droga na ósmy rząd przecina wrogą figurę na ukos: możesz ją zbić i promować w tym samym ruchu. Tak zdobywasz figurę i koronę jednym ciosem.",
+        "observe": "Twój pion na b7 ma przed sobą czarnego skoczka na c8, akurat na twojej przekątnej promocji. Król na e6 nie zdąży pomóc.",
+        "goal": "Zbij skoczka, promując na hetmana.",
+        "hints": [
+          "Skoczek na c8 jest na przekątnej bicia twojego piona.",
+          "Nie idź prosto: zjedz skoczka przy promocji.",
+          "bxc8=H+ usuwa skoczka i daje ci hetmana z szachem; podwójny łup."
+        ],
+        "explain": "bxc8=H bije skoczka i promuje z szachem naraz; zyskujesz figurę i hetmana, nie dając nic w zamian. Wolny pion umie utorować sobie drogę, jedząc.",
+        "wrong": "Promocja prosto zostawia skoczka przy życiu: wykorzystaj bicie i zabierz wszystko."
+      },
+      "c3": {
+        "title": "Hetman, który przecina",
+        "teach": "Promocja to nie tylko zysk materiału: tworzy z niczego najszybszą figurę szachownicy. Ledwie narodzony, hetman w mgnieniu dosięga tego, co było po drugiej stronie.",
+        "observe": "Twój pion na g7 promuje wolno na g8. Stamtąd nowy hetman ujrzy na ukos czarnego króla na d5.",
+        "goal": "Promuj na hetmana i daj szacha królowi.",
+        "hints": [
+          "Twój pion na g7 dociera sam na ósmy rząd.",
+          "Promuj na g8 i spójrz na długą przekątną ku centrum.",
+          "g8=H+ związuje króla na d5 z rogu; hetman panuje nad szachownicą od narodzin."
+        ],
+        "explain": "g8=H promuje i daje szacha po przekątnej g8-d5; z piona rodzi się hetman rządzący całą szachownicą. Oto nagroda cierpliwości.",
+        "wrong": "Bez promocji twój pion tylko się przygląda: postaw krok i pozwól narodzić się hetmanowi."
+      },
+      "c4": {
+        "title": "Pożreć strażnika",
+        "teach": "Gdy wieża próbuje zamknąć ci ósmy rząd, nie bój się jej: jeśli jest na twojej przekątnej, bijesz ją przy promocji. Przeszkoda staje się twoją ostatnią zdobyczą.",
+        "observe": "Twój pion na h7 ma czarną wieżę na g8, na swojej przekątnej promocji. Król na e6 zostanie odsłonięty na nowego hetmana.",
+        "goal": "Zbij wieżę, promując z szachem.",
+        "hints": [
+          "Wieża na g8 sądzi, że cię blokuje, ale jest na twojej przekątnej.",
+          "Zjedz ją przy promocji, zamiast przeć prosto.",
+          "hxg8=H+ usuwa wieżę i daje szacha na e6; zdobywasz wieżę i koronę naraz."
+        ],
+        "explain": "hxg8=H bije wieżę i promuje z szachem na e6; strażnik, który chciał cię zatrzymać, karmi twój awans. Wolny pion nie prosi o pozwolenie: toruje sobie drogę.",
+        "wrong": "Marsz prosto potyka się o wieżę: bij na ukos, a promujesz, pożerając ją."
+      },
+      "c5": {
+        "title": "Próba Solenne",
+        "teach": "Bez wskazówek i głosów. Promocja na hetmana nie zawsze jest najlepsza: czasem skromna figura musi wybrać inną postać, by schwytać króla i hetmana naraz.",
+        "observe": "Twój pion na b7 promuje wolno, ale król na d7 i hetman na a6 są ustawieni w osobliwy sposób. Pomyśl, która figura dosięga obu.",
+        "goal": "Promuj figurę, która daje szacha, i zdobądź hetmana.",
+        "hints": [],
+        "explain": "b8=S promuje na skoczka z szachem i rozdwaja króla na d7 i hetmana na a6; król musi się ruszyć, a hetman pada. Niedopromocja, z pozoru skromna, wygrywa partię.",
+        "wrong": "Nie: promocja na hetmana daje tylko szacha, ale istnieje figura, która atakuje króla i hetmana naraz."
+      }
+    },
+    "presence": {
+      "label": "Twój mistrz",
+      "win": "Zwycięstwo. Zagrałeś tak, jak bym cię nauczył.",
+      "lose": "Każda porażka kryje lekcję. Następna partia jest nasza.",
+      "draw": "Remis. Równowagę też trzeba opanować.",
+      "check": "Uwaga: twój król jest w szachu.",
+      "thinking": "Obserwuj. Najlepszy ruch rzadko krzyczy.",
+      "sendaCta": "Przejdź moją Ścieżkę Mistrzostwa w kodeksie."
+    }
   }
 }

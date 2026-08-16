@@ -1121,5 +1121,1208 @@
       "community": "Communauté",
       "myGames": "Mes parties"
     }
+  },
+  "vm": {
+    "level": {
+      "iniciado": "Initié",
+      "aprendiz": "Apprenti",
+      "adepto": "Adepte",
+      "experto": "Expert",
+      "maestro": "Maître",
+      "pleno": "Lien complet"
+    },
+    "ui": {
+      "start": "Commencer la Voie de la Maîtrise",
+      "continue": "Continuer la Voie",
+      "soon": "Voie de la Maîtrise · bientôt disponible",
+      "sectionTitle": "Voie de la Maîtrise",
+      "chapter": "Chapitre {n}/{total}",
+      "trialTag": "Épreuve",
+      "vinculo": "Lien",
+      "observe": "Observe",
+      "hint": "Demander un indice",
+      "hintCount": "Indice {n}/{total}",
+      "lastHint": "dernier",
+      "correct": "Correct !",
+      "next": "Suivant →",
+      "teachNext": "Compris →",
+      "practice": "À toi de jouer →",
+      "finishChapter": "Terminer le chapitre →",
+      "chronicleUnlocked": "Chronique débloquée",
+      "reward": "Récompense de maîtrise",
+      "completeTitle": "Voie terminée",
+      "completeMsg": "Tu as parcouru la Voie entière. Le lien avec ce champion est complet.",
+      "back": "Retour au codex",
+      "trialNoHints": "Dans l'Épreuve, pas d'indices : fie-toi à ce que tu as appris.",
+      "wrongRetry": "Réessaie.",
+      "yourMove": "À toi de jouer",
+      "vinculoSub": "Sans avantage compétitif · uniquement apprentissage, narration et collection",
+      "chapterDone": "Chapitre réussi",
+      "guestMsg": "Connecte-toi pour parcourir la Voie et sauvegarder ton lien.",
+      "loginBtn": "Se connecter",
+      "chaptersDone": "{n}/{total} chapitres",
+      "trialsHint": "Le dernier chapitre est une Épreuve sans indices."
+    },
+    "noctis": {
+      "intro": "Je suis Noctis. Je ne traverse pas l'obscurité : je la divise. Je vais t'apprendre à voir les deux menaces qui tiennent dans un seul saut. Observe, prédis et exécute.",
+      "reward": "Titre débloqué : «Ombre Double»",
+      "chron": [
+        "Chacun de mes sauts laisse deux ombres. Une seule est réelle.",
+        "J'ai appris à frapper là où personne ne défend : entre deux pièces à la fois.",
+        "Le roi est le meilleur otage : il oblige à répondre et laisse sa dame sans protection.",
+        "Je ne cherche pas la pièce. Je cherche la case depuis laquelle deux pièces sont déjà miennes.",
+        "Quand tu verras la fourchette avant de la jouer, tu n'auras plus besoin de mes ombres."
+      ],
+      "c1": {
+        "title": "La première ombre",
+        "teach": "La fourchette attaque deux pièces d'un seul coup. Commençons par la plus nette : un échec qui, au passage, emporte une tour.",
+        "observe": "Le roi noir est en e8 et la tour en a8. Cherche la case depuis laquelle un cavalier touche les deux.",
+        "goal": "Donne échec et attaque la tour avec le cavalier.",
+        "hints": [
+          "Un cavalier en c7 atteint e8 et a8 à la fois.",
+          "La case clé est à un saut : d5 → c7.",
+          "Cd5-c7+ : échec au roi et fourchette sur la tour."
+        ],
+        "explain": "Cc7+ est échec : l'adversaire doit s'occuper de son roi et la tour de a8 tombe. Voilà la fourchette dans sa forme la plus pure : tu obliges d'abord et tu gagnes ensuite.",
+        "wrong": "Presque. Une seule case doit toucher le roi et la tour. Pense à c7."
+      },
+      "c2": {
+        "title": "Le roi comme appât",
+        "teach": "Quand la fourchette inclut le roi, elle est imparable : l'échec oblige et la pièce majeure reste à ta merci.",
+        "observe": "Roi noir en e8, dame en c8. Trouve le saut qui donne échec et vise aussi la dame.",
+        "goal": "Fourchette sur le roi et la dame.",
+        "hints": [
+          "Depuis d6, un cavalier attaque e8 et c8.",
+          "e4 → d6, avec échec.",
+          "Cd6+ gagne la dame après l'échec."
+        ],
+        "explain": "Cd6+ attaque le roi (échec forcé) et la dame en c8. Le roi bouge et la dame est à toi. Le roi est le meilleur appât d'une fourchette.",
+        "wrong": "Ce n'est pas ça. La case doit donner échec en e8 et toucher c8 à la fois : regarde d6."
+      },
+      "c3": {
+        "title": "Depuis l'autre angle",
+        "teach": "La même idée fonctionne sur n'importe quelle aile. Entraîne ton œil à la voir aussi par la droite.",
+        "observe": "Roi en e8, dame en g8. Trouve le saut qui menace les deux.",
+        "goal": "Échec au roi et attaque sur la dame.",
+        "hints": [
+          "f6 touche e8 et g8.",
+          "g4 → f6, avec échec.",
+          "Cf6+ et la dame de g8 tombe."
+        ],
+        "explain": "Cf6+ donne échec depuis l'autre côté et attaque g8. La fourchette n'a pas de côté préféré : seulement des cases correctes.",
+        "wrong": "Pas encore. Cherche la case qui touche e8 et g8 : c'est f6."
+      },
+      "c4": {
+        "title": "Le saut silencieux",
+        "teach": "Parfois la case de la fourchette paraît inoffensive… jusqu'à ce que le cavalier arrive. Fie-toi au motif.",
+        "observe": "Roi en g8, dame en c8 et ton cavalier en g6. Quelle case touche les deux ?",
+        "goal": "Fourchette sur le roi et la dame.",
+        "hints": [
+          "e7 atteint g8 et c8.",
+          "g6 → e7, avec échec.",
+          "Ce7+ et tu gagnes la dame."
+        ],
+        "explain": "Ce7+ relie g8 (échec) à c8 (dame). Un saut tranquille, un butin énorme. Tu reconnais déjà le motif.",
+        "wrong": "Ce n'est pas ça. La case qui touche g8 et c8 est e7."
+      },
+      "c5": {
+        "title": "Épreuve · L'ombre sans avertissement",
+        "teach": "Sans échec, pas d'avertissement : ici la fourchette ne crie pas, tu la vois ou tu la perds. Sans indices : fie-toi à ce que tu as appris.",
+        "observe": "Deux tours noires, en d8 et f8. Une seule case les vise toutes les deux.",
+        "goal": "Fourchette sur les deux tours.",
+        "hints": [],
+        "explain": "Ce6 attaque d8 et f8 en même temps. Pas d'échec, mais une tour tombera. Tu as appris à voir la fourchette sans que personne ne t'avertisse.",
+        "wrong": "Une tour doit être attaquée en même temps que l'autre. Cherche la case entre d8 et f8."
+      }
+    },
+    "kael": {
+      "intro": "Je suis Kael, et mon cavalier ne demande pas la permission : il attaque. Suis-moi et apprends à voler le tempo, à développer avec fureur et à garder l'initiative avant que l'adversaire ne respire.",
+      "reward": "Cavalier du Tempo",
+      "chron": [
+        "Mon cavalier a bondi en e7 avec échec et la dame ennemie est tombée sans une plainte.",
+        "Dans le coin, j'ai acculé le roi et lui ai arraché sa tour d'un coup.",
+        "Un saut en f7 et le silence du mat a clos la partie.",
+        "J'ai puni le roi qui n'a pas osé se développer : échec, et sa dame fut mienne.",
+        "Sans indices et sans hésitation, le poulain a frappé et l'échiquier s'est rendu."
+      ],
+      "c1": {
+        "title": "Le Saut qui Vole la Dame",
+        "teach": "L'échec commande : quand tu donnes échec, l'adversaire obéit et c'est toi qui donnes le rythme. Un cavalier qui fait échec et attaque la dame gagne tempo et matériel d'un seul coup.",
+        "observe": "Regarde où sont le roi noir et sa dame : cherche une case qui les attaque tous les deux à la fois.",
+        "goal": "Donne échec et fourche le roi et la dame.",
+        "hints": [
+          "Cherche un saut de cavalier qui donne échec au roi en g8.",
+          "La case e7 touche le roi et la dame en même temps.",
+          "Joue Ce7+ et, après que le roi ait bougé, capture la dame en c6."
+        ],
+        "explain": "Ce7+ est échec : le roi doit bouger et ne peut pas défendre la dame, qui tombe en c6.",
+        "wrong": "Sans échec, tu perds l'initiative ; oblige le roi et garde la dame."
+      },
+      "c2": {
+        "title": "Embuscade dans le Coin",
+        "teach": "L'initiative naît de la menace avec tempo. Un cavalier qui fait échec dans le coin force le roi et dénude sa tour.",
+        "observe": "Le roi noir dort en a8 et sa tour en e8 : une fourchette les unit.",
+        "goal": "Donne échec et gagne la tour.",
+        "hints": [
+          "Le cavalier peut bondir en c7 en donnant échec.",
+          "Depuis c7, le cavalier attaque le roi et la tour de e8.",
+          "Cc7+ puis Cxe8 : la tour est à toi."
+        ],
+        "explain": "Cc7+ oblige le roi à fuir et le cavalier dévore la tour en e8.",
+        "wrong": "Ne laisse pas le roi s'échapper gratuitement : l'échec en c7 est ta seule clé."
+      },
+      "c3": {
+        "title": "Le Mat du Poulain",
+        "teach": "Le développement culmine dans l'attaque : quand le roi étouffe entre ses pièces, un cavalier achève. Le tempo parfait transforme un saut en échec et mat.",
+        "observe": "Le roi noir est enseveli sous sa tour et ses pions ; il ne manque que le coup.",
+        "goal": "Donne échec et mat avec le cavalier.",
+        "hints": [
+          "Le roi n'a pas une seule case libre.",
+          "Un saut en f7 donne échec et il n'y a aucune échappatoire.",
+          "Cf7 est mat : livre-le avec fierté."
+        ],
+        "explain": "Cf7# donne échec et le roi, étouffé par ses propres pièces, ne peut ni fuir ni capturer.",
+        "wrong": "Cherche l'échec auquel on ne peut échapper : f7 le scelle."
+      },
+      "c4": {
+        "title": "Châtiment du Roi Paresseux",
+        "teach": "Qui ne développe pas, paie : un roi coincé au centre est une proie facile. Attaque avec tempo et l'initiative devient butin.",
+        "observe": "Le roi noir est toujours en e7 et sa dame erre en b4 : tous deux à portée d'un saut.",
+        "goal": "Donne échec au centre et gagne la dame.",
+        "hints": [
+          "Le roi exposé en e7 invite à la fourchette.",
+          "Depuis c6, le cavalier fait échec au roi et attaque la dame en b4.",
+          "Cc6+ puis Cxb4 : la dame est à toi."
+        ],
+        "explain": "Cc6+ est un échec à double tranchant : le roi fuit et la dame de b4 tombe sans recours.",
+        "wrong": "Profite du roi au centre : seul l'échec en c6 gagne la dame."
+      },
+      "c5": {
+        "title": "Épreuve du Cavalier : Sans Pitié",
+        "teach": "Ici, pas d'indices, seulement ton instinct. Trouve le saut qui donne échec et arrache la dame : prouve que tu maîtrises le tempo.",
+        "observe": "Le roi en c8 et la dame en f5 attendent ton verdict.",
+        "goal": "Donne échec et emporte la dame.",
+        "hints": [],
+        "explain": "Cd6+ fait échec au roi en c8 et attaque la dame en f5 ; le roi fuit et Cxf5 conclut le larcin.",
+        "wrong": "Le tempo t'a échappé : cherche l'échec qui touche aussi la dame."
+      }
+    },
+    "aurelia": {
+      "intro": "Je suis Aurelia, et ma dame ne bouge pas par impulsion : elle bouge par conviction. Avant de toucher une pièce, je vois la partie terminée ; suis-moi et tu apprendras à calculer jusqu'à la fin.",
+      "reward": "Voie de la Dame Sereine",
+      "chron": [
+        "Au premier pas, la dame descendit sur la septième rangée, et le roi ne trouva où fuir.",
+        "Je vis la dernière rangée se refermer avant qu'elle n'existe ; ses propres pions furent sa condamnation.",
+        "Un pion traversa l'échiquier et renaquit en reine : le calcul récompense la patience.",
+        "Je ne capturai pas par cupidité, mais par certitude ; la dame ennemie tomba sans livrer bataille.",
+        "Sans indices et sans doutes, je choisis l'unique voie, et le mat fleurit sur la diagonale."
+      ],
+      "c1": {
+        "title": "La descente de la dame",
+        "teach": "Calculer, c'est voir la position finale avant de bouger une seule pièce. La dame et le roi tissent ensemble un filet dont le monarque adverse ne s'échappe pas.",
+        "observe": "Regarde les cases de fuite du roi noir et découvre qui les surveille.",
+        "goal": "Donne échec et mat en un coup.",
+        "hints": [
+          "Ton roi en f6 contrôle déjà g7 ; la dame peut s'appuyer sur lui.",
+          "Cherche la case depuis laquelle la dame attaque le roi sans pouvoir être capturée.",
+          "Amène la dame en g7 : le roi de h8 se retrouvera sans air."
+        ],
+        "explain": "Dg7 est échec et mat : le roi de f6 défend la dame et prive le monarque noir des cases g8, h7 et g7.",
+        "wrong": "Le roi s'est échappé ; recalcule quelle case ferme toutes ses issues."
+      },
+      "c2": {
+        "title": "La dernière rangée",
+        "teach": "Un roi enfermé derrière ses propres pions vit en danger constant. Savoir calculer la rangée du fond décide d'innombrables parties.",
+        "observe": "Observe les pions f7, g7 et h7 : ils emprisonnent leur propre roi.",
+        "goal": "Trouve le mat en un coup.",
+        "hints": [
+          "Le roi noir n'a pas de cases devant lui ; ses pions l'étouffent.",
+          "La colonne d reste ouverte jusqu'au fond de l'échiquier.",
+          "Envahis la huitième rangée avec la dame : Dd8."
+        ],
+        "explain": "Dd8 est mat : la dame domine toute la huitième rangée et les pions empêchent toute fuite.",
+        "wrong": "Il reste encore une issue ; assure-toi de dominer la rangée entière."
+      },
+      "c3": {
+        "title": "Le couronnement",
+        "teach": "Choisir la variante inclut choisir en quelle pièce promouvoir. La dame, presque toujours, est la réponse la plus létale.",
+        "observe": "Le pion est à un pas de la promotion et ton roi en f6 soutient la manœuvre.",
+        "goal": "Promeus et donne mat.",
+        "hints": [
+          "Le pion de h7 peut promouvoir immédiatement.",
+          "Ton roi surveille e7, f7 et g7 ; il ne reste qu'à fermer la huitième rangée.",
+          "Promeus en dame : h8=D est échec et mat."
+        ],
+        "explain": "h8=D est mat : la nouvelle dame contrôle la huitième rangée tandis que le roi blanc couvre les cases de fuite.",
+        "wrong": "Cette promotion ne ferme pas le filet ; promeus en dame et calcule le mat."
+      },
+      "c4": {
+        "title": "La capture sereine",
+        "teach": "Toute variante ne se couronne pas d'un échec et mat ; parfois on choisit celle qui gagne du matériel sans le moindre risque. Calculer, c'est aussi reconnaître le gain net.",
+        "observe": "La colonne d relie ta dame à la dame ennemie.",
+        "goal": "Gagne la dame adverse.",
+        "hints": [
+          "La dame noire en d8 n'a aucune défense.",
+          "Ta dame dispose de la colonne d dégagée.",
+          "Capture avec échec : Dxd8+."
+        ],
+        "explain": "Dxd8+ capture la dame ennemie avec échec et laisse un avantage décisif, sans la moindre complication.",
+        "wrong": "Tu as choisi une variante inférieure ; la capture nette était la voie."
+      },
+      "c5": {
+        "title": "La diagonale décisive",
+        "teach": "Maintenant tu calcules seule : sans indices, sans appuis, seulement ta vision. Choisis l'unique voie qui couronne tous les efforts.",
+        "observe": "Ton cavalier en h5 et ta dame travaillent en silence sur le roi.",
+        "goal": "Trouve le mat en un coup.",
+        "hints": [],
+        "explain": "Dg7 est mat : le cavalier de h5 défend la dame, et le roi de h8 perd g8 et h7.",
+        "wrong": "Ce n'était pas la voie ; un seul coup livre le mat exact."
+      }
+    },
+    "bastion": {
+      "intro": "Je suis Bastion, tour et rempart de VEXCHESS : je n'avance pas par colonnes fermées ni ne recule devant la dame. Suis-moi et tu apprendras que deux tours unies sont une muraille qui attaque.",
+      "reward": "Rempart des Tours Unies",
+      "chron": [
+        "J'ai réclamé la colonne ouverte comme mon territoire et ma tour est tombée sur la huitième rangée : le roi n'a eu aucun mur derrière lequel se cacher.",
+        "Je suis descendu sur la septième rangée comme qui patrouille une frontière, et l'ennemi sans défense paya de sa tour.",
+        "J'ai uni mes deux tours épaule contre épaule ; l'une ferma l'unique porte tandis que l'autre portait le coup final.",
+        "Sans craindre la dame, je l'ai enfilée contre son propre roi et l'ai abattue : aucune pièce n'est invincible face à une tour bien plantée.",
+        "Seul, sans une seule voix pour me guider, j'ai tracé l'enfilade exacte et la voie fut conquise."
+      ],
+      "c1": {
+        "title": "La colonne ouverte",
+        "teach": "Une colonne ouverte est un chemin que la tour réclame pour elle ; par elle, elle pénètre jusqu'à l'arrière ennemi. Qui domine la colonne domine la partie.",
+        "observe": "Regarde la colonne b : elle est dégagée de bout en bout, et la dernière rangée du roi noir n'a aucune garde.",
+        "goal": "Envahis la huitième rangée et donne échec et mat.",
+        "hints": [
+          "La colonne b est à toi : aucune pièce ne te barre le passage.",
+          "Les pions f7, g7 et h7 enferment leur propre roi.",
+          "Monte la tour jusqu'au fond : Tb8 est mat."
+        ],
+        "explain": "Tb8 est mat : la tour parcourt la colonne ouverte jusqu'à la huitième rangée et les pions refusent au roi toute fuite.",
+        "wrong": "Le roi respire encore ; prends la colonne ouverte jusqu'au bout."
+      },
+      "c2": {
+        "title": "La tour sur la septième",
+        "teach": "La septième rangée est terre de pillage pour la tour ; là tombe le matériel sans défense. Avance par la colonne ouverte et récolte ta proie.",
+        "observe": "La tour noire en a7 est seule, sans un seul défenseur pour la couvrir.",
+        "goal": "Capture la tour ennemie.",
+        "hints": [
+          "La colonne a est dégagée devant toi.",
+          "Aucune pièce noire ne défend la case a7.",
+          "Descends par la colonne et capture : Txa7."
+        ],
+        "explain": "Txa7 gagne une tour entière : la colonne ouverte mène ta tour sur la septième et le roi en g8 est trop loin pour répondre.",
+        "wrong": "Tu as laissé filer le butin ; la colonne ouverte te livrait la tour."
+      },
+      "c3": {
+        "title": "Tours connectées",
+        "teach": "Deux tours qui se protègent valent plus que le double d'une seule : l'une attaque et l'autre ferme la porte. Connectées, elles tissent un filet dont le roi ne s'échappe pas.",
+        "observe": "Le roi noir en a8 ne peut que rêver de b7 ; observe quelle tour surveille cette case.",
+        "goal": "Donne échec et mat avec les deux tours.",
+        "hints": [
+          "La tour de b1 couvre déjà la case b7, unique issue du roi.",
+          "Tu dois donner échec sur la huitième rangée sans que le roi puisse fuir.",
+          "Amène l'autre tour sur la huitième : Tc8 est mat."
+        ],
+        "explain": "Tc8 est mat : une tour donne échec sur la huitième rangée tandis que sa compagne depuis b1 verrouille b7. Voilà le pouvoir des tours connectées.",
+        "wrong": "Une seule tour ne suffit pas ; laisse-les travailler toutes les deux ensemble."
+      },
+      "c4": {
+        "title": "La tour qui gagne la dame",
+        "teach": "Une tour bien plantée sur une colonne ouverte ne craint pas la dame : elle l'affronte d'égal à égal. Avec un échec sur la colonne, aligne le roi et la dame et récolte la pièce majeure.",
+        "observe": "Le roi noir en a4 et la dame en a8 partagent la même colonne ; il ne reste qu'à l'ouvrir avec échec.",
+        "goal": "Gagne la dame ennemie avec une enfilade.",
+        "hints": [
+          "La colonne a aligne le roi de a4 avec la dame de a8.",
+          "Donne échec par la colonne a : tu enfileras le roi avec la dame derrière.",
+          "Joue Ta1+ ; quand le roi s'écarte, Txa8 gagne la dame."
+        ],
+        "explain": "Ta1+ est une enfilade : le roi et la dame se trouvent sur la même colonne. Le roi doit s'écarter et alors Txa8 emporte la dame.",
+        "wrong": "La dame a survécu ; utilise la colonne et l'échec pour l'enfiler."
+      },
+      "c5": {
+        "title": "La voie du gardien",
+        "teach": "Maintenant tu défends et attaques sans le moindre conseil ; seul ton calcul soutient la position. Trouve l'enfilade qui couronne la voie.",
+        "observe": "Le roi noir en e5 et la tour en e8 partagent la colonne e, encore fermée.",
+        "goal": "Trouve le coup qui gagne la tour.",
+        "hints": [],
+        "explain": "Te1+ enfile le roi avec la tour derrière dans la colonne e ; le roi s'écarte et Txe8 gagne la tour.",
+        "wrong": "Ce n'était pas la voie ; un seul coup enfile le roi et gagne la tour."
+      }
+    },
+    "nyra": {
+      "intro": "Je suis Nyra. Je ne crie pas mes intentions : je les glisse le long d'une diagonale et j'attends que l'échiquier comprenne. Un fou bien placé a déjà gagné la partie ; il ne reste plus qu'à ce que l'adversaire s'en aperçoive.",
+      "reward": "Voie de la Diagonale",
+      "chron": [
+        "Au premier pas, j'ai laissé la diagonale parler : la tour tomba sans que j'élève la voix.",
+        "J'ai traversé l'échiquier entier en silence et j'ai trouvé la dame au dépourvu ; l'infiltration ne demande pas la permission.",
+        "Le cavalier feignait de garder la maison, cloué comme il l'était ; je l'ai remercié de la comédie et j'ai emporté la tour.",
+        "J'ai fixé le gardien contre son propre roi et j'ai recueilli la dame d'un échec, presque avec peine.",
+        "Sans indices, j'ai aligné le roi avec sa reine et j'ai écarté l'un pour garder l'autre."
+      ],
+      "c1": {
+        "title": "La portée de la diagonale",
+        "teach": "Le fou ne court pas : il atteint. Une diagonale dégagée transforme la distance en menace immédiate.",
+        "observe": "Suis la diagonale de ton fou jusqu'à l'extrémité opposée de l'échiquier.",
+        "goal": "Capture la tour.",
+        "hints": [
+          "Ton fou habite une seule couleur ; regarde la grande diagonale qu'il domine.",
+          "La tour noire repose sur cette même diagonale, sans personne pour la protéger.",
+          "Fou de c3 à g7 : parcours-la entière."
+        ],
+        "explain": "Fxg7 gagne la tour nette : rien ne s'interpose sur la diagonale et personne ne la défend.",
+        "wrong": "Tu as laissé la diagonale à moitié ; la tour est toujours debout."
+      },
+      "c2": {
+        "title": "Infiltration",
+        "teach": "Une diagonale ouverte est un chemin jusqu'au cœur ennemi. Le fou se faufile sans bruit et récolte ce qu'il trouve.",
+        "observe": "La grande diagonale traverse l'échiquier depuis ton fou jusqu'à la dame noire.",
+        "goal": "Gagne la dame.",
+        "hints": [
+          "Depuis g2, ton fou regarde sept cases vers l'aile opposée.",
+          "Rien ne bloque le chemin jusqu'à b7, et la dame n'a pas d'escorte.",
+          "Fou en b7 : infiltre la diagonale et capture."
+        ],
+        "explain": "Fxb7 emporte la dame : l'infiltration par la grande diagonale ne rencontre aucune résistance.",
+        "wrong": "Tu t'es arrêté trop tôt ; la dame attendait au bout du chemin."
+      },
+      "c3": {
+        "title": "Le clouage trahit",
+        "teach": "Une pièce clouée feint de défendre, mais ne peut pas bouger. Ce qu'elle protège est, en réalité, sans défense.",
+        "observe": "Le cavalier de e6 semble garder g7 ; regarde ce qu'il y a derrière lui, dans la colonne e.",
+        "goal": "Capture la tour.",
+        "hints": [
+          "Ta tour en e1 fixe le cavalier contre son propre roi.",
+          "Cloué, ce cavalier ne pourra pas reprendre en g7.",
+          "Fou de a1 à g7 : la tour tombe sans réplique."
+        ],
+        "explain": "Fxg7 gagne la tour : le cavalier est cloué contre le roi et ne peut pas reprendre la capture.",
+        "wrong": "Tu as fait confiance à son gardien ; mais ce cavalier est cloué et ne défend rien."
+      },
+      "c4": {
+        "title": "Le gardien cloué",
+        "teach": "Cloue la pièce contre son roi et sa défense devient fiction. Alors le fou recueille la dame en toute courtoisie.",
+        "observe": "Le cavalier de a7 soutient la dame ; observe la colonne a et le roi qui se trouve au fond.",
+        "goal": "Gagne la dame avec échec.",
+        "hints": [
+          "La tour de a1 cloue le cavalier de a7 contre le roi a8.",
+          "La dame de c6 ne compte que sur ce cavalier, qui ne peut pas bouger.",
+          "Fou en c6 : échec, et la dame est à toi."
+        ],
+        "explain": "Fxc6+ gagne la dame avec échec : le cavalier cloué ne reprend pas et le roi n'atteint pas c6.",
+        "wrong": "La dame semblait défendue ; son gardien, cloué, n'était qu'une illusion."
+      },
+      "c5": {
+        "title": "L'embrochade",
+        "teach": "Aligne le roi avec ce qu'il aime et oblige-le à s'écarter. Derrière, restera la dame, seule, sur la diagonale.",
+        "observe": "Roi et dame partagent une même diagonale, et ton fou la surveille.",
+        "goal": "Gagne la dame.",
+        "hints": [],
+        "explain": "Fe4+ embroche : le roi doit bouger et le fou capture la dame qui restait dans son dos.",
+        "wrong": "Ce n'était pas ça ; un seul coup aligne le roi et condamne la dame."
+      }
+    },
+    "pip": {
+      "intro": "Je suis Pip, le pion qui ne cesse jamais d'avancer. Pas à pas, case après case, je vais t'apprendre que même le plus petit peut devenir un géant.",
+      "reward": "Cœur de Pion",
+      "chron": [
+        "D'un seul pas courageux, Pip toucha la huitième rangée et une reine naquit là où il n'y avait qu'un rêve.",
+        "Sans peur de la tour ennemie, Pip l'écarta d'une poussée et promut à sa place : rien n'arrête celui qui avance !",
+        "Devant deux chemins, Pip choisit le sentier sûr et esquiva le piège du fou pour promouvoir sain et sauf.",
+        "Dans le coin de l'échiquier, le petit Pip fit le pas final et scella l'échec et mat : le plus humble décida la bataille.",
+        "Seul, sans indices ni aide, Pip promut avec échec et captura la tour : la Voie de la Maîtrise était complète."
+      ],
+      "c1": {
+        "title": "Le premier pas vers la reine",
+        "teach": "Un pion qui atteint la dernière rangée se transforme en la pièce que tu choisis, presque toujours en une puissante reine. Ce voyage jusqu'à la huitième rangée s'appelle promouvoir, et c'est le rêve de tout pion.",
+        "observe": "Regarde mon pion en a7 : il ne lui reste qu'un petit pas pour arriver au bout de l'échiquier. Le roi ennemi est proche, alors il faut promouvoir tout de suite.",
+        "goal": "Promeus le pion en avançant en a8.",
+        "hints": [
+          "Compte combien de cases il manque à mon pion pour atteindre la rangée 8.",
+          "Si j'attends, le roi noir capturera mon pion ; il faut agir maintenant.",
+          "Avance de a7 à a8 et choisis la reine : en plus tu donnes échec !"
+        ],
+        "explain": "En avançant en a8, le pion se transforme en reine avec échec, gagnant d'un coup la pièce la plus forte de l'échiquier. Tout retard laisserait le roi noir manger le pion.",
+        "wrong": "Presque, mais si je ne promeus pas maintenant, le roi ennemi mangera mon pion ; avance en a8."
+      },
+      "c2": {
+        "title": "Je promeus en capturant",
+        "teach": "Un pion promeut en poussant tout droit, mais il peut aussi promouvoir en capturant en diagonale. Manger une pièce et se transformer en reine dans le même coup est doublement puissant.",
+        "observe": "Remarque la tour noire en b8, juste en diagonale de mon pion de a7. Je peux la manger et promouvoir en même temps.",
+        "goal": "Capture en b8 et promeus.",
+        "hints": [
+          "Un pion capture en diagonale : regarde quelle pièce se trouve en b8.",
+          "Manger la tour et promouvoir sur la même case vaut mieux qu'avancer tout droit.",
+          "Joue a7xb8 et choisis la reine : tu gagnes la tour et crées une reine avec échec."
+        ],
+        "explain": "En capturant en b8, j'élimine la tour ennemie et j'apparais transformé en reine avec échec, gagnant énormément de matériel d'un seul coup. Avancer tout droit aurait laissé la tour en vie.",
+        "wrong": "Pas tout à fait : il existe une capture en diagonale qui gagne la tour et promeut à la fois ; joue a7xb8."
+      },
+      "c3": {
+        "title": "Le chemin sûr",
+        "teach": "Quand tu as plusieurs pions proches de la promotion, toutes les cases de promotion ne sont pas sûres. La bonne structure t'apprend à promouvoir là où l'ennemi ne peut pas capturer ta nouvelle reine.",
+        "observe": "J'ai deux pions sur le point de promouvoir, en a7 et en c7. Mais le fou ennemi surveille la case c8, donc promouvoir là serait un cadeau.",
+        "goal": "Promeus du côté sûr en a8.",
+        "hints": [
+          "Observe quelle case de promotion surveille le fou noir.",
+          "Si je promeus en c8, le fou mangera ma reine ; cherche la case libre.",
+          "Avance le pion de a7 à a8 : personne ne défend ni n'attaque ce coin."
+        ],
+        "explain": "Promouvoir en a8 crée une reine avec échec qu'aucun ennemi ne peut capturer, tandis que promouvoir en c8 la perdrait face au fou. Choisir la case sûre est de la pure structure de pions.",
+        "wrong": "Attention : le fou surveille c8 et capturerait ma reine ; promeus plutôt en a8."
+      },
+      "c4": {
+        "title": "Le pas décisif",
+        "teach": "Un pion qui promeut ne gagne pas seulement du matériel : parfois il donne l'échec et mat final. Avec l'aide de ses compagnons, même le pion le plus humble peut clore la partie.",
+        "observe": "Mon roi ennemi est acculé dans le coin h8. Mon pion de g6 lui ferme la case h7, et il ne manque que mon pion de f7 pour porter le coup final.",
+        "goal": "Promeus en f8 et donne mat.",
+        "hints": [
+          "Le roi noir est dans le coin : compte ses cases de fuite.",
+          "Mon pion de g6 contrôle déjà h7 ; il ne reste qu'à couvrir la rangée 8.",
+          "Avance f7 en f8 et promeus en reine : c'est échec et mat."
+        ],
+        "explain": "En promouvant en f8, la nouvelle reine donne échec par la rangée 8, tandis que le pion de g6 lui ôte l'issue par h7 ; le roi n'a pas d'échappatoire et c'est mat. Seule la reine couvre toutes les cases à la fois.",
+        "wrong": "Ce n'est pas encore mat : promeus en f8 en reine et le roi du coin se retrouvera sans fuite."
+      },
+      "c5": {
+        "title": "L'épreuve du champion",
+        "teach": "Un pion passé avance sans peur, et en promouvant avec échec il peut gagner du temps pour attaquer une autre pièce. Regarde toujours ce que tu gagnes en plus de la reine elle-même.",
+        "observe": "Mon pion de d7 est à un pas de promouvoir, le roi noir repose en h8 et une tour solitaire surveille depuis a5.",
+        "goal": "Promeus avec échec et gagne la tour.",
+        "hints": [],
+        "explain": "En promouvant en d8 apparaît une reine qui donne échec par la rangée 8 et vise en plus la tour de a5 par la diagonale ; après que le roi ait bougé, je capture la tour gratuitement. Je promeus et je gagne du matériel dans la même idée.",
+        "wrong": "Pense à promouvoir avec échec : il existe une case depuis laquelle ma nouvelle reine attaque le roi et la tour à la fois."
+      }
+    },
+    "ordan": {
+      "intro": "Je suis Ordan, et j'ai survécu à plus de finales que tu n'as joué de parties. Garde ton roi comme ta propre vie et apprends à le manier comme une arme quand l'échiquier se vide : voilà tout mon enseignement.",
+      "reward": "Voie du Trône",
+      "chron": [
+        "J'ai poussé le roi ennemi contre le mur du seul regard de mon roi, et la tour prononça la sentence.",
+        "Je l'ai poursuivi jusqu'au coin, où aucun trône ne protège, et j'ai fermé la dernière porte sans hâte.",
+        "J'ai ordonné à ma dame de taire ses échecs vains et de sceller la colonne ; le roi noir se retrouva sans air.",
+        "J'ai placé mon roi épaule contre épaule avec la dame, muraille contre muraille, et il n'y eut aucune fente par où fuir.",
+        "Et à la fin, sans conseil ni indice, j'ai laissé l'opposition parler : la dame descendit sur la huitième et tout fut terminé."
+      ],
+      "c1": {
+        "title": "Le roi qui accule",
+        "teach": "Dans la finale, ton roi cesse de se cacher et commence à commander. C'est lui qui enferme l'ennemi contre le bord ; la tour ne fait qu'asséner le coup.",
+        "observe": "Regarde comme ton roi en g6 fait face au roi noir : cela s'appelle l'opposition, et cela lui vole les cases de fuite.",
+        "goal": "Donne mat sur la dernière rangée.",
+        "hints": [
+          "Tes rois sont en opposition directe ; le noir ne peut ni avancer ni s'échapper par les ailes.",
+          "Ta tour est libre sur la première rangée et la huitième est déserte.",
+          "Tour de b1 à b8 : échec et mat."
+        ],
+        "explain": "Tb8 est mat : ton roi couvre f7, g7 et h7, et la tour coupe l'unique rangée qui restait à l'ennemi.",
+        "wrong": "Le roi noir a respiré : sans l'opposition de ton roi, la tour seule ne l'enferme jamais."
+      },
+      "c2": {
+        "title": "La cage du coin",
+        "teach": "Le coin est la tombe du roi solitaire. Quand l'ennemi se réfugie dans l'angle, ton roi surveille les issues et la tour ferme la porte.",
+        "observe": "Le roi noir en h8 n'a plus d'air ; ton roi en g6 scelle g7, g8 et h7.",
+        "goal": "Ferme la cage par un mat.",
+        "hints": [
+          "Compte les cases du roi noir : ton roi les lui a déjà toutes ôtées sauf la rangée.",
+          "La tour en f7 domine la septième ; maîtresse aussi de la huitième, elle sera létale.",
+          "Tour de f7 à f8 : échec et mat."
+        ],
+        "explain": "Tf8 est mat : le roi acculé dans le coin n'a pas de fuite et ton monarque défend chaque case d'évasion.",
+        "wrong": "Tu as donné de l'air au prisonnier ; dans le coin, un seul relâchement le libère."
+      },
+      "c3": {
+        "title": "La dame obéit au roi",
+        "teach": "La dame est puissante, mais sans le roi pour lui marquer le chemin elle ne distribue que des échecs vides. Laisse ton roi voler les cases et la dame sceller le reste.",
+        "observe": "Ton roi en f7 garde déjà g7 et g8 ; il ne reste au roi noir qu'à respirer par la colonne h.",
+        "goal": "Scelle la colonne h par un mat.",
+        "hints": [
+          "Le roi noir en h8 dépend d'une seule case de fuite : h7.",
+          "Amène ta dame sur la colonne h pour dominer h8 et h7 d'un coup.",
+          "Dame de b1 à h1 : échec et mat."
+        ],
+        "explain": "Dh1 est mat : la dame s'empare de toute la colonne h tandis que ton roi bouche la fuite par g7 et g8.",
+        "wrong": "La dame a crié en vain ; sans fermer la colonne h, le roi noir se faufile."
+      },
+      "c4": {
+        "title": "Épaule contre épaule",
+        "teach": "N'approche jamais la dame du roi ennemi sans que ton propre roi ne la protège. Ensemble, épaule contre épaule, ils dressent une muraille qui ne laisse aucune fente.",
+        "observe": "Ton roi en f6 défend la case g7 ; là, et là seulement, la dame sera intouchable collée au roi noir.",
+        "goal": "Livre la dame à un pas du roi, avec mat.",
+        "hints": [
+          "Le roi noir en h8 étouffe ; il faut lui ôter g7 et g8 à la fois.",
+          "Une seule case te donne les deux, et ton roi la protège déjà.",
+          "Dame de g1 à g7 : échec et mat protégé."
+        ],
+        "explain": "Dg7 est mat : la dame enlace le roi noir et ton roi la défend, de sorte qu'elle ne peut être ni capturée ni esquivée.",
+        "wrong": "Tu as approché la dame sans escorte ; un roi seul l'aurait dévorée."
+      },
+      "c5": {
+        "title": "Le jugement de l'opposition",
+        "teach": "Maintenant tu es seul, sans ma voix. Souviens-toi : d'abord le roi conquiert les cases, ensuite la pièce lourde couronne le travail.",
+        "observe": "Rois face à face sur la colonne e, et une dame qui n'a pas encore dit son dernier mot.",
+        "goal": "Trouve le mat en un coup.",
+        "hints": [],
+        "explain": "Db8 est mat : en opposition, ton roi refuse d7, e7 et f7, et la dame qui arrive sur la huitième rangée couvre toute la retraite, y compris f8.",
+        "wrong": "Ce n'était pas ça. Laisse ton roi faire son travail et cherche la rangée que l'ennemi ne peut pas franchir."
+      }
+    },
+    "eira-vhal": {
+      "intro": "Nous sommes Eira et Vhal, cavaliers jumeaux de la même paire de cavaliers : moi, Eira, je calcule avant de sauter ; moi, Vhal, je saute puis je ris. Ensemble nous t'apprenons à regarder TOUTES les captures et à choisir celle qui gagne le plus, car le bon cavalier ne prend jamais la première qu'il voit.",
+      "reward": "Cavaliers du Double Saut",
+      "chron": [
+        "Eira désigna la tour, Vhal désigna la dame ; le cavalier bondit en g5 et nous revînmes avec la couronne de l'ennemi.",
+        "Deux fourchettes s'ouvrirent devant nous : Vhal cria 'la tour', mais Eira choisit la dame en d6 et l'échiquier nous donna raison.",
+        "Le poulain bondit en f6 avec échec ; la tour en g5 nous faisait des clins d'œil, mais nous emportâmes la dame et l'écho du galop.",
+        "Ce7 résonna comme un tonnerre avec échec ; nous ignorâmes la tour facile et récoltâmes la dame en g6 en bons frères.",
+        "Sans indices, sans voix, seulement l'instinct de Vhal et le calcul d'Eira : b5, et la dame ennemie tomba en silence."
+      ],
+      "c1": {
+        "title": "Deux proies, un choix",
+        "teach": "Quand ton cavalier attaque plusieurs pièces à la fois, ne mange pas la première que tu vois : compare-les. Parmi toutes les captures possibles, la meilleure est celle qui emporte le plus de matériel.",
+        "observe": "Regarde les deux cases que frappe ton cavalier : l'une garde une tour, l'autre une dame. Pèse combien vaut chacune avant de décider.",
+        "goal": "Capture la pièce de plus grande valeur.",
+        "hints": [
+          "Ton cavalier en e4 menace deux pièces noires sans défense : demande-toi laquelle vaut le plus.",
+          "Une dame vaut bien plus qu'une tour ; c'est l'objectif.",
+          "Saute en g5 et emporte la dame."
+        ],
+        "explain": "Les deux pièces étaient en prise, mais la dame (9) surpasse de loin la tour (5) : la capturer, c'est gagner plus pour le même coup.",
+        "wrong": "Cette capture gagne moins : compare de nouveau la valeur des deux pièces."
+      },
+      "c2": {
+        "title": "Deux fourchettes rivales",
+        "teach": "Parfois tu ne compares pas des captures, mais des coups qui créent une double menace. Choisis la fourchette qui piège la pièce la plus précieuse.",
+        "observe": "Ton cavalier a deux sauts qui donnent échec et fourchette à la fois : l'un pique la tour, l'autre la dame. Observe ce que chacun attrape.",
+        "goal": "Donne l'échec en fourchette qui gagne la dame.",
+        "hints": [
+          "Deux sauts donnent échec depuis e4 ; les deux gagnent du matériel, mais pas le même.",
+          "Cherche l'échec qui attaque le roi et la DAME en même temps.",
+          "Saute en d6 : échec au roi en e8 et fourchette sur la dame en b7."
+        ],
+        "explain": "Cd6+ attaque le roi et la dame d'un coup ; le roi doit bouger et le cavalier récolte la dame, plus que la fourchette rivale qui ne gagnait que la tour.",
+        "wrong": "Cette fourchette gagne moins : cherche l'échec qui attrape la dame, pas la tour."
+      },
+      "c3": {
+        "title": "Capture facile ou saut gagnant",
+        "teach": "La capture la plus évidente n'est pas toujours celle qui gagne le plus. Compare manger une pièce en prise avec un saut qui crée une menace plus grande.",
+        "observe": "Tu peux manger la tour en g5 immédiatement, ou sauter avec échec et menacer la dame. Regarde quel butin est le plus grand.",
+        "goal": "Choisis le saut avec échec qui gagne la dame.",
+        "hints": [
+          "La tour en g5 est tentante, mais elle ne vaut que 5.",
+          "Un échec depuis f6 attaque le roi et touche la dame en d7.",
+          "Joue Cf6+ ; après l'échec, capture la dame en d7."
+        ],
+        "explain": "Cf6+ oblige le roi à bouger et laisse la dame sans défense face au cavalier : tu gagnes 9 au lieu des 5 de la tour facile.",
+        "wrong": "Tu as pris le petit butin : il y avait un échec qui gagnait la dame entière."
+      },
+      "c4": {
+        "title": "Le tonnerre de e7",
+        "teach": "Avant de capturer, vérifie si un saut avec échec gagne quelque chose de plus grand. Comparer les candidats signifie regarder aussi les coups qui ne sont pas encore des captures.",
+        "observe": "La tour en f6 est là à prendre, mais ton cavalier peut donner échec depuis e7 et river son regard sur la dame. Compare les deux issues.",
+        "goal": "Donne l'échec en fourchette et capture la dame.",
+        "hints": [
+          "Manger la tour en f6 ne gagne que 5 points.",
+          "Depuis e7, ton cavalier donne échec au roi et menace la dame en g6.",
+          "Joue Ce7+ ; le roi s'écarte et tu prends la dame en g6."
+        ],
+        "explain": "Ce7+ est une fourchette sur le roi et la dame : le roi doit fuir et la dame tombe, un butin bien plus grand que la tour.",
+        "wrong": "Tu as gagné moins que possible : l'échec en e7 emportait la dame."
+      },
+      "c5": {
+        "title": "L'épreuve des jumeaux",
+        "teach": "Sans indices ni voix : regarde tous tes candidats et garde celui qui gagne le plus. Le bon saut n'est pas toujours le plus bruyant.",
+        "observe": "Il y a une capture commode et un saut silencieux qui donne échec. Un seul emporte la dame.",
+        "goal": "Trouve le coup qui gagne le plus de matériel.",
+        "hints": [],
+        "explain": "Cb5+ donne échec au roi en d4 et fourche la dame en d6 ; le roi ne peut pas la sauver et le cavalier récolte la pièce majeure.",
+        "wrong": "Ce n'était pas celui du plus grand butin : il existe un échec qui gagne la dame."
+      }
+    },
+    "rhazek": {
+      "intro": "Je suis Rhazek, et je ne collectionne pas les pièces : je collectionne les rois tombés. Mon cavalier ne demande jamais combien vaut ce qu'il livre, seulement combien il gagne ; suis-moi si tu l'oses et apprends à sacrifier comme celui qui exige, non comme celui qui supplie.",
+      "reward": "Seigneur du Sacrifice",
+      "chron": [
+        "Mon cavalier bondit en g6 et la tour, cachée comme une dague dans la manche, encaissa la dame qui se croyait à l'abri.",
+        "Un seul saut en e7 et le roi n'eut d'autre chemin que sa tombe ; ma dame entra derrière et referma la dalle.",
+        "Dans le coin je l'enfermai : Cf7 le poussa, De8 le scella, et le roi mourut en regardant ses propres pions.",
+        "J'ai livré ma dame en g8 sans trembler, car le mat de l'étouffé vaut plus que mille couronnes : mon cavalier régna sur l'étouffement du roi.",
+        "Sans indices ni clémence, j'ai découvert l'échec et arraché la dame d'entre ses gardes : ainsi se diplôme celui qui parcourt ma voie."
+      ],
+      "c1": {
+        "title": "Le coup qui découvre",
+        "teach": "L'initiative est à toi quand ton coup oblige et que l'adversaire ne fait que répondre. Un cavalier qui saute peut dévoiler l'attaque d'une pièce cachée : joue avec échec et laisse la tour encaisser la facture.",
+        "observe": "Ton cavalier en e5 bouche la bouche de ta tour en e1, et derrière attend le roi noir en e8. Cette dame en g6 se croit intouchable derrière son pion.",
+        "goal": "Saute, découvre l'échec et emporte la dame.",
+        "hints": [
+          "Ta tour en e1 vise le roi en e8, mais le cavalier lui coupe la vue.",
+          "Cherche un saut qui donne échec à la découverte et touche en plus la dame.",
+          "Cxg6 : le noir doit parer l'échec de la tour et la dame tombe."
+        ],
+        "explain": "Cxg6 ouvre la colonne e avec échec de la tour ; le noir doit sauver le roi et ne peut pas reprendre. Tu emportes la dame entière sans rien payer.",
+        "wrong": "Tiède : sans l'échec à la découverte, le noir respire et la dame ennemie t'échappe."
+      },
+      "c2": {
+        "title": "Un saut, un mat",
+        "teach": "Parfois ton cavalier ne gagne pas de matériel : il gagne l'échiquier entier. Donne échec pour l'écarter du chemin et laisse ta dame entrer pour tuer.",
+        "observe": "Ton cavalier en d5 gêne ta propre dame en d2. S'il saute avec échec, la colonne s'ouvre d'un coup vers le roi en g8.",
+        "goal": "Donne l'échec de cavalier et achève avec la dame.",
+        "hints": [
+          "Ta dame en d2 désire la case d8, mais le cavalier lui bouche le passage.",
+          "Saute avec échec en e7 : le roi n'aura qu'une seule case.",
+          "Ce7+ puis Dd8 est mat ; le cavalier surveille g8."
+        ],
+        "explain": "Ce7+ dégage la colonne d avec échec et pousse le roi dans le coin ; Dd8 est mat, avec le cavalier couvrant g8. Deux coups, aucun doute.",
+        "wrong": "Lent : on ne chasse pas le roi en le regardant, et sans l'échec il n'y a pas de mat."
+      },
+      "c3": {
+        "title": "Le coin sans issue",
+        "teach": "Le roi acculé est un prisonnier qui ne le sait pas encore. Un échec de cavalier le cloue et ta dame, désormais libre, ferme la dernière porte.",
+        "observe": "Le cavalier en e5 scelle la colonne de ta dame en e1. Le roi en h8 est enterré vivant entre g7 et h7.",
+        "goal": "Échec de cavalier et mat avec la dame.",
+        "hints": [
+          "Ta dame en e1 rêve de e8, mais le cavalier l'enferme.",
+          "Cf7+ oblige le roi à aller en g8, son unique case.",
+          "Après Cf7+, le roi va en g8 ; alors De8 est mat, avec le cavalier gardant h8."
+        ],
+        "explain": "Cf7+ arrache le roi en g8 et ouvre la colonne e ; De8 donne mat, défendue par le cavalier en f7 et avec h8 bouchée. Le coin fut sa tombe.",
+        "wrong": "Faible : sans le saut qui donne échec, ta dame se heurte aux pions et il n'y a pas de mat."
+      },
+      "c4": {
+        "title": "Le mat de l'étouffé",
+        "teach": "Ici naît le sacrifice véritable : tu livres ta dame, la pièce la plus chère, car le mat vaut plus que tout l'or de l'échiquier. Le cavalier achève juste là où la dame tombe.",
+        "observe": "Le roi en h8 est entouré des siens : pions en g7 et h7, tour en f8. Il ne lui reste qu'une seule case libre ; ôte-la-lui.",
+        "goal": "Enchaîne les échecs de cavalier et sacrifie la dame pour donner mat.",
+        "hints": [
+          "Le roi étouffe entre ses pièces ; il ne te reste qu'à lui fermer g8.",
+          "Cf7+ Rg8, Ch6+ Rh8 : le roi revient dans le coin, piégé.",
+          "Alors Dg8+!! La tour est obligée de manger, et Cf7 est mat de l'étouffé."
+        ],
+        "explain": "Après Cf7+ Rg8 Ch6+ Rh8, le sacrifice Dg8+ oblige à Txg8, et Cf7 donne mat : le roi meurt étouffé par les siens. La dame se livre pour que le cavalier règne.",
+        "wrong": "Grandiose, mais tu as échoué : seule la combinaison exacte avec le sacrifice de dame livre le mat de l'étouffé."
+      },
+      "c5": {
+        "title": "L'épreuve de Rhazek",
+        "teach": "Sans indices, sans voix, sans filet. Trouve le coup qui découvre l'échec et arrache la dame même si on la croit bien défendue.",
+        "observe": "Ton cavalier en e5 bouche la tour en e1, et le roi noir attend en e8. La dame en c4 s'appuie sur son pion de b5 et se sent intouchable.",
+        "goal": "Découvre l'échec et capture la dame.",
+        "hints": [],
+        "explain": "Cxc4+ ouvre la colonne e avec échec de la tour ; le noir doit bouger le roi et n'arrive pas à reprendre avec le pion. Tu emportes la dame qu'on croyait protégée.",
+        "wrong": "Non : il existe un échec à la découverte qui emporte la dame malgré son pion."
+      }
+    },
+    "oryn": {
+      "intro": "Je suis Oryn, gardien des lignes ouvertes, et mon arme est la tour. Marche sans hâte : la maîtrise ne se conquiert pas avec fureur, mais avec le regard qui voit la colonne dégagée avant de bouger.",
+      "reward": "Sentinelle de la Colonne Ouverte",
+      "chron": [
+        "Au premier seuil, Oryn éleva la tour par la rangée déserte et scella le roi dans son coin : le mat arriva en silence, sans un seul obstacle pour l'arrêter.",
+        "Devant la deuxième épreuve, la colonne ouverte s'offrit comme un chemin droit ; la tour descendit et la dame ennemie tomba sans défense pour la protéger.",
+        "Au troisième pas, Oryn ne captura pas d'un coup : il riva son regard sur la ligne, donna échec et attendit patiemment que le roi s'écarte pour encaisser son prix.",
+        "Au quatrième rite, la colonne ouverte fut voie de mort : la tour descendit droit et le roi, cerné par son propre roi rival, ne trouva aucune maison où fuir.",
+        "Sur la dernière voie, sans voix pour le guider, Oryn lut la rangée entière : un échec précis, un roi dévié, et la dame ennemie resta à la merci de l'acier silencieux."
+      ],
+      "c1": {
+        "title": "La Rangée Déserte",
+        "teach": "Une tour sur une rangée ou une colonne sans obstacles atteint n'importe quelle case de cette ligne. Quand le roi ennemi n'a pas d'échappatoire, cette ligne ouverte devient le tranchant du mat.",
+        "observe": "Regarde la huitième rangée : elle est entièrement dégagée. Observe quelles cases ton propre roi couvre déjà autour du monarque adverse.",
+        "goal": "Donne mat en un coup avec la tour.",
+        "hints": [
+          "Le roi noir ne peut respirer que sur la huitième rangée ; ton roi lui ferme les cases de fuite vers le bas.",
+          "Cherche une case depuis laquelle la tour domine toute la rangée du roi ennemi.",
+          "Amène la tour en a8 : échec sans issue."
+        ],
+        "explain": "Ta8 contrôle toute la huitième rangée et ton roi en g6 surveille f7, g7 et h7 ; le monarque noir n'a aucune case libre. C'est mat.",
+        "wrong": "Ce coup laisse une case de fuite ; la ligne ouverte ne tue que lorsque le roi n'a aucun refuge."
+      },
+      "c2": {
+        "title": "Le Chemin Droit",
+        "teach": "Une colonne ouverte est une avenue que la tour parcourt d'un bout à l'autre sans frein. Par elle, elle peut frapper une pièce ennemie qu'aucun défenseur ne protège.",
+        "observe": "Remarque la colonne e : ni pions ni pièces ne la coupent. À son extrémité attend la dame noire, seule et sans protection.",
+        "goal": "Capture la dame avec la tour.",
+        "hints": [
+          "La colonne e est complètement ouverte devant ta tour.",
+          "La dame noire n'a aucune pièce pour la défendre.",
+          "Parcours la colonne jusqu'à e8 et prends la dame avec échec."
+        ],
+        "explain": "Txe8+ parcourt la colonne ouverte et gagne la dame sans coût, en plus avec échec ; le roi noir était trop loin pour la défendre.",
+        "wrong": "Tu as laissé filer l'avenue ; la colonne ouverte était le chemin direct vers la dame."
+      },
+      "c3": {
+        "title": "Le Regard Avant le Coup",
+        "teach": "Parfois la tour ne capture pas immédiatement : d'abord elle aligne le roi ennemi avec la pièce qu'elle convoite. L'échec dévie le monarque et laisse la proie sans défense au bout de la ligne.",
+        "observe": "Le roi et la dame noirs partagent la colonne e. Ta tour n'est pas encore sur cette colonne, mais elle peut y entrer avec échec.",
+        "goal": "Donne échec sur la colonne pour gagner la dame.",
+        "hints": [
+          "Roi et dame noirs sont sur la même colonne : le roi devant, la dame derrière.",
+          "Si ta tour entre sur la colonne e avec échec, le roi devra s'écarter.",
+          "Joue Te1+ : le roi fuit la colonne puis la dame tombe en e8."
+        ],
+        "explain": "Te1+ est une enfilade : le roi noir doit abandonner la colonne e et, la ligne dégagée, la tour capture la dame en e8. Analyser avant de frapper rapporte plus que la capture précipitée.",
+        "wrong": "Tu as frappé sans préparer la ligne ; d'abord l'échec devait écarter le roi pour découvrir la proie."
+      },
+      "c4": {
+        "title": "La Colonne de la Sentence",
+        "teach": "Une colonne ouverte ne gagne pas seulement des pièces : elle livre aussi le roi. Quand ton propre roi scelle les cases latérales, la tour descend par la colonne et verrouille la dernière issue.",
+        "observe": "La colonne h est libre et le roi noir repose sur son bord. Remarque comme ton roi en f7 surveille g7 et g8, les seules cases de fuite.",
+        "goal": "Donne mat en un coup avec la tour.",
+        "hints": [
+          "Ton roi en f7 domine déjà g7 et g8 ; il ne resterait au roi noir que la colonne h.",
+          "Occupe la colonne h avec la tour pour fermer cette dernière voie.",
+          "Joue Th1 : échec sur la colonne, sans issue possible."
+        ],
+        "explain": "Th1 donne échec par la colonne ouverte ; g7 et g8 sont couverts par ton roi et h7 est dominé par la tour. Le monarque noir n'a aucun refuge : c'est mat.",
+        "wrong": "Le roi trouve encore une case ; la colonne ne condamne que lorsque chaque fuite est surveillée."
+      },
+      "c5": {
+        "title": "La Voie du Silence",
+        "teach": "Sans voix pour te guider, fie-toi à la lecture de la ligne. Une rangée ouverte permet à la tour d'enfiler le roi et la dame ; l'échec patient encaisse ensuite ce que la hâte n'atteindrait jamais.",
+        "observe": "Roi et dame noirs reposent sur la quatrième rangée. Ta tour, dans le coin, peut entrer sur cette rangée à distance du roi, sans qu'il la capture.",
+        "goal": "Trouve l'échec qui enfile et gagne la dame.",
+        "hints": [],
+        "explain": "Ta4+ enfile par la quatrième rangée : le roi, loin et incapable de capturer, doit sortir de la rangée, et la tour recueille la dame en h4. Le regard serein vainc l'impulsion.",
+        "wrong": "La ligne demandait un échec qui enfile le roi ; la capture directe n'était pas encore à ta portée."
+      }
+    },
+    "vesra": {
+      "intro": "Je suis Vesra, et ma dame ne poursuit pas : elle ferme les portes. Observe comme l'échiquier se resserre jusqu'à ce qu'il ne reste à l'adversaire qu'à obéir.",
+      "reward": "Gardienne de la Restriction",
+      "chron": [
+        "Dans le premier silence, la dame s'assit près du roi ennemi, et le coin devint une tombe sans issue.",
+        "Elle dressa une colonne comme qui élève un mur, et le monarque adverse découvrit qu'il n'y avait plus par où fuir.",
+        "Avec une courtoisie sereine, elle retira de l'échiquier l'unique défenseure, et la position resta nue devant ma volonté.",
+        "De l'autre bout du monde, une seule ligne suffit à sceller la huitième rangée et à prononcer le verdict.",
+        "Et dans l'épreuve finale, elle offrit un échec qui ne tuait pas : il obligeait seulement à s'écarter, pour que la tour tombe seule."
+      ],
+      "c1": {
+        "title": "Le coin qui se ferme",
+        "teach": "Restreindre, c'est éteindre les cases jusqu'à ce que le roi n'ait nulle part où aller. Quand toute fuite est épuisée, l'échec cesse d'être une menace et devient sentence.",
+        "observe": "Regarde les cases de fuite du roi noir en h8 et remarque que ton propre roi en f6 surveille déjà g8 et g7.",
+        "goal": "Donne mat en un coup.",
+        "hints": [
+          "Le roi noir ne respire que par g8, g7 et h7 ; ton roi en f6 en couvre déjà deux.",
+          "Approche la dame du roi ennemi, protégée par ton monarque.",
+          "Amène la dame en g7 : ton roi la soutient et le coin se ferme."
+        ],
+        "explain": "Dame en g7 est impossible à capturer car ton roi en f6 la défend, et elle couvre les dernières issues. Restriction absolue : c'est mat.",
+        "wrong": "Tu lui as laissé une case libre ; le roi s'échappe et la restriction se brise."
+      },
+      "c2": {
+        "title": "Le mur de la colonne",
+        "teach": "Une seule pièce peut verrouiller toute une colonne et la transformer en muraille. Le roi ne tombe pas par la force, mais parce qu'il ne lui reste plus d'espace à occuper.",
+        "observe": "Remarque la colonne h, où vit le roi noir, et ton roi de f7 qui scelle g7 et g8.",
+        "goal": "Donne mat en un coup.",
+        "hints": [
+          "Le roi en h8 dépend de la colonne h et des cases g que ton roi surveille.",
+          "Il te faut une pièce qui domine la colonne h de haut en bas.",
+          "Glisse la dame jusqu'en h2 : la colonne entière devient interdite."
+        ],
+        "explain": "Dame en h2 contrôle toute la colonne h et ton roi en f7 couvre g7 et g8. Sans cases, le roi étouffe : mat.",
+        "wrong": "La colonne a encore un trou ; le roi trouve de l'air et survit."
+      },
+      "c3": {
+        "title": "L'unique défenseure",
+        "teach": "Restreindre, c'est aussi éliminer celui qui soutient l'adversaire. Retire sa seule pièce active et la position entière se rend sans résistance.",
+        "observe": "Les deux dames se font face sur la colonne d ; la noire est la seule force qui reste à l'adversaire.",
+        "goal": "Gagne la dame ennemie.",
+        "hints": [
+          "Ta dame et la noire partagent la même colonne, la d.",
+          "Tu peux capturer avec échec et garder tout l'avantage.",
+          "Prends en d8 : tu élimines sa seule pièce et donnes échec en même temps."
+        ],
+        "explain": "Dame prend d8 capture avec échec l'unique défenseure de l'adversaire ; tu restes avec dame contre roi seul, victoire décisive.",
+        "wrong": "Tu as épargné sa dame ; tant qu'elle vit, l'adversaire peut encore se défendre."
+      },
+      "c4": {
+        "title": "Le verdict à distance",
+        "teach": "La restriction n'exige pas la proximité : une ligne nette traverse l'échiquier entier. De loin, la dame peut sceller une rangée et dicter la fin.",
+        "observe": "Le roi noir en h8 dépend de la huitième rangée ; ton roi en g6 garde déjà g7 et h7.",
+        "goal": "Donne mat en un coup.",
+        "hints": [
+          "Le roi ne s'échapperait que par la huitième rangée ou par les cases g, que ton roi couvre.",
+          "Cherche à occuper la huitième rangée avec ta dame sans obstacle au milieu.",
+          "Place la dame en b8 : la rangée se ferme à distance."
+        ],
+        "explain": "Dame en b8 domine toute la huitième rangée et ton roi en g6 bouche les issues ; le roi ne peut ni bouger ni se couvrir : mat.",
+        "wrong": "La huitième rangée n'a pas été scellée ; le roi se faufile par la fente."
+      },
+      "c5": {
+        "title": "L'échec qui oblige",
+        "teach": "Le zugzwang est la cruauté courtoise : ne pas tuer, mais forcer à bouger vers la ruine. Un échec que le roi doit éluder peut dénuder la pièce qui se cachait derrière lui.",
+        "observe": "Le roi noir en e5 et la tour en a5 partagent la cinquième rangée ; le pion de e4 bouche tout échec par la colonne e.",
+        "goal": "Gagne la tour.",
+        "hints": [],
+        "explain": "Dame en h5 donne échec par la cinquième rangée ; le roi doit s'écarter et cesse de protéger sa tour, qui tombe en a5. La restriction changée en butin.",
+        "wrong": "Ce coup n'oblige à rien ; sans échec forcé, le roi conserve sa tour."
+      }
+    },
+    "brakkon": {
+      "intro": "Je suis Brakkon, et ma tour ne cherche pas la gloire : elle la protège. Là où d'autres lancent l'attaque, moi je dresse des murs, et derrière eux le roi repose sans peur.",
+      "reward": "Gardien Inébranlable",
+      "chron": [
+        "Quand la tour ennemie fit irruption sur la dernière rangée, Brakkon ne recula pas : il la retira du monde d'un seul coup et le mur se referma.",
+        "Un cavalier se faufila parmi les ombres ; la tour patrouilla la rangée et le retira en silence, sans que le roi ne bouge le petit doigt.",
+        "La dame crut prononcer l'échec final, mais la tour partageait sa rangée et l'abattit : pierre sereine contre tempête.",
+        "Du haut de la colonne ouverte, la tour descendit comme une dalle et scella la menace, inébranlable jusqu'à la dernière case.",
+        "Et dans l'épreuve, sans voix pour le guider, Brakkon vit le mat caché derrière le calme et l'éteignit avant qu'il ne naisse."
+      ],
+      "c1": {
+        "title": "Le mur ne se rompt pas",
+        "teach": "Défendre, c'est reconnaître celui qui menace et le retirer de l'échiquier avant qu'il ne fasse mal. La tour ne fuit pas : elle s'interpose, capture et rend le calme au roi.",
+        "observe": "Regarde la tour noire en e1 : elle donne échec par la première rangée. Ton roi en h1 est enfermé par ses propres pions f2, g2 et h2.",
+        "goal": "Capture la tour qui donne échec.",
+        "hints": [
+          "Ton roi ne peut pas bouger : ses pions f2, g2 et h2 l'entourent complètement.",
+          "Une seule de tes pièces atteint la première rangée pour répondre à l'échec.",
+          "Amène la tour de a1 à e1 et dévore l'attaquante."
+        ],
+        "explain": "Tour prend e1 élimine la pièce qui donnait échec et laisse le roi à l'abri derrière le mur de pions. C'est la défense la plus pure : éteindre la menace à sa source.",
+        "wrong": "Le roi est toujours en échec ; seule ta tour peut éteindre cette menace."
+      },
+      "c2": {
+        "title": "La rangée surveillée",
+        "teach": "La coordination, c'est une pièce qui couvre ce que le roi ne peut pas. Ta tour patrouille la rangée entière, et quand un intrus s'approche, elle le retire sans que le monarque quitte son poste.",
+        "observe": "Un cavalier noir a sauté en e2 et donne échec à ton roi en g1. Ta tour domine toute la deuxième rangée depuis a2.",
+        "goal": "Capture le cavalier qui donne échec.",
+        "hints": [
+          "Le cavalier en e2 attaque ton roi ; tu pourrais fuir, mais il y a une réponse plus ferme.",
+          "Ta tour contrôle la deuxième rangée d'un bout à l'autre.",
+          "Glisse la tour de a2 à e2 et capture le cavalier."
+        ],
+        "explain": "Tour prend e2 ne se contente pas de sortir de l'échec : elle emporte le cavalier et scelle l'aile du roi. Défense et gain dans un même geste.",
+        "wrong": "Fuir sauve le roi un instant, mais l'intrus reste en vie ; mieux vaut le retirer de l'échiquier."
+      },
+      "c3": {
+        "title": "Pierre contre la dame",
+        "teach": "Aucune menace n'est trop grande si ta défense partage sa ligne. La tour ne craint pas la dame : si celle-ci envahit, la tour l'abat et protège le roi.",
+        "observe": "La dame noire en e1 donne échec par la première rangée. Ton roi en h1 n'a pas une seule case libre.",
+        "goal": "Capture la dame qui donne échec.",
+        "hints": [
+          "L'échec arrive par la première rangée et ton roi est muré par ses pions.",
+          "Ta tour en b1 partage cette même rangée avec la dame.",
+          "Tour de b1 à e1 : capture la dame et met fin à l'échec."
+        ],
+        "explain": "Tour prend e1 dévore la dame ennemie et laisse le roi intact. Échanger une tour contre une dame en train de défendre est un troc décisif.",
+        "wrong": "Avec le roi enfermé, seule la tour répond ; laisse-la encaisser la dame."
+      },
+      "c4": {
+        "title": "La dalle descend",
+        "teach": "Une colonne ouverte est un chemin que la tour garde de haut en bas. Quand le danger surgit près du roi, la tour descend comme une dalle et le couvre à distance.",
+        "observe": "La dame noire en d1 donne échec à ton roi acculé en g1. Ta tour couronne la colonne d depuis d7, le chemin dégagé.",
+        "goal": "Capture la dame qui donne échec.",
+        "hints": [
+          "La dame attaque par la première rangée et ton roi ne peut pas sortir de son coin.",
+          "Observe la colonne d : elle est ouverte de d7 à d1.",
+          "Descends la tour de d7 à d1 et capture la dame."
+        ],
+        "explain": "Tour prend d1 parcourt la colonne ouverte et élimine la dame ; le roi respire et tu gardes tout l'avantage. La coordination entre tour et roi est un mur sans fissures.",
+        "wrong": "Il n'y a pas de fuite pour le roi ; la tour doit descendre par la colonne et encaisser la dame."
+      },
+      "c5": {
+        "title": "Le calme avant le mat",
+        "teach": "La menace la plus dangereuse est la silencieuse : la dame et le fou préparent Dxg2 mat sans donner échec encore. Le vrai gardien la voit venir et la désactive avant qu'elle n'éclate.",
+        "observe": "La dame en e4 et le fou en f1 visent g2 : si tu le laisses jouer, Dxg2 est mat. Ta tour attend sur la colonne e, en e2.",
+        "goal": "Neutralise la menace de mat.",
+        "hints": [],
+        "explain": "Tour prend e4 retire la dame par la colonne e avant qu'elle ne consomme Dxg2 mat ; le fou reste seul et toi, avec un avantage gagnant. Prévoir le coup est la défense suprême.",
+        "wrong": "Tu as laissé la menace en vie : le fou soutient la dame et Dxg2 serait mat."
+      }
+    },
+    "ilyra": {
+      "intro": "Je suis Ilyra, et je ne poursuis pas mes ennemis : je les atteins de loin, par la ligne que personne ne regarde. Un fou ne court pas ; il trace une droite, et sur cette droite était déjà écrit qui tomberait.",
+      "reward": "Gardienne des Diagonales",
+      "chron": [
+        "Depuis son coin en b2, Ilyra tendit une seule diagonale jusqu'à la dernière case, et la dame qui se croyait lointaine tomba sans l'avoir vue approcher.",
+        "Elle plaça l'échec sur la droite et attendit : le roi s'écarta, obéissant, et derrière attendait la dame, déjà sienne par la ligne même qui l'avait poussé.",
+        "Par les cases claires, elle traversa l'échiquier d'un bout à l'autre, et là où le roi se croyait à l'abri, la diagonale l'avait déjà transpercé.",
+        "Elle alluma l'échec sur les cases blanches ; le roi fuit la droite et la reine, exposée au fond, se rendit au regard du fou.",
+        "Sans voix pour la guider, Ilyra lut la diagonale silencieuse, poussa le roi d'un échec serein et recueillit la tour qu'il croyait cachée dans son dos."
+      ],
+      "c1": {
+        "title": "La diagonale n'a pas de fin",
+        "teach": "Un fou gouverne sa diagonale entière, d'un bord de l'échiquier à l'autre, peu importe combien l'ennemi croit s'éloigner. Ce qui partage la couleur de ta case est déjà à ta portée.",
+        "observe": "Regarde la grande diagonale depuis b2 : c3, d4, e5, f6, g7... et au bout, en h8, la dame noire, seule et sans défense.",
+        "goal": "Capture la dame par la diagonale.",
+        "hints": [
+          "Le fou en b2 et la dame en h8 partagent la même case foncée : ils sont sur une seule droite.",
+          "Vérifie que le chemin entre b2 et h8 est dégagé de bout en bout.",
+          "Glisse le fou de b2 jusqu'en h8 et dévore la dame."
+        ],
+        "explain": "Le fou parcourt la diagonale complète et capture la dame qui se croyait lointaine ; la distance ne protège pas celui qui partage la couleur de ta case. C'est la loi du fou : la droite est tienne tout entière.",
+        "wrong": "Un seul coup atteint le fond de la diagonale ; laisse le fou parcourir la droite jusqu'à la dame."
+      },
+      "c2": {
+        "title": "Le rayon qui transperce",
+        "teach": "Un échec sur la diagonale ne cherche pas toujours le roi : il l'utilise comme porte vers ce qu'il garde derrière. Quand roi et dame partagent ta droite, le roi doit s'écarter et découvre celle qui le suivait.",
+        "observe": "Ton fou peut sauter en d4 et donner échec au roi en g7 ; sur la même droite, juste derrière, attend la dame en h8.",
+        "goal": "Donne l'échec qui aligne roi et dame.",
+        "hints": [
+          "Cherche la case depuis laquelle le fou cloue le roi de g7 sur la grande diagonale.",
+          "Roi en g7 et dame en h8 sont sur la même droite : l'un devant, l'autre derrière.",
+          "Joue le fou en d4 avec échec ; quand le roi bouge, la dame tombe en h8."
+        ],
+        "explain": "Fd4 cloue le roi et, après la fuite forcée, le fou récolte la dame qui restait au fond de la droite. Voilà le rayon X : l'échec sur l'un dénude l'autre.",
+        "wrong": "Le roi doit s'écarter d'abord ; sans l'échec qui les aligne, la dame n'est jamais exposée."
+      },
+      "c3": {
+        "title": "Les cases claires",
+        "teach": "Chaque fou vit sur une seule couleur, et sur celle-ci il commande d'un côté à l'autre de l'échiquier. Par les cases claires, ton regard traverse le champ entier et arrive là où le roi ne protège plus.",
+        "observe": "Depuis f1 s'ouvre la diagonale claire : e2, d3, c4, b5, jusqu'en a6, où la dame noire repose loin de son roi, enfermé par ses propres pions.",
+        "goal": "Capture la dame par la diagonale claire.",
+        "hints": [
+          "Le fou de f1 parcourt les cases claires ; suis la droite vers l'aile dame.",
+          "La dame en a6 partage cette diagonale et son roi est trop loin pour la secourir.",
+          "Amène le fou de f1 à a6 et prends la dame."
+        ],
+        "explain": "Le fou traverse toute la diagonale claire et capture la dame sans défense ; le roi, enseveli derrière ses pions, ne peut accourir. Le contrôle d'une couleur suffit à décider la partie.",
+        "wrong": "La dame est sans défense au bout de ta droite claire ; aucun autre coup n'exploite cette diagonale."
+      },
+      "c4": {
+        "title": "Le roi devant, la reine derrière",
+        "teach": "Sur les cases claires, le rayon X répète sa loi : allume l'échec et le roi s'écarte, révélant ce qu'il couvrait. La ligne qui pousse le monarque est la même qui réclame sa dame.",
+        "observe": "Le fou saute en e4 et donne échec au roi en c6 ; sur cette droite, dans son dos, attend la dame en b7.",
+        "goal": "Donne l'échec qui aligne roi et dame.",
+        "hints": [
+          "Trouve la case claire depuis laquelle le fou cloue le roi de c6.",
+          "Roi en c6 et dame en b7 sont sur la même diagonale : le roi devant, la reine derrière.",
+          "Joue le fou en e4 avec échec ; quand le roi fuit, capture la dame en b7."
+        ],
+        "explain": "Fe4 cloue le roi sur la diagonale claire et, en forçant sa fuite, laisse la dame de b7 sans abri. Le roi ne peut revenir sur la droite pour la défendre, et le fou la récolte.",
+        "wrong": "Sans l'échec qui les enfile, le roi garde sa dame ; oblige-le d'abord à quitter la droite."
+      },
+      "c5": {
+        "title": "La ligne silencieuse",
+        "teach": "Ce n'est pas toujours une dame qui attend au fond de la droite ; parfois c'est une tour qui se croit à l'abri, loin et dans l'ombre. La diagonale silencieuse pousse aussi le roi et découvre ce qu'elle cache derrière.",
+        "observe": "Le roi noir en c6 et la tour en a8 partagent une case claire. Ton fou peut atteindre e4 et les mettre tous deux sur la même droite.",
+        "goal": "Aligne roi et tour d'un échec, et encaisse la pièce du fond.",
+        "hints": [],
+        "explain": "Fe4 cloue le roi de c6 sur la diagonale claire ; obligé de fuir, il ne parvient pas à défendre la tour lointaine de a8, qui tombe par la même droite. La ligne la plus silencieuse est celle qui atteint le plus loin.",
+        "wrong": "Un autre coup n'enfile pas le roi avec la tour ; seul l'échec sur la diagonale découvre la pièce du fond."
+      }
+    },
+    "tikk": {
+      "intro": "Je suis Tikk, et non, je ne suis pas qu'un pion : je suis le pion qui arrive PREMIER. Pendant que tu réfléchis, moi j'ai déjà promu... avec échec, prêt ?",
+      "reward": "Gardien du Tempo",
+      "chron": [
+        "Chapitre I : Tikk traversa l'échiquier en sifflant, promut avec échec et vola l'horloge à l'adversaire avant qu'il ne cligne des yeux.",
+        "Chapitre II : sans ralentir, Tikk mangea un cavalier EN promouvant ; deux coups en un temps, car le tempo est à lui.",
+        "Chapitre III : par l'autre aile, même astuce, même sourire ; promotion, échec, et l'horloge pleure de nouveau.",
+        "Chapitre IV : Tikk dévora une tour entière sur la case de promotion ; l'adversaire cherchait encore son plan quand il ne lui en restait plus.",
+        "Chapitre V : dans l'Épreuve, Tikk dédaigna la dame et promut CAVALIER avec échec ; le zwischenzug parfait, et personne ne le vit venir."
+      ],
+      "c1": {
+        "title": "Celui qui arrive premier",
+        "teach": "Aux échecs, ce n'est pas toujours le plus fort qui gagne, c'est celui qui arrive AVANT. Promouvoir avec échec t'offre un temps : tu obliges l'adversaire pendant que toi, tu commandes déjà.",
+        "observe": "Regarde mon pion en b7 et le roi noir en d6, juste sur la diagonale de la case de promotion.",
+        "goal": "Promeus en b8 avec échec.",
+        "hints": [
+          "Un pion sur la septième rangée à un pas de l'ascension... ne le laisse pas passer.",
+          "Promeus en dame, pas en tour : seule la dame donne échec au roi de d6 par la diagonale.",
+          "Joue b7b8 et choisis la dame : échec, tempo et avantage décisif."
+        ],
+        "explain": "b8=D donne échec par la diagonale b8-d6, gagne un temps et laisse les blancs avec dame contre tour, gagnants.",
+        "wrong": "Trop lent : sans échec, l'adversaire respire et tu perds le tempo."
+      },
+      "c2": {
+        "title": "Deux coups, un temps",
+        "teach": "Un pion qui promeut en capturant fait deux choses en un seul temps : il emporte une pièce ET une dame naît. C'est presser l'horloge au maximum.",
+        "observe": "Mon pion de b7 et ce cavalier noir en c8 qui réclame à grands cris que je le dévore en promouvant.",
+        "goal": "Capture en c8 en promouvant avec échec.",
+        "hints": [
+          "Le pion peut capturer en diagonale juste au moment de promouvoir.",
+          "En c8 il y a un cavalier : mange-le et fais-toi dame dans le même mouvement.",
+          "Joue b7xc8=D : tu emportes le cavalier et donnes échec au roi de e6."
+        ],
+        "explain": "bxc8=D capture le cavalier, promeut et donne échec sur la diagonale c8-e6 : matériel et tempo d'un seul coup.",
+        "wrong": "Tu as promu sans mordre : tu as laissé le cavalier en vie et perdu la moitié du butin."
+      },
+      "c3": {
+        "title": "Même astuce, autre aile",
+        "teach": "Le tempo ne connaît pas les ailes : peu importe la a ou la h, celui qui promeut avec échec commande. Répète le motif et l'horloge restera de ton côté.",
+        "observe": "Mon pion en g7 et le roi noir en d5, aligné avec la grande diagonale depuis g8.",
+        "goal": "Promeus en g8 avec échec.",
+        "hints": [
+          "Le pion de g7 est à un pas de la gloire.",
+          "Seule la dame atteint le roi de d5 par la diagonale g8-d5.",
+          "Joue g7g8=D : échec, temps gagné et dame contre tour."
+        ],
+        "explain": "g8=D donne échec par la diagonale g8-d5 en gagnant un temps, et les blancs restent avec dame contre tour, gagnants.",
+        "wrong": "Sans échec, pas de tempo : l'adversaire se réorganise et tu gâches ton avantage."
+      },
+      "c4": {
+        "title": "Une tour au petit-déjeuner",
+        "teach": "Plus la pièce que tu captures en promouvant est grande, plus vite la partie se termine. Mange, promeus et donne échec : l'horloge n'avance même pas.",
+        "observe": "Mon pion en h7 et une tour noire entière qui attend en g8.",
+        "goal": "Capture la tour en g8 en promouvant avec échec.",
+        "hints": [
+          "Le pion de h7 peut capturer en diagonale vers g8.",
+          "En g8 il y a une TOUR : emporte-la et promeus en même temps.",
+          "Joue h7xg8=D : tu manges la tour et donnes échec au roi de e6."
+        ],
+        "explain": "hxg8=D capture la tour, promeut et donne échec sur la diagonale g8-e6 : gain énorme en un seul temps.",
+        "wrong": "Tu as promu du mauvais côté : la tour est toujours en vie et l'adversaire te remercie."
+      },
+      "c5": {
+        "title": "Le temps volé",
+        "teach": "Parfois la dame n'est pas la réponse : le tempo décisif vient du zwischenzug, le coup intermédiaire avec échec que personne n'attend. Promeus en CAVALIER, donne échec et vole la dame ennemie avant qu'elle ne réagisse.",
+        "observe": "Le roi en d7 et la dame en a6 sont à un saut de cavalier l'un de l'autre depuis b8.",
+        "goal": "Trouve la promotion avec échec qui gagne la dame.",
+        "hints": [],
+        "explain": "b8=C donne échec au roi de d7 et attaque en même temps la dame de a6 : le roi doit bouger et Cxa6 emporte la dame, laissant une pièce et un pion d'avantage gagnant.",
+        "wrong": "Promouvoir en dame ne fait qu'égaliser : tu perds le tempo de l'échec double et, avec lui, la partie."
+      }
+    },
+    "malrec": {
+      "intro": "Je suis Malrec, et j'ai survécu à plus de couronnes que tu n'en verras tomber. Je n'ai pas de dame pour me sauver ni de tours pour me pleurer : seulement un roi qui marche vers le danger parce qu'il a appris que rester immobile, c'est mourir.",
+      "reward": "Le Roi qui Survit",
+      "chron": [
+        "Le cavalier ennemi rôdait trop près ; mon roi ne détourna pas le regard, avança en c5 et le dévora sans trembler.",
+        "Ils descendirent la tour en la croyant à l'abri sur la sixième ; mon vieux roi se leva de son trône et l'arracha de l'échiquier.",
+        "La dame vint pour ma gorge, et dans son arrogance elle se mit à portée de ma main : c5, et la reine tomba devant le pion.",
+        "J'écartai mon roi de la ligne et laissai la tour parler : b6, et dans le coin le roi ennemi s'étouffa dans le silence.",
+        "Sans voix pour me guider, mon roi sortit à découvert et prit ce que nul n'osa toucher : ainsi s'achève la voie de celui qui survit."
+      ],
+      "c1": {
+        "title": "Le roi qui ne recule pas",
+        "teach": "Dans la finale, le roi cesse d'être un fugitif et devient bourreau. Une pièce isolée à sa portée ne se pardonne pas : fais un pas en avant et mange-la.",
+        "observe": "Ton roi en d4 et le cavalier noir en c5, à un seul pas, sans personne pour le défendre. Dans la finale, chaque pièce pèse comme une montagne.",
+        "goal": "Avance et capture le cavalier.",
+        "hints": [
+          "Regarde quelles cases ton roi touche ; l'une d'elles garde une pièce ennemie.",
+          "Le cavalier en c5 est seul, ni son roi ni son pion ne le couvrent.",
+          "Rxc5 : ton roi emporte le cavalier et la finale est gagnée."
+        ],
+        "explain": "Rxc5 gagne un cavalier entier sans coût, car rien ne défend cette case. Avec une pièce d'avantage, la finale n'a plus qu'un seul maître.",
+        "wrong": "Timide : écarter le roi laisse le cavalier en vie et tu offres la finale qui était déjà tienne."
+      },
+      "c2": {
+        "title": "Le trône se lève",
+        "teach": "Un roi actif en finale vaut plus que la peur qu'on lui porte. La tour qui s'approche sans escorte est de la chair pour ton monarque.",
+        "observe": "Ton roi en e5, au centre, et la tour noire en d6 à portée de ta main, sans pion ni roi pour la soutenir.",
+        "goal": "Prends la tour avec le roi.",
+        "hints": [
+          "Ton roi commande au centre ; une case voisine cache une tour.",
+          "La tour en d6 n'a pas de garde : ni le roi en b7 ni le pion ne la protègent.",
+          "Rxd6 : ton roi se dresse et arrache la tour de l'échiquier."
+        ],
+        "explain": "Rxd6 capture une tour sans défense et décide la finale d'un coup. Le roi central ne fuit pas : il encaisse.",
+        "wrong": "Erreur : tout autre coup épargne la tour et, avec elle, ton avantage."
+      },
+      "c3": {
+        "title": "La reine à portée",
+        "teach": "Le danger est ton métier : quand la dame vient te tuer, regarde si elle s'est trop approchée. Survivre, c'est avoir le sang-froid de manger ce qui prétendait te dévorer.",
+        "observe": "Ton roi en d4 est en échec de la dame en c5, mais cette dame est collée à toi et personne ne la protège. La frayeur cache un cadeau.",
+        "goal": "Réponds à l'échec en capturant la dame.",
+        "hints": [
+          "Tu es en échec : tout échec n'est pas une menace, certains sont une négligence.",
+          "La dame en c5 t'attaque depuis une case voisine, et elle est seule.",
+          "Rxc5 : ton roi répond à l'échec en emportant la dame entière."
+        ],
+        "explain": "Rxc5 sort de l'échec et capture la dame d'un seul coup, car rien ne la défend. Celle qui te menaçait gît sous ton pied.",
+        "wrong": "Fatal : fuir l'échec laisse la dame en vie et, avec elle, tu perds la finale et la vie."
+      },
+      "c4": {
+        "title": "Le roi s'écarte et tue",
+        "teach": "Parfois le meilleur coup du roi est de s'ôter du chemin. En s'écartant, il laisse parler la pièce que son corps cachait, et cette voix est sentence.",
+        "observe": "Ta tour en a1 et le roi noir en a8 partagent la colonne, mais ton propre roi en a6 bouche la vue. Ton fou en f4 surveille en silence la case b8.",
+        "goal": "Écarte le roi et découvre le mat.",
+        "hints": [
+          "Ton roi bouche la colonne de ta tour ; s'il s'écarte, la tour donne échec en a8.",
+          "Cherche la case où ton roi, en bougeant, couvre a7 et b7 tandis que le fou scelle b8.",
+          "Rb6 : découvre l'échec de la tour et il ne reste au roi noir aucune case."
+        ],
+        "explain": "Rb6 découvre l'échec de la tour par la colonne a ; le roi en a6 passe à couvrir a7 et b7, et le fou de f4 bouchait déjà b8. Sans fuite, c'est mat.",
+        "wrong": "Non : bouger le roi vers toute autre case laisse un soupirail et le mat s'échappe."
+      },
+      "c5": {
+        "title": "L'épreuve de Malrec",
+        "teach": "Sans indices, sans mains pour te soutenir. Le roi doit sortir à découvert et prendre ce que d'autres craignent de toucher.",
+        "observe": "Ton roi en c4 et la tour noire en b5, active sur la cinquième rangée. Le roi ennemi est loin, gardant son pion ; personne ne garde la tour.",
+        "goal": "Sors avec le roi et capture la tour.",
+        "hints": [],
+        "explain": "Rxb5 emporte une tour sans défense et laisse la finale gagnée ; le roi qui ose sortir encaisse ce que le timide ne verra jamais. Ni le pion ni le roi lointain ne peuvent la venger.",
+        "wrong": "Non : la tour est en prise et seul ton roi, sortant à découvert, l'emporte."
+      }
+    },
+    "solenne": {
+      "intro": "Je suis Solenne, et je suis née la pièce la plus humble de l'échiquier : un simple pion. Mais un pion passé marche sans peur vers la huitième rangée, et qui apprend à promouvoir apprend qu'aucun début modeste ne décide la fin.",
+      "reward": "Couronne de la Huitième Rangée",
+      "chron": [
+        "Mon pion fit le dernier pas en b8 et une dame naquit avec échec ; ce qui commença petit finit par gouverner l'échiquier.",
+        "En b7 je ne m'arrêtai pas devant le cavalier : je le capturai en promouvant en c8, et d'un seul pas je gagnai pièce et couronne.",
+        "J'avançai en g8 et la nouvelle dame traversa l'échiquier pour clouer le roi ; le pion patient devint reine.",
+        "La tour crut me fermer le passage, mais en g8 je la dévorai en promouvant avec échec ; ainsi se fraye un chemin un pion passé.",
+        "Sans voix pour me guider, je promus en cavalier au lieu de dame et le saut attrapa roi et reine à la fois : l'humilité aussi sait choisir sa forme."
+      ],
+      "c1": {
+        "title": "Le dernier pas",
+        "teach": "Un pion passé est celui qui n'a plus de pions ennemis devant lui ni sur ses côtés : son chemin vers la promotion est libre. Quand il atteint la septième rangée, un pas de plus le transforme en dame.",
+        "observe": "Ton pion en b7 a la huitième rangée à portée et aucun rival ne peut l'arrêter. En promouvant en b8, la nouvelle dame regardera de face le roi noir en d6.",
+        "goal": "Avance le pion et promeus en dame avec échec.",
+        "hints": [
+          "Ton pion en b7 est à un seul pas de la huitième rangée.",
+          "Promeus en b8 en choisissant la pièce la plus forte et observe la rangée du roi.",
+          "b8=D+ naît avec échec sur d6 ; le roi doit parer et tu gagnes une dame entière."
+        ],
+        "explain": "b8=D promeut avec échec sur la huitième rangée ; le pion passé n'avait aucune opposition et tu as maintenant une dame d'avantage. Le pas le plus humble est devenu le plus puissant.",
+        "wrong": "Il t'a manqué le dernier pas : un pion qui ne promeut pas gâche tout son chemin."
+      },
+      "c2": {
+        "title": "Promouvoir en capturant",
+        "teach": "Parfois le chemin vers la huitième rangée croise une pièce ennemie en diagonale : tu peux la capturer et promouvoir dans le même mouvement. Ainsi tu gagnes la pièce et la couronne d'un seul coup.",
+        "observe": "Ton pion en b7 a devant lui le cavalier noir en c8, juste sur ta diagonale de promotion. Le roi en e6 ne peut pas accourir à temps.",
+        "goal": "Capture le cavalier en promouvant en dame.",
+        "hints": [
+          "Le cavalier en c8 est sur la diagonale de capture de ton pion.",
+          "N'avance pas tout droit : mange le cavalier en promouvant.",
+          "bxc8=D+ élimine le cavalier et te donne une dame avec échec ; double butin."
+        ],
+        "explain": "bxc8=D capture le cavalier et promeut avec échec à la fois ; tu additionnes pièce et dame sans rien donner en échange. Le pion passé sait se frayer un chemin en mangeant.",
+        "wrong": "Promouvoir tout droit laisse le cavalier en vie : profite de la capture et emporte tout."
+      },
+      "c3": {
+        "title": "La reine qui traverse",
+        "teach": "Promouvoir ne se contente pas d'additionner du matériel : cela crée à partir de rien la pièce la plus rapide de l'échiquier. À peine née, la dame atteint en un instant ce qui était de l'autre côté.",
+        "observe": "Ton pion en g7 promeut librement en g8. De là, la nouvelle dame verra en diagonale le roi noir en d5.",
+        "goal": "Promeus en dame et donne échec au roi.",
+        "hints": [
+          "Ton pion en g7 atteint seul la huitième rangée.",
+          "Promeus en g8 et regarde la longue diagonale vers le centre.",
+          "g8=D+ cloue le roi en d5 depuis le coin ; la reine domine l'échiquier dès sa naissance."
+        ],
+        "explain": "g8=D promeut et donne échec sur la diagonale g8-d5 ; d'un pion naît une dame qui gouverne tout l'échiquier. Voilà la récompense de la patience.",
+        "wrong": "Sans promouvoir, ton pion reste à regarder : fais le pas et laisse naître la reine."
+      },
+      "c4": {
+        "title": "Dévorer le gardien",
+        "teach": "Quand une tour tente de te fermer la huitième rangée, ne la crains pas : si elle est sur ta diagonale, tu la captures en promouvant. L'obstacle devient ta dernière proie.",
+        "observe": "Ton pion en h7 a la tour noire en g8, sur sa diagonale de promotion. Le roi en e6 sera exposé à la nouvelle dame.",
+        "goal": "Capture la tour en promouvant avec échec.",
+        "hints": [
+          "La tour en g8 croit te bloquer, mais elle est sur ta diagonale.",
+          "Mange-la en promouvant au lieu de pousser tout droit.",
+          "hxg8=D+ élimine la tour et donne échec en e6 ; tu gagnes tour et couronne d'un coup."
+        ],
+        "explain": "hxg8=D capture la tour et promeut avec échec sur e6 ; le gardien qui voulait t'arrêter nourrit ton ascension. Un pion passé ne demande pas la permission : il se fraye un chemin.",
+        "wrong": "Pousser tout droit bute sur la tour : capture en diagonale et tu promouvras en la dévorant."
+      },
+      "c5": {
+        "title": "L'épreuve de Solenne",
+        "teach": "Sans indices ni voix. Promouvoir en dame n'est pas toujours le mieux : parfois la pièce humble doit choisir une autre forme pour attraper le roi et la reine à la fois.",
+        "observe": "Ton pion en b7 promeut librement, mais le roi en d7 et la dame en a6 sont placés d'une manière singulière. Réfléchis à quelle pièce les atteint tous les deux.",
+        "goal": "Promeus la pièce qui donne échec et gagne la dame.",
+        "hints": [],
+        "explain": "b8=C promeut en cavalier avec échec et fourche le roi en d7 et la dame en a6 ; le roi doit bouger et la dame tombe. La sous-promotion, humble en apparence, gagne la partie.",
+        "wrong": "Non : promouvoir en dame ne donne qu'échec, mais il existe une pièce qui attaque le roi et la dame à la fois."
+      }
+    },
+    "presence": {
+      "label": "Ton champion",
+      "win": "Victoire. Tu as joué comme je te l'aurais appris.",
+      "lose": "Chaque défaite cache une leçon. La prochaine partie est à nous.",
+      "draw": "Nulle. L'équilibre aussi se maîtrise.",
+      "check": "Attention : ton roi est en échec.",
+      "thinking": "Observe. Le meilleur coup crie rarement.",
+      "sendaCta": "Parcours ma Voie de la Maîtrise dans le codex."
+    }
   }
 }

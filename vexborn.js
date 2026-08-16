@@ -21,7 +21,7 @@ export const EXPANSIONS = {
     key: 'origins', order: 1, phase: 'awakening', available: true, accent: '#FF3B47',
     name: t('vexborn.exp.origins.name'), subtitle: t('vexborn.exp.origins.subtitle'),
     tagline: t('vexborn.exp.origins.tagline'), premise: t('vexborn.exp.origins.premise'),
-    status: t('vexborn.exp.origins.status'), keyart: 'assets/vexborn/banner/kael.webp',
+    status: t('vexborn.exp.origins.status'), keyart: 'assets/vexborn/keyart/origins.webp',
   },
   crownfall: {
     key: 'crownfall', order: 2, phase: 'fracture', available: true, accent: '#914FE8',
