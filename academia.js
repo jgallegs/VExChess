@@ -3,7 +3,7 @@
 //  Bucle real: Observa → Predice → Juega → Explica, sobre el
 //  tablero interactivo. Memoria de mentor (D1) por concepto.
 // ============================================================
-import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=16';
+import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=18';
 import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js?v=2';
 import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=4';
 import { createBoard } from './academy-board.js?v=2';

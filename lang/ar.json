@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "دخول",
       "notificationsTitle": "{count} إشعار",
-      "notificationsTitlePlural": "{count} إشعارات"
+      "notificationsTitlePlural": "{count} إشعارات",
+      "ratingAria": "التصنيف {elo}",
+      "menuAria": "قائمة الحساب"
     },
     "menu": {
       "profile": "ملفي الشخصي",

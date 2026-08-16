@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "ورود",
       "notificationsTitle": "{count} اعلان",
-      "notificationsTitlePlural": "{count} اعلان"
+      "notificationsTitlePlural": "{count} اعلان",
+      "ratingAria": "ریتینگ {elo}",
+      "menuAria": "منوی حساب"
     },
     "menu": {
       "profile": "پروفایل من",

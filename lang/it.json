@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "Entra",
       "notificationsTitle": "{count} avviso",
-      "notificationsTitlePlural": "{count} avvisi"
+      "notificationsTitlePlural": "{count} avvisi",
+      "ratingAria": "Punteggio {elo}",
+      "menuAria": "Menu account"
     },
     "menu": {
       "profile": "Il mio profilo",

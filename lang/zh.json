@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "登录",
       "notificationsTitle": "{count} 条通知",
-      "notificationsTitlePlural": "{count} 条通知"
+      "notificationsTitlePlural": "{count} 条通知",
+      "ratingAria": "等级分 {elo}",
+      "menuAria": "账户菜单"
     },
     "menu": {
       "profile": "我的个人资料",

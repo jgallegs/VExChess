@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "Se connecter",
       "notificationsTitle": "{count} notification",
-      "notificationsTitlePlural": "{count} notifications"
+      "notificationsTitlePlural": "{count} notifications",
+      "ratingAria": "Classement {elo}",
+      "menuAria": "Menu du compte"
     },
     "menu": {
       "profile": "Mon profil",

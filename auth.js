@@ -7,6 +7,7 @@
 // ============================================================
 import { badgeIcon } from './badges.js?v=3';
 import { t } from './i18n.js?v=9';
+import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=1';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {
@@ -280,51 +281,22 @@ async function pollNotifs() {
 export function refreshNotifs() { return pollNotifs(); }
 
 // ---------- chip de cuenta en el navbar ----------
-function accountHTML() {
-  if (!currentUser) return '<button class="vx-entrar" type="button">' + t('auth.chip.login') + '</button>';
-  const featured = currentBadges.find(b => b.featured);
-  const total = notifCount + challengeCount;
-  const dot = total > 0 ? '<span class="vx-chip-dot" title="' + (total === 1 ? t('auth.chip.notificationsTitle', { count: total }) : t('auth.chip.notificationsTitlePlural', { count: total })) + '"></span>' : '';
-  const menuDot = notifCount > 0 ? '<span class="vx-menu-dot">' + notifCount + '</span>' : '';
-  const chDot = challengeCount > 0 ? '<span class="vx-menu-dot">' + challengeCount + '</span>' : '';
-  return '<div class="vx-acct">' +
-      '<button class="vx-chip" type="button" aria-haspopup="true">' + dot +
-        avatarHTML(currentUser.avatar) +
-        '<span class="vx-chip-name">' + esc(currentUser.username) + '</span>' +
-        (featured ? badgeIcon(featured.badge, 'chip') : '') +
-        '<span class="vx-chip-elo">' + currentUser.elo + '</span>' +
-      '</button>' +
-      '<div class="vx-menu">' +
-        '<a href="perfil.html">' + t('auth.menu.profile') + '</a>' +
-        '<a href="academia.html">' + t('auth.menu.academy') + '</a>' +
-        '<a href="online.html">' + t('auth.menu.playOnline') + chDot + '</a>' +
-        '<a href="comunidad.html">' + t('auth.menu.community') + menuDot + '</a>' +
-        '<a href="partidas.html">' + t('auth.menu.myGames') + '</a>' +
-        '<a href="vexborn.html">Vexborn</a>' +
-        (currentUser.is_admin ? '<a href="insignias.html">' + t('auth.menu.badgesInventory') + '</a>' : '') +
-        (currentUser.is_admin ? '<a href="admin.html" class="vx-menu-admin">' + t('auth.menu.adminPanel') + '</a>' : '') +
-        '<button type="button" class="vx-signout">' + t('auth.menu.signout') + '</button>' +
-      '</div>' +
-    '</div>';
+// La presentación vive en el componente reutilizable account-chip.js.
+// auth.js solo aporta el estado (modelo) y los manejadores.
+async function doSignout() {
+  try { await api.logout(); } catch (e) {}
+  currentUser = null; currentStats = null; renderAccounts(); emit();
 }
 function renderAccounts() {
-  document.querySelectorAll('.vx-account').forEach(slot => {
-    slot.innerHTML = accountHTML();
-    const entrar = slot.querySelector('.vx-entrar');
-    if (entrar) entrar.addEventListener('click', () => openAuth('login'));
-    const chip = slot.querySelector('.vx-chip');
-    if (chip) {
-      const acct = slot.querySelector('.vx-acct');
-      chip.addEventListener('click', (e) => { e.stopPropagation(); acct.classList.toggle('open'); });
-    }
-    const so = slot.querySelector('.vx-signout');
-    if (so) so.addEventListener('click', async () => {
-      try { await api.logout(); } catch (e) {}
-      currentUser = null; currentStats = null; renderAccounts(); emit();
-    });
-  });
+  const model = { user: currentUser, badges: currentBadges, notifCount, challengeCount };
+  const ctx = {
+    avatarHTML, roleMeta, badgeIcon,
+    onLogin: () => openAuth('login'),
+    onSignout: doSignout,
+  };
+  document.querySelectorAll('.vx-account').forEach(slot => mountAccountChip(slot, model, ctx));
 }
-document.addEventListener('click', () => { document.querySelectorAll('.vx-acct.open').forEach(a => a.classList.remove('open')); });
+document.addEventListener('click', closeAllAccountMenus);
 
 // Botones "Entrar" existentes en la web (p.ej. la home) que quieran abrir el modal
 function wireLegacyEntrar() {

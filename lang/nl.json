@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "Inloggen",
       "notificationsTitle": "{count} melding",
-      "notificationsTitlePlural": "{count} meldingen"
+      "notificationsTitlePlural": "{count} meldingen",
+      "ratingAria": "Rating {elo}",
+      "menuAria": "Accountmenu"
     },
     "menu": {
       "profile": "Mijn profiel",

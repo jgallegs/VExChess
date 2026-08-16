@@ -1109,7 +1109,9 @@
     "chip": {
       "login": "Увійти",
       "notificationsTitle": "{count} сповіщення",
-      "notificationsTitlePlural": "{count} сповіщень"
+      "notificationsTitlePlural": "{count} сповіщень",
+      "ratingAria": "Рейтинг {elo}",
+      "menuAria": "Меню акаунта"
     },
     "menu": {
       "profile": "Мій профіль",
