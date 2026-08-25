@@ -25,9 +25,6 @@
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
 html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
 
-/* Con el panel móvil abierto el fondo no se desplaza */
-html.vxnav-locked, html.vxnav-locked body { overflow: hidden; }
-
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
   position: sticky; top: 0; z-index: 60; height: var(--nav-h); box-sizing: border-box;
@@ -93,21 +90,21 @@ html.vxnav-locked, html.vxnav-locked body { overflow: hidden; }
    fondo: solo las tres líneas con su morph a X (teñido de marca al abrir).
    La zona táctil de ~44px la pone un halo invisible (::after). */
 .vxnav-burger {
-  position: relative; display: none; width: 2.2rem; height: 2.6rem; flex: 0 0 auto;
+  position: relative; display: none; width: 2.5rem; height: 2.8rem; flex: 0 0 auto;
   border: none; background: none; cursor: pointer;
-  align-items: center; justify-content: center; flex-direction: column; gap: 0.26rem; padding: 0;
+  align-items: center; justify-content: center; flex-direction: column; gap: 0.32rem; padding: 0;
   -webkit-tap-highlight-color: transparent; touch-action: manipulation;
 }
 .vxnav-burger::after { content: ''; position: absolute; inset: -0.5rem; }
 .vxnav-burger:focus-visible { outline: none; border-radius: 0.5rem; box-shadow: 0 0 0 .16rem rgba(57,213,255,.45); }
 .vxnav-burger:active span { background: var(--muted); }
-.vxnav-burger span { display: block; width: 1.35rem; height: 0.15rem; background: var(--text); border-radius: 1rem;
+.vxnav-burger span { display: block; width: 1.7rem; height: 0.17rem; background: var(--text); border-radius: 1rem;
   transition: transform .22s ease, opacity .18s ease, background .18s ease; }
-/* el morph a X: cada línea exterior viaja exactamente un paso (alto+hueco = 0.41rem) */
+/* el morph a X: cada línea exterior viaja exactamente un paso (alto+hueco = 0.49rem) */
 .vxnav.open .vxnav-burger span { background: var(--accent); }
-.vxnav.open .vxnav-burger span:nth-child(1) { transform: translateY(0.41rem) rotate(45deg); }
+.vxnav.open .vxnav-burger span:nth-child(1) { transform: translateY(0.49rem) rotate(45deg); }
 .vxnav.open .vxnav-burger span:nth-child(2) { opacity: 0; }
-.vxnav.open .vxnav-burger span:nth-child(3) { transform: translateY(-0.41rem) rotate(-45deg); }
+.vxnav.open .vxnav-burger span:nth-child(3) { transform: translateY(-0.49rem) rotate(-45deg); }
 
 /* Velo bajo el panel: oscurece y captura el toque para cerrar */
 .vxnav-scrim { display: none; }

@@ -98,10 +98,11 @@ function battleHTML(actionsHTML) {
     '<div class="nav-actions"><div class="vx-account"></div>' + (actionsHTML || '') + '</div>';
 }
 
-// ---------- bloqueo del scroll de fondo mientras el panel está abierto ----------
-function lockScroll(on) {
-  document.documentElement.classList.toggle('vxnav-locked', !!on);
-}
+// El bloqueo del scroll de fondo NO usa overflow:hidden: en html o body
+// convierte al documento/body en otro contenedor de scroll y la barra sticky
+// "desaparece" (se pega al tope del documento, fuera de pantalla si había
+// scroll). En su lugar se bloquea la interacción: cualquier gesto de scroll
+// (toque o rueda) fuera del panel se cancela mientras el menú está abierto.
 
 function wireSite(nav) {
   const burger = nav.querySelector('.vxnav-burger');
@@ -115,11 +116,11 @@ function wireSite(nav) {
     const focusBack = !opts || opts.focusBack !== false;
     if (open === isOpen()) return;
     nav.classList.toggle('open', open);
+    scrollBlocked = open && mq.matches;
     if (burger) {
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       burger.setAttribute('aria-label', t(open ? 'nav.closeMenu' : 'nav.openMenu'));
     }
-    lockScroll(open && mq.matches);
     if (open) {
       closeAllAccountMenus(); // nunca dos superficies abiertas a la vez
       // El foco entra al panel: primer enlace navegable.
@@ -132,6 +133,15 @@ function wireSite(nav) {
 
   if (burger) burger.addEventListener('click', (e) => { e.stopPropagation(); setOpen(!isOpen()); });
   if (scrim) scrim.addEventListener('click', () => setOpen(false));
+
+  // Gestos de scroll con el panel abierto: dentro del menú sí (tiene su propio
+  // scroll), en el resto del documento no.
+  let scrollBlocked = false;
+  const blockScroll = (e) => {
+    if (scrollBlocked && menu && !menu.contains(e.target)) e.preventDefault();
+  };
+  document.addEventListener('touchmove', blockScroll, { passive: false });
+  document.addEventListener('wheel', blockScroll, { passive: false });
 
   // Al navegar desde el panel se cierra sin devolver el foco (cambia la página).
   nav.querySelectorAll('.vxnav-menu a').forEach(a => a.addEventListener('click', () => setOpen(false, { focusBack: false })));
@@ -148,7 +158,7 @@ function wireSite(nav) {
   document.addEventListener('click', (e) => { if (isOpen() && !nav.contains(e.target)) setOpen(false, { focusBack: false }); });
 
   // Al pasar a escritorio el panel deja de tener sentido.
-  const onMQ = () => { if (!mq.matches) setOpen(false, { focusBack: false }); else lockScroll(isOpen()); };
+  const onMQ = () => { if (!mq.matches) setOpen(false, { focusBack: false }); else scrollBlocked = isOpen(); };
   if (mq.addEventListener) mq.addEventListener('change', onMQ);
   else if (mq.addListener) mq.addListener(onMQ); // Safari antiguo
 
