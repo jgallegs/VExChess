@@ -224,15 +224,15 @@ const ACCOUNT_CSS = `
   border-radius:calc(var(--chip-h)/2);
   background:linear-gradient(180deg,rgba(38,48,64,.80),rgba(20,26,35,.86));
   -webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 .6rem 1.4rem rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 .35rem .9rem rgba(0,0,0,.22);
   transition:width .42s cubic-bezier(.22,1,.36,1),border-radius .42s cubic-bezier(.22,1,.36,1),
     box-shadow .34s ease,background .34s ease,border-color .34s ease}
-.vxa:not(.open) .vxa-surface:hover{border-color:rgba(255,255,255,.18);
+.vxa:not(.open) .vxa-surface:hover{border-color:rgba(255,255,255,.12);
   background:linear-gradient(180deg,rgba(48,60,78,.82),rgba(28,35,47,.88))}
-.vxa.open .vxa-surface{border-radius:1.05rem;border-color:rgba(255,255,255,.14);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 1.8rem 4rem rgba(0,0,0,.6)}
-.vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
+.vxa.open .vxa-surface{border-radius:1.05rem;border-color:rgba(255,255,255,.12);
+  box-shadow:0 1.8rem 4rem rgba(0,0,0,.6)}
+.vxa-surface:has(.vxa-chip:focus-visible){box-shadow:0 0 0 .16rem rgba(57,213,255,.5)}
 
 /* Chip (fila cabecera) — transparente: la glass la pone la superficie */
 .vxa-chip{display:flex;align-items:center;gap:.5rem;height:var(--chip-h);box-sizing:border-box;
@@ -279,9 +279,10 @@ const ACCOUNT_CSS = `
 .vxa-drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
 .vxa.open .vxa-drawer{grid-template-rows:1fr}
 .vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem;
-  border-top:0 solid rgba(255,255,255,.08);margin-top:0;
-  transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s}
-.vxa.open .vxa-drawer-in{padding-bottom:.45rem;border-top-width:1px;margin-top:.1rem}
+  border-top:0 solid transparent;margin-top:0;
+  transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s,border-top-color .08s}
+.vxa.open .vxa-drawer-in{padding-bottom:.45rem;border-top-width:1px;border-top-color:rgba(255,255,255,.08);margin-top:.1rem;
+  transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s,border-top-color .25s .12s}
 .vxa-links{display:flex;flex-direction:column;padding-top:.35rem}
 .vxa-menu-note{display:none}
 

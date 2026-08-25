@@ -93,14 +93,17 @@ html.vxnav-locked, html.vxnav-locked body { overflow: hidden; }
    dominar la barra; la zona táctil de ~44px la pone un halo invisible que
    desborda la caja (::after), no el tamaño del botón. */
 .vxnav-burger {
-  position: relative; display: none; width: 2.6rem; height: 2.6rem; border-radius: 0.7rem;
-  border: var(--hair) solid var(--hairline, var(--border)); background: rgba(255,255,255,.05); cursor: pointer;
+  position: relative; display: none; width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.06); cursor: pointer;
+  background: linear-gradient(180deg, rgba(38,48,64,.80), rgba(20,26,35,.86));
+  -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: 0 .35rem .9rem rgba(0,0,0,.22);
   align-items: center; justify-content: center; flex-direction: column; gap: 0.24rem; padding: 0;
   -webkit-tap-highlight-color: transparent; touch-action: manipulation;
   transition: border-color .15s, background .15s;
 }
-.vxnav-burger::after { content: ''; position: absolute; inset: -0.5rem; }
-.vxnav-burger:hover { background: var(--surface-hover, rgba(255,255,255,.08)); border-color: var(--hairline-strong, var(--muted)); }
+.vxnav-burger::after { content: ''; position: absolute; inset: -0.5rem; border-radius: 50%; }
+.vxnav-burger:hover { background: linear-gradient(180deg, rgba(48,60,78,.82), rgba(28,35,47,.88)); border-color: rgba(255,255,255,.12); }
 .vxnav-burger:focus-visible { outline: none; border-color: #39D5FF; box-shadow: 0 0 0 .16rem rgba(57,213,255,.45); }
 .vxnav.open .vxnav-burger { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
 .vxnav-burger span { display: block; width: 1.1rem; height: 0.14rem; background: var(--text); border-radius: 1rem; transition: transform .22s ease, opacity .18s ease; }
