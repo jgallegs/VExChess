@@ -303,3 +303,18 @@
   .ac-chat-card { flex-wrap: wrap; }
   .ac-chat-cta { margin-left: 0; }
 }
+
+/* ============================================================
+   Movimiento (motion.css)
+   ============================================================ */
+.ac-hero, .ac-story, .ac-chat-card { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.ac-concepts .ac-concept { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.ac-concepts .ac-concept:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.ac-concepts .ac-concept:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.ac-concepts .ac-concept:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.ac-concepts .ac-concept:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+.ac-concepts .ac-concept:nth-child(5) { animation-delay: calc(var(--stagger) * 5); }
+.ac-level { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+@media (prefers-reduced-motion: reduce) {
+  .ac-hero, .ac-story, .ac-chat-card, .ac-concepts .ac-concept, .ac-level { animation: none; }
+}

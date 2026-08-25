@@ -301,3 +301,20 @@ body.vb-page { min-height: 100vh; }
 .vb-card-ring::after { content: ''; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: var(--panel); }
 .vb-card-ring b { position: absolute; font: 800 0.5rem 'Inter',sans-serif; color: var(--text); z-index: 1; }
 @media (max-width: 760px) { .vm-stage { grid-template-columns: 1fr; } .vm-vinculo { margin-left: 0; width: 100%; } }
+
+/* ============================================================
+   Movimiento (motion.css)
+   ============================================================ */
+.vb-hero { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.vb-grid .vb-card { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.vb-grid .vb-card:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.vb-grid .vb-card:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.vb-grid .vb-card:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.vb-grid .vb-card:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+.vb-grid .vb-card:nth-child(5) { animation-delay: calc(var(--stagger) * 5); }
+.vb-grid .vb-card:nth-child(6) { animation-delay: calc(var(--stagger) * 6); }
+.vb-grid .vb-card:nth-child(7) { animation-delay: calc(var(--stagger) * 7); }
+.vb-grid .vb-card:nth-child(8) { animation-delay: calc(var(--stagger) * 8); }
+@media (prefers-reduced-motion: reduce) {
+  .vb-hero, .vb-grid .vb-card { animation: none; }
+}

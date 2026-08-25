@@ -658,3 +658,14 @@ button.ctrl.wide { flex-basis: 100%; }
 .dock-sound img { width: 1.15rem; height: 1.15rem; }
 .notice .vex-icon { vertical-align: -0.22em; }
 .ctrl .vex-icon--button { vertical-align: -0.18em; }
+
+/* ============================================================
+   Movimiento (motion.css): modales y confirmaciones
+   ============================================================ */
+.confirm-box { animation: vx-modal-in 0.3s var(--ease-out) both; }
+.vx-modal-box { animation: vx-modal-in 0.3s var(--ease-out) both; }
+.resume-box { animation: vx-modal-in 0.34s var(--ease-out) both; }
+.dock { animation: vx-rise 0.5s var(--ease-out) backwards 0.15s; }
+@media (prefers-reduced-motion: reduce) {
+  .confirm-box, .vx-modal-box, .resume-box, .dock { animation: none; }
+}

@@ -65,6 +65,22 @@ Reglas que mantienen la coherencia (no romperlas al añadir UI):
 
 Al tocar `ui.css` hay que subir su `?v=` en TODOS los HTML.
 
+### Movimiento (`motion.css` + `motion.js`)
+
+La capa de animación, con recetas adaptadas de
+[transitions.dev](https://transitions.dev/): tokens (`--ease-out`,
+`--ease-spring`, duraciones, `--stagger`), keyframes del sistema (`vx-rise`,
+`vx-pop`, `vx-modal-in`, `vx-shake` con overshoot decreciente, `vx-check-in`,
+`vx-toast-in`), cross-fade entre páginas con la View Transitions API (se
+ignora sin soporte) y el "thumb" deslizante de los segmented (lo inyecta
+`motion.js` como mejora progresiva: sin JS queda el estilo estático).
+
+Reglas: animar solo transform/opacity/filter; entradas con `backwards`;
+stagger de 45ms con tope en el 8º elemento; springs solo en piezas pequeñas
+(badges, chips) — nunca en bloques grandes; `prefers-reduced-motion` apaga
+TODO (animaciones, thumb y view transitions). El chip de cuenta de la navbar
+tiene su propia animación y queda fuera de esta capa.
+
 ## Portada (`index.html` + `home.css` + `home.js`)
 
 La portada presenta VEXCHESS como **plataforma**, no como una demo de motor: se

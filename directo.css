@@ -84,3 +84,19 @@ body.lv-page { min-height: 100vh; }
   .lv-mini-board { width: min(80vw, 15rem); height: min(80vw, 15rem); }
   .lv-featured-info { width: 100%; }
 }
+
+/* ============================================================
+   Movimiento (motion.css)
+   ============================================================ */
+.lv-head, .lv-featured { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.lv-featured { animation-delay: 80ms; }
+.lv-grid .lv-card { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.lv-grid .lv-card:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.lv-grid .lv-card:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.lv-grid .lv-card:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.lv-grid .lv-card:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+.lv-grid .lv-card:nth-child(5) { animation-delay: calc(var(--stagger) * 5); }
+.lv-grid .lv-card:nth-child(6) { animation-delay: calc(var(--stagger) * 6); }
+@media (prefers-reduced-motion: reduce) {
+  .lv-head, .lv-featured, .lv-grid .lv-card { animation: none; }
+}

@@ -180,3 +180,37 @@ body.cm-page { min-height: 100vh; }
 .cm-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .cm-toast.ok { border-left-color: #3aa856; }
 .cm-toast.err { border-left-color: var(--accent); }
+
+/* ============================================================
+   Movimiento (motion.css): entradas escalonadas y pops
+   ============================================================ */
+.cm-person { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.cm-list .cm-person:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.cm-list .cm-person:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.cm-list .cm-person:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.cm-list .cm-person:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+.cm-list .cm-person:nth-child(5) { animation-delay: calc(var(--stagger) * 5); }
+.cm-list .cm-person:nth-child(6) { animation-delay: calc(var(--stagger) * 6); }
+.cm-list .cm-person:nth-child(7) { animation-delay: calc(var(--stagger) * 7); }
+.cm-list .cm-person:nth-child(8) { animation-delay: calc(var(--stagger) * 8); }
+.cm-head, .cm-tabs { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.cm-tabs { animation-delay: 60ms; }
+/* contador de solicitudes: pop con spring al aparecer */
+.cm-tab-badge:not([hidden]) { animation: vx-pop 0.3s var(--ease-spring-big) backwards 0.15s; }
+/* tarjeta VEX ID y paneles */
+.cm-card, .cm-vex-side { animation: vx-rise var(--dur-slow) var(--ease-out) backwards 80ms; }
+/* modales del sistema */
+.cm-modal.open .cm-modal-box { animation: vx-modal-in 0.3s var(--ease-out) both; }
+.cm-modal.open { animation: vx-veil-in 0.2s ease both; }
+.cm-scan.open .cm-scan-box { animation: vx-modal-in 0.3s var(--ease-out) both; }
+/* selector de ritmo del reto: pop escalonado */
+.cm-ch-tcs .cm-ch-tc { animation: vx-pop 0.32s var(--ease-spring) backwards; }
+.cm-ch-tcs .cm-ch-tc:nth-child(2) { animation-delay: 50ms; }
+.cm-ch-tcs .cm-ch-tc:nth-child(3) { animation-delay: 100ms; }
+/* toast con subida spring */
+.cm-toast.show { animation: vx-toast-in 0.34s var(--ease-spring) both; }
+@media (prefers-reduced-motion: reduce) {
+  .cm-person, .cm-head, .cm-tabs, .cm-tab-badge:not([hidden]), .cm-card, .cm-vex-side,
+  .cm-modal.open .cm-modal-box, .cm-modal.open, .cm-scan.open .cm-scan-box,
+  .cm-ch-tcs .cm-ch-tc, .cm-toast.show { animation: none; }
+}

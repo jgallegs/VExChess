@@ -95,3 +95,12 @@ body.gm-page { min-height: 100vh; }
 .gm-end-title.win { color: #8fe3a0; } .gm-end-title.lose { color: #ffb3b3; } .gm-end-title.draw { color: #d7deea; }
 .gm-end-reason { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; text-transform: capitalize; }
 .gm-end-score { font: 800 1.4rem 'Oxanium', sans-serif; margin: 0.8rem 0 1.2rem; letter-spacing: .1em; }
+
+/* Movimiento (motion.css) */
+.gm-end-box { animation: vx-modal-in 0.34s var(--ease-out) both; }
+.gm-promo-box { animation: vx-pop 0.3s var(--ease-spring) both; }
+.gm-player { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.gm-moves { animation: vx-rise var(--dur-base) var(--ease-out) backwards 80ms; }
+@media (prefers-reduced-motion: reduce) {
+  .gm-end-box, .gm-promo-box, .gm-player, .gm-moves { animation: none; }
+}

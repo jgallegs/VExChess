@@ -70,3 +70,26 @@ body.ol-page { min-height: 100vh; }
   font: 600 0.85rem 'Inter', sans-serif; box-shadow: 0 1rem 3rem rgba(0,0,0,.5); opacity: 0; pointer-events: none; z-index: 400; transition: opacity .2s, transform .2s; }
 .ol-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .ol-toast.ok { border-left-color: #3aa856; } .ol-toast.err { border-left-color: var(--accent); }
+
+/* ============================================================
+   Movimiento (motion.css)
+   ============================================================ */
+.ol-head, .ol-mm { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.ol-mm { animation-delay: 60ms; }
+.ol-cols .ol-card:nth-child(1) { animation: vx-rise var(--dur-base) var(--ease-out) backwards 120ms; }
+.ol-cols .ol-card:nth-child(2) { animation: vx-rise var(--dur-base) var(--ease-out) backwards 180ms; }
+.ol-tcs .ol-tc { animation: vx-pop 0.3s var(--ease-spring) backwards; }
+.ol-tcs .ol-tc:nth-child(2) { animation-delay: 40ms; }
+.ol-tcs .ol-tc:nth-child(3) { animation-delay: 80ms; }
+.ol-tcs .ol-tc:nth-child(4) { animation-delay: 120ms; }
+.ol-tcs .ol-tc:nth-child(5) { animation-delay: 160ms; }
+.ol-tcs .ol-tc:nth-child(6) { animation-delay: 200ms; }
+.ol-person { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.ol-person:nth-child(2) { animation-delay: calc(var(--stagger) * 1); }
+.ol-person:nth-child(3) { animation-delay: calc(var(--stagger) * 2); }
+.ol-person:nth-child(4) { animation-delay: calc(var(--stagger) * 3); }
+.ol-person:nth-child(5) { animation-delay: calc(var(--stagger) * 4); }
+.ol-toast.show { animation: vx-toast-in 0.34s var(--ease-spring) both; }
+@media (prefers-reduced-motion: reduce) {
+  .ol-head, .ol-mm, .ol-cols .ol-card, .ol-tcs .ol-tc, .ol-person, .ol-toast.show { animation: none; }
+}

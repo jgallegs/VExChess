@@ -1,0 +1,129 @@
+/* ============================================================
+   VEXCHESS · Motion — capa de animación compartida.
+   Se carga en todas las páginas después de ui.css.
+
+   Recetas adaptadas de transitions.dev (Jakub Antalík):
+   · ease-out largo (0.22,1,0.36,1) para casi todo movimiento;
+   · springs (0.34,1.35–1.56,0.64,1) SOLO para pops pequeños
+     (badges, chips): el overshoot en bloques grandes marea;
+   · entradas con translate + blur + opacity y stagger corto;
+   · shake de error con overshoot decreciente;
+   · cross-fade entre páginas con la View Transitions API (MPA).
+
+   Reglas de la casa:
+   · Animar solo transform / opacity / filter (composited).
+   · Entradas con `backwards` para no ver el estado final antes.
+   · Stagger corto (45ms) y con tope: a partir del 9º elemento
+     todo entra junto — nadie espera a la fila 30.
+   · prefers-reduced-motion lo apaga TODO.
+   · El chip de cuenta (.vxa*) tiene su propia animación: aquí
+     no se toca.
+   ============================================================ */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.35, 0.64, 1);
+  --ease-spring-big: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 0.18s;
+  --dur-base: 0.32s;
+  --dur-slow: 0.55s;
+  --stagger: 45ms;
+}
+
+/* ---------- Transición entre páginas (View Transitions API) ----------
+   Cross-fade con una subida sutil. Donde no hay soporte, se ignora. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) {
+  animation: vx-page-out 0.16s var(--ease-out) both;
+}
+::view-transition-new(root) {
+  animation: vx-page-in 0.26s var(--ease-out) both;
+}
+@keyframes vx-page-out { to { opacity: 0; } }
+@keyframes vx-page-in { from { opacity: 0; transform: translateY(0.4rem); } to { opacity: 1; transform: none; } }
+
+/* ---------- Keyframes del sistema ---------- */
+/* Entrada de contenido: sube, desemborrona y aparece */
+@keyframes vx-rise {
+  from { opacity: 0; transform: translateY(0.7rem); filter: blur(0.22rem); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+/* Pop con spring, para piezas pequeñas (badges, chips, contadores) */
+@keyframes vx-pop {
+  from { opacity: 0; transform: scale(0.55); }
+  to   { opacity: 1; transform: scale(1); }
+}
+/* Apertura de modal: leve escala + desemborronado */
+@keyframes vx-modal-in {
+  from { opacity: 0; transform: scale(0.955) translateY(0.35rem); filter: blur(0.2rem); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+/* Velo de modal */
+@keyframes vx-veil-in { from { opacity: 0; } to { opacity: 1; } }
+/* Error: sacudida con overshoot decreciente (receta transitions.dev) */
+@keyframes vx-shake {
+  0%     { transform: translateX(0); }
+  28.57% { transform: translateX(0.55rem); }
+  57.14% { transform: translateX(-0.55rem); }
+  78.57% { transform: translateX(0.22rem); }
+  100%   { transform: translateX(0); }
+}
+/* Éxito: entra desemborronando con una micro-rotación */
+@keyframes vx-check-in {
+  from { opacity: 0; transform: scale(0.92) rotate(-3deg); filter: blur(0.25rem); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+/* Toast: sube con spring suave */
+@keyframes vx-toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(1rem) scale(0.97); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+/* ---------- Utilidades de entrada ----------
+   .vx-in        un bloque que entra con rise
+   .vx-in-list   contenedor cuyos HIJOS entran escalonados
+   (válido para cualquier página; el resto de hojas puede aplicar
+   los keyframes directamente a sus clases propias) */
+.vx-in { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.vx-in-list > * { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.vx-in-list > *:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.vx-in-list > *:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.vx-in-list > *:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.vx-in-list > *:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+.vx-in-list > *:nth-child(5) { animation-delay: calc(var(--stagger) * 5); }
+.vx-in-list > *:nth-child(6) { animation-delay: calc(var(--stagger) * 6); }
+.vx-in-list > *:nth-child(7) { animation-delay: calc(var(--stagger) * 7); }
+.vx-in-list > *:nth-child(8) { animation-delay: calc(var(--stagger) * 8); }
+/* del 9º en adelante: sin espera extra */
+
+/* ---------- Slider de pestañas (thumb que persigue al activo) ----------
+   Lo inyecta motion.js dentro del contenedor de tabs; aquí solo su piel.
+   El activo del segmented deja su fondo al thumb y conserva el texto. */
+.vx-tab-thumb {
+  position: absolute; z-index: 0; top: 0; left: 0; height: 0; width: 0;
+  border-radius: calc(var(--r-md) - 0.22rem);
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+  border: var(--hair) solid var(--hairline-strong);
+  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08);
+  transition: transform var(--dur-base) var(--ease-out), width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
+  pointer-events: none;
+}
+/* con el thumb presente, el activo va "desnudo" encima */
+.has-tab-thumb { position: relative; }
+.has-tab-thumb > .vx-tab-thumb + * { position: relative; }
+.has-tab-thumb .cm-tab, .has-tab-thumb .pf-seg-btn { position: relative; z-index: 1; }
+.has-tab-thumb .cm-tab.active, .has-tab-thumb .pf-seg-btn.active {
+  background: transparent; border-color: transparent; box-shadow: none;
+}
+
+/* ---------- Botones: micro-feedback ----------
+   El press ya existe (translateY); añadimos un pop de liberación
+   solo a los primarios, que son los que "celebran" una acción. */
+@keyframes vx-btn-release { 0% { transform: scale(0.985); } 60% { transform: scale(1.008); } 100% { transform: scale(1); } }
+
+/* ---------- Reduce motion: silencio total ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .vx-in, .vx-in-list > * { animation: none; }
+  .vx-tab-thumb { transition: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

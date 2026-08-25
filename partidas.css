@@ -124,3 +124,23 @@ body.rv-page { min-height: 100vh; }
   .rv-panel { width: min(92vw, 34rem); max-height: none; }
   .rv-list { max-height: 24rem; }
 }
+
+/* ============================================================
+   Movimiento (motion.css)
+   ============================================================ */
+.rv-head, .rv-moves-card, .rv-list-head { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.rv-moves-card { animation-delay: 60ms; }
+.rv-item { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.rv-list .rv-item:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.rv-list .rv-item:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.rv-list .rv-item:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.rv-list .rv-item:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+.rv-list .rv-item:nth-child(5) { animation-delay: calc(var(--stagger) * 5); }
+.rv-list .rv-item:nth-child(6) { animation-delay: calc(var(--stagger) * 6); }
+.rv-list .rv-item:nth-child(7) { animation-delay: calc(var(--stagger) * 7); }
+.rv-list .rv-item:nth-child(8) { animation-delay: calc(var(--stagger) * 8); }
+.rv-badge { animation: vx-pop 0.3s var(--ease-spring) backwards 0.12s; }
+.rv-boardcol { animation: vx-rise var(--dur-slow) var(--ease-out) backwards; }
+@media (prefers-reduced-motion: reduce) {
+  .rv-head, .rv-moves-card, .rv-list-head, .rv-item, .rv-badge, .rv-boardcol { animation: none; }
+}

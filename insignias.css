@@ -61,3 +61,22 @@ body.ins-page { min-height: 100vh; }
 .ins-chip { font: 700 0.62rem 'Inter', sans-serif; border-radius: 2rem; padding: 0.2rem 0.6rem; }
 .ins-chip-mode { color: var(--bc); background: color-mix(in srgb, var(--bc) 14%, transparent); border: var(--hair) solid color-mix(in srgb, var(--bc) 40%, transparent); }
 .ins-chip-rev { color: var(--muted); background: var(--panel-2); border: var(--hair) solid var(--border); }
+
+/* ============================================================
+   Movimiento (motion.css)
+   ============================================================ */
+.ins-hero { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.ins-filters .ins-filter { animation: vx-pop 0.3s var(--ease-spring) backwards; }
+.ins-filters .ins-filter:nth-child(2) { animation-delay: 40ms; }
+.ins-filters .ins-filter:nth-child(3) { animation-delay: 80ms; }
+.ins-filters .ins-filter:nth-child(4) { animation-delay: 120ms; }
+.ins-filters .ins-filter:nth-child(5) { animation-delay: 160ms; }
+.ins-filters .ins-filter:nth-child(6) { animation-delay: 200ms; }
+.ins-grid .ins-card { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+.ins-grid .ins-card:nth-child(1) { animation-delay: calc(var(--stagger) * 1); }
+.ins-grid .ins-card:nth-child(2) { animation-delay: calc(var(--stagger) * 2); }
+.ins-grid .ins-card:nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+.ins-grid .ins-card:nth-child(4) { animation-delay: calc(var(--stagger) * 4); }
+@media (prefers-reduced-motion: reduce) {
+  .ins-hero, .ins-filters .ins-filter, .ins-grid .ins-card { animation: none; }
+}

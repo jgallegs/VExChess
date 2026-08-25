@@ -45,12 +45,26 @@ if (year) year.textContent = new Date().getFullYear();
     return;
   }
 
+  // Dentro de una rejilla (.bento, .next-grid) las tarjetas que entran EN LA
+  // MISMA tanda del observer se escalonan con un delay inline temporal (un
+  // transition-delay permanente en CSS retrasaría también su hover). El
+  // delay se limpia al acabar para no dejar rastro.
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('in');
-      io.unobserve(e.target); // una sola vez: no reaparece al subir
-    });
+    const batch = entries.filter(e => e.isIntersecting).map(e => e.target);
+    const perGrid = new Map(); // grid -> nº de tarjetas ya asignadas en esta tanda
+    for (const el of batch) {
+      const grid = el.closest('.bento, .next-grid');
+      if (grid) {
+        const i = perGrid.get(grid) || 0;
+        perGrid.set(grid, i + 1);
+        if (i > 0) {
+          el.style.transitionDelay = (i * 70) + 'ms';
+          setTimeout(() => { el.style.transitionDelay = ''; }, i * 70 + 700);
+        }
+      }
+      el.classList.add('in');
+      io.unobserve(el); // una sola vez: no reaparece al subir
+    }
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
 
   items.forEach(el => io.observe(el));

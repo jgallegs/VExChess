@@ -415,3 +415,18 @@ html[dir="rtl"] .bento-art img {
   .vex-rail { grid-template-columns: repeat(2, 1fr); }
   .vex-card:nth-child(3) { display: none; }
 }
+
+/* ============================================================
+   Movimiento (motion.css): entrada del hero y stagger de rejillas
+   ============================================================ */
+.hero-badge { animation: vx-rise 0.5s var(--ease-out) backwards 0.05s; }
+.hero-title { animation: vx-rise 0.55s var(--ease-out) backwards 0.12s; }
+.hero-sub { animation: vx-rise 0.55s var(--ease-out) backwards 0.2s; }
+.hero-cta { animation: vx-rise 0.55s var(--ease-out) backwards 0.28s; }
+.hero-stats { animation: vx-rise 0.55s var(--ease-out) backwards 0.36s; }
+.hero-visual { animation: vx-rise 0.7s var(--ease-out) backwards 0.1s; }
+/* el stagger de los reveals en rejilla lo pone home.js con un delay inline
+   temporal (un transition-delay en CSS retrasaría también el hover) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge, .hero-title, .hero-sub, .hero-cta, .hero-stats, .hero-visual { animation: none; }
+}
