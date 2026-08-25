@@ -6,11 +6,13 @@
 import { t } from './i18n.js?v=9';
 import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, roleMeta, roleLevel, STAFF_LEVEL } from './auth.js?v=30';
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
+import { seriesDays, areaChart, columnChart, sparkline, outcomesBar, barList, worldMap, countryList, tableTwin, tableTwinLabeled, fmtN } from './admin-stats.js?v=1';
 
 const ELO_LEVEL = 80, ROLE_LEVEL = 80;
 const root = document.getElementById('adm-root');
-const state = { q: '', role: 'all', sort: 'recent', offset: 0, limit: 25, total: 0, users: [], selId: null };
+const state = { q: '', role: 'all', sort: 'recent', offset: 0, limit: 25, total: 0, users: [], selId: null, view: 'users' };
 let mounted = false, currentDetail = null, searchTimer = null, overview = null;
+let analytics = null, anMetric = 'ai_games', anRange = 90;
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function fmtDate(iso) { try { return new Date(iso).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return t('admin.dateDash'); } }
@@ -67,21 +69,192 @@ function mountShell() {
       '<div><span class="eyebrow">' + t('admin.eyebrow') + '</span><h1 class="adm-title">' + t('admin.controlCenterTitle') + '</h1></div>' +
       '<a class="adm-inv-link" href="insignias.html"><span class="adm-inv-ico">🏅</span> ' + t('admin.badgeInventoryLink') + '</a>' +
     '</section>' +
-    '<div class="adm-dash" id="adm-dash"></div>' +
-    '<div class="adm-toolbar">' +
-      '<div class="adm-search"><svg viewBox="0 0 24 24" width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>' +
-        '<input id="adm-q" type="search" placeholder="' + t('admin.searchPlaceholder') + '" autocomplete="off"></div>' +
-      '<select id="adm-role" class="adm-select">' + roleOpts + '</select>' +
-      '<select id="adm-sort" class="adm-select">' + sortOpts + '</select>' +
+    '<div class="vx-seg adm-views" role="tablist">' +
+      '<button class="on" data-view="users" role="tab" aria-selected="true">' + t('admin.tabUsers') + '</button>' +
+      '<button data-view="stats" role="tab" aria-selected="false">' + t('admin.tabStats') + '</button>' +
     '</div>' +
-    '<div class="adm-cols">' +
-      '<div class="adm-list-col"><div class="adm-list" id="adm-list"></div><div class="adm-pager" id="adm-pager"></div></div>' +
-      '<div class="adm-detail" id="adm-detail"><div class="adm-detail-empty"><img src="assets/knight-logo.svg" alt=""><p>' + t('admin.detailEmpty') + '</p></div></div>' +
-    '</div>';
+    '<div id="adm-view-users">' +
+      '<div class="adm-dash" id="adm-dash"></div>' +
+      '<div class="adm-toolbar">' +
+        '<div class="adm-search"><svg viewBox="0 0 24 24" width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>' +
+          '<input id="adm-q" type="search" placeholder="' + t('admin.searchPlaceholder') + '" autocomplete="off"></div>' +
+        '<select id="adm-role" class="adm-select">' + roleOpts + '</select>' +
+        '<select id="adm-sort" class="adm-select">' + sortOpts + '</select>' +
+      '</div>' +
+      '<div class="adm-cols">' +
+        '<div class="adm-list-col"><div class="adm-list" id="adm-list"></div><div class="adm-pager" id="adm-pager"></div></div>' +
+        '<div class="adm-detail" id="adm-detail"><div class="adm-detail-empty"><img src="assets/knight-logo.svg" alt=""><p>' + t('admin.detailEmpty') + '</p></div></div>' +
+      '</div>' +
+    '</div>' +
+    '<div id="adm-view-stats" hidden></div>';
   const q = document.getElementById('adm-q');
   q.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => { state.q = q.value.trim(); state.offset = 0; loadUsers(); }, 250); });
   document.getElementById('adm-role').addEventListener('change', e => { state.role = e.target.value; state.offset = 0; loadUsers(); });
   document.getElementById('adm-sort').addEventListener('change', e => { state.sort = e.target.value; state.offset = 0; loadUsers(); });
+  root.querySelectorAll('.adm-views [data-view]').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+}
+
+function setView(view) {
+  state.view = view;
+  document.querySelectorAll('.adm-views [data-view]').forEach(b => {
+    const on = b.dataset.view === view;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  document.getElementById('adm-view-users').hidden = view !== 'users';
+  document.getElementById('adm-view-stats').hidden = view !== 'stats';
+  if (view === 'stats' && !analytics) loadAnalytics();
+}
+
+// ---------- analíticas ----------
+let statsResizeWired = false;
+async function loadAnalytics() {
+  const box = document.getElementById('adm-view-stats');
+  box.innerHTML = '<div class="adm-loading-row">' + t('admin.loading') + '</div>';
+  try { analytics = await api.adminAnalytics(); renderStats(); }
+  catch (e) { box.innerHTML = '<div class="adm-error">' + esc(e.message || t('admin.loadError')) + '</div>'; return; }
+  // al cruzar el umbral compacto/ancho, la gráfica grande se re-pinta
+  if (!statsResizeWired) {
+    statsResizeWired = true;
+    let wasCompact = box.clientWidth < 640, rt = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => {
+        const el = document.getElementById('adm-view-stats');
+        if (!el || el.hidden || !analytics) return;
+        const isCompact = el.clientWidth < 640;
+        if (isCompact !== wasCompact) { wasCompact = isCompact; renderStats(); }
+      }, 180);
+    });
+  }
+}
+
+function kpiTile(label, value, delta, spark, sub) {
+  return '<div class="ast-kpi vx-in">' +
+    '<span class="ast-kpi-label">' + esc(label) + '</span>' +
+    '<div class="ast-kpi-row"><b class="ast-kpi-v">' + fmtN(value) + '</b>' + (spark || '') + '</div>' +
+    (delta != null
+      ? '<span class="ast-kpi-delta' + (delta > 0 ? ' up' : '') + '">' + t('admin.st.week', { n: fmtN(delta) }) + '</span>'
+      : '<span class="ast-kpi-delta">' + esc(sub || '') + '</span>') +
+    '</div>';
+}
+
+// nombre presentable del nivel del motor (claves internas o Elo numérico)
+function levelLabel(l) {
+  if (!l) return '—';
+  if (/^\d+$/.test(l)) return 'Elo ' + l;
+  return l === 'max' || l === 'maximo' ? 'Máximo' : l.charAt(0).toUpperCase() + l.slice(1);
+}
+
+function renderStats() {
+  const box = document.getElementById('adm-view-stats');
+  if (!box || !analytics) return;
+  const a = analytics, tt = a.totals;
+  const METRICS = [['signups', t('admin.st.mSignups')], ['ai_games', t('admin.st.mAi')], ['pvp_games', t('admin.st.mPvp')]];
+  const RANGES = [30, 90, 180];
+  const series = seriesDays(a.days[anMetric], anRange);
+  const unit = anMetric === 'signups' ? t('admin.st.players') : t('admin.st.gamesUnit');
+  const compact = box.clientWidth > 0 && box.clientWidth < 640;
+  const chart = areaChart(series, { label: METRICS.find(m => m[0] === anMetric)[1], unit, compact });
+
+  // sparklines de los KPI: la misma serie diaria, últimos 14 días
+  const spark = (rows) => sparkline(seriesDays(rows, 14).map(p => p.n));
+
+  const eloBuckets = (a.elo_buckets || []).map(b => ({ label: fmtN(b.bucket), n: b.n }));
+  const countries = a.countries || [];
+  const browserRows = Object.entries(a.browsers || {}).filter(([, n]) => n > 0)
+    .sort((x, y) => y[1] - x[1]).map(([label, n]) => ({ label, n }));
+  const tcRows = (a.time_controls || []).sort((x, y) => y.n - x.n)
+    .map(r => ({ label: r.time_control || '—', n: r.n }));
+  const levelRows = (a.levels || []).sort((x, y) => y.n - x.n)
+    .map(r => ({ label: levelLabel(r.level), n: r.n }));
+
+  box.innerHTML =
+    '<div class="ast-kpis">' +
+      kpiTile(t('admin.st.kUsers'), tt.users, tt.users_7d, spark(a.days.signups)) +
+      kpiTile(t('admin.st.kAi'), tt.ai_games, tt.ai_games_7d, spark(a.days.ai_games)) +
+      kpiTile(t('admin.st.kPvp'), tt.pvp_games, tt.pvp_games_7d, spark(a.days.pvp_games)) +
+      kpiTile(t('admin.st.kActive'), tt.active_7d, null, '', t('admin.st.kActiveSub', { n: fmtN(tt.active_1d) })) +
+      kpiTile(t('admin.st.kFriends'), tt.friendships, null, '', t('admin.st.kFriendsSub')) +
+      kpiTile(t('admin.st.kBadges'), tt.badges, null, '', t('admin.st.kBadgesSub')) +
+    '</div>' +
+
+    '<section class="adm-card ast-card vx-in">' +
+      '<div class="ast-head"><div><h3 class="adm-card-title">' + t('admin.st.activity') + '</h3>' +
+        '<p class="adm-card-hint">' + t('admin.st.activitySub') + '</p></div>' +
+        '<button class="ast-tbl-btn" id="ast-tbl-activity" aria-pressed="false">' + t('admin.st.table') + '</button></div>' +
+      '<div class="ast-controls">' +
+        '<div class="vx-seg" id="ast-metric">' + METRICS.map(([k, l]) =>
+          '<button data-m="' + k + '"' + (k === anMetric ? ' class="on"' : '') + '>' + l + '</button>').join('') + '</div>' +
+        '<div class="vx-seg" id="ast-range">' + RANGES.map(r =>
+          '<button data-r="' + r + '"' + (r === anRange ? ' class="on"' : '') + '>' + t('admin.st.days', { n: r }) + '</button>').join('') + '</div>' +
+      '</div>' +
+      '<div id="ast-activity-chart">' + chart.html + '</div>' +
+      '<div id="ast-activity-table" hidden class="ast-table-wrap"></div>' +
+    '</section>' +
+
+    '<div class="ast-grid2">' +
+      '<section class="adm-card ast-card vx-in">' +
+        '<h3 class="adm-card-title">' + t('admin.st.outcomes') + '</h3>' +
+        '<p class="adm-card-hint">' + t('admin.st.outcomesSub') + '</p>' +
+        outcomesBar(a.outcomes) +
+        '<h4 class="ast-subtitle">' + t('admin.st.levels') + '</h4>' +
+        barList(levelRows) +
+      '</section>' +
+      '<section class="adm-card ast-card vx-in">' +
+        '<div class="ast-head"><div><h3 class="adm-card-title">' + t('admin.st.elo') + '</h3>' +
+          '<p class="adm-card-hint">' + t('admin.st.eloSub') + '</p></div>' +
+          '<button class="ast-tbl-btn" id="ast-tbl-elo" aria-pressed="false">' + t('admin.st.table') + '</button></div>' +
+        '<div id="ast-elo-chart">' + columnChart(eloBuckets, { label: t('admin.st.elo'), unit: t('admin.st.players') }) + '</div>' +
+        '<div id="ast-elo-table" hidden class="ast-table-wrap"></div>' +
+      '</section>' +
+    '</div>' +
+
+    '<section class="adm-card ast-card ast-map-card vx-in">' +
+      '<h3 class="adm-card-title">' + t('admin.st.map') + '</h3>' +
+      '<p class="adm-card-hint">' + t('admin.st.mapSub') + '</p>' +
+      (countries.length
+        ? worldMap(countries) + '<h4 class="ast-subtitle">' + t('admin.st.mapTop') + '</h4>' + countryList(countries, 8)
+        : '<p class="ast-empty">' + t('admin.st.mapEmpty') + '</p>') +
+    '</section>' +
+
+    '<div class="ast-grid3">' +
+      '<section class="adm-card ast-card vx-in">' +
+        '<h3 class="adm-card-title">' + t('admin.st.tc') + '</h3>' +
+        '<p class="adm-card-hint">' + t('admin.st.tcSub') + '</p>' + barList(tcRows) + '</section>' +
+      '<section class="adm-card ast-card vx-in">' +
+        '<h3 class="adm-card-title">' + t('admin.st.browsers') + '</h3>' +
+        '<p class="adm-card-hint">' + t('admin.st.browsersSub', { n: fmtN(a.sessions_sampled || 0) }) + '</p>' + barList(browserRows) + '</section>' +
+      '<section class="adm-card ast-card vx-in">' +
+        '<h3 class="adm-card-title">' + t('admin.st.top') + '</h3>' +
+        '<p class="adm-card-hint">' + t('admin.st.topSub') + '</p>' +
+        '<div class="ast-players">' + (a.top_players || []).map(p =>
+          '<div class="ast-player">' + avatarHTML(p.avatar, 'sm') +
+            '<span class="ast-player-name">' + esc(p.username) + '</span>' +
+            '<span class="ast-player-elo vx-num">' + fmtN(p.elo) + '</span></div>').join('') + '</div>' +
+      '</section>' +
+    '</div>';
+
+  chart.wire(box);
+  document.getElementById('ast-metric').querySelectorAll('button').forEach(b =>
+    b.addEventListener('click', () => { anMetric = b.dataset.m; renderStats(); }));
+  document.getElementById('ast-range').querySelectorAll('button').forEach(b =>
+    b.addEventListener('click', () => { anRange = +b.dataset.r; renderStats(); }));
+  wireTableToggle('ast-tbl-activity', 'ast-activity-chart', 'ast-activity-table', () => tableTwin(series, unit));
+  wireTableToggle('ast-tbl-elo', 'ast-elo-chart', 'ast-elo-table', () => tableTwinLabeled(eloBuckets, 'Elo', t('admin.st.players')));
+}
+
+function wireTableToggle(btnId, chartId, tableId, buildTable) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const chart = document.getElementById(chartId), table = document.getElementById(tableId);
+    const showTable = table.hidden;
+    if (showTable && !table.innerHTML) table.innerHTML = buildTable();
+    table.hidden = !showTable; chart.hidden = showTable;
+    btn.setAttribute('aria-pressed', showTable ? 'true' : 'false');
+    btn.textContent = showTable ? t('admin.st.chart') : t('admin.st.table');
+  });
 }
 
 // ---------- dashboard ----------

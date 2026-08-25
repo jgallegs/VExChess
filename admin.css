@@ -156,3 +156,98 @@ body.adm-page { min-height: 100vh; }
   .adm-row-stat.hide-sm { display: none; }
   .adm-controls { flex-direction: column; gap: 0.9rem; }
 }
+
+/* ============================================================
+   Analíticas (pestaña) · gráficas SVG propias, guía dataviz:
+   marcas finas, rejilla hairline, un solo hue de datos (#3E8EE8),
+   área al 10%, tooltips con crosshair y tabla gemela.
+   ============================================================ */
+.adm-views { max-width: 22rem; margin-bottom: 1.2rem; }
+
+/* KPIs */
+.ast-kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-bottom: 1.1rem; }
+@media (min-width: 44em) { .ast-kpis { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 76em) { .ast-kpis { grid-template-columns: repeat(6, 1fr); } }
+.ast-kpi { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.9rem; padding: 0.95rem 1.05rem; min-width: 0; }
+.ast-kpi-label { display: block; font: 700 0.78rem 'Inter', sans-serif; color: var(--muted); }
+.ast-kpi-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.6rem; margin-top: 0.35rem; }
+.ast-kpi-v { font: 800 1.65rem/1 'Oxanium', sans-serif; color: var(--text); }
+.ast-kpi-delta { display: block; margin-top: 0.4rem; font-size: 0.7rem; color: var(--muted); }
+.ast-kpi-delta.up { color: #2CA95D; font-weight: 700; }
+.ast-spark { width: 6rem; height: 1.75rem; flex: 0 0 auto; overflow: visible; }
+.ast-spark path { fill: none; stroke: rgba(245,247,250,.28); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ast-spark circle { fill: #3E8EE8; stroke: var(--panel); stroke-width: 2; }
+
+/* Tarjetas y rejillas */
+.ast-card { margin-bottom: 1.1rem; }
+.ast-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; }
+.ast-subtitle { margin: 1.2rem 0 0.55rem; font: 700 0.85rem 'Inter', sans-serif; color: var(--text); }
+.ast-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.ast-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.1rem; }
+@media (max-width: 62em) { .ast-grid2, .ast-grid3 { grid-template-columns: 1fr; } }
+.ast-controls { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin: 0.8rem 0 0.4rem; }
+.ast-controls .vx-seg { flex: 0 1 auto; }
+.ast-empty { color: var(--muted); font-size: 0.85rem; padding: 1rem 0; margin: 0; }
+
+/* Gráficas SVG */
+.ast-chart { position: relative; }
+.ast-chart svg { display: block; width: 100%; height: auto; }
+.ast-chart svg:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 0.5rem; }
+.ast-grid line { stroke: rgba(255,255,255,.06); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.ast-ticks text { fill: var(--muted); font: 500 0.68rem 'Inter', sans-serif; font-variant-numeric: tabular-nums; }
+.ast-area { fill: #3E8EE8; opacity: 0.1; }
+.ast-line { fill: none; stroke: #3E8EE8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.ast-hover line { stroke: rgba(245,247,250,.25); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.ast-hover circle { fill: #3E8EE8; stroke: var(--panel); stroke-width: 2; }
+.ast-col { fill: #3E8EE8; }
+.ast-col:hover { fill: #5CA4F2; }
+.ast-tip { position: absolute; z-index: 2; pointer-events: none; background: var(--panel-2); border: var(--hair) solid var(--border);
+  border-radius: 0.5rem; padding: 0.35rem 0.55rem; font: 600 0.78rem 'Inter', sans-serif; color: var(--text);
+  box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,.4); white-space: nowrap; }
+.ast-tip b { font: 800 0.85rem 'Oxanium', sans-serif; margin-right: 0.25rem; }
+.ast-tip span { display: block; font-size: 0.66rem; color: var(--muted); font-weight: 500; }
+
+/* Botón de tabla gemela */
+.ast-tbl-btn { flex: 0 0 auto; background: var(--panel-2); border: var(--hair) solid var(--border); color: var(--muted);
+  border-radius: 0.55rem; padding: 0.35rem 0.75rem; font: 700 0.75rem 'Inter', sans-serif; cursor: pointer; transition: color .12s, border-color .12s; }
+.ast-tbl-btn:hover, .ast-tbl-btn[aria-pressed="true"] { color: var(--text); border-color: var(--muted); }
+.ast-table-wrap { max-height: 16rem; overflow-y: auto; }
+.ast-table { width: 100%; border-collapse: collapse; font: 500 0.82rem 'Inter', sans-serif; }
+.ast-table th { text-align: left; font-weight: 700; color: var(--muted); padding: 0.4rem 0.6rem; border-bottom: var(--hair) solid var(--border); }
+.ast-table td { padding: 0.35rem 0.6rem; border-bottom: var(--hair) solid rgba(255,255,255,.05); font-variant-numeric: tabular-nums; }
+
+/* Barra apilada de resultados (estado): huecos de 2px en color superficie */
+.ast-stack { display: flex; gap: 0.125rem; height: 0.9rem; border-radius: 0.45rem; overflow: hidden; background: var(--panel); margin-top: 0.5rem; }
+.ast-stack i { display: block; min-width: 0.3rem; }
+.ast-legend { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 0.7rem; }
+.ast-leg { display: inline-flex; align-items: baseline; gap: 0.4rem; font: 600 0.8rem 'Inter', sans-serif; color: var(--muted); }
+.ast-leg i { width: 0.6rem; height: 0.6rem; border-radius: 0.2rem; align-self: center; }
+.ast-leg b { color: var(--text); font-variant-numeric: tabular-nums; }
+.ast-leg em { font-style: normal; font-size: 0.72rem; }
+
+/* Listas con barras */
+.ast-list { display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.4rem; }
+.ast-row { display: grid; grid-template-columns: minmax(6rem, 0.9fr) minmax(0, 1.1fr) auto; align-items: center; gap: 0.7rem; }
+.ast-row-l { display: flex; align-items: center; gap: 0.45rem; font: 600 0.82rem 'Inter', sans-serif; color: var(--text); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ast-row-bar { display: block; height: 0.5rem; border-radius: 0.25rem; background: rgba(255,255,255,.05); overflow: hidden; }
+.ast-row-bar i { display: block; height: 100%; border-radius: 0.25rem; background: #3E8EE8; }
+.ast-row-v { font: 700 0.82rem 'Inter', sans-serif; color: var(--text); font-variant-numeric: tabular-nums; }
+.ast-flag { font-style: normal; font-size: 0.95rem; line-height: 1; }
+
+/* Mapa-mundi de puntos */
+.ast-map { display: block; width: 100%; height: auto; margin-top: 0.6rem; }
+.ast-map-dots circle { fill: rgba(245,247,250,.10); }
+.ast-mk { cursor: pointer; }
+.ast-mk:focus-visible { outline: none; }
+.ast-mk:focus-visible .ast-mk-dot { stroke: rgba(57,213,255,.9); stroke-width: 0.4; }
+.ast-mk-dot { fill: #3E8EE8; stroke: rgba(13,17,23,.85); stroke-width: 0.25; filter: drop-shadow(0 0 0.35rem rgba(62,142,232,.85)); }
+.ast-mk-halo { fill: none; stroke: rgba(62,142,232,.45); stroke-width: 0.22; animation: ast-halo 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ast-halo { 0%, 100% { opacity: 0.25; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.18); } }
+@media (prefers-reduced-motion: reduce) { .ast-mk-halo { animation: none; } }
+.ast-map-card .ast-list { max-width: 34rem; }
+
+/* Top jugadores */
+.ast-players { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.4rem; }
+.ast-player { display: flex; align-items: center; gap: 0.65rem; }
+.ast-player-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 0.85rem 'Inter', sans-serif; }
+.ast-player-elo { font-weight: 800; font-size: 0.85rem; color: var(--text); }

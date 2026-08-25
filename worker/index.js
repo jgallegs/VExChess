@@ -690,6 +690,63 @@ async function adminOverview(req, env) {
   });
 }
 
+// Analíticas del panel: todo sale de datos REALES de D1 (nada estimado).
+// Series diarias de los últimos 180 días + agregados. Una sola pasada batch.
+async function adminAnalytics(req, env) {
+  if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
+  const D = env.DB;
+  const rows = await D.batch([
+    D.prepare("SELECT substr(created_at,1,10) AS d, COUNT(*) AS n FROM users WHERE created_at >= datetime('now','-180 day') GROUP BY d"),
+    D.prepare("SELECT substr(played_at,1,10) AS d, COUNT(*) AS n FROM games WHERE played_at >= datetime('now','-180 day') GROUP BY d"),
+    D.prepare("SELECT substr(played_at,1,10) AS d, COUNT(*) AS n FROM pvp_games WHERE played_at >= datetime('now','-180 day') GROUP BY d"),
+    D.prepare('SELECT COUNT(*) AS n FROM users'),
+    D.prepare('SELECT COUNT(*) AS n FROM games'),
+    D.prepare('SELECT COUNT(*) AS n FROM pvp_games'),
+    D.prepare("SELECT COUNT(*) AS n FROM users WHERE created_at >= datetime('now','-7 day')"),
+    D.prepare("SELECT COUNT(*) AS n FROM games WHERE played_at >= datetime('now','-7 day')"),
+    D.prepare("SELECT COUNT(*) AS n FROM pvp_games WHERE played_at >= datetime('now','-7 day')"),
+    D.prepare("SELECT COUNT(*) AS n FROM users WHERE last_seen >= datetime('now','-1 day')"),
+    D.prepare("SELECT COUNT(*) AS n FROM users WHERE last_seen >= datetime('now','-7 day')"),
+    D.prepare('SELECT outcome, COUNT(*) AS n FROM games GROUP BY outcome'),
+    D.prepare('SELECT level, COUNT(*) AS n FROM games GROUP BY level'),
+    D.prepare('SELECT time_control, COUNT(*) AS n FROM pvp_games GROUP BY time_control'),
+    D.prepare('SELECT (CAST(elo / 100 AS INT) * 100) AS bucket, COUNT(*) AS n FROM users GROUP BY bucket ORDER BY bucket'),
+    D.prepare("SELECT UPPER(country) AS c, COUNT(*) AS n FROM users WHERE country IS NOT NULL AND country != '' GROUP BY c ORDER BY n DESC"),
+    D.prepare("SELECT user_agent FROM sessions WHERE created_at >= datetime('now','-90 day') ORDER BY created_at DESC LIMIT 500"),
+    D.prepare('SELECT u.username, u.avatar, u.elo, u.role, COALESCE(s.played,0) AS played, COALESCE(s.wins,0) AS wins FROM users u LEFT JOIN user_stats s ON s.user_id = u.id ORDER BY u.elo DESC LIMIT 8'),
+    D.prepare("SELECT COUNT(*) AS n FROM friendships WHERE status = 'accepted'"),
+    D.prepare('SELECT COUNT(*) AS n FROM user_badges'),
+  ]);
+  const R = rows.map(r => r.results || []);
+  const one = (i) => (R[i][0] ? R[i][0].n : 0);
+
+  // Navegador desde el user-agent de las sesiones (datos propios, sin trackers)
+  const browsers = { Chrome: 0, Safari: 0, Firefox: 0, Edge: 0, Samsung: 0, Otros: 0 };
+  for (const { user_agent: ua = '' } of R[16]) {
+    const s = ua || '';
+    if (/SamsungBrowser/i.test(s)) browsers.Samsung++;
+    else if (/Edg\//i.test(s)) browsers.Edge++;
+    else if (/Firefox\//i.test(s)) browsers.Firefox++;
+    else if (/Chrome\//i.test(s) || /CriOS/i.test(s)) browsers.Chrome++;
+    else if (/Safari\//i.test(s)) browsers.Safari++;
+    else browsers.Otros++;
+  }
+
+  return json({
+    days: { signups: R[0], ai_games: R[1], pvp_games: R[2] },
+    totals: {
+      users: one(3), ai_games: one(4), pvp_games: one(5),
+      users_7d: one(6), ai_games_7d: one(7), pvp_games_7d: one(8),
+      active_1d: one(9), active_7d: one(10),
+      friendships: one(18), badges: one(19),
+    },
+    outcomes: R[11], levels: R[12], time_controls: R[13],
+    elo_buckets: R[14], countries: R[15],
+    browsers, sessions_sampled: R[16].length,
+    top_players: R[17],
+  });
+}
+
 async function adminListUsers(req, env) {
   if (!await getStaff(req, env)) return errRes('No autorizado.', 403);
   const url = new URL(req.url);
@@ -990,6 +1047,7 @@ async function handleApi(req, env) {
     if (gIn && m === 'GET') return await gameInfo(env, gIn[1]);
     // --- admin ---
     if (path === '/api/admin/overview' && m === 'GET') return await adminOverview(req, env);
+    if (path === '/api/admin/analytics' && m === 'GET') return await adminAnalytics(req, env);
     if (path === '/api/admin/users' && m === 'GET') return await adminListUsers(req, env);
     const auBadge = path.match(/^\/api\/admin\/users\/([A-Za-z0-9-]+)\/badges\/([a-z-]+)$/);
     if (auBadge && m === 'DELETE') return await adminRevokeBadge(req, env, auBadge[1], auBadge[2]);

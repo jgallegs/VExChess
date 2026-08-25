@@ -55,6 +55,7 @@ export const api = {
   gameInfo: (id) => req('/game/' + id),
   // admin
   adminOverview: () => req('/admin/overview'),
+  adminAnalytics: () => req('/admin/analytics'),
   adminUsers: (opts = {}) => {
     const p = new URLSearchParams();
     p.set('q', opts.q || ''); p.set('limit', opts.limit || 25); p.set('offset', opts.offset || 0);

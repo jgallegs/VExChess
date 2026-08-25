@@ -212,7 +212,12 @@ repositorio de GitHub. No necesita build ni configuración especial.)
     online.html / connect.html     Juego en línea
     vexborn.html / insignias.html  Progresión e insignias
     ajustes.html  Ajustes (idioma de la interfaz y tema del tablero)
-    admin.html    Panel de administración
+    admin.html    Panel de administración (pestañas Usuarios y Analíticas)
+    admin-stats.js  Analíticas del panel: gráficas SVG propias (área, columnas,
+                  sparklines, barra apilada, listas con barras) y mapa-mundi
+                  de puntos. Datos reales de /api/admin/analytics (D1).
+    world-map.js  Silueta del mundo en puntos + centroides por país (ISO2).
+                  GENERADO en build (scripts de scratchpad), no editar a mano.
     style.css     Estilos base y compartidos (modales, navbar "battle", partida…)
     ui.css        SISTEMA DE DISEÑO compartido (ver más abajo): tokens y componentes
     home.css / home.js             Portada (ver más abajo)
