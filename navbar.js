@@ -14,7 +14,7 @@
 //  cierre con Escape / toque fuera / navegación y foco gestionado.
 // ============================================================
 import { t, langSelectHTML, wireLangSelect } from './i18n.js?v=9';
-import { closeAllAccountMenus } from './account-chip.js?v=6';
+import { closeAllAccountMenus } from './account-chip.js?v=7';
 
 const KNIGHT = 'assets/knight-logo.svg';
 const WORDMARK = 'assets/vexchess-wordmark.png';
@@ -147,9 +147,11 @@ function wireSite(nav) {
   nav.querySelectorAll('.vxnav-menu a').forEach(a => a.addEventListener('click', () => setOpen(false, { focusBack: false })));
 
   // Abrir la cuenta cierra el panel (y al revés): una sola capa a la vez.
+  // En fase de captura: el chip corta la propagación en burbujeo y este
+  // listener nunca llegaba a enterarse.
   nav.addEventListener('click', (e) => {
     if (isOpen() && e.target.closest && e.target.closest('.vx-account')) setOpen(false, { focusBack: false });
-  });
+  }, true);
 
   // Escape cierra desde cualquier sitio.
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen()) setOpen(false); });

@@ -207,7 +207,7 @@ function ensureStyles() {
 
 const ACCOUNT_CSS = `
 .vx-account{display:inline-flex;align-items:center}
-.vxa{position:relative;display:inline-flex;align-items:center;font-family:'Inter',system-ui,sans-serif;--chip-h:2.6rem;line-height:1}
+.vxa{position:relative;display:inline-flex;align-items:center;font-family:'Inter',system-ui,sans-serif;--chip-h:2.75rem;line-height:1}
 
 /* Botón "Entrar" (sin sesión) */
 .vxa-login{background:var(--panel-2);color:var(--text);border:var(--hair,1px) solid var(--border);
@@ -235,14 +235,14 @@ const ACCOUNT_CSS = `
 .vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
 
 /* Chip (fila cabecera) — transparente: la glass la pone la superficie */
-.vxa-chip{display:flex;align-items:center;gap:.5rem;height:var(--chip-h);box-sizing:border-box;
-  background:none;border:none;padding:.3rem .62rem .3rem .34rem;cursor:pointer;color:var(--text);
+.vxa-chip{display:flex;align-items:center;gap:.55rem;height:var(--chip-h);box-sizing:border-box;
+  background:none;border:none;padding:.3rem .72rem .3rem .44rem;cursor:pointer;color:var(--text);
   max-width:100%;white-space:nowrap;font-family:inherit}
 .vxa-chip:focus{outline:none}
 
 /* Avatar con anillo de rol */
 .vxa-av{position:relative;display:inline-grid;place-items:center;flex:0 0 auto;align-self:center}
-.vxa-av .vx-avatar{width:1.9rem;height:1.9rem;box-shadow:0 0 0 .13rem transparent}
+.vxa-av .vx-avatar{width:1.9rem;height:1.9rem;box-shadow:0 0 0 .13rem transparent;transition:width .3s cubic-bezier(.22,1,.36,1),height .3s cubic-bezier(.22,1,.36,1)}
 .vxa-av.is-staff .vx-avatar{box-shadow:0 0 0 .12rem rgba(20,26,35,.9),0 0 0 .2rem var(--role)}
 .vxa-dot{position:absolute;top:-.1rem;right:-.1rem;width:.6rem;height:.6rem;border-radius:50%;
   background:var(--accent,#FF3B47);border:.12rem solid #171d27;z-index:2;box-shadow:0 0 .35rem rgba(255,59,71,.85);
@@ -269,6 +269,25 @@ const ACCOUNT_CSS = `
 .vxa-elo[data-tier=advanced]{--tc:#5cd8ff;--tbg:rgba(57,213,255,.14);--tbd:rgba(57,213,255,.36)}
 .vxa-elo[data-tier=expert]  {--tc:#c4a2ff;--tbg:rgba(139,92,246,.18);--tbd:rgba(139,92,246,.40)}
 .vxa-elo[data-tier=master]  {--tc:#f4c763;--tbg:rgba(244,199,99,.15);--tbd:rgba(244,199,99,.42)}
+
+/* ---------- Ficha de usuario (cabecera del panel abierto) ----------
+   El mismo botón-cabecera se re-compone en rejilla de dos filas: avatar
+   grande a la izquierda; nombre+insignia arriba; el Elo (y lo que oculten
+   las preferencias del chip) SIEMPRE visible debajo. El padding horizontal
+   (.85rem) casa con el de las opciones del menú (.45rem del cajón + .7rem
+   del propio enlace ≈ mismo arranque visual). */
+.vxa.open .vxa-surface>.vxa-chip{
+  height:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+  grid-template-areas:'av id caret' 'av elo caret';
+  column-gap:.7rem;row-gap:.34rem;padding:.8rem .85rem .7rem;
+  animation:vxa-head-in .34s ease both}
+@keyframes vxa-head-in{from{opacity:.35}to{opacity:1}}
+.vxa.open .vxa-surface .vxa-av{grid-area:av}
+.vxa.open .vxa-surface .vxa-av .vx-avatar{width:2.5rem;height:2.5rem}
+.vxa.open .vxa-surface .vxa-id{grid-area:id;display:inline-flex!important;justify-self:start;min-width:0}
+.vxa.open .vxa-surface .vxa-name{display:inline-block!important;font-size:.95rem;max-width:10.5rem}
+.vxa.open .vxa-surface .vxa-elo{grid-area:elo;display:inline-flex!important;justify-self:start}
+.vxa.open .vxa-surface .vxa-caret{grid-area:caret;display:block!important;align-self:center}
 
 /* Chevron */
 .vxa-caret{display:block;width:.85rem;height:.85rem;flex:0 0 auto;align-self:center;color:var(--muted,#8b97a9);
