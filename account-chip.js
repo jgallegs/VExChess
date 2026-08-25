@@ -83,7 +83,7 @@ function chipInner(user, ctx, model) {
       (featured && badgeIcon ? badgeIcon(featured.badge, 'chip') : '') +
     '</span>' +
     '<span class="vxa-elo" data-tier="' + tier + '" aria-label="' + esc(t('auth.chip.ratingAria', { elo: user.elo })) + '">' +
-      '<i class="vxa-elo-mark" aria-hidden="true"></i>' + esc(user.elo) +
+      '<i class="vxa-elo-mark" aria-hidden="true"></i><b class="vxa-elo-num">' + esc(user.elo) + '</b>' +
     '</span>' +
     '<svg class="vxa-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 }
@@ -170,7 +170,9 @@ function syncWidth(vxa) {
   const w0 = Math.ceil(ghost.getBoundingClientRect().width);
   if (!w0) return;
   const open = vxa.classList.contains('open');
-  surface.style.width = (open ? Math.max(w0, 236) : w0) + 'px';
+  // Mínimo del panel abierto en rem (el rem del documento es fluido)
+  const minOpen = 15 * parseFloat(getComputedStyle(document.documentElement).fontSize || '16');
+  surface.style.width = (open ? Math.max(w0, minOpen) : w0) + 'px';
 }
 
 export function closeAllAccountMenus() {
@@ -223,16 +225,16 @@ const ACCOUNT_CSS = `
 .vxa-surface{position:absolute;top:0;right:0;z-index:70;display:flex;flex-direction:column;
   border-radius:calc(var(--chip-h)/2);
   background:linear-gradient(180deg,rgba(38,48,64,.80),rgba(20,26,35,.86));
-  -webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);
+  -webkit-backdrop-filter:blur(1.2rem) saturate(1.4);backdrop-filter:blur(1.2rem) saturate(1.4);
   border:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 .35rem .9rem rgba(0,0,0,.22);
+  box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.06),0 .35rem .9rem rgba(0,0,0,.22);
   transition:width .42s cubic-bezier(.22,1,.36,1),border-radius .42s cubic-bezier(.22,1,.36,1),
     box-shadow .34s ease,background .34s ease}
-.vxa:not(.open) .vxa-surface:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 .35rem .9rem rgba(0,0,0,.22);
+.vxa:not(.open) .vxa-surface:hover{box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.12),0 .35rem .9rem rgba(0,0,0,.22);
   background:linear-gradient(180deg,rgba(48,60,78,.82),rgba(28,35,47,.88))}
 .vxa.open .vxa-surface{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 1.8rem 4rem rgba(0,0,0,.6)}
-.vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
+  box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.12),0 1.8rem 4rem rgba(0,0,0,.6)}
+.vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
 
 /* Chip (fila cabecera) — transparente: la glass la pone la superficie */
 .vxa-chip{display:flex;align-items:center;gap:.55rem;height:var(--chip-h);box-sizing:border-box;
@@ -255,20 +257,21 @@ const ACCOUNT_CSS = `
 /* Nombre + insignia */
 .vxa-id{display:inline-flex;align-items:center;gap:.35rem;min-width:0}
 .vxa-id:empty{display:none}
-.vxa-name{font:700 .85rem/1 'Inter',sans-serif;max-width:9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vxa-name{font:700 .85rem/1.3 'Inter',sans-serif;max-width:9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .vxa-id .vx-badge-ico.chip{margin:0;flex:0 0 auto}
 
 /* Pill de Elo — color por rango, alto contraste, verticalmente centrado */
 .vxa-elo{display:inline-flex;align-items:center;justify-content:center;gap:.3rem;flex:0 0 auto;height:1.5rem;
   box-sizing:border-box;font:800 .74rem/1 'Oxanium',sans-serif;letter-spacing:.01em;
-  padding:0 .5rem;border-radius:.5rem;border:1px solid transparent;font-variant-numeric:tabular-nums;
-  color:var(--tc,#cbd5e1);background:var(--tbg,rgba(148,163,184,.16));border-color:var(--tbd,rgba(148,163,184,.34))}
-.vxa-elo-mark{display:block;width:.4rem;height:.4rem;border-radius:1px;flex:0 0 auto;background:currentColor;transform:rotate(45deg);opacity:.9}
-.vxa-elo[data-tier=novice]  {--tc:#cbd5e1;--tbg:rgba(148,163,184,.16);--tbd:rgba(148,163,184,.36)}
-.vxa-elo[data-tier=skilled] {--tc:#5fe0a0;--tbg:rgba(58,213,150,.14);--tbd:rgba(58,213,150,.34)}
-.vxa-elo[data-tier=advanced]{--tc:#5cd8ff;--tbg:rgba(57,213,255,.14);--tbd:rgba(57,213,255,.36)}
-.vxa-elo[data-tier=expert]  {--tc:#c4a2ff;--tbg:rgba(139,92,246,.18);--tbd:rgba(139,92,246,.40)}
-.vxa-elo[data-tier=master]  {--tc:#f4c763;--tbg:rgba(244,199,99,.15);--tbd:rgba(244,199,99,.42)}
+  padding:0 .55rem;border-radius:.5rem;font-variant-numeric:tabular-nums;
+  color:var(--tc,#cbd5e1);background:var(--tbg,rgba(148,163,184,.16))}
+.vxa-elo-num{font:inherit;translate:0 var(--elo-nudge,.19em)}
+.vxa-elo-mark{display:block;width:.4rem;height:.4rem;border-radius:.07rem;flex:0 0 auto;background:currentColor;transform:rotate(45deg);opacity:.9}
+.vxa-elo[data-tier=novice]  {--tc:#cbd5e1;--tbg:rgba(148,163,184,.16)}
+.vxa-elo[data-tier=skilled] {--tc:#5fe0a0;--tbg:rgba(58,213,150,.14)}
+.vxa-elo[data-tier=advanced]{--tc:#5cd8ff;--tbg:rgba(57,213,255,.14)}
+.vxa-elo[data-tier=expert]  {--tc:#c4a2ff;--tbg:rgba(139,92,246,.18)}
+.vxa-elo[data-tier=master]  {--tc:#f4c763;--tbg:rgba(244,199,99,.15)}
 
 /* ---------- Ficha de usuario (cabecera del panel abierto) ----------
    El mismo botón-cabecera se re-compone en rejilla de dos filas: avatar
@@ -279,13 +282,13 @@ const ACCOUNT_CSS = `
 .vxa.open .vxa-surface>.vxa-chip{
   height:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;
   grid-template-areas:'av id caret' 'av elo caret';
-  column-gap:.7rem;row-gap:.34rem;padding:.85rem 1.15rem;
+  column-gap:.7rem;row-gap:.28rem;padding:.85rem 1.15rem;
   animation:vxa-head-in .34s ease both}
 @keyframes vxa-head-in{from{opacity:.35}to{opacity:1}}
 .vxa.open .vxa-surface .vxa-av{grid-area:av}
 .vxa.open .vxa-surface .vxa-av .vx-avatar{width:2.5rem;height:2.5rem}
 .vxa.open .vxa-surface .vxa-id{grid-area:id;display:inline-flex!important;justify-self:start;min-width:0}
-.vxa.open .vxa-surface .vxa-name{display:inline-block!important;font-size:.95rem;max-width:10.5rem}
+.vxa.open .vxa-surface .vxa-name{display:inline-block!important;font:700 .95rem/1.3 'Inter',sans-serif;max-width:10.5rem}
 .vxa.open .vxa-surface .vxa-elo{grid-area:elo;display:inline-flex!important;justify-self:start}
 .vxa.open .vxa-surface .vxa-caret{grid-area:caret;display:block!important;align-self:center}
 
@@ -300,7 +303,7 @@ const ACCOUNT_CSS = `
 .vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem;
   border-top:0 solid transparent;margin-top:0;
   transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s,border-top-color .08s}
-.vxa.open .vxa-drawer-in{padding-bottom:.45rem;border-top-width:1px;border-top-color:rgba(255,255,255,.08);margin-top:.1rem;
+.vxa.open .vxa-drawer-in{padding-bottom:.45rem;border-top-width:.07rem;border-top-color:rgba(255,255,255,.08);margin-top:.1rem;
   transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s,border-top-color .25s .12s}
 .vxa-links{display:flex;flex-direction:column;padding-top:.35rem}
 .vxa-menu-note{display:none}
@@ -327,7 +330,7 @@ const ACCOUNT_CSS = `
 .vxa-mi-dot{display:inline-flex;align-items:center;justify-content:center;min-width:1.15rem;height:1.15rem;
   padding:0 .32rem;font:800 .64rem/1 'Oxanium',sans-serif;color:#fff;background:var(--accent,#FF3B47);border-radius:1rem;flex:0 0 auto;
   animation:vxa-dot-in .32s cubic-bezier(.34,1.56,.64,1) backwards}
-.vxa-signout{color:#ff9ea4;margin-top:.2rem;border-top:1px solid rgba(255,255,255,.07);border-radius:0 0 .5rem .5rem}
+.vxa-signout{color:#ff9ea4;margin-top:.2rem;border-top:.07rem solid rgba(255,255,255,.07);border-radius:0 0 .5rem .5rem}
 .vxa-signout:hover{background:rgba(255,59,71,.12);color:#ffc4c8}
 
 /* ---------- Preferencias de visualización ---------- */
@@ -335,7 +338,7 @@ const ACCOUNT_CSS = `
    defecto; se muestra el elegido. Avatar y chevron siempre visibles. */
 .vxa-name{display:none}
 .vxa-elo{display:none}
-@media(max-width:599.98px){
+@media(max-width:37.49em){
   .vxa[data-mobile="name"] .vxa-name{display:inline-flex}
   .vxa[data-mobile="elo"]  .vxa-elo{display:inline-flex}
 }
@@ -347,7 +350,7 @@ const ACCOUNT_CSS = `
 .vx-account[data-compact] .vxa-name{display:none!important}
 
 /* En móvil el chevron sobra (todo el chip abre el menú) y ahorra ancho */
-@media(max-width:599.98px){ .vxa-caret{display:none} }
+@media(max-width:37.49em){ .vxa-caret{display:none} }
 
 @media(prefers-reduced-motion:reduce){
   .vxa-surface,.vxa-drawer,.vxa-caret,.vxa-drawer a,.vxa-signout{transition:none}

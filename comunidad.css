@@ -26,7 +26,7 @@ body.cm-page { min-height: 100vh; }
 .cm-tab.active { color: var(--text); font-weight: 700;
   background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
   border-color: var(--hairline-strong);
-  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08); }
+  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 .07rem 0 rgba(255,255,255,.08); }
 .cm-tab:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .cm-tab-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 1.15rem; height: 1.15rem; margin-left: 0.4rem; padding: 0 0.3rem;
   font: 800 0.66rem var(--font-display); color: #fff; background: var(--accent); border-radius: var(--r-full); }

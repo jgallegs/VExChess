@@ -97,7 +97,7 @@ body.rv-page { min-height: 100vh; }
 .rv-item:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .rv-item.active { border-color: var(--hairline-strong);
   background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-  box-shadow: 0 0.35rem 0.9rem -0.25rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08); }
+  box-shadow: 0 0.35rem 0.9rem -0.25rem rgba(0,0,0,.55), inset 0 .07rem 0 rgba(255,255,255,.08); }
 .rv-badge { flex: 0 0 auto; font-size: 0.68rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; padding: 0.28rem 0.5rem; border-radius: 0.4rem; }
 .rv-badge.win { color: #a9f0bd; background: var(--ok-bg); border: var(--hair) solid var(--ok-bd); }
 .rv-badge.loss { color: #ffc4c8; background: var(--bad-bg); border: var(--hair) solid var(--bad-bd); }

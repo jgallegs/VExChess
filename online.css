@@ -30,7 +30,7 @@ body.ol-page { min-height: 100vh; }
 .ol-tc.active { color: var(--text);
   background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
   border-color: var(--hairline-strong);
-  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08); }
+  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 .07rem 0 rgba(255,255,255,.08); }
 .ol-tc b { font: 800 1rem var(--font-display); }
 .ol-tc span { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
 .ol-tc.active b { color: var(--text); }

@@ -121,7 +121,7 @@
   border-radius: calc(var(--r-md) - 0.22rem);
   background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
   border: var(--hair) solid var(--hairline-strong);
-  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 .07rem 0 rgba(255,255,255,.08);
   transition: transform var(--dur-base) var(--ease-out), width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
   pointer-events: none;
 }
