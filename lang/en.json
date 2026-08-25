@@ -38,7 +38,7 @@
     "appName": "Chess",
     "appSub": "AI opponent · NNUE",
     "engineLoading": "Loading engine…",
-    "engineReady": "Engine ready · Stockfish 18 (NNUE)",
+    "engineReady": "AI opponent ready",
     "engineError": "Engine error: ",
     "loaderText": "Loading the engine…",
     "coachLoading": "Loading coach…",
@@ -52,7 +52,7 @@
     "drawPick": "Pick a hand",
     "drawSkip": "Skip",
     "drawWhite": "You play White. Your move.",
-    "drawBlack": "You play Black. Stockfish starts.",
+    "drawBlack": "You play Black. The AI moves first.",
     "confirmRestart": "This will restart the game in progress. Continue?",
     "confirmOk": "Restart",
     "confirmCancel": "Cancel",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "What are the numbers? (Elo)",
-        "texto": "The number next to the opponent (300, 1320, 1800, 3190…) is its <b>Elo</b>: a measure of playing strength. The higher it is, the better it plays. For reference: ~300 absolute beginner, ~800–1200 you're learning, ~1500 club amateur, ~2000 very strong, ~2500 Grandmaster and ~2800+ world champions. The level you choose here sets that number, and with it Stockfish's strength."
+        "texto": "The number next to the opponent (300, 1320, 1800, 3190…) is its <b>Elo</b>: a measure of playing strength. The higher it is, the better it plays. For reference: ~300 absolute beginner, ~800–1200 you're learning, ~1500 club amateur, ~2000 very strong, ~2500 Grandmaster and ~2800+ world champions. The level you choose here sets that number, and with it the AI's strength."
       },
       {
         "nombre": "Goal of the game",
@@ -190,7 +190,8 @@
         "historia": "It is the heart of the game: the game ends when the king cannot escape check (checkmate). It is never captured; it is cornered.",
         "objetivos": "In the opening, bring it to safety (usually by castling). In the endgame, with few pieces, it becomes an active piece that helps promote pawns."
       }
-    }
+    },
+    "aiName": "AI"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Test yourself against the machine",
         "body": "An opponent with adjustable strength, from ~1320 up to full power, with coach mode and pieces-in-danger warnings.",
-        "note": "Stockfish 18 (NNUE) engine on WebAssembly, running on your own device.",
+        "note": "The AI runs on your own device: fast, private, even offline.",
         "cta": "Play a game"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Review your <span class=\"accent\">games</span>",
     "movesTitle": "Moves",
     "analyzeBtn": "Analyze",
-    "analyzeBtnTitle": "Analyze the game with Stockfish",
+    "analyzeBtnTitle": "Analyse the game with the AI",
     "pgnBtn": "Copy PGN",
     "pgnBtnTitle": "Copy PGN",
     "countGames": "{count} games",
@@ -480,7 +481,7 @@
     "levelMaximo": "Maximum",
     "sideBlack": "Black",
     "sideWhite": "White",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs AI · {level}",
     "itemSub": "{side} · {moves} moves · {date}",
     "delTitle": "Delete",
     "delAria": "Delete game",
@@ -709,7 +710,18 @@
     "cancelBtn": "Cancel",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} games",
     "vsAiTitle": "Against the AI",
-    "vsAiSub": "Stockfish 18 in your browser, no waiting: pick a level and play. No account needed."
+    "vsAiSub": "Your AI opponent, at any level, no waiting. No account needed.",
+    "modes": {
+      "rivalTitle": "Online game",
+      "rivalSub": "Find an opponent at your level in bullet, blitz or rapid.",
+      "friendTitle": "Challenge a friend",
+      "friendSub": "Challenge your friends with your VEX ID and play right away.",
+      "puzzTitle": "Tactical puzzles",
+      "puzzSub": "Tactical strikes to sharpen your eye between games.",
+      "acadTitle": "Academy",
+      "acadSub": "Learn properly with AXIOM, your chess mentor.",
+      "aria": "Game modes"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administration",

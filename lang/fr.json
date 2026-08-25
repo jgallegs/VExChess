@@ -38,7 +38,7 @@
     "appName": "Échecs",
     "appSub": "adversaire IA · NNUE",
     "engineLoading": "Chargement du moteur…",
-    "engineReady": "Moteur prêt · Stockfish 18 (NNUE)",
+    "engineReady": "Adversaire IA prêt",
     "engineError": "Erreur du moteur : ",
     "loaderText": "Chargement du moteur…",
     "coachLoading": "Chargement de l'entraîneur…",
@@ -52,7 +52,7 @@
     "drawPick": "Choisis une main",
     "drawSkip": "Passer",
     "drawWhite": "Tu joues avec les Blancs. À toi de jouer.",
-    "drawBlack": "Tu joues avec les Noirs. Stockfish commence.",
+    "drawBlack": "Vous jouez avec les Noirs. L’IA commence.",
     "confirmRestart": "Cela réinitialisera la partie en cours. Continuer ?",
     "confirmOk": "Réinitialiser",
     "confirmCancel": "Annuler",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "Que signifient les chiffres ? (Elo)",
-        "texto": "Le chiffre à côté de l'adversaire (300, 1320, 1800, 3190…) est son <b>Elo</b> : une mesure de la force de jeu. Plus il est élevé, mieux il joue. Pour référence : ~300 débutant absolu, ~800–1200 tu apprends encore, ~1500 amateur de club, ~2000 très fort, ~2500 Grand Maître et ~2800+ champions du monde. Le niveau que tu choisis ici fixe ce chiffre et, avec lui, la force de Stockfish."
+        "texto": "Le chiffre à côté de l'adversaire (300, 1320, 1800, 3190…) est son <b>Elo</b> : une mesure de la force de jeu. Plus il est élevé, mieux il joue. Pour référence : ~300 débutant absolu, ~800–1200 tu apprends encore, ~1500 amateur de club, ~2000 très fort, ~2500 Grand Maître et ~2800+ champions du monde. Le niveau que tu choisis ici fixe ce chiffre et, avec lui, la force de l’IA."
       },
       {
         "nombre": "But du jeu",
@@ -190,7 +190,8 @@
         "historia": "C'est le cœur du jeu : la partie se termine quand le roi ne peut pas échapper à l'échec (échec et mat). Il ne se capture jamais ; on l'encercle.",
         "objetivos": "À l'ouverture, mets-le à l'abri (généralement en roquant). En finale, avec peu de pièces, il devient une pièce active qui aide à promouvoir les pions."
       }
-    }
+    },
+    "aiName": "IA"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Mesure-toi à la machine",
         "body": "Un adversaire au niveau réglable, de ~1320 jusqu'à la force maximale, avec mode entraîneur et alerte des pièces en danger.",
-        "note": "Moteur Stockfish 18 (NNUE) en WebAssembly, exécuté sur ta machine.",
+        "note": "L’IA tourne sur votre propre appareil : rapide, privée, même hors ligne.",
         "cta": "Jouer une partie"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Revois tes <span class=\"accent\">parties</span>",
     "movesTitle": "Coups",
     "analyzeBtn": "Analyser",
-    "analyzeBtnTitle": "Analyser la partie avec Stockfish",
+    "analyzeBtnTitle": "Analyser la partie avec l’IA",
     "pgnBtn": "Copier le PGN",
     "pgnBtnTitle": "Copier le PGN",
     "countGames": "{count} parties",
@@ -480,7 +481,7 @@
     "levelMaximo": "Maximum",
     "sideBlack": "Noirs",
     "sideWhite": "Blancs",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs IA · {level}",
     "itemSub": "{side} · {moves} coups · {date}",
     "delTitle": "Supprimer",
     "delAria": "Supprimer la partie",
@@ -709,7 +710,18 @@
     "cancelBtn": "Annuler",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} parties",
     "vsAiTitle": "Contre l’IA",
-    "vsAiSub": "Stockfish 18 dans votre navigateur, sans attente : choisissez un niveau et jouez. Sans compte."
+    "vsAiSub": "Votre adversaire IA, au niveau que vous voulez, sans attente. Sans compte.",
+    "modes": {
+      "rivalTitle": "Partie en ligne",
+      "rivalSub": "Trouvez un adversaire de votre niveau en bullet, blitz ou rapide.",
+      "friendTitle": "Défier un ami",
+      "friendSub": "Défiez vos amis avec votre VEX ID et jouez aussitôt.",
+      "puzzTitle": "Puzzles tactiques",
+      "puzzSub": "Des coups tactiques pour aiguiser l’œil entre deux parties.",
+      "acadTitle": "Académie",
+      "acadSub": "Apprenez vraiment avec AXIOM, votre mentor d’échecs.",
+      "aria": "Modes de jeu"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administration",

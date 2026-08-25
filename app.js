@@ -484,7 +484,7 @@ function renderBar(el, color, capturedTypes, adv, isActive) {
   } else {
     avatarInner = brandMark('avatar-mark');
   }
-  const nm = isYou ? (user ? user.username : t('you')) : 'Stockfish 18';
+  const nm = isYou ? (user ? user.username : t('you')) : t('aiName');
   const colorLabel = t(color === 'w' ? 'white' : 'black');
   const meta = isYou
     ? '<span class="flag">' + HUMAN_FLAG + '</span><span class="rating">' + colorLabel + (user ? ' · ' + user.elo : '') + '</span>'

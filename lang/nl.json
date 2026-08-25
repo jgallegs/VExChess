@@ -38,7 +38,7 @@
     "appName": "Schaken",
     "appSub": "AI-tegenstander · NNUE",
     "engineLoading": "Engine laden…",
-    "engineReady": "Engine klaar · Stockfish 18 (NNUE)",
+    "engineReady": "AI-tegenstander klaar",
     "engineError": "Engine-fout: ",
     "loaderText": "De engine laden…",
     "coachLoading": "Trainer laden…",
@@ -52,7 +52,7 @@
     "drawPick": "Kies een hand",
     "drawSkip": "Overslaan",
     "drawWhite": "Je speelt met wit. Jij bent aan zet.",
-    "drawBlack": "Je speelt met zwart. Stockfish begint.",
+    "drawBlack": "Jij speelt met zwart. De AI begint.",
     "confirmRestart": "Hiermee wordt de lopende partij opnieuw gestart. Doorgaan?",
     "confirmOk": "Opnieuw starten",
     "confirmCancel": "Annuleren",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "Wat betekenen de getallen? (Elo)",
-        "texto": "Het getal naast de tegenstander (300, 1320, 1800, 3190…) is zijn <b>Elo</b>: een maat voor speelsterkte. Hoe hoger, hoe beter hij speelt. Ter oriëntatie: ~300 absolute beginner, ~800–1200 je bent aan het leren, ~1500 clubamateur, ~2000 heel sterk, ~2500 grootmeester en ~2800+ wereldkampioenen. Het niveau dat je hier kiest bepaalt dat getal en daarmee de sterkte van Stockfish."
+        "texto": "Het getal naast de tegenstander (300, 1320, 1800, 3190…) is zijn <b>Elo</b>: een maat voor speelsterkte. Hoe hoger, hoe beter hij speelt. Ter oriëntatie: ~300 absolute beginner, ~800–1200 je bent aan het leren, ~1500 clubamateur, ~2000 heel sterk, ~2500 grootmeester en ~2800+ wereldkampioenen. Het niveau dat je hier kiest bepaalt dat getal en daarmee de sterkte van de AI."
       },
       {
         "nombre": "Doel van het spel",
@@ -190,7 +190,8 @@
         "historia": "Het is het hart van het spel: de partij eindigt wanneer de koning niet aan het schaak kan ontsnappen (schaakmat). Hij wordt nooit geslagen; hij wordt klemgezet.",
         "objetivos": "In de opening breng je hem in veiligheid (meestal door te rokeren). In het eindspel, met weinig stukken, wordt hij een actief stuk dat helpt pionnen te promoveren."
       }
-    }
+    },
+    "aiName": "AI"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Meet je met de machine",
         "body": "Een tegenstander met instelbaar niveau, van ~1320 tot volle kracht, met coachmodus en waarschuwing voor bedreigde stukken.",
-        "note": "Stockfish 18 (NNUE) als WebAssembly, draait op je eigen apparaat.",
+        "note": "De AI draait op je eigen apparaat: snel, privé, zelfs offline.",
         "cta": "Een partij spelen"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Bekijk je <span class=\"accent\">partijen</span>",
     "movesTitle": "Zetten",
     "analyzeBtn": "Analyseren",
-    "analyzeBtnTitle": "De partij analyseren met Stockfish",
+    "analyzeBtnTitle": "Analyseer de partij met de AI",
     "pgnBtn": "PGN kopiëren",
     "pgnBtnTitle": "PGN kopiëren",
     "countGames": "{count} partijen",
@@ -480,7 +481,7 @@
     "levelMaximo": "Maximaal",
     "sideBlack": "Zwart",
     "sideWhite": "Wit",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs AI · {level}",
     "itemSub": "{side} · {moves} zetten · {date}",
     "delTitle": "Wissen",
     "delAria": "Partij wissen",
@@ -709,7 +710,18 @@
     "cancelBtn": "Annuleren",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} partijen",
     "vsAiTitle": "Tegen de AI",
-    "vsAiSub": "Stockfish 18 in je browser, zonder wachten: kies een niveau en speel. Geen account nodig."
+    "vsAiSub": "Jouw AI-tegenstander, op elk niveau en zonder wachten. Geen account nodig.",
+    "modes": {
+      "rivalTitle": "Online partij",
+      "rivalSub": "Vind een tegenstander van jouw niveau in bullet, blitz of rapid.",
+      "friendTitle": "Daag een vriend uit",
+      "friendSub": "Daag je vrienden uit met je VEX ID en speel meteen.",
+      "puzzTitle": "Tactische puzzels",
+      "puzzSub": "Tactische slagen om je oog te scherpen tussen partijen door.",
+      "acadTitle": "Academie",
+      "acadSub": "Leer echt met AXIOM, je schaakmentor.",
+      "aria": "Speelmodi"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Beheer",

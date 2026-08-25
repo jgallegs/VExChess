@@ -38,7 +38,7 @@
     "appName": "国际象棋",
     "appSub": "AI 对手 · NNUE",
     "engineLoading": "正在加载引擎…",
-    "engineReady": "引擎就绪 · Stockfish 18（NNUE）",
+    "engineReady": "AI 对手已就绪",
     "engineError": "引擎错误：",
     "loaderText": "正在加载引擎…",
     "coachLoading": "正在加载教练…",
@@ -52,7 +52,7 @@
     "drawPick": "选一只手",
     "drawSkip": "跳过",
     "drawWhite": "你执白棋。轮到你走。",
-    "drawBlack": "你执黑棋。Stockfish 先手。",
+    "drawBlack": "你执黑棋。AI 先行。",
     "confirmRestart": "这将重新开始当前对局。是否继续？",
     "confirmOk": "重新开始",
     "confirmCancel": "取消",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "这些数字是什么？（Elo）",
-        "texto": "对手旁边的数字（300、1320、1800、3190…）是它的 <b>Elo</b>：衡量棋力的指标。数值越高，棋力越强。作为参考：~300 为绝对新手，~800–1200 处于学习阶段，~1500 为俱乐部业余棋手，~2000 已经很强，~2500 为特级大师，~2800+ 为世界冠军。你在这里选择的等级会设定这个数值，并由此决定 Stockfish 的棋力。"
+        "texto": "对手旁边的数字（300、1320、1800、3190…）是它的 <b>Elo</b>：衡量棋力的指标。数值越高，棋力越强。作为参考：~300 为绝对新手，~800–1200 处于学习阶段，~1500 为俱乐部业余棋手，~2000 已经很强，~2500 为特级大师，~2800+ 为世界冠军。你在这里选择的等级会设定这个数值，并由此决定 AI 的棋力。"
       },
       {
         "nombre": "游戏目标",
@@ -190,7 +190,8 @@
         "historia": "它是游戏的核心：当王无法逃脱将军（将杀）时，对局结束。它永远不会被吃掉，而是被逼入绝境。",
         "objetivos": "在开局阶段，把它置于安全（通常通过王车易位）。在残局中，棋子稀少时，它会变成一枚积极的棋子，帮助兵升变。"
       }
-    }
+    },
+    "aiName": "AI"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "与引擎较量",
         "body": "对手强度可调，从约 1320 一直到满血状态，还有教练模式和棋子受威胁提示。",
-        "note": "Stockfish 18（NNUE）引擎，编译为 WebAssembly，在你自己的设备上运行。",
+        "note": "AI 在你自己的设备上运行：快速、私密，甚至可离线。",
         "cta": "下一盘"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "回顾你的<span class=\"accent\">对局</span>",
     "movesTitle": "着法",
     "analyzeBtn": "分析",
-    "analyzeBtnTitle": "用 Stockfish 分析对局",
+    "analyzeBtnTitle": "用 AI 分析对局",
     "pgnBtn": "复制 PGN",
     "pgnBtnTitle": "复制 PGN",
     "countGames": "{count} 局对局",
@@ -480,7 +481,7 @@
     "levelMaximo": "最高",
     "sideBlack": "黑方",
     "sideWhite": "白方",
-    "itemOpponent": "对战 Stockfish · {level}",
+    "itemOpponent": "对阵 AI · {level}",
     "itemSub": "{side} · {moves} 手 · {date}",
     "delTitle": "删除",
     "delAria": "删除对局",
@@ -709,7 +710,18 @@
     "cancelBtn": "取消",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} 局",
     "vsAiTitle": "对战 AI",
-    "vsAiSub": "浏览器中的 Stockfish 18，无需等待：选择等级即可开始。无需账号。"
+    "vsAiSub": "你的 AI 对手，任意等级，无需等待。无需账号。",
+    "modes": {
+      "rivalTitle": "在线对局",
+      "rivalSub": "在子弹、闪电或快棋中寻找与你水平相当的对手。",
+      "friendTitle": "挑战好友",
+      "friendSub": "用你的 VEX ID 向好友发起挑战，立即开战。",
+      "puzzTitle": "战术谜题",
+      "puzzSub": "在对局之间用战术打击磨砺你的眼力。",
+      "acadTitle": "学院",
+      "acadSub": "与你的国际象棋导师 AXIOM 一起真正学习。",
+      "aria": "游戏模式"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · 管理",

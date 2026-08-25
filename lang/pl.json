@@ -38,7 +38,7 @@
     "appName": "Szachy",
     "appSub": "przeciwnik AI · NNUE",
     "engineLoading": "Ładowanie silnika…",
-    "engineReady": "Silnik gotowy · Stockfish 18 (NNUE)",
+    "engineReady": "Przeciwnik AI gotowy",
     "engineError": "Błąd silnika: ",
     "loaderText": "Ładowanie silnika…",
     "coachLoading": "Ładowanie trenera…",
@@ -52,7 +52,7 @@
     "drawPick": "Wybierz rękę",
     "drawSkip": "Pomiń",
     "drawWhite": "Grasz białymi. Twój ruch.",
-    "drawBlack": "Grasz czarnymi. Stockfish zaczyna.",
+    "drawBlack": "Grasz czarnymi. AI zaczyna.",
     "confirmRestart": "To zresetuje trwającą partię. Kontynuować?",
     "confirmOk": "Zresetuj",
     "confirmCancel": "Anuluj",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "Co oznaczają liczby? (Elo)",
-        "texto": "Liczba obok przeciwnika (300, 1320, 1800, 3190…) to jego <b>Elo</b>: miara siły gry. Im wyższa, tym lepiej gra. Dla orientacji: ~300 zupełnie początkujący, ~800–1200 uczysz się, ~1500 klubowy amator, ~2000 bardzo silny, ~2500 arcymistrz i ~2800+ mistrzowie świata. Poziom, który tu wybierasz, ustala tę liczbę, a wraz z nią siłę Stockfisha."
+        "texto": "Liczba obok przeciwnika (300, 1320, 1800, 3190…) to jego <b>Elo</b>: miara siły gry. Im wyższa, tym lepiej gra. Dla orientacji: ~300 zupełnie początkujący, ~800–1200 uczysz się, ~1500 klubowy amator, ~2000 bardzo silny, ~2500 arcymistrz i ~2800+ mistrzowie świata. Poziom, który tu wybierasz, ustala tę liczbę, a wraz z nią siłę AIa."
       },
       {
         "nombre": "Cel gry",
@@ -190,7 +190,8 @@
         "historia": "To serce gry: partia kończy się, gdy król nie może uciec przed szachem (mat). Nigdy się go nie bije; osacza się go.",
         "objetivos": "W debiucie zabezpiecz go (zwykle roszując). W końcówce, przy niewielu figurach, staje się aktywną figurą, która pomaga promować pionki."
       }
-    }
+    },
+    "aiName": "AI"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Zmierz się z maszyną",
         "body": "Rywal o regulowanej sile, od ~1320 aż po pełną moc, z trybem trenera i ostrzeżeniem o zagrożonych figurach.",
-        "note": "Silnik Stockfish 18 (NNUE) w WebAssembly, działa na twoim urządzeniu.",
+        "note": "AI działa na twoim urządzeniu: szybko, prywatnie, nawet offline.",
         "cta": "Zagraj partię"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Przeglądaj swoje <span class=\"accent\">partie</span>",
     "movesTitle": "Ruchy",
     "analyzeBtn": "Analizuj",
-    "analyzeBtnTitle": "Analizuj partię ze Stockfishem",
+    "analyzeBtnTitle": "Przeanalizuj partię z AI",
     "pgnBtn": "Kopiuj PGN",
     "pgnBtnTitle": "Kopiuj PGN",
     "countGames": "{count} partii",
@@ -480,7 +481,7 @@
     "levelMaximo": "Maksymalny",
     "sideBlack": "Czarne",
     "sideWhite": "Białe",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs AI · {level}",
     "itemSub": "{side} · {moves} ruchów · {date}",
     "delTitle": "Usuń",
     "delAria": "Usuń partię",
@@ -709,7 +710,18 @@
     "cancelBtn": "Anuluj",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} partii",
     "vsAiTitle": "Przeciwko AI",
-    "vsAiSub": "Stockfish 18 w twojej przeglądarce, bez czekania: wybierz poziom i graj. Bez konta."
+    "vsAiSub": "Twój przeciwnik AI, na dowolnym poziomie i bez czekania. Bez konta.",
+    "modes": {
+      "rivalTitle": "Partia online",
+      "rivalSub": "Znajdź przeciwnika na swoim poziomie w bullecie, blitzu lub rapidzie.",
+      "friendTitle": "Wyzwij znajomego",
+      "friendSub": "Rzuć wyzwanie znajomym przez VEX ID i grajcie od razu.",
+      "puzzTitle": "Zagadki taktyczne",
+      "puzzSub": "Taktyczne uderzenia, które ostrzą oko między partiami.",
+      "acadTitle": "Akademia",
+      "acadSub": "Ucz się naprawdę z AXIOM, twoim szachowym mentorem.",
+      "aria": "Tryby gry"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administracja",

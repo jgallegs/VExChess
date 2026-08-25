@@ -38,7 +38,7 @@
     "appName": "Scacchi",
     "appSub": "avversario IA · NNUE",
     "engineLoading": "Caricamento motore…",
-    "engineReady": "Motore pronto · Stockfish 18 (NNUE)",
+    "engineReady": "Avversario IA pronto",
     "engineError": "Errore del motore: ",
     "loaderText": "Caricamento del motore…",
     "coachLoading": "Caricamento allenatore…",
@@ -52,7 +52,7 @@
     "drawPick": "Scegli una mano",
     "drawSkip": "Salta",
     "drawWhite": "Giochi con il Bianco. Tocca a te.",
-    "drawBlack": "Giochi con il Nero. Comincia Stockfish.",
+    "drawBlack": "Giochi con il Nero. Comincia l’IA.",
     "confirmRestart": "Questo reimposterà la partita in corso. Continuare?",
     "confirmOk": "Ricomincia",
     "confirmCancel": "Annulla",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "Cosa sono i numeri? (Elo)",
-        "texto": "Il numero accanto all'avversario (300, 1320, 1800, 3190…) è il suo <b>Elo</b>: una misura della forza di gioco. Più è alto, meglio gioca. Come riferimento: ~300 principiante assoluto, ~800–1200 stai imparando, ~1500 amatore di club, ~2000 molto forte, ~2500 Grande Maestro e ~2800+ campioni del mondo. Il livello che scegli qui fissa quel numero e con esso la forza di Stockfish."
+        "texto": "Il numero accanto all'avversario (300, 1320, 1800, 3190…) è il suo <b>Elo</b>: una misura della forza di gioco. Più è alto, meglio gioca. Come riferimento: ~300 principiante assoluto, ~800–1200 stai imparando, ~1500 amatore di club, ~2000 molto forte, ~2500 Grande Maestro e ~2800+ campioni del mondo. Il livello che scegli qui fissa quel numero e con esso la forza dell’IA."
       },
       {
         "nombre": "Obiettivo del gioco",
@@ -190,7 +190,8 @@
         "historia": "È il cuore del gioco: la partita finisce quando il re non può sfuggire allo scacco (scacco matto). Non si cattura mai; si mette all'angolo.",
         "objetivos": "In apertura, mettilo al sicuro (di solito arroccando). Nel finale, con pochi pezzi, diventa un pezzo attivo che aiuta a promuovere i pedoni."
       }
-    }
+    },
+    "aiName": "IA"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Misurati con la macchina",
         "body": "Un avversario di livello regolabile, da ~1320 fino alla forza massima, con modalità allenatore e avviso dei pezzi in pericolo.",
-        "note": "Motore Stockfish 18 (NNUE) in WebAssembly, in esecuzione sul tuo dispositivo.",
+        "note": "L’IA gira sul tuo dispositivo: veloce, privata, anche offline.",
         "cta": "Gioca una partita"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Rivedi le tue <span class=\"accent\">partite</span>",
     "movesTitle": "Mosse",
     "analyzeBtn": "Analizza",
-    "analyzeBtnTitle": "Analizza la partita con Stockfish",
+    "analyzeBtnTitle": "Analizza la partita con l’IA",
     "pgnBtn": "Copia PGN",
     "pgnBtnTitle": "Copia PGN",
     "countGames": "{count} partite",
@@ -480,7 +481,7 @@
     "levelMaximo": "Massimo",
     "sideBlack": "Nero",
     "sideWhite": "Bianco",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs IA · {level}",
     "itemSub": "{side} · {moves} mosse · {date}",
     "delTitle": "Cancella",
     "delAria": "Cancella partita",
@@ -709,7 +710,18 @@
     "cancelBtn": "Annulla",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} partite",
     "vsAiTitle": "Contro l’IA",
-    "vsAiSub": "Stockfish 18 nel tuo browser, senza attese: scegli il livello e gioca. Non serve un account."
+    "vsAiSub": "Il tuo avversario IA, al livello che vuoi e senza attese. Non serve un account.",
+    "modes": {
+      "rivalTitle": "Partita online",
+      "rivalSub": "Trova un avversario del tuo livello in bullet, blitz o rapid.",
+      "friendTitle": "Sfida un amico",
+      "friendSub": "Sfida i tuoi amici con il tuo VEX ID e giocate subito.",
+      "puzzTitle": "Puzzle tattici",
+      "puzzSub": "Colpi tattici per affinare l’occhio tra una partita e l’altra.",
+      "acadTitle": "Accademia",
+      "acadSub": "Impara davvero con AXIOM, il tuo mentore di scacchi.",
+      "aria": "Modalità di gioco"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Amministrazione",

@@ -95,27 +95,70 @@ body.ol-page { min-height: 100vh; }
 }
 .ol-state { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
 @media (prefers-reduced-motion: reduce) { .ol-state { animation: none; } }
-/* ---------- Tarjeta "Contra la IA" ----------
-   Todos los caminos de "jugar" del sitio desembocan aquí; esta tarjeta
-   es la salida hacia la partida contra el motor (no necesita cuenta). */
-.ol-ai {
-  display: flex; align-items: center; gap: 1rem;
-  margin: 0 0 1.1rem; padding: 0.95rem 1.15rem;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, var(--panel)) 0%, var(--panel) 55%);
-  border: var(--hair) solid var(--border); border-radius: var(--r-lg, 1rem);
-  text-decoration: none; color: var(--text);
-  transition: transform .18s var(--ease-out, ease), border-color .18s, box-shadow .18s;
+
+
+/* ---------- Carrusel de modos de juego ----------
+   Raíl con scroll-snap y arte Vexborn. Sin contadores ni indicaciones de
+   "desliza" (regla scrollcraft): los bordes fundidos ya cuentan que hay más.
+   El arte lleva paralaje sutil (solo transform, lo mueve online.js). */
+.ol-modes { position: relative; margin: 0 0 1.2rem; }
+.ol-rail {
+  display: flex; gap: 0.75rem;
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  padding: 0.15rem;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1.6rem, #000 calc(100% - 1.6rem), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 1.6rem, #000 calc(100% - 1.6rem), transparent 100%);
 }
-.ol-ai:hover { transform: translateY(-0.15rem); border-color: rgba(255,59,71,.35); box-shadow: 0 0.9rem 2rem -0.8rem rgba(0,0,0,.7); }
-.ol-ai:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-.ol-ai-ico { flex: 0 0 auto; width: 2.6rem; height: 2.6rem; display: grid; place-items: center;
-  background: rgba(255,255,255,.05); border-radius: 0.7rem; }
-.ol-ai-ico img { width: 1.6rem; height: 1.6rem; }
-.ol-ai-txt { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; }
-.ol-ai-txt b { font: 700 0.98rem 'Inter', sans-serif; }
-.ol-ai-txt span { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
-.ol-ai-arrow { flex: 0 0 auto; font-size: 1.1rem; color: var(--muted); transition: transform .18s var(--ease-out, ease), color .18s; }
-.ol-ai:hover .ol-ai-arrow { transform: translateX(0.25rem); color: var(--text); }
+.ol-rail::-webkit-scrollbar { display: none; }
+.ol-slide {
+  position: relative; flex: 0 0 clamp(13.5rem, 34vw, 17rem); aspect-ratio: 16 / 10;
+  scroll-snap-align: start; border-radius: var(--r-lg, 1rem); overflow: hidden;
+  text-decoration: none; color: var(--text); isolation: isolate;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 0.07rem rgba(255,255,255,.06), 0 0.5rem 1.4rem -0.6rem rgba(0,0,0,.6);
+  transition: transform .22s var(--ease-out, ease), box-shadow .22s;
+}
+.ol-slide:hover { transform: translateY(-0.22rem); box-shadow: inset 0 0 0 0.07rem rgba(255,255,255,.1), 0 1rem 2.2rem -0.8rem rgba(0,0,0,.75); }
+.ol-slide:focus-visible { outline: none; box-shadow: var(--focus-ring), 0 0.5rem 1.4rem -0.6rem rgba(0,0,0,.6); }
+.ol-slide-art {
+  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 22%;
+  transform: scale(1.16); will-change: transform;
+  transition: filter .22s ease; filter: saturate(.92) brightness(.9);
+  user-select: none; -webkit-user-drag: none;
+}
+.ol-slide:hover .ol-slide-art { filter: saturate(1.05) brightness(1); }
+.ol-slide-veil {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, rgba(9,12,18,.94) 0%, rgba(9,12,18,.55) 42%, rgba(9,12,18,.08) 72%, transparent 100%);
+}
+.ol-slide-txt { position: absolute; left: 0.95rem; right: 2.2rem; bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.18rem; }
+.ol-slide-txt b { font: 700 0.95rem 'Inter', sans-serif; text-shadow: 0 0.1rem 0.4rem rgba(0,0,0,.6); }
+.ol-slide-txt span { font-size: 0.72rem; line-height: 1.4; color: rgba(245,247,250,.78); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ol-slide-arrow {
+  position: absolute; right: 0.8rem; bottom: 0.8rem; color: rgba(245,247,250,.7); font-size: 1rem;
+  transition: transform .2s var(--ease-out, ease), color .2s;
+}
+.ol-slide:hover .ol-slide-arrow { transform: translateX(0.22rem); color: var(--text); }
+html[dir="rtl"] .ol-slide-txt { left: 2.2rem; right: 0.95rem; }
+
+/* Flechas: solo donde hay puntero fino; se apagan en los extremos */
+.ol-modes-btn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  font-size: 1.3rem; line-height: 1; color: var(--text); padding-bottom: 0.2rem;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  -webkit-backdrop-filter: blur(0.6rem); backdrop-filter: blur(0.6rem);
+  box-shadow: inset 0 0 0 0.07rem rgba(255,255,255,.08), 0 0.4rem 1rem rgba(0,0,0,.4);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.ol-modes-btn.prev { left: -0.6rem; }
+.ol-modes-btn.next { right: -0.6rem; }
+.ol-modes-btn:hover { transform: translateY(-50%) scale(1.07); }
+.ol-modes-btn.off { opacity: 0; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .ol-modes-btn { display: inline-flex; } }
 
 /* Enlace discreto bajo el gate de sesión: jugar contra la IA sin cuenta */
 .ol-ai-quiet { margin-top: 0.4rem; color: var(--muted); text-decoration: none; font: 600 0.9rem 'Inter', sans-serif; transition: color .15s; }

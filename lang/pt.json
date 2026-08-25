@@ -38,7 +38,7 @@
     "appName": "Xadrez",
     "appSub": "adversário IA · NNUE",
     "engineLoading": "Carregando motor…",
-    "engineReady": "Motor pronto · Stockfish 18 (NNUE)",
+    "engineReady": "Adversário de IA pronto",
     "engineError": "Erro do motor: ",
     "loaderText": "Carregando o motor…",
     "coachLoading": "Carregando treinador…",
@@ -52,7 +52,7 @@
     "drawPick": "Escolha uma mão",
     "drawSkip": "Pular",
     "drawWhite": "Você joga com as brancas. Sua vez.",
-    "drawBlack": "Você joga com as pretas. O Stockfish começa.",
+    "drawBlack": "Jogas com as pretas. A IA começa.",
     "confirmRestart": "Isso reiniciará a partida em andamento. Continuar?",
     "confirmOk": "Reiniciar",
     "confirmCancel": "Cancelar",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "O que são os números? (Elo)",
-        "texto": "O número ao lado do adversário (300, 1320, 1800, 3190…) é o seu <b>Elo</b>: uma medida da força de jogo. Quanto mais alto, melhor ele joga. Como referência: ~300 iniciante absoluto, ~800–1200 você está aprendendo, ~1500 amador de clube, ~2000 muito forte, ~2500 Grande Mestre e ~2800+ campeões mundiais. O nível que você escolhe aqui define esse número e, com ele, a força do Stockfish."
+        "texto": "O número ao lado do adversário (300, 1320, 1800, 3190…) é o seu <b>Elo</b>: uma medida da força de jogo. Quanto mais alto, melhor ele joga. Como referência: ~300 iniciante absoluto, ~800–1200 você está aprendendo, ~1500 amador de clube, ~2000 muito forte, ~2500 Grande Mestre e ~2800+ campeões mundiais. O nível que você escolhe aqui define esse número e, com ele, a força da IA."
       },
       {
         "nombre": "Objetivo do jogo",
@@ -190,7 +190,8 @@
         "historia": "É o coração do jogo: a partida acaba quando o rei não pode escapar do xeque (xeque-mate). Nunca é capturado; é encurralado.",
         "objetivos": "Na abertura, coloque-o a salvo (normalmente rocando). No final, com poucas peças, ele se torna uma peça ativa que ajuda a promover peões."
       }
-    }
+    },
+    "aiName": "IA"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Mede forças com a máquina",
         "body": "Um adversário de nível ajustável, de ~1320 até à força máxima, com modo treinador e aviso de peças em perigo.",
-        "note": "Motor Stockfish 18 (NNUE) em WebAssembly, a correr no teu equipamento.",
+        "note": "A IA corre no teu próprio dispositivo: rápida, privada e até offline.",
         "cta": "Jogar uma partida"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Reveja suas <span class=\"accent\">partidas</span>",
     "movesTitle": "Lances",
     "analyzeBtn": "Analisar",
-    "analyzeBtnTitle": "Analisar a partida com o Stockfish",
+    "analyzeBtnTitle": "Analisar a partida com a IA",
     "pgnBtn": "Copiar PGN",
     "pgnBtnTitle": "Copiar PGN",
     "countGames": "{count} partidas",
@@ -480,7 +481,7 @@
     "levelMaximo": "Máximo",
     "sideBlack": "Pretas",
     "sideWhite": "Brancas",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs IA · {level}",
     "itemSub": "{side} · {moves} lances · {date}",
     "delTitle": "Apagar",
     "delAria": "Apagar partida",
@@ -709,7 +710,18 @@
     "cancelBtn": "Cancelar",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} partidas",
     "vsAiTitle": "Contra a IA",
-    "vsAiSub": "Stockfish 18 no teu navegador, sem esperas: escolhe o nível e joga. Não precisa de conta."
+    "vsAiSub": "O teu adversário de IA, no nível que quiseres e sem esperas. Não precisa de conta.",
+    "modes": {
+      "rivalTitle": "Partida online",
+      "rivalSub": "Encontra um adversário do teu nível em bullet, blitz ou rápidas.",
+      "friendTitle": "Desafia um amigo",
+      "friendSub": "Desafia os teus amigos com o teu VEX ID e joguem já.",
+      "puzzTitle": "Puzzles táticos",
+      "puzzSub": "Golpes táticos para afinar o olho entre partidas.",
+      "acadTitle": "Academia",
+      "acadSub": "Aprende a sério com o AXIOM, o teu mentor de xadrez.",
+      "aria": "Modos de jogo"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administração",

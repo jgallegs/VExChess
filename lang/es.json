@@ -38,7 +38,7 @@
     "appName": "Ajedrez",
     "appSub": "rival IA · NNUE",
     "engineLoading": "Cargando motor…",
-    "engineReady": "Motor listo · Stockfish 18 (NNUE)",
+    "engineReady": "Rival de IA listo",
     "engineError": "Error del motor: ",
     "loaderText": "Cargando el motor…",
     "coachLoading": "Cargando entrenador…",
@@ -52,7 +52,7 @@
     "drawPick": "Elige una mano",
     "drawSkip": "Saltar",
     "drawWhite": "Juegas con blancas. Tu movimiento.",
-    "drawBlack": "Juegas con negras. Stockfish comienza.",
+    "drawBlack": "Juegas con negras. La IA comienza.",
     "confirmRestart": "Esto reiniciará la partida en curso. ¿Continuar?",
     "confirmOk": "Reiniciar",
     "confirmCancel": "Cancelar",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "¿Qué son los números? (Elo)",
-        "texto": "El número junto al rival (300, 1320, 1800, 3190…) es su <b>Elo</b>: una medida de fuerza de juego. Cuanto más alto, mejor juega. Como referencia: ~300 principiante absoluto, ~800–1200 vas aprendiendo, ~1500 aficionado de club, ~2000 muy fuerte, ~2500 Gran Maestro y ~2800+ campeones del mundo. El nivel que eliges aquí fija ese número y con él la fuerza de Stockfish."
+        "texto": "El número junto al rival (300, 1320, 1800, 3190…) es su <b>Elo</b>: una medida de fuerza de juego. Cuanto más alto, mejor juega. Como referencia: ~300 principiante absoluto, ~800–1200 vas aprendiendo, ~1500 aficionado de club, ~2000 muy fuerte, ~2500 Gran Maestro y ~2800+ campeones del mundo. El nivel que eliges aquí fija ese número y con él la fuerza de la IA."
       },
       {
         "nombre": "Objetivo del juego",
@@ -190,7 +190,8 @@
         "historia": "Es el corazón del juego: la partida acaba cuando el rey no puede escapar del jaque (jaque mate). Nunca se captura; se acorrala.",
         "objetivos": "En la apertura, ponlo a salvo (normalmente enrocando). En el final, con pocas piezas, se convierte en una pieza activa que ayuda a coronar peones."
       }
-    }
+    },
+    "aiName": "IA"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Mide fuerzas con la máquina",
         "body": "Un rival de nivel ajustable, de ~1320 hasta fuerza máxima, con modo entrenador y aviso de piezas en peligro.",
-        "note": "Motor Stockfish 18 (NNUE) en WebAssembly, corriendo en tu equipo.",
+        "note": "La IA corre en tu propio equipo: rápida, privada y hasta sin conexión.",
         "cta": "Jugar una partida"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Revisa tus <span class=\"accent\">partidas</span>",
     "movesTitle": "Jugadas",
     "analyzeBtn": "Analizar",
-    "analyzeBtnTitle": "Analizar la partida con Stockfish",
+    "analyzeBtnTitle": "Analizar la partida con la IA",
     "pgnBtn": "Copiar PGN",
     "pgnBtnTitle": "Copiar PGN",
     "countGames": "{count} partidas",
@@ -480,7 +481,7 @@
     "levelMaximo": "Máximo",
     "sideBlack": "Negras",
     "sideWhite": "Blancas",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs IA · {level}",
     "itemSub": "{side} · {moves} jugadas · {date}",
     "delTitle": "Borrar",
     "delAria": "Borrar partida",
@@ -709,7 +710,18 @@
     "cancelBtn": "Cancelar",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} partidas",
     "vsAiTitle": "Contra la IA",
-    "vsAiSub": "Stockfish 18 en tu navegador, sin esperas: elige nivel y juega. No necesita cuenta."
+    "vsAiSub": "Tu rival de IA, del nivel que quieras y sin esperas. No necesita cuenta.",
+    "modes": {
+      "rivalTitle": "Partida online",
+      "rivalSub": "Busca rival de tu nivel en bullet, blitz o rápida.",
+      "friendTitle": "Reta a un amigo",
+      "friendSub": "Desafía a tus amigos con tu VEX ID y jugad al momento.",
+      "puzzTitle": "Puzzles tácticos",
+      "puzzSub": "Golpes de táctica para afilar el ojo entre partida y partida.",
+      "acadTitle": "Academia",
+      "acadSub": "Aprende de verdad con AXIOM, tu mentor de ajedrez.",
+      "aria": "Modos de juego"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administración",

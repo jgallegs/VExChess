@@ -38,7 +38,7 @@
     "appName": "Schach",
     "appSub": "KI-Gegner · NNUE",
     "engineLoading": "Engine wird geladen…",
-    "engineReady": "Engine bereit · Stockfish 18 (NNUE)",
+    "engineReady": "KI-Gegner bereit",
     "engineError": "Engine-Fehler: ",
     "loaderText": "Engine wird geladen…",
     "coachLoading": "Trainer wird geladen…",
@@ -52,7 +52,7 @@
     "drawPick": "Wähle eine Hand",
     "drawSkip": "Überspringen",
     "drawWhite": "Du spielst Weiß. Du bist am Zug.",
-    "drawBlack": "Du spielst Schwarz. Stockfish beginnt.",
+    "drawBlack": "Du spielst Schwarz. Die KI beginnt.",
     "confirmRestart": "Dadurch wird die laufende Partie neu gestartet. Fortfahren?",
     "confirmOk": "Neu starten",
     "confirmCancel": "Abbrechen",
@@ -130,7 +130,7 @@
     "concepts": [
       {
         "nombre": "Was bedeuten die Zahlen? (Elo)",
-        "texto": "Die Zahl neben dem Gegner (300, 1320, 1800, 3190…) ist seine <b>Elo</b>: ein Maß für die Spielstärke. Je höher, desto besser spielt er. Als Orientierung: ~300 absoluter Anfänger, ~800–1200 im Lernen, ~1500 Vereinsspieler, ~2000 sehr stark, ~2500 Großmeister und ~2800+ Weltmeister. Die Stufe, die du hier wählst, legt diese Zahl und damit die Stärke von Stockfish fest."
+        "texto": "Die Zahl neben dem Gegner (300, 1320, 1800, 3190…) ist seine <b>Elo</b>: ein Maß für die Spielstärke. Je höher, desto besser spielt er. Als Orientierung: ~300 absoluter Anfänger, ~800–1200 im Lernen, ~1500 Vereinsspieler, ~2000 sehr stark, ~2500 Großmeister und ~2800+ Weltmeister. Die Stufe, die du hier wählst, legt diese Zahl und damit die Stärke der KI fest."
       },
       {
         "nombre": "Ziel des Spiels",
@@ -190,7 +190,8 @@
         "historia": "Er ist das Herz des Spiels: Die Partie endet, wenn der König dem Schach nicht mehr entkommen kann (Schachmatt). Er wird nie geschlagen, sondern eingekesselt.",
         "objetivos": "In der Eröffnung bringe ihn in Sicherheit (meist durch Rochade). Im Endspiel, mit wenigen Figuren, wird er zu einer aktiven Figur, die beim Umwandeln der Bauern hilft."
       }
-    }
+    },
+    "aiName": "KI"
   },
   "home": {
     "meta": {
@@ -227,7 +228,7 @@
       "machine": {
         "title": "Miss dich mit der Maschine",
         "body": "Ein Gegner mit einstellbarer Stärke, von ~1320 bis zur vollen Kraft, mit Trainermodus und Warnung vor bedrohten Figuren.",
-        "note": "Stockfish 18 (NNUE) als WebAssembly, direkt auf deinem Gerät.",
+        "note": "Die KI läuft auf deinem eigenen Gerät: schnell, privat, sogar offline.",
         "cta": "Eine Partie spielen"
       },
       "academy": {
@@ -461,7 +462,7 @@
     "title": "Sieh deine <span class=\"accent\">Partien</span> durch",
     "movesTitle": "Züge",
     "analyzeBtn": "Analysieren",
-    "analyzeBtnTitle": "Die Partie mit Stockfish analysieren",
+    "analyzeBtnTitle": "Partie mit der KI analysieren",
     "pgnBtn": "PGN kopieren",
     "pgnBtnTitle": "PGN kopieren",
     "countGames": "{count} Partien",
@@ -480,7 +481,7 @@
     "levelMaximo": "Maximum",
     "sideBlack": "Schwarz",
     "sideWhite": "Weiß",
-    "itemOpponent": "vs Stockfish · {level}",
+    "itemOpponent": "vs. KI · {level}",
     "itemSub": "{side} · {moves} Züge · {date}",
     "delTitle": "Löschen",
     "delAria": "Partie löschen",
@@ -709,7 +710,18 @@
     "cancelBtn": "Abbrechen",
     "rivalEloGamesMetaPlural": "{elo} Elo · {count} Partien",
     "vsAiTitle": "Gegen die KI",
-    "vsAiSub": "Stockfish 18 im Browser, ohne Wartezeit: Stufe wählen und losspielen. Kein Konto nötig."
+    "vsAiSub": "Dein KI-Gegner, in jeder Stufe und ohne Wartezeit. Kein Konto nötig.",
+    "modes": {
+      "rivalTitle": "Online-Partie",
+      "rivalSub": "Finde Gegner auf deinem Niveau in Bullet, Blitz oder Schnellschach.",
+      "friendTitle": "Freund herausfordern",
+      "friendSub": "Fordere Freunde mit deiner VEX-ID heraus und spielt sofort.",
+      "puzzTitle": "Taktikaufgaben",
+      "puzzSub": "Taktische Schläge, die dein Auge zwischen den Partien schärfen.",
+      "acadTitle": "Akademie",
+      "acadSub": "Lerne richtig mit AXIOM, deinem Schachmentor.",
+      "aria": "Spielmodi"
+    }
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administration",
