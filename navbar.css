@@ -19,17 +19,21 @@
 /* Márgenes seguros de pantallas con muesca (necesita viewport-fit=cover).
    OJO: env() se escribe DIRECTO en cada regla, nunca guardado en una custom
    property — WebKit/Safari tiene fallos resolviendo env() cuando viaja
-   dentro de una var() usada en calc(), y el resultado era inset 0 en iOS. */
+   dentro de una var() usada en calc(), y el resultado era inset 0 en iOS.
+   Además del inset, un COLCHÓN que solo existe con muesca: Safari en iOS 26
+   reporta ~44px en iPhones cuyo despeje real ronda los 59px (medido sobre
+   captura de dispositivo). min(env*99, 1.1rem) vale 0 sin muesca y 1.1rem
+   con ella — aire condicional sin media queries. */
 @media (max-width: 48em) { :root { --nav-tap: 3.45rem; } }
 
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
-html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 0.5rem); }
+html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem) + 0.5rem); }
 
 /* El header llega VACÍO en el HTML y lo monta navbar.js: sin esto medía 0
    y todo el contenido pegaba un salto de barra entera al montarse. El hueco
    queda reservado desde el primer paint (la variante battle es fixed y no
    reserva). El contenido de la barra aparece con un fundido al montar. */
-#vx-nav[data-variant="site"] { display: block; min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); }
+#vx-nav[data-variant="site"] { display: block; min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem)); }
 /* El fundido de montaje NO puede tocar a un ancestro del chip de cuenta:
    cualquier animación de opacity sobre él crea un backdrop root nuevo y el
    blur del cristal deja de ver la página. Funden marca, enlaces y burger. */
@@ -40,7 +44,8 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 0
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
   position: sticky; top: 0; z-index: 60; box-sizing: border-box;
-  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px);
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem));
+  padding-top: calc(env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem));
   display: flex; align-items: center; background: transparent;
   transition: height .22s ease;
 }
@@ -172,13 +177,13 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
 
   /* Panel: hoja desplegable bajo la barra, con scroll propio si no cabe */
   .vxnav-menu {
-    position: fixed; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); left: 0; right: 0; z-index: 2;
+    position: fixed; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem)); left: 0; right: 0; z-index: 2;
     display: flex; flex-direction: column; align-items: stretch; gap: 0;
     padding: 0.6rem clamp(1rem, 4vw, 1.6rem) calc(1.1rem + env(safe-area-inset-bottom, 0px));
     padding-left: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-left, 0px));
     padding-right: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-right, 0px));
-    max-height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px));
-    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px)); /* barra del navegador incluida */
+    max-height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.1rem));
+    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.1rem)); /* barra del navegador incluida */
     overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
     background: color-mix(in srgb, var(--bg) 97%, transparent);
     -webkit-backdrop-filter: blur(1rem) saturate(1.3); backdrop-filter: blur(1rem) saturate(1.3);
@@ -240,7 +245,7 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
      Cerrado NO debe existir para el dedo (si no, se traga todos los toques):
      de ahí visibility + pointer-events, que además permiten el desvanecido. */
   .vxnav-scrim {
-    display: block; position: fixed; inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px)) 0 0; z-index: 1;
+    display: block; position: fixed; inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem)) 0 0; z-index: 1;
     background: rgba(6,9,14,.5); -webkit-backdrop-filter: blur(0.15rem); backdrop-filter: blur(0.15rem);
     opacity: 0; visibility: hidden; pointer-events: none; touch-action: none; border: 0;
     transition: opacity .24s ease, visibility .24s;
