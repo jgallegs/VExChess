@@ -39,6 +39,32 @@ Todo el CSS es **100% responsive y sin `px`**: se usan solo unidades relativas
 `html { font-size: clamp(...) }` en `style.css`), así que toda la interfaz escala
 sola con el tamaño de la ventana. Cualquier cambio futuro debe mantener esta norma.
 
+## Sistema de diseño (`ui.css`)
+
+Todas las páginas cargan `ui.css` justo después de `style.css`. Ahí viven los
+**tokens** (radios `--r-sm/md/lg/xl/full`, superficies `--surface-1/2`,
+hairlines, sombras, semánticos `--ok/--warn/--info/--bad` con sus tintes,
+tipografías y la zona táctil `--tap`) y los **componentes comunes**: botones
+(`.btn` + `primary/tinted/quiet/danger`), tarjetas (`.vx-card`), cabecera de
+página (`.vx-page-head` + `.eyebrow` global), segmented control (`.vx-seg`),
+chips de estado (`.vx-chip`), filas de lista (`.vx-row`), KPIs (`.vx-kpi`),
+estados vacíos (`.vx-empty`) e inputs (`.vx-input`).
+
+Reglas que mantienen la coherencia (no romperlas al añadir UI):
+
+- **Una sola acción prominente (roja) por vista** — la CTA que importa.
+  Secundarias en tinte (`tinted`), terciarias en `quiet`, destructivas en
+  `danger` (ghost). Las acciones de fila nunca van en rojo sólido.
+- **La selección no se pinta de rojo**: un elemento elegido (pestaña, fila,
+  ritmo de juego) se ELEVA (fondo claro translúcido + hairline fuerte +
+  sombra). El rojo queda para marca y "derrota"; verde = victoria/online;
+  ámbar = aviso/preview; cian = foco, información y AXIOM.
+- **Foco visible cian uniforme** (`--focus-ring`) en todo el sitio.
+- Radios y superficies SIEMPRE desde tokens; nada de grises planos sin borde.
+- Oxanium solo para display y cifras (`--font-display`); Inter para el resto.
+
+Al tocar `ui.css` hay que subir su `?v=` en TODOS los HTML.
+
 ## Portada (`index.html` + `home.css` + `home.js`)
 
 La portada presenta VEXCHESS como **plataforma**, no como una demo de motor: se
@@ -149,7 +175,8 @@ repositorio de GitHub. No necesita build ni configuración especial.)
     online.html / connect.html     Juego en línea
     vexborn.html / insignias.html  Progresión e insignias
     admin.html    Panel de administración
-    style.css     Estilos base y compartidos (botones, modales, navbar "battle"…)
+    style.css     Estilos base y compartidos (modales, navbar "battle", partida…)
+    ui.css        SISTEMA DE DISEÑO compartido (ver más abajo): tokens y componentes
     home.css / home.js             Portada (ver más abajo)
     academia.css, comunidad.css, … Estilos por página
     navbar.css / navbar.js         Navbar compartida (ver más abajo)

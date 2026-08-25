@@ -39,24 +39,32 @@ body.pz-page { min-height: 100vh; }
 
 /* ---------- Panel ---------- */
 .pz-panel { display: flex; flex-direction: column; gap: 0.9rem; }
-.pz-head .eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-.pz-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.9rem; line-height: 1; margin: 0.4rem 0 0; }
+.pz-title { font: 800 1.9rem/1.05 var(--font-display); letter-spacing: -0.01em; margin: 0.55rem 0 0; }
 .pz-theme-chip { align-self: flex-start; font-size: 0.78rem; font-weight: 700; color: #ffd7da; background: rgba(255,59,71,.14); border: var(--hair) solid rgba(255,59,71,.4); padding: 0.35rem 0.75rem; border-radius: 2rem; }
 .pz-turn { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--muted); font-weight: 600; }
 .pz-dot { width: 0.85rem; height: 0.85rem; border-radius: 50%; border: var(--hair) solid rgba(255,255,255,.25); }
 .pz-dot.w { background: #f0f2f6; } .pz-dot.b { background: #2b3242; }
-.pz-status { min-height: 2.6rem; display: flex; align-items: center; font-size: 0.98rem; font-weight: 600; color: var(--text);
-  background: var(--panel-2); border-radius: 0.7rem; padding: 0.6rem 0.85rem; transition: background .2s, color .2s; }
-.pz-status.ok { background: rgba(58,168,86,.16); color: #8fe3a0; border: var(--hair) solid rgba(58,168,86,.5); }
-.pz-status.err { background: rgba(255,59,71,.14); color: #ffb3b3; border: var(--hair) solid rgba(255,59,71,.45); }
-.pz-controls, .pz-nav { display: flex; gap: 0.6rem; }
-.pz-btn { flex: 1; background: var(--panel-2); color: var(--text); border: none; border-radius: 0.6rem; padding: 0.62rem 0.6rem;
-  font: 700 0.85rem 'Inter', sans-serif; cursor: pointer; transition: background .12s, transform .08s; }
-.pz-btn:hover { background: #313d52; } .pz-btn:active { transform: translateY(0.06rem); }
-.pz-btn.ghost { background: transparent; border: var(--hair) solid var(--border); color: var(--muted); font-weight: 600; }
-.pz-btn.ghost:hover { color: var(--text); border-color: var(--vex-muted); }
+.pz-status { min-height: 2.7rem; display: flex; align-items: center; font-size: 0.95rem; font-weight: 600; color: var(--text);
+  background: var(--surface-2); border: var(--hair) solid var(--hairline); border-left: 0.22rem solid var(--hairline-strong);
+  border-radius: var(--r-sm); padding: 0.6rem 0.85rem; transition: background .2s, color .2s, border-color .2s; }
+.pz-status.ok { background: var(--ok-bg); color: #a9f0bd; border-color: var(--ok-bd); border-left-color: var(--ok); }
+.pz-status.err { background: var(--bad-bg); color: #ffc4c8; border-color: var(--bad-bd); border-left-color: var(--bad); }
+.pz-controls, .pz-nav { display: flex; gap: 0.55rem; }
+.pz-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  background: rgba(255,255,255,.05); color: var(--text); border: var(--hair) solid var(--hairline);
+  border-radius: var(--r-md); padding: 0.6rem; min-height: 2.45rem;
+  font: 700 0.85rem var(--font-ui); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background .15s, border-color .15s, color .15s, transform .1s; }
+.pz-btn:hover { background: var(--surface-hover); border-color: var(--hairline-strong); }
+.pz-btn:active { transform: translateY(0.06rem); }
+.pz-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+/* Pista: la acción con intención → tinte de marca */
+#pz-hint-btn { background: var(--accent-bg); border-color: var(--accent-bd); color: #ffd7da; }
+#pz-hint-btn:hover { background: rgba(255,59,71,.18); border-color: rgba(255,59,71,.5); color: #fff; }
+.pz-btn.ghost { background: transparent; border-color: transparent; color: var(--muted); font-weight: 600; }
+.pz-btn.ghost:hover { color: var(--text); background: rgba(255,255,255,.05); border-color: var(--hairline); }
 .pz-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
-.pz-solved { color: #8fe3a0; font-weight: 700; }
+.pz-solved { color: #a9f0bd; font: 700 0.74rem var(--font-ui); background: var(--ok-bg); border: var(--hair) solid var(--ok-bd); border-radius: var(--r-full); padding: 0.22rem 0.6rem; }
 .pz-tip { font-size: 0.78rem; line-height: 1.5; color: var(--muted); margin: 0.4rem 0 0; }
 .pz-tip b { color: var(--text); }
 

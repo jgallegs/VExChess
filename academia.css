@@ -5,11 +5,12 @@
 .ac-page { --ax-cyan: #39D5FF; --ax-cobalt: #1256C4; --ax-gold: #F4C763; min-height: 100vh; }
 .ac-wrap { max-width: 76rem; margin: 0 auto; box-sizing: border-box; padding: 1.6rem clamp(0.8rem, 3vw, 2rem) 4rem; }
 
-.ac-btn { border: none; border-radius: 0.7rem; padding: 0.7rem 1.2rem; font: 800 0.92rem 'Inter', sans-serif; cursor: pointer; transition: transform .12s, filter .12s, background .15s; }
-.ac-btn.primary { background: var(--accent); color: #fff; }
-.ac-btn.primary:hover { filter: brightness(1.08); transform: translateY(-0.08rem); }
-.ac-btn.ghost { background: var(--panel-2); color: var(--text); border: var(--hair) solid var(--border); }
-.ac-btn.ghost:hover { border-color: var(--ax-cyan); }
+.ac-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; border: var(--hair) solid transparent; border-radius: var(--r-md); padding: 0.7rem 1.2rem; min-height: 2.45rem; font: 700 0.92rem var(--font-ui); cursor: pointer; transition: transform .12s, filter .12s, background .15s, border-color .15s; }
+.ac-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.ac-btn.primary { background: linear-gradient(135deg, #ff4b56, var(--accent)); color: #fff; box-shadow: 0 0.5rem 1.3rem -0.4rem rgba(255,59,71,.55); }
+.ac-btn.primary:hover { filter: brightness(1.06); transform: translateY(-0.08rem); }
+.ac-btn.ghost { background: rgba(255,255,255,.05); color: var(--text); border-color: var(--hairline); }
+.ac-btn.ghost:hover { border-color: var(--info-bd); background: var(--surface-hover); }
 .ac-eyebrow { font: 800 0.7rem 'Inter', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--ax-cyan); }
 
 .ac-loading { text-align: center; padding: 6rem 1rem; color: var(--muted); }
@@ -47,7 +48,7 @@
 .ac-concepts h2, .ac-path h3 { font-family: 'Oxanium', sans-serif; }
 .ac-concepts h2 { font-weight: 800; font-size: 1.2rem; margin: 0 0 0.8rem; }
 .ac-concepts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.7rem; }
-.ac-concept { display: flex; align-items: center; gap: 0.8rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.9rem; padding: 0.7rem 0.9rem; }
+.ac-concept { display: flex; align-items: center; gap: 0.8rem; background: var(--surface-1); border: var(--hair) solid var(--hairline); border-radius: var(--r-md); padding: 0.7rem 0.9rem; }
 .ac-ring { --m: 0; --c: 0; width: 3rem; height: 3rem; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center;
   background: radial-gradient(closest-side, var(--panel) 68%, transparent 69%), conic-gradient(var(--ax-cyan) calc(var(--m) * 1%), rgba(255,255,255,.08) 0); }
 .ac-ring span { font: 800 0.85rem 'Oxanium', sans-serif; color: var(--text); }
@@ -59,7 +60,7 @@
 
 /* ---------- Ruta de aprendizaje ---------- */
 .ac-path { display: flex; flex-direction: column; gap: 0.7rem; }
-.ac-level { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1rem 1.1rem; }
+.ac-level { background: var(--surface-1); border: var(--hair) solid var(--hairline); border-radius: var(--r-lg); padding: 1rem 1.1rem; }
 .ac-level.locked { opacity: .6; }
 .ac-level-head { display: flex; align-items: center; gap: 0.8rem; }
 .ac-level-n { flex: 0 0 auto; width: 2.2rem; height: 2.2rem; border-radius: 0.6rem; display: grid; place-items: center; font: 800 1rem 'Oxanium', sans-serif; color: var(--ax-cyan); background: rgba(57,213,255,.1); border: var(--hair) solid rgba(57,213,255,.3); }
@@ -94,7 +95,7 @@
 .ac-goal { font: 700 0.92rem 'Inter', sans-serif; color: var(--text); background: var(--panel); border: var(--hair) solid var(--border); border-left: 0.2rem solid var(--ax-cyan); border-radius: 0.5rem; padding: 0.6rem 0.9rem; width: 100%; box-sizing: border-box; }
 
 .ac-side { display: flex; flex-direction: column; gap: 0.9rem; width: 100%; }
-.ac-axiom-panel { display: flex; gap: 0.8rem; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.9rem; padding: 0.8rem; animation: ac-fade .2s ease both; }
+.ac-axiom-panel { display: flex; gap: 0.8rem; background: var(--surface-1); border: var(--hair) solid var(--hairline); border-radius: var(--r-md); padding: 0.8rem; animation: ac-fade .2s ease both; }
 .ac-axiom-panel[data-state="mistake"] { border-color: rgba(255,59,71,.4); }
 .ac-axiom-panel[data-state="correct"] { border-color: rgba(58,168,86,.45); }
 @keyframes ac-fade { from { opacity: 0; transform: translateY(0.3rem); } to { opacity: 1; transform: none; } }

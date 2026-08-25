@@ -21,5 +21,6 @@ Que los usuarios ganen **reputación** con el tiempo. Posibles fuentes (por deci
 ## En marcha / hecho
 - ✅ Cuentas (registro/login), perfiles, persistencia en la nube (D1), Elo y estadísticas.
 - ✅ Sistema de **insignias** (estilo Discord): colección inicial de 8, mostrar en el perfil con detalle, fijar hasta 3 y destacar 1 junto al nombre.
+- ✅ **Sistema de diseño compartido (`ui.css`)**: tokens (radios, superficies, semánticos, foco cian), jerarquía de botones en 4 niveles, segmented control único, filas/KPIs/chips/estados vacíos comunes, y todas las páginas armonizadas. Arreglada además la "bandeja" que asomaba bajo el chip de cuenta.
 - ✅ **Portada rehecha**: narrativa de plataforma (online, Academia con AXIOM, puzzles, partidas, comunidad, Vexborn), bento de modos, arte real de Vexborn y AXIOM, y una sección "En camino" que ya solo lista lo que falta de verdad: ranking, clubes y torneos, y nuevas expansiones.
 - ✅ **Navbar compartida y responsive**: panel móvil con velo, bloqueo de scroll, cierre con Escape/toque fuera, zonas táctiles de ~44px, iconos y marca de página actual, barra compacta al bajar y soporte RTL. Documentada en `README.md`.

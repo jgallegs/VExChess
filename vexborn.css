@@ -6,11 +6,12 @@ body.vb-page { min-height: 100vh; }
 .vb-page .nav-link:hover { color: var(--text); }
 .vb-wrap { max-width: 72rem; margin: 0 auto; box-sizing: border-box; padding: 2.2rem clamp(0.8rem, 3vw, 1.6rem) 3rem; }
 
-.vb-btn { border: none; border-radius: 0.6rem; padding: 0.6rem 1.1rem; font: 800 0.9rem 'Inter', sans-serif; cursor: pointer; transition: transform .12s, filter .12s, background .15s; }
-.vb-btn.primary { background: var(--accent); color: #fff; }
-.vb-btn.primary:hover { filter: brightness(1.08); transform: translateY(-0.06rem); }
-.vb-btn.ghost { background: transparent; color: var(--text); border: var(--hair) solid var(--border); }
-.vb-btn.ghost:hover { border-color: var(--muted); }
+.vb-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; border: var(--hair) solid transparent; border-radius: var(--r-md); padding: 0.6rem 1.1rem; min-height: 2.45rem; font: 700 0.9rem var(--font-ui); cursor: pointer; transition: transform .12s, filter .12s, background .15s, border-color .15s; }
+.vb-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.vb-btn.primary { background: linear-gradient(135deg, #ff4b56, var(--accent)); color: #fff; box-shadow: 0 0.5rem 1.3rem -0.4rem rgba(255,59,71,.55); }
+.vb-btn.primary:hover { filter: brightness(1.06); transform: translateY(-0.06rem); }
+.vb-btn.ghost { background: rgba(255,255,255,.05); color: var(--text); border-color: var(--hairline); }
+.vb-btn.ghost:hover { background: var(--surface-hover); border-color: var(--hairline-strong); }
 
 /* Carga / invitado */
 .vb-loading { text-align: center; padding: 6rem 1rem; color: var(--muted); }

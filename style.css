@@ -38,7 +38,7 @@ html { font-size: clamp(0.82rem, 0.55rem + 0.75vw, 1.05rem); }
 * { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
 /* Foco: sin contorno claro por defecto al pulsar; aro rojo de marca solo con teclado */
 :focus { outline: none; }
-:focus-visible { outline: 0.14rem solid var(--accent); outline-offset: 0.12rem; }
+:focus-visible { outline: 0.14rem solid var(--focus, #39D5FF); outline-offset: 0.12rem; }
 ::-webkit-scrollbar { width: 0.6rem; height: 0.6rem; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 0.5rem; border: 0.13rem solid transparent; background-clip: padding-box; }
@@ -291,19 +291,19 @@ body.resizing-board, body.resizing-board * { cursor: nwse-resize !important; use
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .1s ease, color .1s ease;
 }
 .cselect-opt:hover { background: rgba(255,255,255,.06); }
-.cselect-opt.active { background: var(--accent); color: #fff; font-weight: 700; }
+.cselect-opt.active { background: rgba(255,255,255,.1); color: #fff; font-weight: 700; box-shadow: inset 0.16rem 0 0 var(--accent); }
 .controls { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 button.ctrl {
   flex: 1; min-width: 5rem; position: relative; overflow: hidden;
-  background-color: var(--panel-2); color: var(--text);
-  border: var(--hair) solid var(--border); border-radius: 0.56rem;
-  padding: 0.6rem 0.625rem; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-  transition: background-color .12s, transform .05s;
+  background-color: rgba(255,255,255,.05); color: var(--text);
+  border: var(--hair) solid var(--hairline, var(--border)); border-radius: var(--r-sm, 0.56rem);
+  padding: 0.6rem 0.625rem; min-height: 2.35rem; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  transition: background-color .12s, border-color .15s, transform .05s;
   /* icono en diagonal, de fondo, ocupando el botón (watermark) */
   background-image: var(--ctrl-ico); background-repeat: no-repeat;
   background-position: right -0.35rem center; background-size: 2.9rem;
 }
-button.ctrl:hover { background-color: #2e3b4a; } button.ctrl:active { transform: translateY(0.06rem); }
+button.ctrl:hover { background-color: var(--surface-hover, #2e3b4a); border-color: var(--hairline-strong, var(--border)); } button.ctrl:active { transform: translateY(0.06rem); }
 button.ctrl.wide { flex-basis: 100%; }
 #btn-undo { --ctrl-ico: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(245,247,250,0.15)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><g transform='rotate(-18 12 12)'><polyline points='1 4 1 10 7 10'/><path d='M3.51 15a9 9 0 1 0 2.13-9.36L1 10'/></g></svg>"); }
 #btn-flip { --ctrl-ico: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(245,247,250,0.15)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><g transform='rotate(-18 12 12)'><polyline points='17 1 21 5 17 9'/><path d='M3 11V9a4 4 0 0 1 4-4h14'/><polyline points='7 23 3 19 7 15'/><path d='M21 13v2a4 4 0 0 1-4 4H3'/></g></svg>"); }
@@ -313,16 +313,19 @@ button.ctrl.wide { flex-basis: 100%; }
 .seg { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.2rem; background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 0.56rem; padding: 0.2rem; }
 .seg-btn { position: relative; z-index: 1; background: transparent; border: none; color: var(--muted); font: 600 0.78rem 'Inter', sans-serif; padding: 0.5rem 0.2rem; border-radius: 0.4rem; cursor: pointer; transition: color .18s; }
 .seg-btn:hover { color: var(--text); }
-.seg-btn.active { color: #fff; }
-.seg-slider { position: absolute; top: 0.2rem; bottom: 0.2rem; left: 0; width: 0; background: var(--accent); border-radius: 0.4rem; z-index: 0; pointer-events: none;
-  box-shadow: 0 0.2rem 0.6rem -0.15rem rgba(255,59,71,.6); transition: transform .35s cubic-bezier(.34,1.4,.5,1), width .35s cubic-bezier(.34,1.4,.5,1); }
+.seg-btn.active { color: var(--text); font-weight: 700; }
+.seg-slider { position: absolute; top: 0.2rem; bottom: 0.2rem; left: 0; width: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
+  border-radius: 0.4rem; z-index: 0; pointer-events: none;
+  box-shadow: 0 0.2rem 0.55rem -0.15rem rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.1);
+  transition: transform .35s cubic-bezier(.34,1.4,.5,1), width .35s cubic-bezier(.34,1.4,.5,1); }
 
 /* Sorteo de color (Pawn Draw) */
 .draw { position: fixed; inset: 0; z-index: 45; display: none; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(80% 70% at 50% 42%, rgba(20,28,42,.85), rgba(8,11,16,.94)); -webkit-backdrop-filter: blur(0.55rem); backdrop-filter: blur(0.55rem); }
 /* Modal de confirmación */
 .confirm { position: fixed; inset: 0; z-index: 40; display: none; align-items: center; justify-content: center; background: rgba(8,11,16,.72); backdrop-filter: blur(0.2rem); padding: 1.5rem; }
 .confirm.open { display: flex; }
-.confirm-box { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 0.875rem; padding: 1.4rem; max-width: 22rem; display: flex; flex-direction: column; gap: 1.1rem; box-shadow: 0 1.5rem 4rem rgba(0,0,0,.5); }
+.confirm-box { background: var(--panel); border: var(--hair) solid var(--hairline, var(--border)); border-radius: var(--r-lg, 0.875rem); padding: 1.4rem; max-width: 22rem; display: flex; flex-direction: column; gap: 1.1rem; box-shadow: var(--shadow-3, 0 1.5rem 4rem rgba(0,0,0,.5)); }
 .confirm-msg { font-size: 0.92rem; color: var(--text); line-height: 1.45; }
 .confirm-actions { display: flex; gap: 0.6rem; justify-content: flex-end; }
 .btn-ghost { background: var(--panel-2); border: var(--hair) solid var(--border); color: var(--text); border-radius: 0.5rem; padding: 0.5rem 1rem; font: 600 0.82rem 'Inter', sans-serif; cursor: pointer; }
@@ -390,7 +393,7 @@ button.ctrl.wide { flex-basis: 100%; }
 .dock button.ctrl { flex: 0 0 auto; min-width: auto; padding: 0.5rem 0.75rem; }
 .dock-level .cselect { width: 9.2rem; }
 .dock-moves { font-weight: 700; }
-.dock-moves.active { background-color: var(--accent); color: #fff; }
+.dock-moves.active { background-color: rgba(255,255,255,.12); color: #fff; box-shadow: inset 0 -0.16rem 0 var(--accent); }
 .dock-sound { font-size: 1.05rem; line-height: 1; padding: 0.5rem 0.6rem; }
 .dock-sound.muted { opacity: .55; }
 
@@ -482,18 +485,10 @@ button.ctrl.wide { flex-basis: 100%; }
 .vx-check.bad { color: #ffb3b3; }
 .vx-check.checking { color: var(--muted); }
 
-/* Botones compartidos (disponibles en TODAS las páginas, no solo en la home) */
-.btn-play { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none;
-  background: linear-gradient(135deg, #ff4b56, var(--accent)); color: #fff; font-weight: 700; font-size: 0.9rem;
-  padding: 0.62rem 1.2rem; border-radius: 0.7rem; border: none; cursor: pointer;
-  box-shadow: 0 0.5rem 1.3rem -0.4rem rgba(255,59,71,.6); transition: transform .12s ease, box-shadow .15s ease, filter .15s ease; }
-.btn-play:hover { transform: translateY(-0.12rem); box-shadow: 0 0.8rem 1.8rem -0.4rem rgba(255,59,71,.7); filter: brightness(1.05); }
-.btn-play.lg { font-size: 1rem; padding: 0.8rem 1.5rem; border-radius: 0.8rem; }
+/* Botones compartidos: la definición canónica vive en ui.css (jerarquía
+   primaria/quiet). Aquí solo quedan los tamaños legados. */
+.btn-play.lg { font-size: 1rem; padding: 0.8rem 1.5rem; }
 .btn-play.xl { font-size: 1.1rem; padding: 0.95rem 2rem; border-radius: 0.9rem; }
-.btn-ghost2 { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;
-  background: rgba(255,255,255,.04); color: var(--text); font-weight: 600; font-size: 0.9rem;
-  padding: 0.62rem 1.2rem; border-radius: 0.7rem; border: var(--hair) solid rgba(255,255,255,.14); cursor: pointer; transition: background .15s, border-color .15s; }
-.btn-ghost2:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.28); }
 .btn-ghost2.lg { font-size: 1rem; padding: 0.8rem 1.5rem; }
 /* toggles compactos tipo icono */
 .dock-toggle { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; border-radius: 0.6rem; background: var(--panel-2); cursor: pointer; transition: background .12s; }

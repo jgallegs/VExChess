@@ -23,10 +23,15 @@ body.ins-page { min-height: 100vh; }
 
 /* Filtros por familia */
 .ins-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.3rem; }
-.ins-filter { background: var(--panel-2); border: var(--hair) solid var(--border); color: var(--muted);
-  border-radius: 2rem; padding: 0.45rem 1rem; font: 700 0.82rem 'Inter', sans-serif; cursor: pointer; transition: all .12s; }
-.ins-filter:hover { color: var(--text); border-color: var(--vex-muted); }
-.ins-filter.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ins-filter { background: rgba(255,255,255,.05); border: var(--hair) solid var(--hairline); color: var(--muted);
+  border-radius: var(--r-full); padding: 0.45rem 1rem; min-height: 2.15rem; font: 600 0.82rem var(--font-ui); cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s, box-shadow .15s; }
+.ins-filter:hover { color: var(--text); background: var(--surface-hover); border-color: var(--hairline-strong); }
+.ins-filter:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.ins-filter.active { color: var(--text); font-weight: 700;
+  background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
+  border-color: var(--hairline-strong);
+  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08); }
 
 /* Secciones por familia */
 .ins-section { margin-top: 2rem; }
@@ -36,7 +41,7 @@ body.ins-page { min-height: 100vh; }
 
 /* Rejilla de tarjetas */
 .ins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.9rem; }
-.ins-card { position: relative; background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1rem; padding: 1.4rem 1.2rem 1.1rem;
+.ins-card { position: relative; background: var(--surface-1); border: var(--hair) solid var(--hairline); border-radius: var(--r-lg); padding: 1.4rem 1.2rem 1.1rem;
   display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; transition: transform .14s, border-color .14s, box-shadow .14s; }
 .ins-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 0.22rem; background: var(--bc); opacity: .8; }
 .ins-card:hover { transform: translateY(-0.25rem); border-color: color-mix(in srgb, var(--bc) 55%, var(--border)); box-shadow: 0 1rem 2.5rem rgba(0,0,0,.4); }

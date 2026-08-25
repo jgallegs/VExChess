@@ -1,0 +1,289 @@
+/* ============================================================
+   VEXCHESS · UI — Sistema de diseño compartido.
+   Se carga en TODAS las páginas justo después de style.css.
+   Aquí viven los tokens y los componentes comunes; las hojas de
+   página solo aportan su layout y sus piezas propias.
+
+   Principios (por qué es como es):
+   · UNA acción prominente (roja) por vista: la que importa.
+     Lo secundario va en tinte suave; lo terciario, quiet; lo
+     destructivo, ghost. Las acciones de fila nunca gritan.
+   · El rojo es la marca (y "derrota"); la SELECCIÓN se marca con
+     elevación + anillo, no con rojo: seleccionado ≠ peligro.
+   · Escala única de radios y tres niveles de superficie con
+     hairline; nada de grises planos sin borde.
+   · Foco visible uniforme (anillo cian) en todo el sitio.
+   · Convención del proyecto: sin px, solo unidades relativas.
+   ============================================================ */
+
+:root {
+  /* ---- Radios ---- */
+  --r-sm: 0.55rem;    /* inputs, chips cuadrados, botones pequeños */
+  --r-md: 0.8rem;     /* botones, tiles, controles */
+  --r-lg: 1.1rem;     /* tarjetas y paneles */
+  --r-xl: 1.5rem;     /* bandas grandes / hero */
+  --r-full: 99rem;    /* pills */
+
+  /* ---- Superficies (sobre --bg) ---- */
+  --surface-1: linear-gradient(165deg, rgba(35,45,62,.75), rgba(22,29,40,.82));  /* panel elevado */
+  --surface-2: rgba(255,255,255,.035);                                           /* anidado / fila */
+  --surface-hover: rgba(255,255,255,.06);
+  --hairline: rgba(255,255,255,.08);
+  --hairline-strong: rgba(255,255,255,.16);
+
+  /* ---- Sombras ---- */
+  --shadow-1: 0 0.4rem 1.2rem -0.4rem rgba(0,0,0,.5);
+  --shadow-2: 0 1rem 2.4rem -0.8rem rgba(0,0,0,.6);
+  --shadow-3: 0 1.8rem 4rem -1rem rgba(0,0,0,.7);
+
+  /* ---- Foco e interacción ---- */
+  --focus: #39D5FF;
+  --focus-ring: 0 0 0 0.16rem rgba(57,213,255,.5);
+
+  /* ---- Semánticos (color + tinte de fondo + tinte de borde) ---- */
+  --ok: #46d383;      --ok-bg: rgba(58,213,150,.12);   --ok-bd: rgba(58,213,150,.32);
+  --warn: #f2c14e;    --warn-bg: rgba(255,193,84,.12); --warn-bd: rgba(255,193,84,.34);
+  --info: #5cd8ff;    --info-bg: rgba(57,213,255,.10); --info-bd: rgba(57,213,255,.30);
+  --bad: #ff6b74;     --bad-bg: rgba(255,59,71,.10);   --bad-bd: rgba(255,59,71,.32);
+  --accent-bg: rgba(255,59,71,.12);  --accent-bd: rgba(255,59,71,.34);
+
+  /* ---- Tipografía ---- */
+  --font-display: 'Oxanium', sans-serif;  /* títulos y cifras */
+  --font-ui: 'Inter', system-ui, sans-serif;
+
+  /* ---- Zona táctil mínima (~44px reales; el rem del documento es fluido) ---- */
+  --tap: 3.05rem;
+}
+@media (max-width: 48em) { :root { --tap: 3.45rem; } }
+
+/* Foco uniforme: anillo cian en todo el sitio (sustituye al aro rojo,
+   que se confundía con un estado de error). */
+:focus-visible { outline: 0.14rem solid var(--focus); outline-offset: 0.12rem; }
+
+/* Selección de texto con la marca */
+::selection { background: rgba(255,59,71,.32); color: #fff; }
+
+/* ============================================================
+   BOTONES · jerarquía en 4 niveles
+   .btn           base (medida cómoda, radio md)
+   .btn-primary   LA acción de la vista (relleno rojo marca)
+   .btn-tinted    secundaria con intención (tinte rojo suave)
+   .btn-quiet     terciaria (slate translúcido)  ← por defecto en filas
+   .btn-danger    destructiva (ghost rojo: texto rojo, fondo aire)
+   Tamaños: .sm  ·  (normal)  ·  .lg  ·  .xl      Icono: .icon
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+  font: 700 0.88rem/1 var(--font-ui); letter-spacing: 0.005em;
+  padding: 0.6rem 1.1rem; min-height: 2.45rem; border-radius: var(--r-md);
+  border: var(--hair) solid transparent; cursor: pointer; text-decoration: none;
+  white-space: nowrap; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transition: background .15s ease, border-color .15s ease, color .15s ease,
+              transform .12s ease, box-shadow .15s ease, filter .15s ease;
+}
+.btn:active { transform: translateY(0.06rem); }
+.btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.btn[disabled], .btn.disabled { opacity: .45; pointer-events: none; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff4b56, var(--accent)); color: #fff;
+  box-shadow: 0 0.5rem 1.3rem -0.4rem rgba(255,59,71,.55);
+}
+.btn-primary:hover { transform: translateY(-0.1rem); filter: brightness(1.06);
+  box-shadow: 0 0.8rem 1.8rem -0.4rem rgba(255,59,71,.65); }
+.btn-primary:active { transform: translateY(0.04rem); }
+
+.btn-tinted { background: var(--accent-bg); color: #ffd7da; border-color: var(--accent-bd); }
+.btn-tinted:hover { background: rgba(255,59,71,.18); border-color: rgba(255,59,71,.5); color: #fff; }
+
+.btn-quiet { background: rgba(255,255,255,.05); color: var(--text); border-color: var(--hairline); }
+.btn-quiet:hover { background: var(--surface-hover); border-color: var(--hairline-strong); }
+
+.btn-danger { background: transparent; color: var(--bad); border-color: transparent; }
+.btn-danger:hover { background: var(--bad-bg); border-color: var(--bad-bd); color: #ffc4c8; }
+
+.btn.sm { font-size: 0.8rem; padding: 0.42rem 0.8rem; min-height: 2rem; border-radius: var(--r-sm); }
+.btn.lg { font-size: 1rem; padding: 0.8rem 1.5rem; min-height: var(--tap); }
+.btn.xl { font-size: 1.1rem; padding: 0.95rem 2rem; min-height: var(--tap); border-radius: 0.9rem; }
+.btn.icon { padding: 0; width: 2.45rem; }
+.btn.icon.sm { width: 2rem; }
+
+/* Los botones legados comparten jerarquía: btn-play ES la primaria,
+   btn-ghost2 pasa a quiet. Se re-declaran aquí para que TODAS las
+   páginas (aunque no toquen su HTML) queden alineadas. */
+.btn-play {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+  text-decoration: none; background: linear-gradient(135deg, #ff4b56, var(--accent));
+  color: #fff; font: 700 0.9rem/1 var(--font-ui); padding: 0.62rem 1.2rem; min-height: 2.45rem;
+  border-radius: var(--r-md); border: none; cursor: pointer;
+  box-shadow: 0 0.5rem 1.3rem -0.4rem rgba(255,59,71,.55);
+  transition: transform .12s ease, box-shadow .15s ease, filter .15s ease;
+}
+.btn-play:hover { transform: translateY(-0.1rem); filter: brightness(1.06);
+  box-shadow: 0 0.8rem 1.8rem -0.4rem rgba(255,59,71,.65); }
+.btn-play:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.btn-ghost2 {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  text-decoration: none; background: rgba(255,255,255,.05); color: var(--text);
+  font: 600 0.9rem/1 var(--font-ui); padding: 0.62rem 1.2rem; min-height: 2.45rem;
+  border-radius: var(--r-md); border: var(--hair) solid var(--hairline); cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.btn-ghost2:hover { background: var(--surface-hover); border-color: var(--hairline-strong); }
+.btn-ghost2:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* ============================================================
+   TARJETAS Y SUPERFICIES
+   .vx-card       panel elevado (nivel 1)
+   .vx-card--sub  superficie anidada (nivel 2: filas, sub-cajas)
+   ============================================================ */
+.vx-card {
+  background: var(--surface-1); border: var(--hair) solid var(--hairline);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-1);
+}
+.vx-card--sub { background: var(--surface-2); border: var(--hair) solid var(--hairline); border-radius: var(--r-md); box-shadow: none; }
+
+/* ============================================================
+   CABECERA DE PÁGINA · patrón único
+   <header class="vx-page-head [centered]">
+     <span class="vx-eyebrow">Sección</span>
+     <h1>Título con <span class="accent">acento</span></h1>
+     <p>Subtítulo opcional.</p>
+   </header>
+   ============================================================ */
+.vx-eyebrow, .eyebrow {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font: 700 0.7rem/1 var(--font-ui); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent);
+}
+.vx-eyebrow::before, .eyebrow::before { content: ''; width: 1.2rem; height: 0.1rem; border-radius: var(--r-full); background: currentColor; opacity: .6; }
+.vx-page-head { margin: 0 0 clamp(1.4rem, 3vh, 2.2rem); }
+.vx-page-head h1 {
+  font: 800 clamp(1.7rem, 1.2rem + 1.8vw, 2.6rem)/1.08 var(--font-display);
+  letter-spacing: -0.01em; margin: 0.55rem 0 0; text-wrap: balance;
+}
+.vx-page-head p { color: var(--muted); font-size: 0.98rem; line-height: 1.55; margin: 0.7rem 0 0; max-width: 44rem; text-wrap: pretty; }
+.vx-page-head.centered { text-align: center; }
+.vx-page-head.centered p { margin-inline: auto; }
+.vx-page-head .accent { color: var(--accent); }
+
+/* ============================================================
+   SEGMENTED CONTROL · un único componente para tabs, filtros y
+   preferencias. Pista hundida; opción activa = superficie elevada
+   con hairline (la selección se ELEVA, no se pinta de rojo).
+   <div class="vx-seg"><button class="on">A</button><button>B</button></div>
+   ============================================================ */
+.vx-seg {
+  display: inline-flex; align-items: stretch; gap: 0.25rem; padding: 0.25rem;
+  background: rgba(0,0,0,.28); border: var(--hair) solid var(--hairline);
+  border-radius: var(--r-md); max-width: 100%;
+}
+.vx-seg > * {
+  appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  font: 600 0.85rem/1 var(--font-ui); color: var(--muted); text-decoration: none;
+  background: transparent; border: var(--hair) solid transparent; border-radius: calc(var(--r-md) - 0.22rem);
+  padding: 0.5rem 0.95rem; min-height: 2.15rem; cursor: pointer; white-space: nowrap;
+  transition: background .15s, color .15s, border-color .15s, box-shadow .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.vx-seg > *:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.vx-seg > .on, .vx-seg > [aria-selected="true"], .vx-seg > .active {
+  color: var(--text); font-weight: 700;
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+  border-color: var(--hairline-strong);
+  box-shadow: 0 0.25rem 0.7rem -0.2rem rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.vx-seg > *:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+/* contador dentro de un tab (p.ej. "Solicitudes · 2") */
+.vx-seg .vx-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.15rem; height: 1.15rem; padding: 0 0.3rem; border-radius: var(--r-full);
+  font: 800 0.64rem/1 var(--font-display); color: #fff; background: var(--accent);
+}
+
+/* ============================================================
+   CHIPS Y ETIQUETAS de estado
+   .vx-chip           metadato neutro
+   .vx-chip.ok/.warn/.info/.bad/.accent   estados tintados
+   ============================================================ */
+.vx-chip {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font: 700 0.66rem/1 var(--font-ui); letter-spacing: .08em; text-transform: uppercase;
+  color: #cbd5e1; background: rgba(255,255,255,.06);
+  border: var(--hair) solid var(--hairline); border-radius: var(--r-full);
+  padding: 0.28rem 0.62rem;
+}
+.vx-chip.ok     { color: #a9f0bd; background: var(--ok-bg); border-color: var(--ok-bd); }
+.vx-chip.warn   { color: #f2d69a; background: var(--warn-bg); border-color: var(--warn-bd); }
+.vx-chip.info   { color: #a8e6ff; background: var(--info-bg); border-color: var(--info-bd); }
+.vx-chip.bad    { color: #ffd7da; background: var(--bad-bg); border-color: var(--bad-bd); }
+.vx-chip.accent { color: #ffd7da; background: var(--accent-bg); border-color: var(--accent-bd); }
+
+/* ============================================================
+   FILA DE LISTA (persona, partida, reto…)
+   <div class="vx-row"> avatar · .vx-row-main · .vx-row-actions </div>
+   ============================================================ */
+.vx-row {
+  display: flex; align-items: center; gap: 0.85rem;
+  background: var(--surface-2); border: var(--hair) solid var(--hairline);
+  border-radius: var(--r-md); padding: 0.7rem 0.9rem; min-height: var(--tap);
+  transition: background .14s, border-color .14s;
+}
+.vx-row:hover { background: var(--surface-hover); border-color: var(--hairline-strong); }
+.vx-row-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 0.14rem; }
+.vx-row-main b { font-size: 0.92rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vx-row-main small { color: var(--muted); font-size: 0.78rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vx-row-actions { display: flex; align-items: center; gap: 0.45rem; flex: 0 0 auto; }
+
+/* ============================================================
+   KPI / estadística
+   <div class="vx-kpi [ok|bad|warn|info]"><b>142</b><span>Partidas</span></div>
+   ============================================================ */
+.vx-kpi {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2rem;
+  background: var(--surface-2); border: var(--hair) solid var(--hairline);
+  border-radius: var(--r-md); padding: 1rem 0.8rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.vx-kpi::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 0.14rem;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent); }
+.vx-kpi b { font: 800 1.5rem/1 var(--font-display); color: var(--text); font-variant-numeric: tabular-nums; }
+.vx-kpi span { font-size: 0.74rem; color: var(--muted); }
+.vx-kpi.ok b   { color: var(--ok); }   .vx-kpi.ok::before   { background: linear-gradient(90deg, transparent, var(--ok-bd), transparent); }
+.vx-kpi.bad b  { color: var(--bad); }  .vx-kpi.bad::before  { background: linear-gradient(90deg, transparent, var(--bad-bd), transparent); }
+.vx-kpi.warn b { color: var(--warn); } .vx-kpi.warn::before { background: linear-gradient(90deg, transparent, var(--warn-bd), transparent); }
+.vx-kpi.info b { color: var(--info); } .vx-kpi.info::before { background: linear-gradient(90deg, transparent, var(--info-bd), transparent); }
+
+/* ============================================================
+   ESTADO VACÍO
+   <div class="vx-empty"><img …><h3>…</h3><p>…</p><a class="btn btn-primary">…</a></div>
+   ============================================================ */
+.vx-empty { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; padding: clamp(2rem, 6vh, 4rem) 1rem; }
+.vx-empty img, .vx-empty svg { width: 3.4rem; height: 3.4rem; opacity: .5; margin-bottom: 0.3rem; }
+.vx-empty h3 { font: 800 1.3rem/1.15 var(--font-display); margin: 0; }
+.vx-empty p { color: var(--muted); font-size: 0.92rem; line-height: 1.55; margin: 0; max-width: 26rem; text-wrap: pretty; }
+.vx-empty .btn, .vx-empty .btn-play { margin-top: 0.7rem; }
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+.vx-input, .vx-field input[type="text"], .vx-field input[type="password"], .vx-field input[type="email"] {
+  width: 100%; box-sizing: border-box; background: rgba(0,0,0,.3); color: var(--text);
+  border: var(--hair) solid var(--hairline); border-radius: var(--r-sm);
+  font: 600 0.9rem/1.3 var(--font-ui); padding: 0.62rem 0.8rem; min-height: 2.45rem;
+  transition: border-color .15s, background .15s, box-shadow .15s;
+}
+.vx-input::placeholder { color: #5d6a7d; }
+.vx-input:hover { border-color: var(--hairline-strong); }
+.vx-input:focus, .vx-input:focus-visible { outline: none; border-color: var(--focus); box-shadow: 0 0 0 0.14rem rgba(57,213,255,.25); background: rgba(0,0,0,.36); }
+
+/* ============================================================
+   Utilidades pequeñas
+   ============================================================ */
+.vx-divider { border: 0; border-top: var(--hair) solid var(--hairline); margin: 0.9rem 0; }
+.vx-muted { color: var(--muted); }
+.vx-num { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn-play, .btn-ghost2, .vx-seg > *, .vx-row { transition: none; }
+}

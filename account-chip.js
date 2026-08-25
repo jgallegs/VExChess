@@ -273,8 +273,10 @@ const ACCOUNT_CSS = `
 /* Cajón desplegable — crece con grid-rows (muy suave) */
 .vxa-drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
 .vxa.open .vxa-drawer{grid-template-rows:1fr}
-.vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem .45rem;
-  border-top:1px solid rgba(255,255,255,.08);margin-top:.1rem}
+.vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem;
+  border-top:0 solid rgba(255,255,255,.08);margin-top:0;
+  transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s}
+.vxa.open .vxa-drawer-in{padding-bottom:.45rem;border-top-width:1px;margin-top:.1rem}
 .vxa-links{display:flex;flex-direction:column;padding-top:.35rem}
 .vxa-menu-note{display:none}
 

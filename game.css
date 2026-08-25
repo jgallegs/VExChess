@@ -70,7 +70,9 @@ body.gm-page { min-height: 100vh; }
 .gm-watchers { font-size: 0.78rem; color: var(--muted); }
 .gm-watchers[hidden] { display: none; }
 .gm-actions { display: flex; gap: 0.4rem; }
-.gm-btn { border: none; border-radius: 0.5rem; padding: 0.45rem 0.8rem; font: 700 0.8rem 'Inter', sans-serif; cursor: pointer; background: var(--panel-2); color: var(--text); border: var(--hair) solid var(--border); }
+.gm-btn { border-radius: var(--r-sm); padding: 0.45rem 0.85rem; min-height: 2.1rem; font: 700 0.8rem var(--font-ui); cursor: pointer; background: rgba(255,255,255,.05); color: var(--text); border: var(--hair) solid var(--hairline); transition: background .15s, border-color .15s; }
+.gm-btn:hover { background: var(--surface-hover); border-color: var(--hairline-strong); }
+.gm-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .gm-btn.ghost:hover { border-color: var(--vex-muted); }
 .gm-btn.danger { color: #ffb3b3; border-color: rgba(255,59,71,.4); background: transparent; }
 .gm-btn.danger:hover { background: rgba(255,59,71,.12); }
