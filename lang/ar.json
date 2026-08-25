@@ -30,7 +30,8 @@
     "edit": "تعديل",
     "search": "بحث",
     "error": "حدث خطأ.",
-    "empty": "لا يوجد شيء هنا بعد."
+    "empty": "لا يوجد شيء هنا بعد.",
+    "playVsAi": "العب ضد الذكاء الاصطناعي"
   },
   "game": {
     "title": "الشطرنج · خصم بشبكة عصبية",
@@ -706,7 +707,9 @@
     "toastError": "خطأ",
     "loading": "جارٍ التحميل…",
     "cancelBtn": "إلغاء",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} مباراة"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} مباراة",
+    "vsAiTitle": "ضد الذكاء الاصطناعي",
+    "vsAiSub": "Stockfish 18 في متصفحك دون انتظار: اختر المستوى والعب. لا يحتاج إلى حساب."
   },
   "admin": {
     "pageTitle": "VEXCHESS · الإدارة",

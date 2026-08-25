@@ -30,7 +30,8 @@
     "edit": "ویرایش",
     "search": "جستجو",
     "error": "خطایی رخ داد.",
-    "empty": "هنوز چیزی اینجا نیست."
+    "empty": "هنوز چیزی اینجا نیست.",
+    "playVsAi": "بازی مقابل هوش مصنوعی"
   },
   "game": {
     "title": "شطرنج · حریف با شبکه عصبی",
@@ -706,7 +707,9 @@
     "toastError": "خطا",
     "loading": "در حال بارگذاری…",
     "cancelBtn": "لغو",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} بازی"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} بازی",
+    "vsAiTitle": "مقابل هوش مصنوعی",
+    "vsAiSub": "Stockfish 18 در مرورگر شما، بدون انتظار: سطح را انتخاب کنید و بازی کنید. نیازی به حساب نیست."
   },
   "admin": {
     "pageTitle": "VEXCHESS · مدیریت",

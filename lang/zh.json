@@ -30,7 +30,8 @@
     "edit": "编辑",
     "search": "搜索",
     "error": "发生了错误。",
-    "empty": "这里还什么都没有。"
+    "empty": "这里还什么都没有。",
+    "playVsAi": "与 AI 对弈"
   },
   "game": {
     "title": "国际象棋 · 神经网络对手",
@@ -706,7 +707,9 @@
     "toastError": "错误",
     "loading": "加载中…",
     "cancelBtn": "取消",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} 局"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} 局",
+    "vsAiTitle": "对战 AI",
+    "vsAiSub": "浏览器中的 Stockfish 18，无需等待：选择等级即可开始。无需账号。"
   },
   "admin": {
     "pageTitle": "VEXCHESS · 管理",

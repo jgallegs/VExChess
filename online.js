@@ -23,7 +23,10 @@ function render() {
   if (!isAuthResolved()) { root.innerHTML = state('<div class="ol-ring"></div><p>' + t('online.loading') + '</p>'); return; }
   const u = getUser();
   if (!u) {
-    root.innerHTML = state('<img class="ol-state-logo" src="assets/knight-logo.svg" alt=""><h1>' + t('online.loggedOutTitle') + '</h1><p>' + t('online.loggedOutSubtitle') + '</p><button class="btn-play" id="ol-login">' + t('online.loginBtn') + ' <span aria-hidden="true">→</span></button>');
+    // Sin sesión también se puede jugar: contra la IA no hace falta cuenta.
+    root.innerHTML = state('<img class="ol-state-logo" src="assets/knight-logo.svg" alt=""><h1>' + t('online.loggedOutTitle') + '</h1><p>' + t('online.loggedOutSubtitle') + '</p>' +
+      '<button class="btn-play" id="ol-login">' + t('online.loginBtn') + ' <span aria-hidden="true">→</span></button>' +
+      '<a class="ol-ai-quiet" href="play.html">' + t('common.playVsAi') + ' <span aria-hidden="true">→</span></a>');
     const lb = document.getElementById('ol-login'); if (lb) lb.addEventListener('click', () => openAuth('login'));
     return;
   }
@@ -38,6 +41,11 @@ function mountShell(u) {
   root.innerHTML =
     '<div class="ol-head"><span class="eyebrow">' + t('online.eyebrow') + '</span><h1 class="ol-title">' + t('online.heroTitle') + '</h1>' +
       '<div class="ol-elo">' + t('online.eloOnlineLabel') + ' <b>' + vexElo(u) + '</b></div></div>' +
+    '<a class="ol-ai" href="play.html">' +
+      '<span class="ol-ai-ico"><img src="assets/icons/features/neural-engine.svg" alt="" aria-hidden="true"></span>' +
+      '<span class="ol-ai-txt"><b>' + t('online.vsAiTitle') + '</b><span>' + t('online.vsAiSub') + '</span></span>' +
+      '<span class="ol-ai-arrow" aria-hidden="true">→</span>' +
+    '</a>' +
     '<section class="ol-mm">' +
       '<div class="ol-tcs" id="ol-tcs">' + tcBtns + '</div>' +
       '<div class="ol-mm-action" id="ol-mm-action"></div>' +

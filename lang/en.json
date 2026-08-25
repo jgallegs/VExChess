@@ -30,7 +30,8 @@
     "edit": "Edit",
     "search": "Search",
     "error": "An error occurred.",
-    "empty": "Nothing here yet."
+    "empty": "Nothing here yet.",
+    "playVsAi": "Play against the AI"
   },
   "game": {
     "title": "Chess · neural network opponent",
@@ -706,7 +707,9 @@
     "toastError": "Error",
     "loading": "Loading…",
     "cancelBtn": "Cancel",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} games"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} games",
+    "vsAiTitle": "Against the AI",
+    "vsAiSub": "Stockfish 18 in your browser, no waiting: pick a level and play. No account needed."
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administration",

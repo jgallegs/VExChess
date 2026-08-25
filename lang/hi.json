@@ -30,7 +30,8 @@
     "edit": "संपादित करें",
     "search": "खोजें",
     "error": "एक त्रुटि हुई।",
-    "empty": "यहाँ अभी कुछ नहीं है।"
+    "empty": "यहाँ अभी कुछ नहीं है।",
+    "playVsAi": "AI के विरुद्ध खेलें"
   },
   "game": {
     "title": "शतरंज · न्यूरल नेटवर्क वाला प्रतिद्वंद्वी",
@@ -706,7 +707,9 @@
     "toastError": "त्रुटि",
     "loading": "लोड हो रहा है…",
     "cancelBtn": "रद्द करें",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} खेल"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} खेल",
+    "vsAiTitle": "AI के विरुद्ध",
+    "vsAiSub": "आपके ब्राउज़र में Stockfish 18, बिना प्रतीक्षा: स्तर चुनें और खेलें। खाते की ज़रूरत नहीं।"
   },
   "admin": {
     "pageTitle": "VEXCHESS · प्रशासन",

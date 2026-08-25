@@ -30,7 +30,8 @@
     "edit": "Editar",
     "search": "Buscar",
     "error": "Ha ocurrido un error.",
-    "empty": "No hay nada aquí todavía."
+    "empty": "No hay nada aquí todavía.",
+    "playVsAi": "Jugar contra la IA"
   },
   "game": {
     "title": "Ajedrez · rival con red neuronal",
@@ -706,7 +707,9 @@
     "toastError": "Error",
     "loading": "Cargando…",
     "cancelBtn": "Cancelar",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} partidas"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} partidas",
+    "vsAiTitle": "Contra la IA",
+    "vsAiSub": "Stockfish 18 en tu navegador, sin esperas: elige nivel y juega. No necesita cuenta."
   },
   "admin": {
     "pageTitle": "VEXCHESS · Administración",

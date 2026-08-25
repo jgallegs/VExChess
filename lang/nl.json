@@ -30,7 +30,8 @@
     "edit": "Bewerken",
     "search": "Zoeken",
     "error": "Er is een fout opgetreden.",
-    "empty": "Hier is nog niets."
+    "empty": "Hier is nog niets.",
+    "playVsAi": "Speel tegen de AI"
   },
   "game": {
     "title": "Schaken · tegenstander met neuraal netwerk",
@@ -706,7 +707,9 @@
     "toastError": "Fout",
     "loading": "Laden…",
     "cancelBtn": "Annuleren",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} partijen"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} partijen",
+    "vsAiTitle": "Tegen de AI",
+    "vsAiSub": "Stockfish 18 in je browser, zonder wachten: kies een niveau en speel. Geen account nodig."
   },
   "admin": {
     "pageTitle": "VEXCHESS · Beheer",

@@ -95,3 +95,28 @@ body.ol-page { min-height: 100vh; }
 }
 .ol-state { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
 @media (prefers-reduced-motion: reduce) { .ol-state { animation: none; } }
+/* ---------- Tarjeta "Contra la IA" ----------
+   Todos los caminos de "jugar" del sitio desembocan aquí; esta tarjeta
+   es la salida hacia la partida contra el motor (no necesita cuenta). */
+.ol-ai {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 0 0 1.1rem; padding: 0.95rem 1.15rem;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, var(--panel)) 0%, var(--panel) 55%);
+  border: var(--hair) solid var(--border); border-radius: var(--r-lg, 1rem);
+  text-decoration: none; color: var(--text);
+  transition: transform .18s var(--ease-out, ease), border-color .18s, box-shadow .18s;
+}
+.ol-ai:hover { transform: translateY(-0.15rem); border-color: rgba(255,59,71,.35); box-shadow: 0 0.9rem 2rem -0.8rem rgba(0,0,0,.7); }
+.ol-ai:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.ol-ai-ico { flex: 0 0 auto; width: 2.6rem; height: 2.6rem; display: grid; place-items: center;
+  background: rgba(255,255,255,.05); border-radius: 0.7rem; }
+.ol-ai-ico img { width: 1.6rem; height: 1.6rem; }
+.ol-ai-txt { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; }
+.ol-ai-txt b { font: 700 0.98rem 'Inter', sans-serif; }
+.ol-ai-txt span { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+.ol-ai-arrow { flex: 0 0 auto; font-size: 1.1rem; color: var(--muted); transition: transform .18s var(--ease-out, ease), color .18s; }
+.ol-ai:hover .ol-ai-arrow { transform: translateX(0.25rem); color: var(--text); }
+
+/* Enlace discreto bajo el gate de sesión: jugar contra la IA sin cuenta */
+.ol-ai-quiet { margin-top: 0.4rem; color: var(--muted); text-decoration: none; font: 600 0.9rem 'Inter', sans-serif; transition: color .15s; }
+.ol-ai-quiet:hover { color: var(--text); }

@@ -30,7 +30,8 @@
     "edit": "Редагувати",
     "search": "Пошук",
     "error": "Сталася помилка.",
-    "empty": "Тут поки що нічого немає."
+    "empty": "Тут поки що нічого немає.",
+    "playVsAi": "Грати проти ШІ"
   },
   "game": {
     "title": "Шахи · суперник із нейромережею",
@@ -706,7 +707,9 @@
     "toastError": "Помилка",
     "loading": "Завантаження…",
     "cancelBtn": "Скасувати",
-    "rivalEloGamesMetaPlural": "{elo} Elo · {count} партій"
+    "rivalEloGamesMetaPlural": "{elo} Elo · {count} партій",
+    "vsAiTitle": "Проти ШІ",
+    "vsAiSub": "Stockfish 18 у вашому браузері, без очікування: оберіть рівень і грайте. Обліковий запис не потрібен."
   },
   "admin": {
     "pageTitle": "VEXCHESS · Адміністрування",

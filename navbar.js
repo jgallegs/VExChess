@@ -81,7 +81,7 @@ function siteHTML(ds, actionsHTML) {
       brandHTML(isHome ? '#top' : 'index.html') +
       '<div class="vxnav-menu" id="vxnav-menu">' +
         '<nav class="vxnav-links" aria-label="' + t('nav.menu') + '">' + links + '</nav>' +
-        '<a class="btn-play" href="play.html">' + t('nav.play') + ' <span aria-hidden="true">→</span></a>' +
+        '<a class="btn-play" href="online.html">' + t('nav.play') + ' <span aria-hidden="true">→</span></a>' +
         '<a class="vxnav-settings' + (here === 'ajustes.html' ? ' active' : '') + '" href="ajustes.html" ' +
           'title="' + t('nav.settings') + '"' + (here === 'ajustes.html' ? ' aria-current="page"' : '') + '>' +
           iconHTML('ajustes') + '<span class="vxnav-label">' + t('nav.settings') + '</span>' +
