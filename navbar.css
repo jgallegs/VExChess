@@ -15,7 +15,13 @@
      1rem encoge: por eso el valor sube en el tramo estrecho para no bajar
      nunca de ~44px reales de superficie tocable. */
   --nav-tap: 3.05rem;
+  /* Aire propio SOBRE la barra, independiente del safe-area: cuando el
+     navegador lleva su barra arriba (Safari horizontal, Android, escritorio
+     estrecho) env() es 0 legítimamente y sin esto el contenido de la navbar
+     nace pegado al borde. Es un rem puro (sin env dentro: eso está vetado). */
+  --nav-air-t: 0rem;
 }
+@media (max-width: 74em) { :root { --nav-air-t: 0.65rem; } }
 /* Márgenes seguros de pantallas con muesca (necesita viewport-fit=cover).
    OJO: env() se escribe DIRECTO en cada regla, nunca guardado en una custom
    property — WebKit/Safari tiene fallos resolviendo env() cuando viaja
@@ -30,8 +36,8 @@
 @media (max-width: 48em) { :root { --nav-tap: 3.45rem; } }
 
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
-html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 0.5rem); }
-html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem) + 0.5rem); }
+html { scroll-padding-top: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + 0.5rem); }
+html { scroll-padding-top: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem) + 0.5rem); }
 
 /* El header llega VACÍO en el HTML y lo monta navbar.js: sin esto medía 0
    y todo el contenido pegaba un salto de barra entera al montarse. El hueco
@@ -39,8 +45,8 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
    reserva). El contenido de la barra aparece con un fundido al montar. */
 #vx-nav[data-variant="site"] {
   display: block;
-  min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
-  min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+  min-height: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px));
+  min-height: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
 }
 /* El fundido de montaje NO puede tocar a un ancestro del chip de cuenta:
    cualquier animación de opacity sobre él crea un backdrop root nuevo y el
@@ -52,10 +58,10 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
   position: sticky; top: 0; z-index: 60; box-sizing: border-box;
-  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
-  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-top: calc(env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+  height: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px));
+  height: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+  padding-top: calc(var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px));
+  padding-top: calc(var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
   display: flex; align-items: center; background: transparent;
   transition: height .22s ease;
 }
@@ -112,6 +118,8 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
 
 /* Acciones fijas en la barra (cuenta siempre visible + hamburguesa en móvil) */
 .vxnav-bar { display: flex; align-items: center; gap: 0.65rem; flex: 0 0 auto; }
+/* Botones propios de la página (slot data-slot="actions"), junto al chip */
+.vxnav-actions { display: flex; align-items: center; gap: 0.55rem; }
 .vxnav-menu .btn-play { flex: 0 0 auto; }
 
 /* Hamburguesa: va a la IZQUIERDA de la marca y desnuda — sin caja, borde ni
@@ -184,15 +192,15 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
   /* Panel: hoja desplegable bajo la barra, con scroll propio si no cabe */
   .vxnav-menu {
     position: fixed; left: 0; right: 0; z-index: 2;
-    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
-    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+    top: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px));
+    top: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
     display: flex; flex-direction: column; align-items: stretch; gap: 0;
     padding: 0.6rem clamp(1rem, 4vw, 1.6rem) calc(1.1rem + env(safe-area-inset-bottom, 0px));
     padding-left: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-left, 0px));
     padding-right: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-right, 0px));
-    max-height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px));
-    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px)); /* barra del navegador incluida */
-    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+    max-height: calc(100vh - var(--nav-h) - var(--nav-air-t, 0rem) - env(safe-area-inset-top, 0px));
+    max-height: calc(100dvh - var(--nav-h) - var(--nav-air-t, 0rem) - env(safe-area-inset-top, 0px)); /* barra del navegador incluida */
+    max-height: calc(100dvh - var(--nav-h) - var(--nav-air-t, 0rem) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
     overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
     background: color-mix(in srgb, var(--bg) 97%, transparent);
     -webkit-backdrop-filter: blur(1rem) saturate(1.3); backdrop-filter: blur(1rem) saturate(1.3);
@@ -276,8 +284,8 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
      de ahí visibility + pointer-events, que además permiten el desvanecido. */
   .vxnav-scrim {
     display: block; position: fixed; z-index: 1;
-    inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px)) 0 0;
-    inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem)) 0 0;
+    inset: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px)) 0 0;
+    inset: calc(var(--nav-h) + var(--nav-air-t, 0rem) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem)) 0 0;
     background: rgba(6,9,14,.5); -webkit-backdrop-filter: blur(0.15rem); backdrop-filter: blur(0.15rem);
     opacity: 0; visibility: hidden; pointer-events: none; touch-action: none; border: 0;
     transition: opacity .24s ease, visibility .24s;

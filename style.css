@@ -64,7 +64,10 @@ body {
    El tablero queda centrado vertical y horizontalmente en toda la pantalla
    (la navbar flota por encima). Tarjetas en diagonal: tú abajo-izq, rival arriba-der. */
 .stage {
-  min-height: 100vh;
+  /* La navbar (variante site) ya ocupa su alto en el flujo: el escenario
+     llena el resto del viewport, sin scroll fantasma. */
+  min-height: calc(100vh - var(--nav-h, 5.4rem));
+  min-height: calc(100dvh - var(--nav-h, 5.4rem));
   display: grid; place-content: center; align-items: center;
   grid-template-columns: minmax(9rem, 15rem) auto minmax(9rem, 15rem);
   grid-template-areas: "pbot board ptop";
@@ -638,7 +641,8 @@ button.ctrl.wide { flex-basis: 100%; }
     grid-template-columns: 1fr;
     grid-template-areas: "ptop" "board" "pbot";
     place-content: start center; justify-items: center;
-    padding: 7.2rem 1rem 8.5rem;   /* hueco para la navbar (arriba) y el dock (abajo) */
+    /* la navbar ya reserva su alto en el flujo; abajo, hueco para el dock */
+    padding: 0.9rem 1rem 8.5rem;
     row-gap: 0.9rem;
   }
   .brand-mark { height: 3.5rem; }

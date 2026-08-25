@@ -22,6 +22,8 @@ Que los usuarios ganen **reputación** con el tiempo. Posibles fuentes (por deci
 - Relación con el sistema de insignias (algunas insignias podrían dar reputación).
 
 ## En marcha / hecho
+- ✅ **Una sola navbar en todo el sitio**: `play.html` y `game.html` dejan la barra flotante "battle" y montan la navbar común (variante `site` con `data-intro` para conservar la intro del logo). El botón de ayuda del juego viaja al slot de acciones junto al chip; el selector de idioma legacy (es/en) y el popover de tema del tablero de la partida desaparecen — ambos viven en Ajustes. Los huecos de compensación del escenario y de la partida online se recalculan al alto real de la barra.
+- ✅ **Aire superior propio de la navbar** (`--nav-air-t`): cuando el navegador lleva su barra arriba (Safari horizontal, Android, escritorio) `env(safe-area-inset-top)` es 0 legítimamente y la barra nacía pegada al borde; ahora en móvil/tablet lleva 0.65rem de aire base además del safe-area.
 - ✅ **Página de Ajustes (`ajustes.html`)**: idioma de la interfaz y tema del tablero en una lista agrupada al estilo de un sistema operativo. El selector de idioma sale de la navbar (en escritorio lo sustituye un engranaje discreto; en el panel móvil, una fila de Ajustes), que queda más limpia. Textos en los 14 idiomas.
 - ✅ **Safe-area superior blindado (iOS 26)**: `env()` directo en cada regla (nunca dentro de una custom property: WebKit lo resuelve a 0), colchón condicional `min(env*99, 1.9rem)` que solo existe con muesca, y todo declarado en capas para que un motor que no entienda el colchón conserve al menos el inset simple.
 - ✅ Cuentas (registro/login), perfiles, persistencia en la nube (D1), Elo y estadísticas.

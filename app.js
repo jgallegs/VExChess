@@ -792,7 +792,7 @@ coachToggle.addEventListener('change', () => {
   maybeCoach();
 });
 levelSel.addEventListener('change', () => { level = levelSel.value; configureEngine(); render(); });
-langSel.addEventListener('change', () => { setLang(langSel.value); });   // recarga con el nuevo idioma
+if (langSel) langSel.addEventListener('change', () => { setLang(langSel.value); });   // el idioma vive ahora en ajustes.html
 
 // ==========================================================================
 //  GUÍA (modal) — contenido desde i18n
@@ -991,7 +991,7 @@ function applyI18n() {
     langSel.innerHTML = LANGS.map(([c, n]) => '<option value="' + c + '">' + n + '</option>').join('');
     langSel.dataset.i18nFilled = '1';
   }
-  langSel.value = lang;
+  if (langSel) langSel.value = lang;
   refreshLabels();
 
   const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };

@@ -4,7 +4,8 @@
 body.gm-page { min-height: 100vh; }
 .gm-page .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
 .gm-page .nav-link:hover { color: var(--text); }
-.gm-wrap { max-width: 58rem; margin: 0 auto; box-sizing: border-box; padding: clamp(6rem, 7rem, 8rem) clamp(0.6rem, 3vw, 1.5rem) 2.5rem; }
+/* la navbar (variante site) ya reserva su alto: sin huecos de compensación */
+.gm-wrap { max-width: 58rem; margin: 0 auto; box-sizing: border-box; padding: clamp(1rem, 2.5vw, 1.8rem) clamp(0.6rem, 3vw, 1.5rem) 2.5rem; }
 
 .gm-state { text-align: center; padding: 5rem 1rem; min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
 .gm-state h1 { font-family: 'Oxanium', sans-serif; font-weight: 800; margin: 0; }

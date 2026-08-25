@@ -131,9 +131,11 @@ Dos variantes:
   (engranaje) y chip de cuenta. Es la de todas las páginas de contenido. El
   selector de idioma y el tema del tablero viven en su propia página,
   **`ajustes.html`** (`ajustes.css` + `ajustes.js`), no en la barra.
-- **`battle`** — barra flotante de la partida (`play.html`, `game.html`), con la
-  animación de entrada del logo. Admite botones propios vía
-  `<template data-slot="actions">…</template>`.
+- **`battle`** — la antigua barra flotante de partida. Ya no la usa ninguna
+  página: `play.html` y `game.html` montan la variante `site` con `data-intro`
+  (conserva la animación de entrada del logo). Ambas variantes admiten botones
+  propios vía `<template data-slot="actions">…</template>` — en `site` se
+  colocan junto al chip de cuenta (ej.: la ayuda del juego).
 
 Los enlaces son **los mismos en todas las vistas**: se editan en un solo sitio,
 la constante `SITE_LINKS` de `navbar.js` (y su texto en `nav.<clave>` de cada

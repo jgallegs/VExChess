@@ -66,7 +66,7 @@ function currentPage() {
   return p === '' ? 'index.html' : p;
 }
 
-function siteHTML(ds) {
+function siteHTML(ds, actionsHTML) {
   const isHome = ds.home !== undefined;
   const here = currentPage();
   const links = SITE_LINKS.map(([href, key]) => {
@@ -88,6 +88,7 @@ function siteHTML(ds) {
         '</a>' +
       '</div>' +
       '<div class="vxnav-bar">' +
+        (actionsHTML ? '<div class="vxnav-actions">' + actionsHTML + '</div>' : '') +
         '<div class="vx-account"></div>' +
       '</div>' +
     '</div>' +
@@ -202,16 +203,20 @@ function runIntro(el) {
   const node = document.getElementById('vx-nav');
   if (!node) return;
   const variant = node.dataset.variant || 'site';
+  // Botones propios de la página (p. ej. la ayuda del juego): mismo slot
+  // en ambas variantes; en site van junto al chip de cuenta.
+  const slot = node.querySelector('[data-slot="actions"]');
+  const actions = slot ? slot.innerHTML : '';
   if (variant === 'battle') {
-    const slot = node.querySelector('[data-slot="actions"]');
-    const actions = slot ? slot.innerHTML : '';
     node.className = 'navbar';
     node.removeAttribute('data-variant');
     node.innerHTML = battleHTML(actions);
     injectIntro();
   } else {
+    const wantIntro = node.dataset.intro !== undefined;
     node.className = 'vxnav';
-    node.innerHTML = siteHTML(node.dataset);
+    node.innerHTML = siteHTML(node.dataset, actions);
     wireSite(node);
+    if (wantIntro) injectIntro();
   }
 })();
