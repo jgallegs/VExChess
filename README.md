@@ -39,6 +39,31 @@ Todo el CSS es **100% responsive y sin `px`**: se usan solo unidades relativas
 `html { font-size: clamp(...) }` en `style.css`), así que toda la interfaz escala
 sola con el tamaño de la ventana. Cualquier cambio futuro debe mantener esta norma.
 
+## Portada (`index.html` + `home.css` + `home.js`)
+
+La portada presenta VEXCHESS como **plataforma**, no como una demo de motor: se
+juega online o contra la máquina, se aprende en la Academia con AXIOM, se
+entrena con puzzles y se coleccionan los Vexborn. El motor de ajedrez es *una*
+de las formas de jugar, no el titular.
+
+Secciones, en orden: hero · bento de modos · Academia (AXIOM) · Vexborn ·
+en camino · CTA final · footer. Todos los textos salen de `home.*` en
+`lang/*.json`; el arte sale de `assets/vexborn/card/` y `assets/axiom/poses/`.
+
+Dos reglas al tocarla:
+
+- **Las cifras del hero (23 lecciones, 16 Vexborn, 14 idiomas) son reales.**
+  Salen de `LESSONS` en `academy-lessons.js`, de `VEXBORN` en `vexborn.js` y de
+  `LANGS` en `i18n.js`. Si cambian esas listas, hay que actualizarlas aquí.
+- **La sección "En camino" es solo lo que aún NO existe.** Cuando algo se
+  termina, sube al bento de modos con su enlace; no se queda como
+  "próximamente". Es justo el error que tenía la portada anterior: anunciaba
+  cuentas, lecciones y comunidad como futuras cuando ya estaban hechas.
+
+`home.js` se encarga del tablero decorativo del hero, de la aparición de los
+bloques `[data-reveal]` al entrar en pantalla (con `IntersectionObserver`, y
+todo visible de golpe si el usuario pide menos movimiento) y del año del footer.
+
 ## Navbar compartida (`navbar.js` + `navbar.css`)
 
 Todas las páginas montan la misma barra desde un único componente. Basta con
@@ -125,7 +150,8 @@ repositorio de GitHub. No necesita build ni configuración especial.)
     vexborn.html / insignias.html  Progresión e insignias
     admin.html    Panel de administración
     style.css     Estilos base y compartidos (botones, modales, navbar "battle"…)
-    home.css, academia.css, …      Estilos por página
+    home.css / home.js             Portada (ver más abajo)
+    academia.css, comunidad.css, … Estilos por página
     navbar.css / navbar.js         Navbar compartida (ver más abajo)
     account-chip.js                Chip de cuenta desplegable de la navbar
     auth.js       Sesión, cuenta y datos del usuario

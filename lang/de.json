@@ -192,119 +192,118 @@
   },
   "home": {
     "meta": {
-      "title": "VEXCHESS · Schach mit KI (Stockfish 18 · NNUE)",
-      "description": "Schach gegen eine erstklassige KI (Stockfish 18 · NNUE) direkt in deinem Browser. Trainermodus, Warnung vor bedrohten Figuren, Puzzles und interaktive Anleitung. Kostenlos und offline."
+      "title": "VEXCHESS · Schach spielen, lernen und sammeln",
+      "description": "Schachplattform im Browser: spiele online oder gegen die Maschine, lerne in der Akademie mit AXIOM, trainiere mit Puzzles und sammle die Vexborn. Kostenlos."
     },
     "hero": {
-      "badge": "Stockfish 18 · NNUE · 100% in deinem Browser",
+      "badge": "Schachplattform · 100% in deinem Browser",
       "title": "Denk. Spiel.<br><span class=\"accent\">Sieg.</span>",
-      "sub": "Schach gegen eine erstklassige künstliche Intelligenz, mit Trainermodus, Warnung vor bedrohten Figuren und einer interaktiven Anleitung zu jeder Figur. Ohne Server, ohne Anmeldung, direkt in deinem Browser.",
+      "sub": "Spiele online gegen deine Freunde oder miss dich mit der Maschine, lerne in der Akademie mit AXIOM wirklich Schach und sammle die Vexborn. Alles im Browser und kostenlos.",
       "cta": {
         "play": "Jetzt spielen",
-        "features": "Funktionen ansehen"
+        "learn": "In der Akademie starten"
       },
       "stat": {
-        "difficulty": "Schwierigkeitsstufen",
-        "neural": "Neuronales Netz",
-        "free": "Kostenlos und offline"
+        "lessons": "Geführte Lektionen",
+        "vexborn": "Vexborn",
+        "langs": "Sprachen"
       },
       "scroll": {
         "aria": "Nach unten"
       }
     },
-    "features": {
-      "eyebrow": "Funktionen",
-      "heading": "Alles, was du brauchst, um dich zu <span class=\"accent\">verbessern</span>",
-      "subtitle": "Ein vollständiges Schacherlebnis, das komplett in deinem Browser läuft.",
-      "neural": {
-        "title": "Gegner mit neuronalem Netz",
-        "body": "Stockfish 18 mit <b>NNUE</b>-Bewertung, die stärkste Open-Source-Engine der Welt. Einstellbare Schwierigkeit von ~1320 bis unschlagbarer Stärke."
+    "modes": {
+      "eyebrow": "Was du tun kannst",
+      "heading": "Eine Plattform, <span class=\"accent\">viele Arten</span> zu spielen",
+      "subtitle": "Jeder Teil von VEXCHESS ist dafür gebaut, dass du mehr spielst und mehr verstehst.",
+      "online": {
+        "tag": "Gegen Menschen",
+        "title": "Spiele online",
+        "body": "Fordere deine Freunde mit deiner VEX ID heraus oder suche einen Gegner nach Elo in Bullet, Blitz oder Schnellschach. Deine Wertung geht überall mit.",
+        "cta": "Gegner suchen"
       },
-      "coach": {
-        "title": "Trainermodus",
-        "body": "Eine zweite Instanz der Engine mit maximaler Stärke schlägt dir mit einem Pfeil den besten Zug vor und erklärt dir das Warum."
+      "machine": {
+        "title": "Miss dich mit der Maschine",
+        "body": "Ein Gegner mit einstellbarer Stärke, von ~1320 bis zur vollen Kraft, mit Trainermodus und Warnung vor bedrohten Figuren.",
+        "note": "Stockfish 18 (NNUE) als WebAssembly, direkt auf deinem Gerät.",
+        "cta": "Eine Partie spielen"
       },
-      "danger": {
-        "title": "Warnung vor bedrohten Figuren",
-        "body": "Hebt bedrohte Figuren mit einem Leuchten hervor und warnt dich besonders, wenn deine Dame in Gefahr ist. Häng nie wieder eine Figur ein, ohne es zu merken."
-      },
-      "guide": {
-        "title": "Interaktive Anleitung",
-        "body": "Eine große Karte pro Figur mit ihrem Wert, ihrer Geschichte und einer <b>Endlos-Simulation</b>, wie sie zieht und schlägt."
-      },
-      "multilang": {
-        "title": "Mehrsprachig",
-        "body": "Spanisch und Englisch mit automatischer Erkennung. Die gesamte Oberfläche und Anleitung übersetzt."
-      },
-      "local": {
-        "title": "100% in deinem Browser",
-        "body": "Die Engine ist zu WebAssembly kompiliert und läuft lokal. Ohne Server, ohne API-Schlüssel, kostenlos und auch ohne Verbindung."
-      }
-    },
-    "ia": {
-      "eyebrow": "Das Gehirn",
-      "heading": "Stockfish 18 mit neuronalem Netz <span class=\"accent\">NNUE</span>",
-      "body": "Der Gegner nutzt dieselbe Engine wie Chess.com: <b>Stockfish 18</b>, mit Bewertung durch ein neuronales Netz (Efficiently Updatable Neural Network), kompiliert zu <b>WebAssembly</b> und komplett in deinem Browser in einem <i>Web Worker</i> ausgeführt. Er spricht das UCI-Protokoll, denkt in Millisekunden und sendet nichts an irgendeinen Server.",
-      "list": {
-        "rules": "Vollständige Regeln über <b>chess.js</b>: Rochade, Umwandlung, en passant, Schachmatt und Remis.",
-        "difficulty": "Schwierigkeit nach Elo oder maximale Stärke, in jeder Partie einstellbar.",
-        "private": "Privat konzipiert: Die gesamte Berechnung findet auf deinem Gerät statt."
-      },
-      "cta": "Engine ausprobieren"
-    },
-    "roadmap": {
-      "eyebrow": "Roadmap",
-      "heading": "Das ist erst der <span class=\"accent\">Anfang</span>",
-      "subtitle": "Wir bauen eine Plattform. Das kommt als Nächstes:",
-      "badge": {
-        "live": "Verfügbar",
-        "preview": "Vorschau",
-        "soon": "Demnächst"
+      "academy": {
+        "title": "Akademie",
+        "body": "23 geführte Lektionen in 8 Stufen, Sparring mit AXIOM und ein Labor für deine eigenen Partien.",
+        "cta": "Lernen"
       },
       "puzzles": {
-        "title": "Taktik-Puzzles",
-        "body": "Finde das Matt in echten Stellungen. Du kannst schon trainieren! <b>Spielen →</b>"
+        "title": "Taktikpuzzles",
+        "body": "Matt in 1, Matt in 2 und Schläge, die Material gewinnen. Trainiere dein Auge an klaren Stellungen.",
+        "cta": "Trainieren"
       },
-      "history": {
+      "games": {
         "title": "Meine Partien",
-        "body": "Deine beendeten Partien werden automatisch gespeichert. Sieh sie Zug für Zug durch. <b>Ansehen →</b>"
+        "body": "Alles, was du spielst, speichert sich von selbst. Geh es Zug für Zug durch, wann du willst.",
+        "cta": "Partien ansehen"
       },
-      "live": {
-        "title": "Live",
-        "body": "Echtzeitpartien gegen andere Menschen. Wirf einen Blick darauf, wie es aussehen wird. <b>Ansehen →</b>"
+      "community": {
+        "title": "Community",
+        "body": "Freunde, Anfragen und Herausforderungen. Deine VEX ID, damit man dich findet, und deine Abzeichen für deine Geschichte.",
+        "cta": "Community ansehen"
+      }
+    },
+    "axiom": {
+      "eyebrow": "Die Akademie",
+      "heading": "AXIOM gibt dir den Zug nicht. Er bringt dir bei, ihn zu <span class=\"accent\">finden</span>.",
+      "body": "Der Meister der Varianten begleitet dich vom allerersten Feld bis zu deinen eigenen Partien. Hier wird nichts auswendig gelernt: hier verstehst du, warum ein Zug existiert.",
+      "list": {
+        "path": "8 Stufen und 23 Lektionen, vom leeren Brett bis zum Verwerten von Vorteilen.",
+        "sparring": "Geführtes Sparring: du spielst, und AXIOM greift nur in den Schlüsselmomenten ein.",
+        "lab": "Labor: am Ende wählt er drei Momente deiner Partie aus und erklärt sie dir."
       },
-      "accounts": {
-        "title": "Konten und Profil",
-        "body": "Registriere dich, speichere deine Partien und deinen Fortschritt und nimm deine Elo überallhin mit."
+      "cta": "Zur Akademie"
+    },
+    "vexborn": {
+      "eyebrow": "Vexborn-Kodex",
+      "heading": "Die Figuren, die auf dem Brett <span class=\"accent\">leben</span>",
+      "body": "Sechzehn Vexborn in zwei Erweiterungen. Jeder hat seine Geschichte, seine Figur und ein echtes Schachkonzept, das er lehrt. Sie ändern die Regeln nicht: sie ändern, wie du sie erlebst.",
+      "origins": "Der Erste Zug",
+      "crownfall": "Die zerbrochene Krone",
+      "masteryTitle": "Pfade der Meisterschaft",
+      "mastery": "Stärke die Bindung durchs Spielen",
+      "cta": "Kodex ansehen"
+    },
+    "roadmap": {
+      "eyebrow": "Unterwegs",
+      "heading": "Was als <span class=\"accent\">Nächstes</span> kommt",
+      "subtitle": "Was schon fertig ist, steht hier oben. Das hier bauen wir gerade.",
+      "ranking": {
+        "title": "Ranking und Bestenlisten",
+        "body": "Eine Bestenliste mit Saisons, um zu sehen, wie weit du kommst und gegen wen."
       },
-      "lessons": {
-        "title": "Lektionen",
-        "body": "Lerne Eröffnungen, Endspiele und Strategie Schritt für Schritt."
+      "clubs": {
+        "title": "Klubs und Turniere",
+        "body": "Teams, eigene Turniere und organisierte Partien unter Freunden."
       },
-      "leaderboard": {
-        "title": "Bestenliste und Ranking",
-        "body": "Kämpfe mit einem Elo-System und Ranglisten um die Spitze."
-      },
-      "social": {
-        "title": "Teams und Soziales",
-        "body": "Gründe Klubs oder tritt ihnen bei, spiele mit Freunden und organisiere Turniere."
+      "expansion": {
+        "title": "Neue Vexborn-Erweiterungen",
+        "body": "Null Variation zeichnet sich schon ab: mehr Figuren, mehr Lore und mehr Pfade."
       }
     },
     "ctaFinal": {
       "heading": "Bereit für deine nächste Partie?",
-      "subtitle": "Wähle deine Seite, deine Stufe und zeig der Maschine, wer das Sagen hat.",
-      "play": "Jetzt spielen"
+      "subtitle": "Wähle deine Farbe, wähle deinen Gegner und zeig, wie weit du kommst.",
+      "play": "Jetzt spielen",
+      "online": "Gegner online suchen"
     },
     "footer": {
       "tag": "Think ahead.",
       "links": {
         "play": "Spielen",
-        "features": "Funktionen",
-        "ia": "Die KI",
-        "roadmap": "Roadmap"
+        "online": "Online",
+        "academy": "Akademie",
+        "puzzles": "Puzzles",
+        "vexborn": "Vexborn",
+        "community": "Community"
       },
       "credits": "Engine: <a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a> (GPLv3). Regeln: <a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>. Figuren: Staunty-Set (Lichess).",
-      "copy": "© {year} VEXCHESS · Gemacht von Jorge.",
       "author": "Erstellt von Jorge."
     }
   },

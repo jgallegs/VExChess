@@ -192,119 +192,118 @@
   },
   "home": {
     "meta": {
-      "title": "VEXCHESS · Chess with AI (Stockfish 18 · NNUE)",
-      "description": "Chess against a top-tier AI (Stockfish 18 · NNUE) right in your browser. Coach mode, pieces-in-danger warnings, puzzles and an interactive guide. Free and offline."
+      "title": "VEXCHESS · Play, learn and collect chess",
+      "description": "A chess platform in your browser: play online or against the machine, learn in the Academy with AXIOM, train with puzzles and collect the Vexborn. Free."
     },
     "hero": {
-      "badge": "Stockfish 18 · NNUE · 100% in your browser",
+      "badge": "Chess platform · 100% in your browser",
       "title": "Think. Play.<br><span class=\"accent\">Win.</span>",
-      "sub": "Chess against a top-tier artificial intelligence, with coach mode, pieces-in-danger warnings and an interactive guide to every piece. No servers, no sign-up, right in your browser.",
+      "sub": "Play online against your friends or test yourself against the machine, really learn in the Academy with AXIOM and collect the Vexborn. All in your browser, free.",
       "cta": {
         "play": "Play now",
-        "features": "See features"
+        "learn": "Start in the Academy"
       },
       "stat": {
-        "difficulty": "Difficulty levels",
-        "neural": "Neural network",
-        "free": "Free and offline"
+        "lessons": "Guided lessons",
+        "vexborn": "Vexborn",
+        "langs": "Languages"
       },
       "scroll": {
         "aria": "Scroll down"
       }
     },
-    "features": {
-      "eyebrow": "Features",
-      "heading": "Everything you need to <span class=\"accent\">improve</span>",
-      "subtitle": "A complete chess experience that runs entirely in your browser.",
-      "neural": {
-        "title": "Neural network opponent",
-        "body": "Stockfish 18 with <b>NNUE</b> evaluation, the strongest open-source engine in the world. Adjustable difficulty from ~1320 to unstoppable strength."
+    "modes": {
+      "eyebrow": "What you can do",
+      "heading": "One platform, <span class=\"accent\">many ways</span> to play",
+      "subtitle": "Every part of VEXCHESS is built so you play more and understand better.",
+      "online": {
+        "tag": "Against people",
+        "title": "Play online",
+        "body": "Challenge your friends with your VEX ID or find an opponent by Elo in bullet, blitz or rapid. Your rating follows you everywhere.",
+        "cta": "Find an opponent"
       },
-      "coach": {
-        "title": "Coach mode",
-        "body": "A second instance of the engine at maximum strength suggests the best move with an arrow and explains why."
+      "machine": {
+        "title": "Test yourself against the machine",
+        "body": "An opponent with adjustable strength, from ~1320 up to full power, with coach mode and pieces-in-danger warnings.",
+        "note": "Stockfish 18 (NNUE) engine on WebAssembly, running on your own device.",
+        "cta": "Play a game"
       },
-      "danger": {
-        "title": "Pieces-in-danger warning",
-        "body": "It highlights threatened pieces with a glow and warns you especially when your queen is in danger. Never hang a piece unknowingly again."
-      },
-      "guide": {
-        "title": "Interactive guide",
-        "body": "A large card for each piece with its value, its history and a <b>looping simulation</b> of how it moves and captures."
-      },
-      "multilang": {
-        "title": "Multi-language",
-        "body": "Spanish and English with automatic detection. The entire interface and guide are translated."
-      },
-      "local": {
-        "title": "100% in your browser",
-        "body": "The engine is compiled to WebAssembly and runs locally. No servers, no API keys, no cost, and it works offline."
-      }
-    },
-    "ia": {
-      "eyebrow": "The brain",
-      "heading": "Stockfish 18 with <span class=\"accent\">NNUE</span> neural network",
-      "body": "The opponent uses the same engine as Chess.com: <b>Stockfish 18</b>, with neural network evaluation (Efficiently Updatable Neural Network), compiled to <b>WebAssembly</b> and running entirely inside your browser in a <i>Web Worker</i>. It speaks the UCI protocol, thinks in milliseconds and sends nothing to any server.",
-      "list": {
-        "rules": "Complete rules via <b>chess.js</b>: castling, promotion, en passant, checkmate and draws.",
-        "difficulty": "Difficulty by Elo or maximum strength, configurable in every game.",
-        "private": "Private by design: all computation happens on your device."
-      },
-      "cta": "Try the engine"
-    },
-    "roadmap": {
-      "eyebrow": "Roadmap",
-      "heading": "This is just the <span class=\"accent\">beginning</span>",
-      "subtitle": "We're building a platform. What's coming:",
-      "badge": {
-        "live": "Available",
-        "preview": "Preview",
-        "soon": "Coming soon"
+      "academy": {
+        "title": "Academy",
+        "body": "23 guided lessons across 8 levels, sparring with AXIOM and a lab for your own games.",
+        "cta": "Learn"
       },
       "puzzles": {
         "title": "Tactical puzzles",
-        "body": "Find the mate in real positions. You can train now! <b>Play →</b>"
+        "body": "Mate in 1, mate in 2 and blows that win material. Train your eye on clean positions.",
+        "cta": "Train"
       },
-      "history": {
+      "games": {
         "title": "My games",
-        "body": "Your finished games save themselves. Review them move by move. <b>View →</b>"
+        "body": "Everything you play saves itself. Go back through it move by move whenever you like.",
+        "cta": "View games"
       },
-      "live": {
-        "title": "Live",
-        "body": "Real-time games against other people. Take a look at how it will look. <b>View →</b>"
+      "community": {
+        "title": "Community",
+        "body": "Friends, requests and challenges. Your VEX ID so people find you and your badges to tell your story.",
+        "cta": "View community"
+      }
+    },
+    "axiom": {
+      "eyebrow": "The Academy",
+      "heading": "AXIOM does not hand you the move. He teaches you to <span class=\"accent\">find it</span>.",
+      "body": "The Master of Variations walks with you from the very first square to your own games. Nothing is memorised here: you understand why the move exists.",
+      "list": {
+        "path": "8 levels and 23 lessons, from an empty board to converting an advantage.",
+        "sparring": "Guided sparring: you play, and AXIOM steps in only at the key moments.",
+        "lab": "Lab: when you finish, he picks three moments from your game and explains them."
       },
-      "accounts": {
-        "title": "Accounts and profile",
-        "body": "Sign up, save your games and progress, and take your Elo with you."
+      "cta": "Enter the Academy"
+    },
+    "vexborn": {
+      "eyebrow": "Vexborn Codex",
+      "heading": "The characters that <span class=\"accent\">live</span> on the board",
+      "body": "Sixteen Vexborn across two expansions. Each one has a story, a piece and a real chess concept it teaches. They do not change the rules: they change how you live them.",
+      "origins": "The First Move",
+      "crownfall": "The broken crown",
+      "masteryTitle": "Mastery Paths",
+      "mastery": "Raise your bond by playing",
+      "cta": "See the codex"
+    },
+    "roadmap": {
+      "eyebrow": "On the way",
+      "heading": "What comes <span class=\"accent\">next</span>",
+      "subtitle": "What is already done lives up above. This is what we are building now.",
+      "ranking": {
+        "title": "Ranking and leaderboards",
+        "body": "A seasonal leaderboard to see how far you get, and against whom."
       },
-      "lessons": {
-        "title": "Lessons",
-        "body": "Learn openings, endgames and strategy step by step."
+      "clubs": {
+        "title": "Clubs and tournaments",
+        "body": "Teams, your own tournaments and organised games among friends."
       },
-      "leaderboard": {
-        "title": "Leaderboard and ranking",
-        "body": "Compete for the top with an Elo system and rankings."
-      },
-      "social": {
-        "title": "Teams and social",
-        "body": "Create or join clubs, play with friends and organize tournaments."
+      "expansion": {
+        "title": "New Vexborn expansions",
+        "body": "Null Variation is already showing: more characters, more lore and more paths to walk."
       }
     },
     "ctaFinal": {
       "heading": "Ready for your next game?",
-      "subtitle": "Pick your side, your level, and show the machine who's boss.",
-      "play": "Play now"
+      "subtitle": "Pick a side, pick an opponent and show how far you can go.",
+      "play": "Play now",
+      "online": "Find an opponent online"
     },
     "footer": {
       "tag": "Think ahead.",
       "links": {
         "play": "Play",
-        "features": "Features",
-        "ia": "The AI",
-        "roadmap": "Roadmap"
+        "online": "Online",
+        "academy": "Academy",
+        "puzzles": "Puzzles",
+        "vexborn": "Vexborn",
+        "community": "Community"
       },
       "credits": "Engine: <a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a> (GPLv3). Rules: <a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>. Pieces: Staunty set (Lichess).",
-      "copy": "© {year} VEXCHESS · Made by Jorge.",
       "author": "Made by Jorge."
     }
   },

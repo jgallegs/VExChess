@@ -192,119 +192,118 @@
   },
   "home": {
     "meta": {
-      "title": "VEXCHESS · AI 国际象棋（Stockfish 18 · NNUE）",
-      "description": "在你的浏览器中直接对战顶级 AI（Stockfish 18 · NNUE）。教练模式、受威胁棋子提示、战术题和交互式指南。免费且可离线。"
+      "title": "VEXCHESS · 下棋、学棋、收藏",
+      "description": "浏览器里的国际象棋平台：在线对弈或挑战引擎，在学院跟随 AXIOM 学习，用战术题训练，并收藏 Vexborn。完全免费。"
     },
     "hero": {
-      "badge": "Stockfish 18 · NNUE · 100% 在你的浏览器中运行",
+      "badge": "国际象棋平台 · 100% 在你的浏览器里",
       "title": "思考。对弈。<br><span class=\"accent\">取胜。</span>",
-      "sub": "对战顶级人工智能，配有教练模式、受威胁棋子提示以及每枚棋子的交互式指南。无需服务器、无需注册，直接在你的浏览器中运行。",
+      "sub": "和朋友在线对弈，或与引擎较量；在学院跟随 AXIOM 真正学懂棋，还能收藏 Vexborn。全部在浏览器里，完全免费。",
       "cta": {
         "play": "立即对弈",
-        "features": "查看功能"
+        "learn": "从学院开始"
       },
       "stat": {
-        "difficulty": "难度等级",
-        "neural": "神经网络",
-        "free": "免费且离线"
+        "lessons": "引导课程",
+        "vexborn": "Vexborn",
+        "langs": "种语言"
       },
       "scroll": {
         "aria": "向下"
       }
     },
-    "features": {
-      "eyebrow": "功能",
-      "heading": "你<span class=\"accent\">进步</span>所需的一切",
-      "subtitle": "完整的国际象棋体验，全部在你的浏览器中运行。",
-      "neural": {
-        "title": "神经网络对手",
-        "body": "采用 <b>NNUE</b> 评估的 Stockfish 18，全球最强的开源引擎。难度可从 ~1320 调节至无法击败的强度。"
+    "modes": {
+      "eyebrow": "你可以做什么",
+      "heading": "一个平台，<span class=\"accent\">多种玩法</span>",
+      "subtitle": "VEXCHESS 的每一部分都是为了让你多下棋、看得更明白。",
+      "online": {
+        "tag": "与真人对弈",
+        "title": "在线对弈",
+        "body": "用你的 VEX ID 挑战好友，或按等级分在超快棋、快棋、慢棋中匹配对手。你的等级分走到哪里跟到哪里。",
+        "cta": "寻找对手"
       },
-      "coach": {
-        "title": "教练模式",
-        "body": "以最高强度运行的第二个引擎实例，用箭头为你推荐最佳着法并解释原因。"
+      "machine": {
+        "title": "与引擎较量",
+        "body": "对手强度可调，从约 1320 一直到满血状态，还有教练模式和棋子受威胁提示。",
+        "note": "Stockfish 18（NNUE）引擎，编译为 WebAssembly，在你自己的设备上运行。",
+        "cta": "下一盘"
       },
-      "danger": {
-        "title": "受威胁棋子提示",
-        "body": "用光晕高亮受威胁的棋子，并在你的后处于危险时特别提醒你。再也不会不知不觉地送子。"
-      },
-      "guide": {
-        "title": "交互式指南",
-        "body": "每枚棋子配有一张大卡片，展示其价值、历史，以及走子和吃子的<b>循环演示</b>。"
-      },
-      "multilang": {
-        "title": "多语言",
-        "body": "西班牙语和英语，自动检测。整个界面和指南均已翻译。"
-      },
-      "local": {
-        "title": "100% 在你的浏览器中",
-        "body": "引擎被编译为 WebAssembly，在本地运行。无需服务器、无需 API 密钥、零成本，且无网络也能使用。"
-      }
-    },
-    "ia": {
-      "eyebrow": "大脑",
-      "heading": "搭载 <span class=\"accent\">NNUE</span> 神经网络的 Stockfish 18",
-      "body": "对手使用与 Chess.com 相同的引擎：<b>Stockfish 18</b>，采用神经网络评估（Efficiently Updatable Neural Network），编译为 <b>WebAssembly</b> 并完全在你浏览器的 <i>Web Worker</i> 中运行。它使用 UCI 协议，思考只需毫秒，且不向任何服务器发送任何数据。",
-      "list": {
-        "rules": "通过 <b>chess.js</b> 实现完整规则：王车易位、升变、吃过路兵、将杀和和棋。",
-        "difficulty": "按 Elo 或最高强度设定难度，每局均可配置。",
-        "private": "隐私设计：所有计算都在你的设备上进行。"
-      },
-      "cta": "试试引擎"
-    },
-    "roadmap": {
-      "eyebrow": "路线图",
-      "heading": "这只是<span class=\"accent\">开始</span>",
-      "subtitle": "我们正在打造一个平台。即将推出：",
-      "badge": {
-        "live": "已上线",
-        "preview": "预览",
-        "soon": "即将推出"
+      "academy": {
+        "title": "学院",
+        "body": "8 个等级共 23 节引导课程，与 AXIOM 对练，还有属于你自己的对局实验室。",
+        "cta": "开始学习"
       },
       "puzzles": {
         "title": "战术题",
-        "body": "在真实局面中找到将杀。现在就可以训练了！<b>对弈 →</b>"
+        "body": "一步杀、两步杀，以及能赢子的妙手。在干净的局面里练眼力。",
+        "cta": "开始训练"
       },
-      "history": {
+      "games": {
         "title": "我的对局",
-        "body": "你结束的对局会自动保存。逐手回顾它们。<b>查看 →</b>"
+        "body": "你下的每一盘都会自动保存，随时可以一步步复盘。",
+        "cta": "查看对局"
       },
-      "live": {
-        "title": "直播",
-        "body": "与他人实时对弈。抢先看看它会是什么样子。<b>查看 →</b>"
+      "community": {
+        "title": "社区",
+        "body": "好友、申请与挑战。用 VEX ID 让别人找到你，用徽章讲述你的故事。",
+        "cta": "进入社区"
+      }
+    },
+    "axiom": {
+      "eyebrow": "学院",
+      "heading": "AXIOM 不会直接给你答案，而是教你如何<span class=\"accent\">找到它</span>。",
+      "body": "变着大师会陪你从第一个格子一路走到你自己的对局。这里不背棋谱：这里让你明白这步棋为什么存在。",
+      "list": {
+        "path": "8 个等级、23 节课，从空棋盘一直到把优势转化为胜利。",
+        "sparring": "引导式对练：由你来下，AXIOM 只在关键时刻出手。",
+        "lab": "实验室：下完之后，他会挑出你这盘的三个关键时刻讲给你听。"
       },
-      "accounts": {
-        "title": "账户与个人资料",
-        "body": "注册后保存你的对局和进度，让你的 Elo 随你同行。"
+      "cta": "进入学院"
+    },
+    "vexborn": {
+      "eyebrow": "Vexborn 典藏",
+      "heading": "<span class=\"accent\">活</span>在棋盘上的角色",
+      "body": "两个扩展包，共十六位 Vexborn。每一位都有自己的故事、自己的棋子，以及一个真实的国际象棋概念。他们不改变规则，只改变你体验规则的方式。",
+      "origins": "第一步",
+      "crownfall": "破碎的王冠",
+      "masteryTitle": "精通之路",
+      "mastery": "在对弈中加深羁绊",
+      "cta": "查看典藏"
+    },
+    "roadmap": {
+      "eyebrow": "正在路上",
+      "heading": "接下来<span class=\"accent\">会有什么</span>",
+      "subtitle": "已经做好的都在上面。这些是我们正在做的。",
+      "ranking": {
+        "title": "排行榜与分级",
+        "body": "带赛季的排行榜，看看你能走多远、又是赢了谁。"
       },
-      "lessons": {
-        "title": "课程",
-        "body": "一步步学习开局、残局与战略。"
+      "clubs": {
+        "title": "俱乐部与比赛",
+        "body": "战队、自办比赛，以及朋友之间约好的对局。"
       },
-      "leaderboard": {
-        "title": "排行榜与积分",
-        "body": "通过 Elo 系统和排名争夺榜首。"
-      },
-      "social": {
-        "title": "战队与社交",
-        "body": "创建或加入俱乐部，与好友对弈并组织比赛。"
+      "expansion": {
+        "title": "新的 Vexborn 扩展",
+        "body": "Null Variation 已初现端倪：更多角色、更多故事、更多可走的路。"
       }
     },
     "ctaFinal": {
       "heading": "准备好下一局了吗？",
-      "subtitle": "选择你的阵营、你的等级，向机器证明谁才是主宰。",
-      "play": "立即对弈"
+      "subtitle": "选好执子颜色，选好对手，看看你能走到哪一步。",
+      "play": "立即对弈",
+      "online": "在线寻找对手"
     },
     "footer": {
       "tag": "Think ahead.",
       "links": {
         "play": "对弈",
-        "features": "功能",
-        "ia": "AI",
-        "roadmap": "路线图"
+        "online": "在线对弈",
+        "academy": "学院",
+        "puzzles": "战术题",
+        "vexborn": "Vexborn",
+        "community": "社区"
       },
       "credits": "引擎：<a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a>（GPLv3）。规则：<a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>。棋子：Staunty 套装（Lichess）。",
-      "copy": "© {year} VEXCHESS · 由 Jorge 制作。",
       "author": "由 Jorge 制作。"
     }
   },

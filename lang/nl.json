@@ -192,119 +192,118 @@
   },
   "home": {
     "meta": {
-      "title": "VEXCHESS · Schaken met AI (Stockfish 18 · NNUE)",
-      "description": "Schaken tegen een topklasse AI (Stockfish 18 · NNUE), rechtstreeks in je browser. Trainermodus, waarschuwing voor stukken in gevaar, puzzels en een interactieve gids. Gratis en offline."
+      "title": "VEXCHESS · Speel, leer en verzamel schaken",
+      "description": "Schaakplatform in je browser: speel online of tegen de machine, leer in de Academie met AXIOM, train met puzzels en verzamel de Vexborn. Gratis."
     },
     "hero": {
-      "badge": "Stockfish 18 · NNUE · 100% in je browser",
+      "badge": "Schaakplatform · 100% in je browser",
       "title": "Denk. Speel.<br><span class=\"accent\">Win.</span>",
-      "sub": "Schaken tegen een topklasse kunstmatige intelligentie, met trainermodus, waarschuwing voor stukken in gevaar en een interactieve gids voor elk stuk. Geen servers, geen registratie, rechtstreeks in je browser.",
+      "sub": "Speel online tegen je vrienden of meet je met de machine, leer echt schaken in de Academie met AXIOM en verzamel de Vexborn. Alles in je browser en gratis.",
       "cta": {
         "play": "Nu spelen",
-        "features": "Bekijk functies"
+        "learn": "Begin in de Academie"
       },
       "stat": {
-        "difficulty": "Moeilijkheidsniveaus",
-        "neural": "Neuraal netwerk",
-        "free": "Gratis en offline"
+        "lessons": "Begeleide lessen",
+        "vexborn": "Vexborn",
+        "langs": "Talen"
       },
       "scroll": {
         "aria": "Omlaag"
       }
     },
-    "features": {
-      "eyebrow": "Functies",
-      "heading": "Alles wat je nodig hebt om te <span class=\"accent\">verbeteren</span>",
-      "subtitle": "Een complete schaakervaring die volledig in je browser draait.",
-      "neural": {
-        "title": "Tegenstander met neuraal netwerk",
-        "body": "Stockfish 18 met <b>NNUE</b>-evaluatie, de sterkste opensource-engine ter wereld. Instelbare moeilijkheid van ~1320 tot onverslaanbare kracht."
+    "modes": {
+      "eyebrow": "Wat je kunt doen",
+      "heading": "Eén platform, <span class=\"accent\">veel manieren</span> om te spelen",
+      "subtitle": "Elk onderdeel van VEXCHESS is gemaakt zodat je meer speelt en beter begrijpt.",
+      "online": {
+        "tag": "Tegen mensen",
+        "title": "Speel online",
+        "body": "Daag je vrienden uit met je VEX ID of zoek een tegenstander op Elo in bullet, blitz of rapid. Je rating gaat overal mee.",
+        "cta": "Tegenstander zoeken"
       },
-      "coach": {
-        "title": "Trainermodus",
-        "body": "Een tweede instantie van de engine op volle kracht stelt je de beste zet voor met een pijl en legt je uit waarom."
+      "machine": {
+        "title": "Meet je met de machine",
+        "body": "Een tegenstander met instelbaar niveau, van ~1320 tot volle kracht, met coachmodus en waarschuwing voor bedreigde stukken.",
+        "note": "Stockfish 18 (NNUE) als WebAssembly, draait op je eigen apparaat.",
+        "cta": "Een partij spelen"
       },
-      "danger": {
-        "title": "Waarschuwing voor stukken in gevaar",
-        "body": "Markeert bedreigde stukken met een gloed en waarschuwt je vooral wanneer je dame in gevaar staat. Geef nooit meer ongemerkt een stuk weg."
-      },
-      "guide": {
-        "title": "Interactieve gids",
-        "body": "Een grote kaart per stuk met zijn waarde, zijn geschiedenis en een <b>simulatie in een lus</b> van hoe het beweegt en slaat."
-      },
-      "multilang": {
-        "title": "Meertalig",
-        "body": "Spaans en Engels met automatische detectie. De hele interface en de gids zijn vertaald."
-      },
-      "local": {
-        "title": "100% in je browser",
-        "body": "De engine is gecompileerd naar WebAssembly en draait lokaal. Geen servers, geen API-sleutels, geen kosten en werkt zonder internet."
-      }
-    },
-    "ia": {
-      "eyebrow": "Het brein",
-      "heading": "Stockfish 18 met <span class=\"accent\">NNUE</span> neuraal netwerk",
-      "body": "De tegenstander gebruikt dezelfde engine als Chess.com: <b>Stockfish 18</b>, met evaluatie door een neuraal netwerk (Efficiently Updatable Neural Network), gecompileerd naar <b>WebAssembly</b> en volledig draaiend in je browser in een <i>Web Worker</i>. Hij spreekt het UCI-protocol, denkt in milliseconden en stuurt niets naar een server.",
-      "list": {
-        "rules": "Volledige regels via <b>chess.js</b>: rokade, promotie, en passant, schaakmat en remise.",
-        "difficulty": "Moeilijkheid per Elo of maximale kracht, instelbaar in elke partij.",
-        "private": "Privé door ontwerp: alle berekeningen gebeuren op je eigen apparaat."
-      },
-      "cta": "Probeer de engine"
-    },
-    "roadmap": {
-      "eyebrow": "Roadmap",
-      "heading": "Dit is nog maar het <span class=\"accent\">begin</span>",
-      "subtitle": "We bouwen een platform. Wat er komt:",
-      "badge": {
-        "live": "Beschikbaar",
-        "preview": "Voorbeeld",
-        "soon": "Binnenkort"
+      "academy": {
+        "title": "Academie",
+        "body": "23 begeleide lessen in 8 niveaus, sparren met AXIOM en een lab voor je eigen partijen.",
+        "cta": "Leren"
       },
       "puzzles": {
         "title": "Tactische puzzels",
-        "body": "Vind het mat in echte stellingen. Je kunt nu al trainen! <b>Spelen →</b>"
+        "body": "Mat in 1, mat in 2 en zetten die materiaal winnen. Train je oog op schone stellingen.",
+        "cta": "Trainen"
       },
-      "history": {
+      "games": {
         "title": "Mijn partijen",
-        "body": "Je afgeronde partijen worden vanzelf opgeslagen. Bekijk ze zet voor zet. <b>Bekijken →</b>"
+        "body": "Alles wat je speelt bewaart zichzelf. Loop het zet voor zet na wanneer je wilt.",
+        "cta": "Partijen bekijken"
       },
-      "live": {
-        "title": "Live",
-        "body": "Realtime partijen tegen andere mensen. Werp een blik op hoe het eruit gaat zien. <b>Bekijken →</b>"
+      "community": {
+        "title": "Community",
+        "body": "Vrienden, verzoeken en uitdagingen. Je VEX ID zodat ze je vinden en je badges om je verhaal te vertellen.",
+        "cta": "Community bekijken"
+      }
+    },
+    "axiom": {
+      "eyebrow": "De Academie",
+      "heading": "AXIOM geeft je de zet niet. Hij leert je hem te <span class=\"accent\">vinden</span>.",
+      "body": "De Meester van de Varianten loopt met je mee vanaf het allereerste veld tot je eigen partijen. Hier stamp je niets in je hoofd: je begrijpt waarom een zet bestaat.",
+      "list": {
+        "path": "8 niveaus en 23 lessen, van een leeg bord tot het uitspelen van je voordeel.",
+        "sparring": "Begeleid sparren: jij speelt, en AXIOM springt alleen bij op de sleutelmomenten.",
+        "lab": "Lab: na afloop kiest hij drie momenten uit je partij en legt ze uit."
       },
-      "accounts": {
-        "title": "Accounts en profiel",
-        "body": "Registreer je, bewaar je partijen en je voortgang, en neem je Elo overal mee."
+      "cta": "Naar de Academie"
+    },
+    "vexborn": {
+      "eyebrow": "Vexborn-codex",
+      "heading": "De personages die op het bord <span class=\"accent\">leven</span>",
+      "body": "Zestien Vexborn verdeeld over twee uitbreidingen. Elk heeft zijn verhaal, zijn stuk en een echt schaakconcept dat het leert. Ze veranderen de regels niet: ze veranderen hoe je ze beleeft.",
+      "origins": "De Eerste Zet",
+      "crownfall": "De gebroken kroon",
+      "masteryTitle": "Paden van Meesterschap",
+      "mastery": "Versterk je band door te spelen",
+      "cta": "Bekijk de codex"
+    },
+    "roadmap": {
+      "eyebrow": "Onderweg",
+      "heading": "Wat er <span class=\"accent\">hierna</span> komt",
+      "subtitle": "Wat al af is staat hierboven. Dit is wat we nu bouwen.",
+      "ranking": {
+        "title": "Ranglijst en klassementen",
+        "body": "Een ranglijst met seizoenen om te zien hoe ver je komt, en tegen wie."
       },
-      "lessons": {
-        "title": "Lessen",
-        "body": "Leer openingen, eindspelen en strategie stap voor stap."
+      "clubs": {
+        "title": "Clubs en toernooien",
+        "body": "Teams, eigen toernooien en georganiseerde partijen onder vrienden."
       },
-      "leaderboard": {
-        "title": "Leaderboard en ranglijst",
-        "body": "Strijd om de top met een Elo-systeem en ranglijsten."
-      },
-      "social": {
-        "title": "Teams en social",
-        "body": "Maak of word lid van clubs, speel met vrienden en organiseer toernooien."
+      "expansion": {
+        "title": "Nieuwe Vexborn-uitbreidingen",
+        "body": "Null Variation dient zich al aan: meer personages, meer lore en meer paden."
       }
     },
     "ctaFinal": {
       "heading": "Klaar voor je volgende partij?",
-      "subtitle": "Kies je kant, je niveau, en laat de machine zien wie de baas is.",
-      "play": "Nu spelen"
+      "subtitle": "Kies je kleur, kies je tegenstander en laat zien hoe ver je komt.",
+      "play": "Nu spelen",
+      "online": "Online tegenstander zoeken"
     },
     "footer": {
       "tag": "Think ahead.",
       "links": {
         "play": "Spelen",
-        "features": "Functies",
-        "ia": "De AI",
-        "roadmap": "Roadmap"
+        "online": "Online",
+        "academy": "Academie",
+        "puzzles": "Puzzels",
+        "vexborn": "Vexborn",
+        "community": "Community"
       },
       "credits": "Engine: <a href=\"https://stockfishchess.org/\" target=\"_blank\" rel=\"noopener\">Stockfish</a> (GPLv3). Regels: <a href=\"https://github.com/jhlywa/chess.js\" target=\"_blank\" rel=\"noopener\">chess.js</a>. Stukken: set Staunty (Lichess).",
-      "copy": "© {year} VEXCHESS · Gemaakt door Jorge.",
       "author": "Gemaakt door Jorge."
     }
   },

@@ -4,27 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<title data-i18n="home.meta.title">VEXCHESS · Ajedrez con IA (Stockfish 18 · NNUE)</title>
-<meta name="description" data-i18n-attr="content:home.meta.description" content="Ajedrez contra una IA de primer nivel (Stockfish 18 · NNUE) directo en tu navegador. Modo entrenador, aviso de piezas en peligro, puzzles y guía interactiva. Gratis y offline.">
+<title data-i18n="home.meta.title">VEXCHESS · Juega, aprende y colecciona ajedrez</title>
+<meta name="description" data-i18n-attr="content:home.meta.description" content="Plataforma de ajedrez en tu navegador: juega online o contra la máquina, aprende en la Academia con AXIOM, entrena con puzzles y colecciona a los Vexborn. Gratis.">
 <link rel="canonical" href="https://vexchess.jgallegosoto12.workers.dev/">
 <meta name="theme-color" content="#0D1117">
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VEXCHESS">
-<meta property="og:title" content="VEXCHESS · Ajedrez con IA">
-<meta property="og:description" content="Rival con red neuronal (Stockfish 18 · NNUE) en tu navegador. Gratis, sin registro y offline.">
+<meta property="og:title" content="VEXCHESS · Juega, aprende y colecciona ajedrez">
+<meta property="og:description" content="Juega online o contra la máquina, aprende en la Academia con AXIOM y colecciona a los Vexborn. En tu navegador, gratis.">
 <meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/">
 <meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VEXCHESS · Ajedrez con IA">
-<meta name="twitter:description" content="Rival con red neuronal (Stockfish 18 · NNUE) en tu navegador. Gratis, sin registro y offline.">
+<meta name="twitter:title" content="VEXCHESS · Juega, aprende y colecciona ajedrez">
+<meta name="twitter:description" content="Juega online o contra la máquina, aprende en la Academia con AXIOM y colecciona a los Vexborn. En tu navegador, gratis.">
 <meta name="twitter:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/vexborn/card/noctis.webp">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="style.css?v=39">
 <link rel="stylesheet" href="navbar.css?v=6">
-<link rel="stylesheet" href="home.css?v=5">
+<link rel="stylesheet" href="home.css?v=6">
 </head>
 <body class="home">
 
@@ -34,122 +35,190 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-fx" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-copy">
-        <span class="hero-badge"><span class="dot"></span> <span data-i18n="home.hero.badge">Stockfish 18 · NNUE · 100% en tu navegador</span></span>
+        <span class="hero-badge"><span class="dot"></span> <span data-i18n="home.hero.badge">Plataforma de ajedrez · 100% en tu navegador</span></span>
         <h1 class="hero-title" data-i18n-html="home.hero.title">Piensa. Juega.<br><span class="accent">Vence.</span></h1>
-        <p class="hero-sub" data-i18n="home.hero.sub">Ajedrez contra una inteligencia artificial de primer nivel, con modo entrenador,
-          aviso de piezas en peligro y una guía interactiva de cada pieza. Sin servidores, sin registro,
-          directo en tu navegador.</p>
+        <p class="hero-sub" data-i18n="home.hero.sub">Juega online contra tus amigos o mide fuerzas con la máquina, aprende de verdad en la Academia con AXIOM y colecciona a los Vexborn. Todo en tu navegador y gratis.</p>
         <div class="hero-cta">
           <a class="btn-play lg" href="play.html"><span data-i18n="home.hero.cta.play">Jugar ahora</span> <span aria-hidden="true">→</span></a>
-          <a class="btn-ghost2 lg" href="#features" data-i18n="home.hero.cta.features">Ver características</a>
+          <a class="btn-ghost2 lg" href="academia.html" data-i18n="home.hero.cta.learn">Empezar en la Academia</a>
         </div>
-        <div class="hero-stats">
-          <div><b>~1320 → ∞</b><span data-i18n="home.hero.stat.difficulty">Niveles de dificultad</span></div>
-          <div><b>NNUE</b><span data-i18n="home.hero.stat.neural">Red neuronal</span></div>
-          <div><b>0 €</b><span data-i18n="home.hero.stat.free">Gratis y offline</span></div>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-board-wrap">
-          <div class="hero-board" id="hero-board"></div>
-        </div>
-      </div>
-    </div>
-    <a class="hero-scroll" href="#features" data-i18n-attr="aria-label:home.hero.scroll.aria" aria-label="Bajar">▾</a>
-  </section>
-
-  <!-- ===================== CARACTERÍSTICAS ===================== -->
-  <section class="section" id="features">
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="home.features.eyebrow">Características</span>
-      <h2 data-i18n-html="home.features.heading">Todo lo que necesitas para <span class="accent">mejorar</span></h2>
-      <p data-i18n="home.features.subtitle">Una experiencia de ajedrez completa que corre entera en tu navegador.</p>
-    </div>
-    <div class="feat-grid">
-      <article class="feat-card">
-        <div class="feat-ico"><img src="assets/icons/features/neural-engine.svg" alt="" aria-hidden="true"></div>
-        <h3 data-i18n="home.features.neural.title">Rival con red neuronal</h3>
-        <p data-i18n-html="home.features.neural.body">Stockfish 18 con evaluación <b>NNUE</b>, el motor de código abierto más fuerte del mundo. Dificultad ajustable de ~1320 a fuerza imparable.</p>
-      </article>
-      <article class="feat-card">
-        <div class="feat-ico"><img src="assets/icons/features/coach.svg" alt="" aria-hidden="true"></div>
-        <h3 data-i18n="home.features.coach.title">Modo entrenador</h3>
-        <p data-i18n-html="home.features.coach.body">Una segunda instancia del motor a máxima fuerza te sugiere la mejor jugada con una flecha y te explica el porqué.</p>
-      </article>
-      <article class="feat-card">
-        <div class="feat-ico"><img src="assets/icons/features/danger-queen.svg" alt="" aria-hidden="true"></div>
-        <h3 data-i18n="home.features.danger.title">Aviso de piezas en peligro</h3>
-        <p data-i18n-html="home.features.danger.body">Resalta con un glow las piezas amenazadas y te avisa especialmente cuando tu dama está en peligro. No vuelvas a colgar una pieza sin saberlo.</p>
-      </article>
-      <article class="feat-card">
-        <div class="feat-ico"><img src="assets/icons/features/guide.svg" alt="" aria-hidden="true"></div>
-        <h3 data-i18n="home.features.guide.title">Guía interactiva</h3>
-        <p data-i18n-html="home.features.guide.body">Una tarjeta grande por pieza con su valor, su historia y una <b>simulación en bucle</b> de cómo se mueve y captura.</p>
-      </article>
-      <article class="feat-card">
-        <div class="feat-ico"><img src="assets/icons/features/language.svg" alt="" aria-hidden="true"></div>
-        <h3 data-i18n="home.features.multilang.title">Multiidioma</h3>
-        <p data-i18n-html="home.features.multilang.body">Español e inglés con detección automática. Toda la interfaz y la guía traducidas.</p>
-      </article>
-      <article class="feat-card">
-        <div class="feat-ico"><img src="assets/icons/features/local-browser.svg" alt="" aria-hidden="true"></div>
-        <h3 data-i18n="home.features.local.title">100% en tu navegador</h3>
-        <p data-i18n-html="home.features.local.body">El motor está compilado a WebAssembly y corre en local. Sin servidores, sin claves de API, sin coste y funciona sin conexión.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== LA IA ===================== -->
-  <section class="section ia" id="ia">
-    <div class="ia-band">
-      <div class="ia-copy">
-        <span class="eyebrow" data-i18n="home.ia.eyebrow">El cerebro</span>
-        <h2 data-i18n-html="home.ia.heading">Stockfish 18 con red neuronal <span class="accent">NNUE</span></h2>
-        <p data-i18n-html="home.ia.body">El rival usa el mismo motor que Chess.com: <b>Stockfish 18</b>, con evaluación por red neuronal
-          (Efficiently Updatable Neural Network), compilado a <b>WebAssembly</b> y ejecutándose entero dentro
-          de tu navegador en un <i>Web Worker</i>. Habla el protocolo UCI, piensa en milisegundos y no envía
-          nada a ningún servidor.</p>
-        <ul class="ia-list">
-          <li><span>♟</span> <span data-i18n-html="home.ia.list.rules">Reglas completas vía <b>chess.js</b>: enroque, coronación, al paso, jaque mate y tablas.</span></li>
-          <li><span>⚙️</span> <span data-i18n-html="home.ia.list.difficulty">Dificultad por Elo o fuerza máxima, configurable en cada partida.</span></li>
-          <li><span>🔒</span> <span data-i18n-html="home.ia.list.private">Privado por diseño: todo el cálculo ocurre en tu equipo.</span></li>
+        <ul class="hero-stats">
+          <li><b>23</b><span data-i18n="home.hero.stat.lessons">Lecciones guiadas</span></li>
+          <li><b>16</b><span data-i18n="home.hero.stat.vexborn">Vexborn</span></li>
+          <li><b>14</b><span data-i18n="home.hero.stat.langs">Idiomas</span></li>
         </ul>
-        <a class="btn-play" href="play.html"><span data-i18n="home.ia.cta">Probar el motor</span> <span aria-hidden="true">→</span></a>
       </div>
-      <div class="ia-badge" aria-hidden="true">
-        <img src="assets/knight-logo.svg" alt="">
-        <div class="ia-badge-glow"></div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-stage">
+          <div class="hero-board" id="hero-board"></div>
+          <img class="hero-card" src="assets/vexborn/card/noctis.webp" alt="" width="640" height="853">
+        </div>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#modes" data-i18n-attr="aria-label:home.hero.scroll.aria" aria-label="Bajar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ===================== MODOS (BENTO) ===================== -->
+  <section class="section" id="modes">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="home.modes.eyebrow">Qué puedes hacer</span>
+      <h2 data-i18n-html="home.modes.heading">Una plataforma, <span class="accent">muchas formas</span> de jugar</h2>
+      <p data-i18n="home.modes.subtitle">Cada pieza de VEXCHESS está hecha para que juegues más y entiendas mejor.</p>
+    </div>
+
+    <div class="bento">
+      <a class="bento-card b-online" href="online.html" data-reveal>
+        <div class="bento-art" aria-hidden="true">
+          <img src="assets/vexborn/card/aurelia.webp" alt="" loading="lazy" width="640" height="853">
+        </div>
+        <div class="bento-body">
+          <span class="bento-tag" data-i18n="home.modes.online.tag">Contra personas</span>
+          <h3 data-i18n="home.modes.online.title">Juega online</h3>
+          <p data-i18n="home.modes.online.body">Reta a tus amigos con tu VEX ID o busca rival por Elo en bullet, blitz o rápida. Tu rating te sigue a todas partes.</p>
+          <span class="bento-cta" data-i18n="home.modes.online.cta">Buscar rival</span>
+        </div>
+      </a>
+
+      <a class="bento-card b-machine" href="play.html" data-reveal>
+        <div class="bento-ico"><img src="assets/icons/features/neural-engine.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.modes.machine.title">Mide fuerzas con la máquina</h3>
+        <p data-i18n="home.modes.machine.body">Un rival de nivel ajustable, de ~1320 hasta fuerza máxima, con modo entrenador y aviso de piezas en peligro.</p>
+        <span class="bento-note" data-i18n="home.modes.machine.note">Motor Stockfish 18 (NNUE) en WebAssembly, corriendo en tu equipo.</span>
+        <span class="bento-cta" data-i18n="home.modes.machine.cta">Jugar una partida</span>
+      </a>
+
+      <a class="bento-card b-academy" href="academia.html" data-reveal>
+        <div class="bento-ico"><img src="assets/icons/features/lessons.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.modes.academy.title">Academia</h3>
+        <p data-i18n="home.modes.academy.body">23 lecciones guiadas en 8 niveles, sparring con AXIOM y laboratorio de tus propias partidas.</p>
+        <span class="bento-cta" data-i18n="home.modes.academy.cta">Aprender</span>
+      </a>
+
+      <a class="bento-card b-puzzles" href="puzzles.html" data-reveal>
+        <div class="bento-ico"><img src="assets/icons/features/tactical-puzzles.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.modes.puzzles.title">Puzzles tácticos</h3>
+        <p data-i18n="home.modes.puzzles.body">Mate en 1, mate en 2 y golpes que ganan material. Entrena el ojo en posiciones limpias.</p>
+        <span class="bento-cta" data-i18n="home.modes.puzzles.cta">Entrenar</span>
+      </a>
+
+      <a class="bento-card b-games" href="partidas.html" data-reveal>
+        <div class="bento-ico"><img src="assets/icons/features/match-history.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.modes.games.title">Mis partidas</h3>
+        <p data-i18n="home.modes.games.body">Todo lo que juegas se guarda solo. Revísalo jugada a jugada cuando quieras.</p>
+        <span class="bento-cta" data-i18n="home.modes.games.cta">Ver partidas</span>
+      </a>
+
+      <a class="bento-card b-community" href="comunidad.html" data-reveal>
+        <div class="bento-ico"><img src="assets/icons/features/social-club.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.modes.community.title">Comunidad</h3>
+        <p data-i18n="home.modes.community.body">Amigos, solicitudes y retos. Tu VEX ID para que te encuentren y tus insignias para contar tu historia.</p>
+        <span class="bento-cta" data-i18n="home.modes.community.cta">Ver comunidad</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== ACADEMIA · AXIOM ===================== -->
+  <section class="section band-wrap" id="academia">
+    <div class="band band-axiom" data-reveal>
+      <div class="band-copy">
+        <span class="eyebrow" data-i18n="home.axiom.eyebrow">La Academia</span>
+        <h2 data-i18n-html="home.axiom.heading">AXIOM no te da la jugada. Te enseña a <span class="accent">encontrarla</span>.</h2>
+        <p data-i18n="home.axiom.body">El Maestro de las Variantes te acompaña desde la primera casilla hasta tu propia partida. Aquí no se memoriza la jugada: se entiende por qué existe.</p>
+        <ul class="band-list">
+          <li><i aria-hidden="true"></i><span data-i18n="home.axiom.list.path">8 niveles y 23 lecciones, del tablero vacío a convertir ventajas.</span></li>
+          <li><i aria-hidden="true"></i><span data-i18n="home.axiom.list.sparring">Sparring guiado: juegas tú, y AXIOM interviene solo en los momentos clave.</span></li>
+          <li><i aria-hidden="true"></i><span data-i18n="home.axiom.list.lab">Laboratorio: al terminar, elige tres momentos de tu partida y te los explica.</span></li>
+        </ul>
+        <a class="btn-play" href="academia.html"><span data-i18n="home.axiom.cta">Entrar en la Academia</span> <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="band-art axiom-art" aria-hidden="true">
+        <img src="assets/axiom/poses/reveal-present.webp" alt="" loading="lazy" width="683" height="1024">
       </div>
     </div>
   </section>
 
-  <!-- ===================== ROADMAP ===================== -->
+  <!-- ===================== VEXBORN ===================== -->
+  <section class="section" id="vexborn">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="home.vexborn.eyebrow">Códice Vexborn</span>
+      <h2 data-i18n-html="home.vexborn.heading">Los personajes que <span class="accent">viven</span> en el tablero</h2>
+      <p data-i18n="home.vexborn.body">Dieciséis Vexborn repartidos en dos expansiones. Cada uno tiene su historia, su pieza y un concepto real de ajedrez que enseña. No cambian las reglas: cambian cómo lo vives.</p>
+    </div>
+
+    <div class="vex-rail" data-reveal>
+      <a class="vex-card" href="vexborn.html">
+        <img src="assets/vexborn/card/kael.webp" alt="Kael" loading="lazy" width="640" height="853">
+        <span class="vex-name">Kael</span>
+      </a>
+      <a class="vex-card" href="vexborn.html">
+        <img src="assets/vexborn/card/aurelia.webp" alt="Aurelia" loading="lazy" width="640" height="853">
+        <span class="vex-name">Aurelia</span>
+      </a>
+      <a class="vex-card" href="vexborn.html">
+        <img src="assets/vexborn/card/noctis.webp" alt="Noctis" loading="lazy" width="640" height="853">
+        <span class="vex-name">Noctis</span>
+      </a>
+      <a class="vex-card" href="vexborn.html">
+        <img src="assets/vexborn/card/vesra.webp" alt="Vesra" loading="lazy" width="640" height="853">
+        <span class="vex-name">Vesra</span>
+      </a>
+      <a class="vex-card" href="vexborn.html">
+        <img src="assets/vexborn/card/solenne.webp" alt="Solenne" loading="lazy" width="640" height="853">
+        <span class="vex-name">Solenne</span>
+      </a>
+    </div>
+
+    <div class="vex-foot" data-reveal>
+      <ul class="vex-tags">
+        <li><b>Origins</b><span data-i18n="home.vexborn.origins">El Primer Movimiento</span></li>
+        <li><b>Crownfall</b><span data-i18n="home.vexborn.crownfall">La corona rota</span></li>
+        <li><b data-i18n="home.vexborn.masteryTitle">Sendas de Maestría</b><span data-i18n="home.vexborn.mastery">Sube el vínculo con el tuyo jugando</span></li>
+      </ul>
+      <a class="btn-ghost2" href="vexborn.html" data-i18n="home.vexborn.cta">Ver el códice</a>
+    </div>
+  </section>
+
+  <!-- ===================== EN CAMINO ===================== -->
   <section class="section" id="roadmap">
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="home.roadmap.eyebrow">Roadmap</span>
-      <h2 data-i18n-html="home.roadmap.heading">Esto es solo el <span class="accent">principio</span></h2>
-      <p data-i18n="home.roadmap.subtitle">Estamos construyendo una plataforma. Lo que viene:</p>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="home.roadmap.eyebrow">En camino</span>
+      <h2 data-i18n-html="home.roadmap.heading">Lo que viene <span class="accent">después</span></h2>
+      <p data-i18n="home.roadmap.subtitle">Lo que ya está hecho vive aquí arriba. Esto es lo que estamos construyendo ahora.</p>
     </div>
-    <div class="road-grid">
-      <a href="puzzles.html" class="road-card live"><span class="live" data-i18n="home.roadmap.badge.live">Disponible</span><div class="road-ico"><img src="assets/icons/features/tactical-puzzles.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.puzzles.title">Puzzles tácticos</h3><p data-i18n-html="home.roadmap.puzzles.body">Encuentra el mate en posiciones reales. ¡Ya puedes entrenar! <b>Jugar →</b></p></a>
-      <a href="partidas.html" class="road-card live"><span class="live" data-i18n="home.roadmap.badge.live">Disponible</span><div class="road-ico"><img src="assets/icons/features/match-history.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.history.title">Mis partidas</h3><p data-i18n-html="home.roadmap.history.body">Tus partidas terminadas se guardan solas. Revísalas jugada a jugada. <b>Ver →</b></p></a>
-      <a href="directo.html" class="road-card preview"><span class="preview" data-i18n="home.roadmap.badge.preview">Vista previa</span><div class="road-ico"><img src="assets/icons/features/live-games.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.live.title">En directo</h3><p data-i18n-html="home.roadmap.live.body">Partidas en tiempo real contra otras personas. Echa un vistazo a cómo se verá. <b>Ver →</b></p></a>
-      <article class="road-card"><span class="soon" data-i18n="home.roadmap.badge.soon">Próximamente</span><div class="road-ico"><img src="assets/icons/features/profile.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.accounts.title">Cuentas y perfil</h3><p data-i18n="home.roadmap.accounts.body">Regístrate, guarda tus partidas y tu progreso, y lleva tu Elo contigo.</p></article>
-      <article class="road-card"><span class="soon" data-i18n="home.roadmap.badge.soon">Próximamente</span><div class="road-ico"><img src="assets/icons/features/lessons.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.lessons.title">Lecciones</h3><p data-i18n="home.roadmap.lessons.body">Aprende aperturas, finales y estrategia paso a paso.</p></article>
-      <article class="road-card"><span class="soon" data-i18n="home.roadmap.badge.soon">Próximamente</span><div class="road-ico"><img src="assets/icons/features/leaderboard.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.leaderboard.title">Leaderboard y ranking</h3><p data-i18n="home.roadmap.leaderboard.body">Compite por el top con un sistema de Elo y clasificaciones.</p></article>
-      <article class="road-card"><span class="soon" data-i18n="home.roadmap.badge.soon">Próximamente</span><div class="road-ico"><img src="assets/icons/features/social-club.svg" alt="" aria-hidden="true"></div><h3 data-i18n="home.roadmap.social.title">Equipos y social</h3><p data-i18n="home.roadmap.social.body">Crea o únete a clubes, juega con amigos y organiza torneos.</p></article>
-    </div>
+    <ol class="next-grid">
+      <li class="next-card" data-reveal>
+        <div class="next-ico"><img src="assets/icons/features/leaderboard.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.roadmap.ranking.title">Ranking y clasificaciones</h3>
+        <p data-i18n="home.roadmap.ranking.body">Un leaderboard por temporadas para ver hasta dónde llegas y contra quién.</p>
+      </li>
+      <li class="next-card" data-reveal>
+        <div class="next-ico"><img src="assets/icons/features/social-club.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.roadmap.clubs.title">Clubes y torneos</h3>
+        <p data-i18n="home.roadmap.clubs.body">Equipos, torneos propios y partidas organizadas entre amigos.</p>
+      </li>
+      <li class="next-card" data-reveal>
+        <div class="next-ico"><img src="assets/icons/features/profile.svg" alt="" aria-hidden="true"></div>
+        <h3 data-i18n="home.roadmap.expansion.title">Nuevas expansiones Vexborn</h3>
+        <p data-i18n="home.roadmap.expansion.body">Null Variation ya asoma: más personajes, más lore y más sendas que recorrer.</p>
+      </li>
+    </ol>
   </section>
 
   <!-- ===================== CTA FINAL ===================== -->
   <section class="cta-final">
     <div class="cta-glow" aria-hidden="true"></div>
     <h2 data-i18n="home.ctaFinal.heading">¿Listo para tu próxima partida?</h2>
-    <p data-i18n="home.ctaFinal.subtitle">Elige tu bando, tu nivel, y demuéstrale a la máquina quién manda.</p>
-    <a class="btn-play xl" href="play.html"><span data-i18n="home.ctaFinal.play">Jugar ahora</span> <span aria-hidden="true">→</span></a>
+    <p data-i18n="home.ctaFinal.subtitle">Elige bando, elige rival y demuestra hasta dónde llegas.</p>
+    <div class="cta-row">
+      <a class="btn-play xl" href="play.html"><span data-i18n="home.ctaFinal.play">Jugar ahora</span> <span aria-hidden="true">→</span></a>
+      <a class="btn-ghost2 lg" href="online.html" data-i18n="home.ctaFinal.online">Buscar rival online</a>
+    </div>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
@@ -164,9 +233,11 @@
       </div>
       <nav class="foot-links">
         <a href="play.html" data-i18n="home.footer.links.play">Jugar</a>
-        <a href="#features" data-i18n="home.footer.links.features">Características</a>
-        <a href="#ia" data-i18n="home.footer.links.ia">La IA</a>
-        <a href="#roadmap" data-i18n="home.footer.links.roadmap">Roadmap</a>
+        <a href="online.html" data-i18n="home.footer.links.online">Online</a>
+        <a href="academia.html" data-i18n="home.footer.links.academy">Academia</a>
+        <a href="puzzles.html" data-i18n="home.footer.links.puzzles">Puzzles</a>
+        <a href="vexborn.html" data-i18n="home.footer.links.vexborn">Vexborn</a>
+        <a href="comunidad.html" data-i18n="home.footer.links.community">Comunidad</a>
       </nav>
       <div class="foot-credits">
         <p data-i18n-html="home.footer.credits">Motor: <a href="https://stockfishchess.org/" target="_blank" rel="noopener">Stockfish</a> (GPLv3). Reglas: <a href="https://github.com/jhlywa/chess.js" target="_blank" rel="noopener">chess.js</a>. Fichas: set Staunty (Lichess).</p>
@@ -178,34 +249,6 @@
   <script type="module" src="theme.js?v=1"></script>
   <script type="module" src="navbar.js?v=5"></script>
   <script type="module" src="auth.js?v=19"></script>
-  <script>
-    // Año del footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Tablero del hero: posición inicial con fichas Staunty (solo visual)
-    (function heroBoard() {
-      const el = document.getElementById('hero-board');
-      if (!el) return;
-      const back = ['r','n','b','q','k','b','n','r'];
-      const svg = (color, type) => '<svg class="hpc" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + color + type + '"></use></svg>';
-      let html = '';
-      for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) {
-        const dark = (r + c) % 2 === 1;
-        let piece = '';
-        if (r === 0) piece = svg('b', back[c]);
-        else if (r === 1) piece = svg('b', 'p');
-        else if (r === 6) piece = svg('w', 'p');
-        else if (r === 7) piece = svg('w', back[c]);
-        html += '<div class="hsq ' + (dark ? 'd' : 'l') + '">' + piece + '</div>';
-      }
-      el.innerHTML = html;
-    })();
-
-    // Botón "Entrar" (login) aún no disponible
-    document.querySelector('.btn-soon')?.addEventListener('click', function () {
-      this.classList.add('pulse');
-      setTimeout(() => this.classList.remove('pulse'), 500);
-    });
-  </script>
+  <script type="module" src="home.js?v=1"></script>
 </body>
 </html>
