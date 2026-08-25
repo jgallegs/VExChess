@@ -14,7 +14,7 @@
 //  cierre con Escape / toque fuera / navegación y foco gestionado.
 // ============================================================
 import { t, langSelectHTML, wireLangSelect } from './i18n.js?v=9';
-import { closeAllAccountMenus } from './account-chip.js?v=3';
+import { closeAllAccountMenus } from './account-chip.js?v=4';
 
 const KNIGHT = 'assets/knight-logo.svg';
 const WORDMARK = 'assets/vexchess-wordmark.png';

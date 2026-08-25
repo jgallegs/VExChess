@@ -144,3 +144,5 @@ body.rv-page { min-height: 100vh; }
 @media (prefers-reduced-motion: reduce) {
   .rv-head, .rv-moves-card, .rv-list-head, .rv-item, .rv-badge, .rv-boardcol { animation: none; }
 }
+.rv-empty:not([hidden]) { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+@media (prefers-reduced-motion: reduce) { .rv-empty:not([hidden]) { animation: none; } }

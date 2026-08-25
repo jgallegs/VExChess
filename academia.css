@@ -318,3 +318,6 @@
 @media (prefers-reduced-motion: reduce) {
   .ac-hero, .ac-story, .ac-chat-card, .ac-concepts .ac-concept, .ac-level { animation: none; }
 }
+/* racha: pop al aparecer */
+.ac-streak { animation: vx-pop 0.32s var(--ease-spring-big) backwards 0.35s; }
+@media (prefers-reduced-motion: reduce) { .ac-streak { animation: none; } }

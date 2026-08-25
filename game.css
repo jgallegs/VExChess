@@ -104,3 +104,7 @@ body.gm-page { min-height: 100vh; }
 @media (prefers-reduced-motion: reduce) {
   .gm-end-box, .gm-promo-box, .gm-player, .gm-moves { animation: none; }
 }
+/* reloj con poco tiempo: pulso de urgencia (solo si es tu turno) */
+@keyframes gm-clock-urgent { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+.gm-player.turn .gm-clock.low { animation: gm-clock-urgent 1s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .gm-player.turn .gm-clock.low { animation: none; } }

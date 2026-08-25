@@ -214,3 +214,6 @@ body.cm-page { min-height: 100vh; }
   .cm-modal.open .cm-modal-box, .cm-modal.open, .cm-scan.open .cm-scan-box,
   .cm-ch-tcs .cm-ch-tc, .cm-toast.show { animation: none; }
 }
+/* estados vacíos/carga: entran como el resto del contenido */
+.cm-empty, .cm-state { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+@media (prefers-reduced-motion: reduce) { .cm-empty, .cm-state { animation: none; } }

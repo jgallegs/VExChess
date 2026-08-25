@@ -73,6 +73,23 @@
   from { opacity: 0; transform: scale(0.92) rotate(-3deg); filter: blur(0.25rem); }
   to   { opacity: 1; transform: none; filter: blur(0); }
 }
+/* Ping de notificación: un anillo que se expande UNA vez al aparecer */
+@keyframes vx-ping {
+  0%   { box-shadow: 0 0 0 0 rgba(255,59,71,.55); }
+  100% { box-shadow: 0 0 0 0.65rem rgba(255,59,71,0); }
+}
+/* Bump: un latido corto cuando un contador cambia de valor (lo pone motion.js) */
+@keyframes vx-bump {
+  0% { transform: scale(1); } 35% { transform: scale(1.28); } 100% { transform: scale(1); }
+}
+.vx-bump { animation: vx-bump 0.36s var(--ease-spring-big); }
+/* Presencia "en línea": respiración lenta del punto (muy sutil) */
+@keyframes vx-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(49,199,106,.45); }
+  50%      { box-shadow: 0 0 0 0.28rem rgba(49,199,106,0); }
+}
+.vx-presence.p-online { animation: vx-breathe 2.8s ease-in-out infinite; }
+
 /* Toast: sube con spring suave */
 @keyframes vx-toast-in {
   from { opacity: 0; transform: translateX(-50%) translateY(1rem) scale(0.97); }
@@ -124,6 +141,7 @@
 /* ---------- Reduce motion: silencio total ---------- */
 @media (prefers-reduced-motion: reduce) {
   .vx-in, .vx-in-list > * { animation: none; }
+  .vx-bump, .vx-presence.p-online { animation: none; }
   .vx-tab-thumb { transition: none; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }

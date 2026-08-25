@@ -80,3 +80,7 @@ body.ins-page { min-height: 100vh; }
 @media (prefers-reduced-motion: reduce) {
   .ins-hero, .ins-filters .ins-filter, .ins-grid .ins-card { animation: none; }
 }
+.ins-state { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+/* "La tienes": pop al montar la tarjeta */
+.ins-owned-tag { animation: vx-pop 0.3s var(--ease-spring-big) backwards 0.25s; }
+@media (prefers-reduced-motion: reduce) { .ins-state, .ins-owned-tag { animation: none; } }

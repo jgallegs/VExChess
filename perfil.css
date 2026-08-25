@@ -188,3 +188,5 @@ body.perfil-page { min-height: 100vh; }
   .pf-hero, .pf-stats .pf-stat, .pf-card, .pf-badges .pf-badge,
   .pf-badge-modal.open .pf-badge-box, .pf-badge-modal.open { animation: none; }
 }
+.pf-guest, .pf-loading { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+@media (prefers-reduced-motion: reduce) { .pf-guest, .pf-loading { animation: none; } }

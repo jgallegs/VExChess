@@ -245,7 +245,12 @@ const ACCOUNT_CSS = `
 .vxa-av .vx-avatar{width:1.9rem;height:1.9rem;box-shadow:0 0 0 .13rem transparent}
 .vxa-av.is-staff .vx-avatar{box-shadow:0 0 0 .12rem rgba(20,26,35,.9),0 0 0 .2rem var(--role)}
 .vxa-dot{position:absolute;top:-.1rem;right:-.1rem;width:.6rem;height:.6rem;border-radius:50%;
-  background:var(--accent,#FF3B47);border:.12rem solid #171d27;z-index:2;box-shadow:0 0 .35rem rgba(255,59,71,.85)}
+  background:var(--accent,#FF3B47);border:.12rem solid #171d27;z-index:2;box-shadow:0 0 .35rem rgba(255,59,71,.85);
+  animation:vxa-dot-in .32s cubic-bezier(.34,1.56,.64,1) backwards}
+/* anillo de "ping" que se expande una vez al aparecer (no pisa el glow fijo) */
+.vxa-dot::after{content:'';position:absolute;inset:-.12rem;border-radius:50%;
+  animation:vx-ping .7s cubic-bezier(.22,1,.36,1) .26s 1 backwards}
+@keyframes vxa-dot-in{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
 
 /* Nombre + insignia */
 .vxa-id{display:inline-flex;align-items:center;gap:.35rem;min-width:0}
@@ -300,7 +305,8 @@ const ACCOUNT_CSS = `
 .vxa-drawer a:focus-visible,.vxa-signout:focus-visible{outline:none;background:rgba(255,255,255,.08);box-shadow:0 0 0 .14rem rgba(57,213,255,.45)}
 .vxa-mi-admin{color:#ffcf7a}
 .vxa-mi-dot{display:inline-flex;align-items:center;justify-content:center;min-width:1.15rem;height:1.15rem;
-  padding:0 .32rem;font:800 .64rem/1 'Oxanium',sans-serif;color:#fff;background:var(--accent,#FF3B47);border-radius:1rem;flex:0 0 auto}
+  padding:0 .32rem;font:800 .64rem/1 'Oxanium',sans-serif;color:#fff;background:var(--accent,#FF3B47);border-radius:1rem;flex:0 0 auto;
+  animation:vxa-dot-in .32s cubic-bezier(.34,1.56,.64,1) backwards}
 .vxa-signout{color:#ff9ea4;margin-top:.2rem;border-top:1px solid rgba(255,255,255,.07);border-radius:0 0 .5rem .5rem}
 .vxa-signout:hover{background:rgba(255,59,71,.12);color:#ffc4c8}
 
@@ -325,5 +331,6 @@ const ACCOUNT_CSS = `
 
 @media(prefers-reduced-motion:reduce){
   .vxa-surface,.vxa-drawer,.vxa-caret,.vxa-drawer a,.vxa-signout{transition:none}
+  .vxa-dot,.vxa-dot::after,.vxa-mi-dot{animation:none}
 }
 `;

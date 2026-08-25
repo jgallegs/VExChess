@@ -318,3 +318,6 @@ body.vb-page { min-height: 100vh; }
 @media (prefers-reduced-motion: reduce) {
   .vb-hero, .vb-grid .vb-card { animation: none; }
 }
+/* etiqueta "Equipado": pop al montar */
+.vb-card-eqtag { animation: vx-pop 0.3s var(--ease-spring-big) backwards 0.3s; }
+@media (prefers-reduced-motion: reduce) { .vb-card-eqtag { animation: none; } }

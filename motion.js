@@ -53,9 +53,31 @@ function scan(root) {
   }
 }
 
+// Contadores que "laten" cuando cambia su valor (el chip de cuenta va aparte:
+// se re-monta al cambiar y su pop de entrada ya hace este papel).
+const BUMP_SELECTOR = '.cm-tab-badge, .cm-count, .pz-solved, .ol-elo b';
+
+function watchBumps() {
+  const seen = new WeakMap(); // nodo -> último texto
+  const check = (el) => {
+    const txt = el.textContent;
+    if (seen.has(el) && seen.get(el) !== txt) {
+      el.classList.remove('vx-bump');
+      void el.offsetWidth;              // reinicia la animación
+      el.classList.add('vx-bump');
+      el.addEventListener('animationend', () => el.classList.remove('vx-bump'), { once: true });
+    }
+    seen.set(el, txt);
+  };
+  const snapshot = () => document.querySelectorAll(BUMP_SELECTOR).forEach(check);
+  snapshot();
+  new MutationObserver(() => snapshot()).observe(document.body, { childList: true, subtree: true, characterData: true });
+}
+
 if (!REDUCED && typeof document !== 'undefined') {
   const boot = () => {
     scan(document);
+    watchBumps();
     // Las páginas montan su UI tras cargar datos: vigilamos nodos nuevos.
     new MutationObserver((muts) => {
       for (const m of muts) {

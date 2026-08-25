@@ -93,3 +93,5 @@ body.ol-page { min-height: 100vh; }
 @media (prefers-reduced-motion: reduce) {
   .ol-head, .ol-mm, .ol-cols .ol-card, .ol-tcs .ol-tc, .ol-person, .ol-toast.show { animation: none; }
 }
+.ol-state { animation: vx-rise var(--dur-base) var(--ease-out) backwards; }
+@media (prefers-reduced-motion: reduce) { .ol-state { animation: none; } }
