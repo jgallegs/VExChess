@@ -261,12 +261,12 @@ const ACCOUNT_CSS = `
 .vxa-id .vx-badge-ico.chip{margin:0;flex:0 0 auto}
 
 /* Pill de Elo — color por rango, alto contraste, verticalmente centrado */
-.vxa-elo{display:inline-flex;align-items:center;justify-content:center;gap:.3rem;flex:0 0 auto;height:1.5rem;
-  box-sizing:border-box;font:800 .74rem/1 'Oxanium',sans-serif;letter-spacing:.01em;
-  padding:0 .55rem;border-radius:.5rem;font-variant-numeric:tabular-nums;
+.vxa-elo{display:inline-flex;align-items:center;justify-content:center;gap:.26rem;flex:0 0 auto;height:1.3rem;
+  box-sizing:border-box;font:800 .72rem/1 'Oxanium',sans-serif;letter-spacing:.01em;
+  padding:0 .52rem;border-radius:99rem;font-variant-numeric:tabular-nums;
   color:var(--tc,#cbd5e1);background:var(--tbg,rgba(148,163,184,.16))}
-.vxa-elo-num{font:inherit;translate:0 var(--elo-nudge,.19em)}
-.vxa-elo-mark{display:block;width:.4rem;height:.4rem;border-radius:.07rem;flex:0 0 auto;background:currentColor;transform:rotate(45deg);opacity:.9}
+.vxa-elo-num{font:inherit;translate:0 var(--elo-nudge,.06em)}
+.vxa-elo-mark{display:block;width:.36rem;height:.36rem;border-radius:.07rem;flex:0 0 auto;background:currentColor;transform:rotate(45deg);opacity:.9}
 .vxa-elo[data-tier=novice]  {--tc:#cbd5e1;--tbg:rgba(148,163,184,.16)}
 .vxa-elo[data-tier=skilled] {--tc:#5fe0a0;--tbg:rgba(58,213,150,.14)}
 .vxa-elo[data-tier=advanced]{--tc:#5cd8ff;--tbg:rgba(57,213,255,.14)}
