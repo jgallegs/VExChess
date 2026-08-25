@@ -74,6 +74,8 @@ function siteHTML(ds) {
       '</a>';
   }).join('');
   return '<div class="vxnav-inner">' +
+      '<button class="vxnav-burger" type="button" aria-controls="vxnav-menu" aria-expanded="false" ' +
+        'aria-label="' + t('nav.openMenu') + '"><span></span><span></span><span></span></button>' +
       brandHTML(isHome ? '#top' : 'index.html') +
       '<div class="vxnav-menu" id="vxnav-menu">' +
         '<nav class="vxnav-links" aria-label="' + t('nav.menu') + '">' + links + '</nav>' +
@@ -85,8 +87,6 @@ function siteHTML(ds) {
       '</div>' +
       '<div class="vxnav-bar">' +
         '<div class="vx-account"></div>' +
-        '<button class="vxnav-burger" type="button" aria-controls="vxnav-menu" aria-expanded="false" ' +
-          'aria-label="' + t('nav.openMenu') + '"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</div>' +
     '<div class="vxnav-scrim" aria-hidden="true"></div>';

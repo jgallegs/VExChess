@@ -89,28 +89,25 @@ html.vxnav-locked, html.vxnav-locked body { overflow: hidden; }
 .vxnav-bar { display: flex; align-items: center; gap: 0.65rem; flex: 0 0 auto; }
 .vxnav-menu .btn-play { flex: 0 0 auto; }
 
-/* Hamburguesa: caja visual a la altura del chip de cuenta (2.6rem) para no
-   dominar la barra; la zona táctil de ~44px la pone un halo invisible que
-   desborda la caja (::after), no el tamaño del botón. */
+/* Hamburguesa: va a la IZQUIERDA de la marca y desnuda — sin caja, borde ni
+   fondo: solo las tres líneas con su morph a X (teñido de marca al abrir).
+   La zona táctil de ~44px la pone un halo invisible (::after). */
 .vxnav-burger {
-  position: relative; display: none; width: 2.6rem; height: 2.6rem; border-radius: 50%;
-  border: none; cursor: pointer;
-  background: linear-gradient(180deg, rgba(38,48,64,.80), rgba(20,26,35,.86));
-  -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 .35rem .9rem rgba(0,0,0,.22);
-  align-items: center; justify-content: center; flex-direction: column; gap: 0.24rem; padding: 0;
+  position: relative; display: none; width: 2.2rem; height: 2.6rem; flex: 0 0 auto;
+  border: none; background: none; cursor: pointer;
+  align-items: center; justify-content: center; flex-direction: column; gap: 0.26rem; padding: 0;
   -webkit-tap-highlight-color: transparent; touch-action: manipulation;
-  transition: box-shadow .15s, background .15s;
 }
-.vxnav-burger::after { content: ''; position: absolute; inset: -0.5rem; border-radius: 50%; }
-.vxnav-burger:hover { background: linear-gradient(180deg, rgba(48,60,78,.82), rgba(28,35,47,.88)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 .35rem .9rem rgba(0,0,0,.22); }
-.vxnav-burger:focus-visible { outline: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 0 0 .16rem rgba(57,213,255,.45); }
-.vxnav.open .vxnav-burger { background: color-mix(in srgb, var(--accent) 16%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, var(--border)), 0 .35rem .9rem rgba(0,0,0,.22); }
-.vxnav-burger span { display: block; width: 1.1rem; height: 0.14rem; background: var(--text); border-radius: 1rem; transition: transform .22s ease, opacity .18s ease; }
-/* el morph a X: cada línea exterior viaja exactamente un paso (alto+hueco = 0.38rem) */
-.vxnav.open .vxnav-burger span:nth-child(1) { transform: translateY(0.38rem) rotate(45deg); }
+.vxnav-burger::after { content: ''; position: absolute; inset: -0.5rem; }
+.vxnav-burger:focus-visible { outline: none; border-radius: 0.5rem; box-shadow: 0 0 0 .16rem rgba(57,213,255,.45); }
+.vxnav-burger:active span { background: var(--muted); }
+.vxnav-burger span { display: block; width: 1.35rem; height: 0.15rem; background: var(--text); border-radius: 1rem;
+  transition: transform .22s ease, opacity .18s ease, background .18s ease; }
+/* el morph a X: cada línea exterior viaja exactamente un paso (alto+hueco = 0.41rem) */
+.vxnav.open .vxnav-burger span { background: var(--accent); }
+.vxnav.open .vxnav-burger span:nth-child(1) { transform: translateY(0.41rem) rotate(45deg); }
 .vxnav.open .vxnav-burger span:nth-child(2) { opacity: 0; }
-.vxnav.open .vxnav-burger span:nth-child(3) { transform: translateY(-0.38rem) rotate(-45deg); }
+.vxnav.open .vxnav-burger span:nth-child(3) { transform: translateY(-0.41rem) rotate(-45deg); }
 
 /* Velo bajo el panel: oscurece y captura el toque para cerrar */
 .vxnav-scrim { display: none; }
