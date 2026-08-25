@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title data-i18n="settings.pageTitle">VEXCHESS · Ajustes</title>
+<meta name="description" content="Ajustes de VEXCHESS: idioma de la interfaz y tema del tablero.">
+<meta name="theme-color" content="#0D1117">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VEXCHESS">
+<meta property="og:title" content="VEXCHESS · Ajustes">
+<meta property="og:description" content="Idioma de la interfaz y tema del tablero, a tu manera.">
+<meta property="og:url" content="https://vexchess.jgallegosoto12.workers.dev/ajustes.html">
+<meta property="og:image" content="https://vexchess.jgallegosoto12.workers.dev/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script>/* arranca la descarga del catálogo de idioma ya, en paralelo con los JS */
+try{var l=localStorage.getItem('vex_lang')||(navigator.language||'es').slice(0,2).toLowerCase();
+if('es en ru de fr it pt hi zh ar nl uk pl fa'.split(' ').indexOf(l)<0)l='es';
+var k=document.createElement('link');k.rel='preload';k.as='fetch';k.crossOrigin='anonymous';
+k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
+<link rel="modulepreload" href="i18n.js?v=9">
+<link rel="modulepreload" href="account-chip.js?v=13">
+<link rel="modulepreload" href="navbar.js?v=19">
+<link rel="modulepreload" href="auth.js?v=30">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="style.css?v=45">
+<link rel="stylesheet" href="ui.css?v=4">
+<link rel="stylesheet" href="motion.css?v=3">
+<link rel="stylesheet" href="navbar.css?v=18">
+<link rel="stylesheet" href="ajustes.css?v=1">
+</head>
+<body class="set-page">
+  <header id="vx-nav" data-variant="site"></header>
+
+  <main class="set-wrap">
+    <header class="set-head vx-in">
+      <span class="eyebrow" data-i18n="settings.eyebrow">Preferencias</span>
+      <h1 class="set-title" data-i18n="settings.title">Ajustes</h1>
+      <p class="set-sub" data-i18n="settings.sub">Tu VEXCHESS, a tu manera. Los cambios se aplican al momento y se recuerdan en este dispositivo.</p>
+    </header>
+
+    <section class="set-card vx-in" aria-labelledby="set-lang-title">
+      <div class="set-row">
+        <div class="set-row-txt">
+          <h2 class="set-row-title" id="set-lang-title" data-i18n="settings.langTitle">Idioma</h2>
+          <p class="set-row-desc" data-i18n="settings.langDesc">Idioma de la interfaz. Todo el sitio está traducido a 14 idiomas.</p>
+        </div>
+        <div class="set-row-ctrl" id="set-lang-slot"></div>
+      </div>
+      <div class="set-row">
+        <div class="set-row-txt">
+          <h2 class="set-row-title" data-i18n="settings.themeTitle">Tema del tablero</h2>
+          <p class="set-row-desc" data-i18n="settings.themeDesc">Colores de las casillas en todas tus partidas.</p>
+        </div>
+        <div class="set-row-ctrl">
+          <div class="theme-sw-list" id="theme-sw-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="theme.js?v=1"></script>
+  <script type="module" src="motion.js?v=2"></script>
+  <script type="module" src="navbar.js?v=19"></script>
+  <script type="module" src="auth.js?v=30"></script>
+  <script type="module" src="ajustes.js?v=1"></script>
+</body>
+</html>

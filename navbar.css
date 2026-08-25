@@ -22,18 +22,26 @@
    dentro de una var() usada en calc(), y el resultado era inset 0 en iOS.
    Además del inset, un COLCHÓN que solo existe con muesca: Safari en iOS 26
    reporta ~44px en iPhones cuyo despeje real ronda los 59px (medido sobre
-   captura de dispositivo). min(env*99, 1.1rem) vale 0 sin muesca y 1.1rem
-   con ella — aire condicional sin media queries. */
+   captura de dispositivo). min(env*99, 1.9rem) vale 0 sin muesca y 1.9rem
+   con ella — aire condicional sin media queries.
+   Y EN CAPAS: cada punto declara primero la versión simple (solo env) y
+   debajo la versión con colchón. Si algún motor no entiende la segunda,
+   descarta ESA línea y sobrevive la primera — nunca se queda a 0. */
 @media (max-width: 48em) { :root { --nav-tap: 3.45rem; } }
 
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
-html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem) + 0.5rem); }
+html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 0.5rem); }
+html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem) + 0.5rem); }
 
 /* El header llega VACÍO en el HTML y lo monta navbar.js: sin esto medía 0
    y todo el contenido pegaba un salto de barra entera al montarse. El hueco
    queda reservado desde el primer paint (la variante battle es fixed y no
    reserva). El contenido de la barra aparece con un fundido al montar. */
-#vx-nav[data-variant="site"] { display: block; min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem)); }
+#vx-nav[data-variant="site"] {
+  display: block;
+  min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  min-height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+}
 /* El fundido de montaje NO puede tocar a un ancestro del chip de cuenta:
    cualquier animación de opacity sobre él crea un backdrop root nuevo y el
    blur del cristal deja de ver la página. Funden marca, enlaces y burger. */
@@ -44,8 +52,10 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
   position: sticky; top: 0; z-index: 60; box-sizing: border-box;
-  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem));
-  padding-top: calc(env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem));
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-top: calc(env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
   display: flex; align-items: center; background: transparent;
   transition: height .22s ease;
 }
@@ -127,23 +137,20 @@ html { scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + m
 /* Velo bajo el panel: oscurece y captura el toque para cerrar */
 .vxnav-scrim { display: none; }
 
-/* Selector de idioma (i18n) */
-.vxnav-lang { display: inline-flex; align-items: center; }
-.vxnav-lang-label { display: none; }
-.vxnav-lang select {
-  appearance: none; -webkit-appearance: none;
-  background: rgba(255,255,255,.06); color: #fff;
-  border: var(--hair) solid rgba(255,255,255,.16); border-radius: 0.55rem;
-  padding: 0.4rem 1.7rem 0.4rem 0.65rem; cursor: pointer;
-  font: 700 0.82rem 'Inter', system-ui, sans-serif;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23ffffff' d='M0 0h10L5 7z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 0.6rem center;
-  transition: border-color .15s, background .15s;
+/* Ajustes: en escritorio un engranaje discreto junto a la cuenta (el idioma
+   y el tema viven ahora en ajustes.html); en móvil es una fila del panel. */
+.vxnav-settings {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.6rem; height: 2.6rem; flex: 0 0 auto;
+  color: var(--muted); border-radius: 50%; text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s, background .15s;
 }
-.vxnav-lang select:hover { border-color: rgba(57,213,255,.6); }
-.vxnav-lang select:focus-visible { outline: none; border-color: #39D5FF; box-shadow: 0 0 0 .16rem rgba(57,213,255,.4); }
-.vxnav-lang select option { background: #0D1117; color: #fff; }
-html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; background-position: left 0.6rem center; }
+.vxnav-settings .vxnav-label { display: none; }
+.vxnav-settings .vxnav-ico { display: block; width: 1.4rem; height: 1.4rem; transition: transform .35s var(--ease-out, ease); }
+.vxnav-settings:hover, .vxnav-settings.active { color: var(--text); background: rgba(255,255,255,.06); }
+.vxnav-settings:hover .vxnav-ico { transform: rotate(42deg); }
+.vxnav-settings:focus-visible { outline: none; color: var(--text); box-shadow: 0 0 0 .16rem rgba(57,213,255,.5); }
 
 /* Escritorio intermedio (portátiles): la barra tiene que caber con el chip de
    cuenta iniciado (avatar + nombre + Elo), que es bastante más ancho que el
@@ -154,7 +161,6 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
   .vxnav-links { gap: 0.85rem; margin-left: 0.6rem; }
   .vxnav-links a { font-size: 0.86rem; }
   .vxnav-menu .btn-play { padding-inline: 0.9rem; }
-  .vxnav-lang select { max-width: 6.2rem; text-overflow: ellipsis; }
 }
 
 /* ============================================================
@@ -177,13 +183,16 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
 
   /* Panel: hoja desplegable bajo la barra, con scroll propio si no cabe */
   .vxnav-menu {
-    position: fixed; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem)); left: 0; right: 0; z-index: 2;
+    position: fixed; left: 0; right: 0; z-index: 2;
+    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
     display: flex; flex-direction: column; align-items: stretch; gap: 0;
     padding: 0.6rem clamp(1rem, 4vw, 1.6rem) calc(1.1rem + env(safe-area-inset-bottom, 0px));
     padding-left: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-left, 0px));
     padding-right: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-right, 0px));
-    max-height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.1rem));
-    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.1rem)); /* barra del navegador incluida */
+    max-height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px));
+    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px)); /* barra del navegador incluida */
+    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px) - min(env(safe-area-inset-top, 0px) * 99, 1.9rem));
     overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
     background: color-mix(in srgb, var(--bg) 97%, transparent);
     -webkit-backdrop-filter: blur(1rem) saturate(1.3); backdrop-filter: blur(1rem) saturate(1.3);
@@ -202,7 +211,16 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
   .vxnav.open .vxnav-links a:nth-child(4) { animation-delay: 145ms; }
   .vxnav.open .vxnav-links a:nth-child(5) { animation-delay: 180ms; }
   .vxnav.open .vxnav-menu .btn-play { animation: vxnav-item-in .34s cubic-bezier(.22,1,.36,1) backwards 215ms; }
-  .vxnav.open .vxnav-lang { animation: vxnav-item-in .34s cubic-bezier(.22,1,.36,1) backwards 250ms; }
+  .vxnav.open .vxnav-menu .vxnav-settings { animation: vxnav-item-in .34s cubic-bezier(.22,1,.36,1) backwards 250ms; }
+
+  /* Con el panel abierto, la barra y la hoja son UNA superficie: el velo de
+     la barra pasa al mismo material que el panel (nada de costura entre la
+     franja translúcida de arriba y la hoja casi opaca de abajo). */
+  .vxnav.open::before {
+    height: 100%;
+    -webkit-mask-image: none; mask-image: none;
+    background: color-mix(in srgb, var(--bg) 97%, transparent);
+  }
 
   .vxnav-links { flex-direction: column; align-items: stretch; gap: 0.15rem; margin: 0; }
   .vxnav-links a {
@@ -232,20 +250,34 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
     justify-content: center; text-align: center; font-size: 1rem; border-radius: 0.8rem;
   }
 
-  /* Idioma: etiqueta visible + control a lo ancho */
-  .vxnav-lang {
-    display: flex; align-items: center; justify-content: space-between; gap: 0.8rem;
-    width: 100%; margin-top: 0.9rem; padding-top: 0.85rem;
-    border-top: var(--hair) solid var(--border);
+  /* Ajustes: misma anatomía que los enlaces del panel, con un poco de aire
+     que lo separa de la CTA (sin línea separadora: el espacio jerarquiza). */
+  .vxnav-settings {
+    width: 100%; height: auto; min-height: var(--nav-tap);
+    justify-content: flex-start; gap: 0.85rem;
+    margin-top: 0.7rem; padding: 0.55rem 0.7rem;
+    border-radius: 0.7rem; color: var(--muted);
+    font: 600 1rem 'Inter', sans-serif;
+    transition: background .14s, color .14s;
   }
-  .vxnav-lang-label { display: inline-block; font: 600 0.85rem 'Inter', sans-serif; color: var(--muted); }
-  .vxnav-lang select { flex: 1 1 auto; min-width: 0; max-width: 60%; min-height: var(--nav-tap); font-size: 0.9rem; }
+  .vxnav-settings .vxnav-label { display: inline; }
+  .vxnav-settings .vxnav-ico { width: 1.35rem; height: 1.35rem; }
+  .vxnav-settings:hover { background: none; }
+  .vxnav-settings:active { background: rgba(255,255,255,.07); color: var(--text); }
+  .vxnav-settings.active {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--text); box-shadow: inset 0.18rem 0 0 var(--accent);
+  }
+  html[dir="rtl"] .vxnav-settings.active { box-shadow: inset -0.18rem 0 0 var(--accent); }
+  .vxnav-settings.active .vxnav-ico { color: var(--accent); }
 
   /* Velo: cubre la página bajo la barra y cierra al tocar.
      Cerrado NO debe existir para el dedo (si no, se traga todos los toques):
      de ahí visibility + pointer-events, que además permiten el desvanecido. */
   .vxnav-scrim {
-    display: block; position: fixed; inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.1rem)) 0 0; z-index: 1;
+    display: block; position: fixed; z-index: 1;
+    inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px)) 0 0;
+    inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + min(env(safe-area-inset-top, 0px) * 99, 1.9rem)) 0 0;
     background: rgba(6,9,14,.5); -webkit-backdrop-filter: blur(0.15rem); backdrop-filter: blur(0.15rem);
     opacity: 0; visibility: hidden; pointer-events: none; touch-action: none; border: 0;
     transition: opacity .24s ease, visibility .24s;
@@ -276,5 +308,5 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
 /* Reduce-motion: sin transiciones exageradas */
 @media (prefers-reduced-motion: reduce) {
   .vxnav, .vxnav::before, .vxnav-menu, .vxnav-scrim, .vxnav .brand-mark, .vxnav .wm-img, .vxnav-burger span { transition: none; }
-  .vxnav.open .vxnav-links a, .vxnav.open .vxnav-menu .btn-play, .vxnav.open .vxnav-lang { animation: none; }
+  .vxnav.open .vxnav-links a, .vxnav.open .vxnav-menu .btn-play, .vxnav.open .vxnav-menu .vxnav-settings { animation: none; }
 }

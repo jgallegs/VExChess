@@ -127,8 +127,10 @@ que exista el hueco `.vx-account`):
 
 Dos variantes:
 
-- **`site`** — barra pegajosa con marca, enlaces, CTA "Jugar", selector de idioma
-  y chip de cuenta. Es la de todas las páginas de contenido.
+- **`site`** — barra pegajosa con marca, enlaces, CTA "Jugar", acceso a Ajustes
+  (engranaje) y chip de cuenta. Es la de todas las páginas de contenido. El
+  selector de idioma y el tema del tablero viven en su propia página,
+  **`ajustes.html`** (`ajustes.css` + `ajustes.js`), no en la barra.
 - **`battle`** — barra flotante de la partida (`play.html`, `game.html`), con la
   animación de entrada del logo. Admite botones propios vía
   `<template data-slot="actions">…</template>`.
@@ -140,8 +142,8 @@ la constante `SITE_LINKS` de `navbar.js` (y su texto en `nav.<clave>` de cada
 ### Comportamiento en móvil
 
 Por debajo de **74em** (medido: es donde la barra dejaría de caber con la sesión
-iniciada y el idioma más largo) los enlaces, la CTA y el idioma se pliegan en un
-panel desplegable. El punto de corte está en `MOBILE_MQ` (`navbar.js`) y debe
+iniciada) los enlaces, la CTA y el acceso a Ajustes se pliegan en un panel
+desplegable. El punto de corte está en `MOBILE_MQ` (`navbar.js`) y debe
 coincidir con el `@media` de `navbar.css`. El panel:
 
 - se abre con la hamburguesa y se cierra con **Escape**, tocando el **velo**,
@@ -151,6 +153,16 @@ coincidir con el `@media` de `navbar.css`. El panel:
 - respeta los **márgenes seguros** de pantallas con muesca — por eso todos los
   `<meta name="viewport">` llevan `viewport-fit=cover`;
 - marca la página actual con una barrita de acento (espejada en RTL).
+
+**Regla del safe-area** (aprendida a base de iPhone real): `env(safe-area-inset-*)`
+se escribe **directo en cada regla**, nunca guardado en una custom property —
+WebKit falla resolviendo `env()` dentro de una `var()` usada en `calc()` y el
+inset sale 0. Además, Safari en iOS 26 reporta un inset superior corto (~44px
+donde el despeje real ronda 59px), así que al inset se le suma un **colchón que
+solo existe con muesca**: `min(env(safe-area-inset-top) * 99, 1.9rem)`. Y todo
+**en capas**: primero la declaración simple (solo `env()`), debajo la del
+colchón; si un motor no entiende la segunda, descarta esa línea y sobrevive la
+primera — nunca se queda a 0.
 
 La barra se **compacta al bajar** (clase `.is-scrolled`) para ganar alto útil y
 refuerza el velo de fondo para que los enlaces sigan legibles.
@@ -197,6 +209,7 @@ repositorio de GitHub. No necesita build ni configuración especial.)
     comunidad.html / perfil.html   Comunidad y perfil
     online.html / connect.html     Juego en línea
     vexborn.html / insignias.html  Progresión e insignias
+    ajustes.html  Ajustes (idioma de la interfaz y tema del tablero)
     admin.html    Panel de administración
     style.css     Estilos base y compartidos (modales, navbar "battle", partida…)
     ui.css        SISTEMA DE DISEÑO compartido (ver más abajo): tokens y componentes

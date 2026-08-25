@@ -9,11 +9,12 @@
 //  Debe cargarse ANTES que auth.js para que el slot .vx-account exista
 //  cuando auth.js pinte la cuenta.
 //
-//  Móvil/tablet (<= MOBILE_MQ): los enlaces + CTA + idioma se pliegan en un
+//  Móvil/tablet (<= MOBILE_MQ): los enlaces + CTA + Ajustes se pliegan en un
 //  panel desplegable con velo (scrim), bloqueo de scroll de fondo,
 //  cierre con Escape / toque fuera / navegación y foco gestionado.
+//  El idioma y el tema del tablero viven en ajustes.html.
 // ============================================================
-import { t, langSelectHTML, wireLangSelect } from './i18n.js?v=9';
+import { t } from './i18n.js?v=9';
 import { closeAllAccountMenus } from './account-chip.js?v=13';
 
 const KNIGHT = 'assets/knight-logo.svg';
@@ -50,6 +51,7 @@ const ICONS = {
   directo: '<circle cx="12" cy="12" r="2.4"/><path d="M7.9 7.9a5.8 5.8 0 0 0 0 8.2"/><path d="M16.1 16.1a5.8 5.8 0 0 0 0-8.2"/><path d="M5 5a9.9 9.9 0 0 0 0 14"/><path d="M19 19a9.9 9.9 0 0 0 0-14"/>',
   partidas: '<circle cx="12" cy="12" r="8.4"/><path d="M12 7.4V12l3 1.9"/>',
   comunidad: '<circle cx="9.2" cy="9" r="3.2"/><path d="M3.6 19.4a5.6 5.6 0 0 1 11.2 0"/><path d="M16.1 6.7a3.2 3.2 0 0 1 0 6.2"/><path d="M17.2 14.7a5.6 5.6 0 0 1 3.4 4.7"/>',
+  ajustes: '<circle cx="12" cy="12" r="3.1"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>',
 };
 
 function iconHTML(key) {
@@ -80,10 +82,10 @@ function siteHTML(ds) {
       '<div class="vxnav-menu" id="vxnav-menu">' +
         '<nav class="vxnav-links" aria-label="' + t('nav.menu') + '">' + links + '</nav>' +
         '<a class="btn-play" href="play.html">' + t('nav.play') + ' <span aria-hidden="true">→</span></a>' +
-        '<label class="vxnav-lang">' +
-          '<span class="vxnav-lang-label">' + t('nav.language') + '</span>' +
-          langSelectHTML('vx-lang', '') +
-        '</label>' +
+        '<a class="vxnav-settings' + (here === 'ajustes.html' ? ' active' : '') + '" href="ajustes.html" ' +
+          'title="' + t('nav.settings') + '"' + (here === 'ajustes.html' ? ' aria-current="page"' : '') + '>' +
+          iconHTML('ajustes') + '<span class="vxnav-label">' + t('nav.settings') + '</span>' +
+        '</a>' +
       '</div>' +
       '<div class="vxnav-bar">' +
         '<div class="vx-account"></div>' +
@@ -176,8 +178,6 @@ function wireSite(nav) {
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  wireLangSelect(nav.querySelector('#vx-lang'));
 }
 
 // Animación del logo (solo en battle): el caballo entra y el logo vuela a la barra.

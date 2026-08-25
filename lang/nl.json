@@ -10,7 +10,8 @@
     "home": "Start",
     "menu": "Navigatie",
     "openMenu": "Menu openen",
-    "closeMenu": "Menu sluiten"
+    "closeMenu": "Menu sluiten",
+    "settings": "Instellingen"
   },
   "common": {
     "loading": "Laden…",
@@ -2333,5 +2334,15 @@
       "thinking": "Kijk. De beste zet schreeuwt zelden.",
       "sendaCta": "Bewandel mijn Pad van Meesterschap in de codex."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Instellingen",
+    "eyebrow": "Voorkeuren",
+    "title": "Instellingen",
+    "sub": "Jouw VEXCHESS, op jouw manier. Wijzigingen gelden direct en worden op dit apparaat onthouden.",
+    "langTitle": "Taal",
+    "langDesc": "Taal van de interface. De hele site is vertaald in 14 talen.",
+    "themeTitle": "Bordthema",
+    "themeDesc": "Veldkleuren in al je partijen."
   }
 }

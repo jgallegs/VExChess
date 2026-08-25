@@ -10,7 +10,8 @@
     "home": "Início",
     "menu": "Navegação",
     "openMenu": "Abrir menu",
-    "closeMenu": "Fechar menu"
+    "closeMenu": "Fechar menu",
+    "settings": "Ajustes"
   },
   "common": {
     "loading": "Carregando…",
@@ -2333,5 +2334,15 @@
       "thinking": "Observa. O melhor lance raramente grita.",
       "sendaCta": "Percorre a minha Senda de Maestria no códice."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Ajustes",
+    "eyebrow": "Preferências",
+    "title": "Ajustes",
+    "sub": "O teu VEXCHESS, à tua maneira. As alterações aplicam-se de imediato e ficam guardadas neste dispositivo.",
+    "langTitle": "Idioma",
+    "langDesc": "Idioma da interface. Todo o site está traduzido em 14 idiomas.",
+    "themeTitle": "Tema do tabuleiro",
+    "themeDesc": "Cores das casas em todas as tuas partidas."
   }
 }

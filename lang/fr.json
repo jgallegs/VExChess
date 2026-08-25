@@ -10,7 +10,8 @@
     "home": "Accueil",
     "menu": "Navigation",
     "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "settings": "Réglages"
   },
   "common": {
     "loading": "Chargement…",
@@ -2333,5 +2334,15 @@
       "thinking": "Observe. Le meilleur coup crie rarement.",
       "sendaCta": "Parcours ma Voie de la Maîtrise dans le codex."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Réglages",
+    "eyebrow": "Préférences",
+    "title": "Réglages",
+    "sub": "VEXCHESS, à votre façon. Les changements s’appliquent immédiatement et sont mémorisés sur cet appareil.",
+    "langTitle": "Langue",
+    "langDesc": "Langue de l’interface. Tout le site est traduit en 14 langues.",
+    "themeTitle": "Thème de l’échiquier",
+    "themeDesc": "Couleurs des cases dans toutes vos parties."
   }
 }

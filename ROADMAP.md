@@ -22,6 +22,8 @@ Que los usuarios ganen **reputación** con el tiempo. Posibles fuentes (por deci
 - Relación con el sistema de insignias (algunas insignias podrían dar reputación).
 
 ## En marcha / hecho
+- ✅ **Página de Ajustes (`ajustes.html`)**: idioma de la interfaz y tema del tablero en una lista agrupada al estilo de un sistema operativo. El selector de idioma sale de la navbar (en escritorio lo sustituye un engranaje discreto; en el panel móvil, una fila de Ajustes), que queda más limpia. Textos en los 14 idiomas.
+- ✅ **Safe-area superior blindado (iOS 26)**: `env()` directo en cada regla (nunca dentro de una custom property: WebKit lo resuelve a 0), colchón condicional `min(env*99, 1.9rem)` que solo existe con muesca, y todo declarado en capas para que un motor que no entienda el colchón conserve al menos el inset simple.
 - ✅ Cuentas (registro/login), perfiles, persistencia en la nube (D1), Elo y estadísticas.
 - ✅ Sistema de **insignias** (estilo Discord): colección inicial de 8, mostrar en el perfil con detalle, fijar hasta 3 y destacar 1 junto al nombre.
 - ✅ **Sistema de diseño compartido (`ui.css`)**: tokens (radios, superficies, semánticos, foco cian), jerarquía de botones en 4 niveles, segmented control único, filas/KPIs/chips/estados vacíos comunes, y todas las páginas armonizadas. Arreglada además la "bandeja" que asomaba bajo el chip de cuenta.

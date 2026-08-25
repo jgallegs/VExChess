@@ -10,7 +10,8 @@
     "home": "Home",
     "menu": "Navigazione",
     "openMenu": "Apri menu",
-    "closeMenu": "Chiudi menu"
+    "closeMenu": "Chiudi menu",
+    "settings": "Impostazioni"
   },
   "common": {
     "loading": "Caricamento…",
@@ -2333,5 +2334,15 @@
       "thinking": "Osserva. La mossa migliore raramente urla.",
       "sendaCta": "Percorri il mio Sentiero della Maestria nel codice."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Impostazioni",
+    "eyebrow": "Preferenze",
+    "title": "Impostazioni",
+    "sub": "Il tuo VEXCHESS, a modo tuo. Le modifiche si applicano subito e vengono ricordate su questo dispositivo.",
+    "langTitle": "Lingua",
+    "langDesc": "Lingua dell’interfaccia. L’intero sito è tradotto in 14 lingue.",
+    "themeTitle": "Tema della scacchiera",
+    "themeDesc": "Colori delle case in tutte le tue partite."
   }
 }

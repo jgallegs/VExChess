@@ -10,7 +10,8 @@
     "home": "Start",
     "menu": "Nawigacja",
     "openMenu": "Otwórz menu",
-    "closeMenu": "Zamknij menu"
+    "closeMenu": "Zamknij menu",
+    "settings": "Ustawienia"
   },
   "common": {
     "loading": "Ładowanie…",
@@ -2333,5 +2334,15 @@
       "thinking": "Obserwuj. Najlepszy ruch rzadko krzyczy.",
       "sendaCta": "Przejdź moją Ścieżkę Mistrzostwa w kodeksie."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Ustawienia",
+    "eyebrow": "Preferencje",
+    "title": "Ustawienia",
+    "sub": "Twój VEXCHESS po twojemu. Zmiany działają od razu i są zapamiętywane na tym urządzeniu.",
+    "langTitle": "Język",
+    "langDesc": "Język interfejsu. Cała strona jest przetłumaczona na 14 języków.",
+    "themeTitle": "Motyw szachownicy",
+    "themeDesc": "Kolory pól we wszystkich twoich partiach."
   }
 }

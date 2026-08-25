@@ -10,7 +10,8 @@
     "home": "Start",
     "menu": "Navigation",
     "openMenu": "Menü öffnen",
-    "closeMenu": "Menü schließen"
+    "closeMenu": "Menü schließen",
+    "settings": "Einstellungen"
   },
   "common": {
     "loading": "Wird geladen…",
@@ -2333,5 +2334,15 @@
       "thinking": "Beobachte. Der beste Zug schreit selten.",
       "sendaCta": "Beschreite meinen Pfad der Meisterschaft im Kodex."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Einstellungen",
+    "eyebrow": "Präferenzen",
+    "title": "Einstellungen",
+    "sub": "Dein VEXCHESS, wie du es magst. Änderungen gelten sofort und werden auf diesem Gerät gespeichert.",
+    "langTitle": "Sprache",
+    "langDesc": "Sprache der Oberfläche. Die gesamte Website ist in 14 Sprachen übersetzt.",
+    "themeTitle": "Brett-Design",
+    "themeDesc": "Feldfarben in all deinen Partien."
   }
 }

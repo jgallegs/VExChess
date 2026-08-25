@@ -10,7 +10,8 @@
     "home": "Home",
     "menu": "Navigation",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "settings": "Settings"
   },
   "common": {
     "loading": "Loading…",
@@ -2333,5 +2334,15 @@
       "thinking": "Watch. The best move rarely shouts.",
       "sendaCta": "Walk my Path of Mastery in the codex."
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · Settings",
+    "eyebrow": "Preferences",
+    "title": "Settings",
+    "sub": "VEXCHESS, your way. Changes apply instantly and are remembered on this device.",
+    "langTitle": "Language",
+    "langDesc": "Interface language. The whole site is translated into 14 languages.",
+    "themeTitle": "Board theme",
+    "themeDesc": "Square colours across all your games."
   }
 }

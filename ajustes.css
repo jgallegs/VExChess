@@ -1,0 +1,66 @@
+/* ============================================================
+   VEXCHESS · Ajustes — preferencias del sitio.
+   Una tarjeta agrupada al estilo de una lista de sistema: cada
+   fila es un ajuste (texto a la izquierda, control a la derecha),
+   separadas por aire y una línea fina SOLO entre filas.
+   Regla de la casa: alineación equidistante — el texto y el
+   control miden lo mismo contra los bordes de su fila.
+   ============================================================ */
+
+.set-wrap {
+  width: 100%; max-width: 46rem; margin: 0 auto;
+  padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 4vw, 1.6rem) 4rem;
+  padding-left: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-left, 0px));
+  padding-right: calc(clamp(1rem, 4vw, 1.6rem) + env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Cabecera ---------- */
+.set-head { margin-bottom: 1.6rem; }
+.set-title {
+  margin: 0.55rem 0 0.45rem;
+  font: 800 clamp(1.9rem, 4.5vw, 2.5rem)/1.08 'Oxanium', sans-serif; letter-spacing: .01em;
+}
+.set-sub { margin: 0; max-width: 34rem; color: var(--muted); font-size: 0.98rem; line-height: 1.55; }
+
+/* ---------- Tarjeta agrupada ---------- */
+.set-card {
+  background: var(--surface-1, var(--panel));
+  border: var(--hair) solid var(--border);
+  border-radius: var(--r-lg, 1.1rem);
+  box-shadow: 0 0.9rem 2.2rem -1rem rgba(0,0,0,.55);
+  overflow: hidden;
+}
+.set-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.2rem;
+  padding: 1.15rem 1.3rem;
+}
+.set-row + .set-row { border-top: var(--hair) solid var(--border); }
+.set-row-txt { min-width: 0; }
+.set-row-title { margin: 0 0 0.28rem; font: 700 1.02rem/1.25 'Inter', sans-serif; color: var(--text); }
+.set-row-desc { margin: 0; color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+.set-row-ctrl { flex: 0 0 auto; display: flex; align-items: center; }
+
+/* ---------- Selector de idioma ---------- */
+.set-select {
+  appearance: none; -webkit-appearance: none;
+  background: rgba(255,255,255,.06); color: #fff;
+  border: var(--hair) solid rgba(255,255,255,.16); border-radius: 0.6rem;
+  padding: 0.55rem 1.9rem 0.55rem 0.8rem; cursor: pointer;
+  min-height: 2.6rem; max-width: 12rem;
+  font: 700 0.88rem 'Inter', system-ui, sans-serif;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23ffffff' d='M0 0h10L5 7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0.65rem center;
+  transition: border-color .15s, background-color .15s;
+}
+.set-select:hover { border-color: rgba(57,213,255,.6); }
+.set-select:focus-visible { outline: none; border-color: #39D5FF; box-shadow: 0 0 0 .16rem rgba(57,213,255,.4); }
+.set-select option { background: #0D1117; color: #fff; }
+html[dir="rtl"] .set-select { padding: 0.55rem 0.8rem 0.55rem 1.9rem; background-position: left 0.65rem center; }
+
+/* Los swatches del tema (.theme-sw) ya vienen estilados de style.css. */
+
+/* ---------- Móvil: cada fila se apila, control a lo ancho ---------- */
+@media (max-width: 34em) {
+  .set-row { flex-direction: column; align-items: stretch; gap: 0.8rem; }
+  .set-select { width: 100%; max-width: none; }
+}

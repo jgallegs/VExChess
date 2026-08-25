@@ -10,7 +10,8 @@
     "home": "首页",
     "menu": "导航",
     "openMenu": "打开菜单",
-    "closeMenu": "关闭菜单"
+    "closeMenu": "关闭菜单",
+    "settings": "设置"
   },
   "common": {
     "loading": "加载中…",
@@ -2333,5 +2334,15 @@
       "thinking": "观察。最好的一手很少喧哗。",
       "sendaCta": "在典籍中走我的精通之路。"
     }
+  },
+  "settings": {
+    "pageTitle": "VEXCHESS · 设置",
+    "eyebrow": "偏好设置",
+    "title": "设置",
+    "sub": "你的 VEXCHESS，由你做主。更改立即生效，并保存在此设备上。",
+    "langTitle": "语言",
+    "langDesc": "界面语言。整个网站已翻译成 14 种语言。",
+    "themeTitle": "棋盘主题",
+    "themeDesc": "所有对局中棋盘格子的颜色。"
   }
 }
