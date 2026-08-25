@@ -233,7 +233,7 @@ const ACCOUNT_CSS = `
 .vxa:not(.open) .vxa-surface:hover{box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.12),0 .35rem .9rem rgba(0,0,0,.22);
   background:linear-gradient(180deg,rgba(48,60,78,.82),rgba(28,35,47,.88))}
 .vxa.open .vxa-surface{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem;
-  box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.12),0 1.8rem 4rem rgba(0,0,0,.6)}
+  box-shadow:0 1.8rem 4rem rgba(0,0,0,.6)}
 .vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
 
 /* Chip (fila cabecera) — transparente: la glass la pone la superficie */
@@ -300,11 +300,9 @@ const ACCOUNT_CSS = `
 /* Cajón desplegable — crece con grid-rows (muy suave) */
 .vxa-drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
 .vxa.open .vxa-drawer{grid-template-rows:1fr}
-.vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem;
-  border-top:0 solid transparent;margin-top:0;
-  transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s,border-top-color .08s}
-.vxa.open .vxa-drawer-in{padding-bottom:.45rem;border-top-width:.07rem;border-top-color:rgba(255,255,255,.08);margin-top:.1rem;
-  transition:padding .42s cubic-bezier(.22,1,.36,1),border-top-width .42s,margin-top .42s,border-top-color .25s .12s}
+.vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem;margin-top:0;
+  transition:padding .42s cubic-bezier(.22,1,.36,1),margin-top .42s}
+.vxa.open .vxa-drawer-in{padding-bottom:.5rem;margin-top:.05rem}
 .vxa-links{display:flex;flex-direction:column;padding-top:.35rem}
 .vxa-menu-note{display:none}
 
@@ -330,7 +328,7 @@ const ACCOUNT_CSS = `
 .vxa-mi-dot{display:inline-flex;align-items:center;justify-content:center;min-width:1.15rem;height:1.15rem;
   padding:0 .32rem;font:800 .64rem/1 'Oxanium',sans-serif;color:#fff;background:var(--accent,#FF3B47);border-radius:1rem;flex:0 0 auto;
   animation:vxa-dot-in .32s cubic-bezier(.34,1.56,.64,1) backwards}
-.vxa-signout{color:#ff9ea4;margin-top:.2rem;border-top:.07rem solid rgba(255,255,255,.07);border-radius:0 0 .5rem .5rem}
+.vxa-signout{color:#ff9ea4;margin-top:.35rem;border-radius:.5rem}
 .vxa-signout:hover{background:rgba(255,59,71,.12);color:#ffc4c8}
 
 /* ---------- Preferencias de visualización ---------- */

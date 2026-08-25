@@ -25,6 +25,18 @@
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
 html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
 
+/* El header llega VACÍO en el HTML y lo monta navbar.js: sin esto medía 0
+   y todo el contenido pegaba un salto de barra entera al montarse. El hueco
+   queda reservado desde el primer paint (la variante battle es fixed y no
+   reserva). El contenido de la barra aparece con un fundido al montar. */
+#vx-nav[data-variant="site"] { display: block; min-height: var(--nav-h); }
+/* El fundido de montaje NO puede tocar a un ancestro del chip de cuenta:
+   cualquier animación de opacity sobre él crea un backdrop root nuevo y el
+   blur del cristal deja de ver la página. Funden marca, enlaces y burger. */
+.vxnav .nav-brand, .vxnav-links, .vxnav-burger { animation: vxnav-mount .28s ease; }
+@keyframes vxnav-mount { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .vxnav .nav-brand, .vxnav-links, .vxnav-burger { animation: none; } }
+
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
   position: sticky; top: 0; z-index: 60; height: var(--nav-h); box-sizing: border-box;
