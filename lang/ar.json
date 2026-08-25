@@ -9,7 +9,8 @@
     "language": "اللغة",
     "home": "الرئيسية",
     "menu": "التنقل",
-    "openMenu": "فتح القائمة"
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة"
   },
   "common": {
     "loading": "جارٍ التحميل…",

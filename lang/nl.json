@@ -9,7 +9,8 @@
     "language": "Taal",
     "home": "Start",
     "menu": "Navigatie",
-    "openMenu": "Menu openen"
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten"
   },
   "common": {
     "loading": "Laden…",

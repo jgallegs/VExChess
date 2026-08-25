@@ -9,7 +9,8 @@
     "language": "भाषा",
     "home": "होम",
     "menu": "नेविगेशन",
-    "openMenu": "मेन्यू खोलें"
+    "openMenu": "मेन्यू खोलें",
+    "closeMenu": "मेन्यू बंद करें"
   },
   "common": {
     "loading": "लोड हो रहा है…",

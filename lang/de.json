@@ -9,7 +9,8 @@
     "language": "Sprache",
     "home": "Start",
     "menu": "Navigation",
-    "openMenu": "Menü öffnen"
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
   },
   "common": {
     "loading": "Wird geladen…",

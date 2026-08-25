@@ -16,8 +16,9 @@ sin claves de API, sin coste y funciona sin conexión.
 - **Barras de jugador** arriba y abajo del tablero con avatar, nombre y rating,
   las piezas capturadas (agrupadas y apiladas) y la ventaja de material (+N).
 - **Animación de carga** con la silueta del caballo mientras se carga el motor.
-- **Multilenguaje (i18n)**: español e inglés, con selector y detección automática del
-  idioma del navegador. Todos los textos viven en `i18n.js`.
+- **Multilenguaje (i18n)**: 14 idiomas (incluidos árabe y persa, con soporte RTL),
+  con selector en la navbar y detección automática del idioma del navegador. El motor
+  vive en `i18n.js` y los textos de cada idioma en `lang/<código>.json`.
 - **Animación de las fichas**: cada pieza se desliza suavemente al moverse (capa de
   piezas con `transform` + transición); las capturas se funden; enroque y coronación animados.
 - **Identidad de marca VEXCHESS**: paleta Obsidian/Slate/Ivory/Tactical Red, wordmark
@@ -37,6 +38,57 @@ Todo el CSS es **100% responsive y sin `px`**: se usan solo unidades relativas
 (`rem`, `em`, `%`, `vh`, `vw`, `clamp`). El tamaño base es fluido (ver la regla
 `html { font-size: clamp(...) }` en `style.css`), así que toda la interfaz escala
 sola con el tamaño de la ventana. Cualquier cambio futuro debe mantener esta norma.
+
+## Navbar compartida (`navbar.js` + `navbar.css`)
+
+Todas las páginas montan la misma barra desde un único componente. Basta con
+colocar el contenedor y cargar el script **antes** de `auth.js` (que necesita
+que exista el hueco `.vx-account`):
+
+    <link rel="stylesheet" href="navbar.css?v=6">
+    ...
+    <header id="vx-nav" data-variant="site"></header>          <!-- por defecto -->
+    <header id="vx-nav" data-variant="site" data-home></header> <!-- portada -->
+    <script type="module" src="navbar.js?v=5"></script>
+
+Dos variantes:
+
+- **`site`** — barra pegajosa con marca, enlaces, CTA "Jugar", selector de idioma
+  y chip de cuenta. Es la de todas las páginas de contenido.
+- **`battle`** — barra flotante de la partida (`play.html`, `game.html`), con la
+  animación de entrada del logo. Admite botones propios vía
+  `<template data-slot="actions">…</template>`.
+
+Los enlaces son **los mismos en todas las vistas**: se editan en un solo sitio,
+la constante `SITE_LINKS` de `navbar.js` (y su texto en `nav.<clave>` de cada
+`lang/*.json`). El enlace de la página actual se marca solo, con `aria-current`.
+
+### Comportamiento en móvil
+
+Por debajo de **74em** (medido: es donde la barra dejaría de caber con la sesión
+iniciada y el idioma más largo) los enlaces, la CTA y el idioma se pliegan en un
+panel desplegable. El punto de corte está en `MOBILE_MQ` (`navbar.js`) y debe
+coincidir con el `@media` de `navbar.css`. El panel:
+
+- se abre con la hamburguesa y se cierra con **Escape**, tocando el **velo**,
+  tocando fuera, al navegar o al volver a escritorio;
+- **bloquea el scroll del fondo** mientras está abierto (`html.vxnav-locked`);
+- tiene **scroll propio** si no cabe (apaisado), sin arrastrar la página;
+- respeta los **márgenes seguros** de pantallas con muesca — por eso todos los
+  `<meta name="viewport">` llevan `viewport-fit=cover`;
+- marca la página actual con una barrita de acento (espejada en RTL).
+
+La barra se **compacta al bajar** (clase `.is-scrolled`) para ganar alto útil y
+refuerza el velo de fondo para que los enlaces sigan legibles.
+
+Ojo con las zonas táctiles: el tamaño base del documento es fluido
+(`html { font-size: clamp(…) }`), así que en móviles pequeños 1rem encoge. Por
+eso los objetivos táctiles usan la variable `--nav-tap`, que sube en el tramo
+estrecho para no bajar nunca de ~44px reales.
+
+Al tocar cualquier fichero de la navbar hay que **subir el `?v=`** de
+`navbar.css` / `navbar.js` en todos los HTML, o los navegadores servirán la
+versión cacheada.
 
 ## Cómo ejecutarlo en local
 
@@ -64,12 +116,25 @@ repositorio de GitHub. No necesita build ni configuración especial.)
 
 ## Estructura del proyecto
 
-    index.html    Estructura de la página y panel lateral
-    style.css     Estilos
-    app.js        Toda la lógica: tablero, interacción y comunicación con el motor
-    i18n.js       TODOS los textos de la interfaz (es / en). Para añadir un idioma,
-                  copia el bloque "en", tradúcelo y añade su <option> en index.html
+    index.html    Portada
+    play.html / game.html          Partida contra la IA (navbar variante "battle")
+    academia.html / puzzles.html   Academia y puzzles
+    directo.html / partidas.html   Partidas en directo e historial propio
+    comunidad.html / perfil.html   Comunidad y perfil
+    online.html / connect.html     Juego en línea
+    vexborn.html / insignias.html  Progresión e insignias
+    admin.html    Panel de administración
+    style.css     Estilos base y compartidos (botones, modales, navbar "battle"…)
+    home.css, academia.css, …      Estilos por página
+    navbar.css / navbar.js         Navbar compartida (ver más abajo)
+    account-chip.js                Chip de cuenta desplegable de la navbar
+    auth.js       Sesión, cuenta y datos del usuario
+    app.js        Lógica de partida: tablero, interacción y comunicación con el motor
+    i18n.js       Motor de traducción (t(), selector de idioma, RTL)
+    lang/*.json   Textos de cada idioma. Para añadir uno: copia `lang/en.json`,
+                  tradúcelo y añade su código y endónimo a LANGS en `i18n.js`
     chess.js      Librería de reglas (movimientos legales, jaque, etc.)
+    worker/       Worker de Cloudflare (API) y `schema.sql` la base de datos D1
     engine/
       stockfish-18-lite-single.js    Cargador del motor (Web Worker)
       stockfish-18-lite-single.wasm  Motor + red neuronal NNUE (~7 MB)

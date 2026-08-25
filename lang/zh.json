@@ -9,7 +9,8 @@
     "language": "语言",
     "home": "首页",
     "menu": "导航",
-    "openMenu": "打开菜单"
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单"
   },
   "common": {
     "loading": "加载中…",

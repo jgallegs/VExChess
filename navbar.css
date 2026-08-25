@@ -2,17 +2,37 @@
    VEXCHESS · Navbar reutilizable
    - Variante "site": barra fija-pegajosa (sticky), NO tapa el
      contenido porque ocupa su propio alto. Logo grande + cariño.
+     En móvil/tablet (<= 74em) los enlaces se pliegan en un panel con velo.
    - Variante "battle": la barra flotante centrada (usa .navbar de
      style.css) y es donde vive la animación del logo (intro).
+   Convención del proyecto: sin px, solo unidades relativas.
    ============================================================ */
-:root { --nav-h: 5.4rem; }
+:root {
+  --nav-h: 5.4rem;          /* alto de la barra (se ajusta en móvil) */
+  --nav-pad: clamp(1rem, 3.5vw, 3.2rem);
+  /* Alto mínimo de zona táctil. El tamaño base del documento es fluido
+     (html{font-size:clamp(...)} en style.css), así que en móviles pequeños
+     1rem encoge: por eso el valor sube en el tramo estrecho para no bajar
+     nunca de ~44px reales de superficie tocable. */
+  --nav-tap: 3.05rem;
+  /* Márgenes seguros de pantallas con muesca (necesita viewport-fit=cover) */
+  --nav-safe-l: env(safe-area-inset-left, 0px);
+  --nav-safe-r: env(safe-area-inset-right, 0px);
+  --nav-safe-b: env(safe-area-inset-bottom, 0px);
+}
+@media (max-width: 48em) { :root { --nav-tap: 3.45rem; } }
+
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
 html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
+
+/* Con el panel móvil abierto el fondo no se desplaza */
+html.vxnav-locked, html.vxnav-locked body { overflow: hidden; }
 
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
   position: sticky; top: 0; z-index: 60; height: var(--nav-h); box-sizing: border-box;
   display: flex; align-items: center; background: transparent;
+  transition: height .22s ease;
 }
 /* Scrim: blur fuerte arriba que se difumina MUY gradual hacia abajo.
    Sin fondo sólido ni borde -> nada de línea blanca al cargar. */
@@ -23,11 +43,19 @@ html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 100%);
   background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 55%, transparent) 0%, transparent 78%);
+  transition: background .22s ease;
+}
+/* Al bajar, el velo se refuerza para que los enlaces sigan legibles sobre
+   cualquier contenido (tableros, imágenes, tarjetas claras…). */
+.vxnav.is-scrolled::before {
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 30%, transparent) 62%, transparent 100%);
 }
 .vxnav-inner {
-  position: relative; z-index: 1;
-  width: 100%; max-width: 104rem; margin: 0 auto; padding: 0 clamp(1rem, 3.5vw, 3.2rem);
+  position: relative; z-index: 3;
+  width: 100%; max-width: 104rem; margin: 0 auto;
+  padding-left: calc(var(--nav-pad) + var(--nav-safe-l)); padding-right: calc(var(--nav-pad) + var(--nav-safe-r));
   display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 1.8rem);
+  min-width: 0;
 }
 
 /* Marca: logo más grande, con un resplandor rojo suave detrás del caballo */
@@ -37,10 +65,10 @@ html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
   width: 5.6rem; height: 5.6rem; pointer-events: none;
   background: radial-gradient(50% 50% at 44% 50%, rgba(255,59,71,.32), transparent 70%); filter: blur(0.34rem);
 }
-.vxnav .brand-mark { height: 4rem; width: auto; display: block; position: relative; z-index: 1; transition: transform .2s ease, filter .2s ease; }
+.vxnav .brand-mark { height: 4rem; width: auto; display: block; position: relative; z-index: 1; transition: height .22s ease, transform .2s ease, filter .2s ease; }
 .vxnav .nav-brand:hover .brand-mark { transform: scale(1.06) rotate(-3deg); filter: drop-shadow(0 0.2rem 0.5rem rgba(255,59,71,.35)); }
 .vxnav .brand-text { position: relative; z-index: 1; display: inline-block; }
-.vxnav .wm-img { height: 1.5rem; width: auto; display: block; }
+.vxnav .wm-img { height: 1.5rem; width: auto; display: block; transition: height .22s ease; }
 .vxnav .tagline {
   position: absolute; top: 100%; left: 4%; margin-top: 0.38rem; white-space: nowrap;
   font: 600 0.52rem/1 'Inter', sans-serif; letter-spacing: 0.34em; text-transform: uppercase; color: var(--vex-muted);
@@ -53,47 +81,36 @@ html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
 .vxnav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -0.05rem; height: 0.13rem; background: var(--accent); border-radius: 1rem; transition: right .2s ease; }
 .vxnav-links a:hover, .vxnav-links a.active { color: var(--text); }
 .vxnav-links a:hover::after, .vxnav-links a.active::after { right: 0; }
+.vxnav-links a:focus-visible { outline: none; color: var(--text); box-shadow: 0 0 0 .16rem rgba(57,213,255,.5); border-radius: .35rem; }
+/* Los iconos solo acompañan a los enlaces en el panel móvil */
+.vxnav-ico { display: none; }
 
 /* Acciones fijas en la barra (cuenta siempre visible + hamburguesa en móvil) */
 .vxnav-bar { display: flex; align-items: center; gap: 0.65rem; flex: 0 0 auto; }
 .vxnav-menu .btn-play { flex: 0 0 auto; }
 
-/* Hamburguesa */
-.vxnav-burger { display: none; width: 2.6rem; height: 2.6rem; border-radius: 0.6rem; border: var(--hair) solid var(--border);
-  background: var(--panel-2); cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 0.28rem; padding: 0; }
+/* Hamburguesa: zona táctil cómoda (>=3rem) aunque el icono sea pequeño */
+.vxnav-burger {
+  display: none; width: var(--nav-tap); height: var(--nav-tap); border-radius: 0.7rem;
+  border: var(--hair) solid var(--border); background: var(--panel-2); cursor: pointer;
+  align-items: center; justify-content: center; flex-direction: column; gap: 0.28rem; padding: 0;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transition: border-color .15s, background .15s;
+}
 .vxnav-burger:hover { border-color: var(--muted); }
-.vxnav-burger span { display: block; width: 1.2rem; height: 0.14rem; background: var(--text); border-radius: 1rem; transition: transform .22s ease, opacity .18s ease; }
+.vxnav-burger:focus-visible { outline: none; border-color: #39D5FF; box-shadow: 0 0 0 .16rem rgba(57,213,255,.45); }
+.vxnav.open .vxnav-burger { background: color-mix(in srgb, var(--accent) 18%, var(--panel-2)); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.vxnav-burger span { display: block; width: 1.25rem; height: 0.14rem; background: var(--text); border-radius: 1rem; transition: transform .22s ease, opacity .18s ease; }
 .vxnav.open .vxnav-burger span:nth-child(1) { transform: translateY(0.42rem) rotate(45deg); }
 .vxnav.open .vxnav-burger span:nth-child(2) { opacity: 0; }
 .vxnav.open .vxnav-burger span:nth-child(3) { transform: translateY(-0.42rem) rotate(-45deg); }
 
-/* ---------- Móvil: enlaces + CTA en un panel desplegable ---------- */
-@media (max-width: 60em) {
-  .vxnav-burger { display: inline-flex; }
-  .vxnav-menu {
-    position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 59;
-    display: flex; flex-direction: column; align-items: stretch; gap: 0.15rem;
-    padding: 0.7rem clamp(1rem, 4vw, 1.6rem) 1rem;
-    background: color-mix(in srgb, var(--bg) 97%, transparent);
-    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-    border-bottom: var(--hair) solid var(--border); box-shadow: 0 1rem 2.2rem rgba(0,0,0,.45);
-    transform: translateY(-115%); opacity: 0; visibility: hidden;
-    transition: transform .26s cubic-bezier(.2,.8,.2,1), opacity .2s ease, visibility .26s;
-  }
-  .vxnav.open .vxnav-menu { transform: none; opacity: 1; visibility: visible; }
-  .vxnav-links { flex-direction: column; align-items: stretch; gap: 0; margin: 0; }
-  .vxnav-links a { padding: 0.85rem 0.3rem; border-bottom: var(--hair) solid var(--border); font-size: 1rem; color: var(--text); }
-  .vxnav-links a::after { display: none; }
-  .vxnav-menu .btn-play { margin-top: 0.8rem; justify-content: center; text-align: center; }
-}
-
-/* Reduce-motion: sin transiciones exageradas */
-@media (prefers-reduced-motion: reduce) {
-  .vxnav, .vxnav-menu, .vxnav .brand-mark, .vxnav-burger span { transition: none; }
-}
+/* Velo bajo el panel: oscurece y captura el toque para cerrar */
+.vxnav-scrim { display: none; }
 
 /* Selector de idioma (i18n) */
 .vxnav-lang { display: inline-flex; align-items: center; }
+.vxnav-lang-label { display: none; }
 .vxnav-lang select {
   appearance: none; -webkit-appearance: none;
   background: rgba(255,255,255,.06); color: #fff;
@@ -105,11 +122,124 @@ html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
   transition: border-color .15s, background .15s;
 }
 .vxnav-lang select:hover { border-color: rgba(57,213,255,.6); }
-.vxnav-lang select:focus { outline: none; border-color: #39D5FF; }
+.vxnav-lang select:focus-visible { outline: none; border-color: #39D5FF; box-shadow: 0 0 0 .16rem rgba(57,213,255,.4); }
 .vxnav-lang select option { background: #0D1117; color: #fff; }
 html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; background-position: left 0.6rem center; }
-/* En móvil el selector va dentro del menú desplegable */
-@media (max-width: 960px) {
-  .vxnav-lang { width: 100%; margin-top: 0.4rem; }
-  .vxnav-lang select { width: 100%; }
+
+/* Escritorio intermedio (portátiles): la barra tiene que caber con el chip de
+   cuenta iniciado (avatar + nombre + Elo), que es bastante más ancho que el
+   botón "Entrar". Aquí se compacta todo para no provocar scroll horizontal. */
+@media (max-width: 92em) {
+  :root { --nav-pad: 1.35rem; }
+  .vxnav-inner { gap: 0.9rem; }
+  .vxnav-links { gap: 0.85rem; margin-left: 0.6rem; }
+  .vxnav-links a { font-size: 0.86rem; }
+  .vxnav-menu .btn-play { padding-inline: 0.9rem; }
+  .vxnav-lang select { max-width: 6.2rem; text-overflow: ellipsis; }
+}
+
+/* ============================================================
+   Móvil / tablet (<= 68em): enlaces + CTA + idioma en un panel
+   ============================================================ */
+@media (max-width: 74em) {
+  :root { --nav-h: 4.5rem; }
+  .vxnav.is-scrolled { --nav-h: 4rem; }
+  .vxnav.is-scrolled .brand-mark { height: 2.9rem; }
+
+  .vxnav .brand-mark { height: 3.3rem; }
+  .vxnav .wm-img { height: 1.3rem; }
+  .vxnav .nav-brand::before { width: 4.6rem; height: 4.6rem; left: -0.8rem; }
+
+  .vxnav-burger { display: inline-flex; }
+
+  /* Panel: hoja desplegable bajo la barra, con scroll propio si no cabe */
+  .vxnav-menu {
+    position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 2;
+    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    padding: 0.6rem clamp(1rem, 4vw, 1.6rem) calc(1.1rem + var(--nav-safe-b));
+    padding-left: calc(clamp(1rem, 4vw, 1.6rem) + var(--nav-safe-l));
+    padding-right: calc(clamp(1rem, 4vw, 1.6rem) + var(--nav-safe-r));
+    max-height: calc(100vh - var(--nav-h));
+    max-height: calc(100dvh - var(--nav-h)); /* barra del navegador incluida */
+    overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+    background: color-mix(in srgb, var(--bg) 97%, transparent);
+    -webkit-backdrop-filter: blur(1rem) saturate(1.3); backdrop-filter: blur(1rem) saturate(1.3);
+    border-bottom: var(--hair) solid var(--border);
+    border-radius: 0 0 1.1rem 1.1rem;
+    box-shadow: 0 1.2rem 2.6rem rgba(0,0,0,.5);
+    transform: translateY(-0.8rem); opacity: 0; visibility: hidden;
+    transition: transform .26s cubic-bezier(.2,.8,.2,1), opacity .2s ease, visibility .26s;
+  }
+  .vxnav.open .vxnav-menu { transform: none; opacity: 1; visibility: visible; }
+
+  .vxnav-links { flex-direction: column; align-items: stretch; gap: 0.15rem; margin: 0; }
+  .vxnav-links a {
+    display: flex; align-items: center; gap: 0.85rem;
+    min-height: var(--nav-tap); padding: 0.55rem 0.7rem;
+    border-radius: 0.7rem; border-bottom: none;
+    font-size: 1rem; color: var(--text); white-space: normal;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .14s, color .14s;
+  }
+  .vxnav-links a::after { display: none; }
+  .vxnav-links a:active { background: rgba(255,255,255,.07); }
+  /* Página actual: barrita de acento a la izquierda, sin ambigüedad */
+  .vxnav-links a.active {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--text); box-shadow: inset 0.18rem 0 0 var(--accent);
+  }
+  html[dir="rtl"] .vxnav-links a.active { box-shadow: inset -0.18rem 0 0 var(--accent); }
+  .vxnav-links a.active .vxnav-ico { color: var(--accent); }
+
+  .vxnav-ico { display: block; width: 1.35rem; height: 1.35rem; flex: 0 0 auto; color: var(--muted); }
+  .vxnav-label { min-width: 0; }
+
+  /* CTA a lo ancho y con altura de dedo */
+  .vxnav-menu .btn-play {
+    margin-top: 0.85rem; min-height: var(--nav-tap);
+    justify-content: center; text-align: center; font-size: 1rem; border-radius: 0.8rem;
+  }
+
+  /* Idioma: etiqueta visible + control a lo ancho */
+  .vxnav-lang {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.8rem;
+    width: 100%; margin-top: 0.9rem; padding-top: 0.85rem;
+    border-top: var(--hair) solid var(--border);
+  }
+  .vxnav-lang-label { display: inline-block; font: 600 0.85rem 'Inter', sans-serif; color: var(--muted); }
+  .vxnav-lang select { flex: 1 1 auto; min-width: 0; max-width: 60%; min-height: var(--nav-tap); font-size: 0.9rem; }
+
+  /* Velo: cubre la página bajo la barra y cierra al tocar.
+     Cerrado NO debe existir para el dedo (si no, se traga todos los toques):
+     de ahí visibility + pointer-events, que además permiten el desvanecido. */
+  .vxnav-scrim {
+    display: block; position: fixed; inset: var(--nav-h) 0 0; z-index: 1;
+    background: rgba(6,9,14,.5); -webkit-backdrop-filter: blur(0.15rem); backdrop-filter: blur(0.15rem);
+    opacity: 0; visibility: hidden; pointer-events: none; touch-action: none; border: 0;
+    transition: opacity .24s ease, visibility .24s;
+  }
+  .vxnav.open .vxnav-scrim { opacity: 1; visibility: visible; pointer-events: auto; }
+}
+
+/* Móviles estrechos: la marca cede espacio a la cuenta y la hamburguesa */
+@media (max-width: 26em) {
+  .vxnav .brand-mark { height: 2.8rem; }
+  .vxnav .wm-img { height: 1.15rem; }
+  .vxnav .tagline { display: none; }
+  .vxnav-inner { gap: 0.5rem; }
+  .vxnav-bar { gap: 0.45rem; }
+}
+
+/* Móvil apaisado: poco alto útil -> barra y panel más compactos */
+@media (max-width: 74em) and (max-height: 30em) {
+  :root { --nav-h: 3.9rem; }
+  .vxnav.is-scrolled { --nav-h: 3.6rem; }
+  .vxnav .brand-mark, .vxnav.is-scrolled .brand-mark { height: 2.7rem; }
+  .vxnav-links a { min-height: 2.9rem; padding-block: 0.4rem; }
+  .vxnav-menu .btn-play { margin-top: 0.6rem; min-height: 2.9rem; }
+}
+
+/* Reduce-motion: sin transiciones exageradas */
+@media (prefers-reduced-motion: reduce) {
+  .vxnav, .vxnav::before, .vxnav-menu, .vxnav-scrim, .vxnav .brand-mark, .vxnav .wm-img, .vxnav-burger span { transition: none; }
 }
