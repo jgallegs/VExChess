@@ -2,6 +2,9 @@
 
 Lista viva de ideas y mejoras futuras (no confundir con la sección "Roadmap" pública del home).
 
+## Convención viva (aplica a TODO lo nuevo)
+- **Alineación equidistante**: cualquier componente dentro de un contenedor debe medir lo mismo respecto a los bordes que le tocan según su alineación (centrado = mismo aire por ambos lados; al inicio = mismo arranque que sus hermanos). Medir, no estimar. Detalle completo en `README.md` → Sistema de diseño.
+
 ## Ideas guardadas (futuro)
 
 ### Moderación de nombres de usuario con IA

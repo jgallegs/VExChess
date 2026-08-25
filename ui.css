@@ -13,6 +13,10 @@
    · Escala única de radios y tres niveles de superficie con
      hairline; nada de grises planos sin borde.
    · Foco visible uniforme (anillo cian) en todo el sitio.
+   · ALINEACIÓN EQUIDISTANTE: dentro de un contenedor, cada pieza
+     mide lo mismo respecto a los bordes que le tocan según su
+     alineación (centrado = mismo aire por lados; al inicio = mismo
+     arranque que sus hermanos). Se mide, no se estima.
    · Convención del proyecto: sin px, solo unidades relativas.
    ============================================================ */
 

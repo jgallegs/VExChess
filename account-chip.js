@@ -230,7 +230,7 @@ const ACCOUNT_CSS = `
     box-shadow .34s ease,background .34s ease}
 .vxa:not(.open) .vxa-surface:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 .35rem .9rem rgba(0,0,0,.22);
   background:linear-gradient(180deg,rgba(48,60,78,.82),rgba(28,35,47,.88))}
-.vxa.open .vxa-surface{border-radius:1.05rem;
+.vxa.open .vxa-surface{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 1.8rem 4rem rgba(0,0,0,.6)}
 .vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
 
@@ -279,7 +279,7 @@ const ACCOUNT_CSS = `
 .vxa.open .vxa-surface>.vxa-chip{
   height:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;
   grid-template-areas:'av id caret' 'av elo caret';
-  column-gap:.7rem;row-gap:.34rem;padding:.8rem .85rem .7rem;
+  column-gap:.7rem;row-gap:.34rem;padding:.85rem 1.15rem;
   animation:vxa-head-in .34s ease both}
 @keyframes vxa-head-in{from{opacity:.35}to{opacity:1}}
 .vxa.open .vxa-surface .vxa-av{grid-area:av}

@@ -61,6 +61,13 @@ Reglas que mantienen la coherencia (no romperlas al añadir UI):
   ámbar = aviso/preview; cian = foco, información y AXIOM.
 - **Foco visible cian uniforme** (`--focus-ring`) en todo el sitio.
 - Radios y superficies SIEMPRE desde tokens; nada de grises planos sin borde.
+- **Regla de alineación equidistante**: todo componente dentro de un
+  contenedor debe medir LO MISMO respecto a los bordes que le tocan según
+  su alineación — centrado: mismo aire arriba/abajo y a ambos lados;
+  alineado al inicio: mismo arranque horizontal que sus hermanos (el
+  avatar de una ficha arranca donde arranca el texto de las opciones).
+  Los descuadres de 2–4px se notan: se mide (getBoundingClientRect), no
+  se estima a ojo.
 - Oxanium solo para display y cifras (`--font-display`); Inter para el resto.
 
 Al tocar `ui.css` hay que subir su `?v=` en TODOS los HTML.
