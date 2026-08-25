@@ -7,6 +7,16 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* El raíz replica los destellos del body: así el overscroll con rebote
+   (Safari/iOS) muestra el mismo fondo y no un azul plano. Posición vertical
+   en rem (no %): los % del raíz se miden contra el alto de TODO el documento
+   y mandarían los destellos lejos del borde superior. */
+html {
+  background:
+    radial-gradient(60rem 40rem at 78% 3rem, rgba(255,59,71,.10), transparent 62%),
+    radial-gradient(48rem 38rem at 8% 1rem, rgba(74,110,190,.10), transparent 58%),
+    var(--bg);
+}
 body.home {
   min-height: 100vh;
   background:

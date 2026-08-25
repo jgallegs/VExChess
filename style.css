@@ -34,8 +34,13 @@
 
 /* Tamaño base fluido: de aquí cuelga todo lo demás en rem */
 /* El fondo del RAÍZ pinta lo que hay más allá del layout: el overscroll con
-   rebote y la zona tras la barra de Safari/iOS. Sin esto, ahí se ve negro. */
-html { font-size: clamp(0.82rem, 0.55rem + 0.75vw, 1.05rem); background: var(--bg); }
+   rebote y la zona tras la barra de Safari/iOS. Lleva el MISMO degradado que
+   el body para que los destellos se extiendan también ahí (con solo var(--bg)
+   el rebote se veía azul plano). */
+html {
+  font-size: clamp(0.82rem, 0.55rem + 0.75vw, 1.05rem);
+  background: radial-gradient(75rem 50rem at 20% -10%, #131c2b 0%, var(--bg) 55%);
+}
 
 * { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
 /* Foco: sin contorno claro por defecto al pulsar; aro rojo de marca solo con teclado */

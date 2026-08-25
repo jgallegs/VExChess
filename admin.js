@@ -4,7 +4,7 @@
 //  Elo e insignias. Permisos por jerarquía de roles.
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, roleMeta, roleLevel, STAFF_LEVEL } from './auth.js?v=19';
+import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, roleMeta, roleLevel, STAFF_LEVEL } from './auth.js?v=30';
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
 
 const ELO_LEVEL = 80, ROLE_LEVEL = 80;

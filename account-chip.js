@@ -91,8 +91,8 @@ function chipInner(user, ctx, model) {
 // ---------- markup ----------
 export function accountChipHTML(model, ctx) {
   const user = model && model.user;
-  // Sesión aún sin resolver: esqueleto neutro — nunca un "Entrar" falso
-  // que parpadee antes de la píldora.
+  // Sesión aún sin resolver: hueco invisible — ni un "Entrar" falso que
+  // parpadee antes de la píldora, ni ningún disco de carga a la vista.
   if (user === undefined) return '<span class="vxa-skel" aria-hidden="true"></span>';
   if (!user) return '<button class="vxa-login" type="button">' + t('auth.chip.login') + '</button>';
 
@@ -214,13 +214,10 @@ const ACCOUNT_CSS = `
 .vx-account{display:inline-flex;align-items:center}
 .vxa{position:relative;display:inline-flex;align-items:center;font-family:'Inter',system-ui,sans-serif;--chip-h:2.75rem;line-height:1}
 
-/* Esqueleto mientras se resuelve la sesión: un disco del material del chip */
-.vxa-skel{display:inline-block;width:2.75rem;height:2.75rem;border-radius:50%;
-  background:linear-gradient(180deg,rgba(38,48,64,.55),rgba(20,26,35,.6));
-  box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.05);
-  animation:vxa-skel 1.4s ease-in-out infinite}
-@keyframes vxa-skel{0%,100%{opacity:.5}50%{opacity:.85}}
-@media(prefers-reduced-motion:reduce){.vxa-skel{animation:none}}
+/* Sesión sin resolver: hueco INVISIBLE. Nada de discos ni esqueletos a la
+   vista — no se ve nada hasta que aparece la píldora o el botón de entrar.
+   Conserva el alto del chip para que la barra no cambie de tamaño. */
+.vxa-skel{display:inline-block;width:0;height:2.75rem;visibility:hidden}
 
 /* Botón "Entrar" (sin sesión) */
 .vxa-login{background:var(--panel-2);color:var(--text);border:var(--hair,1px) solid var(--border);
