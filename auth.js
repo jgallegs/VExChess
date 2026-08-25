@@ -7,7 +7,7 @@
 // ============================================================
 import { badgeIcon } from './badges.js?v=3';
 import { t } from './i18n.js?v=9';
-import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=11';
+import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=12';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {
@@ -69,7 +69,9 @@ export const api = {
 };
 
 // ---------- estado ----------
-let currentUser = null;
+// undefined = sesión aún sin resolver (el chip pinta un esqueleto);
+// null = anónimo confirmado (botón Entrar); objeto = sesión iniciada.
+let currentUser;
 let currentStats = null;
 let currentBadges = [];
 let authResolved = false;
@@ -316,7 +318,7 @@ function wireLegacyEntrar() {
 // ---------- init ----------
 (async function init() {
   wireLegacyEntrar();
-  renderAccounts();               // pinta "Entrar" mientras carga
+  renderAccounts();               // sesión sin resolver: pinta el esqueleto
   try {
     const out = await api.me();
     currentUser = out.user; currentStats = out.stats || null; currentBadges = out.badges || [];

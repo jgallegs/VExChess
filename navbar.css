@@ -16,6 +16,7 @@
      nunca de ~44px reales de superficie tocable. */
   --nav-tap: 3.05rem;
   /* Márgenes seguros de pantallas con muesca (necesita viewport-fit=cover) */
+  --nav-safe-t: env(safe-area-inset-top, 0px);
   --nav-safe-l: env(safe-area-inset-left, 0px);
   --nav-safe-r: env(safe-area-inset-right, 0px);
   --nav-safe-b: env(safe-area-inset-bottom, 0px);
@@ -23,13 +24,13 @@
 @media (max-width: 48em) { :root { --nav-tap: 3.45rem; } }
 
 /* Los anclas (#features, #roadmap…) no quedan ocultas tras la barra pegajosa */
-html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
+html { scroll-padding-top: calc(var(--nav-h) + var(--nav-safe-t) + 0.5rem); }
 
 /* El header llega VACÍO en el HTML y lo monta navbar.js: sin esto medía 0
    y todo el contenido pegaba un salto de barra entera al montarse. El hueco
    queda reservado desde el primer paint (la variante battle es fixed y no
    reserva). El contenido de la barra aparece con un fundido al montar. */
-#vx-nav[data-variant="site"] { display: block; min-height: var(--nav-h); }
+#vx-nav[data-variant="site"] { display: block; min-height: calc(var(--nav-h) + var(--nav-safe-t)); }
 /* El fundido de montaje NO puede tocar a un ancestro del chip de cuenta:
    cualquier animación de opacity sobre él crea un backdrop root nuevo y el
    blur del cristal deja de ver la página. Funden marca, enlaces y burger. */
@@ -39,7 +40,8 @@ html { scroll-padding-top: calc(var(--nav-h) + 0.5rem); }
 
 /* ---------- Barra por defecto (site) ---------- */
 .vxnav {
-  position: sticky; top: 0; z-index: 60; height: var(--nav-h); box-sizing: border-box;
+  position: sticky; top: 0; z-index: 60; box-sizing: border-box;
+  height: calc(var(--nav-h) + var(--nav-safe-t)); padding-top: var(--nav-safe-t);
   display: flex; align-items: center; background: transparent;
   transition: height .22s ease;
 }
@@ -171,13 +173,13 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
 
   /* Panel: hoja desplegable bajo la barra, con scroll propio si no cabe */
   .vxnav-menu {
-    position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 2;
+    position: fixed; top: calc(var(--nav-h) + var(--nav-safe-t)); left: 0; right: 0; z-index: 2;
     display: flex; flex-direction: column; align-items: stretch; gap: 0;
     padding: 0.6rem clamp(1rem, 4vw, 1.6rem) calc(1.1rem + var(--nav-safe-b));
     padding-left: calc(clamp(1rem, 4vw, 1.6rem) + var(--nav-safe-l));
     padding-right: calc(clamp(1rem, 4vw, 1.6rem) + var(--nav-safe-r));
-    max-height: calc(100vh - var(--nav-h));
-    max-height: calc(100dvh - var(--nav-h)); /* barra del navegador incluida */
+    max-height: calc(100vh - var(--nav-h) - var(--nav-safe-t));
+    max-height: calc(100dvh - var(--nav-h) - var(--nav-safe-t)); /* barra del navegador incluida */
     overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
     background: color-mix(in srgb, var(--bg) 97%, transparent);
     -webkit-backdrop-filter: blur(1rem) saturate(1.3); backdrop-filter: blur(1rem) saturate(1.3);
@@ -239,7 +241,7 @@ html[dir="rtl"] .vxnav-lang select { padding: 0.4rem 0.65rem 0.4rem 1.7rem; back
      Cerrado NO debe existir para el dedo (si no, se traga todos los toques):
      de ahí visibility + pointer-events, que además permiten el desvanecido. */
   .vxnav-scrim {
-    display: block; position: fixed; inset: var(--nav-h) 0 0; z-index: 1;
+    display: block; position: fixed; inset: calc(var(--nav-h) + var(--nav-safe-t)) 0 0; z-index: 1;
     background: rgba(6,9,14,.5); -webkit-backdrop-filter: blur(0.15rem); backdrop-filter: blur(0.15rem);
     opacity: 0; visibility: hidden; pointer-events: none; touch-action: none; border: 0;
     transition: opacity .24s ease, visibility .24s;

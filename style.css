@@ -33,7 +33,9 @@
 }
 
 /* Tamaño base fluido: de aquí cuelga todo lo demás en rem */
-html { font-size: clamp(0.82rem, 0.55rem + 0.75vw, 1.05rem); }
+/* El fondo del RAÍZ pinta lo que hay más allá del layout: el overscroll con
+   rebote y la zona tras la barra de Safari/iOS. Sin esto, ahí se ve negro. */
+html { font-size: clamp(0.82rem, 0.55rem + 0.75vw, 1.05rem); background: var(--bg); }
 
 * { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
 /* Foco: sin contorno claro por defecto al pulsar; aro rojo de marca solo con teclado */
@@ -204,6 +206,7 @@ body.resizing-board, body.resizing-board * { cursor: nwse-resize !important; use
   position: fixed; top: 0; left: 0; right: 0; z-index: 25;
   display: flex; align-items: center; justify-content: center;
   padding: clamp(1.1rem, 2.6vh, 1.9rem) clamp(1rem, 2.5vw, 2.25rem);
+  padding-top: calc(clamp(1.1rem, 2.6vh, 1.9rem) + env(safe-area-inset-top, 0px));
   pointer-events: none;
 }
 /* scrim: blur fuerte arriba que se difumina MUY gradual hacia abajo (sin borde visible) */
@@ -380,7 +383,7 @@ button.ctrl.wide { flex-basis: 100%; }
 
 /* ---------- Barra flotante de controles (dock) ---------- */
 .dock {
-  position: fixed; left: 50%; bottom: 1.1rem; transform: translateX(-50%); z-index: 22;
+  position: fixed; left: 50%; bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 22;
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.55rem;
   max-width: min(66rem, 96vw); padding: 0.5rem 0.65rem;
   background: rgba(26,33,46,.85); border-radius: 1rem;
