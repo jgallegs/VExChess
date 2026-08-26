@@ -28,7 +28,10 @@ function ensureStyles() {
     '.vxc-x:hover{color:#fff}',
     '.vxc.pulse{animation:vxcPulse .8s ease}',
     '@keyframes vxcPulse{0%,100%{box-shadow:0 .6rem 1.6rem rgba(0,0,0,.5)}50%{box-shadow:0 0 1.8rem rgba(57,213,255,.55)}}',
-    '@media(max-width:720px){.vxc{left:.6rem;bottom:.6rem;max-width:15rem}}',
+    /* si la página tiene dock (partida contra la IA), el compañero flota ENCIMA */
+    'body:has(.dock) .vxc{bottom:5.8rem}',
+    '@media(max-width:960px){.vxc{left:.6rem;bottom:.6rem;max-width:15rem}',
+    'body:has(.dock) .vxc{bottom:calc(7.6rem + env(safe-area-inset-bottom, 0px))}}',
     '@media(prefers-reduced-motion:reduce){.vxc,.vxc.pulse{transition:none;animation:none}}',
   ].join('');
   document.head.appendChild(s);

@@ -109,3 +109,18 @@ body.gm-page { min-height: 100vh; }
 @keyframes gm-clock-urgent { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
 .gm-player.turn .gm-clock.low { animation: gm-clock-urgent 1s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .gm-player.turn .gm-clock.low { animation: none; } }
+/* ---------- Acciones de partida en móvil: misma hoja inferior que el dock
+   de la partida contra la IA (coherencia entre las dos vistas de juego) ---------- */
+@media (max-width: 60em) {
+  .gm-actions {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 22;
+    display: flex; gap: 0.5rem;
+    padding: 0.65rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(19,25,35,.94);
+    -webkit-backdrop-filter: blur(0.7rem); backdrop-filter: blur(0.7rem);
+    border-radius: 1.1rem 1.1rem 0 0;
+    box-shadow: 0 -0.9rem 2.6rem rgba(0,0,0,.45), inset 0 0.07rem 0 rgba(255,255,255,.07);
+  }
+  .gm-actions .gm-btn { flex: 1 1 0; min-height: 2.7rem; }
+  .gm-wrap { padding-bottom: 6.5rem; }
+}

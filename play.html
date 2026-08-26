@@ -31,7 +31,7 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
 <link rel="modulepreload" href="navbar.js?v=21">
 <link rel="modulepreload" href="auth.js?v=30">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=47">
+<link rel="stylesheet" href="style.css?v=48">
 <link rel="stylesheet" href="ui.css?v=5">
 <link rel="stylesheet" href="motion.css?v=3">
 <link rel="stylesheet" href="navbar.css?v=19">
@@ -40,7 +40,6 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
   <header id="vx-nav" data-variant="site" data-intro>
     <template data-slot="actions">
       <span id="engine-status" hidden></span>
-      <button class="help-btn" id="help-btn" title="Guía y conceptos" aria-label="Guía y conceptos"><img src="assets/icons/gameplay/help.svg" alt="" aria-hidden="true"></button>
     </template>
   </header>
 
@@ -110,6 +109,7 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
     </div>
     <span class="dock-sep"></span>
     <div class="dock-level"><select id="level" data-enhance></select></div>
+    <span class="dock-break" aria-hidden="true"></span>
     <span class="dock-sep"></span>
     <div class="controls">
       <button class="ctrl" id="btn-undo"><img class="vex-icon--button" src="assets/icons/gameplay/undo.svg" alt="" aria-hidden="true">Deshacer</button>
@@ -124,6 +124,7 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
       <input type="checkbox" id="toggle-danger" checked><span class="dt-ico" aria-hidden="true"><img src="assets/icons/features/danger-queen.svg" alt=""></span>
     </label>
     <button class="ctrl dock-sound" id="sound-btn" title="Sonido" aria-label="Activar o silenciar el sonido" aria-pressed="true"><img class="vex-icon" src="assets/icons/gameplay/sound-on.svg" alt=""></button>
+    <button class="dock-help" id="help-btn" title="Guía y conceptos" aria-label="Guía y conceptos"><img src="assets/icons/gameplay/help.svg" alt="" aria-hidden="true"></button>
     <span class="dock-sep"></span>
     <button class="ctrl dock-moves" id="moves-btn">Jugadas</button>
   </div>
@@ -174,6 +175,6 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
   <script type="module" src="motion.js?v=2"></script>
   <script type="module" src="navbar.js?v=21"></script>
   <script type="module" src="auth.js?v=30"></script>
-  <script type="module" src="app.js?v=53"></script>
+  <script type="module" src="app.js?v=54"></script>
 </body>
 </html>

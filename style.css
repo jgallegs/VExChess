@@ -431,14 +431,18 @@ button.ctrl.wide { flex-basis: 100%; }
 
 /* ---------- Barra flotante de controles (dock) ---------- */
 .dock {
-  position: fixed; left: 50%; bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 22;
+  /* centrado con left/right + margin auto: con left:50% el shrink-to-fit
+     capaba el ancho a media pantalla y el dock envolvía en dos filas */
+  position: fixed; left: 0; right: 0; margin-inline: auto; width: fit-content;
+  bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); z-index: 22;
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.55rem;
-  max-width: min(66rem, 96vw); padding: 0.5rem 0.65rem;
+  max-width: min(71rem, 96vw); padding: 0.5rem 0.65rem;
   background: rgba(26,33,46,.85); border-radius: 1rem;
   box-shadow: 0 0.8rem 2.2rem rgba(0,0,0,.5), 0 0 0 var(--hair) rgba(255,255,255,.06);
   -webkit-backdrop-filter: blur(0.7rem); backdrop-filter: blur(0.7rem);
 }
 .dock-sep { align-self: stretch; width: var(--hair); background: rgba(255,255,255,.09); margin: 0.2rem 0.1rem; }
+.dock-break { display: none; } /* rompefilas: solo actúa en el dock móvil */
 .dock .seg { background: rgba(0,0,0,.22); border-color: transparent; }
 .dock .controls { display: flex; flex-wrap: nowrap; gap: 0.35rem; }
 .dock button.ctrl { flex: 0 0 auto; min-width: auto; padding: 0.5rem 0.75rem; }
@@ -721,4 +725,50 @@ button.ctrl.wide { flex-basis: 100%; }
 .dock { animation: vx-rise 0.5s var(--ease-out) backwards 0.15s; }
 @media (prefers-reduced-motion: reduce) {
   .confirm-box, .vx-modal-box, .resume-box, .dock { animation: none; }
+}
+/* ---------- Ayuda en el dock: la interrogación SOLA, sin caja ---------- */
+.dock-help {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 2.4rem; height: 2.4rem; padding: 0;
+  background: none; border: none; box-shadow: none; border-radius: 0.6rem;
+  cursor: pointer; opacity: 0.75; transition: opacity .12s, background .12s;
+}
+.dock-help:hover { opacity: 1; background: rgba(255,255,255,.07); }
+.dock-help:focus-visible { outline: none; box-shadow: var(--focus-ring); opacity: 1; }
+.dock-help img { width: 1.2rem; height: 1.2rem; display: block; }
+
+/* ---------- Dock en móvil: hoja pegada al borde inferior ----------
+   Antes el dock flotante hacía wrap y crecía hasta tapar media pantalla.
+   Ahora: dos filas compactas — color + nivel arriba, acciones en iconos
+   abajo — ancladas al borde con su safe-area. Va al final de la hoja
+   para ganar el cascade a las reglas base. */
+@media (max-width: 60em) {
+  .dock {
+    left: 0; right: 0; bottom: 0; margin-inline: 0;
+    width: 100%; max-width: none;
+    border-radius: 1.1rem 1.1rem 0 0;
+    gap: 0.5rem 0.55rem;
+    padding: 0.6rem 0.8rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(19,25,35,.94);
+    box-shadow: 0 -0.9rem 2.6rem rgba(0,0,0,.45), inset 0 0.07rem 0 rgba(255,255,255,.07);
+  }
+  .dock-sep { display: none; }
+  /* fila 1: elegir color + nivel; el rompefilas fuerza el salto exacto */
+  .dock-break { display: block; flex-basis: 100%; height: 0; order: 3; }
+  .dock .seg { order: 1; flex: 1 1 0; min-width: 0; }
+  .dock .seg .seg-btn { font-size: 0.72rem; padding-inline: 0.2rem; }
+  .dock-level { order: 2; flex: 0 1 8.6rem; min-width: 6.5rem; }
+  .dock-level .cselect { width: 100%; }
+  /* fila 2: acciones en iconos (el texto vive en el title/aria-label) */
+  .dock .controls { order: 4; }
+  .dock .controls .ctrl { font-size: 0; width: 2.55rem; height: 2.55rem; padding: 0; justify-content: center; }
+  .dock .controls .ctrl .vex-icon--button { margin-inline-end: 0; }
+  #coach-wrap { order: 5; }
+  #danger-wrap { order: 6; }
+  .dock-sound { order: 7; }
+  .dock-help { order: 8; }
+  .dock-moves { order: 9; margin-inline-start: auto; font-size: 0.8rem; }
+  /* la infobar y el popover de jugadas flotan justo encima de la hoja */
+  .infobar { bottom: calc(7.4rem + env(safe-area-inset-bottom, 0px)); }
+  .history-pop { bottom: calc(7.6rem + env(safe-area-inset-bottom, 0px)); }
 }
