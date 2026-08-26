@@ -227,9 +227,13 @@ function flipOpen(vxa, apply) {
       return;
     }
     const dx = b.left - a.left, dy = b.top - a.top;
-    if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return;
-    el.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }],
+    const sx = a.width ? b.width / a.width : 1, sy = a.height ? b.height / a.height : 1;
+    if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(sx - 1) < 0.02 && Math.abs(sy - 1) < 0.02) return;
+    el.style.transformOrigin = '0 0';
+    const anim = el.animate(
+      [{ transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sx + ',' + sy + ')' }, { transform: 'none' }],
       { duration: 380, easing: FLIP_EASE });
+    anim.finished.then(() => { el.style.transformOrigin = ''; }).catch(() => {});
   });
 }
 
@@ -429,7 +433,9 @@ const ACCOUNT_CSS = `
 
 /* Avatar con anillo de rol */
 .vxa-av{position:relative;display:inline-grid;place-items:center;flex:0 0 auto;align-self:center}
-.vxa-av .vx-avatar{width:1.9rem;height:1.9rem;box-shadow:0 0 0 .13rem transparent;transition:width .3s cubic-bezier(.22,1,.36,1),height .3s cubic-bezier(.22,1,.36,1)}
+/* Sin transición de tamaño: el morphing lo anima el FLIP (una transición CSS
+   aquí re-encogía la foto DESPUÉS de aterrizar el cierre — doble movimiento) */
+.vxa-av .vx-avatar{width:1.9rem;height:1.9rem;box-shadow:0 0 0 .13rem transparent}
 .vxa-av.is-staff .vx-avatar{box-shadow:0 0 0 .12rem rgba(20,26,35,.9),0 0 0 .2rem var(--role)}
 .vxa-dot{position:absolute;top:-.1rem;right:-.1rem;width:.6rem;height:.6rem;border-radius:50%;
   background:var(--accent,#FF3B47);border:.12rem solid #171d27;z-index:2;box-shadow:0 0 .35rem rgba(255,59,71,.85);
@@ -476,10 +482,16 @@ const ACCOUNT_CSS = `
 .vxa.open .vxa-surface .vxa-elo{grid-area:elo;display:inline-flex!important;justify-self:start}
 .vxa.open .vxa-surface .vxa-caret{grid-area:caret;display:block!important;align-self:center}
 
-/* Chevron */
+/* Chevron — la rotación vive en el PATH interno, no en el propio .vxa-caret:
+   el FLIP anima el transform del caret (WAAPI lo pisa) y la flecha cambiaba
+   de dirección de golpe al terminar el viaje. En elementos separados, cada
+   movimiento va por su carril y la rotación gira suave y en paralelo. */
 .vxa-caret{display:block;width:.85rem;height:.85rem;flex:0 0 auto;align-self:center;color:var(--muted,#8b97a9);
-  transition:transform .32s cubic-bezier(.22,1,.36,1),color .2s}
-.vxa.open .vxa-caret{transform:rotate(180deg);color:var(--text)}
+  transition:color .2s}
+.vxa-caret path{transform-box:view-box;transform-origin:center;transition:transform .32s cubic-bezier(.22,1,.36,1)}
+.vxa.open .vxa-caret{color:var(--text)}
+.vxa.open .vxa-caret path{transform:rotate(180deg)}
+.vxa.closing .vxa-caret path{transform:rotate(0deg)}
 
 /* Cajón desplegable — crece con grid-rows (muy suave) */
 .vxa-drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
@@ -574,7 +586,7 @@ html[dir="rtl"] .vxa-enter .vxa-name,html[dir="rtl"] .vxa-enter .vxa-caret{anima
 @keyframes vxa-e-login{from{opacity:0;transform:translateY(-.3rem) scale(.94)}}
 
 @media(prefers-reduced-motion:reduce){
-  .vxa-surface,.vxa-drawer,.vxa-caret,.vxa-drawer a,.vxa-signout{transition:none}
+  .vxa-surface,.vxa-drawer,.vxa-caret,.vxa-caret path,.vxa-drawer a,.vxa-signout{transition:none}
   .vxa-dot,.vxa-dot::after,.vxa-mi-dot{animation:none}
   .vxa.vxa-enter,.vxa-enter .vxa-av,.vxa-enter .vxa-name,.vxa-enter .vxa-elo,.vxa-enter .vxa-caret,.vxa-login.vxa-enter{animation:none}
   .vxa-enter .vxa-surface>.vxa-chip::after{display:none}
