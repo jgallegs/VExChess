@@ -251,6 +251,22 @@ function closeChip(vxa) {
   vxa._closing = true;
   vxa.classList.add('closing');
   const anims = [];
+  // El FONDO encoge A LA VEZ que el contenido viaja: la superficie de
+  // cristal se anima hasta la geometría exacta de la píldora (ancho, alto
+  // y radio del fantasma). WAAPI pisa a las transiciones CSS, así que
+  // manda esta coreografía y no la del estado.
+  const surface = vxa.querySelector('.vxa-surface');
+  const ghost = vxa.querySelector('.vxa-ghost');
+  const drawer = vxa.querySelector('.vxa-drawer');
+  const drawerIn = vxa.querySelector('.vxa-drawer-in');
+  if (surface && ghost) {
+    const s = surface.getBoundingClientRect();
+    const gw = ghost.offsetWidth, gh = ghost.offsetHeight;
+    anims.push(surface.animate(
+      [{ width: s.width + 'px', height: s.height + 'px', borderRadius: getComputedStyle(surface).borderRadius },
+       { width: gw + 'px', height: gh + 'px', borderRadius: (gh / 2) + 'px' }],
+      { duration: 250, easing: FLIP_EASE, fill: 'forwards' }));
+  }
   FLIP_PARTS.forEach(sel => {
     const el = vxa.querySelector('.vxa-surface ' + sel);
     const gh = vxa.querySelector('.vxa-ghost ' + sel);
@@ -270,11 +286,18 @@ function closeChip(vxa) {
       { duration: 250, easing: FLIP_EASE, fill: 'forwards' }));
   });
   const unlatch = () => {
+    // El estado final se aplica SIN transiciones: ya lo hemos animado
+    // nosotros. Si no, al soltar .open las transiciones CSS re-animarían
+    // ancho/cajón desde el tamaño de ficha y se vería un doble movimiento.
+    const frozen = [surface, drawer, drawerIn].filter(Boolean);
+    frozen.forEach(el => { el.style.transition = 'none'; });
     finish();
+    if (surface) void surface.offsetWidth;   // reflow con el estado final
     anims.forEach(x => { try { x.cancel(); } catch (e) {} });
     FLIP_PARTS.forEach(sel => { const el = vxa.querySelector('.vxa-surface ' + sel); if (el) el.style.transformOrigin = ''; });
     vxa.classList.remove('closing');
     vxa._closing = false;
+    requestAnimationFrame(() => requestAnimationFrame(() => frozen.forEach(el => { el.style.transition = ''; })));
   };
   if (!anims.length) { unlatch(); return; }
   setTimeout(unlatch, 255);
@@ -460,7 +483,9 @@ const ACCOUNT_CSS = `
   opacity:0;transform:translateY(.4rem);
   transition:opacity .3s ease,transform .34s cubic-bezier(.22,1,.36,1),background .12s}
 .vxa.open .vxa-drawer a,.vxa.open .vxa-signout{opacity:1;transform:none}
-/* Cerrando: las opciones se desvanecen mientras la cabecera viaja a la píldora */
+/* Cerrando: la superficie recorta (el cajón desaparece con ella al encoger)
+   y las opciones se desvanecen mientras la cabecera viaja a la píldora */
+.vxa.closing .vxa-surface{overflow:hidden}
 .vxa.closing .vxa-drawer a,.vxa.closing .vxa-signout{opacity:0!important;transition:opacity .16s ease!important;transition-delay:0s!important}
 
 /* Navegando desde el menú: la ficha se queda quieta, la opción elegida
