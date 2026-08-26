@@ -15,7 +15,7 @@
 //  El idioma y el tema del tablero viven en ajustes.html.
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { closeAllAccountMenus } from './account-chip.js?v=13';
+import { closeAllAccountMenus } from './account-chip.js?v=14';
 
 const KNIGHT = 'assets/knight-logo.svg';
 const WORDMARK = 'assets/vexchess-wordmark.png';

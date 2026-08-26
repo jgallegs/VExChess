@@ -124,11 +124,24 @@ export function accountChipHTML(model, ctx) {
 
 // ---------- montaje + cableado ----------
 const mounted = new Set();
+// La entrada suena solo al aparecer por primera vez. Ojo: justo tras /me
+// llegan los contadores y el chip se RE-monta a los pocos ms — por eso la
+// guarda es una VENTANA desde la primera aparición, no un flag de un solo
+// uso (el re-montaje pisaba la clase y se perdía la animación).
+let enterAt = 0;
 export function mountAccountChip(slot, model, ctx) {
   if (!slot) return;
   ensureStyles();
   slot.innerHTML = accountChipHTML(model, ctx);
   mounted.add(slot);
+
+  if (model && model.user !== undefined) {
+    if (!enterAt) enterAt = Date.now();
+    if (Date.now() - enterAt < 1200) {
+      const first = slot.querySelector('.vxa, .vxa-login');
+      if (first) first.classList.add('vxa-enter');
+    }
+  }
 
   const login = slot.querySelector('.vxa-login');
   if (login && ctx.onLogin) login.addEventListener('click', ctx.onLogin);
@@ -358,8 +371,38 @@ const ACCOUNT_CSS = `
 /* En móvil el chevron sobra (todo el chip abre el menú) y ahorra ancho */
 @media(max-width:37.49em){ .vxa-caret{display:none} }
 
+/* ---------- Entrada de la píldora (primera aparición tras resolver sesión).
+   El contenedor anima SOLO transform: cualquier opacity/filter en un
+   ancestro del cristal crea un backdrop root y apaga el blur (medido).
+   El contenido (descendientes del cristal) sí puede fundirse en cascada. */
+.vxa.vxa-enter{animation:vxa-in .58s cubic-bezier(.34,1.45,.64,1) backwards;
+  transform-origin:calc(100% - var(--chip-h)/2) 50%}
+html[dir="rtl"] .vxa.vxa-enter{transform-origin:calc(var(--chip-h)/2) 50%}
+@keyframes vxa-in{from{transform:scale(.62) translateY(-.3rem)}}
+.vxa-enter .vxa-av{animation:vxa-e-pop .5s cubic-bezier(.34,1.56,.64,1) .08s backwards}
+.vxa-enter .vxa-name{animation:vxa-e-shift .45s cubic-bezier(.22,1,.36,1) .16s backwards}
+.vxa-enter .vxa-elo{animation:vxa-e-pop .5s cubic-bezier(.34,1.56,.64,1) .22s backwards}
+.vxa-enter .vxa-caret{animation:vxa-e-shift .45s cubic-bezier(.22,1,.36,1) .3s backwards}
+@keyframes vxa-e-pop{from{opacity:0;transform:scale(.3)}}
+@keyframes vxa-e-shift{from{opacity:0;transform:translateX(-.35rem)}}
+@keyframes vxa-e-shift-r{from{opacity:0;transform:translateX(.35rem)}}
+html[dir="rtl"] .vxa-enter .vxa-name,html[dir="rtl"] .vxa-enter .vxa-caret{animation-name:vxa-e-shift-r}
+/* destello único que recorre la píldora al posarse (background-position:
+   contenido en su caja redondeada, sin fugas por las esquinas) */
+.vxa-enter .vxa-surface>.vxa-chip{position:relative}
+.vxa-enter .vxa-surface>.vxa-chip::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(105deg,transparent 34%,rgba(255,255,255,.13) 50%,transparent 66%) no-repeat;
+  background-size:250% 100%;background-position:-150% 0;
+  animation:vxa-e-sheen .85s ease-out .32s forwards}
+@keyframes vxa-e-sheen{to{background-position:150% 0}}
+/* el botón Entrar aterriza con la misma suavidad (sin cristal: opacity ok) */
+.vxa-login.vxa-enter{animation:vxa-e-login .45s cubic-bezier(.22,1,.36,1) backwards}
+@keyframes vxa-e-login{from{opacity:0;transform:translateY(-.3rem) scale(.94)}}
+
 @media(prefers-reduced-motion:reduce){
   .vxa-surface,.vxa-drawer,.vxa-caret,.vxa-drawer a,.vxa-signout{transition:none}
   .vxa-dot,.vxa-dot::after,.vxa-mi-dot{animation:none}
+  .vxa.vxa-enter,.vxa-enter .vxa-av,.vxa-enter .vxa-name,.vxa-enter .vxa-elo,.vxa-enter .vxa-caret,.vxa-login.vxa-enter{animation:none}
+  .vxa-enter .vxa-surface>.vxa-chip::after{display:none}
 }
 `;

@@ -5,7 +5,7 @@
 // ============================================================
 import { t } from './i18n.js?v=9';
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
-import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js?v=30';
+import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js?v=31';
 import { skBadges } from './skeleton.js?v=1';
 
 const root = document.getElementById('insignias-root');
