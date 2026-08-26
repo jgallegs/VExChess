@@ -7,6 +7,9 @@ Lista viva de ideas y mejoras futuras (no confundir con la sección "Roadmap" p�
 
 ## Ideas guardadas (futuro)
 
+### Import map para las versiones de módulos
+Cada bump de `account-chip.js`/`auth.js` arrastra una cascada de ~30 ficheros (importadores + HTML). Un `<script type="importmap">` generado con UNA versión de build por despliegue (o query `?v=BUILD` única) eliminaría la cascada. Requiere tocar las 15 páginas una vez.
+
 ### Moderación de nombres de usuario con IA
 Sustituir/complementar la lista básica de palabras por un sistema serio de moderación:
 - **Capa 1 — lista local** (ya implementada): filtro instantáneo y gratis para lo obvio.

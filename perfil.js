@@ -2,7 +2,7 @@
 //  VEXCHESS · Página de perfil
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved, applyUserPatch } from './auth.js?v=31';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved, applyUserPatch } from './auth.js?v=32';
 import { badgeMeta } from './badges.js?v=3';
 import { vexbornByKey, rarityMeta } from './vexborn.js?v=2';
 import { skProfile } from './skeleton.js?v=1';

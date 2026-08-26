@@ -7,7 +7,7 @@
 // ============================================================
 import { badgeIcon } from './badges.js?v=3';
 import { t } from './i18n.js?v=9';
-import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=14';
+import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=15';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {

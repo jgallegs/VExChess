@@ -5,7 +5,7 @@
 //  teaser de NULL. Equipar cambia solo cosmética (sin ventaja).
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=31';
+import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=32';
 import {
   VEXBORN, EXPANSIONS, expansions, rarityMeta, vexbornByKey, vexbornByCollection,
   vexbornAvailable, vexbornPortrait, vexbornCard, vexbornSplash, vexbornBanner,

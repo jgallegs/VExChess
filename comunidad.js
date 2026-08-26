@@ -3,7 +3,7 @@
 //  Amigos · Solicitudes · Buscar · Mi VEX ID (tarjeta + QR)
 // ============================================================
 import { t } from './i18n.js?v=9';
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML, presenceHTML } from './auth.js?v=31';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML, presenceHTML } from './auth.js?v=32';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 import qrcode from './assets/vendor/qrcode.mjs?v=1';
 import { skCommunity } from './skeleton.js?v=1';

@@ -139,7 +139,13 @@ export function mountAccountChip(slot, model, ctx) {
     if (!enterAt) enterAt = Date.now();
     if (Date.now() - enterAt < 1200) {
       const first = slot.querySelector('.vxa, .vxa-login');
-      if (first) first.classList.add('vxa-enter');
+      if (first) {
+        first.classList.add('vxa-enter');
+        // cinturón: al aterrizar el muelle, re-mide el ancho de la superficie
+        first.addEventListener('animationend', (e) => {
+          if (e.target === first && first.classList.contains('vxa')) syncWidth(first);
+        }, { once: true });
+      }
     }
   }
 
@@ -183,7 +189,12 @@ function syncWidth(vxa) {
   const ghost = vxa.querySelector('.vxa-ghost');
   const surface = vxa.querySelector('.vxa-surface');
   if (!ghost || !surface) return;
-  const w0 = Math.ceil(ghost.getBoundingClientRect().width);
+  // getBoundingClientRect se contrae con el scale de la animación de entrada
+  // (medía la píldora encogida y la superficie quedaba corta por la
+  // izquierda hasta el siguiente re-sync). Se descuenta el factor de escala
+  // del contenedor para medir el ancho REAL de layout, con subpíxel.
+  const scale = vxa.offsetWidth ? (vxa.getBoundingClientRect().width / vxa.offsetWidth) : 1;
+  const w0 = Math.ceil(ghost.getBoundingClientRect().width / (scale > 0 ? scale : 1));
   if (!w0) return;
   const open = vxa.classList.contains('open');
   // Mínimo del panel abierto en rem (el rem del documento es fluido)

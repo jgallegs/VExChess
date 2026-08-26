@@ -4,7 +4,7 @@
 //  momentos clave. Sin ventaja: solo voz, retrato e inmersión.
 //  Nunca revela evaluaciones, jugadas candidatas ni amenazas.
 // ============================================================
-import { onAuth, getUser } from './auth.js?v=31';
+import { onAuth, getUser } from './auth.js?v=32';
 import { t } from './i18n.js?v=9';
 import { vexbornByKey, vexbornPortrait } from './vexborn.js?v=5';
 
