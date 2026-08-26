@@ -12,8 +12,8 @@
 //  · el mapa: silueta del mundo en puntos (generada en build) con
 //    marcadores por país y su top debajo — mismos datos, dos lecturas.
 // ============================================================
-import { t, getLang } from './i18n.js?v=9';
-import { MAP_COLS, MAP_ROWS, MAP_DOTS, MAP_CENTROIDS } from './world-map.js?v=1';
+import { t, getLang } from './i18n.js';
+import { MAP_COLS, MAP_ROWS, MAP_DOTS, MAP_CENTROIDS } from './world-map.js';
 
 const HUE = '#3E8EE8';                      // único hue de datos
 const ST = { win: '#2CA95D', draw: '#9aa6b5', loss: '#F2545E' };

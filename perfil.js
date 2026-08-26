@@ -1,11 +1,11 @@
 // ============================================================
 //  VEXCHESS · Página de perfil
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved, applyUserPatch } from './auth.js?v=32';
-import { badgeMeta } from './badges.js?v=3';
-import { vexbornByKey, rarityMeta } from './vexborn.js?v=2';
-import { skProfile } from './skeleton.js?v=1';
+import { t } from './i18n.js';
+import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved, applyUserPatch } from './auth.js';
+import { badgeMeta } from './badges.js';
+import { vexbornByKey, rarityMeta } from './vexborn.js';
+import { skProfile } from './skeleton.js';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: t('perfil.levelPrincipiante'), facil: t('perfil.levelFacil'), intermedio: t('perfil.levelIntermedio'), avanzado: t('perfil.levelAvanzado'), maximo: t('perfil.levelMaximo'), desconocido: t('perfil.levelDesconocido') };

@@ -7,10 +7,10 @@
    - i18n.js        -> TODOS los textos (es / en)
    ============================================================ */
 import { Chess } from './chess.js';
-import { GAME, getLang, setLang, LANGS, PIECE_META, CONCEPT_ICONS } from './i18n.js?v=9';
-import { sfx } from './sounds.js?v=1';
-import { api, getUser, AVATAR_COLORS } from './auth.js?v=32';
-import { companionSay } from './vexborn-companion.js?v=5';
+import { GAME, getLang, setLang, LANGS, PIECE_META, CONCEPT_ICONS } from './i18n.js';
+import { sfx } from './sounds.js';
+import { api, getUser, AVATAR_COLORS } from './auth.js';
+import { companionSay } from './vexborn-companion.js';
 
 // --- Idioma (delegado en el runtime i18n) ----------------------------------
 let lang = getLang();

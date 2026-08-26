@@ -7,8 +7,6 @@ Lista viva de ideas y mejoras futuras (no confundir con la sección "Roadmap" p�
 
 ## Ideas guardadas (futuro)
 
-### Import map para las versiones de módulos
-Cada bump de `account-chip.js`/`auth.js` arrastra una cascada de ~30 ficheros (importadores + HTML). Un `<script type="importmap">` generado con UNA versión de build por despliegue (o query `?v=BUILD` única) eliminaría la cascada. Requiere tocar las 15 páginas una vez.
 
 ### Moderación de nombres de usuario con IA
 Sustituir/complementar la lista básica de palabras por un sistema serio de moderación:
@@ -25,6 +23,8 @@ Que los usuarios ganen **reputación** con el tiempo. Posibles fuentes (por deci
 - Relación con el sistema de insignias (algunas insignias podrían dar reputación).
 
 ## En marcha / hecho
+- ✅ **Versionado del JS con import map y versión única de build**: los imports JS→JS van sin query; cada HTML lleva un import map que mapea los 21 módulos a `?v=BUILD`, y scripts/preloads usan el mismo build. Publicar cambios de JS = un solo sed en *.html (adiós a las cascadas de ~30 ficheros). De paso cazado: `vexborn.js` se importaba con dos versiones a la vez (dos instancias del módulo). Detalle en README → Caché del JS.
+- ✅ **Píldora: apertura FLIP y navegación congelada**: al abrir/cerrar, avatar, nombre, Elo y chevron VIAJAN a su sitio (WAAPI, solo transform; los que aparecen de nuevas funden con subida corta). Al pulsar una opción del menú, la ficha ya NO se colapsa mientras carga el destino (el click burbujeaba hasta el cierre global y se desordenaba): se queda quieta, la opción elegida brilla y el resto cede opacidad. El destello de entrada ahora es redondo (radio de píldora explícito), nunca suena en el panel abierto, y la clase de entrada se retira sola al terminar.
 - ✅ **Entrada de la píldora de cuenta**: al resolver la sesión ya no aparece de golpe — muelle de escala (solo transform en el contenedor: opacity/filter en un ancestro del cristal apaga el backdrop-filter, medido), cascada avatar→nombre→Elo→chevron, y un destello único que recorre la píldora al posarse (background-position contenido en la caja, sin fugas). El botón Entrar aterriza con el mismo lenguaje. La guarda es una VENTANA de 1,2s desde la primera aparición (el chip se re-monta a los pocos ms al llegar los contadores y un flag de un solo uso perdía la animación); reduced-motion lo apaga todo.
 - ✅ **Dock de partida anclado y móvil de verdad**: en móvil es una hoja fija al borde inferior (dos filas: color+nivel / acciones en iconos con salto de fila forzado por un rompefilas), con safe-area, en vez del panel flotante que envolvía hasta tapar media pantalla. El botón de ayuda sale de la navbar y entra al dock como interrogación DESNUDA (sin caja ni borde). En escritorio el dock se centra con left/right+margin auto (con left:50% el shrink-to-fit capaba el ancho a media pantalla). La infobar, el popover de jugadas y el compañero Vexborn flotan por encima de la hoja; y la vista online usa el mismo material de hoja inferior para tablas/rendirse.
 - ✅ **Esqueletos de carga en todas las pantallas** (`skeleton.js` + `.vx-sk` en `ui.css`): fuera los spinners en cargas de página — cada pantalla enseña su silueta real (cajas con barrido de luz sutil, estático con reduced-motion, `role="status"` para lectores). Aplicado a perfil, lobby online, partida online, admin, Academia, comunidad, Vexborn e insignias. Los spinners pequeños de widgets (buscar rival, cargar más) se quedan.

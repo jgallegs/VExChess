@@ -174,9 +174,19 @@ Ojo con las zonas táctiles: el tamaño base del documento es fluido
 eso los objetivos táctiles usan la variable `--nav-tap`, que sube en el tramo
 estrecho para no bajar nunca de ~44px reales.
 
-Al tocar cualquier fichero de la navbar hay que **subir el `?v=`** de
-`navbar.css` / `navbar.js` en todos los HTML, o los navegadores servirán la
-versión cacheada.
+**Caché del JS — versión única de build.** Todo el JS comparte UNA versión:
+cada HTML lleva un `<script type="importmap">` que mapea cada módulo a
+`./modulo.js?v=BUILD`, y los `<script src>` y `modulepreload` usan el mismo
+`?v=BUILD`. Los imports en los .js van SIN query (`from './auth.js'`): el
+mapa pone la versión. Al tocar cualquier JS, publicar es un solo comando:
+
+    sed -i 's/?v=100/?v=101/g' *.html
+
+(sustituyendo por el build actual y el siguiente). Nada de tocar importadores
+en cadena. El CSS sigue con `?v=` por fichero en los HTML (no tiene cascada:
+solo lo referencia el HTML). Ojo: no volver a poner `?v=` en un import de un
+.js — crearía DOS instancias del módulo (nos pasó con `auth.js` y con
+`vexborn.js`, importados con dos versiones distintas a la vez).
 
 ## Cómo ejecutarlo en local
 

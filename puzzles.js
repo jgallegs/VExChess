@@ -4,9 +4,9 @@
 //  contra cualquier defensa) y win (gana material · horquilla).
 //  Reglas y validación vía chess.js.
 // ============================================================
-import { t } from './i18n.js?v=9';
+import { t } from './i18n.js';
 import { Chess } from './chess.js';
-import { sfx } from './sounds.js?v=1';
+import { sfx } from './sounds.js';
 
 const PUZZLES = [
   // ---- Mate en 1 ----

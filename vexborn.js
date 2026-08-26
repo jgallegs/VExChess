@@ -4,7 +4,7 @@
 //  Su valor es narrativo y educativo: cada uno enseña un concepto
 //  real de ajedrez. Arte en assets/vexborn/<formato>/<key>.webp.
 // ============================================================
-import { t } from './i18n.js?v=9';
+import { t } from './i18n.js';
 
 // Rarezas (solo presentación, nunca jugabilidad).
 export const RARITY = {

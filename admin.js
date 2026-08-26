@@ -3,11 +3,11 @@
 //  Dashboard + lista con filtros/orden + ficha con roles,
 //  Elo e insignias. Permisos por jerarquía de roles.
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, roleMeta, roleLevel, STAFF_LEVEL } from './auth.js?v=32';
-import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
-import { seriesDays, areaChart, columnChart, sparkline, outcomesBar, barList, worldMap, countryList, tableTwin, tableTwinLabeled, fmtN } from './admin-stats.js?v=1';
-import { skAdmin } from './skeleton.js?v=1';
+import { t } from './i18n.js';
+import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, roleMeta, roleLevel, STAFF_LEVEL } from './auth.js';
+import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js';
+import { seriesDays, areaChart, columnChart, sparkline, outcomesBar, barList, worldMap, countryList, tableTwin, tableTwinLabeled, fmtN } from './admin-stats.js';
+import { skAdmin } from './skeleton.js';
 
 const ELO_LEVEL = 80, ROLE_LEVEL = 80;
 const root = document.getElementById('adm-root');

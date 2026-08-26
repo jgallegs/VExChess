@@ -3,9 +3,9 @@
 //  Mismo tablero, piezas y animación que el modo contra la IA.
 // ============================================================
 import { Chess } from './chess.js';
-import { getUser, isAuthResolved, onAuth, avatarHTML } from './auth.js?v=32';
-import { sfx } from './sounds.js?v=1';
-import { skGame } from './skeleton.js?v=1';
+import { getUser, isAuthResolved, onAuth, avatarHTML } from './auth.js';
+import { sfx } from './sounds.js';
+import { skGame } from './skeleton.js';
 
 const root = document.getElementById('game-root');
 const FILES = 'abcdefgh';

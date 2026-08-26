@@ -5,13 +5,13 @@
 //  desbloquea un fragmento de Crónica. El Trial final va sin pistas.
 //  Sin ventaja competitiva: aprendizaje, narrativa y colección.
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { createBoard } from './academy-board.js?v=2';
+import { t } from './i18n.js';
+import { createBoard } from './academy-board.js';
 import {
   sendaFor, chapterText, chronicleOf, rewardOf, sendaIntro,
   vinculoLevelName, sendaAccent,
-} from './vexborn-mastery.js?v=1';
-import { vexbornSplash, vexbornPortrait } from './vexborn.js?v=5';
+} from './vexborn-mastery.js';
+import { vexbornSplash, vexbornPortrait } from './vexborn.js';
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function fmt(str, p) { return String(str).replace(/\{(\w+)\}/g, (m, k) => (p && p[k] != null ? p[k] : m)); }

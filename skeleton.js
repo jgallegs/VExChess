@@ -6,7 +6,7 @@
 //  Cada página compone aquí su silueta para que la carga ya
 //  "enseñe" el layout que viene.
 // ============================================================
-import { t } from './i18n.js?v=9';
+import { t } from './i18n.js';
 
 const b = (cls, style) => '<span class="vx-sk' + (cls ? ' ' + cls : '') + '"' + (style ? ' style="' + style + '"' : '') + '></span>';
 const line = (w, h) => b('', 'width:' + w + ';height:' + (h || '0.8rem'));

@@ -1,9 +1,9 @@
 // ============================================================
 //  VEXCHESS · Lobby online (emparejamiento + retos + rivales)
 // ============================================================
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=32';
-import { t } from './i18n.js?v=9';
-import { skOnline } from './skeleton.js?v=1';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js';
+import { t } from './i18n.js';
+import { skOnline } from './skeleton.js';
 
 const root = document.getElementById('online-root');
 export const TCS = [['1+0', t('online.tcBullet')], ['3+0', t('online.tcBlitz')], ['3+2', t('online.tcBlitz')], ['5+0', t('online.tcBlitz')], ['10+0', t('online.tcRapid')], ['15+10', t('online.tcRapid')]];

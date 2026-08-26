@@ -6,7 +6,7 @@
 //  Los capítulos reutilizan el formato de paso de la Academia
 //  (FEN + jugada esperada en UCI); todo verificado con chess.js.
 // ============================================================
-import { t } from './i18n.js?v=9';
+import { t } from './i18n.js';
 
 // Niveles de Vínculo (0-100).
 export const VINCULO_LEVELS = [

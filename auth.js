@@ -5,9 +5,9 @@
 //  - Pinta el chip de cuenta en los slots .vx-account del navbar
 //  - Migra las partidas locales a la cuenta al iniciar sesión
 // ============================================================
-import { badgeIcon } from './badges.js?v=3';
-import { t } from './i18n.js?v=9';
-import { mountAccountChip, closeAllAccountMenus } from './account-chip.js?v=15';
+import { badgeIcon } from './badges.js';
+import { t } from './i18n.js';
+import { mountAccountChip, closeAllAccountMenus } from './account-chip.js';
 const JSON_H = { 'Content-Type': 'application/json' };
 
 async function req(path, opts = {}) {

@@ -4,9 +4,9 @@
 //  momentos clave. Sin ventaja: solo voz, retrato e inmersión.
 //  Nunca revela evaluaciones, jugadas candidatas ni amenazas.
 // ============================================================
-import { onAuth, getUser } from './auth.js?v=32';
-import { t } from './i18n.js?v=9';
-import { vexbornByKey, vexbornPortrait } from './vexborn.js?v=5';
+import { onAuth, getUser } from './auth.js';
+import { t } from './i18n.js';
+import { vexbornByKey, vexbornPortrait } from './vexborn.js';
 
 let el = null, champ = null, hidden = false;
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }

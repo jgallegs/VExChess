@@ -20,7 +20,7 @@
 //    mountAccountChip(slot, model, ctx)  → pinta + cablea un slot
 //    closeAllAccountMenus()              → cierra menús abiertos
 // ============================================================
-import { t } from './i18n.js?v=9';
+import { t } from './i18n.js';
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
@@ -145,6 +145,9 @@ export function mountAccountChip(slot, model, ctx) {
         first.addEventListener('animationend', (e) => {
           if (e.target === first && first.classList.contains('vxa')) syncWidth(first);
         }, { once: true });
+        // la entrada es UN momento: pasada, la clase se retira y no deja
+        // rastro (ni destello ni estados que interfieran con abrir/cerrar)
+        setTimeout(() => first.classList.remove('vxa-enter'), 1450);
       }
     }
   }
@@ -168,18 +171,61 @@ export function mountAccountChip(slot, model, ctx) {
     if (av && !av.complete) av.addEventListener('load', () => syncWidth(vxa), { once: true });
     chip.addEventListener('click', (e) => {
       e.stopPropagation();
-      const open = vxa.classList.toggle('open');
-      chip.setAttribute('aria-expanded', open ? 'true' : 'false');
-      syncWidth(vxa);
+      flipToggle(vxa, () => {
+        const open = vxa.classList.toggle('open');
+        chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+        syncWidth(vxa);
+      });
     });
     surface.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && vxa.classList.contains('open')) {
-        vxa.classList.remove('open'); chip.setAttribute('aria-expanded', 'false'); syncWidth(vxa); chip.focus();
+        flipToggle(vxa, () => {
+          vxa.classList.remove('open'); chip.setAttribute('aria-expanded', 'false'); syncWidth(vxa);
+        });
+        chip.focus();
       }
     });
+    // Navegar desde el menú NO colapsa la ficha: el click burbujeaba hasta
+    // el cierre global y la tarjeta se desordenaba justo antes de cambiar
+    // de página. El menú se queda quieto, la opción elegida se marca y el
+    // resto cede protagonismo mientras carga el destino.
+    slot.querySelectorAll('.vxa-drawer a').forEach(a => a.addEventListener('click', (e) => {
+      e.stopPropagation();
+      vxa.classList.add('is-nav');
+      a.classList.add('is-going');
+    }));
   }
   const so = slot.querySelector('.vxa-signout');
   if (so && ctx.onSignout) so.addEventListener('click', ctx.onSignout);
+}
+
+// FLIP de la cabecera: al abrir/cerrar, avatar, nombre, Elo y chevron VIAJAN
+// de su sitio en la píldora a su sitio en la ficha (y a la inversa) en vez
+// de recomponerse de golpe. Se miden las posiciones antes y después del
+// cambio de clase y se anima la diferencia solo con transform (WAAPI).
+// Los elementos que estaban ocultos (display:none en anchos estrechos)
+// no tienen "antes": entran con un fundido + subida corta.
+const FLIP_PARTS = ['.vxa-av', '.vxa-id', '.vxa-elo', '.vxa-caret'];
+const FLIP_EASE = 'cubic-bezier(.22,1,.36,1)';
+function flipToggle(vxa, apply) {
+  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || typeof Element === 'undefined' || !Element.prototype.animate) { apply(); return; }
+  const parts = FLIP_PARTS.map(sel => vxa.querySelector('.vxa-surface ' + sel)).filter(Boolean);
+  const before = parts.map(el => el.getBoundingClientRect());
+  apply();
+  parts.forEach((el, i) => {
+    const b = before[i], a = el.getBoundingClientRect();
+    if (!a.width && !a.height) return;                 // sigue oculto
+    if (!b.width && !b.height) {                       // aparece de nuevas
+      el.animate([{ opacity: 0, transform: 'translateY(.3rem)' }, { opacity: 1, transform: 'none' }],
+        { duration: 300, delay: 90, easing: FLIP_EASE, fill: 'backwards' });
+      return;
+    }
+    const dx = b.left - a.left, dy = b.top - a.top;
+    if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return;
+    el.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }],
+      { duration: 380, easing: FLIP_EASE });
+  });
 }
 
 // La superficie es absoluta (para no empujar la navbar al crecer); el fantasma
@@ -204,10 +250,13 @@ function syncWidth(vxa) {
 
 export function closeAllAccountMenus() {
   document.querySelectorAll('.vxa.open').forEach(vxa => {
-    vxa.classList.remove('open');
-    const c = vxa.querySelector('.vxa-surface > .vxa-chip');
-    if (c) c.setAttribute('aria-expanded', 'false');
-    syncWidth(vxa);
+    if (vxa.classList.contains('is-nav')) return; // navegando: no desmontar la ficha
+    flipToggle(vxa, () => {
+      vxa.classList.remove('open');
+      const c = vxa.querySelector('.vxa-surface > .vxa-chip');
+      if (c) c.setAttribute('aria-expanded', 'false');
+      syncWidth(vxa);
+    });
   });
 }
 
@@ -314,9 +363,8 @@ const ACCOUNT_CSS = `
 .vxa.open .vxa-surface>.vxa-chip{
   height:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;
   grid-template-areas:'av id caret' 'av elo caret';
-  column-gap:.7rem;row-gap:.28rem;padding:.85rem 1.15rem;
-  animation:vxa-head-in .34s ease both}
-@keyframes vxa-head-in{from{opacity:.35}to{opacity:1}}
+  column-gap:.7rem;row-gap:.28rem;padding:.85rem 1.15rem}
+/* (la recomposición la anima el FLIP de JS: los elementos VIAJAN a su sitio) */
 .vxa.open .vxa-surface .vxa-av{grid-area:av}
 .vxa.open .vxa-surface .vxa-av .vx-avatar{width:2.5rem;height:2.5rem}
 .vxa.open .vxa-surface .vxa-id{grid-area:id;display:inline-flex!important;justify-self:start;min-width:0}
@@ -345,6 +393,10 @@ const ACCOUNT_CSS = `
   opacity:0;transform:translateY(.4rem);
   transition:opacity .3s ease,transform .34s cubic-bezier(.22,1,.36,1),background .12s}
 .vxa.open .vxa-drawer a,.vxa.open .vxa-signout{opacity:1;transform:none}
+/* Navegando desde el menú: la ficha se queda quieta, la opción elegida
+   brilla y el resto cede protagonismo hasta que carga el destino */
+.vxa.is-nav .vxa-drawer a,.vxa.is-nav .vxa-signout{opacity:.4;transition:opacity .25s ease}
+.vxa.is-nav .vxa-drawer a.is-going{opacity:1;background:rgba(255,255,255,.1)}
 .vxa.open .vxa-drawer a:nth-child(1){transition-delay:.05s}
 .vxa.open .vxa-drawer a:nth-child(2){transition-delay:.08s}
 .vxa.open .vxa-drawer a:nth-child(3){transition-delay:.11s}
@@ -398,10 +450,13 @@ html[dir="rtl"] .vxa.vxa-enter{transform-origin:calc(var(--chip-h)/2) 50%}
 @keyframes vxa-e-shift{from{opacity:0;transform:translateX(-.35rem)}}
 @keyframes vxa-e-shift-r{from{opacity:0;transform:translateX(.35rem)}}
 html[dir="rtl"] .vxa-enter .vxa-name,html[dir="rtl"] .vxa-enter .vxa-caret{animation-name:vxa-e-shift-r}
-/* destello único que recorre la píldora al posarse (background-position:
-   contenido en su caja redondeada, sin fugas por las esquinas) */
+/* destello único que recorre la píldora al posarse. Radio EXPLÍCITO de
+   píldora (el botón no tiene radio propio: heredar daba esquinas cuadradas)
+   y jamás en el panel abierto. La clase .vxa-enter se retira sola al
+   terminar la entrada, así que este pseudo no sobrevive a la animación. */
 .vxa-enter .vxa-surface>.vxa-chip{position:relative}
-.vxa-enter .vxa-surface>.vxa-chip::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+.vxa-enter:not(.open) .vxa-surface>.vxa-chip::after{content:'';position:absolute;inset:0;
+  border-radius:calc(var(--chip-h)/2);pointer-events:none;
   background:linear-gradient(105deg,transparent 34%,rgba(255,255,255,.13) 50%,transparent 66%) no-repeat;
   background-size:250% 100%;background-position:-150% 0;
   animation:vxa-e-sheen .85s ease-out .32s forwards}

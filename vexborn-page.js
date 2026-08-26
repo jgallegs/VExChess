@@ -4,15 +4,15 @@
 //  ficha con lore, concepto de ajedrez y Senda de Maestría ·
 //  teaser de NULL. Equipar cambia solo cosmética (sin ventaja).
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=32';
+import { t } from './i18n.js';
+import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js';
 import {
   VEXBORN, EXPANSIONS, expansions, rarityMeta, vexbornByKey, vexbornByCollection,
   vexbornAvailable, vexbornPortrait, vexbornCard, vexbornSplash, vexbornBanner,
-} from './vexborn.js?v=5';
-import { openSenda } from './vexborn-senda.js?v=1';
-import { sendaAvailable, vinculoLevelName } from './vexborn-mastery.js?v=1';
-import { skVexborn } from './skeleton.js?v=1';
+} from './vexborn.js';
+import { openSenda } from './vexborn-senda.js';
+import { sendaAvailable, vinculoLevelName } from './vexborn-mastery.js';
+import { skVexborn } from './skeleton.js';
 
 const root = document.getElementById('vexborn-root');
 let user = null;

@@ -3,16 +3,16 @@
 //  Bucle real: Observa → Predice → Juega → Explica, sobre el
 //  tablero interactivo. Memoria de mentor (D1) por concepto.
 // ============================================================
-import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js?v=32';
-import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js?v=2';
-import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js?v=4';
-import { createBoard } from './academy-board.js?v=2';
-import { mountScene, bgFor, poseFor, sceneFor } from './axiom-scene.js?v=2';
+import { onAuth, getUser, api, isAuthResolved, openAuth } from './auth.js';
+import { AXIOM, AX_SPLASH, portraitOf, sceneOf, LINES, pick, greeting, conceptName, hangingSquares } from './axiom.js';
+import { PATH, LESSONS, lessonById, lessonsForLevel } from './academy-lessons.js';
+import { createBoard } from './academy-board.js';
+import { mountScene, bgFor, poseFor, sceneFor } from './axiom-scene.js';
 import { Chess } from './chess.js';
-import { createEngine } from './academy-engine.js?v=1';
-import { scoreToCp, classifyLoss, sparReaction, threatNote, pickMoments, LAB_LINES } from './academy-coach.js?v=1';
-import { mountChat } from './academy-chat.js?v=1';
-import { skAcademy } from './skeleton.js?v=1';
+import { createEngine } from './academy-engine.js';
+import { scoreToCp, classifyLoss, sparReaction, threatNote, pickMoments, LAB_LINES } from './academy-coach.js';
+import { mountChat } from './academy-chat.js';
+import { skAcademy } from './skeleton.js';
 
 // Motor Stockfish (perezoso; hueco para inyectar un mock en tests).
 let _engine = null;

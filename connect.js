@@ -3,9 +3,9 @@
 //  Muestra al jugador del VEX ID y permite añadirlo (con
 //  confirmación por ambas partes).
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML } from './auth.js?v=32';
-import { badgeIcon, badgeMeta } from './badges.js?v=3';
+import { t } from './i18n.js';
+import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML } from './auth.js';
+import { badgeIcon, badgeMeta } from './badges.js';
 
 const root = document.getElementById('connect-root');
 function code() {

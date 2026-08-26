@@ -3,10 +3,10 @@
 //  Galería de las 16 insignias agrupadas por familia, con
 //  significado, cómo se consiguen y modo de concesión.
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
-import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js?v=32';
-import { skBadges } from './skeleton.js?v=1';
+import { t } from './i18n.js';
+import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js';
+import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js';
+import { skBadges } from './skeleton.js';
 
 const root = document.getElementById('insignias-root');
 

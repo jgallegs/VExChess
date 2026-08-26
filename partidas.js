@@ -4,8 +4,8 @@
 //  en localStorage por app.js (clave "vexchess:archive").
 // ============================================================
 import { Chess } from './chess.js';
-import { api, getUser, onAuth } from './auth.js?v=32';
-import { t } from './i18n.js?v=9';
+import { api, getUser, onAuth } from './auth.js';
+import { t } from './i18n.js';
 
 const ARCHIVE_KEY = 'vexchess:archive';
 const FILES = 'abcdefgh';

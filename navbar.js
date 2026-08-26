@@ -14,8 +14,8 @@
 //  cierre con Escape / toque fuera / navegación y foco gestionado.
 //  El idioma y el tema del tablero viven en ajustes.html.
 // ============================================================
-import { t } from './i18n.js?v=9';
-import { closeAllAccountMenus } from './account-chip.js?v=15';
+import { t } from './i18n.js';
+import { closeAllAccountMenus } from './account-chip.js';
 
 const KNIGHT = 'assets/knight-logo.svg';
 const WORDMARK = 'assets/vexchess-wordmark.png';

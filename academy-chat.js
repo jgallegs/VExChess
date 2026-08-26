@@ -8,9 +8,9 @@
 //      hay WebGPU o falla, se cae con elegancia al determinista.
 //  "No memorices la jugada. Entiende por qué existe."
 // ============================================================
-import { conceptName } from './axiom.js?v=2';
-import { poseFor, sceneFor } from './axiom-scene.js?v=2';
-import { llmSupported, loadLLM, llmReady, llmChat, LLM_MODEL_NAME } from './academy-llm.js?v=1';
+import { conceptName } from './axiom.js';
+import { poseFor, sceneFor } from './axiom-scene.js';
+import { llmSupported, loadLLM, llmReady, llmChat, LLM_MODEL_NAME } from './academy-llm.js';
 
 const AV = 'assets/axiom/avatar-128.png';
 
