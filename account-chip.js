@@ -251,10 +251,11 @@ function closeChip(vxa) {
   vxa._closing = true;
   vxa.classList.add('closing');
   const anims = [];
-  // El FONDO encoge A LA VEZ que el contenido viaja: la superficie de
-  // cristal se anima hasta la geometría exacta de la píldora (ancho, alto
-  // y radio del fantasma). WAAPI pisa a las transiciones CSS, así que
-  // manda esta coreografía y no la del estado.
+  // El FONDO encoge A LA VEZ que el contenido viaja, recortándolo con
+  // clip-path (solo pintura, cero reflow). Animar el ancho real era un bug:
+  // la superficie ancla a la derecha, el borde izquierdo se movía y el
+  // reflow ARRASTRABA la cabecera, que además llevaba su propio viaje —
+  // doble desplazamiento y la foto se pasaba de largo por la derecha.
   const surface = vxa.querySelector('.vxa-surface');
   const ghost = vxa.querySelector('.vxa-ghost');
   const drawer = vxa.querySelector('.vxa-drawer');
@@ -262,9 +263,12 @@ function closeChip(vxa) {
   if (surface && ghost) {
     const s = surface.getBoundingClientRect();
     const gw = ghost.offsetWidth, gh = ghost.offsetHeight;
+    const cs = getComputedStyle(surface);
+    const rad = cs.borderTopLeftRadius + ' ' + cs.borderTopRightRadius + ' ' +
+      cs.borderBottomRightRadius + ' ' + cs.borderBottomLeftRadius;
     anims.push(surface.animate(
-      [{ width: s.width + 'px', height: s.height + 'px', borderRadius: getComputedStyle(surface).borderRadius },
-       { width: gw + 'px', height: gh + 'px', borderRadius: (gh / 2) + 'px' }],
+      [{ clipPath: 'inset(0 0 0 0 round ' + rad + ')' },
+       { clipPath: 'inset(0 0 ' + Math.max(0, s.height - gh) + 'px ' + Math.max(0, s.width - gw) + 'px round ' + (gh / 2) + 'px)' }],
       { duration: 250, easing: FLIP_EASE, fill: 'forwards' }));
   }
   FLIP_PARTS.forEach(sel => {
@@ -303,24 +307,34 @@ function closeChip(vxa) {
   setTimeout(unlatch, 255);
 }
 
-// Volver con atrás/adelante (bfcache) revive la página tal cual quedó:
-// ficha abierta, opción marcada y estado de navegación puesto. Se resetea
-// al restaurar, sin animaciones (es un estado, no una interacción).
+// Volver con atrás/adelante (bfcache) revivía la página tal cual quedó:
+// ficha abierta, opción marcada, navegación congelada. Se resetea en dos
+// puntos: al ESCONDERSE la página (pagehide — así la foto que guarda
+// bfcache ya es la píldora cerrada) y al restaurarse (pageshow persisted,
+// cinturón por si el motor guardó antes). Sin animaciones: es un estado,
+// no una interacción — de ahí las transiciones congeladas un frame.
+function resetChip(vxa) {
+  vxa.classList.remove('is-nav', 'closing');
+  vxa._closing = false;
+  vxa.querySelectorAll('.is-going').forEach(a => a.classList.remove('is-going'));
+  const surface = vxa.querySelector('.vxa-surface');
+  const frozen = [surface, vxa.querySelector('.vxa-drawer'), vxa.querySelector('.vxa-drawer-in')].filter(Boolean);
+  frozen.forEach(el => { el.style.transition = 'none'; });
+  if (vxa.getAnimations) { try { vxa.getAnimations({ subtree: true }).forEach(a => a.cancel()); } catch (e) {} }
+  FLIP_PARTS.forEach(sel => { const el = vxa.querySelector('.vxa-surface ' + sel); if (el) el.style.transformOrigin = ''; });
+  if (vxa.classList.contains('open')) {
+    vxa.classList.remove('open');
+    const c = vxa.querySelector('.vxa-surface > .vxa-chip');
+    if (c) c.setAttribute('aria-expanded', 'false');
+  }
+  syncWidth(vxa);
+  if (surface) void surface.offsetWidth;
+  requestAnimationFrame(() => requestAnimationFrame(() => frozen.forEach(el => { el.style.transition = ''; })));
+}
 if (typeof window !== 'undefined') {
-  window.addEventListener('pageshow', (e) => {
-    if (!e.persisted) return;
-    document.querySelectorAll('.vxa').forEach(vxa => {
-      vxa.classList.remove('is-nav');
-      vxa._closing = false;
-      vxa.querySelectorAll('.is-going').forEach(a => a.classList.remove('is-going'));
-      if (vxa.classList.contains('open')) {
-        vxa.classList.remove('open');
-        const c = vxa.querySelector('.vxa-surface > .vxa-chip');
-        if (c) c.setAttribute('aria-expanded', 'false');
-        syncWidth(vxa);
-      }
-    });
-  });
+  const resetAll = () => document.querySelectorAll('.vxa').forEach(resetChip);
+  window.addEventListener('pagehide', resetAll);
+  window.addEventListener('pageshow', (e) => { if (e.persisted) resetAll(); });
 }
 
 // La superficie es absoluta (para no empujar la navbar al crecer); el fantasma
@@ -485,7 +499,6 @@ const ACCOUNT_CSS = `
 .vxa.open .vxa-drawer a,.vxa.open .vxa-signout{opacity:1;transform:none}
 /* Cerrando: la superficie recorta (el cajón desaparece con ella al encoger)
    y las opciones se desvanecen mientras la cabecera viaja a la píldora */
-.vxa.closing .vxa-surface{overflow:hidden}
 .vxa.closing .vxa-drawer a,.vxa.closing .vxa-signout{opacity:0!important;transition:opacity .16s ease!important;transition-delay:0s!important}
 
 /* Navegando desde el menú: la ficha se queda quieta, la opción elegida
