@@ -291,3 +291,26 @@
 @media (prefers-reduced-motion: reduce) {
   .btn, .btn-play, .btn-ghost2, .vx-seg > *, .vx-row { transition: none; }
 }
+
+/* ============================================================
+   ESQUELETOS DE CARGA (.vx-sk) · skeleton.js compone; aquí la piel.
+   Cajas con la silueta del contenido y un barrido de luz sutil.
+   Con prefers-reduced-motion el barrido se apaga (queda estático).
+   ============================================================ */
+.vx-sk-page { width: 100%; margin: 0 auto; padding-top: 0.4rem; }
+.vx-sk-stack { display: flex; flex-direction: column; gap: 1rem; }
+.vx-sk-row { display: flex; align-items: center; gap: 0.8rem; }
+.vx-sk-col { display: flex; flex-direction: column; gap: 0.5rem; flex: 1 1 auto; min-width: 0; }
+.vx-sk-grid { display: grid; gap: 0.8rem; }
+.vx-sk {
+  display: block; position: relative; overflow: hidden;
+  border-radius: 0.6rem; background: rgba(255,255,255,.045); max-width: 100%;
+}
+.vx-sk.r-full { border-radius: 50%; }
+.vx-sk::after {
+  content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(100deg, transparent 32%, rgba(255,255,255,.06) 50%, transparent 68%);
+  animation: vx-sk-sweep 1.7s ease-in-out infinite;
+}
+@keyframes vx-sk-sweep { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .vx-sk::after { animation: none; } }

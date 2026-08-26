@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "trwająca partia",
       "moveOne": "{n} ruch",
-      "moveN": "{n} ruchów"
+      "moveN": "{n} ruchów",
+      "tag": "Zapisana partia",
+      "title": "Wróć tam, gdzie skończyłeś",
+      "continueBtn": "Wznów",
+      "freshBtn": "Zacznij od nowa"
     },
     "reasons": {
       "castle": "roszuje i chroni króla",

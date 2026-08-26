@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "partida em andamento",
       "moveOne": "{n} lance",
-      "moveN": "{n} lances"
+      "moveN": "{n} lances",
+      "tag": "Partida guardada",
+      "title": "Continua onde ficaste",
+      "continueBtn": "Retomar",
+      "freshBtn": "Começar do zero"
     },
     "reasons": {
       "castle": "roca e coloca o rei a salvo",

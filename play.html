@@ -31,8 +31,8 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
 <link rel="modulepreload" href="navbar.js?v=21">
 <link rel="modulepreload" href="auth.js?v=30">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=46">
-<link rel="stylesheet" href="ui.css?v=4">
+<link rel="stylesheet" href="style.css?v=47">
+<link rel="stylesheet" href="ui.css?v=5">
 <link rel="stylesheet" href="motion.css?v=3">
 <link rel="stylesheet" href="navbar.css?v=19">
 </head>
@@ -143,17 +143,18 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
     </div>
   </div>
 
-  <!-- Retomar partida guardada -->
-  <div class="resume" id="resume">
+  <!-- Retomar partida guardada: la posición real en miniatura + ficha -->
+  <div class="resume" id="resume" role="dialog" aria-labelledby="resume-title">
     <div class="resume-box">
-      <div class="resume-ico" aria-hidden="true">
-        <img src="assets/knight-logo.svg" alt="">
-      </div>
-      <div class="resume-title">Tienes una partida sin terminar</div>
-      <div class="resume-info" id="resume-info"></div>
-      <div class="resume-actions">
-        <button class="btn-ghost" id="resume-no">Empezar nueva</button>
-        <button class="btn-danger" id="resume-yes">Retomar</button>
+      <div class="resume-board" id="resume-board" aria-hidden="true"></div>
+      <div class="resume-side">
+        <span class="resume-tag" id="resume-tag">Partida guardada</span>
+        <h2 class="resume-title" id="resume-title">Sigue donde lo dejaste</h2>
+        <div class="resume-meta" id="resume-info"></div>
+        <div class="resume-actions">
+          <button class="btn-play" id="resume-yes">Retomar</button>
+          <button class="btn-danger" id="resume-no">Empezar de cero</button>
+        </div>
       </div>
     </div>
   </div>
@@ -173,6 +174,6 @@ k.href='lang/'+l+'.json';document.head.appendChild(k);}catch(e){}</script>
   <script type="module" src="motion.js?v=2"></script>
   <script type="module" src="navbar.js?v=21"></script>
   <script type="module" src="auth.js?v=30"></script>
-  <script type="module" src="app.js?v=52"></script>
+  <script type="module" src="app.js?v=53"></script>
 </body>
 </html>

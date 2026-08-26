@@ -244,13 +244,24 @@ body.resizing-board, body.resizing-board * { cursor: nwse-resize !important; use
 
 /* ---------- Pantalla de inicio (intro) ---------- */
 .intro { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; /* el logo animado no debe desbordar en pantallas estrechas */
   background: radial-gradient(circle at 50% 44%, #131c2b 0%, var(--bg) 70%); }
-.intro-logo { position: relative; display: flex; align-items: center; gap: 0.7rem; transform-origin: 50% 50%; }
+.intro-logo { position: relative; display: flex; align-items: center; gap: 0.7rem; transform-origin: 50% 50%; max-width: 94vw; }
 .intro .brand-mark { height: clamp(6rem, 16vh, 9.5rem); width: auto; display: block; opacity: 0; transform: scale(.5) rotate(-12deg);
   filter: drop-shadow(0 0.6rem 1.4rem rgba(255,59,71,.28)); }
 .intro .brand-text { position: relative; }
 .intro .wm-img { height: clamp(2.2rem, 5.6vh, 3.4rem); width: auto; display: block; opacity: 0; clip-path: inset(0 100% 0 0); }
 .intro .tagline { position: absolute; top: 100%; left: 4.3%; margin-top: 0.6rem; font-size: clamp(0.55rem, 1.4vh, 0.82rem); letter-spacing: 0.34em; opacity: 0; }
+/* Móvil estrecho: el tamaño lo manda el ANCHO, no la altura del viewport —
+   con alturas en vh el conjunto caballo+wordmark desbordaba por los lados.
+   (Este bloque va DESPUÉS de las reglas base: a igual especificidad gana
+   el último, y antes quedaba pisado.) */
+@media (max-width: 30em) {
+  .intro-logo { gap: 0.55rem; }
+  .intro .brand-mark { height: clamp(4.2rem, 24vw, 6.5rem); }
+  .intro .wm-img { height: auto; width: min(54vw, 15rem); }
+  .intro .tagline { letter-spacing: 0.26em; font-size: 0.55rem; }
+}
 /* secuencia de entrada */
 .intro.play .brand-mark { animation: intro-knight .8s cubic-bezier(.2,.85,.25,1) .15s forwards; }
 .intro.play .wm-img    { animation: intro-word .9s cubic-bezier(.2,.85,.25,1) .72s forwards; }
@@ -352,14 +363,39 @@ button.ctrl.wide { flex-basis: 100%; }
 .resume { position: fixed; inset: 0; z-index: 210; display: none; align-items: center; justify-content: center; background: rgba(8,11,16,.82); backdrop-filter: blur(0.35rem); padding: 1.5rem; }
 .resume.open { display: flex; animation: resume-in .28s ease both; }
 @keyframes resume-in { from { opacity: 0; } to { opacity: 1; } }
-.resume-box { background: var(--panel); border: var(--hair) solid var(--border); border-radius: 1.1rem; padding: 2rem 1.8rem 1.6rem; max-width: 24rem; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.85rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.6); text-align: center; position: relative; }
-.resume-box::before { content: ''; position: absolute; left: 50%; top: 0.4rem; transform: translateX(-50%); width: 7rem; height: 5rem; background: radial-gradient(50% 50% at 50% 40%, rgba(255,59,71,.28), transparent 70%); pointer-events: none; }
-.resume-ico { width: 3.6rem; height: 3.6rem; display: grid; place-items: center; position: relative; }
-.resume-ico img { width: 100%; height: 100%; object-fit: contain; }
-.resume-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.18rem; letter-spacing: 0.02em; color: var(--text); }
-.resume-info { font-size: 0.88rem; color: var(--muted); background: var(--panel-2); border: var(--hair) solid var(--border); border-radius: 2rem; padding: 0.3rem 0.9rem; }
-.resume-actions { display: flex; gap: 0.7rem; margin-top: 0.6rem; width: 100%; }
-.resume-actions button { flex: 1; padding: 0.65rem 1rem; font-size: 0.88rem; }
+/* Ficha horizontal: la POSICIÓN REAL guardada en miniatura (desde tu lado)
+   a la izquierda, y a la derecha la ficha con chips y acciones. */
+.resume-box {
+  background: linear-gradient(160deg, #232d3e 0%, var(--panel) 60%);
+  border-radius: 1.2rem; padding: 1.15rem; max-width: 30rem; width: 100%;
+  display: flex; align-items: stretch; gap: 1.15rem; position: relative;
+  box-shadow: inset 0 0 0 0.07rem rgba(255,255,255,.07), 0 2rem 5rem rgba(0,0,0,.65);
+}
+.resume.open .resume-box { animation: vx-modal-in .34s var(--ease-out, ease) both; }
+.resume-board {
+  flex: 0 0 auto; align-self: center; width: 10.5rem; aspect-ratio: 1 / 1;
+  display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(8, 1fr);
+  border-radius: 0.7rem; overflow: hidden;
+  box-shadow: 0 0.6rem 1.6rem rgba(0,0,0,.5), inset 0 0 0 0.07rem rgba(255,255,255,.08);
+}
+.resume-board[hidden] { display: none; }
+.rs-sq.l { background: var(--light); }
+.rs-sq.d { background: var(--dark); }
+.rs-pc { display: block; width: 100%; height: 100%; }
+.resume-side { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; text-align: left; }
+.resume-tag { font: 700 0.6rem 'Inter', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+.resume-title { margin: 0; font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: 1.2rem; line-height: 1.2; color: var(--text); }
+.resume-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.resume-chip { font: 600 0.72rem 'Inter', sans-serif; color: var(--muted); background: rgba(255,255,255,.06); border-radius: 2rem; padding: 0.24rem 0.62rem; white-space: nowrap; }
+.resume-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.55rem; }
+.resume-actions button { width: 100%; padding: 0.62rem 1rem; font-size: 0.88rem; }
+@media (max-width: 30em) {
+  .resume-box { flex-direction: column; align-items: center; text-align: center; padding: 1.3rem 1.15rem; }
+  .resume-board { width: min(58vw, 12.5rem); }
+  .resume-side { text-align: center; align-items: center; }
+  .resume-meta { justify-content: center; }
+  .resume-actions { width: 100%; }
+}
 .draw.open { display: flex; }
 .draw-box { display: flex; flex-direction: column; align-items: center; gap: 1.8rem; padding: 1.5rem; max-width: 92vw; }
 .draw-title { font-family: 'Oxanium', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 1rem + 2.6vw, 2.6rem); letter-spacing: 0.07em; text-transform: uppercase; color: var(--text); text-align: center; }

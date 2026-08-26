@@ -5,6 +5,7 @@ import { t } from './i18n.js?v=9';
 import { api, getUser, getStats, getBadges, setBadges, onAuth, avatarHTML, AVATAR_COLORS, AVATAR_IMAGES, AVATAR_IMAGE_NAMES, openAuth, isAuthResolved, applyUserPatch } from './auth.js?v=30';
 import { badgeMeta } from './badges.js?v=3';
 import { vexbornByKey, rarityMeta } from './vexborn.js?v=2';
+import { skProfile } from './skeleton.js?v=1';
 
 const root = document.getElementById('perfil-root');
 const LEVEL_NAMES = { principiante: t('perfil.levelPrincipiante'), facil: t('perfil.levelFacil'), intermedio: t('perfil.levelIntermedio'), avanzado: t('perfil.levelAvanzado'), maximo: t('perfil.levelMaximo'), desconocido: t('perfil.levelDesconocido') };
@@ -20,11 +21,8 @@ function streakText(s) {
 }
 
 function loadingHTML() {
-  return '<section class="pf-loading">' +
-    '<div class="pf-loading-inner"><div class="pf-loading-ring"></div>' +
-    '<img class="pf-loading-knight" src="assets/knight-logo.svg" alt=""></div>' +
-    '<p>' + t('perfil.loading') + '</p>' +
-    '</section>';
+  // esqueleto con la silueta del perfil: nada de spinners en cargas de pantalla
+  return skProfile();
 }
 
 function notLogged() {

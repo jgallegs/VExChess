@@ -6,6 +6,7 @@ import { t } from './i18n.js?v=9';
 import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML, repChipHTML, presenceHTML } from './auth.js?v=30';
 import { badgeIcon, badgeMeta } from './badges.js?v=3';
 import qrcode from './assets/vendor/qrcode.mjs?v=1';
+import { skCommunity } from './skeleton.js?v=1';
 
 const root = document.getElementById('comunidad-root');
 const TABS = [['amigos', t('comunidad.tabs.amigos')], ['solicitudes', t('comunidad.tabs.solicitudes')], ['buscar', t('comunidad.tabs.buscar')], ['vexid', t('comunidad.tabs.vexid')]];
@@ -26,7 +27,7 @@ function toast(msg, ok) {
 // ---------- estado ----------
 function stateHTML(inner) { return '<section class="cm-state">' + inner + '</section>'; }
 function render() {
-  if (!isAuthResolved()) { root.innerHTML = stateHTML('<div class="cm-ring"></div><p>' + t('comunidad.loading') + '</p>'); mounted = false; return; }
+  if (!isAuthResolved()) { root.innerHTML = skCommunity(); mounted = false; return; }
   const u = getUser();
   if (!u) {
     root.innerHTML = stateHTML('<img class="cm-state-logo" src="assets/knight-logo.svg" alt=""><h1>' + t('comunidad.loggedOut.title') + '</h1>' +

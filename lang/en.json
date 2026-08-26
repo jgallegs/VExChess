@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "game in progress",
       "moveOne": "{n} move",
-      "moveN": "{n} moves"
+      "moveN": "{n} moves",
+      "tag": "Saved game",
+      "title": "Pick up where you left off",
+      "continueBtn": "Resume",
+      "freshBtn": "Start fresh"
     },
     "reasons": {
       "castle": "castles and brings the king to safety",

@@ -12,6 +12,7 @@ import { Chess } from './chess.js';
 import { createEngine } from './academy-engine.js?v=1';
 import { scoreToCp, classifyLoss, sparReaction, threatNote, pickMoments, LAB_LINES } from './academy-coach.js?v=1';
 import { mountChat } from './academy-chat.js?v=1';
+import { skAcademy } from './skeleton.js?v=1';
 
 // Motor Stockfish (perezoso; hueco para inyectar un mock en tests).
 let _engine = null;
@@ -689,7 +690,7 @@ function showMoment(i) {
 
 // ---------- init ----------
 function render() {
-  if (!isAuthResolved() || !loaded) { root.innerHTML = '<div class="ac-loading"><div class="ac-ring2"></div><p>Cargando la Academia…</p></div>'; return; }
+  if (!isAuthResolved() || !loaded) { root.innerHTML = skAcademy(); return; }
   renderHome();
 }
 

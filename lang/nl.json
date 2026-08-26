@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "lopende partij",
       "moveOne": "{n} zet",
-      "moveN": "{n} zetten"
+      "moveN": "{n} zetten",
+      "tag": "Opgeslagen partij",
+      "title": "Ga verder waar je was gebleven",
+      "continueBtn": "Hervatten",
+      "freshBtn": "Opnieuw beginnen"
     },
     "reasons": {
       "castle": "rokeert en brengt de koning in veiligheid",

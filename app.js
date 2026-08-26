@@ -721,15 +721,50 @@ drawSkipEl?.addEventListener('click', () => { if (drawActive) resolveDraw(colorF
 
 // --- Overlay "retomar partida" --------------------------------------------
 const resumeEl = document.getElementById('resume');
+// "hace 5 min / ayer": relativo y en el idioma activo, sin claves extra
+function agoText(ts) {
+  if (!ts) return '';
+  try {
+    const rtf = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
+    const mins = Math.max(1, Math.round((Date.now() - ts) / 60000));
+    if (mins < 60) return rtf.format(-mins, 'minute');
+    if (mins < 1440) return rtf.format(-Math.round(mins / 60), 'hour');
+    return rtf.format(-Math.round(mins / 1440), 'day');
+  } catch (e) { return ''; }
+}
 function offerResume(saved) {
   if (!resumeEl) { doResume(saved); return; }
+  // La posición real, en miniatura y desde el lado del jugador.
+  const boardEl = document.getElementById('resume-board');
+  if (boardEl) {
+    let pos = null;
+    try { const c = new Chess(); c.loadPgn(saved.pgn); pos = c.board(); } catch (e) { pos = null; }
+    if (pos) {
+      const flip = saved.humanColor === 'b';
+      let html = '';
+      for (let r = 0; r < 8; r++) for (let f = 0; f < 8; f++) {
+        const rr = flip ? 7 - r : r, ff = flip ? 7 - f : f;
+        const sq = pos[rr][ff];
+        html += '<div class="rs-sq ' + ((rr + ff) % 2 ? 'd' : 'l') + '">' +
+          (sq ? '<svg class="rs-pc" viewBox="0 0 40 40"><use href="assets/pieces/staunty.svg#' + sq.color + sq.type + '"></use></svg>' : '') +
+          '</div>';
+      }
+      boardEl.innerHTML = html;
+      boardEl.hidden = false;
+    } else boardEl.hidden = true;
+  }
   const info = document.getElementById('resume-info');
   if (info) {
     let n = saved.plies;
     if (typeof n !== 'number') { try { n = (saved.pgn.match(/[a-hKQRBNO][^\s]*/g) || []).length; } catch (e) { n = 0; } }
-    const side = saved.humanColor === 'b' ? t('colorBlack') : t('colorWhite');
-    const movesTxt = n ? t(n === 1 ? 'resume.moveOne' : 'resume.moveN', { n: n }) : t('resume.inProgress');
-    info.textContent = movesTxt + ' · ' + side;
+    const chips = [];
+    chips.push(n ? t(n === 1 ? 'resume.moveOne' : 'resume.moveN', { n: n }) : t('resume.inProgress'));
+    chips.push(saved.humanColor === 'b' ? t('colorBlack') : t('colorWhite'));
+    const lvlOpt = saved.level && document.querySelector('#level option[value="' + saved.level + '"]');
+    if (lvlOpt && lvlOpt.textContent) chips.push(lvlOpt.textContent.trim());
+    const ago = agoText(saved.ts);
+    if (ago) chips.push(ago);
+    info.innerHTML = chips.map(c => '<span class="resume-chip">' + c + '</span>').join('');
   }
   resumeEl.classList.add('open');
 }
@@ -1018,6 +1053,10 @@ function applyI18n() {
   set('draw-skip', t('drawSkip'));
   set('confirm-ok', t('confirmOk'));
   set('confirm-cancel', t('confirmCancel'));
+  set('resume-tag', t('resume.tag'));
+  set('resume-title', t('resume.title'));
+  set('resume-yes', t('resume.continueBtn'));
+  set('resume-no', t('resume.freshBtn'));
 
   const el = (id) => document.getElementById(id);
   if (el('coach-wrap')) el('coach-wrap').title = t('coachToggle') + ' · ' + t('coachToggleSub');

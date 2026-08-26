@@ -7,6 +7,7 @@ import { t } from './i18n.js?v=9';
 import { api, getUser, onAuth, avatarHTML, isAuthResolved, openAuth, ROLES, roleMeta, roleLevel, STAFF_LEVEL } from './auth.js?v=30';
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
 import { seriesDays, areaChart, columnChart, sparkline, outcomesBar, barList, worldMap, countryList, tableTwin, tableTwinLabeled, fmtN } from './admin-stats.js?v=1';
+import { skAdmin } from './skeleton.js?v=1';
 
 const ELO_LEVEL = 80, ROLE_LEVEL = 80;
 const root = document.getElementById('adm-root');
@@ -24,8 +25,7 @@ function roleChip(role, big) {
 
 // ---------- pantallas de estado ----------
 function loaderHTML() {
-  return '<section class="adm-state"><div class="pf-loading-inner"><div class="pf-loading-ring"></div>' +
-    '<img class="pf-loading-knight" src="assets/knight-logo.svg" alt=""></div><p>' + t('admin.loading') + '</p></section>';
+  return skAdmin();
 }
 function gateHTML(title, msg, showLogin) {
   return '<section class="adm-state"><img src="assets/knight-logo.svg" alt="" class="adm-state-logo">' +

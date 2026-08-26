@@ -12,6 +12,7 @@ import {
 } from './vexborn.js?v=5';
 import { openSenda } from './vexborn-senda.js?v=1';
 import { sendaAvailable, vinculoLevelName } from './vexborn-mastery.js?v=1';
+import { skVexborn } from './skeleton.js?v=1';
 
 const root = document.getElementById('vexborn-root');
 let user = null;
@@ -57,7 +58,7 @@ function render() {
 }
 
 function loadingHTML() {
-  return '<div class="vb-loading"><div class="vb-ring"></div><p>' + t('vexborn.loading') + '</p></div>';
+  return skVexborn();
 }
 function guestHTML() {
   return '<section class="vb-guest">' +

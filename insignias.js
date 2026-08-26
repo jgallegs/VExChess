@@ -6,6 +6,7 @@
 import { t } from './i18n.js?v=9';
 import { BADGE_CATALOG, badgeMeta, badgeIcon } from './badges.js?v=3';
 import { getBadges, getUser, isAuthResolved, onAuth } from './auth.js?v=30';
+import { skBadges } from './skeleton.js?v=1';
 
 const root = document.getElementById('insignias-root');
 
@@ -65,7 +66,7 @@ function stateHTML(inner) { return '<section class="ins-state">' + inner + '</se
 function render() {
   // El inventario es solo para el equipo: al resto no se le enseña el catálogo
   // completo (mantiene el misterio de cómo se consiguen).
-  if (!isAuthResolved()) { root.innerHTML = stateHTML('<div class="ins-ring"></div><p>' + t('insignias.loading') + '</p>'); return; }
+  if (!isAuthResolved()) { root.innerHTML = skBadges(); return; }
   const u = getUser();
   if (!u || !u.is_admin) {
     root.innerHTML = stateHTML(

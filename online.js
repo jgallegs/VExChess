@@ -3,6 +3,7 @@
 // ============================================================
 import { api, getUser, isAuthResolved, onAuth, openAuth, avatarHTML } from './auth.js?v=30';
 import { t } from './i18n.js?v=9';
+import { skOnline } from './skeleton.js?v=1';
 
 const root = document.getElementById('online-root');
 export const TCS = [['1+0', t('online.tcBullet')], ['3+0', t('online.tcBlitz')], ['3+2', t('online.tcBlitz')], ['5+0', t('online.tcBlitz')], ['10+0', t('online.tcRapid')], ['15+10', t('online.tcRapid')]];
@@ -20,7 +21,7 @@ function toast(msg, ok) {
 function state(inner) { return '<section class="ol-state">' + inner + '</section>'; }
 
 function render() {
-  if (!isAuthResolved()) { root.innerHTML = state('<div class="ol-ring"></div><p>' + t('online.loading') + '</p>'); return; }
+  if (!isAuthResolved()) { root.innerHTML = skOnline(); return; }
   const u = getUser();
   if (!u) {
     // Sin sesión también se puede jugar: contra la IA no hace falta cuenta.

@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "laufende Partie",
       "moveOne": "{n} Zug",
-      "moveN": "{n} Züge"
+      "moveN": "{n} Züge",
+      "tag": "Gespeicherte Partie",
+      "title": "Mach da weiter, wo du warst",
+      "continueBtn": "Fortsetzen",
+      "freshBtn": "Neu anfangen"
     },
     "reasons": {
       "castle": "rochiert und bringt den König in Sicherheit",

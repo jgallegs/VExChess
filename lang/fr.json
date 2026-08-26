@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "partie en cours",
       "moveOne": "{n} coup",
-      "moveN": "{n} coups"
+      "moveN": "{n} coups",
+      "tag": "Partie sauvegardée",
+      "title": "Reprenez là où vous étiez",
+      "continueBtn": "Reprendre",
+      "freshBtn": "Recommencer"
     },
     "reasons": {
       "castle": "roque et met le roi à l'abri",

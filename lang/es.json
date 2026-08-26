@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "partida en curso",
       "moveOne": "{n} jugada",
-      "moveN": "{n} jugadas"
+      "moveN": "{n} jugadas",
+      "tag": "Partida guardada",
+      "title": "Sigue donde lo dejaste",
+      "continueBtn": "Retomar",
+      "freshBtn": "Empezar de cero"
     },
     "reasons": {
       "castle": "enroca y pone el rey a salvo",

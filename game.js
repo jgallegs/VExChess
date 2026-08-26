@@ -5,6 +5,7 @@
 import { Chess } from './chess.js';
 import { getUser, isAuthResolved, onAuth, avatarHTML } from './auth.js?v=30';
 import { sfx } from './sounds.js?v=1';
+import { skGame } from './skeleton.js?v=1';
 
 const root = document.getElementById('game-root');
 const FILES = 'abcdefgh';
@@ -37,7 +38,7 @@ const PIECE = (color, type) => '<svg class="pc" viewBox="0 0 40 40"><use href="a
 // ---------- arranque + WebSocket ----------
 function boot() {
   if (booted) return;
-  if (!isAuthResolved()) { root.innerHTML = stateHTML('<div class="gm-ring"></div><p>Cargando…</p>'); return; }
+  if (!isAuthResolved()) { root.innerHTML = skGame(); return; }
   booted = true;
   const id = gameId();
   if (!id) { root.innerHTML = stateHTML('<h1>Partida no válida</h1><a class="btn-play" href="online.html">Volver</a>'); return; }

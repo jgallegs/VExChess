@@ -100,7 +100,11 @@
     "resume": {
       "inProgress": "partita in corso",
       "moveOne": "{n} mossa",
-      "moveN": "{n} mosse"
+      "moveN": "{n} mosse",
+      "tag": "Partita salvata",
+      "title": "Riprendi da dove eri rimasto",
+      "continueBtn": "Riprendi",
+      "freshBtn": "Ricomincia"
     },
     "reasons": {
       "castle": "arrocca e mette il re al sicuro",
