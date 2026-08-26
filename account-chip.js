@@ -171,17 +171,17 @@ export function mountAccountChip(slot, model, ctx) {
     if (av && !av.complete) av.addEventListener('load', () => syncWidth(vxa), { once: true });
     chip.addEventListener('click', (e) => {
       e.stopPropagation();
-      flipToggle(vxa, () => {
-        const open = vxa.classList.toggle('open');
-        chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (vxa._closing) return;
+      if (vxa.classList.contains('open')) { closeChip(vxa); return; }
+      flipOpen(vxa, () => {
+        vxa.classList.add('open');
+        chip.setAttribute('aria-expanded', 'true');
         syncWidth(vxa);
       });
     });
     surface.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && vxa.classList.contains('open')) {
-        flipToggle(vxa, () => {
-          vxa.classList.remove('open'); chip.setAttribute('aria-expanded', 'false'); syncWidth(vxa);
-        });
+        closeChip(vxa);
         chip.focus();
       }
     });
@@ -207,9 +207,14 @@ export function mountAccountChip(slot, model, ctx) {
 // no tienen "antes": entran con un fundido + subida corta.
 const FLIP_PARTS = ['.vxa-av', '.vxa-id', '.vxa-elo', '.vxa-caret'];
 const FLIP_EASE = 'cubic-bezier(.22,1,.36,1)';
-function flipToggle(vxa, apply) {
-  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced || typeof Element === 'undefined' || !Element.prototype.animate) { apply(); return; }
+const noMotion = () => (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+  typeof Element === 'undefined' || !Element.prototype.animate;
+
+// APERTURA (FLIP clásico): se cambia el estado y los elementos viajan desde
+// donde estaban. Funciona porque las posiciones destino son medibles al
+// instante (la rejilla de la ficha no depende de transiciones en curso).
+function flipOpen(vxa, apply) {
+  if (noMotion()) { apply(); return; }
   const parts = FLIP_PARTS.map(sel => vxa.querySelector('.vxa-surface ' + sel)).filter(Boolean);
   const before = parts.map(el => el.getBoundingClientRect());
   apply();
@@ -225,6 +230,73 @@ function flipToggle(vxa, apply) {
     if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return;
     el.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }],
       { duration: 380, easing: FLIP_EASE });
+  });
+}
+
+// CIERRE (coreografía en dos tiempos): el FLIP clásico no sirve al cerrar —
+// el ancho/alto de la superficie están en plena transición al medir el
+// "después" y los deltas salen nulos (los elementos se teletransportaban).
+// En su lugar, la DIANA es el fantasma: siempre está en el layout de píldora
+// final. 1) la cabecera viaja y ESCALA hasta encajar en la píldora;
+// 2) al aterrizar se suelta el estado y el cajón se pliega debajo.
+function closeChip(vxa) {
+  if (!vxa.classList.contains('open') || vxa._closing) return;
+  const chip = vxa.querySelector('.vxa-surface > .vxa-chip');
+  const finish = () => {
+    vxa.classList.remove('open');
+    if (chip) chip.setAttribute('aria-expanded', 'false');
+    syncWidth(vxa);
+  };
+  if (noMotion()) { finish(); return; }
+  vxa._closing = true;
+  vxa.classList.add('closing');
+  const anims = [];
+  FLIP_PARTS.forEach(sel => {
+    const el = vxa.querySelector('.vxa-surface ' + sel);
+    const gh = vxa.querySelector('.vxa-ghost ' + sel);
+    if (!el) return;
+    const a = el.getBoundingClientRect();
+    if (!a.width && !a.height) return;
+    const g = gh ? gh.getBoundingClientRect() : null;
+    if (!g || (!g.width && !g.height)) {               // en la píldora no existe: se funde
+      anims.push(el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 170, easing: 'ease', fill: 'forwards' }));
+      return;
+    }
+    const dx = g.left - a.left, dy = g.top - a.top;
+    const sx = a.width ? g.width / a.width : 1, sy = a.height ? g.height / a.height : 1;
+    el.style.transformOrigin = '0 0';
+    anims.push(el.animate(
+      [{ transform: 'none' }, { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sx + ',' + sy + ')' }],
+      { duration: 250, easing: FLIP_EASE, fill: 'forwards' }));
+  });
+  const unlatch = () => {
+    finish();
+    anims.forEach(x => { try { x.cancel(); } catch (e) {} });
+    FLIP_PARTS.forEach(sel => { const el = vxa.querySelector('.vxa-surface ' + sel); if (el) el.style.transformOrigin = ''; });
+    vxa.classList.remove('closing');
+    vxa._closing = false;
+  };
+  if (!anims.length) { unlatch(); return; }
+  setTimeout(unlatch, 255);
+}
+
+// Volver con atrás/adelante (bfcache) revive la página tal cual quedó:
+// ficha abierta, opción marcada y estado de navegación puesto. Se resetea
+// al restaurar, sin animaciones (es un estado, no una interacción).
+if (typeof window !== 'undefined') {
+  window.addEventListener('pageshow', (e) => {
+    if (!e.persisted) return;
+    document.querySelectorAll('.vxa').forEach(vxa => {
+      vxa.classList.remove('is-nav');
+      vxa._closing = false;
+      vxa.querySelectorAll('.is-going').forEach(a => a.classList.remove('is-going'));
+      if (vxa.classList.contains('open')) {
+        vxa.classList.remove('open');
+        const c = vxa.querySelector('.vxa-surface > .vxa-chip');
+        if (c) c.setAttribute('aria-expanded', 'false');
+        syncWidth(vxa);
+      }
+    });
   });
 }
 
@@ -251,12 +323,7 @@ function syncWidth(vxa) {
 export function closeAllAccountMenus() {
   document.querySelectorAll('.vxa.open').forEach(vxa => {
     if (vxa.classList.contains('is-nav')) return; // navegando: no desmontar la ficha
-    flipToggle(vxa, () => {
-      vxa.classList.remove('open');
-      const c = vxa.querySelector('.vxa-surface > .vxa-chip');
-      if (c) c.setAttribute('aria-expanded', 'false');
-      syncWidth(vxa);
-    });
+    closeChip(vxa);
   });
 }
 
@@ -393,6 +460,9 @@ const ACCOUNT_CSS = `
   opacity:0;transform:translateY(.4rem);
   transition:opacity .3s ease,transform .34s cubic-bezier(.22,1,.36,1),background .12s}
 .vxa.open .vxa-drawer a,.vxa.open .vxa-signout{opacity:1;transform:none}
+/* Cerrando: las opciones se desvanecen mientras la cabecera viaja a la píldora */
+.vxa.closing .vxa-drawer a,.vxa.closing .vxa-signout{opacity:0!important;transition:opacity .16s ease!important;transition-delay:0s!important}
+
 /* Navegando desde el menú: la ficha se queda quieta, la opción elegida
    brilla y el resto cede protagonismo hasta que carga el destino */
 .vxa.is-nav .vxa-drawer a,.vxa.is-nav .vxa-signout{opacity:.4;transition:opacity .25s ease}
