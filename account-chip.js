@@ -410,25 +410,32 @@ const ACCOUNT_CSS = `
 /* Fantasma: ocupa el hueco del chip colapsado (invisible, sin interacción) */
 .vxa-ghost{visibility:hidden;pointer-events:none}
 
-/* Superficie única que crece (liquid glass) */
+/* Superficie única que crece (liquid glass). MISMO fondo y sin borde en
+   reposo y expandido: cualquier estilo que difiera entre estados se
+   convierte en un click visual al abrir/cerrar (el anillo interior que
+   hacía de borde reaparecía en seco al aterrizar el cierre). Entre estados
+   solo cambian radio y sombra, y siempre transicionados. */
 .vxa-surface{position:absolute;top:0;right:0;z-index:70;display:flex;flex-direction:column;
   border-radius:calc(var(--chip-h)/2);
   background:linear-gradient(180deg,rgba(38,48,64,.80),rgba(20,26,35,.86));
   -webkit-backdrop-filter:blur(1.2rem) saturate(1.4);backdrop-filter:blur(1.2rem) saturate(1.4);
   border:none;
-  box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.06),0 .35rem .9rem rgba(0,0,0,.22);
+  box-shadow:0 .35rem .9rem rgba(0,0,0,.22);
   transition:width .42s cubic-bezier(.22,1,.36,1),border-radius .42s cubic-bezier(.22,1,.36,1),
-    box-shadow .34s ease,background .34s ease}
-.vxa:not(.open) .vxa-surface:hover{box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.12),0 .35rem .9rem rgba(0,0,0,.22);
-  background:linear-gradient(180deg,rgba(48,60,78,.82),rgba(28,35,47,.88))}
+    box-shadow .34s ease}
 .vxa.open .vxa-surface{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem;
   box-shadow:0 1.8rem 4rem rgba(0,0,0,.6)}
-.vxa-surface:has(.vxa-chip:focus-visible){box-shadow:inset 0 0 0 .07rem rgba(255,255,255,.06),0 0 0 .16rem rgba(57,213,255,.5)}
+.vxa-surface:has(.vxa-chip:focus-visible){box-shadow:0 0 0 .16rem rgba(57,213,255,.5)}
 
-/* Chip (fila cabecera) — transparente: la glass la pone la superficie */
+/* Chip (fila cabecera) — transparente: la glass la pone la superficie.
+   El hover vive AQUÍ, en una capa hija sobre el cristal: la superficie no
+   cambia con el hover y abrir/cerrar con el cursor encima ya no da saltos
+   de fondo (el hover se desvanece por su propio carril). */
 .vxa-chip{display:flex;align-items:center;gap:.55rem;height:var(--chip-h);box-sizing:border-box;
   background:none;border:none;padding:.3rem .72rem .3rem .44rem;cursor:pointer;color:var(--text);
-  max-width:100%;white-space:nowrap;font-family:inherit}
+  max-width:100%;white-space:nowrap;font-family:inherit;
+  border-radius:calc(var(--chip-h)/2);transition:background .18s ease}
+.vxa:not(.open) .vxa-surface>.vxa-chip:hover{background:rgba(255,255,255,.05)}
 .vxa-chip:focus{outline:none}
 
 /* Avatar con anillo de rol */
