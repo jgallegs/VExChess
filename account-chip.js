@@ -111,6 +111,10 @@ export function accountChipHTML(model, ctx) {
   return '<div class="vxa" data-pc="' + d.pc + '" data-mobile="' + d.mobile + '">' +
       // fantasma: reserva el hueco del chip colapsado en el layout
       '<span class="vxa-chip vxa-ghost" aria-hidden="true">' + inner + '</span>' +
+      // halo: SOLO la sombra. Vive fuera de la superficie porque el clip-path
+      // de la apertura/cierre recorta todo lo que pinta la superficie,
+      // sombra incluida — aquí anima su geometría con los mismos relojes.
+      '<span class="vxa-halo" aria-hidden="true"></span>' +
       // superficie única que se expande
       '<div class="vxa-surface">' +
         '<button class="vxa-chip" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="' + esc(t('auth.chip.menuAria')) + '">' + inner + '</button>' +
@@ -206,24 +210,49 @@ export function mountAccountChip(slot, model, ctx) {
 // Los elementos que estaban ocultos (display:none en anchos estrechos)
 // no tienen "antes": entran con un fundido + subida corta.
 const FLIP_PARTS = ['.vxa-av', '.vxa-id', '.vxa-elo', '.vxa-caret'];
+// Mismos relojes que el CSS (--vxa-t/--vxa-e y el .25s del cierre): si un
+// carril usa otra duración, esa pieza aterriza a destiempo y se ve collage.
 const FLIP_EASE = 'cubic-bezier(.22,1,.36,1)';
+const OPEN_MS = 400;
+const CLOSE_MS = 250;
 const noMotion = () => (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) ||
   typeof Element === 'undefined' || !Element.prototype.animate;
 
-// APERTURA (FLIP clásico): se cambia el estado y los elementos viajan desde
-// donde estaban. Funciona porque las posiciones destino son medibles al
-// instante (la rejilla de la ficha no depende de transiciones en curso).
+// APERTURA — espejo exacto del cierre: el estado final se aplica AL INSTANTE
+// con las transiciones de geometría congeladas (el layout no se mueve nunca
+// bajo los elementos que viajan: animar el ancho real re-colocaba la rejilla
+// de la cabecera en cada frame y el contenido bailaba sobre ella), el cristal
+// se REVELA con clip-path desde la píldora, y las piezas viajan por FLIP.
+// El halo de sombra no se congela: transiciona su geometría en paralelo.
 function flipOpen(vxa, apply) {
   if (noMotion()) { apply(); return; }
   const parts = FLIP_PARTS.map(sel => vxa.querySelector('.vxa-surface ' + sel)).filter(Boolean);
   const before = parts.map(el => el.getBoundingClientRect());
+  const surface = vxa.querySelector('.vxa-surface');
+  const ghost = vxa.querySelector('.vxa-ghost');
+  const drawer = vxa.querySelector('.vxa-drawer');
+  const drawerIn = vxa.querySelector('.vxa-drawer-in');
+  const frozen = [surface, drawer, drawerIn].filter(Boolean);
+  frozen.forEach(el => { el.style.transition = 'none'; });
   apply();
+  if (surface) void surface.offsetWidth;               // layout final YA
+  if (surface && ghost) {
+    const s = surface.getBoundingClientRect();
+    const gw = ghost.offsetWidth, gh = ghost.offsetHeight;
+    const cs = getComputedStyle(surface);
+    const rad = cs.borderTopLeftRadius + ' ' + cs.borderTopRightRadius + ' ' +
+      cs.borderBottomRightRadius + ' ' + cs.borderBottomLeftRadius;
+    surface.animate(
+      [{ clipPath: 'inset(0 0 ' + Math.max(0, s.height - gh) + 'px ' + Math.max(0, s.width - gw) + 'px round ' + (gh / 2) + 'px)' },
+       { clipPath: 'inset(0 0 0 0 round ' + rad + ')' }],
+      { duration: OPEN_MS, easing: FLIP_EASE });
+  }
   parts.forEach((el, i) => {
     const b = before[i], a = el.getBoundingClientRect();
     if (!a.width && !a.height) return;                 // sigue oculto
     if (!b.width && !b.height) {                       // aparece de nuevas
       el.animate([{ opacity: 0, transform: 'translateY(.3rem)' }, { opacity: 1, transform: 'none' }],
-        { duration: 300, delay: 90, easing: FLIP_EASE, fill: 'backwards' });
+        { duration: OPEN_MS - 90, delay: 90, easing: FLIP_EASE, fill: 'backwards' });
       return;
     }
     const dx = b.left - a.left, dy = b.top - a.top;
@@ -232,9 +261,10 @@ function flipOpen(vxa, apply) {
     el.style.transformOrigin = '0 0';
     const anim = el.animate(
       [{ transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sx + ',' + sy + ')' }, { transform: 'none' }],
-      { duration: 380, easing: FLIP_EASE });
+      { duration: OPEN_MS, easing: FLIP_EASE });
     anim.finished.then(() => { el.style.transformOrigin = ''; }).catch(() => {});
   });
+  requestAnimationFrame(() => requestAnimationFrame(() => frozen.forEach(el => { el.style.transition = ''; })));
 }
 
 // CIERRE (coreografía en dos tiempos): el FLIP clásico no sirve al cerrar —
@@ -273,7 +303,10 @@ function closeChip(vxa) {
     anims.push(surface.animate(
       [{ clipPath: 'inset(0 0 0 0 round ' + rad + ')' },
        { clipPath: 'inset(0 0 ' + Math.max(0, s.height - gh) + 'px ' + Math.max(0, s.width - gw) + 'px round ' + (gh / 2) + 'px)' }],
-      { duration: 250, easing: FLIP_EASE, fill: 'forwards' }));
+      { duration: CLOSE_MS, easing: FLIP_EASE, fill: 'forwards' }));
+    // el halo encoge en paralelo (regla .closing: mismo reloj de .25s)
+    const halo = vxa.querySelector('.vxa-halo');
+    if (halo) { halo.style.width = gw + 'px'; halo.style.height = gh + 'px'; }
   }
   FLIP_PARTS.forEach(sel => {
     const el = vxa.querySelector('.vxa-surface ' + sel);
@@ -291,7 +324,7 @@ function closeChip(vxa) {
     el.style.transformOrigin = '0 0';
     anims.push(el.animate(
       [{ transform: 'none' }, { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sx + ',' + sy + ')' }],
-      { duration: 250, easing: FLIP_EASE, fill: 'forwards' }));
+      { duration: CLOSE_MS, easing: FLIP_EASE, fill: 'forwards' }));
   });
   const unlatch = () => {
     // El estado final se aplica SIN transiciones: ya lo hemos animado
@@ -308,7 +341,7 @@ function closeChip(vxa) {
     requestAnimationFrame(() => requestAnimationFrame(() => frozen.forEach(el => { el.style.transition = ''; })));
   };
   if (!anims.length) { unlatch(); return; }
-  setTimeout(unlatch, 255);
+  setTimeout(unlatch, CLOSE_MS + 5);
 }
 
 // Volver con atrás/adelante (bfcache) revivía la página tal cual quedó:
@@ -322,7 +355,7 @@ function resetChip(vxa) {
   vxa._closing = false;
   vxa.querySelectorAll('.is-going').forEach(a => a.classList.remove('is-going'));
   const surface = vxa.querySelector('.vxa-surface');
-  const frozen = [surface, vxa.querySelector('.vxa-drawer'), vxa.querySelector('.vxa-drawer-in')].filter(Boolean);
+  const frozen = [surface, vxa.querySelector('.vxa-halo'), vxa.querySelector('.vxa-drawer'), vxa.querySelector('.vxa-drawer-in')].filter(Boolean);
   frozen.forEach(el => { el.style.transition = 'none'; });
   if (vxa.getAnimations) { try { vxa.getAnimations({ subtree: true }).forEach(a => a.cancel()); } catch (e) {} }
   FLIP_PARTS.forEach(sel => { const el = vxa.querySelector('.vxa-surface ' + sel); if (el) el.style.transformOrigin = ''; });
@@ -358,7 +391,14 @@ function syncWidth(vxa) {
   const open = vxa.classList.contains('open');
   // Mínimo del panel abierto en rem (el rem del documento es fluido)
   const minOpen = 15 * parseFloat(getComputedStyle(document.documentElement).fontSize || '16');
-  surface.style.width = (open ? Math.max(w0, minOpen) : w0) + 'px';
+  const w = (open ? Math.max(w0, minOpen) : w0);
+  surface.style.width = w + 'px';
+  // el halo de sombra copia la geometría de la superficie
+  const halo = vxa.querySelector('.vxa-halo');
+  if (halo) {
+    halo.style.width = w + 'px';
+    halo.style.height = (open ? surface.offsetHeight : ghost.offsetHeight) + 'px';
+  }
 }
 
 export function closeAllAccountMenus() {
@@ -393,7 +433,11 @@ function ensureStyles() {
 
 const ACCOUNT_CSS = `
 .vx-account{display:inline-flex;align-items:center}
-.vxa{position:relative;display:inline-flex;align-items:center;font-family:'Inter',system-ui,sans-serif;--chip-h:2.75rem;line-height:1}
+/* Un solo reloj para todo el componente: TODAS las transiciones de apertura
+   usan la misma duración y curva (--vxa-t/--vxa-e) y el cierre va a .25s.
+   Duraciones sueltas = piezas que aterrizan a destiempo = efecto collage. */
+.vxa{position:relative;display:inline-flex;align-items:center;font-family:'Inter',system-ui,sans-serif;--chip-h:2.75rem;line-height:1;
+  --vxa-t:.4s;--vxa-e:cubic-bezier(.22,1,.36,1)}
 
 /* Sesión sin resolver: hueco INVISIBLE. Nada de discos ni esqueletos a la
    vista — no se ve nada hasta que aparece la píldora o el botón de entrar.
@@ -417,15 +461,27 @@ const ACCOUNT_CSS = `
    solo cambian radio y sombra, y siempre transicionados. */
 .vxa-surface{position:absolute;top:0;right:0;z-index:70;display:flex;flex-direction:column;
   border-radius:calc(var(--chip-h)/2);
-  background:linear-gradient(180deg,rgba(38,48,64,.80),rgba(20,26,35,.86));
+  /* PLANO, nada de degradado: un degradado se estira con el alto del
+     elemento, así que al pasar de ficha (~420px) a píldora (46px) el mismo
+     fondo se recomprimía y cambiaba de color al aterrizar el cierre. */
+  background:rgba(33,42,56,.82);
   -webkit-backdrop-filter:blur(1.2rem) saturate(1.4);backdrop-filter:blur(1.2rem) saturate(1.4);
   border:none;
-  box-shadow:0 .35rem .9rem rgba(0,0,0,.22);
-  transition:width .42s cubic-bezier(.22,1,.36,1),border-radius .42s cubic-bezier(.22,1,.36,1),
-    box-shadow .34s ease}
-.vxa.open .vxa-surface{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem;
-  box-shadow:0 1.8rem 4rem rgba(0,0,0,.6)}
+  transition:width var(--vxa-t) var(--vxa-e),border-radius var(--vxa-t) var(--vxa-e)}
+.vxa.open .vxa-surface{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem}
 .vxa-surface:has(.vxa-chip:focus-visible){box-shadow:0 0 0 .16rem rgba(57,213,255,.5)}
+
+/* Halo de sombra — hermano de la superficie (z-index justo debajo), con su
+   misma geometría, sincronizada por syncWidth y los mismos relojes. */
+.vxa-halo{position:absolute;top:0;right:0;z-index:69;pointer-events:none;
+  border-radius:calc(var(--chip-h)/2);box-shadow:0 .35rem .9rem rgba(0,0,0,.22);
+  transition:width var(--vxa-t) var(--vxa-e),height var(--vxa-t) var(--vxa-e),
+    border-radius var(--vxa-t) var(--vxa-e),box-shadow var(--vxa-t) var(--vxa-e)}
+.vxa.open .vxa-halo{border-radius:calc(var(--chip-h)/2) calc(var(--chip-h)/2) 1.05rem 1.05rem;
+  box-shadow:0 1.8rem 4rem rgba(0,0,0,.6)}
+/* al cerrar, el halo encoge al ritmo del cierre */
+.vxa.closing .vxa-halo{border-radius:calc(var(--chip-h)/2);box-shadow:0 .35rem .9rem rgba(0,0,0,.22);
+  transition-duration:.25s}
 
 /* Chip (fila cabecera) — transparente: la glass la pone la superficie.
    El hover vive AQUÍ, en una capa hija sobre el cristal: la superficie no
@@ -495,16 +551,17 @@ const ACCOUNT_CSS = `
    movimiento va por su carril y la rotación gira suave y en paralelo. */
 .vxa-caret{display:block;width:.85rem;height:.85rem;flex:0 0 auto;align-self:center;color:var(--muted,#8b97a9);
   transition:color .2s}
-.vxa-caret path{transform-box:view-box;transform-origin:center;transition:transform .32s cubic-bezier(.22,1,.36,1)}
+.vxa-caret path{transform-box:view-box;transform-origin:center;transition:transform var(--vxa-t) var(--vxa-e)}
 .vxa.open .vxa-caret{color:var(--text)}
 .vxa.open .vxa-caret path{transform:rotate(180deg)}
-.vxa.closing .vxa-caret path{transform:rotate(0deg)}
+/* al cerrar gira al ritmo del cierre (.25s), no al de la apertura */
+.vxa.closing .vxa-caret path{transform:rotate(0deg);transition-duration:.25s}
 
 /* Cajón desplegable — crece con grid-rows (muy suave) */
-.vxa-drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
+.vxa-drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--vxa-t) var(--vxa-e)}
 .vxa.open .vxa-drawer{grid-template-rows:1fr}
 .vxa-drawer-in{overflow:hidden;min-height:0;display:flex;flex-direction:column;padding:0 .45rem;margin-top:0;
-  transition:padding .42s cubic-bezier(.22,1,.36,1),margin-top .42s}
+  transition:padding var(--vxa-t) var(--vxa-e),margin-top var(--vxa-t) var(--vxa-e)}
 .vxa.open .vxa-drawer-in{padding-bottom:.5rem;margin-top:.05rem}
 .vxa-links{display:flex;flex-direction:column;padding-top:.35rem}
 .vxa-menu-note{display:none}
@@ -514,7 +571,7 @@ const ACCOUNT_CSS = `
   text-align:left;background:none;border:none;color:var(--text);font:600 .85rem/1 'Inter',sans-serif;
   padding:.62rem .7rem;border-radius:.5rem;cursor:pointer;text-decoration:none;white-space:nowrap;
   opacity:0;transform:translateY(.4rem);
-  transition:opacity .3s ease,transform .34s cubic-bezier(.22,1,.36,1),background .12s}
+  transition:opacity .3s ease,transform var(--vxa-t) var(--vxa-e),background .12s}
 .vxa.open .vxa-drawer a,.vxa.open .vxa-signout{opacity:1;transform:none}
 /* Cerrando: la superficie recorta (el cajón desaparece con ella al encoger)
    y las opciones se desvanecen mientras la cabecera viaja a la píldora */
@@ -593,7 +650,7 @@ html[dir="rtl"] .vxa-enter .vxa-name,html[dir="rtl"] .vxa-enter .vxa-caret{anima
 @keyframes vxa-e-login{from{opacity:0;transform:translateY(-.3rem) scale(.94)}}
 
 @media(prefers-reduced-motion:reduce){
-  .vxa-surface,.vxa-drawer,.vxa-caret,.vxa-caret path,.vxa-drawer a,.vxa-signout{transition:none}
+  .vxa-surface,.vxa-halo,.vxa-drawer,.vxa-caret,.vxa-caret path,.vxa-drawer a,.vxa-signout{transition:none}
   .vxa-dot,.vxa-dot::after,.vxa-mi-dot{animation:none}
   .vxa.vxa-enter,.vxa-enter .vxa-av,.vxa-enter .vxa-name,.vxa-enter .vxa-elo,.vxa-enter .vxa-caret,.vxa-login.vxa-enter{animation:none}
   .vxa-enter .vxa-surface>.vxa-chip::after{display:none}
